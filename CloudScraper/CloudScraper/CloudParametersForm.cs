@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace CloudScraper
 {
-    public partial class Form1 : Form
+    public partial class CloudParametersForm : Form
     {
-        public Form1()
+        public CloudParametersForm()
         {
             InitializeComponent();
         }
