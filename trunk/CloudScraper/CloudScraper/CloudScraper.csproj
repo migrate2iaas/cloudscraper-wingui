@@ -65,6 +65,12 @@
     <Compile Include="CopyStartForm.Designer.cs">
       <DependentUpon>CopyStartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GhostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GhostForm.Designer.cs">
+      <DependentUpon>GhostForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImagesPathForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CopyStartForm.resx">
       <DependentUpon>CopyStartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GhostForm.resx">
+      <DependentUpon>GhostForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImagesPathForm.resx">
       <DependentUpon>ImagesPathForm.cs</DependentUpon>

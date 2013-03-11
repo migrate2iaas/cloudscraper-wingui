@@ -31,21 +31,21 @@
             this.backButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.awsKeyTextBox = new System.Windows.Forms.TextBox();
             this.awsIDtextBox = new System.Windows.Forms.TextBox();
             this.awsKeyLabel = new System.Windows.Forms.Label();
+            this.awsIdLabel = new System.Windows.Forms.Label();
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
-            this.awsIdLabel = new System.Windows.Forms.Label();
-            this.awsKeyTextBox = new System.Windows.Forms.TextBox();
-            this.bucketLabel = new System.Windows.Forms.Label();
-            this.bucketTextBox = new System.Windows.Forms.TextBox();
-            this.cloudServerTypeLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.availabilityLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.securityGroupLabel = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.availabilityLabel = new System.Windows.Forms.Label();
+            this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cloudServerTypeLabel = new System.Windows.Forms.Label();
+            this.bucketTextBox = new System.Windows.Forms.TextBox();
+            this.bucketLabel = new System.Windows.Forms.Label();
             this.nextButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -88,23 +88,13 @@
             this.tabPage1.Text = "Basic";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // awsKeyTextBox
             // 
-            this.tabPage2.Controls.Add(this.securityGroupLabel);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.availabilityLabel);
-            this.tabPage2.Controls.Add(this.serverTypeComboBox);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.cloudServerTypeLabel);
-            this.tabPage2.Controls.Add(this.bucketTextBox);
-            this.tabPage2.Controls.Add(this.bucketLabel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(461, 183);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Advanced";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.awsKeyTextBox.Location = new System.Drawing.Point(174, 102);
+            this.awsKeyTextBox.Name = "awsKeyTextBox";
+            this.awsKeyTextBox.PasswordChar = '*';
+            this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
+            this.awsKeyTextBox.TabIndex = 7;
             // 
             // awsIDtextBox
             // 
@@ -121,6 +111,15 @@
             this.awsKeyLabel.Size = new System.Drawing.Size(112, 13);
             this.awsKeyLabel.TabIndex = 6;
             this.awsKeyLabel.Text = "You AWS Secret Key:";
+            // 
+            // awsIdLabel
+            // 
+            this.awsIdLabel.AutoSize = true;
+            this.awsIdLabel.Location = new System.Drawing.Point(98, 75);
+            this.awsIdLabel.Name = "awsIdLabel";
+            this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
+            this.awsIdLabel.TabIndex = 4;
+            this.awsIdLabel.Text = "You AWS Id:";
             // 
             // regionComboBox
             // 
@@ -139,62 +138,39 @@
             this.regionLabel.TabIndex = 2;
             this.regionLabel.Text = "Choose Region:";
             // 
-            // awsIdLabel
+            // tabPage2
             // 
-            this.awsIdLabel.AutoSize = true;
-            this.awsIdLabel.Location = new System.Drawing.Point(98, 75);
-            this.awsIdLabel.Name = "awsIdLabel";
-            this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
-            this.awsIdLabel.TabIndex = 4;
-            this.awsIdLabel.Text = "You AWS Id:";
+            this.tabPage2.Controls.Add(this.securityGroupLabel);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.availabilityLabel);
+            this.tabPage2.Controls.Add(this.serverTypeComboBox);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.cloudServerTypeLabel);
+            this.tabPage2.Controls.Add(this.bucketTextBox);
+            this.tabPage2.Controls.Add(this.bucketLabel);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(461, 183);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Advanced";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // awsKeyTextBox
+            // securityGroupLabel
             // 
-            this.awsKeyTextBox.Location = new System.Drawing.Point(174, 102);
-            this.awsKeyTextBox.Name = "awsKeyTextBox";
-            this.awsKeyTextBox.PasswordChar = '*';
-            this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
-            this.awsKeyTextBox.TabIndex = 7;
+            this.securityGroupLabel.AutoSize = true;
+            this.securityGroupLabel.Location = new System.Drawing.Point(28, 142);
+            this.securityGroupLabel.Name = "securityGroupLabel";
+            this.securityGroupLabel.Size = new System.Drawing.Size(137, 13);
+            this.securityGroupLabel.TabIndex = 7;
+            this.securityGroupLabel.Text = "Specify your security group:";
             // 
-            // bucketLabel
+            // textBox2
             // 
-            this.bucketLabel.AutoSize = true;
-            this.bucketLabel.Location = new System.Drawing.Point(44, 22);
-            this.bucketLabel.Name = "bucketLabel";
-            this.bucketLabel.Size = new System.Drawing.Size(121, 13);
-            this.bucketLabel.TabIndex = 0;
-            this.bucketLabel.Text = "Specify your S3 Bucket:";
-            // 
-            // bucketTextBox
-            // 
-            this.bucketTextBox.Location = new System.Drawing.Point(171, 19);
-            this.bucketTextBox.Name = "bucketTextBox";
-            this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
-            this.bucketTextBox.TabIndex = 1;
-            // 
-            // cloudServerTypeLabel
-            // 
-            this.cloudServerTypeLabel.AutoSize = true;
-            this.cloudServerTypeLabel.Location = new System.Drawing.Point(14, 59);
-            this.cloudServerTypeLabel.Name = "cloudServerTypeLabel";
-            this.cloudServerTypeLabel.Size = new System.Drawing.Size(152, 13);
-            this.cloudServerTypeLabel.TabIndex = 2;
-            this.cloudServerTypeLabel.Text = "Specify your cloud server type:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(171, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // serverTypeComboBox
-            // 
-            this.serverTypeComboBox.FormattingEnabled = true;
-            this.serverTypeComboBox.Location = new System.Drawing.Point(172, 56);
-            this.serverTypeComboBox.Name = "serverTypeComboBox";
-            this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
-            this.serverTypeComboBox.TabIndex = 4;
+            this.textBox2.Location = new System.Drawing.Point(172, 139);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(234, 20);
+            this.textBox2.TabIndex = 6;
             // 
             // availabilityLabel
             // 
@@ -205,21 +181,45 @@
             this.availabilityLabel.TabIndex = 5;
             this.availabilityLabel.Text = "Specify your availability zone:";
             // 
-            // textBox2
+            // serverTypeComboBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(172, 139);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(234, 20);
-            this.textBox2.TabIndex = 6;
+            this.serverTypeComboBox.FormattingEnabled = true;
+            this.serverTypeComboBox.Location = new System.Drawing.Point(172, 56);
+            this.serverTypeComboBox.Name = "serverTypeComboBox";
+            this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
+            this.serverTypeComboBox.TabIndex = 4;
             // 
-            // securityGroupLabel
+            // textBox1
             // 
-            this.securityGroupLabel.AutoSize = true;
-            this.securityGroupLabel.Location = new System.Drawing.Point(28, 142);
-            this.securityGroupLabel.Name = "securityGroupLabel";
-            this.securityGroupLabel.Size = new System.Drawing.Size(137, 13);
-            this.securityGroupLabel.TabIndex = 7;
-            this.securityGroupLabel.Text = "Specify your security group:";
+            this.textBox1.Location = new System.Drawing.Point(171, 92);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(235, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // cloudServerTypeLabel
+            // 
+            this.cloudServerTypeLabel.AutoSize = true;
+            this.cloudServerTypeLabel.Location = new System.Drawing.Point(14, 59);
+            this.cloudServerTypeLabel.Name = "cloudServerTypeLabel";
+            this.cloudServerTypeLabel.Size = new System.Drawing.Size(152, 13);
+            this.cloudServerTypeLabel.TabIndex = 2;
+            this.cloudServerTypeLabel.Text = "Specify your cloud server type:";
+            // 
+            // bucketTextBox
+            // 
+            this.bucketTextBox.Location = new System.Drawing.Point(171, 19);
+            this.bucketTextBox.Name = "bucketTextBox";
+            this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
+            this.bucketTextBox.TabIndex = 1;
+            // 
+            // bucketLabel
+            // 
+            this.bucketLabel.AutoSize = true;
+            this.bucketLabel.Location = new System.Drawing.Point(44, 22);
+            this.bucketLabel.Name = "bucketLabel";
+            this.bucketLabel.Size = new System.Drawing.Size(121, 13);
+            this.bucketLabel.TabIndex = 0;
+            this.bucketLabel.Text = "Specify your S3 Bucket:";
             // 
             // nextButton
             // 
@@ -243,6 +243,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CloudParametersForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CloudParametersForm";
             this.TopMost = true;
