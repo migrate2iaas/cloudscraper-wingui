@@ -60,9 +60,9 @@
             // drivesCheckedList
             // 
             this.drivesCheckedList.FormattingEnabled = true;
-            this.drivesCheckedList.Location = new System.Drawing.Point(3, 6);
+            this.drivesCheckedList.Location = new System.Drawing.Point(5, 12);
             this.drivesCheckedList.Name = "drivesCheckedList";
-            this.drivesCheckedList.Size = new System.Drawing.Size(529, 214);
+            this.drivesCheckedList.Size = new System.Drawing.Size(527, 214);
             this.drivesCheckedList.TabIndex = 2;
             this.drivesCheckedList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.DrivesChecked);
             // 
