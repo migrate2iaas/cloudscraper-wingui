@@ -12,6 +12,7 @@ namespace CloudScraper
     {
         public GhostForm()
         {
+            
             InitializeComponent();
         }
     }

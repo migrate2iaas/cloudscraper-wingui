@@ -60,5 +60,10 @@ namespace CloudScraper
 
             this.saveTransferTaskForm_.ShowDialog();
         }
+
+        private void On_closed(object sender, FormClosedEventArgs e)
+        {
+            this.cloudParametersForm_.Close();
+        }
     }
 }

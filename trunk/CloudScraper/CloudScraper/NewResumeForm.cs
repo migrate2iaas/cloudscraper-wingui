@@ -13,10 +13,12 @@ namespace CloudScraper
         ChooseDisksForm chooseDiskForm_;
         ResumeTransferForm resumeTransferForm_;
 
+        static GhostForm ghost_;
+
         public NewResumeForm()
         {
-            GhostForm  ghost = new GhostForm();
-            ghost.Show();
+            ghost_ = new GhostForm();
+            ghost_.Show();
 
             InitializeComponent();
         }
@@ -44,6 +46,11 @@ namespace CloudScraper
             }
 
             resumeTransferForm_.ShowDialog();
+        }
+
+        private void On_closed(object sender, FormClosedEventArgs e)
+        {
+            ghost_.Close();
         }
     }
 }

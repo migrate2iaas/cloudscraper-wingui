@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseDisksForm));
             this.nextButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.drivesCheckedList = new System.Windows.Forms.CheckedListBox();
@@ -93,6 +94,7 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.nextButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ChooseDisksForm";
@@ -100,6 +102,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChooseDisksForm";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
             this.Load += new System.EventHandler(this.ChooseDisksLoad);
             this.ResumeLayout(false);
             this.PerformLayout();

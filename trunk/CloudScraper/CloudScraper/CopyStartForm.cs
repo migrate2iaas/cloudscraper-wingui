@@ -70,5 +70,18 @@ namespace CloudScraper
             //}));
 
         }
+
+        private void On_closed(object sender, FormClosedEventArgs e)
+        {
+            if (saveTransferForm_ != null)
+            {
+                this.saveTransferForm_.Close();
+            }
+
+            if (this.resumeTransferForm_ != null)
+            {
+                this.resumeTransferForm_.Close();
+            }
+        }
     }
 }
