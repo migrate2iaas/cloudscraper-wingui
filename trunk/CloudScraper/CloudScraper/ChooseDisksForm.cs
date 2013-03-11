@@ -118,5 +118,6 @@ namespace CloudScraper
         {
             this.newResumeForm_.Close();
         }
+
     }
 }
