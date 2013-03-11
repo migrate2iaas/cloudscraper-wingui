@@ -50,6 +50,7 @@
             this.resumeButton.TabIndex = 1;
             this.resumeButton.Text = "Resume Existing Transfer...";
             this.resumeButton.UseVisualStyleBackColor = true;
+            this.resumeButton.Click += new System.EventHandler(this.resumeButton_Click);
             // 
             // NewResumeForm
             // 

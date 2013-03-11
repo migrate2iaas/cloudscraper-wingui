@@ -10,9 +10,32 @@ namespace CloudScraper
 {
     public partial class ResumeTransferForm : Form
     {
-        public ResumeTransferForm()
+        NewResumeForm newResumeForm_;
+        CopyStartForm copyStartForm_;
+
+        public ResumeTransferForm(NewResumeForm newResumeForm)
         {
+            this.newResumeForm_ = newResumeForm;
+
             InitializeComponent();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.newResumeForm_.Show();
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            if (this.copyStartForm_ == null)
+            {
+                this.copyStartForm_ = new CopyStartForm(this);
+            }
+
+            copyStartForm_.ShowDialog();
         }
     }
 }
