@@ -15,11 +15,15 @@ namespace CloudScraper
 
         public NewResumeForm()
         {
+            GhostForm  ghost = new GhostForm();
+            ghost.Show();
+
             InitializeComponent();
         }
 
         private void startNewButton_Click(object sender, EventArgs e)
         {
+            
             this.Hide();
             
             if (this.chooseDiskForm_ == null)
