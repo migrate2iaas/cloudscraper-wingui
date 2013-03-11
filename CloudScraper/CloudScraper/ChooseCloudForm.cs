@@ -37,5 +37,10 @@ namespace CloudScraper
 
             cloudParametersForm_.ShowDialog();
         }
+
+        private void On_closed(object sender, FormClosedEventArgs e)
+        {
+            this.chooseDiskForm_.Close();
+        }
     }
 }

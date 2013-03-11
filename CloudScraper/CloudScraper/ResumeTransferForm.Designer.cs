@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResumeTransferForm));
             this.backButton = new System.Windows.Forms.Button();
             this.resumeUploadCheckBox = new System.Windows.Forms.CheckBox();
             this.redeployUploadCheckBox = new System.Windows.Forms.CheckBox();
@@ -84,12 +85,14 @@
             this.Controls.Add(this.resumeUploadCheckBox);
             this.Controls.Add(this.backButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ResumeTransferForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ResumeTransferForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

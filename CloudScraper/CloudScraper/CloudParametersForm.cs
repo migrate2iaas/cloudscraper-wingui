@@ -71,5 +71,10 @@ namespace CloudScraper
 
             imagesPathForm_.ShowDialog();
         }
+
+        private void On_closed(object sender, FormClosedEventArgs e)
+        {
+            this.chooseCloudForm_.Close();
+        }
     }
 }
