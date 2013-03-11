@@ -91,8 +91,14 @@
     <Compile Include="SaveTransferTaskForm.Designer.cs">
       <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChooseCloudForm.resx">
+      <DependentUpon>ChooseCloudForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChooseDisksForm.resx">
       <DependentUpon>ChooseDisksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloudParametersForm.resx">
+      <DependentUpon>CloudParametersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewResumeForm.resx">
       <DependentUpon>NewResumeForm.cs</DependentUpon>

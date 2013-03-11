@@ -10,9 +10,18 @@ namespace CloudScraper
 {
     public partial class CloudParametersForm : Form
     {
-        public CloudParametersForm()
+        ChooseCloudForm chooseCloudForm_;
+
+        public CloudParametersForm(ChooseCloudForm chooseCloudForm)
         {
+            this.chooseCloudForm_ = chooseCloudForm;
             InitializeComponent();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.chooseCloudForm_.Show();
         }
     }
 }
