@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace CloudScraper
 {
-    static class Program
+    static class CloudScraper
     {
         /// <summary>
         /// Главная точка входа для приложения.

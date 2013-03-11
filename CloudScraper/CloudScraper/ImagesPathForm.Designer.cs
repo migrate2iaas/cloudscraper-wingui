@@ -28,11 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.browseButton = new System.Windows.Forms.Button();
+            this.browseTextBox = new System.Windows.Forms.TextBox();
+            this.backButton = new System.Windows.Forms.Button();
+            this.nextButton = new System.Windows.Forms.Button();
+            this.freeSpaceLabel = new System.Windows.Forms.Label();
+            this.freeSpace = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // browseButton
+            // 
+            this.browseButton.Location = new System.Drawing.Point(370, 26);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(75, 23);
+            this.browseButton.TabIndex = 0;
+            this.browseButton.Text = "Browse...";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            // 
+            // browseTextBox
+            // 
+            this.browseTextBox.Location = new System.Drawing.Point(12, 26);
+            this.browseTextBox.Name = "browseTextBox";
+            this.browseTextBox.Size = new System.Drawing.Size(352, 20);
+            this.browseTextBox.TabIndex = 1;
+            // 
+            // backButton
+            // 
+            this.backButton.Location = new System.Drawing.Point(12, 157);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 23);
+            this.backButton.TabIndex = 2;
+            this.backButton.Text = "<Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // nextButton
+            // 
+            this.nextButton.Location = new System.Drawing.Point(370, 157);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(75, 23);
+            this.nextButton.TabIndex = 3;
+            this.nextButton.Text = "Next>";
+            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            // 
+            // freeSpaceLabel
+            // 
+            this.freeSpaceLabel.AutoSize = true;
+            this.freeSpaceLabel.Location = new System.Drawing.Point(12, 132);
+            this.freeSpaceLabel.Name = "freeSpaceLabel";
+            this.freeSpaceLabel.Size = new System.Drawing.Size(62, 13);
+            this.freeSpaceLabel.TabIndex = 4;
+            this.freeSpaceLabel.Text = "FreeSpace:";
+            // 
+            // freeSpace
+            // 
+            this.freeSpace.AutoSize = true;
+            this.freeSpace.Location = new System.Drawing.Point(81, 132);
+            this.freeSpace.Name = "freeSpace";
+            this.freeSpace.Size = new System.Drawing.Size(0, 13);
+            this.freeSpace.TabIndex = 5;
+            // 
+            // ImagesPathForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "ImagesPathForm";
+            this.ClientSize = new System.Drawing.Size(457, 192);
+            this.Controls.Add(this.freeSpace);
+            this.Controls.Add(this.freeSpaceLabel);
+            this.Controls.Add(this.nextButton);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.browseTextBox);
+            this.Controls.Add(this.browseButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "ImagesPathForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Please choose folder where to store your server disk images:";
+            this.TopMost = true;
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.Button browseButton;
+        private System.Windows.Forms.TextBox browseTextBox;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.Label freeSpaceLabel;
+        private System.Windows.Forms.Label freeSpace;
     }
 }

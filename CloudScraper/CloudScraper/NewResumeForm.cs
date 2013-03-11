@@ -11,6 +11,7 @@ namespace CloudScraper
     public partial class NewResumeForm : Form
     {
         ChooseDisksForm chooseDiskForm_;
+        ResumeTransferForm resumeTransferForm_;
 
         public NewResumeForm()
         {
@@ -27,6 +28,18 @@ namespace CloudScraper
             }
 
             chooseDiskForm_.ShowDialog();
+        }
+
+        private void resumeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            if (this.resumeTransferForm_ == null)
+            {
+                this.resumeTransferForm_ = new ResumeTransferForm(this);
+            }
+
+            resumeTransferForm_.ShowDialog();
         }
     }
 }
