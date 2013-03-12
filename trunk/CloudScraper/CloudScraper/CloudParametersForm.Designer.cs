@@ -55,7 +55,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(13, 227);
+            this.backButton.Location = new System.Drawing.Point(12, 227);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
@@ -91,7 +91,7 @@
             // 
             // awsKeyTextBox
             // 
-            this.awsKeyTextBox.Location = new System.Drawing.Point(174, 102);
+            this.awsKeyTextBox.Location = new System.Drawing.Point(174, 126);
             this.awsKeyTextBox.Name = "awsKeyTextBox";
             this.awsKeyTextBox.PasswordChar = '*';
             this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
@@ -99,7 +99,7 @@
             // 
             // awsIDtextBox
             // 
-            this.awsIDtextBox.Location = new System.Drawing.Point(173, 72);
+            this.awsIDtextBox.Location = new System.Drawing.Point(173, 84);
             this.awsIDtextBox.Name = "awsIDtextBox";
             this.awsIDtextBox.Size = new System.Drawing.Size(220, 20);
             this.awsIDtextBox.TabIndex = 3;
@@ -107,7 +107,7 @@
             // awsKeyLabel
             // 
             this.awsKeyLabel.AutoSize = true;
-            this.awsKeyLabel.Location = new System.Drawing.Point(55, 102);
+            this.awsKeyLabel.Location = new System.Drawing.Point(56, 129);
             this.awsKeyLabel.Name = "awsKeyLabel";
             this.awsKeyLabel.Size = new System.Drawing.Size(112, 13);
             this.awsKeyLabel.TabIndex = 6;
@@ -116,7 +116,7 @@
             // awsIdLabel
             // 
             this.awsIdLabel.AutoSize = true;
-            this.awsIdLabel.Location = new System.Drawing.Point(98, 75);
+            this.awsIdLabel.Location = new System.Drawing.Point(98, 87);
             this.awsIdLabel.Name = "awsIdLabel";
             this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
             this.awsIdLabel.TabIndex = 4;
@@ -125,7 +125,7 @@
             // regionComboBox
             // 
             this.regionComboBox.FormattingEnabled = true;
-            this.regionComboBox.Location = new System.Drawing.Point(173, 40);
+            this.regionComboBox.Location = new System.Drawing.Point(173, 43);
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
@@ -133,7 +133,7 @@
             // regionLabel
             // 
             this.regionLabel.AutoSize = true;
-            this.regionLabel.Location = new System.Drawing.Point(84, 43);
+            this.regionLabel.Location = new System.Drawing.Point(85, 46);
             this.regionLabel.Name = "regionLabel";
             this.regionLabel.Size = new System.Drawing.Size(83, 13);
             this.regionLabel.TabIndex = 2;
@@ -224,7 +224,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(403, 227);
+            this.nextButton.Location = new System.Drawing.Point(407, 227);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 10;
@@ -236,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 262);
+            this.ClientSize = new System.Drawing.Size(490, 262);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.backButton);

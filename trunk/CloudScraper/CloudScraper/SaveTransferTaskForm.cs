@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CloudScraper
 {
@@ -17,6 +18,8 @@ namespace CloudScraper
         {
             this.imagesPathForm_ = imagesPathForm;
             InitializeComponent();
+
+            this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "Test.ini"; 
         }
 
         private void saveTransferTask_Click(object sender, EventArgs e)
