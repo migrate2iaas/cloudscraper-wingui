@@ -58,7 +58,8 @@ namespace CloudScraper
                             {
                                 IsChecked = false,
                                 Image = new Bitmap(Resources.HD_Drive.ToBitmap(), new Size(24, 24)),
-                                Name = info.VolumeLabel + " (" + info.Name.Replace('\\', ')'),
+                                Name = info.VolumeLabel == "" ? info.DriveType + " (" + info.Name.Replace('\\', ')') :
+                                        info.VolumeLabel + " (" + info.Name.Replace('\\', ')'),
                                 TotalSpace = Math.Round((decimal)info.TotalSize / (1024 * 1024 * 1024), 1),
                                 UsedSpace = Math.Round((decimal)(info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024), 1),
                                 FreeSpace = Math.Round((decimal)info.AvailableFreeSpace / (1024 * 1024 * 1024), 1)
