@@ -16,13 +16,14 @@ namespace CloudScraper
         DriveInfo[] drives_;
         bool loaded_;
         int? systemVolumeIndex_;
-        long totalSpaceRequired_;
+        
+        public static long totalSpaceRequired_;
 
         ChooseCloudForm chooseCloudForm_;
 
         public ChooseDisksForm(NewResumeForm newResumeForm)
         {
-            this.totalSpaceRequired_ = 0;
+            ChooseDisksForm.totalSpaceRequired_ = 0;
             this.loaded_ = false;
             this.systemVolumeIndex_ = null;
             this.newResumeForm_ = newResumeForm;
@@ -30,7 +31,7 @@ namespace CloudScraper
             
             InitializeComponent();
 
-            this.totalSpaceLabel.Text = this.totalSpaceRequired_.ToString() + "GB";
+            this.totalSpaceLabel.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB";
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -53,7 +54,6 @@ namespace CloudScraper
                                 (info.TotalSize / (1024 * 1024 * 1024)).ToString() + "GB" + "   " + "Used space:" +
                                 ((info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024)).ToString() + "GB" + "   " + "Free space:" +
                                 (info.TotalFreeSpace / (1024 * 1024 * 1024)).ToString() + "GB");
-
 
                             if (Directory.Exists(info.Name + "Windows"))
                             {
@@ -96,10 +96,27 @@ namespace CloudScraper
                 }
             }
 
+            totalSpaceRequired_ = 0;
+
             if (this.nextButton.Enabled)
             {
+                if (e.NewValue == CheckState.Checked)
+                {
+                    totalSpaceRequired_ += (this.drives_[e.Index].TotalSize -
+                        this.drives_[e.Index].TotalFreeSpace) / (1024 * 1024 * 1024);
+                }
 
+                foreach (int index in this.drivesCheckedList.CheckedIndices)
+                {
+                    if (index != e.Index)
+                    {
+                        totalSpaceRequired_ += (this.drives_[index].TotalSize -
+                        this.drives_[index].TotalFreeSpace) / (1024 * 1024 * 1024);
+                    }
+                }
             }
+
+            this.totalSpaceLabel.Text = totalSpaceRequired_.ToString() + "GB";
         }
 
         private void nextButton_Click(object sender, EventArgs e)

@@ -247,7 +247,7 @@
             this.Name = "CloudParametersForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CloudParametersForm";
+            this.Text = "Cloud parameters";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
             this.tabControl1.ResumeLayout(false);

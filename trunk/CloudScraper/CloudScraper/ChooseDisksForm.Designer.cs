@@ -69,25 +69,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 237);
+            this.label1.Location = new System.Drawing.Point(3, 237);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Total space required:";
+            this.label1.Text = "Total Space Required:";
             // 
             // totalSpaceLabel
             // 
             this.totalSpaceLabel.AutoSize = true;
-            this.totalSpaceLabel.Location = new System.Drawing.Point(118, 237);
+            this.totalSpaceLabel.Location = new System.Drawing.Point(112, 237);
             this.totalSpaceLabel.Name = "totalSpaceLabel";
-            this.totalSpaceLabel.Size = new System.Drawing.Size(0, 13);
+            this.totalSpaceLabel.Size = new System.Drawing.Size(28, 13);
             this.totalSpaceLabel.TabIndex = 4;
+            this.totalSpaceLabel.Text = "0GB";
             // 
             // ChooseDisksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 262);
+            this.ClientSize = new System.Drawing.Size(540, 260);
             this.Controls.Add(this.totalSpaceLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.drivesCheckedList);
@@ -100,7 +101,7 @@
             this.Name = "ChooseDisksForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseDisksForm";
+            this.Text = "Choose disks to store";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
             this.Load += new System.EventHandler(this.ChooseDisksLoad);

@@ -36,6 +36,8 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.freeSpaceLabel = new System.Windows.Forms.Label();
             this.freeSpace = new System.Windows.Forms.Label();
+            this.totalSpaceLabel = new System.Windows.Forms.Label();
+            this.totalSpace = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // browseButton
@@ -78,7 +80,7 @@
             // freeSpaceLabel
             // 
             this.freeSpaceLabel.AutoSize = true;
-            this.freeSpaceLabel.Location = new System.Drawing.Point(12, 132);
+            this.freeSpaceLabel.Location = new System.Drawing.Point(13, 132);
             this.freeSpaceLabel.Name = "freeSpaceLabel";
             this.freeSpaceLabel.Size = new System.Drawing.Size(62, 13);
             this.freeSpaceLabel.TabIndex = 4;
@@ -92,11 +94,30 @@
             this.freeSpace.Size = new System.Drawing.Size(0, 13);
             this.freeSpace.TabIndex = 5;
             // 
+            // totalSpaceLabel
+            // 
+            this.totalSpaceLabel.AutoSize = true;
+            this.totalSpaceLabel.Location = new System.Drawing.Point(9, 107);
+            this.totalSpaceLabel.Name = "totalSpaceLabel";
+            this.totalSpaceLabel.Size = new System.Drawing.Size(114, 13);
+            this.totalSpaceLabel.TabIndex = 6;
+            this.totalSpaceLabel.Text = "Total Space Required:";
+            // 
+            // totalSpace
+            // 
+            this.totalSpace.AutoSize = true;
+            this.totalSpace.Location = new System.Drawing.Point(120, 107);
+            this.totalSpace.Name = "totalSpace";
+            this.totalSpace.Size = new System.Drawing.Size(0, 13);
+            this.totalSpace.TabIndex = 7;
+            // 
             // ImagesPathForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 192);
+            this.Controls.Add(this.totalSpace);
+            this.Controls.Add(this.totalSpaceLabel);
             this.Controls.Add(this.freeSpace);
             this.Controls.Add(this.freeSpaceLabel);
             this.Controls.Add(this.nextButton);
@@ -127,5 +148,7 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Label freeSpaceLabel;
         private System.Windows.Forms.Label freeSpace;
+        private System.Windows.Forms.Label totalSpaceLabel;
+        private System.Windows.Forms.Label totalSpace;
     }
 }
