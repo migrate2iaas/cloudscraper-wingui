@@ -86,7 +86,7 @@
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 4;
-            this.browseButton.Text = "Browse";
+            this.browseButton.Text = "Browse...";
             this.browseButton.UseVisualStyleBackColor = true;
             this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
