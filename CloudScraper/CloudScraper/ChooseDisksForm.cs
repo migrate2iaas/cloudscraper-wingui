@@ -70,7 +70,7 @@ namespace CloudScraper
                                 FreeSpace = info.AvailableFreeSpace / (1024 * 1024 * 1024)
                             };
 
-                            if (Directory.Exists(info.Name + Settings.Default.OSFolder))
+                            if (Environment.GetEnvironmentVariable("SystemRoot").Contains(info.Name))
                             {
                                 volume.IsChecked = true;
                                 volume.Image = Resources.WindowsDrive;  
