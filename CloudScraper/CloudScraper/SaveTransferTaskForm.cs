@@ -29,7 +29,7 @@ namespace CloudScraper
 
             if (result == DialogResult.OK)
             {
-                this.saveTransferTextBox.Text = this.saveFileDialog.FileName;            
+                this.saveTransferTextBox.Text = this.saveFileDialog.FileName;
             }
         }
 
