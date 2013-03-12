@@ -31,13 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewResumeForm));
             this.startNewButton = new System.Windows.Forms.Button();
             this.resumeButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // startNewButton
             // 
-            this.startNewButton.Location = new System.Drawing.Point(29, 23);
+            this.startNewButton.Location = new System.Drawing.Point(96, 38);
             this.startNewButton.Name = "startNewButton";
             this.startNewButton.Size = new System.Drawing.Size(97, 64);
             this.startNewButton.TabIndex = 0;
@@ -47,7 +45,7 @@
             // 
             // resumeButton
             // 
-            this.resumeButton.Location = new System.Drawing.Point(29, 125);
+            this.resumeButton.Location = new System.Drawing.Point(96, 108);
             this.resumeButton.Name = "resumeButton";
             this.resumeButton.Size = new System.Drawing.Size(97, 67);
             this.resumeButton.TabIndex = 1;
@@ -55,22 +53,11 @@
             this.resumeButton.UseVisualStyleBackColor = true;
             this.resumeButton.Click += new System.EventHandler(this.resumeButton_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CloudScraper.Properties.Resources.Cloud;
-            this.pictureBox1.Location = new System.Drawing.Point(158, 56);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 93);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // NewResumeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 223);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.resumeButton);
             this.Controls.Add(this.startNewButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -83,7 +70,6 @@
             this.Text = "CloudScraper Wizard";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -92,7 +78,6 @@
 
         private System.Windows.Forms.Button startNewButton;
         private System.Windows.Forms.Button resumeButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
