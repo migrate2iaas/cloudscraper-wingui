@@ -42,5 +42,28 @@ namespace CloudScraper
         {
             this.newResumeForm_.Close();
         }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog.Filter = "Transfer Task File (*.ini)|*.ini";
+            this.openFileDialog.Multiselect = false;
+
+            DialogResult result = this.openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.resumeTextBox.Text = this.openFileDialog.FileName;
+                this.nextButton.Enabled = true;
+            }
+
+        }
+
+        private void OnPathChanged(object sender, EventArgs e)
+        {
+            if ((sender as TextBox).Text == "")
+            {
+                this.nextButton.Enabled = false;
+            }
+        }
     }
 }

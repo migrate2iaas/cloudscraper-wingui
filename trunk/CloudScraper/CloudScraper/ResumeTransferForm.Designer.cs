@@ -36,6 +36,7 @@
             this.browseButton = new System.Windows.Forms.Button();
             this.resumeTextBox = new System.Windows.Forms.TextBox();
             this.resumeLabel = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // backButton
@@ -70,6 +71,7 @@
             // 
             // nextButton
             // 
+            this.nextButton.Enabled = false;
             this.nextButton.Location = new System.Drawing.Point(369, 172);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
@@ -86,6 +88,7 @@
             this.browseButton.TabIndex = 4;
             this.browseButton.Text = "Browse";
             this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
             // resumeTextBox
             // 
@@ -93,6 +96,7 @@
             this.resumeTextBox.Name = "resumeTextBox";
             this.resumeTextBox.Size = new System.Drawing.Size(339, 20);
             this.resumeTextBox.TabIndex = 5;
+            this.resumeTextBox.TextChanged += new System.EventHandler(this.OnPathChanged);
             // 
             // resumeLabel
             // 
@@ -139,5 +143,6 @@
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.TextBox resumeTextBox;
         private System.Windows.Forms.Label resumeLabel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
