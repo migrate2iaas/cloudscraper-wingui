@@ -34,18 +34,19 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.nextButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // saveTransferTextBox
             // 
-            this.saveTransferTextBox.Location = new System.Drawing.Point(13, 40);
+            this.saveTransferTextBox.Location = new System.Drawing.Point(12, 47);
             this.saveTransferTextBox.Name = "saveTransferTextBox";
-            this.saveTransferTextBox.Size = new System.Drawing.Size(168, 20);
+            this.saveTransferTextBox.Size = new System.Drawing.Size(387, 20);
             this.saveTransferTextBox.TabIndex = 0;
             // 
             // saveTransferTask
             // 
-            this.saveTransferTask.Location = new System.Drawing.Point(187, 40);
+            this.saveTransferTask.Location = new System.Drawing.Point(406, 44);
             this.saveTransferTask.Name = "saveTransferTask";
             this.saveTransferTask.Size = new System.Drawing.Size(75, 23);
             this.saveTransferTask.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(197, 227);
+            this.nextButton.Location = new System.Drawing.Point(406, 93);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 2;
@@ -65,7 +66,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(13, 226);
+            this.backButton.Location = new System.Drawing.Point(13, 93);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 3;
@@ -73,11 +74,22 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(122, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(204, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Select path to save transfer file";
+            // 
             // SaveTransferTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(493, 129);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.saveTransferTask);
@@ -89,7 +101,7 @@
             this.Name = "SaveTransferTaskForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SaveTransferTaskForm";
+            this.Text = "Save transfer task";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
             this.ResumeLayout(false);
@@ -104,5 +116,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label label1;
     }
 }
