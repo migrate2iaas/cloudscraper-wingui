@@ -132,6 +132,8 @@ namespace CloudScraper
                         if (result == DialogResult.Cancel)
                         {
                             this.volumes_[0].IsChecked = true;
+                            //this.dataGridView[e.ColumnIndex, e.RowIndex].Value = true;
+                            //return;
                         }
                         else
                         {
@@ -170,6 +172,8 @@ namespace CloudScraper
 
     public class VolumeInfo
     {
+        private bool isChecked_;
+        
         [DisplayName(" ")]
         public bool IsChecked
         {
