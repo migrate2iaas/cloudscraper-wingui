@@ -54,7 +54,7 @@ namespace CloudScraper
                                 (info.TotalSize / (1024 * 1024 * 1024)).ToString() + "GB" + "   " + "Used space:" +
                                 ((info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024)).ToString() + "GB" + "   " + "Free space:" +
                                 (info.TotalFreeSpace / (1024 * 1024 * 1024)).ToString() + "GB");
-
+                            
                             if (Directory.Exists(info.Name + "Windows"))
                             {
                                 this.systemVolumeIndex_ = this.drivesCheckedList.Items.Count - 1; 
