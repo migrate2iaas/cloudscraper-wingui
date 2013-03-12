@@ -171,15 +171,9 @@ namespace CloudScraper
     }
 
     public class VolumeInfo
-    {
-        private bool isChecked_;
-        
+    {   
         [DisplayName(" ")]
-        public bool IsChecked
-        {
-            get;
-            set;
-        }
+        public bool IsChecked { get; set; }
         
         [DisplayName(" ")]
         public Image Image { get; set; }

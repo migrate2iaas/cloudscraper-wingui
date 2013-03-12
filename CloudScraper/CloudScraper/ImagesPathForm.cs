@@ -36,7 +36,7 @@ namespace CloudScraper
                 {
                     if (rootName == drive.Name)
                     {
-                        this.freeSpace.Text = (drive.AvailableFreeSpace / (1024 * 1024 * 1024)).ToString() + "GB";
+                        this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024),1).ToString() + "GB";
                         break;
                     }
                 }
@@ -78,7 +78,7 @@ namespace CloudScraper
             {
                 if (rootName == drive.Name)
                 {
-                    this.freeSpace.Text = (drive.AvailableFreeSpace / (1024 * 1024 * 1024)).ToString() + "GB";
+                    this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1).ToString() + "GB";
                     break;
                 }
             }
