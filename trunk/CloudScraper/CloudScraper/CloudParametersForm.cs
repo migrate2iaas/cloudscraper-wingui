@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using CloudScraper.Properties;
 
 namespace CloudScraper
 {
@@ -19,24 +20,20 @@ namespace CloudScraper
         public CloudParametersForm(ChooseCloudForm chooseCloudForm)
         {
             this.chooseCloudForm_ = chooseCloudForm;
-
             this.regionList_ = new SortedDictionary<string, string>();
-            this.regionList_.Add("us-east-1", "US East (Northern Virginia)");
-            this.regionList_.Add("us-west-2", "US West (Oregon)");
-            this.regionList_.Add("us-west-1", "US West (Northern California)");
-            this.regionList_.Add("eu-west-1", "EU (Ireland)");
-            this.regionList_.Add("ap-southeast-1", "Asia Pacific (Singapore)");
-            this.regionList_.Add("ap-southeast-2", "Asia Pacific (Sydney)");
-            this.regionList_.Add("ap-northeast-1", "Asia Pacific (Tokyo)");
-            this.regionList_.Add("sa-east-1", "South America (Sao Paulo)");
-
             this.serverTypeList_ = new SortedDictionary<string, string>();
-            this.serverTypeList_.Add("m1.medium", "M1 Medium");
-            this.serverTypeList_.Add("m1.small", "M1 Small");
-            this.serverTypeList_.Add("m1.large", "M1 Large");
-            this.serverTypeList_.Add("m1.xlarge", "M1 Extra Large");
-            this.serverTypeList_.Add("m3.2xlarge", "M3 Double Extra Large");
-            this.serverTypeList_.Add("m3.xlarge", "M3 Extra Large");
+
+            foreach (string str in Settings.Default.Regions)
+            { 
+                this.regionList_.Add(str.Split(new char[] { Settings.Default.Separator }, 2)[0],
+                    str.Split(new char[] { Settings.Default.Separator }, 2)[1]);
+            }
+
+            foreach (string str in Settings.Default.ServerTypes)
+            {
+                this.serverTypeList_.Add(str.Split(new char[] { Settings.Default.Separator }, 2)[0],
+                    str.Split(new char[] { Settings.Default.Separator }, 2)[1]);
+            }
 
             InitializeComponent();
 
@@ -76,5 +73,6 @@ namespace CloudScraper
         {
             this.chooseCloudForm_.Close();
         }
+
     }
 }

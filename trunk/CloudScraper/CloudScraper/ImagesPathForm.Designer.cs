@@ -144,9 +144,10 @@
             this.Name = "ImagesPathForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Please choose folder where to store your server disk images:";
+            this.Text = "Folder select";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
+            this.Load += new System.EventHandler(this.ImagesPathForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

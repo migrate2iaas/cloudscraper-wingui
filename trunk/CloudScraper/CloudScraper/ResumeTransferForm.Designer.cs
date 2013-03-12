@@ -35,8 +35,8 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.browseButton = new System.Windows.Forms.Button();
             this.resumeTextBox = new System.Windows.Forms.TextBox();
-            this.resumeLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
@@ -82,7 +82,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(369, 58);
+            this.browseButton.Location = new System.Drawing.Point(369, 59);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 4;
@@ -98,22 +98,21 @@
             this.resumeTextBox.TabIndex = 5;
             this.resumeTextBox.TextChanged += new System.EventHandler(this.OnPathChanged);
             // 
-            // resumeLabel
+            // label1
             // 
-            this.resumeLabel.AutoSize = true;
-            this.resumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resumeLabel.Location = new System.Drawing.Point(85, 21);
-            this.resumeLabel.Name = "resumeLabel";
-            this.resumeLabel.Size = new System.Drawing.Size(265, 17);
-            this.resumeLabel.TabIndex = 6;
-            this.resumeLabel.Text = "Load your previously saved transfer task";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(121, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(197, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Load your previously saved transfer task";
             // 
             // ResumeTransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 207);
-            this.Controls.Add(this.resumeLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.resumeTextBox);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.nextButton);
@@ -142,7 +141,7 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.TextBox resumeTextBox;
-        private System.Windows.Forms.Label resumeLabel;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Label label1;
     }
 }

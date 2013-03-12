@@ -18,20 +18,7 @@ namespace CloudScraper
         {
             this.cloudParametersForm_ = cloudParametersForm;
             InitializeComponent();
-            
-            this.totalSpace.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB";
-            this.browseTextBox.Text = Directory.GetCurrentDirectory();
-
-            string rootName = Directory.GetDirectoryRoot(this.browseTextBox.Text);
-            DriveInfo[] drives = DriveInfo.GetDrives();
-            foreach (DriveInfo drive in drives)
-            {
-                if (rootName == drive.Name)
-                {
-                    this.freeSpace.Text = (drive.AvailableFreeSpace / (1024 * 1024 * 1024)).ToString() + "GB";
-                    break;
-                }
-            }
+           
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -77,6 +64,24 @@ namespace CloudScraper
         private void On_closed(object sender, FormClosedEventArgs e)
         {
             this.cloudParametersForm_.Close();
+        }
+
+        private void ImagesPathForm_Load(object sender, EventArgs e)
+        {
+            this.totalSpace.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB";
+
+            this.browseTextBox.Text = Directory.GetCurrentDirectory();
+
+            string rootName = Directory.GetDirectoryRoot(this.browseTextBox.Text);
+            DriveInfo[] drives = DriveInfo.GetDrives();
+            foreach (DriveInfo drive in drives)
+            {
+                if (rootName == drive.Name)
+                {
+                    this.freeSpace.Text = (drive.AvailableFreeSpace / (1024 * 1024 * 1024)).ToString() + "GB";
+                    break;
+                }
+            }
         }
 
     }

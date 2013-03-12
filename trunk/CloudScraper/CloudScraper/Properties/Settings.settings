@@ -1,7 +1,36 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CloudScraper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="OSFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Windows</Value>
+    </Setting>
+    <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;m1.medium/M1 Medium&lt;/string&gt;
+  &lt;string&gt;m1.small/M1 Small&lt;/string&gt;
+  &lt;string&gt;m1.large/M1 Large&lt;/string&gt;
+  &lt;string&gt;m1.xlarge/M1 Extra Large&lt;/string&gt;
+  &lt;string&gt;m3.2xlarge/M3 Double Extra Large&lt;/string&gt;
+  &lt;string&gt;m3.xlarge/M3 Extra Large&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;us-east-1/US East (Northern Virginia)&lt;/string&gt;
+  &lt;string&gt;us-west-2/US West (Oregon)&lt;/string&gt;
+  &lt;string&gt;us-west-1/US West (Northern California)&lt;/string&gt;
+  &lt;string&gt;eu-west-1/EU (Ireland)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-1/Asia Pacific (Singapore)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-2/Asia Pacific (Sydney)&lt;/string&gt;
+  &lt;string&gt;ap-northeast-1/Asia Pacific (Tokyo)&lt;/string&gt;
+  &lt;string&gt;sa-east-1/South America (Sao Paulo)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Separator" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">/</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

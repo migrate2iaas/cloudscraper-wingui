@@ -70,7 +70,7 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(469, 209);
+            this.tabControl1.Size = new System.Drawing.Size(465, 196);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -84,7 +84,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(461, 183);
+            this.tabPage1.Size = new System.Drawing.Size(457, 170);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Basic";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             // 
             // awsIDtextBox
             // 
-            this.awsIDtextBox.Location = new System.Drawing.Point(173, 84);
+            this.awsIDtextBox.Location = new System.Drawing.Point(174, 76);
             this.awsIDtextBox.Name = "awsIDtextBox";
             this.awsIDtextBox.Size = new System.Drawing.Size(220, 20);
             this.awsIDtextBox.TabIndex = 3;
@@ -116,7 +116,7 @@
             // awsIdLabel
             // 
             this.awsIdLabel.AutoSize = true;
-            this.awsIdLabel.Location = new System.Drawing.Point(98, 87);
+            this.awsIdLabel.Location = new System.Drawing.Point(98, 79);
             this.awsIdLabel.Name = "awsIdLabel";
             this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
             this.awsIdLabel.TabIndex = 4;
@@ -125,7 +125,7 @@
             // regionComboBox
             // 
             this.regionComboBox.FormattingEnabled = true;
-            this.regionComboBox.Location = new System.Drawing.Point(173, 43);
+            this.regionComboBox.Location = new System.Drawing.Point(173, 24);
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
@@ -133,7 +133,7 @@
             // regionLabel
             // 
             this.regionLabel.AutoSize = true;
-            this.regionLabel.Location = new System.Drawing.Point(85, 46);
+            this.regionLabel.Location = new System.Drawing.Point(85, 27);
             this.regionLabel.Name = "regionLabel";
             this.regionLabel.Size = new System.Drawing.Size(83, 13);
             this.regionLabel.TabIndex = 2;
@@ -152,7 +152,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(461, 183);
+            this.tabPage2.Size = new System.Drawing.Size(457, 170);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             // securityGroupLabel
             // 
             this.securityGroupLabel.AutoSize = true;
-            this.securityGroupLabel.Location = new System.Drawing.Point(28, 142);
+            this.securityGroupLabel.Location = new System.Drawing.Point(28, 138);
             this.securityGroupLabel.Name = "securityGroupLabel";
             this.securityGroupLabel.Size = new System.Drawing.Size(137, 13);
             this.securityGroupLabel.TabIndex = 7;
@@ -168,7 +168,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(172, 139);
+            this.textBox2.Location = new System.Drawing.Point(171, 135);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(234, 20);
             this.textBox2.TabIndex = 6;
@@ -224,7 +224,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(407, 227);
+            this.nextButton.Location = new System.Drawing.Point(403, 227);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 10;
@@ -236,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 262);
+            this.ClientSize = new System.Drawing.Size(489, 262);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.backButton);

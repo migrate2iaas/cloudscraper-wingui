@@ -37,9 +37,9 @@
             // 
             // startNewButton
             // 
-            this.startNewButton.Location = new System.Drawing.Point(65, 133);
+            this.startNewButton.Location = new System.Drawing.Point(29, 23);
             this.startNewButton.Name = "startNewButton";
-            this.startNewButton.Size = new System.Drawing.Size(157, 23);
+            this.startNewButton.Size = new System.Drawing.Size(97, 64);
             this.startNewButton.TabIndex = 0;
             this.startNewButton.Text = "Start New Transfer...";
             this.startNewButton.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // 
             // resumeButton
             // 
-            this.resumeButton.Location = new System.Drawing.Point(65, 174);
+            this.resumeButton.Location = new System.Drawing.Point(29, 125);
             this.resumeButton.Name = "resumeButton";
-            this.resumeButton.Size = new System.Drawing.Size(157, 23);
+            this.resumeButton.Size = new System.Drawing.Size(97, 67);
             this.resumeButton.TabIndex = 1;
             this.resumeButton.Text = "Resume Existing Transfer...";
             this.resumeButton.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CloudScraper.Properties.Resources.Cloud;
-            this.pictureBox1.Location = new System.Drawing.Point(89, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(158, 56);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(102, 94);
+            this.pictureBox1.Size = new System.Drawing.Size(93, 93);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;

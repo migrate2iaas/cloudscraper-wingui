@@ -69,5 +69,25 @@ namespace CloudScraper.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon HD_Drive {
+            get {
+                object obj = ResourceManager.GetObject("HD_Drive", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon WindowsDrive {
+            get {
+                object obj = ResourceManager.GetObject("WindowsDrive", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
