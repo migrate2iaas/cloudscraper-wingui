@@ -17,8 +17,9 @@ namespace CloudScraper
         public ImagesPathForm(CloudParametersForm cloudParametersForm)
         {
             this.cloudParametersForm_ = cloudParametersForm;
-
             InitializeComponent();
+            
+            this.totalSpace.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB"; 
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -65,5 +66,6 @@ namespace CloudScraper
         {
             this.cloudParametersForm_.Close();
         }
+
     }
 }

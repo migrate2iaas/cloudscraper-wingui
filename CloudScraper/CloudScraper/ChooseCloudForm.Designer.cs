@@ -37,7 +37,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 227);
+            this.backButton.Location = new System.Drawing.Point(12, 172);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
@@ -47,39 +47,39 @@
             // 
             // amazonButton
             // 
-            this.amazonButton.Location = new System.Drawing.Point(46, 43);
+            this.amazonButton.Location = new System.Drawing.Point(46, 28);
             this.amazonButton.Name = "amazonButton";
             this.amazonButton.Size = new System.Drawing.Size(189, 23);
             this.amazonButton.TabIndex = 2;
-            this.amazonButton.Text = "Amazon EC2";
+            this.amazonButton.Text = "Amazon EC2 >";
             this.amazonButton.UseVisualStyleBackColor = true;
             this.amazonButton.Click += new System.EventHandler(this.amazonButton_Click);
             // 
             // windowsAzureButton
             // 
             this.windowsAzureButton.Enabled = false;
-            this.windowsAzureButton.Location = new System.Drawing.Point(46, 84);
+            this.windowsAzureButton.Location = new System.Drawing.Point(46, 77);
             this.windowsAzureButton.Name = "windowsAzureButton";
             this.windowsAzureButton.Size = new System.Drawing.Size(189, 23);
             this.windowsAzureButton.TabIndex = 3;
-            this.windowsAzureButton.Text = "Windows Azure (Not supported)";
+            this.windowsAzureButton.Text = "Windows Azure (Not supported) >";
             this.windowsAzureButton.UseVisualStyleBackColor = true;
             // 
             // elasticHostsButton
             // 
             this.elasticHostsButton.Enabled = false;
-            this.elasticHostsButton.Location = new System.Drawing.Point(46, 129);
+            this.elasticHostsButton.Location = new System.Drawing.Point(46, 122);
             this.elasticHostsButton.Name = "elasticHostsButton";
             this.elasticHostsButton.Size = new System.Drawing.Size(189, 23);
             this.elasticHostsButton.TabIndex = 4;
-            this.elasticHostsButton.Text = "ElasticHosts (Not supported)";
+            this.elasticHostsButton.Text = "ElasticHosts (Not supported) >";
             this.elasticHostsButton.UseVisualStyleBackColor = true;
             // 
             // ChooseCloudForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(284, 207);
             this.Controls.Add(this.elasticHostsButton);
             this.Controls.Add(this.windowsAzureButton);
             this.Controls.Add(this.amazonButton);
@@ -91,7 +91,7 @@
             this.Name = "ChooseCloudForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseCloudForm";
+            this.Text = "Choose Cloud";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
             this.ResumeLayout(false);
