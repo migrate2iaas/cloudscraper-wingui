@@ -118,6 +118,7 @@ namespace CloudScraper
             if (sender is DataGridView && e.ColumnIndex == 0)
             {
                 this.volumes_[e.RowIndex].IsChecked = !this.volumes_[e.RowIndex].IsChecked;
+                //this.dataGridView[e.ColumnIndex, e.RowIndex].Value = !(bool)this.dataGridView[e.ColumnIndex, e.RowIndex].Value;
 
                 if (e.RowIndex == 0 && this.volumes_[0].IsChecked == false)
                 {

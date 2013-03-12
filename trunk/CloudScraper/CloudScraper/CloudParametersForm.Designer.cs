@@ -124,7 +124,6 @@
             // 
             // regionComboBox
             // 
-            this.regionComboBox.FormattingEnabled = true;
             this.regionComboBox.Location = new System.Drawing.Point(173, 24);
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);

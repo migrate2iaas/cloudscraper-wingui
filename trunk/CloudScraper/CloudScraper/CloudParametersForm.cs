@@ -40,6 +40,10 @@ namespace CloudScraper
             foreach (KeyValuePair<string, string> region in this.regionList_)
             {
                 this.regionComboBox.Items.Add(region.Value);
+                if (region.Key == "us-east-1")
+                {
+                    this.regionComboBox.SelectedItem = region.Value;
+                }
             }
 
             foreach (KeyValuePair<string, string> type in this.serverTypeList_)
@@ -47,8 +51,8 @@ namespace CloudScraper
                 this.serverTypeComboBox.Items.Add(type.Value);
             }
 
-            this.regionComboBox.SelectedIndex = 0;
-            this.serverTypeComboBox.SelectedIndex = 0;
+            //this.regionComboBox.SelectedIndex = 0;
+            //this.serverTypeComboBox.SelectedIndex = 0;
         }
 
         private void backButton_Click(object sender, EventArgs e)
