@@ -70,6 +70,7 @@ namespace CloudScraper
                                 volume.IsChecked = true;
                                 volume.Image = new Bitmap(Resources.WindowsDrive.ToBitmap(), new Size(24, 24));
                                 totalSpaceRequired_ = volume.UsedSpace;
+                                this.nextButton.Enabled = true;
                                 this.totalSpaceLabel.Text = Math.Round(totalSpaceRequired_, 1).ToString() + "GB";
                                 
                                 this.volumes_.Insert(0, volume);
