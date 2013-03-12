@@ -72,6 +72,8 @@ namespace CloudScraper
 
                             if (Environment.GetEnvironmentVariable("SystemRoot").Contains(info.Name))
                             {
+                                //string str = Environment.GetEnvironmentVariable("windir");
+
                                 volume.IsChecked = true;
                                 volume.Image = Resources.WindowsDrive;  
                                 this.systemVolumeIndex_ = this.drivesCheckedList.Items.Count - 1; 
