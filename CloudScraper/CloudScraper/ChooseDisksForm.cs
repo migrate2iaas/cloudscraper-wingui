@@ -16,10 +16,9 @@ namespace CloudScraper
         NewResumeForm newResumeForm_;
         DriveInfo[] drives_;
         bool loaded_;
-        int? systemVolumeIndex_;
         BindingList<VolumeInfo> volumes_;
         
-        public static long totalSpaceRequired_;
+        public static decimal totalSpaceRequired_;
 
         ChooseCloudForm chooseCloudForm_;
 
@@ -27,7 +26,6 @@ namespace CloudScraper
         {
             ChooseDisksForm.totalSpaceRequired_ = 0;
             this.loaded_ = false;
-            this.systemVolumeIndex_ = null;
             this.newResumeForm_ = newResumeForm;
             this.drives_ = DriveInfo.GetDrives();
             this.volumes_ = new BindingList<VolumeInfo>();
@@ -55,34 +53,29 @@ namespace CloudScraper
                     {
                         if (info.IsReady)
                         {
-                            this.drivesCheckedList.Items.Add(info.Name + info.VolumeLabel + "   " + "Total space:" +
-                                (info.TotalSize / (1024 * 1024 * 1024)).ToString() + "GB" + "   " + "Used space:" +
-                                ((info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024)).ToString() + "GB" + "   " + "Free space:" +
-                                (info.TotalFreeSpace / (1024 * 1024 * 1024)).ToString() + "GB");
 
                             VolumeInfo volume = new VolumeInfo()
                             {
                                 IsChecked = false,
-                                Image = Resources.HD_Drive,
+                                Image = new Bitmap(Resources.HD_Drive.ToBitmap(), new Size(24, 24)),
                                 Name = info.VolumeLabel + " (" + info.Name.Replace('\\', ')'),
-                                TotalSpace = info.TotalSize / (1024 * 1024 * 1024),
-                                UsedSpace = (info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024),
-                                FreeSpace = info.AvailableFreeSpace / (1024 * 1024 * 1024)
+                                TotalSpace = Math.Round((decimal)info.TotalSize / (1024 * 1024 * 1024), 1),
+                                UsedSpace = Math.Round((decimal)(info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024), 1),
+                                FreeSpace = Math.Round((decimal)info.AvailableFreeSpace / (1024 * 1024 * 1024), 1)
                             };
-
+                            
                             if (Environment.GetEnvironmentVariable("SystemRoot").Contains(info.Name))
                             {
                                 //string str = Environment.GetEnvironmentVariable("windir");
-
                                 volume.IsChecked = true;
-                                volume.Image = Resources.WindowsDrive;  
-                                this.systemVolumeIndex_ = this.drivesCheckedList.Items.Count - 1; 
-                                this.drivesCheckedList.SetItemChecked((int)this.systemVolumeIndex_, true);
-                                this.drivesCheckedList.SetSelected((int)this.systemVolumeIndex_, true);
-
+                                volume.Image = new Bitmap(Resources.WindowsDrive.ToBitmap(), new Size(24, 24));
+                                totalSpaceRequired_ = volume.UsedSpace;
+                                this.totalSpaceLabel.Text = Math.Round(totalSpaceRequired_, 1).ToString() + "GB";
+                                
                                 this.volumes_.Insert(0, volume);
                                 continue;
                             }
+                            
                             
                             this.volumes_.Add(volume);
                         }
@@ -100,57 +93,6 @@ namespace CloudScraper
                     this.loaded_ = true;
                 }
             }
-        }
-
-
-        private void DrivesChecked(object sender, ItemCheckEventArgs e)
-        {
-            if (this.drivesCheckedList.CheckedItems.Count == 0 && e.CurrentValue == CheckState.Unchecked)
-            {
-                this.nextButton.Enabled = true;
-            }
-            else if(this.drivesCheckedList.CheckedItems.Count == 1 && e.CurrentValue == CheckState.Checked)
-            {
-                this.nextButton.Enabled = false;
-            }
-
-            if (e.CurrentValue == CheckState.Checked)
-            {
-                if (systemVolumeIndex_ != null && e.Index == systemVolumeIndex_)
-                {
-                    DialogResult result = MessageBox.Show("Are you sure you don't want to move your system? \n" +
-                    "In this case no cloud servers will be created!", "Message",
-                        MessageBoxButtons.OKCancel);
-
-
-                    if (result == DialogResult.Cancel)
-                    {
-                        e.NewValue = CheckState.Checked;
-                    }
-                }
-            }
-
-            totalSpaceRequired_ = 0;
-
-            if (this.nextButton.Enabled)
-            {
-                if (e.NewValue == CheckState.Checked)
-                {
-                    totalSpaceRequired_ += (this.drives_[e.Index].TotalSize -
-                        this.drives_[e.Index].TotalFreeSpace) / (1024 * 1024 * 1024);
-                }
-
-                foreach (int index in this.drivesCheckedList.CheckedIndices)
-                {
-                    if (index != e.Index)
-                    {
-                        totalSpaceRequired_ += (this.drives_[index].TotalSize -
-                        this.drives_[index].TotalFreeSpace) / (1024 * 1024 * 1024);
-                    }
-                }
-            }
-
-            this.totalSpaceLabel.Text = totalSpaceRequired_.ToString() + "GB";
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -174,16 +116,9 @@ namespace CloudScraper
         {
             if (sender is DataGridView && e.ColumnIndex == 0)
             {
-                //if (this.drivesCheckedList.CheckedItems.Count == 0 && e.CurrentValue == CheckState.Unchecked)
-                //{
-                //    this.nextButton.Enabled = true;
-                //}
-                //else if (this.drivesCheckedList.CheckedItems.Count == 1 && e.CurrentValue == CheckState.Checked)
-                //{
-                //    this.nextButton.Enabled = false;
-                //}
+                this.volumes_[e.RowIndex].IsChecked = !this.volumes_[e.RowIndex].IsChecked;
 
-                if (e.RowIndex == 0 && this.volumes_[0].IsChecked == true)
+                if (e.RowIndex == 0 && this.volumes_[0].IsChecked == false)
                 {
                     
                         DialogResult result = MessageBox.Show("Are you sure you don't want to move your system? \n" +
@@ -195,29 +130,36 @@ namespace CloudScraper
                         {
                             this.volumes_[0].IsChecked = true;
                         }
+                        else
+                        {
+                            this.volumes_[0].IsChecked = false;
+                        }
                 }
 
-                //totalSpaceRequired_ = 0;
+                this.nextButton.Enabled = false;
+                foreach (VolumeInfo vol in this.volumes_)
+                {
+                    if (vol.IsChecked)
+                    {
+                        this.nextButton.Enabled = true;
+                        break;
+                    }
+                }
 
-                //if (this.nextButton.Enabled)
-                //{
-                //    if (e.NewValue == CheckState.Checked)
-                //    {
-                //        totalSpaceRequired_ += (this.drives_[e.Index].TotalSize -
-                //            this.drives_[e.Index].TotalFreeSpace) / (1024 * 1024 * 1024);
-                //    }
+                totalSpaceRequired_ = 0;
 
-                //    foreach (int index in this.drivesCheckedList.CheckedIndices)
-                //    {
-                //        if (index != e.Index)
-                //        {
-                //            totalSpaceRequired_ += (this.drives_[index].TotalSize -
-                //            this.drives_[index].TotalFreeSpace) / (1024 * 1024 * 1024);
-                //        }
-                //    }
-                //}
+                if (this.nextButton.Enabled)
+                {
+                    foreach (VolumeInfo vol in this.volumes_)
+                    {
+                        if (vol.IsChecked)
+                        {
+                            totalSpaceRequired_ += vol.UsedSpace;
+                        }
+                    }
+                }
 
-                //this.totalSpaceLabel.Text = totalSpaceRequired_.ToString() + "GB";
+                this.totalSpaceLabel.Text = Math.Round(totalSpaceRequired_,1).ToString() + "GB";
             }
         }
 
@@ -233,7 +175,7 @@ namespace CloudScraper
         }
         
         [DisplayName(" ")]
-        public Icon Image { get; set; }
+        public Image Image { get; set; }
         
         [DisplayName("Name")]
         public string Name { get; set; }  

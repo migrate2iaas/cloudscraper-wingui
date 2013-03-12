@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.totalSpaceLabel = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.drivesCheckedList = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,15 +95,6 @@
             this.dataGridView.TabIndex = 5;
             this.dataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnSelect);
             // 
-            // drivesCheckedList
-            // 
-            this.drivesCheckedList.FormattingEnabled = true;
-            this.drivesCheckedList.Location = new System.Drawing.Point(12, 12);
-            this.drivesCheckedList.Name = "drivesCheckedList";
-            this.drivesCheckedList.Size = new System.Drawing.Size(516, 79);
-            this.drivesCheckedList.TabIndex = 2;
-            this.drivesCheckedList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.DrivesChecked);
-            // 
             // ChooseDisksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,7 +103,6 @@
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.totalSpaceLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.drivesCheckedList);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.nextButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -140,6 +129,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label totalSpaceLabel;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.CheckedListBox drivesCheckedList;
     }
 }
