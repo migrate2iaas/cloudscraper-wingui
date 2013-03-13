@@ -11,12 +11,6 @@ namespace CloudScraper
 {
     public partial class CloudParametersForm : Form
     {
-        ChooseCloudForm chooseCloudForm_;
-        ImagesPathForm imagesPathForm_;
-
-        SortedDictionary<string, string> regionList_;
-        SortedDictionary<string, string> serverTypeList_;
-
         public static string awsId_ = "";
         public static string awsKey_ = "";
         public static string region_;
@@ -25,6 +19,12 @@ namespace CloudScraper
         public static string type_;
         public static string zone_ = "";
         public static string group_ = "";
+        
+        ChooseCloudForm chooseCloudForm_;
+        ImagesPathForm imagesPathForm_;
+
+        SortedDictionary<string, string> regionList_;
+        SortedDictionary<string, string> serverTypeList_;
 
         public CloudParametersForm(ChooseCloudForm chooseCloudForm)
         {
@@ -60,17 +60,17 @@ namespace CloudScraper
                 this.serverTypeComboBox.Items.Add(type.Key);
             }
 
-            this.nextButton.Enabled = false;
             this.serverTypeComboBox.SelectedIndex = 0;
+            this.nextButton.Enabled = false;
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
             this.chooseCloudForm_.Show();
         }
 
-        private void nextButton_Click(object sender, EventArgs e)
+        private void NextButtonClick(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -82,31 +82,31 @@ namespace CloudScraper
             imagesPathForm_.ShowDialog();
         }
 
-        private void On_closed(object sender, FormClosedEventArgs e)
+        private void OnClosed(object sender, FormClosedEventArgs e)
         {
             this.chooseCloudForm_.Close();
         }
 
-        private void awsIDtextBox_TextChanged(object sender, EventArgs e)
+        private void AwsIDChanged(object sender, EventArgs e)
         {
             awsId_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        private void awsKeyTextBox_TextChanged(object sender, EventArgs e)
+        private void AwsKeyChanged(object sender, EventArgs e)
         {
             awsKey_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        private void regionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void RegChanged(object sender, EventArgs e)
         {
             region_ = this.regionList_[(string)(sender as ComboBox).SelectedItem];
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void AdvancedChecked(object sender, EventArgs e)
         {
-            if ((sender as CheckBox).CheckState == CheckState.Checked)
+            if ((sender as CheckBox).Checked)
             {
                 advanced_ = true;
                 this.bucketTextBox.Enabled = true;
@@ -134,25 +134,25 @@ namespace CloudScraper
             }
         }
 
-        private void bucketTextBox_TextChanged(object sender, EventArgs e)
+        private void BucketChanged(object sender, EventArgs e)
         {
             s3bucket_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        private void zoneTextBox_TextChanged(object sender, EventArgs e)
+        private void ZoneChanged(object sender, EventArgs e)
         {
             zone_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        private void groupTextBox_TextChanged(object sender, EventArgs e)
+        private void GroupChanged(object sender, EventArgs e)
         {
             group_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        private void serverTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ServerTypeChanged(object sender, EventArgs e)
         {
             type_ = this.serverTypeList_[(string)(sender as ComboBox).SelectedItem];
         }

@@ -23,9 +23,8 @@ namespace CloudScraper
             InitializeComponent();
         }
 
-        private void startNewButton_Click(object sender, EventArgs e)
-        {
-            
+        private void StartNewButtonClick(object sender, EventArgs e)
+        {            
             this.Hide();
             
             if (this.chooseDiskForm_ == null)
@@ -36,7 +35,7 @@ namespace CloudScraper
             chooseDiskForm_.ShowDialog();
         }
 
-        private void resumeButton_Click(object sender, EventArgs e)
+        private void ResumeButtonClick(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -48,7 +47,7 @@ namespace CloudScraper
             resumeTransferForm_.ShowDialog();
         }
 
-        private void On_closed(object sender, FormClosedEventArgs e)
+        private void OnClosed(object sender, FormClosedEventArgs e)
         {
             ghost_.Close();
         }

@@ -41,7 +41,7 @@
             this.startNewButton.TabIndex = 0;
             this.startNewButton.Text = "Start New Transfer...";
             this.startNewButton.UseVisualStyleBackColor = true;
-            this.startNewButton.Click += new System.EventHandler(this.startNewButton_Click);
+            this.startNewButton.Click += new System.EventHandler(this.StartNewButtonClick);
             // 
             // resumeButton
             // 
@@ -51,7 +51,7 @@
             this.resumeButton.TabIndex = 1;
             this.resumeButton.Text = "Resume Existing Transfer...";
             this.resumeButton.UseVisualStyleBackColor = true;
-            this.resumeButton.Click += new System.EventHandler(this.resumeButton_Click);
+            this.resumeButton.Click += new System.EventHandler(this.ResumeButtonClick);
             // 
             // NewResumeForm
             // 
@@ -69,7 +69,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CloudScraper Wizard";
             this.TopMost = true;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.ResumeLayout(false);
 
         }
