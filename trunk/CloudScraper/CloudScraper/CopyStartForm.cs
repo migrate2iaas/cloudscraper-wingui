@@ -122,23 +122,23 @@ namespace CloudScraper
 
         public void SendMail()
         {
-            //Авторизация на SMTP сервере
+
             SmtpClient Smtp = new SmtpClient("smtp.mail.ru", 25);
             Smtp.Credentials = new NetworkCredential("login", "pass");
             //Smtp.EnableSsl = false;
 
-            //Формирование письма
+
             MailMessage Message = new MailMessage();
             Message.From = new MailAddress("from@mail.ru");
             Message.To.Add(new MailAddress("to@mail.ru"));
             Message.Subject = "Заголовок";
             Message.Body = "Сообщение";
 
-            //Прикрепляем файл
+
             string file = "C:\\file.zip";
             Attachment attach = new Attachment(file, MediaTypeNames.Application.Octet);
 
-            // Добавляем информацию для файла
+ 
             ContentDisposition disposition = attach.ContentDisposition;
             disposition.CreationDate = System.IO.File.GetCreationTime(file);
             disposition.ModificationDate = System.IO.File.GetLastWriteTime(file);
@@ -146,7 +146,7 @@ namespace CloudScraper
 
             Message.Attachments.Add(attach);
 
-            Smtp.Send(Message);//отправка
+            Smtp.Send(Message);
         }
     }
 }
