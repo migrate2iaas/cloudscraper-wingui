@@ -50,7 +50,7 @@
             this.saveTransferTask.Name = "saveTransferTask";
             this.saveTransferTask.Size = new System.Drawing.Size(75, 23);
             this.saveTransferTask.TabIndex = 1;
-            this.saveTransferTask.Text = "Save...";
+            this.saveTransferTask.Text = "Browse...";
             this.saveTransferTask.UseVisualStyleBackColor = true;
             this.saveTransferTask.Click += new System.EventHandler(this.saveTransferTask_Click);
             // 

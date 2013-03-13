@@ -33,19 +33,19 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.awsKeyTextBox = new System.Windows.Forms.TextBox();
-            this.awsIDtextBox = new System.Windows.Forms.TextBox();
+            this.awsIdTextBox = new System.Windows.Forms.TextBox();
             this.awsKeyLabel = new System.Windows.Forms.Label();
             this.awsIdLabel = new System.Windows.Forms.Label();
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.securityGroupLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.availabilityLabel = new System.Windows.Forms.Label();
+            this.advancedCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupLabel = new System.Windows.Forms.Label();
+            this.groupTextBox = new System.Windows.Forms.TextBox();
+            this.zoneLabel = new System.Windows.Forms.Label();
             this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cloudServerTypeLabel = new System.Windows.Forms.Label();
+            this.zoneTextBox = new System.Windows.Forms.TextBox();
+            this.typeLabel = new System.Windows.Forms.Label();
             this.bucketTextBox = new System.Windows.Forms.TextBox();
             this.bucketLabel = new System.Windows.Forms.Label();
             this.nextButton = new System.Windows.Forms.Button();
@@ -77,7 +77,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.awsKeyTextBox);
-            this.tabPage1.Controls.Add(this.awsIDtextBox);
+            this.tabPage1.Controls.Add(this.awsIdTextBox);
             this.tabPage1.Controls.Add(this.awsKeyLabel);
             this.tabPage1.Controls.Add(this.awsIdLabel);
             this.tabPage1.Controls.Add(this.regionComboBox);
@@ -99,13 +99,13 @@
             this.awsKeyTextBox.TabIndex = 7;
             this.awsKeyTextBox.TextChanged += new System.EventHandler(this.awsKeyTextBox_TextChanged);
             // 
-            // awsIDtextBox
+            // awsIdTextBox
             // 
-            this.awsIDtextBox.Location = new System.Drawing.Point(170, 89);
-            this.awsIDtextBox.Name = "awsIDtextBox";
-            this.awsIDtextBox.Size = new System.Drawing.Size(220, 20);
-            this.awsIDtextBox.TabIndex = 3;
-            this.awsIDtextBox.TextChanged += new System.EventHandler(this.awsIDtextBox_TextChanged);
+            this.awsIdTextBox.Location = new System.Drawing.Point(170, 89);
+            this.awsIdTextBox.Name = "awsIdTextBox";
+            this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
+            this.awsIdTextBox.TabIndex = 3;
+            this.awsIdTextBox.TextChanged += new System.EventHandler(this.awsIDtextBox_TextChanged);
             // 
             // awsKeyLabel
             // 
@@ -144,13 +144,13 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.checkBox1);
-            this.tabPage2.Controls.Add(this.securityGroupLabel);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.availabilityLabel);
+            this.tabPage2.Controls.Add(this.advancedCheckBox);
+            this.tabPage2.Controls.Add(this.groupLabel);
+            this.tabPage2.Controls.Add(this.groupTextBox);
+            this.tabPage2.Controls.Add(this.zoneLabel);
             this.tabPage2.Controls.Add(this.serverTypeComboBox);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.cloudServerTypeLabel);
+            this.tabPage2.Controls.Add(this.zoneTextBox);
+            this.tabPage2.Controls.Add(this.typeLabel);
             this.tabPage2.Controls.Add(this.bucketTextBox);
             this.tabPage2.Controls.Add(this.bucketLabel);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -161,45 +161,45 @@
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // advancedCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(45, 15);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(135, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Use advanced settings";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.advancedCheckBox.AutoSize = true;
+            this.advancedCheckBox.Location = new System.Drawing.Point(45, 15);
+            this.advancedCheckBox.Name = "advancedCheckBox";
+            this.advancedCheckBox.Size = new System.Drawing.Size(135, 17);
+            this.advancedCheckBox.TabIndex = 8;
+            this.advancedCheckBox.Text = "Use advanced settings";
+            this.advancedCheckBox.UseVisualStyleBackColor = true;
+            this.advancedCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // securityGroupLabel
+            // groupLabel
             // 
-            this.securityGroupLabel.AutoSize = true;
-            this.securityGroupLabel.Enabled = false;
-            this.securityGroupLabel.Location = new System.Drawing.Point(31, 184);
-            this.securityGroupLabel.Name = "securityGroupLabel";
-            this.securityGroupLabel.Size = new System.Drawing.Size(137, 13);
-            this.securityGroupLabel.TabIndex = 7;
-            this.securityGroupLabel.Text = "Specify your security group:";
+            this.groupLabel.AutoSize = true;
+            this.groupLabel.Enabled = false;
+            this.groupLabel.Location = new System.Drawing.Point(31, 184);
+            this.groupLabel.Name = "groupLabel";
+            this.groupLabel.Size = new System.Drawing.Size(137, 13);
+            this.groupLabel.TabIndex = 7;
+            this.groupLabel.Text = "Specify your security group:";
             // 
-            // textBox2
+            // groupTextBox
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(174, 181);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(234, 20);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.groupTextBox.Enabled = false;
+            this.groupTextBox.Location = new System.Drawing.Point(174, 181);
+            this.groupTextBox.Name = "groupTextBox";
+            this.groupTextBox.Size = new System.Drawing.Size(234, 20);
+            this.groupTextBox.TabIndex = 6;
+            this.groupTextBox.TextChanged += new System.EventHandler(this.groupTextBox_TextChanged);
             // 
-            // availabilityLabel
+            // zoneLabel
             // 
-            this.availabilityLabel.AutoSize = true;
-            this.availabilityLabel.Enabled = false;
-            this.availabilityLabel.Location = new System.Drawing.Point(24, 140);
-            this.availabilityLabel.Name = "availabilityLabel";
-            this.availabilityLabel.Size = new System.Drawing.Size(145, 13);
-            this.availabilityLabel.TabIndex = 5;
-            this.availabilityLabel.Text = "Specify your availability zone:";
+            this.zoneLabel.AutoSize = true;
+            this.zoneLabel.Enabled = false;
+            this.zoneLabel.Location = new System.Drawing.Point(24, 140);
+            this.zoneLabel.Name = "zoneLabel";
+            this.zoneLabel.Size = new System.Drawing.Size(145, 13);
+            this.zoneLabel.TabIndex = 5;
+            this.zoneLabel.Text = "Specify your availability zone:";
             // 
             // serverTypeComboBox
             // 
@@ -211,24 +211,24 @@
             this.serverTypeComboBox.TabIndex = 4;
             this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.serverTypeComboBox_SelectedIndexChanged);
             // 
-            // textBox1
+            // zoneTextBox
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(173, 137);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.zoneTextBox.Enabled = false;
+            this.zoneTextBox.Location = new System.Drawing.Point(173, 137);
+            this.zoneTextBox.Name = "zoneTextBox";
+            this.zoneTextBox.Size = new System.Drawing.Size(235, 20);
+            this.zoneTextBox.TabIndex = 3;
+            this.zoneTextBox.TextChanged += new System.EventHandler(this.zoneTextBox_TextChanged);
             // 
-            // cloudServerTypeLabel
+            // typeLabel
             // 
-            this.cloudServerTypeLabel.AutoSize = true;
-            this.cloudServerTypeLabel.Enabled = false;
-            this.cloudServerTypeLabel.Location = new System.Drawing.Point(17, 93);
-            this.cloudServerTypeLabel.Name = "cloudServerTypeLabel";
-            this.cloudServerTypeLabel.Size = new System.Drawing.Size(152, 13);
-            this.cloudServerTypeLabel.TabIndex = 2;
-            this.cloudServerTypeLabel.Text = "Specify your cloud server type:";
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Enabled = false;
+            this.typeLabel.Location = new System.Drawing.Point(17, 93);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(152, 13);
+            this.typeLabel.TabIndex = 2;
+            this.typeLabel.Text = "Specify your cloud server type:";
             // 
             // bucketTextBox
             // 
@@ -292,21 +292,21 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox awsKeyTextBox;
-        private System.Windows.Forms.TextBox awsIDtextBox;
+        private System.Windows.Forms.TextBox awsIdTextBox;
         private System.Windows.Forms.Label awsKeyLabel;
         private System.Windows.Forms.Label awsIdLabel;
         private System.Windows.Forms.ComboBox regionComboBox;
         private System.Windows.Forms.Label regionLabel;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label securityGroupLabel;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label availabilityLabel;
+        private System.Windows.Forms.Label groupLabel;
+        private System.Windows.Forms.TextBox groupTextBox;
+        private System.Windows.Forms.Label zoneLabel;
         private System.Windows.Forms.ComboBox serverTypeComboBox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label cloudServerTypeLabel;
+        private System.Windows.Forms.TextBox zoneTextBox;
+        private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.TextBox bucketTextBox;
         private System.Windows.Forms.Label bucketLabel;
         private System.Windows.Forms.Button nextButton;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox advancedCheckBox;
     }
 }
