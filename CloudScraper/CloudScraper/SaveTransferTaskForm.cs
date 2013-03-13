@@ -14,12 +14,16 @@ namespace CloudScraper
         ImagesPathForm imagesPathForm_;
         CopyStartForm copyStartForm_;
 
+        public static string transferPath_;
+
         public SaveTransferTaskForm(ImagesPathForm imagesPathForm)
         {
             this.imagesPathForm_ = imagesPathForm;
             InitializeComponent();
 
-            this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "Test.ini"; 
+            this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "transfer.ini";
+
+            transferPath_ = this.saveTransferTextBox.Text;
         }
 
         private void saveTransferTask_Click(object sender, EventArgs e)
@@ -33,6 +37,7 @@ namespace CloudScraper
             if (result == DialogResult.OK)
             {
                 this.saveTransferTextBox.Text = this.saveFileDialog.FileName;
+                transferPath_ = this.saveTransferTextBox.Text;
             }
         }
 

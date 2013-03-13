@@ -17,6 +17,15 @@ namespace CloudScraper
         SortedDictionary<string, string> regionList_;
         SortedDictionary<string, string> serverTypeList_;
 
+        public static string awsId_ = "";
+        public static string awsKey_ = "";
+        public static string region_;
+        public static bool advanced_ = false;
+        public static string s3bucket_ = "";
+        public static string type_;
+        public static string zone_ = "";
+        public static string group_ = "";
+
         public CloudParametersForm(ChooseCloudForm chooseCloudForm)
         {
             this.chooseCloudForm_ = chooseCloudForm;
@@ -25,34 +34,34 @@ namespace CloudScraper
 
             foreach (string str in Settings.Default.Regions)
             { 
-                this.regionList_.Add(str.Split(new char[] { Settings.Default.Separator }, 2)[0],
-                    str.Split(new char[] { Settings.Default.Separator }, 2)[1]);
+                this.regionList_.Add(str.Split(new char[] { Settings.Default.Separator }, 2)[1],
+                    str.Split(new char[] { Settings.Default.Separator }, 2)[0]);
             }
 
             foreach (string str in Settings.Default.ServerTypes)
             {
-                this.serverTypeList_.Add(str.Split(new char[] { Settings.Default.Separator }, 2)[0],
-                    str.Split(new char[] { Settings.Default.Separator }, 2)[1]);
+                this.serverTypeList_.Add(str.Split(new char[] { Settings.Default.Separator }, 2)[1],
+                    str.Split(new char[] { Settings.Default.Separator }, 2)[0]);
             }
 
             InitializeComponent();
 
             foreach (KeyValuePair<string, string> region in this.regionList_)
             {
-                this.regionComboBox.Items.Add(region.Value);
-                if (region.Key == "us-east-1")
+                this.regionComboBox.Items.Add(region.Key);
+                if (region.Value == "us-east-1")
                 {
-                    this.regionComboBox.SelectedItem = region.Value;
+                    this.regionComboBox.SelectedItem = region.Key;
                 }
             }
 
             foreach (KeyValuePair<string, string> type in this.serverTypeList_)
             {
-                this.serverTypeComboBox.Items.Add(type.Value);
+                this.serverTypeComboBox.Items.Add(type.Key);
             }
 
-            //this.regionComboBox.SelectedIndex = 0;
-            //this.serverTypeComboBox.SelectedIndex = 0;
+            this.nextButton.Enabled = false;
+            this.serverTypeComboBox.SelectedIndex = 0;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -78,5 +87,91 @@ namespace CloudScraper
             this.chooseCloudForm_.Close();
         }
 
+        private void awsIDtextBox_TextChanged(object sender, EventArgs e)
+        {
+            awsId_ = (sender as TextBox).Text;
+            this.CheckEnter();
+        }
+
+        private void awsKeyTextBox_TextChanged(object sender, EventArgs e)
+        {
+            awsKey_ = (sender as TextBox).Text;
+            this.CheckEnter();
+        }
+
+        private void regionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            region_ = this.regionList_[(string)(sender as ComboBox).SelectedItem];
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).CheckState == CheckState.Checked)
+            {
+                advanced_ = true;
+                this.bucketTextBox.Enabled = true;
+                this.bucketLabel.Enabled = true;
+                this.serverTypeComboBox.Enabled = true;
+                this.cloudServerTypeLabel.Enabled = true;
+                this.textBox1.Enabled = true;
+                this.textBox2.Enabled = true;
+                this.availabilityLabel.Enabled = true;
+                this.securityGroupLabel.Enabled = true;
+                this.CheckEnter();
+            }
+            else
+            {
+                advanced_ = false;
+                this.bucketTextBox.Enabled = false;
+                this.bucketLabel.Enabled = false;
+                this.serverTypeComboBox.Enabled = false;
+                this.cloudServerTypeLabel.Enabled = false;
+                this.textBox1.Enabled = false;
+                this.textBox2.Enabled = false;
+                this.availabilityLabel.Enabled = false;
+                this.securityGroupLabel.Enabled = false;
+                this.CheckEnter();
+            }
+        }
+
+        private void bucketTextBox_TextChanged(object sender, EventArgs e)
+        {
+            s3bucket_ = (sender as TextBox).Text;
+            this.CheckEnter();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            zone_ = (sender as TextBox).Text;
+            this.CheckEnter();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            group_ = (sender as TextBox).Text;
+            this.CheckEnter();
+        }
+
+        private void serverTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            type_ = this.serverTypeList_[(string)(sender as ComboBox).SelectedItem];
+        }
+
+        private void CheckEnter()
+        {
+            if (!advanced_ && awsId_ != "" && awsKey_ != "")
+            {
+                this.nextButton.Enabled = true;
+            }
+            else if (advanced_ && awsId_ != "" && awsKey_ != ""
+                && s3bucket_ != "" && zone_ != "" && group_ != "")
+            {
+                this.nextButton.Enabled = true;
+            }
+            else
+            {
+                this.nextButton.Enabled = false;
+            }
+        }
     }
 }

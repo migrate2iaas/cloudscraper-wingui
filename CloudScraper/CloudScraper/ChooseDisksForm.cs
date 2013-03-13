@@ -19,6 +19,7 @@ namespace CloudScraper
         BindingList<VolumeInfo> volumes_;
         
         public static decimal totalSpaceRequired_;
+        public static List<string> selectedDisks_ = new List<string>();
 
         ChooseCloudForm chooseCloudForm_;
 
@@ -60,6 +61,7 @@ namespace CloudScraper
                                 Image = new Bitmap(Resources.HD_Drive.ToBitmap(), new Size(24, 24)),
                                 Name = info.VolumeLabel == "" ? info.DriveType + " (" + info.Name.Replace('\\', ')') :
                                         info.VolumeLabel + " (" + info.Name.Replace('\\', ')'),
+                                ShortName = info.Name,
                                 TotalSpace = Math.Round((decimal)info.TotalSize / (1024 * 1024 * 1024), 1),
                                 UsedSpace = Math.Round((decimal)(info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024), 1),
                                 FreeSpace = Math.Round((decimal)info.AvailableFreeSpace / (1024 * 1024 * 1024), 1)
@@ -73,7 +75,7 @@ namespace CloudScraper
                                 totalSpaceRequired_ = volume.UsedSpace;
                                 this.nextButton.Enabled = true;
                                 this.totalSpaceLabel.Text = Math.Round(totalSpaceRequired_, 1).ToString() + "GB";
-                                
+                                selectedDisks_.Add(volume.ShortName);
                                 this.volumes_.Insert(0, volume);
                                 continue;
                             }
@@ -155,11 +157,14 @@ namespace CloudScraper
 
                 if (this.nextButton.Enabled)
                 {
+                    selectedDisks_.Clear();
+
                     foreach (VolumeInfo vol in this.volumes_)
                     {
                         if (vol.IsChecked)
                         {
                             totalSpaceRequired_ += vol.UsedSpace;
+                            selectedDisks_.Add(vol.ShortName);
                         }
                     }
                 }
@@ -179,7 +184,10 @@ namespace CloudScraper
         public Image Image { get; set; }
         
         [DisplayName("Name")]
-        public string Name { get; set; }  
+        public string Name { get; set; }
+
+        [Browsable(false)]
+        public string ShortName { get; set; }
 
         [DisplayName("Total Space, GB")]
         public decimal TotalSpace { get; set; }

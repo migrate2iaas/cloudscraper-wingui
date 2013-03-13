@@ -14,11 +14,12 @@ namespace CloudScraper
         CloudParametersForm cloudParametersForm_;
         SaveTransferTaskForm saveTransferTaskForm_;
 
+        public static string imagesPath_;
+
         public ImagesPathForm(CloudParametersForm cloudParametersForm)
         {
             this.cloudParametersForm_ = cloudParametersForm;
-            InitializeComponent();
-           
+            InitializeComponent();      
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -28,6 +29,7 @@ namespace CloudScraper
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 this.browseTextBox.Text = this.folderBrowserDialog.SelectedPath;
+                imagesPath_ = this.browseTextBox.Text;
 
                 //DirectoryInfo info = Directory.GetParent(this.folderBrowserDialog.SelectedPath);
                 string rootName = Directory.GetDirectoryRoot(this.folderBrowserDialog.SelectedPath);
@@ -71,6 +73,7 @@ namespace CloudScraper
             this.totalSpace.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB";
 
             this.browseTextBox.Text = Directory.GetCurrentDirectory();
+            imagesPath_ = this.browseTextBox.Text;
 
             string rootName = Directory.GetDirectoryRoot(this.browseTextBox.Text);
             DriveInfo[] drives = DriveInfo.GetDrives();
