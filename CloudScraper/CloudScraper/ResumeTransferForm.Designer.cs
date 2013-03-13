@@ -58,6 +58,7 @@
             this.resumeUploadCheckBox.TabIndex = 1;
             this.resumeUploadCheckBox.Text = "Resume Upload (check if your images is already created)";
             this.resumeUploadCheckBox.UseVisualStyleBackColor = true;
+            this.resumeUploadCheckBox.CheckedChanged += new System.EventHandler(this.resumeUploadCheckBox_CheckedChanged);
             // 
             // redeployUploadCheckBox
             // 
@@ -68,6 +69,7 @@
             this.redeployUploadCheckBox.TabIndex = 2;
             this.redeployUploadCheckBox.Text = "Redeploy Uploaded Image (creates cloud server from the image already uploaded)";
             this.redeployUploadCheckBox.UseVisualStyleBackColor = true;
+            this.redeployUploadCheckBox.CheckedChanged += new System.EventHandler(this.redeployUploadCheckBox_CheckedChanged);
             // 
             // nextButton
             // 

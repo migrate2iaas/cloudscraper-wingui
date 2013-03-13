@@ -25,7 +25,6 @@ namespace CloudScraper
         }
 
 
-
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
         {
             this.resumeTransferForm_ = resumeTransferForm;
@@ -50,41 +49,33 @@ namespace CloudScraper
         {
             this.backButton.Enabled = false;
 
-            //if (File.Exists(SaveTransferTaskForm.transferPath_))
-            //{
-            //    File.Delete(SaveTransferTaskForm.transferPath_);
-            //}
-
-            using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false))
+            if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_)
             {
-                stream.WriteLine("[EC2]");
-                stream.WriteLine("region = " + CloudParametersForm.region_);
-                stream.WriteLine("zone = " + CloudParametersForm.zone_);
-                if (CloudParametersForm.advanced_)
+                using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false))
                 {
-                    stream.WriteLine("instance-type = " + CloudParametersForm.type_);
-                }
-                stream.WriteLine("target-arch = x86_64");
-                stream.WriteLine("s3key = " + CloudParametersForm.awsId_);
-                stream.WriteLine("bucket = " + CloudParametersForm.s3bucket_);
-                stream.WriteLine("[Image]");
-                stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
-                stream.WriteLine("source-arch = x86_64");
-                stream.WriteLine("image-type = VHD");
-                stream.WriteLine("[Volumes]");
-                string letters = "";
-                foreach (string str in ChooseDisksForm.selectedDisks_)
-                {
-                    if (letters == "")
+
+                    stream.WriteLine("[EC2]");
+                    stream.WriteLine("region = " + CloudParametersForm.region_);
+                    stream.WriteLine("zone = " + CloudParametersForm.zone_);
+                    if (CloudParametersForm.advanced_)
                     {
-                        letters = str.Replace(":\\", "");
+                        stream.WriteLine("instance-type = " + CloudParametersForm.type_);
                     }
-                    else
+                    stream.WriteLine("target-arch = x86_64");
+                    stream.WriteLine("s3key = " + CloudParametersForm.awsId_);
+                    stream.WriteLine("bucket = " + CloudParametersForm.s3bucket_);
+                    stream.WriteLine("[Image]");
+                    stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
+                    stream.WriteLine("source-arch = x86_64");
+                    stream.WriteLine("image-type = VHD");
+                    stream.WriteLine("[Volumes]");
+                    string letters = null;
+                    foreach (string str in ChooseDisksForm.selectedDisks_)
                     {
-                        letters += "," + str.Replace(":\\", "");
-                    }               
+                        letters = letters == null ? str.Replace(":\\", "") : letters + "," + str.Replace(":\\", "");  
+                    }
+                    stream.WriteLine("letters = " + letters);
                 }
-                stream.WriteLine("letters = " + letters);
             }
             //Process p = new Process();
 
@@ -101,12 +92,10 @@ namespace CloudScraper
         void p_Exited(object sender, EventArgs e)
         {
 
-
             //this.processListBox.BeginInvoke(new Action<object>((obj) =>
             //{
             //    this.processListBox.Items.Add("Process stop...");
             //}));
-
         }
 
         private void On_closed(object sender, FormClosedEventArgs e)

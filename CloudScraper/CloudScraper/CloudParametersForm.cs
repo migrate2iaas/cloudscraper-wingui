@@ -112,11 +112,11 @@ namespace CloudScraper
                 this.bucketTextBox.Enabled = true;
                 this.bucketLabel.Enabled = true;
                 this.serverTypeComboBox.Enabled = true;
-                this.cloudServerTypeLabel.Enabled = true;
-                this.textBox1.Enabled = true;
-                this.textBox2.Enabled = true;
-                this.availabilityLabel.Enabled = true;
-                this.securityGroupLabel.Enabled = true;
+                this.typeLabel.Enabled = true;
+                this.zoneTextBox.Enabled = true;
+                this.groupTextBox.Enabled = true;
+                this.zoneLabel.Enabled = true;
+                this.groupLabel.Enabled = true;
                 this.CheckEnter();
             }
             else
@@ -125,11 +125,11 @@ namespace CloudScraper
                 this.bucketTextBox.Enabled = false;
                 this.bucketLabel.Enabled = false;
                 this.serverTypeComboBox.Enabled = false;
-                this.cloudServerTypeLabel.Enabled = false;
-                this.textBox1.Enabled = false;
-                this.textBox2.Enabled = false;
-                this.availabilityLabel.Enabled = false;
-                this.securityGroupLabel.Enabled = false;
+                this.typeLabel.Enabled = false;
+                this.zoneTextBox.Enabled = false;
+                this.groupTextBox.Enabled = false;
+                this.zoneLabel.Enabled = false;
+                this.groupLabel.Enabled = false;
                 this.CheckEnter();
             }
         }
@@ -140,13 +140,13 @@ namespace CloudScraper
             this.CheckEnter();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void zoneTextBox_TextChanged(object sender, EventArgs e)
         {
             zone_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void groupTextBox_TextChanged(object sender, EventArgs e)
         {
             group_ = (sender as TextBox).Text;
             this.CheckEnter();

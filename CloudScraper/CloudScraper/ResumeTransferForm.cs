@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CloudScraper
 {
@@ -13,11 +14,17 @@ namespace CloudScraper
         NewResumeForm newResumeForm_;
         CopyStartForm copyStartForm_;
 
+        public static bool resumeUpload_;
+        public static bool skipUpload_;
+
         public ResumeTransferForm(NewResumeForm newResumeForm)
         {
             this.newResumeForm_ = newResumeForm;
 
             InitializeComponent();
+
+            resumeUpload_ = false;
+            skipUpload_ = false;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -45,8 +52,9 @@ namespace CloudScraper
 
         private void browseButton_Click(object sender, EventArgs e)
         {
-            this.openFileDialog.Filter = "Transfer Task File (*.ini)|*.ini";
+            this.openFileDialog.Filter = "Transfer task file (*.ini)|*.ini";
             this.openFileDialog.Multiselect = false;
+            this.openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
 
             DialogResult result = this.openFileDialog.ShowDialog();
 
@@ -64,6 +72,30 @@ namespace CloudScraper
             {
                 this.nextButton.Enabled = false;
             }
+        }
+
+        private void resumeUploadCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.redeployUploadCheckBox.Checked &&
+                this.resumeUploadCheckBox.Checked)
+            {
+                this.redeployUploadCheckBox.Checked = false;
+                skipUpload_ = false;
+            }
+
+            resumeUpload_ = this.resumeUploadCheckBox.Checked;
+        }
+
+        private void redeployUploadCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.redeployUploadCheckBox.Checked &&
+                this.resumeUploadCheckBox.Checked)
+            {
+                this.resumeUploadCheckBox.Checked = false;
+                resumeUpload_ = false;
+            }
+
+            skipUpload_ = this.redeployUploadCheckBox.Checked;
         }
     }
 }
