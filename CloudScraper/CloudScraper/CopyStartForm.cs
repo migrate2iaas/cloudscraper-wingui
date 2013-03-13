@@ -9,6 +9,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 
+using System.Web;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
+
 namespace CloudScraper
 {
     public partial class CopyStartForm : Form
@@ -90,18 +95,19 @@ namespace CloudScraper
             p.WaitForExit();
 
             this.processListBox.Items.Add("Process stoped...");
+
+            //this.SendMail();
         }
 
         void p_Exited(object sender, EventArgs e)
         {
-
             //this.processListBox.BeginInvoke(new Action<object>((obj) =>
             //{
             //    this.processListBox.Items.Add("Process stop...");
             //}));
         }
 
-        private void On_closed(object sender, FormClosedEventArgs e)
+        private void OnClosed(object sender, FormClosedEventArgs e)
         {
             if (saveTransferForm_ != null)
             {
@@ -112,6 +118,35 @@ namespace CloudScraper
             {
                 this.resumeTransferForm_.Close();
             }
+        }
+
+        public void SendMail()
+        {
+            //Авторизация на SMTP сервере
+            SmtpClient Smtp = new SmtpClient("smtp.mail.ru", 25);
+            Smtp.Credentials = new NetworkCredential("login", "pass");
+            //Smtp.EnableSsl = false;
+
+            //Формирование письма
+            MailMessage Message = new MailMessage();
+            Message.From = new MailAddress("from@mail.ru");
+            Message.To.Add(new MailAddress("to@mail.ru"));
+            Message.Subject = "Заголовок";
+            Message.Body = "Сообщение";
+
+            //Прикрепляем файл
+            string file = "C:\\file.zip";
+            Attachment attach = new Attachment(file, MediaTypeNames.Application.Octet);
+
+            // Добавляем информацию для файла
+            ContentDisposition disposition = attach.ContentDisposition;
+            disposition.CreationDate = System.IO.File.GetCreationTime(file);
+            disposition.ModificationDate = System.IO.File.GetLastWriteTime(file);
+            disposition.ReadDate = System.IO.File.GetLastAccessTime(file);
+
+            Message.Attachments.Add(attach);
+
+            Smtp.Send(Message);//отправка
         }
     }
 }
