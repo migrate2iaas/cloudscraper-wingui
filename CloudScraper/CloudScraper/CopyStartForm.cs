@@ -84,7 +84,11 @@ namespace CloudScraper
 
             Process p = new Process();
 
-            ProcessStartInfo info = new ProcessStartInfo(Directory.GetCurrentDirectory() + "\\CloudScraper.exe");
+            ProcessStartInfo info = new ProcessStartInfo(Directory.GetCurrentDirectory() + 
+                "\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py -config " + 
+                SaveTransferTaskForm.transferPath_ + " --amazonkey " + 
+                CloudParametersForm.awsKey_ + " --output " + "test.log");
+
             p.StartInfo = info;
             p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             p.Exited += new EventHandler(p_Exited);
