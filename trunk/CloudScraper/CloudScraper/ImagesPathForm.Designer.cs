@@ -83,9 +83,9 @@
             this.freeSpaceLabel.AutoSize = true;
             this.freeSpaceLabel.Location = new System.Drawing.Point(13, 119);
             this.freeSpaceLabel.Name = "freeSpaceLabel";
-            this.freeSpaceLabel.Size = new System.Drawing.Size(62, 13);
+            this.freeSpaceLabel.Size = new System.Drawing.Size(65, 13);
             this.freeSpaceLabel.TabIndex = 4;
-            this.freeSpaceLabel.Text = "FreeSpace:";
+            this.freeSpaceLabel.Text = "Free Space:";
             // 
             // freeSpace
             // 

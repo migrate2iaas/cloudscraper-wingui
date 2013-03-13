@@ -35,21 +35,27 @@
             // 
             // startNewButton
             // 
-            this.startNewButton.Location = new System.Drawing.Point(96, 38);
+            this.startNewButton.Image = global::CloudScraper.Properties.Resources._01;
+            this.startNewButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.startNewButton.Location = new System.Drawing.Point(58, 42);
             this.startNewButton.Name = "startNewButton";
-            this.startNewButton.Size = new System.Drawing.Size(97, 64);
+            this.startNewButton.Size = new System.Drawing.Size(160, 54);
             this.startNewButton.TabIndex = 0;
             this.startNewButton.Text = "Start New Transfer...";
+            this.startNewButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.startNewButton.UseVisualStyleBackColor = true;
             this.startNewButton.Click += new System.EventHandler(this.StartNewButtonClick);
             // 
             // resumeButton
             // 
-            this.resumeButton.Location = new System.Drawing.Point(96, 108);
+            this.resumeButton.Image = global::CloudScraper.Properties.Resources._19;
+            this.resumeButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.resumeButton.Location = new System.Drawing.Point(58, 108);
             this.resumeButton.Name = "resumeButton";
-            this.resumeButton.Size = new System.Drawing.Size(97, 67);
+            this.resumeButton.Size = new System.Drawing.Size(160, 54);
             this.resumeButton.TabIndex = 1;
             this.resumeButton.Text = "Resume Existing Transfer...";
+            this.resumeButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.resumeButton.UseVisualStyleBackColor = true;
             this.resumeButton.Click += new System.EventHandler(this.ResumeButtonClick);
             // 
@@ -57,7 +63,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 223);
+            this.ClientSize = new System.Drawing.Size(278, 207);
             this.Controls.Add(this.resumeButton);
             this.Controls.Add(this.startNewButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

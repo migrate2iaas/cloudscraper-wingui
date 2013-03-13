@@ -164,6 +164,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="01.ico" />
+    <None Include="19.ico" />
     <Content Include="Cloud.ico" />
     <None Include="WindowsDrive.ico" />
     <None Include="HD-Drive.ico" />
