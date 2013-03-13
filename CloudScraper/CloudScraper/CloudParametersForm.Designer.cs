@@ -56,7 +56,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 260);
+            this.backButton.Location = new System.Drawing.Point(13, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
@@ -251,7 +251,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(403, 260);
+            this.nextButton.Location = new System.Drawing.Point(402, 263);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 10;
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 295);
+            this.ClientSize = new System.Drawing.Size(489, 298);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.backButton);
