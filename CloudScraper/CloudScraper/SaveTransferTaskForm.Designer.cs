@@ -62,7 +62,7 @@
             this.nextButton.TabIndex = 2;
             this.nextButton.Text = "Next>";
             this.nextButton.UseVisualStyleBackColor = true;
-            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
             // backButton
             // 
@@ -72,7 +72,7 @@
             this.backButton.TabIndex = 3;
             this.backButton.Text = "<Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // label1
             // 
@@ -102,7 +102,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Save transfer task";
             this.TopMost = true;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -62,7 +62,7 @@
             this.backButton.TabIndex = 0;
             this.backButton.Text = "<Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // tabControl1
             // 
@@ -97,7 +97,7 @@
             this.awsKeyTextBox.PasswordChar = '*';
             this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
             this.awsKeyTextBox.TabIndex = 7;
-            this.awsKeyTextBox.TextChanged += new System.EventHandler(this.awsKeyTextBox_TextChanged);
+            this.awsKeyTextBox.TextChanged += new System.EventHandler(this.AwsKeyChanged);
             // 
             // awsIdTextBox
             // 
@@ -105,7 +105,7 @@
             this.awsIdTextBox.Name = "awsIdTextBox";
             this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
             this.awsIdTextBox.TabIndex = 3;
-            this.awsIdTextBox.TextChanged += new System.EventHandler(this.awsIDtextBox_TextChanged);
+            this.awsIdTextBox.TextChanged += new System.EventHandler(this.AwsIDChanged);
             // 
             // awsKeyLabel
             // 
@@ -131,7 +131,7 @@
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
-            this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.regionComboBox_SelectedIndexChanged);
+            this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.RegChanged);
             // 
             // regionLabel
             // 
@@ -170,7 +170,7 @@
             this.advancedCheckBox.TabIndex = 8;
             this.advancedCheckBox.Text = "Use advanced settings";
             this.advancedCheckBox.UseVisualStyleBackColor = true;
-            this.advancedCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.advancedCheckBox.CheckedChanged += new System.EventHandler(this.AdvancedChecked);
             // 
             // groupLabel
             // 
@@ -189,7 +189,7 @@
             this.groupTextBox.Name = "groupTextBox";
             this.groupTextBox.Size = new System.Drawing.Size(234, 20);
             this.groupTextBox.TabIndex = 6;
-            this.groupTextBox.TextChanged += new System.EventHandler(this.groupTextBox_TextChanged);
+            this.groupTextBox.TextChanged += new System.EventHandler(this.GroupChanged);
             // 
             // zoneLabel
             // 
@@ -209,7 +209,7 @@
             this.serverTypeComboBox.Name = "serverTypeComboBox";
             this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
             this.serverTypeComboBox.TabIndex = 4;
-            this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.serverTypeComboBox_SelectedIndexChanged);
+            this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ServerTypeChanged);
             // 
             // zoneTextBox
             // 
@@ -218,7 +218,7 @@
             this.zoneTextBox.Name = "zoneTextBox";
             this.zoneTextBox.Size = new System.Drawing.Size(235, 20);
             this.zoneTextBox.TabIndex = 3;
-            this.zoneTextBox.TextChanged += new System.EventHandler(this.zoneTextBox_TextChanged);
+            this.zoneTextBox.TextChanged += new System.EventHandler(this.ZoneChanged);
             // 
             // typeLabel
             // 
@@ -237,7 +237,7 @@
             this.bucketTextBox.Name = "bucketTextBox";
             this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
             this.bucketTextBox.TabIndex = 1;
-            this.bucketTextBox.TextChanged += new System.EventHandler(this.bucketTextBox_TextChanged);
+            this.bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
             // 
             // bucketLabel
             // 
@@ -257,7 +257,7 @@
             this.nextButton.TabIndex = 10;
             this.nextButton.Text = "Next>";
             this.nextButton.UseVisualStyleBackColor = true;
-            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
             // CloudParametersForm
             // 
@@ -276,7 +276,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cloud parameters";
             this.TopMost = true;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

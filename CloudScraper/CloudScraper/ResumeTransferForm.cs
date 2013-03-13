@@ -11,11 +11,12 @@ namespace CloudScraper
 {
     public partial class ResumeTransferForm : Form
     {
-        NewResumeForm newResumeForm_;
-        CopyStartForm copyStartForm_;
-
         public static bool resumeUpload_;
         public static bool skipUpload_;
+        public static string resumeFilePath_;
+        
+        NewResumeForm newResumeForm_;
+        CopyStartForm copyStartForm_;
 
         public ResumeTransferForm(NewResumeForm newResumeForm)
         {
@@ -27,13 +28,13 @@ namespace CloudScraper
             skipUpload_ = false;
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
             this.newResumeForm_.Show();
         }
 
-        private void nextButton_Click(object sender, EventArgs e)
+        private void NextButtonClick(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -45,25 +46,22 @@ namespace CloudScraper
             copyStartForm_.ShowDialog();
         }
 
-        private void On_closed(object sender, FormClosedEventArgs e)
+        private void OnClosed(object sender, FormClosedEventArgs e)
         {
             this.newResumeForm_.Close();
         }
 
-        private void browseButton_Click(object sender, EventArgs e)
+        private void BrowseButtonClick(object sender, EventArgs e)
         {
             this.openFileDialog.Filter = "Transfer task file (*.ini)|*.ini";
             this.openFileDialog.Multiselect = false;
             this.openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
 
-            DialogResult result = this.openFileDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 this.resumeTextBox.Text = this.openFileDialog.FileName;
                 this.nextButton.Enabled = true;
             }
-
         }
 
         private void OnPathChanged(object sender, EventArgs e)
@@ -71,10 +69,11 @@ namespace CloudScraper
             if ((sender as TextBox).Text == "")
             {
                 this.nextButton.Enabled = false;
+                resumeFilePath_ = this.resumeTextBox.Text;
             }
         }
 
-        private void resumeUploadCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void ResumeUploadCheckedChanged(object sender, EventArgs e)
         {
             if (this.redeployUploadCheckBox.Checked &&
                 this.resumeUploadCheckBox.Checked)
@@ -86,7 +85,7 @@ namespace CloudScraper
             resumeUpload_ = this.resumeUploadCheckBox.Checked;
         }
 
-        private void redeployUploadCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void RedeployUploadCheckedChanged(object sender, EventArgs e)
         {
             if (this.redeployUploadCheckBox.Checked &&
                 this.resumeUploadCheckBox.Checked)

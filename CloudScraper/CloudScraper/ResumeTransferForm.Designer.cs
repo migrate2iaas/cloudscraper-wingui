@@ -47,7 +47,7 @@
             this.backButton.TabIndex = 0;
             this.backButton.Text = "<Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // resumeUploadCheckBox
             // 
@@ -58,7 +58,7 @@
             this.resumeUploadCheckBox.TabIndex = 1;
             this.resumeUploadCheckBox.Text = "Resume Upload (check if your images is already created)";
             this.resumeUploadCheckBox.UseVisualStyleBackColor = true;
-            this.resumeUploadCheckBox.CheckedChanged += new System.EventHandler(this.resumeUploadCheckBox_CheckedChanged);
+            this.resumeUploadCheckBox.CheckedChanged += new System.EventHandler(this.ResumeUploadCheckedChanged);
             // 
             // redeployUploadCheckBox
             // 
@@ -69,7 +69,7 @@
             this.redeployUploadCheckBox.TabIndex = 2;
             this.redeployUploadCheckBox.Text = "Redeploy Uploaded Image (creates cloud server from the image already uploaded)";
             this.redeployUploadCheckBox.UseVisualStyleBackColor = true;
-            this.redeployUploadCheckBox.CheckedChanged += new System.EventHandler(this.redeployUploadCheckBox_CheckedChanged);
+            this.redeployUploadCheckBox.CheckedChanged += new System.EventHandler(this.RedeployUploadCheckedChanged);
             // 
             // nextButton
             // 
@@ -80,7 +80,7 @@
             this.nextButton.TabIndex = 3;
             this.nextButton.Text = "Next>";
             this.nextButton.UseVisualStyleBackColor = true;
-            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
             // browseButton
             // 
@@ -90,7 +90,7 @@
             this.browseButton.TabIndex = 4;
             this.browseButton.Text = "Browse...";
             this.browseButton.UseVisualStyleBackColor = true;
-            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            this.browseButton.Click += new System.EventHandler(this.BrowseButtonClick);
             // 
             // resumeTextBox
             // 
@@ -129,7 +129,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resume your transfer";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

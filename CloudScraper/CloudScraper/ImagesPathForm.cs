@@ -11,10 +11,10 @@ namespace CloudScraper
 {
     public partial class ImagesPathForm : Form
     {
+        public static string imagesPath_;
+
         CloudParametersForm cloudParametersForm_;
         SaveTransferTaskForm saveTransferTaskForm_;
-
-        public static string imagesPath_;
 
         public ImagesPathForm(CloudParametersForm cloudParametersForm)
         {
@@ -22,16 +22,13 @@ namespace CloudScraper
             InitializeComponent();      
         }
 
-        private void browseButton_Click(object sender, EventArgs e)
+        private void BrowseButtonClick(object sender, EventArgs e)
         {
-            DialogResult result = this.folderBrowserDialog.ShowDialog();
-
-            if (result == System.Windows.Forms.DialogResult.OK)
+            if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 this.browseTextBox.Text = this.folderBrowserDialog.SelectedPath;
                 imagesPath_ = this.browseTextBox.Text;
 
-                //DirectoryInfo info = Directory.GetParent(this.folderBrowserDialog.SelectedPath);
                 string rootName = Directory.GetDirectoryRoot(this.folderBrowserDialog.SelectedPath);
                 DriveInfo[] drives = DriveInfo.GetDrives();
                 foreach (DriveInfo drive in drives)
@@ -45,13 +42,13 @@ namespace CloudScraper
             }
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
             this.cloudParametersForm_.Show();
         }
 
-        private void nextButton_Click(object sender, EventArgs e)
+        private void NextButtonClick(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -63,12 +60,12 @@ namespace CloudScraper
             this.saveTransferTaskForm_.ShowDialog();
         }
 
-        private void On_closed(object sender, FormClosedEventArgs e)
+        private void OnClosed(object sender, FormClosedEventArgs e)
         {
             this.cloudParametersForm_.Close();
         }
 
-        private void ImagesPathForm_Load(object sender, EventArgs e)
+        private void ImagesPathFormLoad(object sender, EventArgs e)
         {
             this.totalSpace.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB";
 
@@ -77,6 +74,7 @@ namespace CloudScraper
 
             string rootName = Directory.GetDirectoryRoot(this.browseTextBox.Text);
             DriveInfo[] drives = DriveInfo.GetDrives();
+
             foreach (DriveInfo drive in drives)
             {
                 if (rootName == drive.Name)
@@ -86,6 +84,5 @@ namespace CloudScraper
                 }
             }
         }
-
     }
 }

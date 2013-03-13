@@ -11,10 +11,10 @@ namespace CloudScraper
 {
     public partial class SaveTransferTaskForm : Form
     {
+        public static string transferPath_;
+
         ImagesPathForm imagesPathForm_;
         CopyStartForm copyStartForm_;
-
-        public static string transferPath_;
 
         public SaveTransferTaskForm(ImagesPathForm imagesPathForm)
         {
@@ -22,18 +22,15 @@ namespace CloudScraper
             InitializeComponent();
 
             this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "transfer.ini";
-
             transferPath_ = this.saveTransferTextBox.Text;
         }
 
         private void saveTransferTask_Click(object sender, EventArgs e)
         {
-
             this.saveFileDialog.Filter = "Transfer Task File (*.ini)|*.ini";
             this.saveFileDialog.DefaultExt = "." + "ini";
  
             DialogResult result = this.saveFileDialog.ShowDialog();
-
             if (result == DialogResult.OK)
             {
                 this.saveTransferTextBox.Text = this.saveFileDialog.FileName;
@@ -41,13 +38,13 @@ namespace CloudScraper
             }
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
             this.imagesPathForm_.Show();
         }
 
-        private void nextButton_Click(object sender, EventArgs e)
+        private void NextButtonClick(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -59,7 +56,7 @@ namespace CloudScraper
             copyStartForm_.ShowDialog();
         }
 
-        private void On_closed(object sender, FormClosedEventArgs e)
+        private void OnClosed(object sender, FormClosedEventArgs e)
         {
             this.imagesPathForm_.Close();
         }

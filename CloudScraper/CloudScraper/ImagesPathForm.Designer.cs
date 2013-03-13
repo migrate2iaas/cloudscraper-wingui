@@ -49,7 +49,7 @@
             this.browseButton.TabIndex = 0;
             this.browseButton.Text = "Browse...";
             this.browseButton.UseVisualStyleBackColor = true;
-            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            this.browseButton.Click += new System.EventHandler(this.BrowseButtonClick);
             // 
             // browseTextBox
             // 
@@ -66,7 +66,7 @@
             this.backButton.TabIndex = 2;
             this.backButton.Text = "<Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // nextButton
             // 
@@ -76,7 +76,7 @@
             this.nextButton.TabIndex = 3;
             this.nextButton.Text = "Next>";
             this.nextButton.UseVisualStyleBackColor = true;
-            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
             // freeSpaceLabel
             // 
@@ -146,8 +146,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Folder select";
             this.TopMost = true;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
-            this.Load += new System.EventHandler(this.ImagesPathForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
+            this.Load += new System.EventHandler(this.ImagesPathFormLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 
