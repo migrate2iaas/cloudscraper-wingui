@@ -39,6 +39,7 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.securityGroupLabel = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.availabilityLabel = new System.Windows.Forms.Label();
@@ -55,7 +56,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 227);
+            this.backButton.Location = new System.Drawing.Point(12, 260);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
@@ -70,7 +71,7 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(465, 196);
+            this.tabControl1.Size = new System.Drawing.Size(465, 242);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -84,30 +85,32 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(457, 170);
+            this.tabPage1.Size = new System.Drawing.Size(457, 216);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Basic";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // awsKeyTextBox
             // 
-            this.awsKeyTextBox.Location = new System.Drawing.Point(174, 126);
+            this.awsKeyTextBox.Location = new System.Drawing.Point(170, 139);
             this.awsKeyTextBox.Name = "awsKeyTextBox";
             this.awsKeyTextBox.PasswordChar = '*';
             this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
             this.awsKeyTextBox.TabIndex = 7;
+            this.awsKeyTextBox.TextChanged += new System.EventHandler(this.awsKeyTextBox_TextChanged);
             // 
             // awsIDtextBox
             // 
-            this.awsIDtextBox.Location = new System.Drawing.Point(174, 76);
+            this.awsIDtextBox.Location = new System.Drawing.Point(170, 89);
             this.awsIDtextBox.Name = "awsIDtextBox";
             this.awsIDtextBox.Size = new System.Drawing.Size(220, 20);
             this.awsIDtextBox.TabIndex = 3;
+            this.awsIDtextBox.TextChanged += new System.EventHandler(this.awsIDtextBox_TextChanged);
             // 
             // awsKeyLabel
             // 
             this.awsKeyLabel.AutoSize = true;
-            this.awsKeyLabel.Location = new System.Drawing.Point(56, 129);
+            this.awsKeyLabel.Location = new System.Drawing.Point(52, 142);
             this.awsKeyLabel.Name = "awsKeyLabel";
             this.awsKeyLabel.Size = new System.Drawing.Size(112, 13);
             this.awsKeyLabel.TabIndex = 6;
@@ -116,7 +119,7 @@
             // awsIdLabel
             // 
             this.awsIdLabel.AutoSize = true;
-            this.awsIdLabel.Location = new System.Drawing.Point(98, 79);
+            this.awsIdLabel.Location = new System.Drawing.Point(94, 92);
             this.awsIdLabel.Name = "awsIdLabel";
             this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
             this.awsIdLabel.TabIndex = 4;
@@ -124,15 +127,16 @@
             // 
             // regionComboBox
             // 
-            this.regionComboBox.Location = new System.Drawing.Point(173, 24);
+            this.regionComboBox.Location = new System.Drawing.Point(169, 37);
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
+            this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.regionComboBox_SelectedIndexChanged);
             // 
             // regionLabel
             // 
             this.regionLabel.AutoSize = true;
-            this.regionLabel.Location = new System.Drawing.Point(85, 27);
+            this.regionLabel.Location = new System.Drawing.Point(81, 40);
             this.regionLabel.Name = "regionLabel";
             this.regionLabel.Size = new System.Drawing.Size(83, 13);
             this.regionLabel.TabIndex = 2;
@@ -140,6 +144,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBox1);
             this.tabPage2.Controls.Add(this.securityGroupLabel);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.availabilityLabel);
@@ -151,15 +156,27 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(457, 170);
+            this.tabPage2.Size = new System.Drawing.Size(457, 216);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(45, 15);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(135, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Use advanced settings";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // securityGroupLabel
             // 
             this.securityGroupLabel.AutoSize = true;
-            this.securityGroupLabel.Location = new System.Drawing.Point(28, 138);
+            this.securityGroupLabel.Enabled = false;
+            this.securityGroupLabel.Location = new System.Drawing.Point(31, 184);
             this.securityGroupLabel.Name = "securityGroupLabel";
             this.securityGroupLabel.Size = new System.Drawing.Size(137, 13);
             this.securityGroupLabel.TabIndex = 7;
@@ -167,15 +184,18 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(171, 135);
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(174, 181);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(234, 20);
             this.textBox2.TabIndex = 6;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // availabilityLabel
             // 
             this.availabilityLabel.AutoSize = true;
-            this.availabilityLabel.Location = new System.Drawing.Point(20, 95);
+            this.availabilityLabel.Enabled = false;
+            this.availabilityLabel.Location = new System.Drawing.Point(24, 140);
             this.availabilityLabel.Name = "availabilityLabel";
             this.availabilityLabel.Size = new System.Drawing.Size(145, 13);
             this.availabilityLabel.TabIndex = 5;
@@ -183,23 +203,28 @@
             // 
             // serverTypeComboBox
             // 
+            this.serverTypeComboBox.Enabled = false;
             this.serverTypeComboBox.FormattingEnabled = true;
-            this.serverTypeComboBox.Location = new System.Drawing.Point(172, 56);
+            this.serverTypeComboBox.Location = new System.Drawing.Point(173, 90);
             this.serverTypeComboBox.Name = "serverTypeComboBox";
             this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
             this.serverTypeComboBox.TabIndex = 4;
+            this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.serverTypeComboBox_SelectedIndexChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 92);
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(173, 137);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(235, 20);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cloudServerTypeLabel
             // 
             this.cloudServerTypeLabel.AutoSize = true;
-            this.cloudServerTypeLabel.Location = new System.Drawing.Point(14, 59);
+            this.cloudServerTypeLabel.Enabled = false;
+            this.cloudServerTypeLabel.Location = new System.Drawing.Point(17, 93);
             this.cloudServerTypeLabel.Name = "cloudServerTypeLabel";
             this.cloudServerTypeLabel.Size = new System.Drawing.Size(152, 13);
             this.cloudServerTypeLabel.TabIndex = 2;
@@ -207,15 +232,18 @@
             // 
             // bucketTextBox
             // 
-            this.bucketTextBox.Location = new System.Drawing.Point(171, 19);
+            this.bucketTextBox.Enabled = false;
+            this.bucketTextBox.Location = new System.Drawing.Point(172, 46);
             this.bucketTextBox.Name = "bucketTextBox";
             this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
             this.bucketTextBox.TabIndex = 1;
+            this.bucketTextBox.TextChanged += new System.EventHandler(this.bucketTextBox_TextChanged);
             // 
             // bucketLabel
             // 
             this.bucketLabel.AutoSize = true;
-            this.bucketLabel.Location = new System.Drawing.Point(44, 22);
+            this.bucketLabel.Enabled = false;
+            this.bucketLabel.Location = new System.Drawing.Point(45, 49);
             this.bucketLabel.Name = "bucketLabel";
             this.bucketLabel.Size = new System.Drawing.Size(121, 13);
             this.bucketLabel.TabIndex = 0;
@@ -223,7 +251,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(403, 227);
+            this.nextButton.Location = new System.Drawing.Point(403, 260);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 10;
@@ -235,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 262);
+            this.ClientSize = new System.Drawing.Size(489, 295);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.backButton);
@@ -279,5 +307,6 @@
         private System.Windows.Forms.TextBox bucketTextBox;
         private System.Windows.Forms.Label bucketLabel;
         private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
