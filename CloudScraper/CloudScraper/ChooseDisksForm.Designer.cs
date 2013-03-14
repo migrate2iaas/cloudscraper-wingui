@@ -40,7 +40,7 @@
             // nextButton
             // 
             this.nextButton.Enabled = false;
-            this.nextButton.Location = new System.Drawing.Point(480, 226);
+            this.nextButton.Location = new System.Drawing.Point(480, 262);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(386, 226);
+            this.backButton.Location = new System.Drawing.Point(386, 262);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
@@ -61,7 +61,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 231);
+            this.label1.Location = new System.Drawing.Point(12, 267);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 3;
@@ -70,7 +70,7 @@
             // totalSpaceLabel
             // 
             this.totalSpaceLabel.AutoSize = true;
-            this.totalSpaceLabel.Location = new System.Drawing.Point(121, 231);
+            this.totalSpaceLabel.Location = new System.Drawing.Point(121, 267);
             this.totalSpaceLabel.Name = "totalSpaceLabel";
             this.totalSpaceLabel.Size = new System.Drawing.Size(28, 13);
             this.totalSpaceLabel.TabIndex = 4;
@@ -92,7 +92,7 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(543, 188);
+            this.dataGridView.Size = new System.Drawing.Size(543, 238);
             this.dataGridView.TabIndex = 5;
             this.dataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnSelect);
             // 
@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 262);
+            this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.totalSpaceLabel);
             this.Controls.Add(this.label1);

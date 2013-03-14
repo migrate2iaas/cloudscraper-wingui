@@ -39,14 +39,14 @@
             // 
             // saveTransferTextBox
             // 
-            this.saveTransferTextBox.Location = new System.Drawing.Point(12, 47);
+            this.saveTransferTextBox.Location = new System.Drawing.Point(57, 124);
             this.saveTransferTextBox.Name = "saveTransferTextBox";
             this.saveTransferTextBox.Size = new System.Drawing.Size(387, 20);
             this.saveTransferTextBox.TabIndex = 0;
             // 
             // saveTransferTask
             // 
-            this.saveTransferTask.Location = new System.Drawing.Point(405, 45);
+            this.saveTransferTask.Location = new System.Drawing.Point(450, 122);
             this.saveTransferTask.Name = "saveTransferTask";
             this.saveTransferTask.Size = new System.Drawing.Size(75, 23);
             this.saveTransferTask.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(406, 93);
+            this.nextButton.Location = new System.Drawing.Point(480, 263);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(13, 93);
+            this.backButton.Location = new System.Drawing.Point(12, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 3;
@@ -77,7 +77,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(163, 18);
+            this.label1.Location = new System.Drawing.Point(208, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 13);
             this.label1.TabIndex = 4;
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 129);
+            this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.nextButton);

@@ -36,7 +36,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(197, 227);
+            this.startButton.Location = new System.Drawing.Point(480, 263);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(75, 23);
             this.startButton.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(13, 227);
+            this.backButton.Location = new System.Drawing.Point(12, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
@@ -59,14 +59,14 @@
             this.processListBox.FormattingEnabled = true;
             this.processListBox.Location = new System.Drawing.Point(13, 13);
             this.processListBox.Name = "processListBox";
-            this.processListBox.Size = new System.Drawing.Size(259, 199);
+            this.processListBox.Size = new System.Drawing.Size(542, 238);
             this.processListBox.TabIndex = 2;
             // 
             // CopyStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.processListBox);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.startButton);
