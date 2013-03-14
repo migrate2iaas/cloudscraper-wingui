@@ -24,6 +24,8 @@ namespace CloudScraper
 
         private void BrowseButtonClick(object sender, EventArgs e)
         {
+            this.folderBrowserDialog.SelectedPath = Directory.GetCurrentDirectory();
+
             if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 this.browseTextBox.Text = this.folderBrowserDialog.SelectedPath;
