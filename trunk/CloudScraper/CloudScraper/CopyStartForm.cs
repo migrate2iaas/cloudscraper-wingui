@@ -26,6 +26,7 @@ namespace CloudScraper
         public BindingList<MessageInfo> messages_;
         
         private System.Timers.Timer timer_ = new System.Timers.Timer();
+        delegate void MyDelegate();
 
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
@@ -34,9 +35,8 @@ namespace CloudScraper
             this.saveTransferForm_ = saveTransferForm;
             
             InitializeComponent();
-            CopyStartForm.CheckForIllegalCrossThreadCalls = false;
-
             this.messageGridView.DataSource = this.messages_;
+
         }
 
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
@@ -46,8 +46,6 @@ namespace CloudScraper
             this.resumeTransferForm_ = resumeTransferForm;
             
             InitializeComponent();
-            CopyStartForm.CheckForIllegalCrossThreadCalls = false;
-
             this.messageGridView.DataSource = this.messages_;
         }
 
@@ -153,66 +151,65 @@ namespace CloudScraper
             this.startButton.Enabled = false;
             this.backButton.Enabled = false;
 
-            timer_.Interval = 10000;
+            timer_.Interval = 2000;
             timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
             timer_.Start();
             
+            //Thread task = new Thread(new ThreadStart(this.Time));
+            //task.Start();
             //this.processListBox.Items.Add("Process start...");
             //Thread.Sleep(20000);
             //p.WaitForExit();
+            //this.Work();
+            //this.Work();
+            //    this.Work();
 
             //this.processListBox.Items.Add("Process stoped...");
             //this.startButton.Enabled = true;
             //this.SendMail();
         }
 
-        private int a = 0;
-        void timer__Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+
+
+        public void Work()
         {
-            //this.messageGridView.BeginInvoke(new Action<object>((obj) => {
-            if (a == 0)
-            {
+
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(16, 16)),
                     Message = DateTime.Now.ToString()
                 });
-                a++;
-            }
 
-            if (a == 1)
-            {
+
+
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\error.png"), new Size(16, 16)),
                     Message = DateTime.Now.ToString()
                 });
-                a++;
 
-            }
 
-            if (a == 2)
-            {
+
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\arrow.png"), new Size(16, 16)),
                     Message = DateTime.Now.ToString()
                 });
-                a++;
 
-            }
 
-            if (a == 3)
-            {
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\accept.png"), new Size(16, 16)),
                     Message = DateTime.Now.ToString()
                 });
-                a = 0;
+        }
 
-            }
-           // }), null);
+        void timer__Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            this.messageGridView.BeginInvoke(new MyDelegate(() =>
+            {
+                this.Work();
+            })); 
         }
 
         public void OnTimerTick(object obj)

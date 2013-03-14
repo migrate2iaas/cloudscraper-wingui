@@ -71,10 +71,15 @@
             this.messageGridView.Name = "messageGridView";
             this.messageGridView.ReadOnly = true;
             this.messageGridView.RowHeadersVisible = false;
-            this.messageGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.messageGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.messageGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.messageGridView.Size = new System.Drawing.Size(542, 239);
+            this.messageGridView.ShowCellErrors = false;
+            this.messageGridView.ShowCellToolTips = false;
+            this.messageGridView.ShowEditingIcon = false;
+            this.messageGridView.ShowRowErrors = false;
+            this.messageGridView.Size = new System.Drawing.Size(542, 234);
             this.messageGridView.TabIndex = 3;
+            this.messageGridView.VirtualMode = true;
             // 
             // CopyStartForm
             // 
