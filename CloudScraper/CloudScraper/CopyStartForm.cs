@@ -198,6 +198,17 @@ namespace CloudScraper
                     Image = new Bitmap(Image.FromFile("Icons\\arrow.png"), new Size(16, 16)),
                     Message = DateTime.Now.ToString()
                 });
+                a++;
+
+            }
+
+            if (a == 3)
+            {
+                this.messages_.Insert(0, new MessageInfo()
+                {
+                    Image = new Bitmap(Image.FromFile("Icons\\accept.png"), new Size(16, 16)),
+                    Message = DateTime.Now.ToString()
+                });
                 a = 0;
 
             }

@@ -69,7 +69,9 @@
             this.messageGridView.Location = new System.Drawing.Point(13, 12);
             this.messageGridView.MultiSelect = false;
             this.messageGridView.Name = "messageGridView";
+            this.messageGridView.ReadOnly = true;
             this.messageGridView.RowHeadersVisible = false;
+            this.messageGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.messageGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.messageGridView.Size = new System.Drawing.Size(542, 239);
             this.messageGridView.TabIndex = 3;
