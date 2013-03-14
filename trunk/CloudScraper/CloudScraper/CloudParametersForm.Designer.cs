@@ -71,7 +71,7 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(465, 242);
+            this.tabControl1.Size = new System.Drawing.Size(542, 242);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -85,14 +85,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(457, 216);
+            this.tabPage1.Size = new System.Drawing.Size(534, 216);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Basic";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // awsKeyTextBox
             // 
-            this.awsKeyTextBox.Location = new System.Drawing.Point(170, 139);
+            this.awsKeyTextBox.Location = new System.Drawing.Point(193, 140);
             this.awsKeyTextBox.Name = "awsKeyTextBox";
             this.awsKeyTextBox.PasswordChar = '*';
             this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
@@ -101,7 +101,7 @@
             // 
             // awsIdTextBox
             // 
-            this.awsIdTextBox.Location = new System.Drawing.Point(170, 89);
+            this.awsIdTextBox.Location = new System.Drawing.Point(193, 90);
             this.awsIdTextBox.Name = "awsIdTextBox";
             this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
             this.awsIdTextBox.TabIndex = 3;
@@ -110,7 +110,7 @@
             // awsKeyLabel
             // 
             this.awsKeyLabel.AutoSize = true;
-            this.awsKeyLabel.Location = new System.Drawing.Point(52, 142);
+            this.awsKeyLabel.Location = new System.Drawing.Point(75, 143);
             this.awsKeyLabel.Name = "awsKeyLabel";
             this.awsKeyLabel.Size = new System.Drawing.Size(112, 13);
             this.awsKeyLabel.TabIndex = 6;
@@ -119,7 +119,7 @@
             // awsIdLabel
             // 
             this.awsIdLabel.AutoSize = true;
-            this.awsIdLabel.Location = new System.Drawing.Point(94, 92);
+            this.awsIdLabel.Location = new System.Drawing.Point(117, 93);
             this.awsIdLabel.Name = "awsIdLabel";
             this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
             this.awsIdLabel.TabIndex = 4;
@@ -127,7 +127,7 @@
             // 
             // regionComboBox
             // 
-            this.regionComboBox.Location = new System.Drawing.Point(169, 37);
+            this.regionComboBox.Location = new System.Drawing.Point(192, 38);
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
@@ -136,7 +136,7 @@
             // regionLabel
             // 
             this.regionLabel.AutoSize = true;
-            this.regionLabel.Location = new System.Drawing.Point(81, 40);
+            this.regionLabel.Location = new System.Drawing.Point(104, 41);
             this.regionLabel.Name = "regionLabel";
             this.regionLabel.Size = new System.Drawing.Size(83, 13);
             this.regionLabel.TabIndex = 2;
@@ -156,7 +156,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(457, 216);
+            this.tabPage2.Size = new System.Drawing.Size(534, 216);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             // advancedCheckBox
             // 
             this.advancedCheckBox.AutoSize = true;
-            this.advancedCheckBox.Location = new System.Drawing.Point(45, 15);
+            this.advancedCheckBox.Location = new System.Drawing.Point(90, 15);
             this.advancedCheckBox.Name = "advancedCheckBox";
             this.advancedCheckBox.Size = new System.Drawing.Size(135, 17);
             this.advancedCheckBox.TabIndex = 8;
@@ -176,7 +176,7 @@
             // 
             this.groupLabel.AutoSize = true;
             this.groupLabel.Enabled = false;
-            this.groupLabel.Location = new System.Drawing.Point(31, 184);
+            this.groupLabel.Location = new System.Drawing.Point(76, 184);
             this.groupLabel.Name = "groupLabel";
             this.groupLabel.Size = new System.Drawing.Size(137, 13);
             this.groupLabel.TabIndex = 7;
@@ -185,7 +185,7 @@
             // groupTextBox
             // 
             this.groupTextBox.Enabled = false;
-            this.groupTextBox.Location = new System.Drawing.Point(174, 181);
+            this.groupTextBox.Location = new System.Drawing.Point(219, 181);
             this.groupTextBox.Name = "groupTextBox";
             this.groupTextBox.Size = new System.Drawing.Size(234, 20);
             this.groupTextBox.TabIndex = 6;
@@ -195,7 +195,7 @@
             // 
             this.zoneLabel.AutoSize = true;
             this.zoneLabel.Enabled = false;
-            this.zoneLabel.Location = new System.Drawing.Point(24, 140);
+            this.zoneLabel.Location = new System.Drawing.Point(69, 140);
             this.zoneLabel.Name = "zoneLabel";
             this.zoneLabel.Size = new System.Drawing.Size(145, 13);
             this.zoneLabel.TabIndex = 5;
@@ -205,7 +205,7 @@
             // 
             this.serverTypeComboBox.Enabled = false;
             this.serverTypeComboBox.FormattingEnabled = true;
-            this.serverTypeComboBox.Location = new System.Drawing.Point(173, 90);
+            this.serverTypeComboBox.Location = new System.Drawing.Point(218, 90);
             this.serverTypeComboBox.Name = "serverTypeComboBox";
             this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
             this.serverTypeComboBox.TabIndex = 4;
@@ -214,7 +214,7 @@
             // zoneTextBox
             // 
             this.zoneTextBox.Enabled = false;
-            this.zoneTextBox.Location = new System.Drawing.Point(173, 137);
+            this.zoneTextBox.Location = new System.Drawing.Point(218, 137);
             this.zoneTextBox.Name = "zoneTextBox";
             this.zoneTextBox.Size = new System.Drawing.Size(235, 20);
             this.zoneTextBox.TabIndex = 3;
@@ -224,7 +224,7 @@
             // 
             this.typeLabel.AutoSize = true;
             this.typeLabel.Enabled = false;
-            this.typeLabel.Location = new System.Drawing.Point(17, 93);
+            this.typeLabel.Location = new System.Drawing.Point(62, 93);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(152, 13);
             this.typeLabel.TabIndex = 2;
@@ -233,7 +233,7 @@
             // bucketTextBox
             // 
             this.bucketTextBox.Enabled = false;
-            this.bucketTextBox.Location = new System.Drawing.Point(172, 46);
+            this.bucketTextBox.Location = new System.Drawing.Point(217, 46);
             this.bucketTextBox.Name = "bucketTextBox";
             this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
             this.bucketTextBox.TabIndex = 1;
@@ -243,7 +243,7 @@
             // 
             this.bucketLabel.AutoSize = true;
             this.bucketLabel.Enabled = false;
-            this.bucketLabel.Location = new System.Drawing.Point(45, 49);
+            this.bucketLabel.Location = new System.Drawing.Point(90, 49);
             this.bucketLabel.Name = "bucketLabel";
             this.bucketLabel.Size = new System.Drawing.Size(121, 13);
             this.bucketLabel.TabIndex = 0;
@@ -251,7 +251,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(402, 263);
+            this.nextButton.Location = new System.Drawing.Point(476, 263);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 10;
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 298);
+            this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.backButton);

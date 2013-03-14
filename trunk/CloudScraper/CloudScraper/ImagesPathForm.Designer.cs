@@ -43,7 +43,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(370, 60);
+            this.browseButton.Location = new System.Drawing.Point(436, 124);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 0;
@@ -53,14 +53,14 @@
             // 
             // browseTextBox
             // 
-            this.browseTextBox.Location = new System.Drawing.Point(12, 62);
+            this.browseTextBox.Location = new System.Drawing.Point(78, 126);
             this.browseTextBox.Name = "browseTextBox";
             this.browseTextBox.Size = new System.Drawing.Size(352, 20);
             this.browseTextBox.TabIndex = 1;
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 144);
+            this.backButton.Location = new System.Drawing.Point(12, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(370, 144);
+            this.nextButton.Location = new System.Drawing.Point(480, 263);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 3;
@@ -81,7 +81,7 @@
             // freeSpaceLabel
             // 
             this.freeSpaceLabel.AutoSize = true;
-            this.freeSpaceLabel.Location = new System.Drawing.Point(13, 119);
+            this.freeSpaceLabel.Location = new System.Drawing.Point(13, 238);
             this.freeSpaceLabel.Name = "freeSpaceLabel";
             this.freeSpaceLabel.Size = new System.Drawing.Size(65, 13);
             this.freeSpaceLabel.TabIndex = 4;
@@ -90,7 +90,7 @@
             // freeSpace
             // 
             this.freeSpace.AutoSize = true;
-            this.freeSpace.Location = new System.Drawing.Point(75, 119);
+            this.freeSpace.Location = new System.Drawing.Point(75, 238);
             this.freeSpace.Name = "freeSpace";
             this.freeSpace.Size = new System.Drawing.Size(28, 13);
             this.freeSpace.TabIndex = 5;
@@ -99,7 +99,7 @@
             // totalSpaceLabel
             // 
             this.totalSpaceLabel.AutoSize = true;
-            this.totalSpaceLabel.Location = new System.Drawing.Point(13, 95);
+            this.totalSpaceLabel.Location = new System.Drawing.Point(13, 214);
             this.totalSpaceLabel.Name = "totalSpaceLabel";
             this.totalSpaceLabel.Size = new System.Drawing.Size(114, 13);
             this.totalSpaceLabel.TabIndex = 6;
@@ -108,7 +108,7 @@
             // totalSpace
             // 
             this.totalSpace.AutoSize = true;
-            this.totalSpace.Location = new System.Drawing.Point(124, 95);
+            this.totalSpace.Location = new System.Drawing.Point(124, 214);
             this.totalSpace.Name = "totalSpace";
             this.totalSpace.Size = new System.Drawing.Size(28, 13);
             this.totalSpace.TabIndex = 7;
@@ -117,7 +117,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 24);
+            this.label1.Location = new System.Drawing.Point(124, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(292, 13);
             this.label1.TabIndex = 8;
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 180);
+            this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.totalSpace);
             this.Controls.Add(this.totalSpaceLabel);
