@@ -65,6 +65,10 @@ namespace CloudScraper
                     {
                         stream.WriteLine("instance-type = " + CloudParametersForm.type_);
                     }
+                    else
+                    {
+                        stream.WriteLine("instance-type = ");
+                    }
                     stream.WriteLine("target-arch = x86_64");
                     stream.WriteLine("s3key = " + CloudParametersForm.awsId_);
                     stream.WriteLine("bucket = " + CloudParametersForm.s3bucket_);
@@ -76,28 +80,36 @@ namespace CloudScraper
                     string letters = null;
                     foreach (string str in ChooseDisksForm.selectedDisks_)
                     {
-                        letters = letters == null ? str.Replace(":\\", "") : letters + "," + str.Replace(":\\", "");  
+                        letters = letters == null ? str.Replace(":\\", "") : letters + "," + str.Replace(":\\", "");
                     }
                     stream.WriteLine("letters = " + letters);
                 }
             }
 
+            using (StreamWriter stream = new StreamWriter("migrate.cmd", false))
+            {
+                stream.WriteLine("@echo off");
+                stream.WriteLine("set PATH=%PATH%;%~dp0\\3rdparty\\Portable_Python_2.7.3.1\\App");
+                stream.WriteLine("cd /d \"%~dp0\\Migrate\\Migrate\"");
+                stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    " -k " + CloudParametersForm.awsKey_ + 
+                    " -c " + SaveTransferTaskForm.transferPath_ + 
+                    " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+            }
+
             Process p = new Process();
 
-            ProcessStartInfo info = new ProcessStartInfo(Directory.GetCurrentDirectory() + 
-                "\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py -config " + 
-                SaveTransferTaskForm.transferPath_ + " --amazonkey " + 
-                CloudParametersForm.awsKey_ + " --output " + "test.log");
+            ProcessStartInfo info = new ProcessStartInfo("migrate.cmd");
 
+            info.UseShellExecute = true;
             p.StartInfo = info;
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.Exited += new EventHandler(p_Exited);
 
-            p.EnableRaisingEvents = true;
+            // p.EnableRaisingEvents = true;
             p.Start();
             this.processListBox.Items.Add("Process start...");
             p.WaitForExit();
-
             this.processListBox.Items.Add("Process stoped...");
 
             //this.SendMail();
