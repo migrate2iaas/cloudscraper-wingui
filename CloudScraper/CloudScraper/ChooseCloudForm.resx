@@ -118,39 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="amazonButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE4SURBVFhH7ZZRDoQgDEQ9ukfzZu62OmSsLRRWvxYSo0Fg
-        XjtNdVnmmBmYGahnYP++tterOYOYiOzrut4uArIgHizPVcF1IQTxvDuD15wnXvZ60DJ3grsQRRh6NQBZ
-        Qwfe9nrQMmesvIDoIT2Ds5XZZ+202RgGyIhHNhaIbds0PbjLc2u0LGrtJ0sOKyBuCqx6TgY0UQ+lFtQG
-        AZGLQTLR9K5xa0CEMRjkl0g9MNjHEBq1N2BNb4SRMMSRZUCEAE8I4wzYarOrLTfKwCgAmg7vh7DMvZqB
-        TM1YgMeykOkPnrgCZMhblnCR2bWe92gCpQdkQKKa4WYGMb47X9F7E2pFyG07ErEfHttdiyo9XLpgBMHe
-        Jb753X9Spf16kTmFE/39eAGm56p/NrZ/p08dWPhKdAMcc8ufZOADgL7Fek7oNJgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="windowsAzureButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE4SURBVFhH7ZZRDoQgDEQ9ukfzZu62OmSsLRRWvxYSo0Fg
-        XjtNdVnmmBmYGahnYP++tterOYOYiOzrut4uArIgHizPVcF1IQTxvDuD15wnXvZ60DJ3grsQRRh6NQBZ
-        Qwfe9nrQMmesvIDoIT2Ds5XZZ+202RgGyIhHNhaIbds0PbjLc2u0LGrtJ0sOKyBuCqx6TgY0UQ+lFtQG
-        AZGLQTLR9K5xa0CEMRjkl0g9MNjHEBq1N2BNb4SRMMSRZUCEAE8I4wzYarOrLTfKwCgAmg7vh7DMvZqB
-        TM1YgMeykOkPnrgCZMhblnCR2bWe92gCpQdkQKKa4WYGMb47X9F7E2pFyG07ErEfHttdiyo9XLpgBMHe
-        Jb753X9Spf16kTmFE/39eAGm56p/NrZ/p08dWPhKdAMcc8ufZOADgL7Fek7oNJgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="elasticHostsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE4SURBVFhH7ZZRDoQgDEQ9ukfzZu62OmSsLRRWvxYSo0Fg
-        XjtNdVnmmBmYGahnYP++tterOYOYiOzrut4uArIgHizPVcF1IQTxvDuD15wnXvZ60DJ3grsQRRh6NQBZ
-        Qwfe9nrQMmesvIDoIT2Ds5XZZ+202RgGyIhHNhaIbds0PbjLc2u0LGrtJ0sOKyBuCqx6TgY0UQ+lFtQG
-        AZGLQTLR9K5xa0CEMRjkl0g9MNjHEBq1N2BNb4SRMMSRZUCEAE8I4wzYarOrLTfKwCgAmg7vh7DMvZqB
-        TM1YgMeykOkPnrgCZMhblnCR2bWe92gCpQdkQKKa4WYGMb47X9F7E2pFyG07ErEfHttdiyo9XLpgBMHe
-        Jb753X9Spf16kTmFE/39eAGm56p/NrZ/p08dWPhKdAMcc8ufZOADgL7Fek7oNJgAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAIAICAQAAAAAADoAgAAJgAAABAQEAAAAAAAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAIAC

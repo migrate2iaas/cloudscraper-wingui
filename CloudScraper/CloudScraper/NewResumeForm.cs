@@ -21,6 +21,9 @@ namespace CloudScraper
             ghost_.Show();
 
             InitializeComponent();
+
+            this.startNewButton.Image = new Bitmap(Image.FromFile("Icons\\StartNew.ico"), new Size(32, 32));
+            this.resumeButton.Image = new Bitmap(Image.FromFile("Icons\\Resume.ico"), new Size(32, 32));
         }
 
         private void StartNewButtonClick(object sender, EventArgs e)

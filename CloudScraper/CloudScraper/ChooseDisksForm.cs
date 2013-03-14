@@ -52,7 +52,7 @@ namespace CloudScraper
                         VolumeInfo volume = new VolumeInfo()
                         {
                             IsChecked = false,
-                            Image = new Bitmap(Resources.HD_Drive.ToBitmap(), new Size(24, 24)),
+                            Image = new Bitmap(Image.FromFile("Icons\\HD-Drive.ico"), new Size(24, 24)),
                             Name = info.VolumeLabel == "" ? info.DriveType + " (" + info.Name.Replace('\\', ')') :
                                     info.VolumeLabel + " (" + info.Name.Replace('\\', ')'),
                             ShortName = info.Name,
@@ -65,7 +65,7 @@ namespace CloudScraper
                         {
                             //string str = Environment.GetEnvironmentVariable("windir");
                             volume.IsChecked = true;
-                            volume.Image = new Bitmap(Resources.WindowsDrive.ToBitmap(), new Size(24, 24));
+                            volume.Image = new Bitmap(Image.FromFile("Icons\\WindowsDrive.ico"), new Size(24, 24));
                             totalSpaceRequired_ = volume.UsedSpace;
                             this.nextButton.Enabled = true;
                             this.totalSpaceLabel.Text = Math.Round(totalSpaceRequired_, 1).ToString() + "GB";

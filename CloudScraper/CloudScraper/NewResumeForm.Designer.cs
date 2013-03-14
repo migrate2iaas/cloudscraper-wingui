@@ -35,7 +35,6 @@
             // 
             // startNewButton
             // 
-            this.startNewButton.Image = global::CloudScraper.Properties.Resources._01;
             this.startNewButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.startNewButton.Location = new System.Drawing.Point(58, 42);
             this.startNewButton.Name = "startNewButton";
@@ -48,7 +47,6 @@
             // 
             // resumeButton
             // 
-            this.resumeButton.Image = global::CloudScraper.Properties.Resources._19;
             this.resumeButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.resumeButton.Location = new System.Drawing.Point(58, 108);
             this.resumeButton.Name = "resumeButton";
