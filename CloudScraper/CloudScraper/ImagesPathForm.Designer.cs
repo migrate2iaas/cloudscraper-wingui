@@ -53,9 +53,9 @@
             // 
             // browseTextBox
             // 
-            this.browseTextBox.Location = new System.Drawing.Point(78, 126);
+            this.browseTextBox.Location = new System.Drawing.Point(61, 126);
             this.browseTextBox.Name = "browseTextBox";
-            this.browseTextBox.Size = new System.Drawing.Size(352, 20);
+            this.browseTextBox.Size = new System.Drawing.Size(369, 20);
             this.browseTextBox.TabIndex = 1;
             // 
             // backButton

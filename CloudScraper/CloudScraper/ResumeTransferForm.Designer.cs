@@ -41,7 +41,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 172);
+            this.backButton.Location = new System.Drawing.Point(12, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
@@ -52,7 +52,7 @@
             // resumeUploadCheckBox
             // 
             this.resumeUploadCheckBox.AutoSize = true;
-            this.resumeUploadCheckBox.Location = new System.Drawing.Point(24, 113);
+            this.resumeUploadCheckBox.Location = new System.Drawing.Point(80, 155);
             this.resumeUploadCheckBox.Name = "resumeUploadCheckBox";
             this.resumeUploadCheckBox.Size = new System.Drawing.Size(294, 17);
             this.resumeUploadCheckBox.TabIndex = 1;
@@ -63,7 +63,7 @@
             // redeployUploadCheckBox
             // 
             this.redeployUploadCheckBox.AutoSize = true;
-            this.redeployUploadCheckBox.Location = new System.Drawing.Point(24, 136);
+            this.redeployUploadCheckBox.Location = new System.Drawing.Point(80, 178);
             this.redeployUploadCheckBox.Name = "redeployUploadCheckBox";
             this.redeployUploadCheckBox.Size = new System.Drawing.Size(413, 17);
             this.redeployUploadCheckBox.TabIndex = 2;
@@ -74,7 +74,7 @@
             // nextButton
             // 
             this.nextButton.Enabled = false;
-            this.nextButton.Location = new System.Drawing.Point(369, 172);
+            this.nextButton.Location = new System.Drawing.Point(480, 263);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(369, 59);
+            this.browseButton.Location = new System.Drawing.Point(425, 101);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 4;
@@ -94,7 +94,7 @@
             // 
             // resumeTextBox
             // 
-            this.resumeTextBox.Location = new System.Drawing.Point(24, 61);
+            this.resumeTextBox.Location = new System.Drawing.Point(80, 103);
             this.resumeTextBox.Name = "resumeTextBox";
             this.resumeTextBox.Size = new System.Drawing.Size(339, 20);
             this.resumeTextBox.TabIndex = 5;
@@ -103,7 +103,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(121, 22);
+            this.label1.Location = new System.Drawing.Point(177, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 13);
             this.label1.TabIndex = 6;
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 207);
+            this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resumeTextBox);
             this.Controls.Add(this.browseButton);
