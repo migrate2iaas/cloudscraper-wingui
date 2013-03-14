@@ -14,6 +14,8 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 
+using CloudScraper.Properties;
+
 namespace CloudScraper
 {
     public partial class CopyStartForm : Form
@@ -21,18 +23,42 @@ namespace CloudScraper
         SaveTransferTaskForm saveTransferForm_;
         ResumeTransferForm resumeTransferForm_;
 
+        BindingList<MessageInfo> messages_;
+
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
+            this.messages_ = new BindingList<MessageInfo>();
+            for (int i = 1; i < 1000; i++)
+            {
+                this.messages_.Add(new MessageInfo()
+                {
+                    Image = new Bitmap(Resources.WindowsDrive.ToBitmap(), new Size(24, 24)),
+                    Message = "Message"
+                });
+            }
             this.saveTransferForm_ = saveTransferForm;
-
-            CopyStartForm.CheckForIllegalCrossThreadCalls = false;
+            
             InitializeComponent();
+
+            this.messageGridView.DataSource = this.messages_;
         }
 
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
         {
+            this.messages_ = new BindingList<MessageInfo>();
+            for (int i = 1; i < 1000; i++)
+            {
+                this.messages_.Add(new MessageInfo()
+                {
+                    Image = new Bitmap(Resources.WindowsDrive.ToBitmap(), new Size(24, 24)),
+                    Message = i.ToString()
+                });
+            }
             this.resumeTransferForm_ = resumeTransferForm;
+            
             InitializeComponent();
+
+            this.messageGridView.DataSource = this.messages_;
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -164,5 +190,20 @@ namespace CloudScraper
 
             Smtp.Send(Message);
         }
+
+        private void CopyStartForm_Load(object sender, EventArgs e)
+        {
+            this.messageGridView.Columns[0].Width = 50;
+            this.messageGridView.Columns[0].ReadOnly = true;
+        }
+    }
+
+    public class MessageInfo
+    {
+        [DisplayName(" ")]
+        public Image Image { get; set; }
+
+        [DisplayName("Message")]
+        public string Message { get; set; }
     }
 }
