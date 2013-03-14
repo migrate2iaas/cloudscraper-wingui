@@ -60,6 +60,7 @@ namespace CloudScraper
             if (this.openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 this.resumeTextBox.Text = this.openFileDialog.FileName;
+                resumeFilePath_ = this.resumeTextBox.Text;
                 this.nextButton.Enabled = true;
             }
         }
