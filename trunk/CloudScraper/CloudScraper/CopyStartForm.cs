@@ -80,7 +80,7 @@ namespace CloudScraper
         {
             this.backButton.Enabled = false;
 
-            if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_)
+            if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
             {
                 using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false))
                 {
@@ -117,10 +117,36 @@ namespace CloudScraper
                 stream.WriteLine("@echo off");
                 stream.WriteLine("set PATH=%PATH%;%~dp0\\3rdparty\\Portable_Python_2.7.3.1\\App");
                 stream.WriteLine("cd /d \"%~dp0\\Migrate\\Migrate\"");
-                stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                    " -k " + CloudParametersForm.awsKey_ + 
-                    " -c " + SaveTransferTaskForm.transferPath_ + 
-                    " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
+                {
+                    stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                        " -k " + CloudParametersForm.awsKey_ +
+                        " -c " + SaveTransferTaskForm.transferPath_ +
+                        " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                }
+                else if (ResumeTransferForm.resumeUpload_)
+                {
+                    stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                        " -resume-upload " +
+                        " -k " + CloudParametersForm.awsKey_ +
+                        " -c " + ResumeTransferForm.resumeFilePath_ +
+                        " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                }
+                else if (ResumeTransferForm.skipUpload_)
+                {
+                    stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                        " -skip-upload " +
+                        " -k " + CloudParametersForm.awsKey_ +
+                        " -c " + ResumeTransferForm.resumeFilePath_ +
+                        " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                }
+                else if (ResumeTransferForm.resumeFilePath_ != null)
+                {
+                    stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                        " -k " + CloudParametersForm.awsKey_ +
+                        " -c " + ResumeTransferForm.resumeFilePath_ +
+                        " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                }
             }
 
             Process p = new Process();
@@ -134,10 +160,11 @@ namespace CloudScraper
 
             // p.EnableRaisingEvents = true;
             p.Start();
-            this.processListBox.Items.Add("Process start...");
+            this.startButton.Enabled = false;
+            //this.processListBox.Items.Add("Process start...");
             p.WaitForExit();
-            this.processListBox.Items.Add("Process stoped...");
-
+            //this.processListBox.Items.Add("Process stoped...");
+            this.startButton.Enabled = true;
             //this.SendMail();
         }
 

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CopyStartForm));
             this.startButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
-            this.processListBox = new System.Windows.Forms.ListBox();
             this.messageGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).BeginInit();
             this.SuspendLayout();
@@ -56,14 +55,6 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
-            // processListBox
-            // 
-            this.processListBox.FormattingEnabled = true;
-            this.processListBox.Location = new System.Drawing.Point(13, 13);
-            this.processListBox.Name = "processListBox";
-            this.processListBox.Size = new System.Drawing.Size(542, 238);
-            this.processListBox.TabIndex = 2;
-            // 
             // messageGridView
             // 
             this.messageGridView.AllowUserToAddRows = false;
@@ -75,12 +66,12 @@
             this.messageGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.messageGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.messageGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.messageGridView.Location = new System.Drawing.Point(13, 13);
+            this.messageGridView.Location = new System.Drawing.Point(13, 12);
             this.messageGridView.MultiSelect = false;
             this.messageGridView.Name = "messageGridView";
             this.messageGridView.RowHeadersVisible = false;
             this.messageGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.messageGridView.Size = new System.Drawing.Size(542, 238);
+            this.messageGridView.Size = new System.Drawing.Size(542, 239);
             this.messageGridView.TabIndex = 3;
             // 
             // CopyStartForm
@@ -89,7 +80,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.messageGridView);
-            this.Controls.Add(this.processListBox);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.startButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -112,7 +102,6 @@
 
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.ListBox processListBox;
         private System.Windows.Forms.DataGridView messageGridView;
     }
 }
