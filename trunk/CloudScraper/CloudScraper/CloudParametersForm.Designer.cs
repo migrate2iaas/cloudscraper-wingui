@@ -60,7 +60,7 @@
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
-            this.backButton.Text = "<Back";
+            this.backButton.Text = "<< Back";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
@@ -255,7 +255,7 @@
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 10;
-            this.nextButton.Text = "Next>";
+            this.nextButton.Text = "Next >>";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
@@ -274,7 +274,7 @@
             this.Name = "CloudParametersForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cloud parameters";
+            this.Text = "Cloud Options";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.tabControl1.ResumeLayout(false);

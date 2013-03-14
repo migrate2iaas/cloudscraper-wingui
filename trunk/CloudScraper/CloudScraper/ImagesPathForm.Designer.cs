@@ -64,7 +64,7 @@
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 2;
-            this.backButton.Text = "<Back";
+            this.backButton.Text = "<< Back";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
@@ -74,7 +74,7 @@
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 3;
-            this.nextButton.Text = "Next>";
+            this.nextButton.Text = "Next >>";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
@@ -144,7 +144,7 @@
             this.Name = "ImagesPathForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Folder select";
+            this.Text = "Images Location...";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.ImagesPathFormLoad);
