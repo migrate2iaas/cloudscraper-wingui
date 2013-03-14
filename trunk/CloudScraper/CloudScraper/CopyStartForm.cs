@@ -32,7 +32,7 @@ namespace CloudScraper
             {
                 this.messages_.Add(new MessageInfo()
                 {
-                    Image = new Bitmap(Resources.WindowsDrive.ToBitmap(), new Size(24, 24)),
+                    Image = new Bitmap(Image.FromFile("Icons\\WindowsDrive.ico"), new Size(24, 24)),
                     Message = "Message"
                 });
             }
@@ -50,7 +50,7 @@ namespace CloudScraper
             {
                 this.messages_.Add(new MessageInfo()
                 {
-                    Image = new Bitmap(Resources.WindowsDrive.ToBitmap(), new Size(24, 24)),
+                    Image = new Bitmap(Image.FromFile("Icons\\WindowsDrive.ico"), new Size(24, 24)),
                     Message = i.ToString()
                 });
             }

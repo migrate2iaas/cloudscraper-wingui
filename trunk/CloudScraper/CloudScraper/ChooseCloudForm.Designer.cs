@@ -47,7 +47,6 @@
             // 
             // amazonButton
             // 
-            this.amazonButton.Image = ((System.Drawing.Image)(resources.GetObject("amazonButton.Image")));
             this.amazonButton.Location = new System.Drawing.Point(175, 26);
             this.amazonButton.Name = "amazonButton";
             this.amazonButton.Size = new System.Drawing.Size(189, 70);
@@ -60,7 +59,6 @@
             // windowsAzureButton
             // 
             this.windowsAzureButton.Enabled = false;
-            this.windowsAzureButton.Image = ((System.Drawing.Image)(resources.GetObject("windowsAzureButton.Image")));
             this.windowsAzureButton.Location = new System.Drawing.Point(175, 102);
             this.windowsAzureButton.Name = "windowsAzureButton";
             this.windowsAzureButton.Size = new System.Drawing.Size(189, 76);
@@ -72,7 +70,6 @@
             // elasticHostsButton
             // 
             this.elasticHostsButton.Enabled = false;
-            this.elasticHostsButton.Image = ((System.Drawing.Image)(resources.GetObject("elasticHostsButton.Image")));
             this.elasticHostsButton.Location = new System.Drawing.Point(175, 184);
             this.elasticHostsButton.Name = "elasticHostsButton";
             this.elasticHostsButton.Size = new System.Drawing.Size(189, 74);
