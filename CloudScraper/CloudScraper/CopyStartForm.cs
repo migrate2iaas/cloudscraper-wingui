@@ -23,22 +23,18 @@ namespace CloudScraper
         SaveTransferTaskForm saveTransferForm_;
         ResumeTransferForm resumeTransferForm_;
 
-        BindingList<MessageInfo> messages_;
+        public BindingList<MessageInfo> messages_;
+        
+        private System.Timers.Timer timer_ = new System.Timers.Timer();
 
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
             this.messages_ = new BindingList<MessageInfo>();
-            for (int i = 1; i < 1000; i++)
-            {
-                this.messages_.Add(new MessageInfo()
-                {
-                    Image = new Bitmap(Image.FromFile("Icons\\WindowsDrive.ico"), new Size(24, 24)),
-                    Message = "Message"
-                });
-            }
+
             this.saveTransferForm_ = saveTransferForm;
             
             InitializeComponent();
+            CopyStartForm.CheckForIllegalCrossThreadCalls = false;
 
             this.messageGridView.DataSource = this.messages_;
         }
@@ -46,17 +42,11 @@ namespace CloudScraper
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
         {
             this.messages_ = new BindingList<MessageInfo>();
-            for (int i = 1; i < 1000; i++)
-            {
-                this.messages_.Add(new MessageInfo()
-                {
-                    Image = new Bitmap(Image.FromFile("Icons\\WindowsDrive.ico"), new Size(24, 24)),
-                    Message = i.ToString()
-                });
-            }
+
             this.resumeTransferForm_ = resumeTransferForm;
             
             InitializeComponent();
+            CopyStartForm.CheckForIllegalCrossThreadCalls = false;
 
             this.messageGridView.DataSource = this.messages_;
         }
@@ -159,15 +149,74 @@ namespace CloudScraper
             p.Exited += new EventHandler(p_Exited);
 
             // p.EnableRaisingEvents = true;
-            p.Start();
+            //p.Start();
             this.startButton.Enabled = false;
+            this.backButton.Enabled = false;
+
+            timer_.Interval = 10000;
+            timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
+            timer_.Start();
+            
             //this.processListBox.Items.Add("Process start...");
-            p.WaitForExit();
+            //Thread.Sleep(20000);
+            //p.WaitForExit();
+
             //this.processListBox.Items.Add("Process stoped...");
-            this.startButton.Enabled = true;
+            //this.startButton.Enabled = true;
             //this.SendMail();
         }
 
+        private int a = 0;
+        void timer__Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            //this.messageGridView.BeginInvoke(new Action<object>((obj) => {
+            if (a == 0)
+            {
+                this.messages_.Insert(0, new MessageInfo()
+                {
+                    Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(16, 16)),
+                    Message = DateTime.Now.ToString()
+                });
+                a++;
+            }
+
+            if (a == 1)
+            {
+                this.messages_.Insert(0, new MessageInfo()
+                {
+                    Image = new Bitmap(Image.FromFile("Icons\\error.png"), new Size(16, 16)),
+                    Message = DateTime.Now.ToString()
+                });
+                a++;
+
+            }
+
+            if (a == 2)
+            {
+                this.messages_.Insert(0, new MessageInfo()
+                {
+                    Image = new Bitmap(Image.FromFile("Icons\\arrow.png"), new Size(16, 16)),
+                    Message = DateTime.Now.ToString()
+                });
+                a = 0;
+
+            }
+           // }), null);
+        }
+
+        public void OnTimerTick(object obj)
+        {
+
+            this.BeginInvoke(new Action<object>((a) =>
+            {
+                this.messages_.Add(new MessageInfo()
+                {
+                    Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(24, 24)),
+                    Message = DateTime.Now.ToString()
+                });
+            }), null);
+        }
+        
         void p_Exited(object sender, EventArgs e)
         {
             //this.processListBox.BeginInvoke(new Action<object>((obj) =>
@@ -191,7 +240,6 @@ namespace CloudScraper
 
         public void SendMail()
         {
-
             SmtpClient Smtp = new SmtpClient("smtp.mail.ru", 25);
             Smtp.Credentials = new NetworkCredential("login", "pass");
             //Smtp.EnableSsl = false;
@@ -223,6 +271,7 @@ namespace CloudScraper
             this.messageGridView.Columns[0].Width = 50;
             this.messageGridView.Columns[0].ReadOnly = true;
         }
+    
     }
 
     public class MessageInfo
@@ -232,5 +281,6 @@ namespace CloudScraper
 
         [DisplayName("Message")]
         public string Message { get; set; }
+
     }
 }
