@@ -44,7 +44,7 @@
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 0;
-            this.nextButton.Text = "Next>";
+            this.nextButton.Text = "Next >>";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
@@ -54,7 +54,7 @@
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
-            this.backButton.Text = "<Back";
+            this.backButton.Text = "<< Back";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
@@ -114,7 +114,7 @@
             this.Name = "ChooseDisksForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Choose disks to store";
+            this.Text = "Choose volumes to copy...";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.ChooseDisksLoad);

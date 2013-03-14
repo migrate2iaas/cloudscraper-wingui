@@ -45,7 +45,7 @@
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
-            this.backButton.Text = "<Back";
+            this.backButton.Text = "<< Back";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
@@ -78,7 +78,7 @@
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 3;
-            this.nextButton.Text = "Next>";
+            this.nextButton.Text = "Next >>";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
@@ -128,7 +128,7 @@
             this.Name = "ResumeTransferForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Resume your transfer";
+            this.Text = "Save your transfer task";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

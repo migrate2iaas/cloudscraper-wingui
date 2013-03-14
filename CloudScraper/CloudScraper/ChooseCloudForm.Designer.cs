@@ -41,7 +41,7 @@
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
-            this.backButton.Text = "<Back";
+            this.backButton.Text = "<< Back";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
@@ -51,7 +51,7 @@
             this.amazonButton.Name = "amazonButton";
             this.amazonButton.Size = new System.Drawing.Size(189, 70);
             this.amazonButton.TabIndex = 2;
-            this.amazonButton.Text = "Amazon EC2 >";
+            this.amazonButton.Text = "Amazon EC2";
             this.amazonButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.amazonButton.UseVisualStyleBackColor = true;
             this.amazonButton.Click += new System.EventHandler(this.amazonButton_Click);
@@ -63,7 +63,7 @@
             this.windowsAzureButton.Name = "windowsAzureButton";
             this.windowsAzureButton.Size = new System.Drawing.Size(189, 76);
             this.windowsAzureButton.TabIndex = 3;
-            this.windowsAzureButton.Text = "Windows Azure (Not supported) >";
+            this.windowsAzureButton.Text = "Windows Azure (Not supported)";
             this.windowsAzureButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.windowsAzureButton.UseVisualStyleBackColor = true;
             // 
@@ -74,7 +74,7 @@
             this.elasticHostsButton.Name = "elasticHostsButton";
             this.elasticHostsButton.Size = new System.Drawing.Size(189, 74);
             this.elasticHostsButton.TabIndex = 4;
-            this.elasticHostsButton.Text = "ElasticHosts (Not supported) >";
+            this.elasticHostsButton.Text = "ElasticHosts (Not supported)";
             this.elasticHostsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.elasticHostsButton.UseVisualStyleBackColor = true;
             // 
@@ -94,7 +94,7 @@
             this.Name = "ChooseCloudForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Choose Cloud";
+            this.Text = "Choose Your Cloud";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
             this.ResumeLayout(false);
