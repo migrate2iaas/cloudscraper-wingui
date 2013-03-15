@@ -38,11 +38,13 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 263);
+            this.backButton.Location = new System.Drawing.Point(370, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
@@ -53,7 +55,7 @@
             // resumeUploadCheckBox
             // 
             this.resumeUploadCheckBox.AutoSize = true;
-            this.resumeUploadCheckBox.Location = new System.Drawing.Point(80, 155);
+            this.resumeUploadCheckBox.Location = new System.Drawing.Point(139, 154);
             this.resumeUploadCheckBox.Name = "resumeUploadCheckBox";
             this.resumeUploadCheckBox.Size = new System.Drawing.Size(294, 17);
             this.resumeUploadCheckBox.TabIndex = 1;
@@ -64,7 +66,7 @@
             // redeployUploadCheckBox
             // 
             this.redeployUploadCheckBox.AutoSize = true;
-            this.redeployUploadCheckBox.Location = new System.Drawing.Point(80, 178);
+            this.redeployUploadCheckBox.Location = new System.Drawing.Point(139, 177);
             this.redeployUploadCheckBox.Name = "redeployUploadCheckBox";
             this.redeployUploadCheckBox.Size = new System.Drawing.Size(413, 17);
             this.redeployUploadCheckBox.TabIndex = 2;
@@ -85,7 +87,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(425, 101);
+            this.browseButton.Location = new System.Drawing.Point(484, 100);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 4;
@@ -95,7 +97,7 @@
             // 
             // resumeTextBox
             // 
-            this.resumeTextBox.Location = new System.Drawing.Point(80, 103);
+            this.resumeTextBox.Location = new System.Drawing.Point(139, 102);
             this.resumeTextBox.Name = "resumeTextBox";
             this.resumeTextBox.Size = new System.Drawing.Size(339, 20);
             this.resumeTextBox.TabIndex = 5;
@@ -104,7 +106,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(177, 64);
+            this.label1.Location = new System.Drawing.Point(236, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 13);
             this.label1.TabIndex = 6;
@@ -119,7 +121,7 @@
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.ForeColor = System.Drawing.Color.Transparent;
             this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
-            this.helpButton.Location = new System.Drawing.Point(532, 12);
+            this.helpButton.Location = new System.Drawing.Point(546, 1);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(23, 22);
             this.helpButton.TabIndex = 13;
@@ -127,11 +129,23 @@
             this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-4, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 299);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // ResumeTransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resumeTextBox);
@@ -149,6 +163,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Save your transfer task";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +180,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
