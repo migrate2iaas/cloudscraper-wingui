@@ -271,7 +271,7 @@ namespace CloudScraper
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\hourglass.png"), new Size(16, 16)),
-                    Message = str
+                    Message = str.Remove(0,2)
                 });
                 return;
             }
