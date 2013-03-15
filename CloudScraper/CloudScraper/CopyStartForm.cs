@@ -118,7 +118,7 @@ namespace CloudScraper
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                         " -resume-upload " +
-                        " -k " + CloudParametersForm.awsKey_ +
+                        //" -k " + CloudParametersForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
@@ -126,14 +126,14 @@ namespace CloudScraper
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                         " -skip-upload " +
-                        " -k " + CloudParametersForm.awsKey_ +
+                        //" -k " + CloudParametersForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
                 else if (ResumeTransferForm.resumeFilePath_ != null)
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                        " -k " + CloudParametersForm.awsKey_ +
+                        //" -k " + CloudParametersForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
@@ -186,6 +186,8 @@ namespace CloudScraper
                         {
                             if (File.Exists("test.txt"))
                             {
+                                Thread.Sleep(1000);
+
                                 StreamReader stream = new StreamReader("test.txt");
 
                                 if (stream.BaseStream.Length == length)
@@ -277,6 +279,11 @@ namespace CloudScraper
         void p_Exited(object sender, EventArgs e)
         {
             this.migrateStopped = true;
+
+            this.BeginInvoke(new MyDelegate(() =>
+            {
+                this.startButton.Enabled = true;
+            }));
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
