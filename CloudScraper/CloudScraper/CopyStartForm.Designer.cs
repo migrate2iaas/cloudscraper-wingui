@@ -32,6 +32,7 @@
             this.startButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.messageGridView = new System.Windows.Forms.DataGridView();
+            this.finishButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,11 +82,23 @@
             this.messageGridView.TabIndex = 3;
             this.messageGridView.VirtualMode = true;
             // 
+            // finishButton
+            // 
+            this.finishButton.Location = new System.Drawing.Point(480, 263);
+            this.finishButton.Name = "finishButton";
+            this.finishButton.Size = new System.Drawing.Size(75, 23);
+            this.finishButton.TabIndex = 4;
+            this.finishButton.Text = "Finish";
+            this.finishButton.UseVisualStyleBackColor = true;
+            this.finishButton.Visible = false;
+            this.finishButton.Click += new System.EventHandler(this.finishButton_Click);
+            // 
             // CopyStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.finishButton);
             this.Controls.Add(this.messageGridView);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.startButton);
@@ -110,5 +123,6 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.DataGridView messageGridView;
+        private System.Windows.Forms.Button finishButton;
     }
 }
