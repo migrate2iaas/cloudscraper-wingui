@@ -282,7 +282,8 @@ namespace CloudScraper
 
             this.BeginInvoke(new MyDelegate(() =>
             {
-                this.startButton.Enabled = true;
+                this.startButton.Visible = false;
+                this.finishButton.Visible = true;
             }));
         }
 
@@ -331,6 +332,11 @@ namespace CloudScraper
         {
             this.messageGridView.Columns[0].Width = 50;
             this.messageGridView.Columns[0].ReadOnly = true;
+        }
+
+        private void finishButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     
     }
