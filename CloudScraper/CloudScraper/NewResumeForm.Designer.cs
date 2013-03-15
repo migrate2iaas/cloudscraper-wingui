@@ -31,12 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewResumeForm));
             this.startNewButton = new System.Windows.Forms.Button();
             this.resumeButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // startNewButton
             // 
             this.startNewButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.startNewButton.Location = new System.Drawing.Point(58, 42);
+            this.startNewButton.Location = new System.Drawing.Point(267, 75);
             this.startNewButton.Name = "startNewButton";
             this.startNewButton.Size = new System.Drawing.Size(160, 54);
             this.startNewButton.TabIndex = 0;
@@ -48,7 +50,7 @@
             // resumeButton
             // 
             this.resumeButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.resumeButton.Location = new System.Drawing.Point(58, 108);
+            this.resumeButton.Location = new System.Drawing.Point(267, 141);
             this.resumeButton.Name = "resumeButton";
             this.resumeButton.Size = new System.Drawing.Size(160, 54);
             this.resumeButton.TabIndex = 1;
@@ -57,11 +59,21 @@
             this.resumeButton.UseVisualStyleBackColor = true;
             this.resumeButton.Click += new System.EventHandler(this.ResumeButtonClick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(-2, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 299);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // NewResumeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 207);
+            this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.resumeButton);
             this.Controls.Add(this.startNewButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -74,6 +86,7 @@
             this.Text = "Cloudscraper Server Copy";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -82,6 +95,7 @@
 
         private System.Windows.Forms.Button startNewButton;
         private System.Windows.Forms.Button resumeButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
