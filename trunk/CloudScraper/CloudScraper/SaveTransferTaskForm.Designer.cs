@@ -40,14 +40,14 @@
             // 
             // saveTransferTextBox
             // 
-            this.saveTransferTextBox.Location = new System.Drawing.Point(57, 124);
+            this.saveTransferTextBox.Location = new System.Drawing.Point(141, 127);
             this.saveTransferTextBox.Name = "saveTransferTextBox";
-            this.saveTransferTextBox.Size = new System.Drawing.Size(387, 20);
+            this.saveTransferTextBox.Size = new System.Drawing.Size(303, 20);
             this.saveTransferTextBox.TabIndex = 0;
             // 
             // saveTransferTask
             // 
-            this.saveTransferTask.Location = new System.Drawing.Point(450, 122);
+            this.saveTransferTask.Location = new System.Drawing.Point(450, 125);
             this.saveTransferTask.Name = "saveTransferTask";
             this.saveTransferTask.Size = new System.Drawing.Size(75, 23);
             this.saveTransferTask.TabIndex = 1;
@@ -78,7 +78,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 95);
+            this.label1.Location = new System.Drawing.Point(224, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 13);
             this.label1.TabIndex = 4;
