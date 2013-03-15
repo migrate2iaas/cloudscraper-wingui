@@ -139,6 +139,11 @@ namespace CloudScraper
                 }
             }
 
+            if (File.Exists("test.txt"))
+            {
+                File.Delete("test.txt");
+            }
+
             Process p = new Process();
             ProcessStartInfo info = new ProcessStartInfo("migrate.cmd");
             info.UseShellExecute = true;
@@ -147,10 +152,10 @@ namespace CloudScraper
             p.Exited += new EventHandler(p_Exited);
 
             p.EnableRaisingEvents = true;
-            //p.Start();
+            p.Start();
             this.startButton.Enabled = false;
             this.backButton.Enabled = false;
-            this.migrateStopped = true;
+            this.migrateStopped = false;
 
             //timer_.Interval = 10000;
             //timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
@@ -182,6 +187,12 @@ namespace CloudScraper
                             stream.Close();
                             if (this.migrateStopped)
                             {
+                                
+                                this.BeginInvoke(new MyDelegate(() =>
+                                {
+                                    this.startButton.Visible = false;
+                                    this.finishButton.Visible = true;
+                                }));
                                 return;
                             }
                             Thread.Sleep(1000);
@@ -212,6 +223,12 @@ namespace CloudScraper
                     }
                     else if (this.migrateStopped)
                     {
+                        
+                        this.BeginInvoke(new MyDelegate(() =>
+                        {
+                            this.startButton.Visible = false;
+                            this.finishButton.Visible = true;
+                        }));
                         return;
                     }
                 }                           
@@ -285,12 +302,6 @@ namespace CloudScraper
         void p_Exited(object sender, EventArgs e)
         {
             this.migrateStopped = true;
-
-            this.BeginInvoke(new MyDelegate(() =>
-            {
-                this.startButton.Visible = false;
-                this.finishButton.Visible = true;
-            }));
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
