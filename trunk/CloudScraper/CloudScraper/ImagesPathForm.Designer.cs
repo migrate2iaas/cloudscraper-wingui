@@ -40,11 +40,13 @@
             this.totalSpace = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(436, 124);
+            this.browseButton.Location = new System.Drawing.Point(481, 122);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 0;
@@ -54,14 +56,14 @@
             // 
             // browseTextBox
             // 
-            this.browseTextBox.Location = new System.Drawing.Point(127, 126);
+            this.browseTextBox.Location = new System.Drawing.Point(172, 124);
             this.browseTextBox.Name = "browseTextBox";
             this.browseTextBox.Size = new System.Drawing.Size(303, 20);
             this.browseTextBox.TabIndex = 1;
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 263);
+            this.backButton.Location = new System.Drawing.Point(371, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 2;
@@ -82,7 +84,7 @@
             // freeSpaceLabel
             // 
             this.freeSpaceLabel.AutoSize = true;
-            this.freeSpaceLabel.Location = new System.Drawing.Point(13, 238);
+            this.freeSpaceLabel.Location = new System.Drawing.Point(169, 233);
             this.freeSpaceLabel.Name = "freeSpaceLabel";
             this.freeSpaceLabel.Size = new System.Drawing.Size(65, 13);
             this.freeSpaceLabel.TabIndex = 4;
@@ -91,7 +93,7 @@
             // freeSpace
             // 
             this.freeSpace.AutoSize = true;
-            this.freeSpace.Location = new System.Drawing.Point(75, 238);
+            this.freeSpace.Location = new System.Drawing.Point(231, 233);
             this.freeSpace.Name = "freeSpace";
             this.freeSpace.Size = new System.Drawing.Size(28, 13);
             this.freeSpace.TabIndex = 5;
@@ -100,7 +102,7 @@
             // totalSpaceLabel
             // 
             this.totalSpaceLabel.AutoSize = true;
-            this.totalSpaceLabel.Location = new System.Drawing.Point(13, 214);
+            this.totalSpaceLabel.Location = new System.Drawing.Point(169, 209);
             this.totalSpaceLabel.Name = "totalSpaceLabel";
             this.totalSpaceLabel.Size = new System.Drawing.Size(114, 13);
             this.totalSpaceLabel.TabIndex = 6;
@@ -109,7 +111,7 @@
             // totalSpace
             // 
             this.totalSpace.AutoSize = true;
-            this.totalSpace.Location = new System.Drawing.Point(124, 214);
+            this.totalSpace.Location = new System.Drawing.Point(280, 209);
             this.totalSpace.Name = "totalSpace";
             this.totalSpace.Size = new System.Drawing.Size(28, 13);
             this.totalSpace.TabIndex = 7;
@@ -118,7 +120,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(124, 87);
+            this.label1.Location = new System.Drawing.Point(200, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(292, 13);
             this.label1.TabIndex = 8;
@@ -133,7 +135,7 @@
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.ForeColor = System.Drawing.Color.Transparent;
             this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
-            this.helpButton.Location = new System.Drawing.Point(532, 12);
+            this.helpButton.Location = new System.Drawing.Point(544, 1);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(23, 22);
             this.helpButton.TabIndex = 12;
@@ -141,11 +143,20 @@
             this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(-3, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 299);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
             // ImagesPathForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.totalSpace);
@@ -167,6 +178,7 @@
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.ImagesPathFormLoad);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +197,6 @@
         private System.Windows.Forms.Label totalSpace;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

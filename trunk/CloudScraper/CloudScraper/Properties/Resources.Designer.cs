@@ -63,50 +63,10 @@ namespace CloudScraper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _01 {
+        internal static System.Drawing.Bitmap accept {
             get {
-                object obj = ResourceManager.GetObject("01", resourceCulture);
+                object obj = ResourceManager.GetObject("accept", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _19 {
-            get {
-                object obj = ResourceManager.GetObject("19", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Cloud {
-            get {
-                object obj = ResourceManager.GetObject("Cloud", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Значок).
-        /// </summary>
-        internal static System.Drawing.Icon HD_Drive {
-            get {
-                object obj = ResourceManager.GetObject("HD_Drive", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Значок).
-        /// </summary>
-        internal static System.Drawing.Icon WindowsDrive {
-            get {
-                object obj = ResourceManager.GetObject("WindowsDrive", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
     }
