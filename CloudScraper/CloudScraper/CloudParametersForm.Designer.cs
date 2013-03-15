@@ -262,14 +262,19 @@
             // 
             // helpButton
             // 
+            this.helpButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.helpButton.FlatAppearance.BorderSize = 0;
+            this.helpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.helpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.ForeColor = System.Drawing.Color.Transparent;
             this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
             this.helpButton.Location = new System.Drawing.Point(532, 6);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(23, 22);
             this.helpButton.TabIndex = 11;
-            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Tag = "Help";
+            this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
             // CloudParametersForm
