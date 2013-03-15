@@ -60,5 +60,10 @@ namespace CloudScraper
         {
             this.imagesPathForm_.Close();
         }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://ya.ru");
+        }
     }
 }

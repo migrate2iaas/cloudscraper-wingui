@@ -97,5 +97,10 @@ namespace CloudScraper
 
             skipUpload_ = this.redeployUploadCheckBox.Checked;
         }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://ya.ru");
+        }
     }
 }
