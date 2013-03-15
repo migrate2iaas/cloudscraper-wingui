@@ -163,7 +163,6 @@ namespace CloudScraper
         }
 
 
-
         public void Work()
         {
             lock(this.lockObject)

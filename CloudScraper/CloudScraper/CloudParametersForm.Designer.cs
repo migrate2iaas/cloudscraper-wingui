@@ -49,6 +49,7 @@
             this.bucketTextBox = new System.Windows.Forms.TextBox();
             this.bucketLabel = new System.Windows.Forms.Label();
             this.nextButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -259,11 +260,24 @@
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
+            // helpButton
+            // 
+            this.helpButton.FlatAppearance.BorderSize = 0;
+            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
+            this.helpButton.Location = new System.Drawing.Point(532, 6);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(23, 22);
+            this.helpButton.TabIndex = 11;
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
             // CloudParametersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.backButton);
@@ -308,5 +322,6 @@
         private System.Windows.Forms.Label bucketLabel;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.CheckBox advancedCheckBox;
+        private System.Windows.Forms.Button helpButton;
     }
 }
