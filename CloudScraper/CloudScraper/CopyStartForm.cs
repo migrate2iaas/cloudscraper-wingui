@@ -28,6 +28,7 @@ namespace CloudScraper
         private System.Timers.Timer timer_ = new System.Timers.Timer();
         delegate void MyDelegate();
         public object lockObject;
+        private bool migrateStopped;
 
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
@@ -147,10 +148,11 @@ namespace CloudScraper
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.Exited += new EventHandler(p_Exited);
 
-            // p.EnableRaisingEvents = true;
-            //p.Start();
+            p.EnableRaisingEvents = true;
+            p.Start();
             this.startButton.Enabled = false;
             this.backButton.Enabled = false;
+            this.migrateStopped = false;
 
             //timer_.Interval = 10000;
             //timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
@@ -161,7 +163,7 @@ namespace CloudScraper
             task.Start();
             //this.processListBox.Items.Add("Process start...");
             //Thread.Sleep(200000);
-            //p.WaitForExit();
+           
             //lock(this.lockObject)
             //{
             //}
@@ -177,48 +179,56 @@ namespace CloudScraper
         {
             lock(this.lockObject)
             {
-                if (File.Exists("test.txt"))
-                {
+
                         long length = 0;
                         long lineNumber = 0;
                         while (true)
                         {
-                            StreamReader stream = new StreamReader("test.txt");
-
-                            if (stream.BaseStream.Length == length)
+                            if (File.Exists("test.txt"))
                             {
-                                stream.Close();
-                                Thread.Sleep(1000);
-                                continue;
-                            }
-                            else
-                            {
-                                length = stream.BaseStream.Length;
-                                long currentLineNum = 0;
+                                StreamReader stream = new StreamReader("test.txt");
 
-                                while (!stream.EndOfStream)
+                                if (stream.BaseStream.Length == length)
                                 {
-         
-                                    string str = stream.ReadLine();
-                                    currentLineNum++;
-                                    
-                                    if (currentLineNum > lineNumber)
+                                    stream.Close();
+                                    if (this.migrateStopped)
                                     {
-                                        this.messageGridView.BeginInvoke(new MyDelegate(() =>
-                                        {
-                                            this.InsertMessage(str);
-                                        }));
-                                    
+                                        return;
                                     }
-
+                                    Thread.Sleep(1000);
+                                    continue;
                                 }
-                                stream.Close();
+                                else
+                                {
+                                    length = stream.BaseStream.Length;
+                                    long currentLineNum = 0;
 
-                                lineNumber = currentLineNum;
+                                    while (!stream.EndOfStream)
+                                    {
+
+                                        string str = stream.ReadLine();
+                                        currentLineNum++;
+
+                                        if (currentLineNum > lineNumber)
+                                        {
+                                            this.messageGridView.BeginInvoke(new MyDelegate(() =>
+                                            {
+                                                this.InsertMessage(str);
+                                            }));
+
+                                        }
+
+                                    }
+                                    stream.Close();
+
+                                    lineNumber = currentLineNum;
+                                }
                             }
-                        }
-                        
-                }
+                            else if (this.migrateStopped)
+                            {
+                                return;
+                            }
+                        }                           
             }
         }
 
@@ -266,10 +276,7 @@ namespace CloudScraper
         
         void p_Exited(object sender, EventArgs e)
         {
-            //this.processListBox.BeginInvoke(new Action<object>((obj) =>
-            //{
-            //    this.processListBox.Items.Add("Process stop...");
-            //}));
+            this.migrateStopped = true;
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
