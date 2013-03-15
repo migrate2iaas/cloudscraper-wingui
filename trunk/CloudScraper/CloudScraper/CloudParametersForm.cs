@@ -173,5 +173,10 @@ namespace CloudScraper
                 this.nextButton.Enabled = false;
             }
         }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://ya.ru");
+        }
     }
 }
