@@ -27,22 +27,23 @@ namespace CloudScraper
         
         private System.Timers.Timer timer_ = new System.Timers.Timer();
         delegate void MyDelegate();
+        public object lockObject;
 
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
+            this.lockObject = new Object();
             this.messages_ = new BindingList<MessageInfo>();
 
             this.saveTransferForm_ = saveTransferForm;
             
             InitializeComponent();
             this.messageGridView.DataSource = this.messages_;
-
         }
 
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
         {
+            this.lockObject = new Object();
             this.messages_ = new BindingList<MessageInfo>();
-
             this.resumeTransferForm_ = resumeTransferForm;
             
             InitializeComponent();
@@ -151,18 +152,19 @@ namespace CloudScraper
             this.startButton.Enabled = false;
             this.backButton.Enabled = false;
 
-            timer_.Interval = 2000;
-            timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
-            timer_.Start();
+            //timer_.Interval = 10000;
+            //timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
+            //timer_.Start();
+
             
-            //Thread task = new Thread(new ThreadStart(this.Time));
-            //task.Start();
+            Thread task = new Thread(new ThreadStart(this.Work));
+            task.Start();
             //this.processListBox.Items.Add("Process start...");
-            //Thread.Sleep(20000);
+            //Thread.Sleep(200000);
             //p.WaitForExit();
-            //this.Work();
-            //this.Work();
-            //    this.Work();
+            //lock(this.lockObject)
+            //{
+            //}
 
             //this.processListBox.Items.Add("Process stoped...");
             //this.startButton.Enabled = true;
@@ -173,35 +175,84 @@ namespace CloudScraper
 
         public void Work()
         {
-
-                this.messages_.Insert(0, new MessageInfo()
+            lock(this.lockObject)
+            {
+                if (File.Exists("test.txt"))
                 {
-                    Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString()
-                });
+                        long length = 0;
+                        long lineNumber = 0;
+                        while (true)
+                        {
+                            StreamReader stream = new StreamReader("test.txt");
 
+                            if (stream.BaseStream.Length == length)
+                            {
+                                stream.Close();
+                                Thread.Sleep(1000);
+                                continue;
+                            }
+                            else
+                            {
+                                length = stream.BaseStream.Length;
+                                long currentLineNum = 0;
 
+                                while (!stream.EndOfStream)
+                                {
+         
+                                    string str = stream.ReadLine();
+                                    currentLineNum++;
+                                    
+                                    if (currentLineNum > lineNumber)
+                                    {
+                                        this.messageGridView.BeginInvoke(new MyDelegate(() =>
+                                        {
+                                            this.InsertMessage(str);
+                                        }));
+                                    
+                                    }
 
-                this.messages_.Insert(0, new MessageInfo()
-                {
-                    Image = new Bitmap(Image.FromFile("Icons\\error.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString()
-                });
+                                }
+                                stream.Close();
 
+                                lineNumber = currentLineNum;
+                            }
+                        }
+                        
+                }
+            }
+        }
 
-
+        public void InsertMessage(string str)
+        {
+            if (str.Length > 3 && str.Substring(0, 3) == ">>>")
+            {
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\arrow.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString()
+                    Message = str
                 });
+                return;
+            }
 
-
+            if (str.Length > 3 && str.Substring(0, 3) == "!!!")
+            {
                 this.messages_.Insert(0, new MessageInfo()
                 {
-                    Image = new Bitmap(Image.FromFile("Icons\\accept.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString()
+                    Image = new Bitmap(Image.FromFile("Icons\\error.png"), new Size(16, 16)),
+                    Message = str
                 });
+                return;
+            }
+
+            if (str.Length >= 2 && str.Substring(0, 1) == "!")
+            {
+                this.messages_.Insert(0, new MessageInfo()
+                {
+                    Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(16, 16)),
+                    Message = str
+                });
+                return;
+            }
         }
 
         void timer__Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -212,18 +263,6 @@ namespace CloudScraper
             })); 
         }
 
-        public void OnTimerTick(object obj)
-        {
-
-            this.BeginInvoke(new Action<object>((a) =>
-            {
-                this.messages_.Add(new MessageInfo()
-                {
-                    Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(24, 24)),
-                    Message = DateTime.Now.ToString()
-                });
-            }), null);
-        }
         
         void p_Exited(object sender, EventArgs e)
         {
