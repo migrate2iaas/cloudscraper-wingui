@@ -121,7 +121,7 @@
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.ForeColor = System.Drawing.Color.Transparent;
             this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
-            this.helpButton.Location = new System.Drawing.Point(546, 1);
+            this.helpButton.Location = new System.Drawing.Point(545, 1);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(23, 22);
             this.helpButton.TabIndex = 13;
@@ -161,7 +161,7 @@
             this.Name = "ResumeTransferForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Save your transfer task";
+            this.Text = "Resume your transfer task";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
