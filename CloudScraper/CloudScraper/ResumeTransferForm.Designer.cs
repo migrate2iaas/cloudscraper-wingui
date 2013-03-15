@@ -37,6 +37,7 @@
             this.resumeTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.label1 = new System.Windows.Forms.Label();
+            this.helpButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // backButton
@@ -109,11 +110,29 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Load your previously saved transfer task";
             // 
+            // helpButton
+            // 
+            this.helpButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.helpButton.FlatAppearance.BorderSize = 0;
+            this.helpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.helpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.ForeColor = System.Drawing.Color.Transparent;
+            this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
+            this.helpButton.Location = new System.Drawing.Point(532, 12);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(23, 22);
+            this.helpButton.TabIndex = 13;
+            this.helpButton.Tag = "Help";
+            this.helpButton.UseVisualStyleBackColor = false;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
             // ResumeTransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resumeTextBox);
             this.Controls.Add(this.browseButton);
@@ -145,5 +164,6 @@
         private System.Windows.Forms.TextBox resumeTextBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button helpButton;
     }
 }
