@@ -178,9 +178,12 @@ namespace CloudScraper
                 {
                     if (File.Exists("test.txt"))
                     {
-                        Thread.Sleep(1000);
-
-                        StreamReader stream = new StreamReader("test.txt");
+                        if (File.Exists("testcopy.txt"))
+                        {
+                            File.Delete("testcopy.txt");
+                        }
+                        File.Copy("test.txt", "testcopy.txt");
+                        StreamReader stream = new StreamReader("testcopy.txt");
 
                         if (stream.BaseStream.Length == length)
                         {
