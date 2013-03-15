@@ -140,36 +140,25 @@ namespace CloudScraper
             }
 
             Process p = new Process();
-
             ProcessStartInfo info = new ProcessStartInfo("migrate.cmd");
-
             info.UseShellExecute = true;
             p.StartInfo = info;
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.Exited += new EventHandler(p_Exited);
 
             p.EnableRaisingEvents = true;
-            p.Start();
+            //p.Start();
             this.startButton.Enabled = false;
             this.backButton.Enabled = false;
-            this.migrateStopped = false;
+            this.migrateStopped = true;
 
             //timer_.Interval = 10000;
             //timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
             //timer_.Start();
-
             
             Thread task = new Thread(new ThreadStart(this.Work));
             task.Start();
-            //this.processListBox.Items.Add("Process start...");
-            //Thread.Sleep(200000);
-           
-            //lock(this.lockObject)
-            //{
-            //}
 
-            //this.processListBox.Items.Add("Process stoped...");
-            //this.startButton.Enabled = true;
             //this.SendMail();
         }
 
@@ -241,7 +230,8 @@ namespace CloudScraper
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\arrow.png"), new Size(16, 16)),
-                    Message = str
+                    Message = str,
+                    Type = 1
                 });
                 return;
             }
@@ -251,7 +241,8 @@ namespace CloudScraper
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\error.png"), new Size(16, 16)),
-                    Message = str.Remove(0, 3)
+                    Message = str.Remove(0, 3),
+                    Type = 2
                 });
                 return;
             }
@@ -261,21 +252,27 @@ namespace CloudScraper
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(16, 16)),
-                    Message = str.Remove(0, 1)
+                    Message = str.Remove(0, 1),
+                    Type = 3
                 });
                 return;
             }
 
             if (str.Length > 2 && str.Substring(0, 1) == "%")
             {
+                if (this.messages_[0].Type == 4)
+                    this.messages_.RemoveAt(0);
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\hourglass.png"), new Size(16, 16)),
-                    Message = str.Remove(0,2)
+                    Message = str.Remove(0,2),
+                    Type = 4
                 });
                 return;
             }
         }
+
+        private int count = 0;
 
         void timer__Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -359,5 +356,7 @@ namespace CloudScraper
         [DisplayName("Message")]
         public string Message { get; set; }
 
+        [Browsable(false)]
+        public int Type { get; set; }
     }
 }
