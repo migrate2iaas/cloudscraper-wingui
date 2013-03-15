@@ -265,6 +265,16 @@ namespace CloudScraper
                 });
                 return;
             }
+
+            if (str.Length > 2 && str.Substring(0, 1) == "%")
+            {
+                this.messages_.Insert(0, new MessageInfo()
+                {
+                    Image = new Bitmap(Image.FromFile("Icons\\hourglass.png"), new Size(16, 16)),
+                    Message = str
+                });
+                return;
+            }
         }
 
         void timer__Elapsed(object sender, System.Timers.ElapsedEventArgs e)
