@@ -117,7 +117,7 @@ namespace CloudScraper
                 else if (ResumeTransferForm.resumeUpload_)
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                        " -resume-upload " +
+                        " --resumeupload " +
                         //" -k " + CloudParametersForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
@@ -125,7 +125,7 @@ namespace CloudScraper
                 else if (ResumeTransferForm.skipUpload_)
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                        " -skip-upload " +
+                        " --skipupload " +
                         //" -k " + CloudParametersForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
@@ -179,58 +179,54 @@ namespace CloudScraper
         {
             lock(this.lockObject)
             {
+                long length = 0;
+                long lineNumber = 0;
+                while (true)
+                {
+                    if (File.Exists("test.txt"))
+                    {
+                        Thread.Sleep(1000);
 
-                        long length = 0;
-                        long lineNumber = 0;
-                        while (true)
+                        StreamReader stream = new StreamReader("test.txt");
+
+                        if (stream.BaseStream.Length == length)
                         {
-                            if (File.Exists("test.txt"))
-                            {
-                                Thread.Sleep(1000);
-
-                                StreamReader stream = new StreamReader("test.txt");
-
-                                if (stream.BaseStream.Length == length)
-                                {
-                                    stream.Close();
-                                    if (this.migrateStopped)
-                                    {
-                                        return;
-                                    }
-                                    Thread.Sleep(1000);
-                                    continue;
-                                }
-                                else
-                                {
-                                    length = stream.BaseStream.Length;
-                                    long currentLineNum = 0;
-
-                                    while (!stream.EndOfStream)
-                                    {
-
-                                        string str = stream.ReadLine();
-                                        currentLineNum++;
-
-                                        if (currentLineNum > lineNumber)
-                                        {
-                                            this.messageGridView.BeginInvoke(new MyDelegate(() =>
-                                            {
-                                                this.InsertMessage(str);
-                                            }));
-
-                                        }
-
-                                    }
-                                    stream.Close();
-
-                                    lineNumber = currentLineNum;
-                                }
-                            }
-                            else if (this.migrateStopped)
+                            stream.Close();
+                            if (this.migrateStopped)
                             {
                                 return;
                             }
-                        }                           
+                            Thread.Sleep(1000);
+                            continue;
+                        }
+                        else
+                        {
+                            length = stream.BaseStream.Length;
+                            long currentLineNum = 0;
+
+                            while (!stream.EndOfStream)
+                            {
+
+                                string str = stream.ReadLine();
+                                currentLineNum++;
+
+                                if (currentLineNum > lineNumber)
+                                {
+                                    this.messageGridView.BeginInvoke(new MyDelegate(() =>
+                                    {
+                                        this.InsertMessage(str);
+                                    }));
+                                }
+                            }
+                            stream.Close();
+                            lineNumber = currentLineNum;
+                        }
+                    }
+                    else if (this.migrateStopped)
+                    {
+                        return;
+                    }
+                }                           
             }
         }
 
@@ -238,6 +234,10 @@ namespace CloudScraper
         {
             if (str.Length > 3 && str.Substring(0, 3) == ">>>")
             {
+                while (str[0] == '>')
+                {
+                    str = str.Remove(0, 1);
+                }
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\arrow.png"), new Size(16, 16)),
@@ -251,7 +251,7 @@ namespace CloudScraper
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\error.png"), new Size(16, 16)),
-                    Message = str
+                    Message = str.Remove(0, 3)
                 });
                 return;
             }
@@ -261,7 +261,7 @@ namespace CloudScraper
                 this.messages_.Insert(0, new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(16, 16)),
-                    Message = str
+                    Message = str.Remove(0, 1)
                 });
                 return;
             }
