@@ -33,6 +33,7 @@
             this.backButton = new System.Windows.Forms.Button();
             this.messageGridView = new System.Windows.Forms.DataGridView();
             this.finishButton = new System.Windows.Forms.Button();
+            this.fullOutputButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,11 +94,23 @@
             this.finishButton.Visible = false;
             this.finishButton.Click += new System.EventHandler(this.finishButton_Click);
             // 
+            // fullOutputButton
+            // 
+            this.fullOutputButton.Location = new System.Drawing.Point(359, 263);
+            this.fullOutputButton.Name = "fullOutputButton";
+            this.fullOutputButton.Size = new System.Drawing.Size(102, 23);
+            this.fullOutputButton.TabIndex = 5;
+            this.fullOutputButton.Text = "Show full output";
+            this.fullOutputButton.UseVisualStyleBackColor = true;
+            this.fullOutputButton.Visible = false;
+            this.fullOutputButton.Click += new System.EventHandler(this.fullOutputButton_Click);
+            // 
             // CopyStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.fullOutputButton);
             this.Controls.Add(this.finishButton);
             this.Controls.Add(this.messageGridView);
             this.Controls.Add(this.backButton);
@@ -124,5 +137,6 @@
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.DataGridView messageGridView;
         private System.Windows.Forms.Button finishButton;
+        private System.Windows.Forms.Button fullOutputButton;
     }
 }
