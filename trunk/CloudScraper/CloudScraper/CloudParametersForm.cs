@@ -63,6 +63,7 @@ namespace CloudScraper
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.serverTypeComboBox.SelectedIndex = 0;
             this.nextButton.Enabled = false;
+            this.Text = Settings.Default.S4Header;
         }
 
         private void BackButtonClick(object sender, EventArgs e)

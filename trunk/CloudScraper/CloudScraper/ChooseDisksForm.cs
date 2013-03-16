@@ -33,6 +33,7 @@ namespace CloudScraper
             
             totalSpaceRequired_ = 0;
             this.totalSpaceLabel.Text = totalSpaceRequired_.ToString() + "GB";
+            this.Text = Settings.Default.S2Header;
         }
 
         private void BackButtonClick(object sender, EventArgs e)

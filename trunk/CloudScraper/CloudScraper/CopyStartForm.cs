@@ -40,7 +40,8 @@ namespace CloudScraper
             ResumeTransferForm.skipUpload_ = false; 
             ResumeTransferForm.resumeFilePath_ = null;
             
-            InitializeComponent();          
+            InitializeComponent();
+            this.Text = Settings.Default.S7Header;
         }
 
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
@@ -50,6 +51,7 @@ namespace CloudScraper
             this.resumeTransferForm_ = resumeTransferForm;
             
             InitializeComponent();
+            this.Text = Settings.Default.S7Header;
         }
 
         private void BackButtonClick(object sender, EventArgs e)

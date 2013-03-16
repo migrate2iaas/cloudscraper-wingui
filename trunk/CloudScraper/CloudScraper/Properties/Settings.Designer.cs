@@ -76,5 +76,101 @@ namespace CloudScraper.Properties {
                 this["Separator"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cloudscraper Server Copy")]
+        public string S1Header {
+            get {
+                return ((string)(this["S1Header"]));
+            }
+            set {
+                this["S1Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Choose volumes to copy...")]
+        public string S2Header {
+            get {
+                return ((string)(this["S2Header"]));
+            }
+            set {
+                this["S2Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Choose Your Cloud")]
+        public string S3Header {
+            get {
+                return ((string)(this["S3Header"]));
+            }
+            set {
+                this["S3Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cloud Options")]
+        public string S4Header {
+            get {
+                return ((string)(this["S4Header"]));
+            }
+            set {
+                this["S4Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Images Location...")]
+        public string S5Header {
+            get {
+                return ((string)(this["S5Header"]));
+            }
+            set {
+                this["S5Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Save transfer task")]
+        public string S6Header {
+            get {
+                return ((string)(this["S6Header"]));
+            }
+            set {
+                this["S6Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transfer progress")]
+        public string S7Header {
+            get {
+                return ((string)(this["S7Header"]));
+            }
+            set {
+                this["S7Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Resume your transfer task")]
+        public string R2Header {
+            get {
+                return ((string)(this["R2Header"]));
+            }
+            set {
+                this["R2Header"] = value;
+            }
+        }
     }
 }

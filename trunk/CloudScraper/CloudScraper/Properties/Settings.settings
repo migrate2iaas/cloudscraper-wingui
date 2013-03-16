@@ -29,5 +29,29 @@
     <Setting Name="Separator" Type="System.Char" Scope="User">
       <Value Profile="(Default)">/</Value>
     </Setting>
+    <Setting Name="S1Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cloudscraper Server Copy</Value>
+    </Setting>
+    <Setting Name="S2Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose volumes to copy...</Value>
+    </Setting>
+    <Setting Name="S3Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose Your Cloud</Value>
+    </Setting>
+    <Setting Name="S4Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cloud Options</Value>
+    </Setting>
+    <Setting Name="S5Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Images Location...</Value>
+    </Setting>
+    <Setting Name="S6Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Save transfer task</Value>
+    </Setting>
+    <Setting Name="S7Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer progress</Value>
+    </Setting>
+    <Setting Name="R2Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume your transfer task</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
