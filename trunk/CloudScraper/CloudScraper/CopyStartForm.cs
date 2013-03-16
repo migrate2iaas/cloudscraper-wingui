@@ -161,7 +161,6 @@ namespace CloudScraper
             p.StartInfo = info;
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.Exited += new EventHandler(p_Exited);
-
             p.EnableRaisingEvents = true;
             p.Start();
             this.startButton.Enabled = false;
@@ -189,12 +188,15 @@ namespace CloudScraper
                 {
                     if (File.Exists("test.txt"))
                     {
-                        if (File.Exists("testcopy.txt"))
-                            File.Delete("testcopy.txt");
+                        //if (File.Exists("testcopy.txt"))
+                        //    File.Delete("testcopy.txt");
 
-                        File.Copy("test.txt", "testcopy.txt");
-                        StreamReader stream = new StreamReader("testcopy.txt");
+                        //File.Copy("test.txt", "testcopy.txt");
+                        //StreamReader stream = new StreamReader("testcopy.txt");
 
+                        var fs = new FileStream("test.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        StreamReader stream = new StreamReader(fs);
+                        
                         if (stream.BaseStream.Length == length)
                         {
                             stream.Close();
@@ -207,8 +209,8 @@ namespace CloudScraper
                                     this.finishButton.Visible = true;
                                     if (File.Exists("test.txt"))
                                     this.fullOutputButton.Visible = true;
-                                    if (File.Exists("testcopy.txt"))
-                                        File.Delete("testcopy.txt");
+                                    //if (File.Exists("testcopy.txt"))
+                                    //    File.Delete("testcopy.txt");
                                 }));
                                 return;
                             }
@@ -246,7 +248,7 @@ namespace CloudScraper
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
                             if (File.Exists("test.txt"))
-                            this.fullOutputButton.Visible = true;
+                                this.fullOutputButton.Visible = true;
                         }));
                         return;
                     }
