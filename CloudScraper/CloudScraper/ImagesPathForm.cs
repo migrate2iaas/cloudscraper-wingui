@@ -19,7 +19,8 @@ namespace CloudScraper
         public ImagesPathForm(CloudParametersForm cloudParametersForm)
         {
             this.cloudParametersForm_ = cloudParametersForm;
-            InitializeComponent();      
+            InitializeComponent();
+            this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
         }
 
         private void BrowseButtonClick(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace CloudScraper
         private System.Timers.Timer timer_ = new System.Timers.Timer();
         delegate void MyDelegate();
         public object lockObject;
-        private bool migrateStopped;
+        public bool migrateStopped;
 
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
@@ -37,8 +37,7 @@ namespace CloudScraper
 
             this.saveTransferForm_ = saveTransferForm;
             
-            InitializeComponent();
-            this.messageGridView.DataSource = this.messages_;
+            InitializeComponent();          
         }
 
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
@@ -48,7 +47,6 @@ namespace CloudScraper
             this.resumeTransferForm_ = resumeTransferForm;
             
             InitializeComponent();
-            this.messageGridView.DataSource = this.messages_;
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -140,9 +138,10 @@ namespace CloudScraper
             }
 
             if (File.Exists("test.txt"))
-            {
                 File.Delete("test.txt");
-            }
+
+            if (File.Exists("testcopy.txt"))
+                File.Delete("testcopy.txt");
 
             Process p = new Process();
             ProcessStartInfo info = new ProcessStartInfo("migrate.cmd");
@@ -157,7 +156,7 @@ namespace CloudScraper
             this.backButton.Enabled = false;
             this.migrateStopped = false;
 
-            //timer_.Interval = 10000;
+            //timer_.Interval = 1000;
             //timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
             //timer_.Start();
             
@@ -179,9 +178,8 @@ namespace CloudScraper
                     if (File.Exists("test.txt"))
                     {
                         if (File.Exists("testcopy.txt"))
-                        {
                             File.Delete("testcopy.txt");
-                        }
+
                         File.Copy("test.txt", "testcopy.txt");
                         StreamReader stream = new StreamReader("testcopy.txt");
 
@@ -195,10 +193,12 @@ namespace CloudScraper
                                 {
                                     this.startButton.Visible = false;
                                     this.finishButton.Visible = true;
+                                    if (File.Exists("testcopy.txt"))
+                                        File.Delete("testcopy.txt");
                                 }));
                                 return;
                             }
-                            Thread.Sleep(1000);
+                            //Thread.Sleep(1000);
                             continue;
                         }
                         else
@@ -291,15 +291,6 @@ namespace CloudScraper
             }
         }
 
-        private int count = 0;
-
-        void timer__Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            this.messageGridView.BeginInvoke(new MyDelegate(() =>
-            {
-                this.Work();
-            })); 
-        }
 
         
         void p_Exited(object sender, EventArgs e)
@@ -350,8 +341,8 @@ namespace CloudScraper
 
         private void CopyStartForm_Load(object sender, EventArgs e)
         {
+            this.messageGridView.DataSource = this.messages_;
             this.messageGridView.Columns[0].Width = 50;
-            this.messageGridView.Columns[0].ReadOnly = true;
         }
 
         private void finishButton_Click(object sender, EventArgs e)
