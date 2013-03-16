@@ -52,7 +52,7 @@ namespace CloudScraper
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://ya.ru");
+            System.Diagnostics.Process.Start(Settings.Default.S3Link);
         }
     }
 }

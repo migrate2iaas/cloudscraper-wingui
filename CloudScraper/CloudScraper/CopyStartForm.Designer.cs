@@ -34,6 +34,7 @@
             this.messageGridView = new System.Windows.Forms.DataGridView();
             this.finishButton = new System.Windows.Forms.Button();
             this.fullOutputButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             this.messageGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.messageGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.messageGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.messageGridView.Location = new System.Drawing.Point(13, 12);
+            this.messageGridView.Location = new System.Drawing.Point(13, 29);
             this.messageGridView.MultiSelect = false;
             this.messageGridView.Name = "messageGridView";
             this.messageGridView.ReadOnly = true;
@@ -79,7 +80,7 @@
             this.messageGridView.ShowCellToolTips = false;
             this.messageGridView.ShowEditingIcon = false;
             this.messageGridView.ShowRowErrors = false;
-            this.messageGridView.Size = new System.Drawing.Size(542, 234);
+            this.messageGridView.Size = new System.Drawing.Size(542, 217);
             this.messageGridView.TabIndex = 3;
             this.messageGridView.VirtualMode = true;
             // 
@@ -105,11 +106,28 @@
             this.fullOutputButton.Visible = false;
             this.fullOutputButton.Click += new System.EventHandler(this.fullOutputButton_Click);
             // 
+            // helpButton
+            // 
+            this.helpButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.helpButton.FlatAppearance.BorderSize = 0;
+            this.helpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.helpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.ForeColor = System.Drawing.Color.Transparent;
+            this.helpButton.Location = new System.Drawing.Point(544, 1);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(23, 22);
+            this.helpButton.TabIndex = 20;
+            this.helpButton.Tag = "Help";
+            this.helpButton.UseVisualStyleBackColor = false;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
             // CopyStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.fullOutputButton);
             this.Controls.Add(this.finishButton);
             this.Controls.Add(this.messageGridView);
@@ -138,5 +156,6 @@
         private System.Windows.Forms.DataGridView messageGridView;
         private System.Windows.Forms.Button finishButton;
         private System.Windows.Forms.Button fullOutputButton;
+        private System.Windows.Forms.Button helpButton;
     }
 }

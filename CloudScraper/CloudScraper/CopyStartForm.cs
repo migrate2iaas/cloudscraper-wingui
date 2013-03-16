@@ -42,6 +42,7 @@ namespace CloudScraper
             
             InitializeComponent();
             this.Text = Settings.Default.S7Header;
+            this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
         }
 
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
@@ -52,6 +53,7 @@ namespace CloudScraper
             
             InitializeComponent();
             this.Text = Settings.Default.S7Header;
+            this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -89,6 +91,7 @@ namespace CloudScraper
                         stream.WriteLine("instance-type = ");
                     }
                     stream.WriteLine("target-arch = x86_64");
+                    stream.WriteLine("s3prefix = " + CloudParametersForm.folderKey_);
                     stream.WriteLine("s3key = " + CloudParametersForm.awsId_);
                     stream.WriteLine("bucket = " + CloudParametersForm.s3bucket_);
                     stream.WriteLine("[Image]");
@@ -102,6 +105,10 @@ namespace CloudScraper
                         letters = letters == null ? str.Replace(":\\", "") : letters + "," + str.Replace(":\\", "");
                     }
                     stream.WriteLine("letters = " + letters);
+                    foreach (string str in ChooseDisksForm.selectedDisks_)
+                    {
+                        stream.WriteLine("[" + str.Replace(":\\", "") + "]");
+                    }
                 }
             }
 
@@ -121,7 +128,7 @@ namespace CloudScraper
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                         " --resumeupload " +
-                        " -k asdfsd" + CloudParametersForm.awsKey_ +
+                        " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
@@ -129,14 +136,14 @@ namespace CloudScraper
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                         " --skipupload " +
-                        " -k asdsa" + CloudParametersForm.awsKey_ +
+                        " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
                 else if (ResumeTransferForm.resumeFilePath_ != null)
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                        " -k asdsa" + CloudParametersForm.awsKey_ +
+                        " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
@@ -198,6 +205,7 @@ namespace CloudScraper
                                 {
                                     this.startButton.Visible = false;
                                     this.finishButton.Visible = true;
+                                    if (File.Exists("test.txt"))
                                     this.fullOutputButton.Visible = true;
                                     if (File.Exists("testcopy.txt"))
                                         File.Delete("testcopy.txt");
@@ -237,6 +245,7 @@ namespace CloudScraper
                         {
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
+                            if (File.Exists("test.txt"))
                             this.fullOutputButton.Visible = true;
                         }));
                         return;
@@ -298,8 +307,6 @@ namespace CloudScraper
             }
         }
 
-
-        
         void p_Exited(object sender, EventArgs e)
         {
             this.migrateStopped = true;
@@ -361,6 +368,11 @@ namespace CloudScraper
         {
             FullOutputForm form = new FullOutputForm("test.txt");
             form.ShowDialog();
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Settings.Default.S7Link);
         }
     
     }
