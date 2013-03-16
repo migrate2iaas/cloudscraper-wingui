@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using CloudScraper.Properties;
 
 namespace CloudScraper
 {
@@ -24,6 +25,7 @@ namespace CloudScraper
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "transfer.ini";
             transferPath_ = this.saveTransferTextBox.Text;
+            this.Text = Settings.Default.S6Header;
         }
 
         private void saveTransferTask_Click(object sender, EventArgs e)

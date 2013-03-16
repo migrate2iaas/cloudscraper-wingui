@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using CloudScraper.Properties;
 
 namespace CloudScraper
 {
@@ -21,6 +22,7 @@ namespace CloudScraper
             this.cloudParametersForm_ = cloudParametersForm;
             InitializeComponent();
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.Text = Settings.Default.S5Header;
         }
 
         private void BrowseButtonClick(object sender, EventArgs e)
