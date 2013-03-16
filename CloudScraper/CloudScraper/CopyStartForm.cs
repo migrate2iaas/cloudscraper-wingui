@@ -149,11 +149,11 @@ namespace CloudScraper
                 }
             }
 
-            if (File.Exists("test.txt"))
-                File.Delete("test.txt");
+            //if (File.Exists("test.txt"))
+            //    File.Delete("test.txt");
 
-            if (File.Exists("testcopy.txt"))
-                File.Delete("testcopy.txt");
+            //if (File.Exists("testcopy.txt"))
+            //    File.Delete("testcopy.txt");
 
             Process p = new Process();
             ProcessStartInfo info = new ProcessStartInfo("migrate.cmd");
