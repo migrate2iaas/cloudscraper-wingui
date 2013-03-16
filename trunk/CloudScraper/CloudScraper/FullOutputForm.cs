@@ -15,13 +15,11 @@ namespace CloudScraper
         {
             InitializeComponent();
 
-            using (StreamReader stream = new StreamReader(path))
-            {
-                while (!stream.EndOfStream)
-                {
-                    this.fullOutputBox.Items.Add(stream.ReadLine());
-                }
-            }
+            //using (StreamReader stream = new StreamReader(path))
+            //{
+                this.fullOutputBox.Lines = File.ReadAllLines(path);
+
+            //}
         }
     }
 }
