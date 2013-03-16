@@ -116,7 +116,7 @@ namespace CloudScraper
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                         " --resumeupload " +
-                        //" -k " + CloudParametersForm.awsKey_ +
+                        " -k asdfsd" + CloudParametersForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
@@ -124,14 +124,14 @@ namespace CloudScraper
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                         " --skipupload " +
-                        //" -k " + CloudParametersForm.awsKey_ +
+                        " -k asdsa" + CloudParametersForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
                 else if (ResumeTransferForm.resumeFilePath_ != null)
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                        //" -k " + CloudParametersForm.awsKey_ +
+                        " -k asdsa" + CloudParametersForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
                         " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
                 }
