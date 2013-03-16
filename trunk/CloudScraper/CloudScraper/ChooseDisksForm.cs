@@ -81,13 +81,6 @@ namespace CloudScraper
                 dataGridView.DataSource = this.volumes_;
                 dataGridView.AutoResizeColumn(0);
                 dataGridView.AutoResizeColumn(1);
-                //dataGridView.Columns[0].Width = 30;
-                //dataGridView.Columns[1].Width = 50;
-                //dataGridView.Columns[1].ReadOnly = true;
-                //dataGridView.Columns[2].ReadOnly = true;
-                //dataGridView.Columns[3].ReadOnly = true;
-                //dataGridView.Columns[4].ReadOnly = true;
-                //dataGridView.Columns[5].ReadOnly = true;
 
                 this.loaded_ = true;
             }
