@@ -342,7 +342,7 @@ namespace CloudScraper
         private void CopyStartForm_Load(object sender, EventArgs e)
         {
             this.messageGridView.DataSource = this.messages_;
-            this.messageGridView.Columns[0].Width = 50;
+            this.messageGridView.AutoResizeColumn(0);
         }
 
         private void finishButton_Click(object sender, EventArgs e)
@@ -354,7 +354,7 @@ namespace CloudScraper
 
     public class MessageInfo
     {
-        [DisplayName(" ")]
+        [DisplayName("      ")]
         public Image Image { get; set; }
 
         [DisplayName("Message")]

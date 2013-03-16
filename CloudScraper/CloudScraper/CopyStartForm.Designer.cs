@@ -65,7 +65,7 @@
             this.messageGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.messageGridView.BackgroundColor = System.Drawing.Color.White;
             this.messageGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.messageGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.messageGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.messageGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.messageGridView.Location = new System.Drawing.Point(13, 12);
             this.messageGridView.MultiSelect = false;
