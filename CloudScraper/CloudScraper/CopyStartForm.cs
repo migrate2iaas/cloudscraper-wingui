@@ -198,6 +198,7 @@ namespace CloudScraper
                                 {
                                     this.startButton.Visible = false;
                                     this.finishButton.Visible = true;
+                                    this.fullOutputButton.Visible = true;
                                     if (File.Exists("testcopy.txt"))
                                         File.Delete("testcopy.txt");
                                 }));
@@ -236,6 +237,7 @@ namespace CloudScraper
                         {
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
+                            this.fullOutputButton.Visible = true;
                         }));
                         return;
                     }
@@ -353,6 +355,12 @@ namespace CloudScraper
         private void finishButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void fullOutputButton_Click(object sender, EventArgs e)
+        {
+            FullOutputForm form = new FullOutputForm("test.txt");
+            form.ShowDialog();
         }
     
     }
