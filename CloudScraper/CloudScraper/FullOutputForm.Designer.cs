@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FullOutputForm));
-            this.fullOutputBox = new System.Windows.Forms.ListBox();
+            this.fullOutputBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // fullOutputBox
             // 
             this.fullOutputBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fullOutputBox.FormattingEnabled = true;
-            this.fullOutputBox.HorizontalScrollbar = true;
             this.fullOutputBox.Location = new System.Drawing.Point(0, 0);
+            this.fullOutputBox.Multiline = true;
             this.fullOutputBox.Name = "fullOutputBox";
+            this.fullOutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.fullOutputBox.Size = new System.Drawing.Size(421, 429);
             this.fullOutputBox.TabIndex = 0;
             // 
@@ -55,11 +55,13 @@
             this.Text = "Full output";
             this.TopMost = true;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox fullOutputBox;
+        private System.Windows.Forms.TextBox fullOutputBox;
+
     }
 }
