@@ -193,7 +193,7 @@ namespace CloudScraper
                             File.Delete("testcopy.txt");
 
                         File.Copy("test.txt", "testcopy.txt");
-                        StreamReader stream = new StreamReader("testcopy.txt");
+                        StreamReader stream = new StreamReader(new FileStream("test.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
 
                         if (stream.BaseStream.Length == length)
                         {
