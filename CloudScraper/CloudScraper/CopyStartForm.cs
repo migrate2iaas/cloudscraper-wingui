@@ -36,6 +36,9 @@ namespace CloudScraper
             this.messages_ = new BindingList<MessageInfo>();
 
             this.saveTransferForm_ = saveTransferForm;
+            ResumeTransferForm.resumeUpload_ = false; 
+            ResumeTransferForm.skipUpload_ = false; 
+            ResumeTransferForm.resumeFilePath_ = null;
             
             InitializeComponent();          
         }
