@@ -21,6 +21,7 @@ namespace CloudScraper
             this.imagesPathForm_ = imagesPathForm;
             InitializeComponent();
 
+            this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "transfer.ini";
             transferPath_ = this.saveTransferTextBox.Text;
         }

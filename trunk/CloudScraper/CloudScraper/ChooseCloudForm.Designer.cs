@@ -34,11 +34,13 @@
             this.windowsAzureButton = new System.Windows.Forms.Button();
             this.elasticHostsButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 263);
+            this.backButton.Location = new System.Drawing.Point(150, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
@@ -48,7 +50,7 @@
             // 
             // amazonButton
             // 
-            this.amazonButton.Location = new System.Drawing.Point(175, 26);
+            this.amazonButton.Location = new System.Drawing.Point(256, 12);
             this.amazonButton.Name = "amazonButton";
             this.amazonButton.Size = new System.Drawing.Size(189, 70);
             this.amazonButton.TabIndex = 2;
@@ -60,7 +62,7 @@
             // windowsAzureButton
             // 
             this.windowsAzureButton.Enabled = false;
-            this.windowsAzureButton.Location = new System.Drawing.Point(175, 102);
+            this.windowsAzureButton.Location = new System.Drawing.Point(256, 88);
             this.windowsAzureButton.Name = "windowsAzureButton";
             this.windowsAzureButton.Size = new System.Drawing.Size(189, 76);
             this.windowsAzureButton.TabIndex = 3;
@@ -71,7 +73,7 @@
             // elasticHostsButton
             // 
             this.elasticHostsButton.Enabled = false;
-            this.elasticHostsButton.Location = new System.Drawing.Point(175, 184);
+            this.elasticHostsButton.Location = new System.Drawing.Point(256, 170);
             this.elasticHostsButton.Name = "elasticHostsButton";
             this.elasticHostsButton.Size = new System.Drawing.Size(189, 74);
             this.elasticHostsButton.TabIndex = 4;
@@ -87,7 +89,6 @@
             this.helpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.ForeColor = System.Drawing.Color.Transparent;
-            this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
             this.helpButton.Location = new System.Drawing.Point(544, 0);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(23, 22);
@@ -96,11 +97,23 @@
             this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-2, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 299);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // ChooseCloudForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.elasticHostsButton);
             this.Controls.Add(this.windowsAzureButton);
@@ -116,6 +129,7 @@
             this.Text = "Choose Your Cloud";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.On_closed);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -127,5 +141,6 @@
         private System.Windows.Forms.Button windowsAzureButton;
         private System.Windows.Forms.Button elasticHostsButton;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

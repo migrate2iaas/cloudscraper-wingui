@@ -121,29 +121,10 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="helpButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAL3SURBVDhPdZN/LJRxHMe/pq1ltjKqP7SSrBUaJpqxQpgfh1S2NGol/jHW1hbWMKulUn+YDFNn
-        TGFlHeJ0+ZVJqLMZ7s6vXLVz7txdd+7hfiTvnu+jbCyf7fPH83xer893n+f5fAnZGq65PHL8Id82sERl
-        z6tl7GNrGdugUhVxf8AntLZteD6yJ273hU43OuDLn0NEuwYxQhViBfMIa1LAu2oWTmlCELciIaHspvCt
-        sCNeT+V+pRKki5eQ26OAaFQJ2Q8t1swWjH/ToFAkR8qQHn7lUhCvUjmhzkacKOsIfz6FbJkZsXwJLMYV
-        /C8y6iTIHGUQzp8GYZ1137sq2jOnH3lTVoS3auBaMom6zq/oGVMjrnIcBW9nYLascv3axPOcnDrMgDrU
-        JSS0vjpdtICE9zpEtbCSYAEBZWPwqJhBaIcBhx6PQ/LdwDXok6pB2X9JXbLv6jsV7XhJpMW1bg0SRRqE
-        vNHCr+kndt6dRkqJ+O80a0gon9iQqUNdcjCrz3R73Iy0Xh1CBYs4WqPEYb4SzlXz2H9riJV/cw0ulo7C
-        Jl+G8DY9NwJN6hKPghFTgdSCk42L8KhbhE+9BoGtBuwomET7oJKTn/UrYHNHhlPNBpbRcOyFjya4542Y
-        2N0Qq+iD/2stzgh0XAYI9PCpkmPRYOIahD2R4FiDDiEtOpxm65SlzhHWJbuzvlSHCpcQ08kgkv1okUID
-        eD0M/OtV2JU9CsfCMTgXz4DXZUQUrbNJWepQl9ilDUUHvFAi+bMF8d0MzvUySPiwDO9aBSoGNeiaMiK4
-        RoGI7mWcZ9/Hdxs5ljrU5VZhT85ER+LACq6PmHF5YBlnO41IalRs7JJ1yYgwkQFJg+sMZamzsYgO2WN2
-        B4pn5cnDK7gp+4UrYjOCXy1Ay1i5Jvf62Jk/LXM1ylCWOpuug2P+lP3e4jlhJHtSptSK1AkrQtq0iOvU
-        I7JvBRnSVdAaZSi77aV0KJrjuVTO831eqlVBzXqG/SOMX4Na5VKp5NPaVvEPE95qk7Sp454AAAAASUVO
-        RK5CYII=
-</value>
-  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVFhH7ZdLDoMwDERzp96pd+qNWPRONEYaaeL4RwWi
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFTSURBVFhH7ZdLDoMwDERzp96pd+qNWPRONEYaaeL4RwWi
         lViwaZP4eWaSQFtbW696lmVZ21XFpe4NkCvw7PnoLm3Pu5gVGYc5Mj/IWAzAxasQXLwAEQNggVfv4lHo
         ioFlvMzDGo4KPoA1GRCeFehexqEgN2FA+ADeRPzORWRhVogLJSrYAFpKXhD/ycJWIR26xDobIKL2OvWU
         EcjABhsg8c0MVhS2oKEZoJJ2hA1ywxYvnIGlM0DkPzxHRygIIJ0LjA+amgEKe3dKfOR/sh1nAD7Jomua
