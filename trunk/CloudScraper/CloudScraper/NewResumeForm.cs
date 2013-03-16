@@ -26,6 +26,7 @@ namespace CloudScraper
             this.startNewButton.Image = new Bitmap(Image.FromFile("Icons\\StartNew.ico"), new Size(32, 32));
             this.resumeButton.Image = new Bitmap(Image.FromFile("Icons\\Resume.ico"), new Size(32, 32));
             this.Text = Settings.Default.S1Header;
+            this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
         }
 
         private void StartNewButtonClick(object sender, EventArgs e)
@@ -55,6 +56,11 @@ namespace CloudScraper
         private void OnClosed(object sender, FormClosedEventArgs e)
         {
             ghost_.Close();
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Settings.Default.S1Link);
         }
     }
 }

@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.totalSpaceLabel = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.helpButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,20 +89,37 @@
             this.dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView.Location = new System.Drawing.Point(12, 28);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(543, 238);
+            this.dataGridView.Size = new System.Drawing.Size(543, 222);
             this.dataGridView.TabIndex = 5;
             this.dataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnSelect);
+            // 
+            // helpButton
+            // 
+            this.helpButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.helpButton.FlatAppearance.BorderSize = 0;
+            this.helpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.helpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.ForeColor = System.Drawing.Color.Transparent;
+            this.helpButton.Location = new System.Drawing.Point(544, 0);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(23, 22);
+            this.helpButton.TabIndex = 19;
+            this.helpButton.Tag = "Help";
+            this.helpButton.UseVisualStyleBackColor = false;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
             // ChooseDisksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.totalSpaceLabel);
             this.Controls.Add(this.label1);
@@ -131,5 +149,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label totalSpaceLabel;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button helpButton;
     }
 }

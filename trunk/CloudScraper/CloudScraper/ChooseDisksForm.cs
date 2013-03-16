@@ -34,6 +34,7 @@ namespace CloudScraper
             totalSpaceRequired_ = 0;
             this.totalSpaceLabel.Text = totalSpaceRequired_.ToString() + "GB";
             this.Text = Settings.Default.S2Header;
+            this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -156,6 +157,11 @@ namespace CloudScraper
 
                 this.totalSpaceLabel.Text = Math.Round(totalSpaceRequired_,1).ToString() + "GB";
             }
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Settings.Default.S2Link);
         }
 
     }

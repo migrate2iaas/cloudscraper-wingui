@@ -39,6 +39,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.awsIdTextBox = new System.Windows.Forms.TextBox();
+            this.awsIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,11 +141,30 @@
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
+            // awsIdTextBox
+            // 
+            this.awsIdTextBox.Location = new System.Drawing.Point(258, 212);
+            this.awsIdTextBox.Name = "awsIdTextBox";
+            this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
+            this.awsIdTextBox.TabIndex = 19;
+            this.awsIdTextBox.TextChanged += new System.EventHandler(this.awsIdTextBox_TextChanged);
+            // 
+            // awsIdLabel
+            // 
+            this.awsIdLabel.AutoSize = true;
+            this.awsIdLabel.Location = new System.Drawing.Point(182, 215);
+            this.awsIdLabel.Name = "awsIdLabel";
+            this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
+            this.awsIdLabel.TabIndex = 20;
+            this.awsIdLabel.Text = "You AWS Id:";
+            // 
             // ResumeTransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.awsIdTextBox);
+            this.Controls.Add(this.awsIdLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.label1);
@@ -180,5 +201,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox awsIdTextBox;
+        private System.Windows.Forms.Label awsIdLabel;
     }
 }

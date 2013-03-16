@@ -15,6 +15,7 @@ namespace CloudScraper
         public static bool resumeUpload_;
         public static bool skipUpload_;
         public static string resumeFilePath_;
+        public static string awsKey_ = "";
         
         NewResumeForm newResumeForm_;
         CopyStartForm copyStartForm_;
@@ -75,6 +76,12 @@ namespace CloudScraper
                 this.nextButton.Enabled = false;
                 resumeFilePath_ = this.resumeTextBox.Text;
             }
+
+            if ((sender as TextBox).Text != "")
+            {
+                this.nextButton.Enabled = File.Exists((sender as TextBox).Text) ? true : false;
+                resumeFilePath_ = this.resumeTextBox.Text;
+            }
         }
 
         private void ResumeUploadCheckedChanged(object sender, EventArgs e)
@@ -103,7 +110,12 @@ namespace CloudScraper
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://ya.ru");
+            System.Diagnostics.Process.Start(Settings.Default.R2Link);
+        }
+
+        private void awsIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+            awsKey_ = (sender as TextBox).Text;
         }
     }
 }

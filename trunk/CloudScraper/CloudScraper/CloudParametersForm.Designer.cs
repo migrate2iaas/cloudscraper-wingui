@@ -50,6 +50,8 @@
             this.bucketLabel = new System.Windows.Forms.Label();
             this.nextButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
+            this.folderKeyLabel = new System.Windows.Forms.Label();
+            this.folderKeyBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -145,6 +147,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.folderKeyLabel);
+            this.tabPage2.Controls.Add(this.folderKeyBox);
             this.tabPage2.Controls.Add(this.advancedCheckBox);
             this.tabPage2.Controls.Add(this.groupLabel);
             this.tabPage2.Controls.Add(this.groupTextBox);
@@ -196,7 +200,7 @@
             // 
             this.zoneLabel.AutoSize = true;
             this.zoneLabel.Enabled = false;
-            this.zoneLabel.Location = new System.Drawing.Point(69, 140);
+            this.zoneLabel.Location = new System.Drawing.Point(68, 149);
             this.zoneLabel.Name = "zoneLabel";
             this.zoneLabel.Size = new System.Drawing.Size(145, 13);
             this.zoneLabel.TabIndex = 5;
@@ -206,7 +210,7 @@
             // 
             this.serverTypeComboBox.Enabled = false;
             this.serverTypeComboBox.FormattingEnabled = true;
-            this.serverTypeComboBox.Location = new System.Drawing.Point(218, 90);
+            this.serverTypeComboBox.Location = new System.Drawing.Point(217, 110);
             this.serverTypeComboBox.Name = "serverTypeComboBox";
             this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
             this.serverTypeComboBox.TabIndex = 4;
@@ -215,7 +219,7 @@
             // zoneTextBox
             // 
             this.zoneTextBox.Enabled = false;
-            this.zoneTextBox.Location = new System.Drawing.Point(218, 137);
+            this.zoneTextBox.Location = new System.Drawing.Point(217, 146);
             this.zoneTextBox.Name = "zoneTextBox";
             this.zoneTextBox.Size = new System.Drawing.Size(235, 20);
             this.zoneTextBox.TabIndex = 3;
@@ -225,7 +229,7 @@
             // 
             this.typeLabel.AutoSize = true;
             this.typeLabel.Enabled = false;
-            this.typeLabel.Location = new System.Drawing.Point(62, 93);
+            this.typeLabel.Location = new System.Drawing.Point(61, 113);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(152, 13);
             this.typeLabel.TabIndex = 2;
@@ -234,7 +238,7 @@
             // bucketTextBox
             // 
             this.bucketTextBox.Enabled = false;
-            this.bucketTextBox.Location = new System.Drawing.Point(217, 46);
+            this.bucketTextBox.Location = new System.Drawing.Point(216, 38);
             this.bucketTextBox.Name = "bucketTextBox";
             this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
             this.bucketTextBox.TabIndex = 1;
@@ -244,7 +248,7 @@
             // 
             this.bucketLabel.AutoSize = true;
             this.bucketLabel.Enabled = false;
-            this.bucketLabel.Location = new System.Drawing.Point(90, 49);
+            this.bucketLabel.Location = new System.Drawing.Point(89, 41);
             this.bucketLabel.Name = "bucketLabel";
             this.bucketLabel.Size = new System.Drawing.Size(121, 13);
             this.bucketLabel.TabIndex = 0;
@@ -275,6 +279,25 @@
             this.helpButton.Tag = "Help";
             this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
+            // folderKeyLabel
+            // 
+            this.folderKeyLabel.AutoSize = true;
+            this.folderKeyLabel.Enabled = false;
+            this.folderKeyLabel.Location = new System.Drawing.Point(110, 78);
+            this.folderKeyLabel.Name = "folderKeyLabel";
+            this.folderKeyLabel.Size = new System.Drawing.Size(100, 13);
+            this.folderKeyLabel.TabIndex = 10;
+            this.folderKeyLabel.Text = "Specify folder (key):";
+            // 
+            // folderKeyBox
+            // 
+            this.folderKeyBox.Enabled = false;
+            this.folderKeyBox.Location = new System.Drawing.Point(216, 75);
+            this.folderKeyBox.Name = "folderKeyBox";
+            this.folderKeyBox.Size = new System.Drawing.Size(235, 20);
+            this.folderKeyBox.TabIndex = 9;
+            this.folderKeyBox.TextChanged += new System.EventHandler(this.FolderKeyChanged);
             // 
             // CloudParametersForm
             // 
@@ -327,5 +350,7 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.CheckBox advancedCheckBox;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.Label folderKeyLabel;
+        private System.Windows.Forms.TextBox folderKeyBox;
     }
 }

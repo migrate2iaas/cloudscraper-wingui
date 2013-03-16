@@ -53,5 +53,32 @@
     <Setting Name="R2Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Resume your transfer task</Value>
     </Setting>
+    <Setting Name="S1Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S2Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S3Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S4Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S5Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S6Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S7Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="R2Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

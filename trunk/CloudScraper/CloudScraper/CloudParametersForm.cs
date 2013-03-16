@@ -16,6 +16,7 @@ namespace CloudScraper
         public static string region_;
         public static bool advanced_ = false;
         public static string s3bucket_ = "";
+        public static string folderKey_ = "";
         public static string type_;
         public static string zone_ = "";
         public static string group_ = "";
@@ -113,6 +114,8 @@ namespace CloudScraper
                 advanced_ = true;
                 this.bucketTextBox.Enabled = true;
                 this.bucketLabel.Enabled = true;
+                this.folderKeyBox.Enabled = true;
+                this.folderKeyLabel.Enabled = true;
                 this.serverTypeComboBox.Enabled = true;
                 this.typeLabel.Enabled = true;
                 this.zoneTextBox.Enabled = true;
@@ -126,6 +129,8 @@ namespace CloudScraper
                 advanced_ = false;
                 this.bucketTextBox.Enabled = false;
                 this.bucketLabel.Enabled = false;
+                this.folderKeyBox.Enabled = false;
+                this.folderKeyLabel.Enabled = false;
                 this.serverTypeComboBox.Enabled = false;
                 this.typeLabel.Enabled = false;
                 this.zoneTextBox.Enabled = false;
@@ -139,6 +144,12 @@ namespace CloudScraper
         private void BucketChanged(object sender, EventArgs e)
         {
             s3bucket_ = (sender as TextBox).Text;
+            this.CheckEnter();
+        }
+
+        private void FolderKeyChanged(object sender, EventArgs e)
+        {
+            folderKey_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
@@ -166,7 +177,7 @@ namespace CloudScraper
                 this.nextButton.Enabled = true;
             }
             else if (advanced_ && awsId_ != "" && awsKey_ != ""
-                && s3bucket_ != "" && zone_ != "" && group_ != "")
+                && s3bucket_ != "" && zone_ != "" && group_ != "" && folderKey_ != "")
             {
                 this.nextButton.Enabled = true;
             }
@@ -178,7 +189,8 @@ namespace CloudScraper
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://ya.ru");
+            System.Diagnostics.Process.Start(Settings.Default.S4Link);
         }
+
     }
 }

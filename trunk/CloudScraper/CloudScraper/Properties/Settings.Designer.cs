@@ -172,5 +172,113 @@ namespace CloudScraper.Properties {
                 this["R2Header"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string S1Link {
+            get {
+                return ((string)(this["S1Link"]));
+            }
+            set {
+                this["S1Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string S2Link {
+            get {
+                return ((string)(this["S2Link"]));
+            }
+            set {
+                this["S2Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string S3Link {
+            get {
+                return ((string)(this["S3Link"]));
+            }
+            set {
+                this["S3Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string S4Link {
+            get {
+                return ((string)(this["S4Link"]));
+            }
+            set {
+                this["S4Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string S5Link {
+            get {
+                return ((string)(this["S5Link"]));
+            }
+            set {
+                this["S5Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string S6Link {
+            get {
+                return ((string)(this["S6Link"]));
+            }
+            set {
+                this["S6Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string S7Link {
+            get {
+                return ((string)(this["S7Link"]));
+            }
+            set {
+                this["S7Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string R2Link {
+            get {
+                return ((string)(this["R2Link"]));
+            }
+            set {
+                this["R2Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ya.ru")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
+            }
+        }
     }
 }
