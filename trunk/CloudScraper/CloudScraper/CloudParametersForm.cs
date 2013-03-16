@@ -33,32 +33,28 @@ namespace CloudScraper
             this.regionList_ = new SortedDictionary<string, string>();
             this.serverTypeList_ = new SortedDictionary<string, string>();
 
+            InitializeComponent();
+
+
             foreach (string str in Settings.Default.Regions)
-            { 
-                this.regionList_.Add(str.Split(new char[] { Settings.Default.Separator }, 2)[1],
-                    str.Split(new char[] { Settings.Default.Separator }, 2)[0]);
+            {
+                string key = str.Split(new char[] { Settings.Default.Separator }, 2)[1];
+                string value = str.Split(new char[] { Settings.Default.Separator }, 2)[0];
+                this.regionList_.Add(key, value);
+
+                this.regionComboBox.Items.Add(key);
+                if (value == "us-east-1")
+                {
+                    this.regionComboBox.SelectedItem = key;
+                }
             }
 
             foreach (string str in Settings.Default.ServerTypes)
             {
-                this.serverTypeList_.Add(str.Split(new char[] { Settings.Default.Separator }, 2)[1],
-                    str.Split(new char[] { Settings.Default.Separator }, 2)[0]);
-            }
-
-            InitializeComponent();
-
-            foreach (KeyValuePair<string, string> region in this.regionList_)
-            {
-                this.regionComboBox.Items.Add(region.Key);
-                if (region.Value == "us-east-1")
-                {
-                    this.regionComboBox.SelectedItem = region.Key;
-                }
-            }
-
-            foreach (KeyValuePair<string, string> type in this.serverTypeList_)
-            {
-                this.serverTypeComboBox.Items.Add(type.Key);
+                string key = str.Split(new char[] { Settings.Default.Separator }, 2)[1];
+                string value = str.Split(new char[] { Settings.Default.Separator }, 2)[0];
+                this.serverTypeList_.Add(key, value);
+                this.serverTypeComboBox.Items.Add(key);
             }
 
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
