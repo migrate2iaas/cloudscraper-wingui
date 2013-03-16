@@ -35,6 +35,7 @@
             // fullOutputBox
             // 
             this.fullOutputBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fullOutputBox.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fullOutputBox.Location = new System.Drawing.Point(0, 0);
             this.fullOutputBox.Multiline = true;
             this.fullOutputBox.Name = "fullOutputBox";
