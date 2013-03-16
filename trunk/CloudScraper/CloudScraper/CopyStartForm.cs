@@ -149,8 +149,8 @@ namespace CloudScraper
                 }
             }
 
-            //if (File.Exists("test.txt"))
-            //    File.Delete("test.txt");
+            if (File.Exists("test.txt"))
+                File.Delete("test.txt");
 
             //if (File.Exists("testcopy.txt"))
             //    File.Delete("testcopy.txt");
