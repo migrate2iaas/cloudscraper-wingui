@@ -172,6 +172,8 @@ namespace CloudScraper
             //timer_.Start();
             
             Thread task = new Thread(new ThreadStart(this.Work));
+            task.Priority = ThreadPriority.Normal;
+            task.IsBackground = true;
             task.Start();
 
             //this.SendMail();
@@ -186,6 +188,8 @@ namespace CloudScraper
                 long lineNumber = 0;
                 while (true)
                 {
+                    Thread.Sleep(3000);
+
                     if (File.Exists("test.txt"))
                     {
                         //if (File.Exists("testcopy.txt"))
