@@ -264,7 +264,7 @@ namespace CloudScraper
                 {
                     str = str.Remove(0, 1);
                 }
-                this.messages_.Insert(0, new MessageInfo()
+                this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\arrow.png"), new Size(16, 16)),
                     Message = str,
@@ -275,7 +275,7 @@ namespace CloudScraper
 
             if (str.Length > 3 && str.Substring(0, 3) == "!!!")
             {
-                this.messages_.Insert(0, new MessageInfo()
+                this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\error.png"), new Size(16, 16)),
                     Message = str.Remove(0, 3),
@@ -286,7 +286,7 @@ namespace CloudScraper
 
             if (str.Length >= 2 && str.Substring(0, 1) == "!")
             {
-                this.messages_.Insert(0, new MessageInfo()
+                this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(16, 16)),
                     Message = str.Remove(0, 1),
@@ -297,9 +297,9 @@ namespace CloudScraper
 
             if (str.Length > 2 && str.Substring(0, 1) == "%")
             {
-                if (this.messages_[0].Type == 4)
-                    this.messages_.RemoveAt(0);
-                this.messages_.Insert(0, new MessageInfo()
+                if (this.messages_[this.messages_.Count - 1].Type == 4)
+                    this.messages_.RemoveAt(this.messages_.Count - 1);
+                this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile("Icons\\hourglass.png"), new Size(16, 16)),
                     Message = str.Remove(0,2),
