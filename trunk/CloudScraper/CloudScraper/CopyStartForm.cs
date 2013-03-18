@@ -29,6 +29,7 @@ namespace CloudScraper
         delegate void MyDelegate();
         public object lockObject;
         public bool migrateStopped;
+        public bool withError;
 
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
@@ -43,6 +44,7 @@ namespace CloudScraper
             InitializeComponent();
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            withError = false;
         }
 
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
@@ -214,6 +216,9 @@ namespace CloudScraper
                                     this.finishButton.Visible = true;
                                     if (File.Exists("test.txt"))
                                     this.fullOutputButton.Visible = true;
+
+                                    if (withError)
+                                        this.mailButton.Visible = true;
                                     //if (File.Exists("testcopy.txt"))
                                     //    File.Delete("testcopy.txt");
                                 }));
@@ -254,6 +259,9 @@ namespace CloudScraper
                             this.finishButton.Visible = true;
                             if (File.Exists("test.txt"))
                                 this.fullOutputButton.Visible = true;
+                            if (this.withError)
+                                this.mailButton.Visible = true;
+
                         }));
                         return;
                     }
@@ -286,6 +294,7 @@ namespace CloudScraper
                     Message = str.Remove(0, 3),
                     Type = 2
                 });
+                withError = true;
                 return;
             }
 
@@ -380,6 +389,11 @@ namespace CloudScraper
         private void helpButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S7Link);
+        }
+
+        private void MailButtonClick(object sender, EventArgs e)
+        {
+            this.SendMail();
         }
     
     }

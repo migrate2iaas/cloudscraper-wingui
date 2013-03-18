@@ -35,6 +35,7 @@
             this.finishButton = new System.Windows.Forms.Button();
             this.fullOutputButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
+            this.mailButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,11 +123,23 @@
             this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
+            // mailButton
+            // 
+            this.mailButton.Location = new System.Drawing.Point(212, 263);
+            this.mailButton.Name = "mailButton";
+            this.mailButton.Size = new System.Drawing.Size(127, 23);
+            this.mailButton.TabIndex = 21;
+            this.mailButton.Text = "Send Report to Support";
+            this.mailButton.UseVisualStyleBackColor = true;
+            this.mailButton.Visible = false;
+            this.mailButton.Click += new System.EventHandler(this.MailButtonClick);
+            // 
             // CopyStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.mailButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.fullOutputButton);
             this.Controls.Add(this.finishButton);
@@ -157,5 +170,6 @@
         private System.Windows.Forms.Button finishButton;
         private System.Windows.Forms.Button fullOutputButton;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.Button mailButton;
     }
 }
