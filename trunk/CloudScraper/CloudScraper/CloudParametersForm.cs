@@ -199,7 +199,13 @@ namespace CloudScraper
         {
             try
             {
-              
+                if (awsId_ == "" || awsKey_ == "")
+                {
+                    DialogResult result = MessageBox.Show("Enter your AWSId and AWSKey.", "Test connection",
+                    MessageBoxButtons.OK);
+                    return;
+                }
+
                 AmazonEC2 client = new AmazonEC2Client(awsId_, awsKey_);
 
                 DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
@@ -303,7 +309,7 @@ namespace CloudScraper
             }
             catch (AmazonEC2Exception amazonEC2Exception)
             {
-                DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode, "Test connection",
+                DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" + "AWSId and AWSKey are Invalid.", "Test connection",
                     MessageBoxButtons.OK);
             }
         }

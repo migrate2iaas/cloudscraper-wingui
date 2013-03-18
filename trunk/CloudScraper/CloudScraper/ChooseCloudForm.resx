@@ -118,26 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAJvSURBVDhPtZFtSJNRFMefItTIyMrEnJZCRnO6lolJSajNmIGSiywJsgIjJBNKQxCUNIOkgnyB
-        LMZIY1pW+AYWZmlpjNKUFlObwizbDN3L421OH5f/7u6XiN6DLvzgfDm/c87/ctz/fEb1nqwRdXL+P80Y
-        UyWW2rQFsPScxmClvPSvJOM35JHWrlxg6hxgysLEwwzoqhSRfyQx1SZ5muvT9AvvCmHWZmOiNx8YOgR9
-        dbJeV5nk+VuJ6dp25efBEhi1R1BYXIm8gitMMvf8MF5elit/KZisU3jb2jIB+0VGesZZRMemAh/oOZSh
-        W/sxUK30/qlkqjZRPTNSAdiKGGHSeASGRAGGNMb00wN4VrJD/UOBRaMIcWiLMDdeAhiVDP/10Vgj2gp0
-        hzKEjk14VbgK99O4kO8kFnVCz6whG6RvGw2NNlF8126Bj184oI1gOB5IQe6J0XRsWdc3gqnzXvum25Lg
-        HN0L0rsTGI1jcIvE4BaLgRdShr1JgoV2KQbLRKhP9/oaqLUq+KNz/CQc/bF0gwQIul0MVa4vVHl+mO+U
-        MfhWCabviuFqlqAl05tnW1iLPU596juOmbcpcAzsZgLX6zjYHgWxH3AHaW1eDaFzM3jayFOB0CjG+/Ig
-        XE/1yOeIJkpwmtzTEyhuQTwwHMuauOUx4JZEsBrd4eBbJLBTAa/ZCDSEoiNnBThSH4NZ/gycI8lwGlLg
-        HFYAY5T+SOhvBzLctZu5JzIINMh5uglaw9DuFtjKfI7aboa6rI0yYrkTQSY1EmKuCSP2ug3EWOFPjOUB
-        xKwSEcPVYDJ0aR15c0FEdKUB5HHOSlfNwaUnvgBPErE1xWBL4wAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAFTSURBVFhH7ZdLDoMwDERzp96pd+qNWPRONEYaaeL4RwWi
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAFTSURBVFhH7ZdLDoMwDERzp96pd+qNWPRONEYaaeL4RwWi
         lViwaZP4eWaSQFtbW696lmVZ21XFpe4NkCvw7PnoLm3Pu5gVGYc5Mj/IWAzAxasQXLwAEQNggVfv4lHo
         ioFlvMzDGo4KPoA1GRCeFehexqEgN2FA+ADeRPzORWRhVogLJSrYAFpKXhD/ycJWIR26xDobIKL2OvWU
         EcjABhsg8c0MVhS2oKEZoJJ2hA1ywxYvnIGlM0DkPzxHRygIIJ0LjA+amgEKe3dKfOR/sh1nAD7Jomua

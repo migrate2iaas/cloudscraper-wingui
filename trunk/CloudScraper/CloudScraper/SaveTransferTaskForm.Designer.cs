@@ -46,6 +46,7 @@
             this.saveTransferTextBox.Name = "saveTransferTextBox";
             this.saveTransferTextBox.Size = new System.Drawing.Size(303, 20);
             this.saveTransferTextBox.TabIndex = 0;
+            this.saveTransferTextBox.TextChanged += new System.EventHandler(this.SaveTransferChanged);
             // 
             // saveTransferTask
             // 
@@ -104,6 +105,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-2, 1);
             this.pictureBox1.Name = "pictureBox1";

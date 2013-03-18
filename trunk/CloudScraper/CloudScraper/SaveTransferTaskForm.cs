@@ -68,5 +68,18 @@ namespace CloudScraper
         {
             System.Diagnostics.Process.Start(Settings.Default.S6Link);
         }
+
+        private void SaveTransferChanged(object sender, EventArgs e)
+        {
+            transferPath_ = this.saveTransferTextBox.Text;
+            if (transferPath_ == "" || !transferPath_.Contains("."))
+            {
+                this.nextButton.Enabled = false;
+            }
+            else
+            {
+                this.nextButton.Enabled = true;
+            }
+        }
     }
 }

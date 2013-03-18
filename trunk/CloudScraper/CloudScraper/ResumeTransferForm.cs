@@ -65,23 +65,14 @@ namespace CloudScraper
             {
                 this.resumeTextBox.Text = this.openFileDialog.FileName;
                 resumeFilePath_ = this.resumeTextBox.Text;
-                this.nextButton.Enabled = true;
+                this.CheckEdit();
             }
         }
 
         private void OnPathChanged(object sender, EventArgs e)
         {
-            if ((sender as TextBox).Text == "")
-            {
-                this.nextButton.Enabled = false;
-                resumeFilePath_ = this.resumeTextBox.Text;
-            }
-
-            if ((sender as TextBox).Text != "")
-            {
-                this.nextButton.Enabled = File.Exists((sender as TextBox).Text) ? true : false;
-                resumeFilePath_ = this.resumeTextBox.Text;
-            }
+            resumeFilePath_ = this.resumeTextBox.Text;
+            this.CheckEdit();
         }
 
         private void ResumeUploadCheckedChanged(object sender, EventArgs e)
@@ -113,9 +104,23 @@ namespace CloudScraper
             System.Diagnostics.Process.Start(Settings.Default.R2Link);
         }
 
-        private void awsIdTextBox_TextChanged(object sender, EventArgs e)
+        private void AwsIdChanged(object sender, EventArgs e)
         {
             awsKey_ = (sender as TextBox).Text;
+            this.CheckEdit();
         }
+
+        private void CheckEdit()
+        {
+            if (resumeFilePath_ != "" && File.Exists(resumeFilePath_) && awsKey_ != "")
+            {
+                this.nextButton.Enabled = true;
+            }
+            else
+            {
+                this.nextButton.Enabled = false;
+            }
+        }
+
     }
 }

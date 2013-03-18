@@ -60,6 +60,7 @@
             this.browseTextBox.Name = "browseTextBox";
             this.browseTextBox.Size = new System.Drawing.Size(303, 20);
             this.browseTextBox.TabIndex = 1;
+            this.browseTextBox.TextChanged += new System.EventHandler(this.BrowseTextChanged);
             // 
             // backButton
             // 
@@ -144,6 +145,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-3, 1);
             this.pictureBox1.Name = "pictureBox1";
