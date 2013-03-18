@@ -39,6 +39,8 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupComboBox = new System.Windows.Forms.ComboBox();
+            this.zoneComboBox = new System.Windows.Forms.ComboBox();
             this.folderKeyLabel = new System.Windows.Forms.Label();
             this.folderKeyBox = new System.Windows.Forms.TextBox();
             this.advancedCheckBox = new System.Windows.Forms.CheckBox();
@@ -53,8 +55,6 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
-            this.zoneComboBox = new System.Windows.Forms.ComboBox();
-            this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -170,6 +170,26 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupComboBox
+            // 
+            this.groupComboBox.FormattingEnabled = true;
+            this.groupComboBox.Location = new System.Drawing.Point(216, 180);
+            this.groupComboBox.Name = "groupComboBox";
+            this.groupComboBox.Size = new System.Drawing.Size(237, 21);
+            this.groupComboBox.TabIndex = 12;
+            this.groupComboBox.Visible = false;
+            this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.groupComboBox_SelectedIndexChanged);
+            // 
+            // zoneComboBox
+            // 
+            this.zoneComboBox.FormattingEnabled = true;
+            this.zoneComboBox.Location = new System.Drawing.Point(216, 146);
+            this.zoneComboBox.Name = "zoneComboBox";
+            this.zoneComboBox.Size = new System.Drawing.Size(237, 21);
+            this.zoneComboBox.TabIndex = 11;
+            this.zoneComboBox.Visible = false;
+            this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.zoneComboBox_SelectedIndexChanged);
             // 
             // folderKeyLabel
             // 
@@ -313,24 +333,6 @@
             this.testButton.Text = "Test Connection";
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
-            // 
-            // zoneComboBox
-            // 
-            this.zoneComboBox.FormattingEnabled = true;
-            this.zoneComboBox.Location = new System.Drawing.Point(216, 146);
-            this.zoneComboBox.Name = "zoneComboBox";
-            this.zoneComboBox.Size = new System.Drawing.Size(237, 21);
-            this.zoneComboBox.TabIndex = 11;
-            this.zoneComboBox.Visible = false;
-            // 
-            // groupComboBox
-            // 
-            this.groupComboBox.FormattingEnabled = true;
-            this.groupComboBox.Location = new System.Drawing.Point(216, 180);
-            this.groupComboBox.Name = "groupComboBox";
-            this.groupComboBox.Size = new System.Drawing.Size(237, 21);
-            this.groupComboBox.TabIndex = 12;
-            this.groupComboBox.Visible = false;
             // 
             // CloudParametersForm
             // 
