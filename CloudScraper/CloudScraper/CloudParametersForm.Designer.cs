@@ -39,6 +39,8 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.folderKeyLabel = new System.Windows.Forms.Label();
+            this.folderKeyBox = new System.Windows.Forms.TextBox();
             this.advancedCheckBox = new System.Windows.Forms.CheckBox();
             this.groupLabel = new System.Windows.Forms.Label();
             this.groupTextBox = new System.Windows.Forms.TextBox();
@@ -50,8 +52,9 @@
             this.bucketLabel = new System.Windows.Forms.Label();
             this.nextButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
-            this.folderKeyLabel = new System.Windows.Forms.Label();
-            this.folderKeyBox = new System.Windows.Forms.TextBox();
+            this.testButton = new System.Windows.Forms.Button();
+            this.zoneComboBox = new System.Windows.Forms.ComboBox();
+            this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -147,6 +150,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupComboBox);
+            this.tabPage2.Controls.Add(this.zoneComboBox);
             this.tabPage2.Controls.Add(this.folderKeyLabel);
             this.tabPage2.Controls.Add(this.folderKeyBox);
             this.tabPage2.Controls.Add(this.advancedCheckBox);
@@ -165,6 +170,25 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // folderKeyLabel
+            // 
+            this.folderKeyLabel.AutoSize = true;
+            this.folderKeyLabel.Enabled = false;
+            this.folderKeyLabel.Location = new System.Drawing.Point(110, 78);
+            this.folderKeyLabel.Name = "folderKeyLabel";
+            this.folderKeyLabel.Size = new System.Drawing.Size(100, 13);
+            this.folderKeyLabel.TabIndex = 10;
+            this.folderKeyLabel.Text = "Specify folder (key):";
+            // 
+            // folderKeyBox
+            // 
+            this.folderKeyBox.Enabled = false;
+            this.folderKeyBox.Location = new System.Drawing.Point(216, 75);
+            this.folderKeyBox.Name = "folderKeyBox";
+            this.folderKeyBox.Size = new System.Drawing.Size(235, 20);
+            this.folderKeyBox.TabIndex = 9;
+            this.folderKeyBox.TextChanged += new System.EventHandler(this.FolderKeyChanged);
             // 
             // advancedCheckBox
             // 
@@ -280,30 +304,40 @@
             this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
-            // folderKeyLabel
+            // testButton
             // 
-            this.folderKeyLabel.AutoSize = true;
-            this.folderKeyLabel.Enabled = false;
-            this.folderKeyLabel.Location = new System.Drawing.Point(110, 78);
-            this.folderKeyLabel.Name = "folderKeyLabel";
-            this.folderKeyLabel.Size = new System.Drawing.Size(100, 13);
-            this.folderKeyLabel.TabIndex = 10;
-            this.folderKeyLabel.Text = "Specify folder (key):";
+            this.testButton.Location = new System.Drawing.Point(359, 263);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(95, 23);
+            this.testButton.TabIndex = 12;
+            this.testButton.Text = "Test Connection";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
-            // folderKeyBox
+            // zoneComboBox
             // 
-            this.folderKeyBox.Enabled = false;
-            this.folderKeyBox.Location = new System.Drawing.Point(216, 75);
-            this.folderKeyBox.Name = "folderKeyBox";
-            this.folderKeyBox.Size = new System.Drawing.Size(235, 20);
-            this.folderKeyBox.TabIndex = 9;
-            this.folderKeyBox.TextChanged += new System.EventHandler(this.FolderKeyChanged);
+            this.zoneComboBox.FormattingEnabled = true;
+            this.zoneComboBox.Location = new System.Drawing.Point(216, 146);
+            this.zoneComboBox.Name = "zoneComboBox";
+            this.zoneComboBox.Size = new System.Drawing.Size(237, 21);
+            this.zoneComboBox.TabIndex = 11;
+            this.zoneComboBox.Visible = false;
+            // 
+            // groupComboBox
+            // 
+            this.groupComboBox.FormattingEnabled = true;
+            this.groupComboBox.Location = new System.Drawing.Point(216, 180);
+            this.groupComboBox.Name = "groupComboBox";
+            this.groupComboBox.Size = new System.Drawing.Size(237, 21);
+            this.groupComboBox.TabIndex = 12;
+            this.groupComboBox.Visible = false;
             // 
             // CloudParametersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.testButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.tabControl1);
@@ -352,5 +386,8 @@
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Label folderKeyLabel;
         private System.Windows.Forms.TextBox folderKeyBox;
+        private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.ComboBox zoneComboBox;
+        private System.Windows.Forms.ComboBox groupComboBox;
     }
 }
