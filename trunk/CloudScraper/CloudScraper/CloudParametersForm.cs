@@ -241,7 +241,7 @@ namespace CloudScraper
                         {
                             DialogResult result = MessageBox.Show("The bucket you specified is located in another region, please specify another bucket.", "Test connection",
                                 MessageBoxButtons.OK);
-                            //return;
+                            return;
                         }
                     }
                 }
@@ -269,6 +269,10 @@ namespace CloudScraper
                 }
                 groupComboBox.SelectedIndex = 0;
                 groupComboBox.SelectedItem = groupComboBox.Items[0];
+
+                DialogResult result2 = MessageBox.Show("Test connection done.", "Test connection",
+                    MessageBoxButtons.OK);
+                return;
 
                 //DescribeInstancesResponse instancesResponse = client.DescribeInstances(new DescribeInstancesRequest());
 
