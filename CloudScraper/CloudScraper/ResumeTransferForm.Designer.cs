@@ -132,7 +132,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-4, 1);
             this.pictureBox1.Name = "pictureBox1";
@@ -147,7 +147,7 @@
             this.awsIdTextBox.Name = "awsIdTextBox";
             this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
             this.awsIdTextBox.TabIndex = 19;
-            this.awsIdTextBox.TextChanged += new System.EventHandler(this.awsIdTextBox_TextChanged);
+            this.awsIdTextBox.TextChanged += new System.EventHandler(this.AwsIdChanged);
             // 
             // awsIdLabel
             // 

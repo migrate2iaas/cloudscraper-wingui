@@ -94,5 +94,28 @@ namespace CloudScraper
         {
             System.Diagnostics.Process.Start(Settings.Default.S5Link);
         }
+
+        private void BrowseTextChanged(object sender, EventArgs e)
+      {
+            imagesPath_ = this.browseTextBox.Text;
+            if (imagesPath_.Length >= 2)
+            {
+                string rootName = Directory.GetDirectoryRoot(imagesPath_);
+                DriveInfo[] drives = DriveInfo.GetDrives();
+                foreach (DriveInfo drive in drives)
+                {
+                    if (rootName == drive.Name)
+                    {
+                        this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1).ToString() + "GB";
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                this.freeSpace.Text = "0GB";
+            }
+        }
+
     }
 }
