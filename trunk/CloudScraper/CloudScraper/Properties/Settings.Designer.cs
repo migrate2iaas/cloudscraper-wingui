@@ -280,5 +280,53 @@ namespace CloudScraper.Properties {
                 this["Setting"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("smtp.mail.ru")]
+        public string SMTPServer {
+            get {
+                return ((string)(this["SMTPServer"]));
+            }
+            set {
+                this["SMTPServer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("login")]
+        public string SMTPLogin {
+            get {
+                return ((string)(this["SMTPLogin"]));
+            }
+            set {
+                this["SMTPLogin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("password")]
+        public string SMTPPassword {
+            get {
+                return ((string)(this["SMTPPassword"]));
+            }
+            set {
+                this["SMTPPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("cloudscraper@support.assembla.com")]
+        public string SupportEmail {
+            get {
+                return ((string)(this["SupportEmail"]));
+            }
+            set {
+                this["SupportEmail"] = value;
+            }
+        }
     }
 }

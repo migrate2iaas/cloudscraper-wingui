@@ -341,31 +341,41 @@ namespace CloudScraper
             }
         }
 
-        public void SendMail()
+        public void SendMail(string userName, string email)
         {
-            SmtpClient Smtp = new SmtpClient("smtp.mail.ru", 25);
-            Smtp.Credentials = new NetworkCredential("login", "pass");
+            SmtpClient Smtp = new SmtpClient(Properties.Settings.Default.SMTPServer, 25);
+            Smtp.Credentials = new NetworkCredential(Properties.Settings.Default.SMTPLogin,
+                Properties.Settings.Default.SMTPPassword);
             //Smtp.EnableSsl = false;
 
 
             MailMessage Message = new MailMessage();
-            Message.From = new MailAddress("from@mail.ru");
-            Message.To.Add(new MailAddress("to@mail.ru"));
-            Message.Subject = "Заголовок";
-            Message.Body = "Сообщение";
+            Message.From = new MailAddress(Properties.Settings.Default.SMTPLogin);
+            Message.ReplyTo = new MailAddress(email);
+            Message.To.Add(new MailAddress(Properties.Settings.Default.SupportEmail));
+            Message.Subject = "Support ticket: failure reported by " + userName +  " "  + email;
+            Message.Body = "Milestone: Release 0.1" + "\n" +
+                           "Component: migrate.py" + "\n" +
+                           "Priority: 3" + "\n" +
+                           "Permission type: Public" + "\n" +
+                           "Description:" + "\n";
+            foreach (MessageInfo info in messages_)
+            {
+                if (info.Type == 2)
+                {
+                    Message.Body += info.Message + "\n";
+                }
+            }
 
-
-            string file = "C:\\file.zip";
+            string file = "test.txt";
             Attachment attach = new Attachment(file, MediaTypeNames.Application.Octet);
 
- 
             ContentDisposition disposition = attach.ContentDisposition;
             disposition.CreationDate = System.IO.File.GetCreationTime(file);
             disposition.ModificationDate = System.IO.File.GetLastWriteTime(file);
             disposition.ReadDate = System.IO.File.GetLastAccessTime(file);
 
             Message.Attachments.Add(attach);
-
             Smtp.Send(Message);
         }
 
@@ -393,7 +403,9 @@ namespace CloudScraper
 
         private void MailButtonClick(object sender, EventArgs e)
         {
-            this.SendMail();
+            MailForm mail = new MailForm(this);
+            mail.ShowDialog();
+            //this.SendMail();
         }
     
     }
