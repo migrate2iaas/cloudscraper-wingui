@@ -230,7 +230,7 @@ namespace CloudScraper
                     {
                         DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
                             MessageBoxButtons.OK);
-                        return;
+                        //return;
                     }
                     else
                     {
@@ -241,7 +241,7 @@ namespace CloudScraper
                         {
                             DialogResult result = MessageBox.Show("The bucket you specified is located in another region, please specify another bucket.", "Test connection",
                                 MessageBoxButtons.OK);
-                            return;
+                            //return;
                         }
                     }
                 }

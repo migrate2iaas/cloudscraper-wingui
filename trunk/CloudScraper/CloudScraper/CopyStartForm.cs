@@ -170,7 +170,8 @@ namespace CloudScraper
             //timer_.Interval = 1000;
             //timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
             //timer_.Start();
-            
+
+            //Thread.Sleep(2000);
             Thread task = new Thread(new ThreadStart(this.Work));
             task.Priority = ThreadPriority.Normal;
             task.IsBackground = true;
