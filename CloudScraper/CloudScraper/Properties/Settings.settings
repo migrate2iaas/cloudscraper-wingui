@@ -80,5 +80,17 @@
     <Setting Name="Setting" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://ya.ru</Value>
     </Setting>
+    <Setting Name="SMTPServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">smtp.mail.ru</Value>
+    </Setting>
+    <Setting Name="SMTPLogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">login</Value>
+    </Setting>
+    <Setting Name="SMTPPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">password</Value>
+    </Setting>
+    <Setting Name="SupportEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cloudscraper@support.assembla.com</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
