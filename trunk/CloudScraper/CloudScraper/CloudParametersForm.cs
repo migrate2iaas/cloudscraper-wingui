@@ -214,6 +214,38 @@ namespace CloudScraper
                 AmazonS3 client2 = Amazon.AWSClientFactory.CreateAmazonS3Client(
                     awsId_, awsKey_);
 
+                using (ListBucketsResponse response = client2.ListBuckets())
+                {
+                    bool isExists_ = false;
+
+                    foreach (S3Bucket bucket in response.Buckets)
+                    {
+                        if (bucket.BucketName == s3bucket_)
+                        {
+                            isExists_ = true;    
+                        }
+                    }
+
+                    if (!isExists_)
+                    {
+                        DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
+                            MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        GetBucketLocationRequest req = new GetBucketLocationRequest();
+                        req = req.WithBucketName(s3bucket_);
+                        GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
+                        if (bucketResponse.Location != region_)
+                        {
+                            DialogResult result = MessageBox.Show("The bucket you specified is located in another region, please specify another bucket.", "Test connection",
+                                MessageBoxButtons.OK);
+                            return;
+                        }
+                    }
+                }
+                
                 DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
                 this.zoneTextBox.Visible = false;
                 this.zoneComboBox.Visible = true;
@@ -237,6 +269,14 @@ namespace CloudScraper
                 }
                 groupComboBox.SelectedIndex = 0;
                 groupComboBox.SelectedItem = groupComboBox.Items[0];
+
+                //DescribeInstancesResponse instancesResponse = client.DescribeInstances(new DescribeInstancesRequest());
+
+                //foreach (Reservation reservation in instancesResponse.DescribeInstancesResult.Reservation)
+                //{
+                //    this.serverTypeComboBox.Items.Add(reservation.GroupName);
+                //}
+                
                 //GetBucketLocationRequest req = new GetBucketLocationRequest();
                 //req = req.WithBucketName(s3bucket_);
                 //GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
