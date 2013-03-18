@@ -258,6 +258,7 @@ namespace CloudScraper
                 }
                 zoneComboBox.SelectedIndex = 0;
                 zoneComboBox.SelectedItem = zoneComboBox.Items[0];
+                //zone_ = (string)zoneComboBox.SelectedItem;
 
 
                 DescribeSecurityGroupsResponse securityGroupResponse = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
@@ -269,6 +270,7 @@ namespace CloudScraper
                 }
                 groupComboBox.SelectedIndex = 0;
                 groupComboBox.SelectedItem = groupComboBox.Items[0];
+                //group_ = (string)groupComboBox.SelectedItem;
 
                 DialogResult result2 = MessageBox.Show("Test connection done.", "Test connection",
                     MessageBoxButtons.OK);
@@ -304,6 +306,16 @@ namespace CloudScraper
                 DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode, "Test connection",
                     MessageBoxButtons.OK);
             }
+        }
+
+        private void zoneComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            zone_ = (string)(sender as ComboBox).SelectedItem;
+        }
+
+        private void groupComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            group_ = (string)(sender as ComboBox).SelectedItem;
         }
 
     }
