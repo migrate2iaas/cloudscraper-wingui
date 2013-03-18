@@ -6,6 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using CloudScraper.Properties;
+using Amazon;
+using Amazon.S3;
+using Amazon.S3.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
+
+
 
 namespace CloudScraper
 {
@@ -57,7 +64,7 @@ namespace CloudScraper
                 this.serverTypeComboBox.Items.Add(key);
             }
 
-            this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.helpButton.Image = new Bitmap(System.Drawing.Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.serverTypeComboBox.SelectedIndex = 0;
             this.nextButton.Enabled = false;
             this.Text = Settings.Default.S4Header;
@@ -186,6 +193,73 @@ namespace CloudScraper
         private void helpButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S4Link);
+        }
+
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+              
+                AmazonEC2 client = new AmazonEC2Client(awsId_, awsKey_);
+
+                DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
+
+                if (!advanced_)
+                {
+                    DialogResult result = MessageBox.Show("Test connection done.", "Test connection",
+                         MessageBoxButtons.OK);
+                    return;
+                }
+
+                AmazonS3 client2 = Amazon.AWSClientFactory.CreateAmazonS3Client(
+                    awsId_, awsKey_);
+
+                DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
+                this.zoneTextBox.Visible = false;
+                this.zoneComboBox.Visible = true;
+                foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
+                {
+                    if (zone.ZoneState == "available")
+                    {
+                        this.zoneComboBox.Items.Add(zone.ZoneName);
+                    }
+                }
+                zoneComboBox.SelectedIndex = 0;
+                zoneComboBox.SelectedItem = zoneComboBox.Items[0];
+
+
+                DescribeSecurityGroupsResponse securityGroupResponse = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
+                this.groupTextBox.Visible = false;
+                this.groupComboBox.Visible = true;
+                foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
+                {
+                    this.groupComboBox.Items.Add(group.GroupName);
+                }
+                groupComboBox.SelectedIndex = 0;
+                groupComboBox.SelectedItem = groupComboBox.Items[0];
+                //GetBucketLocationRequest req = new GetBucketLocationRequest();
+                //req = req.WithBucketName(s3bucket_);
+                //GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
+
+                //DescribeSecurityGroupsResponse response = client3.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
+                //DescribeRegionsResponse response3 = client.DescribeRegions(new DescribeRegionsRequest());
+                //DescribeReservedInstancesOfferingsResponse response2 = client3.DescribeReservedInstancesOfferings(new DescribeReservedInstancesOfferingsRequest());
+                //DescribeInstancesResponse response4 = client3.DescribeInstances(new DescribeInstancesRequest());
+                //DescribeAvailabilityZonesResponse response5 = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
+                //DescribeSecurityGroupsResponse response = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
+                
+                //AmazonS3 client2 = Amazon.AWSClientFactory.CreateAmazonS3Client(
+                //    awsId_, awsKey_);
+
+                //GetBucketLocationRequest req = new GetBucketLocationRequest();
+                //req.BucketName = "testc";
+                //GetBucketLocationResponse response6 = client2.GetBucketLocation(new GetBucketLocationRequest());
+            }
+            catch (AmazonEC2Exception amazonEC2Exception)
+            {
+                DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode, "Test connection",
+                    MessageBoxButtons.OK);
+            }
         }
 
     }
