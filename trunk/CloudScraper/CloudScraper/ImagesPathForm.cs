@@ -41,7 +41,7 @@ namespace CloudScraper
                     if (rootName == drive.Name)
                     {
                         this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024),1).ToString() + "GB";
-                        if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1))
+                        if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1) - 4)
                         {
                             this.errorLabel.Visible = true;
                             this.errorPicture.Visible = true;
@@ -95,7 +95,7 @@ namespace CloudScraper
                 if (rootName == drive.Name)
                 {
                     this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1).ToString() + "GB";
-                    if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1))
+                    if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1) - 4)
                     {
                         this.errorLabel.Visible = true;
                         this.errorPicture.Visible = true;
@@ -127,7 +127,7 @@ namespace CloudScraper
                     if (rootName == drive.Name)
                     {
                         this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1).ToString() + "GB";
-                        if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1))
+                        if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1) - 4)
                         {
                             this.errorLabel.Visible = true;
                             this.errorPicture.Visible = true;
