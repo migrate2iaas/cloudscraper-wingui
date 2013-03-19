@@ -41,7 +41,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorPicture = new System.Windows.Forms.PictureBox();
+            this.errorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // browseButton
@@ -154,11 +157,36 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
+            // errorPicture
+            // 
+            this.errorPicture.ErrorImage = null;
+            this.errorPicture.Image = global::CloudScraper.Properties.Resources.Warning;
+            this.errorPicture.Location = new System.Drawing.Point(172, 257);
+            this.errorPicture.Name = "errorPicture";
+            this.errorPicture.Size = new System.Drawing.Size(16, 16);
+            this.errorPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.errorPicture.TabIndex = 17;
+            this.errorPicture.TabStop = false;
+            this.errorPicture.Visible = false;
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.errorLabel.Location = new System.Drawing.Point(194, 260);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(115, 13);
+            this.errorLabel.TabIndex = 18;
+            this.errorLabel.Text = "Not enough space!";
+            this.errorLabel.Visible = false;
+            // 
             // ImagesPathForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.errorLabel);
+            this.Controls.Add(this.errorPicture);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.label1);
@@ -182,6 +210,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.ImagesPathFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +230,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox errorPicture;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
