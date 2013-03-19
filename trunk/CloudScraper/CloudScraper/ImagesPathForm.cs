@@ -41,6 +41,16 @@ namespace CloudScraper
                     if (rootName == drive.Name)
                     {
                         this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024),1).ToString() + "GB";
+                        if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1))
+                        {
+                            this.errorLabel.Visible = true;
+                            this.errorPicture.Visible = true;
+                        }
+                        else
+                        {
+                            this.errorLabel.Visible = false;
+                            this.errorPicture.Visible = false;
+                        }
                         break;
                     }
                 }
@@ -85,6 +95,16 @@ namespace CloudScraper
                 if (rootName == drive.Name)
                 {
                     this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1).ToString() + "GB";
+                    if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1))
+                    {
+                        this.errorLabel.Visible = true;
+                        this.errorPicture.Visible = true;
+                    }
+                    else
+                    {
+                        this.errorLabel.Visible = false;
+                        this.errorPicture.Visible = false;
+                    }
                     break;
                 }
             }
@@ -107,6 +127,16 @@ namespace CloudScraper
                     if (rootName == drive.Name)
                     {
                         this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1).ToString() + "GB";
+                        if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1))
+                        {
+                            this.errorLabel.Visible = true;
+                            this.errorPicture.Visible = true;
+                        }
+                        else
+                        {
+                            this.errorLabel.Visible = false;
+                            this.errorPicture.Visible = false;
+                        }
                         break;
                     }
                 }
@@ -114,6 +144,8 @@ namespace CloudScraper
             else
             {
                 this.freeSpace.Text = "0GB";
+                this.errorLabel.Visible = true;
+                this.errorPicture.Visible = true;
             }
         }
 
