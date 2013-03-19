@@ -121,8 +121,8 @@ namespace CloudScraper
                 this.folderKeyLabel.Enabled = true;
                 this.serverTypeComboBox.Enabled = true;
                 this.typeLabel.Enabled = true;
-                this.zoneTextBox.Enabled = true;
-                this.groupTextBox.Enabled = true;
+                this.zoneComboBox.Enabled = true;
+                this.groupComboBox.Enabled = true;
                 this.zoneLabel.Enabled = true;
                 this.groupLabel.Enabled = true;
                 this.CheckEnter();
@@ -136,8 +136,8 @@ namespace CloudScraper
                 this.folderKeyLabel.Enabled = false;
                 this.serverTypeComboBox.Enabled = false;
                 this.typeLabel.Enabled = false;
-                this.zoneTextBox.Enabled = false;
-                this.groupTextBox.Enabled = false;
+                this.zoneComboBox.Enabled = false;
+                this.groupComboBox.Enabled = false;
                 this.zoneLabel.Enabled = false;
                 this.groupLabel.Enabled = false;
                 this.CheckEnter();
@@ -152,21 +152,11 @@ namespace CloudScraper
 
         private void FolderKeyChanged(object sender, EventArgs e)
         {
+            
             folderKey_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        private void ZoneChanged(object sender, EventArgs e)
-        {
-            zone_ = (sender as TextBox).Text;
-            this.CheckEnter();
-        }
-
-        private void GroupChanged(object sender, EventArgs e)
-        {
-            group_ = (sender as TextBox).Text;
-            this.CheckEnter();
-        }
 
         private void ServerTypeChanged(object sender, EventArgs e)
         {
@@ -253,8 +243,7 @@ namespace CloudScraper
                 }
                 
                 DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
-                this.zoneTextBox.Visible = false;
-                this.zoneComboBox.Visible = true;
+                this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
                 foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
                 {
                     if (zone.ZoneState == "available")
@@ -268,8 +257,7 @@ namespace CloudScraper
 
 
                 DescribeSecurityGroupsResponse securityGroupResponse = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
-                this.groupTextBox.Visible = false;
-                this.groupComboBox.Visible = true;
+                this.groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
                 foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
                 {
                     this.groupComboBox.Items.Add(group.GroupName);
@@ -322,6 +310,18 @@ namespace CloudScraper
         private void groupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             group_ = (string)(sender as ComboBox).SelectedItem;
+        }
+
+        private void groupComboBox_TextChanged(object sender, EventArgs e)
+        {
+            group_ = (sender as ComboBox).Text;
+            this.CheckEnter();
+        }
+
+        private void zoneComboBox_TextChanged(object sender, EventArgs e)
+        {
+            zone_ = (sender as ComboBox).Text;
+            this.CheckEnter();
         }
 
     }
