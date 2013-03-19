@@ -244,6 +244,7 @@ namespace CloudScraper
                 
                 DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
                 this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                this.zoneComboBox.Items.Clear();
                 foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
                 {
                     if (zone.ZoneState == "available")
@@ -258,6 +259,7 @@ namespace CloudScraper
 
                 DescribeSecurityGroupsResponse securityGroupResponse = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
                 this.groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                this.groupComboBox.Items.Clear();
                 foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
                 {
                     this.groupComboBox.Items.Add(group.GroupName);
