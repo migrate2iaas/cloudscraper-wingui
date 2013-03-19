@@ -45,10 +45,8 @@
             this.folderKeyBox = new System.Windows.Forms.TextBox();
             this.advancedCheckBox = new System.Windows.Forms.CheckBox();
             this.groupLabel = new System.Windows.Forms.Label();
-            this.groupTextBox = new System.Windows.Forms.TextBox();
             this.zoneLabel = new System.Windows.Forms.Label();
             this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.zoneTextBox = new System.Windows.Forms.TextBox();
             this.typeLabel = new System.Windows.Forms.Label();
             this.bucketTextBox = new System.Windows.Forms.TextBox();
             this.bucketLabel = new System.Windows.Forms.Label();
@@ -99,6 +97,7 @@
             // awsKeyTextBox
             // 
             this.awsKeyTextBox.Location = new System.Drawing.Point(193, 140);
+            this.awsKeyTextBox.MaxLength = 40;
             this.awsKeyTextBox.Name = "awsKeyTextBox";
             this.awsKeyTextBox.PasswordChar = '*';
             this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
@@ -108,6 +107,7 @@
             // awsIdTextBox
             // 
             this.awsIdTextBox.Location = new System.Drawing.Point(193, 90);
+            this.awsIdTextBox.MaxLength = 20;
             this.awsIdTextBox.Name = "awsIdTextBox";
             this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
             this.awsIdTextBox.TabIndex = 3;
@@ -150,19 +150,17 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupComboBox);
-            this.tabPage2.Controls.Add(this.zoneComboBox);
             this.tabPage2.Controls.Add(this.folderKeyLabel);
             this.tabPage2.Controls.Add(this.folderKeyBox);
             this.tabPage2.Controls.Add(this.advancedCheckBox);
             this.tabPage2.Controls.Add(this.groupLabel);
-            this.tabPage2.Controls.Add(this.groupTextBox);
             this.tabPage2.Controls.Add(this.zoneLabel);
             this.tabPage2.Controls.Add(this.serverTypeComboBox);
-            this.tabPage2.Controls.Add(this.zoneTextBox);
             this.tabPage2.Controls.Add(this.typeLabel);
             this.tabPage2.Controls.Add(this.bucketTextBox);
             this.tabPage2.Controls.Add(this.bucketLabel);
+            this.tabPage2.Controls.Add(this.zoneComboBox);
+            this.tabPage2.Controls.Add(this.groupComboBox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -173,23 +171,29 @@
             // 
             // groupComboBox
             // 
+            this.groupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.groupComboBox.Enabled = false;
             this.groupComboBox.FormattingEnabled = true;
             this.groupComboBox.Location = new System.Drawing.Point(216, 180);
+            this.groupComboBox.MaxLength = 10;
             this.groupComboBox.Name = "groupComboBox";
             this.groupComboBox.Size = new System.Drawing.Size(237, 21);
             this.groupComboBox.TabIndex = 12;
-            this.groupComboBox.Visible = false;
             this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.groupComboBox_SelectedIndexChanged);
+            this.groupComboBox.TextChanged += new System.EventHandler(this.groupComboBox_TextChanged);
             // 
             // zoneComboBox
             // 
+            this.zoneComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.zoneComboBox.Enabled = false;
             this.zoneComboBox.FormattingEnabled = true;
             this.zoneComboBox.Location = new System.Drawing.Point(216, 146);
+            this.zoneComboBox.MaxLength = 10;
             this.zoneComboBox.Name = "zoneComboBox";
             this.zoneComboBox.Size = new System.Drawing.Size(237, 21);
             this.zoneComboBox.TabIndex = 11;
-            this.zoneComboBox.Visible = false;
             this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.zoneComboBox_SelectedIndexChanged);
+            this.zoneComboBox.TextChanged += new System.EventHandler(this.zoneComboBox_TextChanged);
             // 
             // folderKeyLabel
             // 
@@ -205,6 +209,7 @@
             // 
             this.folderKeyBox.Enabled = false;
             this.folderKeyBox.Location = new System.Drawing.Point(216, 75);
+            this.folderKeyBox.MaxLength = 20;
             this.folderKeyBox.Name = "folderKeyBox";
             this.folderKeyBox.Size = new System.Drawing.Size(235, 20);
             this.folderKeyBox.TabIndex = 9;
@@ -231,15 +236,6 @@
             this.groupLabel.TabIndex = 7;
             this.groupLabel.Text = "Specify your security group:";
             // 
-            // groupTextBox
-            // 
-            this.groupTextBox.Enabled = false;
-            this.groupTextBox.Location = new System.Drawing.Point(219, 181);
-            this.groupTextBox.Name = "groupTextBox";
-            this.groupTextBox.Size = new System.Drawing.Size(234, 20);
-            this.groupTextBox.TabIndex = 6;
-            this.groupTextBox.TextChanged += new System.EventHandler(this.GroupChanged);
-            // 
             // zoneLabel
             // 
             this.zoneLabel.AutoSize = true;
@@ -260,15 +256,6 @@
             this.serverTypeComboBox.TabIndex = 4;
             this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ServerTypeChanged);
             // 
-            // zoneTextBox
-            // 
-            this.zoneTextBox.Enabled = false;
-            this.zoneTextBox.Location = new System.Drawing.Point(217, 146);
-            this.zoneTextBox.Name = "zoneTextBox";
-            this.zoneTextBox.Size = new System.Drawing.Size(235, 20);
-            this.zoneTextBox.TabIndex = 3;
-            this.zoneTextBox.TextChanged += new System.EventHandler(this.ZoneChanged);
-            // 
             // typeLabel
             // 
             this.typeLabel.AutoSize = true;
@@ -283,6 +270,7 @@
             // 
             this.bucketTextBox.Enabled = false;
             this.bucketTextBox.Location = new System.Drawing.Point(216, 38);
+            this.bucketTextBox.MaxLength = 40;
             this.bucketTextBox.Name = "bucketTextBox";
             this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
             this.bucketTextBox.TabIndex = 1;
@@ -376,10 +364,8 @@
         private System.Windows.Forms.Label regionLabel;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label groupLabel;
-        private System.Windows.Forms.TextBox groupTextBox;
         private System.Windows.Forms.Label zoneLabel;
         private System.Windows.Forms.ComboBox serverTypeComboBox;
-        private System.Windows.Forms.TextBox zoneTextBox;
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.TextBox bucketTextBox;
         private System.Windows.Forms.Label bucketLabel;
