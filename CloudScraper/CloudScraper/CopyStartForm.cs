@@ -46,6 +46,7 @@ namespace CloudScraper
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             withError = false;
+            
         }
 
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
@@ -389,7 +390,7 @@ namespace CloudScraper
             }
             catch (Exception e)
             {
-            
+                e.ToString();
             }
         }
 
@@ -398,6 +399,7 @@ namespace CloudScraper
             this.messageGridView.DataSource = this.messages_;
             this.messageGridView.AutoResizeColumn(0);
         }
+
 
         private void finishButton_Click(object sender, EventArgs e)
         {
@@ -420,6 +422,7 @@ namespace CloudScraper
             MailForm mail = new MailForm(this);
             mail.ShowDialog();
         }
+
     
     }
 
