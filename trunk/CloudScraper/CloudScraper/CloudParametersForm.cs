@@ -293,6 +293,7 @@ namespace CloudScraper
                     return;
                 }
 
+
                 AmazonS3 client2 = Amazon.AWSClientFactory.CreateAmazonS3Client(
                     awsId_, awsKey_);
 
@@ -321,7 +322,7 @@ namespace CloudScraper
                     {
 
                         GetBucketLocationRequest req = new GetBucketLocationRequest();
-                        req = req.WithBucketName(s3bucket_);
+                        req.BucketName = s3bucket_;
                         GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
                         if (bucketResponse.Location != region_)
                         {
@@ -330,10 +331,19 @@ namespace CloudScraper
                             return;
                         }
                     }
-                    catch (Exception ex)
+                    catch (AmazonS3Exception ex)
                     {
-                        DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
+                        if (ex.ErrorCode == "NoSuchBucket")
+                        {
+                            DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
+                                MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            DialogResult result = MessageBox.Show("Cannot access the bucket, please specify another one.", "Test connection",
                             MessageBoxButtons.OK);
+                            return;
+                        }
                     }
                     //}
                 }
