@@ -204,10 +204,11 @@ namespace CloudScraper
                     return;
                 }
 
-                AmazonEC2 client = new AmazonEC2Client(awsId_, awsKey_);
-
+                AmazonEC2Config config = new AmazonEC2Config();
+                config.ServiceURL = "https://ec2." + region_+ ".amazonaws.com";
+                AmazonEC2 client = new AmazonEC2Client(awsId_, awsKey_, config);
                 DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
-
+                
                 if (!advanced_)
                 {
                     DialogResult result = MessageBox.Show("Test connection done.", "Test connection",
@@ -259,10 +260,14 @@ namespace CloudScraper
                     }
                     //}
                 }
+
                 
+                //DescribeAvailabilityZonesRequest requestZones = new DescribeAvailabilityZonesRequest();
+               
                 DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
                 this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
                 this.zoneComboBox.Items.Clear();
+
                 foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
                 {
                     if (zone.ZoneState == "available")
