@@ -211,6 +211,35 @@ namespace CloudScraper
                 
                 if (!advanced_)
                 {
+
+                    DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
+                    this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                    this.zoneComboBox.Items.Clear();
+
+                    foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
+                    {
+                        if (zone.ZoneState == "available")
+                        {
+                            this.zoneComboBox.Items.Add(zone.ZoneName);
+                        }
+                    }
+                    zoneComboBox.SelectedIndex = 0;
+                    zoneComboBox.SelectedItem = zoneComboBox.Items[0];
+                    //zone_ = (string)zoneComboBox.SelectedItem;
+
+
+                    DescribeSecurityGroupsResponse securityGroupResponse = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
+                    this.groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                    this.groupComboBox.Items.Clear();
+                    foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
+                    {
+                        this.groupComboBox.Items.Add(group.GroupName);
+                    }
+                    groupComboBox.SelectedIndex = 0;
+                    groupComboBox.SelectedItem = groupComboBox.Items[0];
+                    //group_ = (string)groupComboBox.SelectedItem;
+
+                    
                     DialogResult result = MessageBox.Show("Test connection done.", "Test connection",
                          MessageBoxButtons.OK);
                     return;
@@ -260,36 +289,6 @@ namespace CloudScraper
                     }
                     //}
                 }
-
-                
-                //DescribeAvailabilityZonesRequest requestZones = new DescribeAvailabilityZonesRequest();
-               
-                DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
-                this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
-                this.zoneComboBox.Items.Clear();
-
-                foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
-                {
-                    if (zone.ZoneState == "available")
-                    {
-                        this.zoneComboBox.Items.Add(zone.ZoneName);
-                    }
-                }
-                zoneComboBox.SelectedIndex = 0;
-                zoneComboBox.SelectedItem = zoneComboBox.Items[0];
-                //zone_ = (string)zoneComboBox.SelectedItem;
-
-
-                DescribeSecurityGroupsResponse securityGroupResponse = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
-                this.groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
-                this.groupComboBox.Items.Clear();
-                foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
-                {
-                    this.groupComboBox.Items.Add(group.GroupName);
-                }
-                groupComboBox.SelectedIndex = 0;
-                groupComboBox.SelectedItem = groupComboBox.Items[0];
-                //group_ = (string)groupComboBox.SelectedItem;
 
                 DialogResult result2 = MessageBox.Show("Test connection done.", "Test connection",
                     MessageBoxButtons.OK);
