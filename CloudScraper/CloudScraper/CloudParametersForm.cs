@@ -108,6 +108,14 @@ namespace CloudScraper
         private void RegChanged(object sender, EventArgs e)
         {
             region_ = this.regionList_[(string)(sender as ComboBox).SelectedItem];
+            this.zoneComboBox.Items.Clear();
+            this.zoneComboBox.Text = "";
+            this.zoneComboBox.DropDownStyle = ComboBoxStyle.Simple;
+            zone_ = "";
+            this.groupComboBox.Items.Clear();
+            this.groupComboBox.Text = "";
+            this.groupComboBox.DropDownStyle = ComboBoxStyle.Simple;
+            group_ = "";
         }
 
         private void AdvancedChecked(object sender, EventArgs e)
@@ -212,24 +220,28 @@ namespace CloudScraper
 
                 using (ListBucketsResponse response = client2.ListBuckets())
                 {
-                    bool isExists_ = false;
+                    //bool isExists_ = false;
 
-                    foreach (S3Bucket bucket in response.Buckets)
-                    {
-                        if (bucket.BucketName == s3bucket_)
-                        {
-                            isExists_ = true;    
-                        }
-                    }
+                    //foreach (S3Bucket bucket in response.Buckets)
+                    //{
+                    //    if (bucket.BucketName == s3bucket_)
+                    //    {
+                    //        isExists_ = true;    
+                    //    }
+                    //}
 
-                    if (!isExists_)
+                    //if (!isExists_)
+                    //{
+                    //    DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
+                    //        MessageBoxButtons.OK);
+                    //    //return;
+                    //}
+                    //else
+                    //{
+
+                    try
                     {
-                        DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
-                            MessageBoxButtons.OK);
-                        //return;
-                    }
-                    else
-                    {
+
                         GetBucketLocationRequest req = new GetBucketLocationRequest();
                         req = req.WithBucketName(s3bucket_);
                         GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
@@ -240,6 +252,12 @@ namespace CloudScraper
                             return;
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
+                            MessageBoxButtons.OK);
+                    }
+                    //}
                 }
                 
                 DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
