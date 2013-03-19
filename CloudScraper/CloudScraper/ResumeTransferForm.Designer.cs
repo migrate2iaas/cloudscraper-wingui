@@ -143,21 +143,21 @@
             // 
             // awsIdTextBox
             // 
-            this.awsIdTextBox.Location = new System.Drawing.Point(258, 212);
-            this.awsIdTextBox.MaxLength = 20;
+            this.awsIdTextBox.Location = new System.Drawing.Point(239, 213);
+            this.awsIdTextBox.MaxLength = 40;
             this.awsIdTextBox.Name = "awsIdTextBox";
-            this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
+            this.awsIdTextBox.Size = new System.Drawing.Size(296, 20);
             this.awsIdTextBox.TabIndex = 19;
             this.awsIdTextBox.TextChanged += new System.EventHandler(this.AwsIdChanged);
             // 
             // awsIdLabel
             // 
             this.awsIdLabel.AutoSize = true;
-            this.awsIdLabel.Location = new System.Drawing.Point(182, 215);
+            this.awsIdLabel.Location = new System.Drawing.Point(155, 216);
             this.awsIdLabel.Name = "awsIdLabel";
-            this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
+            this.awsIdLabel.Size = new System.Drawing.Size(78, 13);
             this.awsIdLabel.TabIndex = 20;
-            this.awsIdLabel.Text = "You AWS Id:";
+            this.awsIdLabel.Text = "You AWS Key:";
             // 
             // ResumeTransferForm
             // 
