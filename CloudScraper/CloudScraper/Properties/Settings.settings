@@ -84,7 +84,7 @@
       <Value Profile="(Default)">smtp.mail.ru</Value>
     </Setting>
     <Setting Name="SMTPLogin" Type="System.String" Scope="User">
-      <Value Profile="(Default)">login</Value>
+      <Value Profile="(Default)">login@mail.ru</Value>
     </Setting>
     <Setting Name="SMTPPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)">password</Value>

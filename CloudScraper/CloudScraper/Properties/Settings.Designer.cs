@@ -295,7 +295,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("login")]
+        [global::System.Configuration.DefaultSettingValueAttribute("login@mail.ru")]
         public string SMTPLogin {
             get {
                 return ((string)(this["SMTPLogin"]));

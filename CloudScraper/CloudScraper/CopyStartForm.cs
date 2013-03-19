@@ -15,6 +15,7 @@ using System.Net.Mail;
 using System.Net.Mime;
 
 using CloudScraper.Properties;
+using ICSharpCode.SharpZipLib.Zip;
 
 namespace CloudScraper
 {
@@ -343,40 +344,53 @@ namespace CloudScraper
 
         public void SendMail(string userName, string email)
         {
-            SmtpClient Smtp = new SmtpClient(Properties.Settings.Default.SMTPServer, 25);
-            Smtp.Credentials = new NetworkCredential(Properties.Settings.Default.SMTPLogin,
-                Properties.Settings.Default.SMTPPassword);
-            //Smtp.EnableSsl = false;
-
-
-            MailMessage Message = new MailMessage();
-            Message.From = new MailAddress(Properties.Settings.Default.SMTPLogin);
-            Message.ReplyTo = new MailAddress(email);
-            Message.To.Add(new MailAddress(Properties.Settings.Default.SupportEmail));
-            Message.Subject = "Support ticket: failure reported by " + userName +  " "  + email;
-            Message.Body = "Milestone: Release 0.1" + "\n" +
-                           "Component: migrate.py" + "\n" +
-                           "Priority: 3" + "\n" +
-                           "Permission type: Public" + "\n" +
-                           "Description:" + "\n";
-            foreach (MessageInfo info in messages_)
+            try
             {
-                if (info.Type == 2)
+                SmtpClient Smtp = new SmtpClient(Properties.Settings.Default.SMTPServer, 25);
+                Smtp.Credentials = new NetworkCredential(Properties.Settings.Default.SMTPLogin,
+                    Properties.Settings.Default.SMTPPassword);
+                //Smtp.EnableSsl = false;
+
+
+                MailMessage Message = new MailMessage();
+                Message.From = new MailAddress(Properties.Settings.Default.SMTPLogin);
+                Message.ReplyTo = new MailAddress(email);
+                Message.To.Add(new MailAddress(Properties.Settings.Default.SupportEmail));
+                Message.Subject = "Support ticket: failure reported by " + userName + " " + email;
+                Message.Body = "Milestone: Release 0.1" + "\n" +
+                               "Component: migrate.py" + "\n" +
+                               "Priority: 3" + "\n" +
+                               "Permission type: Public" + "\n" +
+                               "Description:" + "\n";
+                foreach (MessageInfo info in messages_)
                 {
-                    Message.Body += info.Message + "\n";
+                    if (info.Type == 2)
+                    {
+                        Message.Body += info.Message + "\n";
+                    }
                 }
+
+                string file = "test.txt";
+                FastZip fz = new FastZip();
+                Directory.CreateDirectory("ToZip");
+                File.Copy("test.txt", "ToZip\\test.txt");
+                fz.CreateZip("test.zip", "ToZip", true, null);
+                Directory.Delete("ToZip", true);
+
+                Attachment attach = new Attachment("test.zip", MediaTypeNames.Application.Octet);
+
+                ContentDisposition disposition = attach.ContentDisposition;
+                disposition.CreationDate = System.IO.File.GetCreationTime(file);
+                disposition.ModificationDate = System.IO.File.GetLastWriteTime(file);
+                disposition.ReadDate = System.IO.File.GetLastAccessTime(file);
+
+                Message.Attachments.Add(attach);
+                Smtp.Send(Message);
             }
-
-            string file = "test.txt";
-            Attachment attach = new Attachment(file, MediaTypeNames.Application.Octet);
-
-            ContentDisposition disposition = attach.ContentDisposition;
-            disposition.CreationDate = System.IO.File.GetCreationTime(file);
-            disposition.ModificationDate = System.IO.File.GetLastWriteTime(file);
-            disposition.ReadDate = System.IO.File.GetLastAccessTime(file);
-
-            Message.Attachments.Add(attach);
-            Smtp.Send(Message);
+            catch (Exception e)
+            {
+            
+            }
         }
 
         private void CopyStartForm_Load(object sender, EventArgs e)
@@ -405,7 +419,6 @@ namespace CloudScraper
         {
             MailForm mail = new MailForm(this);
             mail.ShowDialog();
-            //this.SendMail();
         }
     
     }

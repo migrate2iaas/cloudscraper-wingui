@@ -35,7 +35,7 @@ namespace CloudScraper
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            if (userName_ != "" && email_ != "")
+            if (userName_ != "" && email_ != "" && email_.Contains("@"))
             {
                 this.Close();
                 this.copyStartForm_.SendMail(userName_, email_);
