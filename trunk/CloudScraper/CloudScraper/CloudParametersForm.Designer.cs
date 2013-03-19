@@ -39,8 +39,6 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupComboBox = new System.Windows.Forms.ComboBox();
-            this.zoneComboBox = new System.Windows.Forms.ComboBox();
             this.folderKeyLabel = new System.Windows.Forms.Label();
             this.folderKeyBox = new System.Windows.Forms.TextBox();
             this.advancedCheckBox = new System.Windows.Forms.CheckBox();
@@ -50,6 +48,8 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.bucketTextBox = new System.Windows.Forms.TextBox();
             this.bucketLabel = new System.Windows.Forms.Label();
+            this.zoneComboBox = new System.Windows.Forms.ComboBox();
+            this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.nextButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
@@ -169,32 +169,6 @@
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupComboBox
-            // 
-            this.groupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.groupComboBox.Enabled = false;
-            this.groupComboBox.FormattingEnabled = true;
-            this.groupComboBox.Location = new System.Drawing.Point(216, 180);
-            this.groupComboBox.MaxLength = 10;
-            this.groupComboBox.Name = "groupComboBox";
-            this.groupComboBox.Size = new System.Drawing.Size(237, 21);
-            this.groupComboBox.TabIndex = 12;
-            this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.groupComboBox_SelectedIndexChanged);
-            this.groupComboBox.TextChanged += new System.EventHandler(this.groupComboBox_TextChanged);
-            // 
-            // zoneComboBox
-            // 
-            this.zoneComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.zoneComboBox.Enabled = false;
-            this.zoneComboBox.FormattingEnabled = true;
-            this.zoneComboBox.Location = new System.Drawing.Point(216, 146);
-            this.zoneComboBox.MaxLength = 10;
-            this.zoneComboBox.Name = "zoneComboBox";
-            this.zoneComboBox.Size = new System.Drawing.Size(237, 21);
-            this.zoneComboBox.TabIndex = 11;
-            this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.zoneComboBox_SelectedIndexChanged);
-            this.zoneComboBox.TextChanged += new System.EventHandler(this.zoneComboBox_TextChanged);
-            // 
             // folderKeyLabel
             // 
             this.folderKeyLabel.AutoSize = true;
@@ -285,6 +259,32 @@
             this.bucketLabel.Size = new System.Drawing.Size(121, 13);
             this.bucketLabel.TabIndex = 0;
             this.bucketLabel.Text = "Specify your S3 Bucket:";
+            // 
+            // zoneComboBox
+            // 
+            this.zoneComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.zoneComboBox.Enabled = false;
+            this.zoneComboBox.FormattingEnabled = true;
+            this.zoneComboBox.Location = new System.Drawing.Point(216, 146);
+            this.zoneComboBox.MaxLength = 10;
+            this.zoneComboBox.Name = "zoneComboBox";
+            this.zoneComboBox.Size = new System.Drawing.Size(237, 21);
+            this.zoneComboBox.TabIndex = 11;
+            this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.zoneComboBox_SelectedIndexChanged);
+            this.zoneComboBox.TextChanged += new System.EventHandler(this.zoneComboBox_TextChanged);
+            // 
+            // groupComboBox
+            // 
+            this.groupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.groupComboBox.Enabled = false;
+            this.groupComboBox.FormattingEnabled = true;
+            this.groupComboBox.Location = new System.Drawing.Point(216, 180);
+            this.groupComboBox.MaxLength = 10;
+            this.groupComboBox.Name = "groupComboBox";
+            this.groupComboBox.Size = new System.Drawing.Size(237, 21);
+            this.groupComboBox.TabIndex = 12;
+            this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.groupComboBox_SelectedIndexChanged);
+            this.groupComboBox.TextChanged += new System.EventHandler(this.groupComboBox_TextChanged);
             // 
             // nextButton
             // 

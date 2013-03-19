@@ -78,6 +78,27 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
+            if (region_.Substring(0, 2) != "us")
+            {
+                if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
+                    || s3bucket_.Length < 3 || s3bucket_.Length > 63)
+                {
+                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    MessageBoxButtons.OK);
+                    return;
+                }
+
+            }
+            if (region_.Substring(0, 2) == "us")
+            {
+                if (s3bucket_.Length > 255)
+                {
+                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            
             this.Hide();
 
             if (this.imagesPathForm_ == null)
@@ -116,6 +137,7 @@ namespace CloudScraper
             this.groupComboBox.Text = "";
             this.groupComboBox.DropDownStyle = ComboBoxStyle.Simple;
             group_ = "";
+            this.bucketTextBox.Text = "";
         }
 
         private void AdvancedChecked(object sender, EventArgs e)
@@ -154,6 +176,32 @@ namespace CloudScraper
 
         private void BucketChanged(object sender, EventArgs e)
         {
+            if (region_.Substring(0, 2) != "us" &&  bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
+                && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '-'
+                && !char.IsLower(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
+                && !char.IsNumber(bucketTextBox.Text[bucketTextBox.Text.Length - 1]))
+            {
+                string str = bucketTextBox.Text.Remove(bucketTextBox.Text.Length - 1);
+                bucketTextBox.TextChanged -= new System.EventHandler(this.BucketChanged);
+                bucketTextBox.Text = "";
+                bucketTextBox.AppendText(str);
+                bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
+                
+            }
+            if (region_.Substring(0, 2) == "us" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
+                && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '-'
+                && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '_'
+                && !char.IsLower(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
+                && !char.IsUpper(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
+                && !char.IsNumber(bucketTextBox.Text[bucketTextBox.Text.Length - 1]))
+            {
+                string str = bucketTextBox.Text.Remove(bucketTextBox.Text.Length - 1);
+                bucketTextBox.TextChanged -= new System.EventHandler(this.BucketChanged);
+                bucketTextBox.Text = "";
+                bucketTextBox.AppendText(str);
+                bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
+            }
+
             s3bucket_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
@@ -347,6 +395,7 @@ namespace CloudScraper
             zone_ = (sender as ComboBox).Text;
             this.CheckEnter();
         }
+
 
     }
 }
