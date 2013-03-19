@@ -144,7 +144,7 @@
             // awsIdTextBox
             // 
             this.awsIdTextBox.Location = new System.Drawing.Point(258, 212);
-            this.awsIdTextBox.MaxLength = 10;
+            this.awsIdTextBox.MaxLength = 20;
             this.awsIdTextBox.Name = "awsIdTextBox";
             this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
             this.awsIdTextBox.TabIndex = 19;
