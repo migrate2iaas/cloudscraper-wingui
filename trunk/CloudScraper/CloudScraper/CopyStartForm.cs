@@ -356,6 +356,12 @@ namespace CloudScraper
             {
                 this.resumeTransferForm_.Close();
             }
+
+            if (p != null && !p.HasExited)
+            {
+                p.Exited -= new EventHandler(p_Exited);
+                p.Kill();
+            }
         }
 
         public void SendMail(string userName, string email)
