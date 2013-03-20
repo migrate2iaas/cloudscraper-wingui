@@ -249,6 +249,7 @@
             this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
             this.bucketTextBox.TabIndex = 1;
             this.bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
+            this.bucketTextBox.Leave += new System.EventHandler(this.bucketTextBox_Leave);
             // 
             // bucketLabel
             // 

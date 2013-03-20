@@ -421,6 +421,45 @@ namespace CloudScraper
             this.CheckEnter();
         }
 
+        private void bucketTextBox_Leave(object sender, EventArgs e)
+        {
+            if (region_.Substring(0, 2) != "us")
+            {
+                if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
+                    || s3bucket_.Length < 3 || s3bucket_.Length > 63)
+                {
+                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    MessageBoxButtons.OK);
+                    return;
+                }
+
+                bool lookLikeIp = true;
+                foreach (char ch in s3bucket_)
+                {
+                    if (!char.IsDigit(ch) && ch != '.')
+                    {
+                        lookLikeIp = false;
+                    }
+                }
+
+                if (lookLikeIp)
+                {
+                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            if (region_.Substring(0, 2) == "us")
+            {
+                if (s3bucket_.Length > 255)
+                {
+                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    MessageBoxButtons.OK);
+                    return;
+                }
+            }
+        }
+
 
     }
 }
