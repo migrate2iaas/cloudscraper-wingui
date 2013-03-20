@@ -88,6 +88,21 @@ namespace CloudScraper
                     return;
                 }
 
+                bool lookLikeIp = true;
+                foreach (char ch in s3bucket_)
+                {
+                    if (!char.IsDigit(ch) && ch != '.')
+                    {
+                        lookLikeIp = false;
+                    }
+                }
+
+                if (lookLikeIp)
+                {
+                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    MessageBoxButtons.OK);
+                    return;
+                }
             }
             if (region_.Substring(0, 2) == "us")
             {
