@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaveTransferTaskForm));
             this.saveTransferTextBox = new System.Windows.Forms.TextBox();
-            this.saveTransferTask = new System.Windows.Forms.Button();
+            this.browseButton = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.nextButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.mainLabel = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,15 +48,15 @@
             this.saveTransferTextBox.TabIndex = 0;
             this.saveTransferTextBox.TextChanged += new System.EventHandler(this.SaveTransferChanged);
             // 
-            // saveTransferTask
+            // browseButton
             // 
-            this.saveTransferTask.Location = new System.Drawing.Point(481, 123);
-            this.saveTransferTask.Name = "saveTransferTask";
-            this.saveTransferTask.Size = new System.Drawing.Size(75, 23);
-            this.saveTransferTask.TabIndex = 1;
-            this.saveTransferTask.Text = "Browse...";
-            this.saveTransferTask.UseVisualStyleBackColor = true;
-            this.saveTransferTask.Click += new System.EventHandler(this.saveTransferTask_Click);
+            this.browseButton.Location = new System.Drawing.Point(481, 123);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(75, 23);
+            this.browseButton.TabIndex = 1;
+            this.browseButton.Text = "Browse...";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.saveTransferTask_Click);
             // 
             // nextButton
             // 
@@ -78,14 +78,14 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
-            // label1
+            // mainLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(275, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Select path to save transfer file:";
+            this.mainLabel.AutoSize = true;
+            this.mainLabel.Location = new System.Drawing.Point(275, 65);
+            this.mainLabel.Name = "mainLabel";
+            this.mainLabel.Size = new System.Drawing.Size(156, 13);
+            this.mainLabel.TabIndex = 4;
+            this.mainLabel.Text = "Select path to save transfer file:";
             // 
             // helpButton
             // 
@@ -121,10 +121,10 @@
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.helpButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.nextButton);
-            this.Controls.Add(this.saveTransferTask);
+            this.Controls.Add(this.browseButton);
             this.Controls.Add(this.saveTransferTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -145,11 +145,11 @@
         #endregion
 
         private System.Windows.Forms.TextBox saveTransferTextBox;
-        private System.Windows.Forms.Button saveTransferTask;
+        private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

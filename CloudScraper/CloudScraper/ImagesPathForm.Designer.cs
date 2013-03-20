@@ -38,7 +38,7 @@
             this.freeSpace = new System.Windows.Forms.Label();
             this.totalSpaceLabel = new System.Windows.Forms.Label();
             this.totalSpace = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.mainLabel = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorPicture = new System.Windows.Forms.PictureBox();
@@ -121,14 +121,14 @@
             this.totalSpace.TabIndex = 7;
             this.totalSpace.Text = "0GB";
             // 
-            // label1
+            // mainLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(200, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(292, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Please choose folder where to store your server disk images:";
+            this.mainLabel.AutoSize = true;
+            this.mainLabel.Location = new System.Drawing.Point(200, 62);
+            this.mainLabel.Name = "mainLabel";
+            this.mainLabel.Size = new System.Drawing.Size(292, 13);
+            this.mainLabel.TabIndex = 8;
+            this.mainLabel.Text = "Please choose folder where to store your server disk images:";
             // 
             // helpButton
             // 
@@ -189,7 +189,7 @@
             this.Controls.Add(this.errorPicture);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.helpButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.totalSpace);
             this.Controls.Add(this.totalSpaceLabel);
             this.Controls.Add(this.freeSpace);
@@ -227,7 +227,7 @@
         private System.Windows.Forms.Label freeSpace;
         private System.Windows.Forms.Label totalSpaceLabel;
         private System.Windows.Forms.Label totalSpace;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox errorPicture;

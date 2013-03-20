@@ -30,6 +30,13 @@ namespace CloudScraper
             resumeUpload_ = false;
             skipUpload_ = false;
             this.Text = Settings.Default.R2Header;
+            this.mainLabel.Text = Settings.Default.R2MainLabelText;
+            this.awsIdLabel.Text = Settings.Default.R2awsIdLabelText;
+            this.redeployUploadCheckBox.Text = Settings.Default.R2RedeployCheckBoxText;
+            this.resumeUploadCheckBox.Text = Settings.Default.R2UploadCheckBoxText;
+            this.nextButton.Text = Settings.Default.R2NextButtonText;
+            this.backButton.Text = Settings.Default.R2BackButtonText;
+            this.browseButton.Text = Settings.Default.R2BrowseButtonText;
         }
 
         private void BackButtonClick(object sender, EventArgs e)

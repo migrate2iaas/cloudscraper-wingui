@@ -25,6 +25,10 @@ namespace CloudScraper
             this.elasticHostsButton.Image = new Bitmap(Image.FromFile("Icons\\Elastic.ico"), new Size(32, 32));
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.Text = Settings.Default.S3Header;
+            this.backButton.Text = Settings.Default.S3BackButtonText;
+            this.amazonButton.Text = Settings.Default.S3AmazonButtonText;
+            this.windowsAzureButton.Text = Settings.Default.S3WindowsAzureButtonText;
+            this.elasticHostsButton.Text = Settings.Default.S3ElasticHostsButtonText;
         }
 
         private void backButton_Click(object sender, EventArgs e)

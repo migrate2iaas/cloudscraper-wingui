@@ -48,6 +48,11 @@ namespace CloudScraper
             InitializeComponent();
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.backButton.Text = Settings.Default.S7BackButtonText;
+            this.startButton.Text = Settings.Default.S7StartButtonText;
+            this.mailButton.Text = Settings.Default.S7MailButtonText;
+            this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
+            
             withError = false;
 
             p = null;

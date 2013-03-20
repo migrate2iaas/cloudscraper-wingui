@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseDisksForm));
             this.nextButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelTotalSpace = new System.Windows.Forms.Label();
             this.totalSpaceLabel = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.helpButton = new System.Windows.Forms.Button();
@@ -59,14 +59,14 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
-            // label1
+            // labelTotalSpace
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 267);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Total Space Required:";
+            this.labelTotalSpace.AutoSize = true;
+            this.labelTotalSpace.Location = new System.Drawing.Point(12, 267);
+            this.labelTotalSpace.Name = "labelTotalSpace";
+            this.labelTotalSpace.Size = new System.Drawing.Size(114, 13);
+            this.labelTotalSpace.TabIndex = 3;
+            this.labelTotalSpace.Text = "Total Space Required:";
             // 
             // totalSpaceLabel
             // 
@@ -122,7 +122,7 @@
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.totalSpaceLabel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelTotalSpace);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.nextButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -146,7 +146,7 @@
 
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTotalSpace;
         private System.Windows.Forms.Label totalSpaceLabel;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button helpButton;

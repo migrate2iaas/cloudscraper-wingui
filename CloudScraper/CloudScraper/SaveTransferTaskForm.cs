@@ -26,6 +26,10 @@ namespace CloudScraper
             this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "transfer.ini";
             transferPath_ = this.saveTransferTextBox.Text;
             this.Text = Settings.Default.S6Header;
+            this.mainLabel.Text = Settings.Default.S6MainLabelText;
+            this.nextButton.Text = Settings.Default.S6NextButtonText;
+            this.backButton.Text = Settings.Default.S6BackButtonText;
+            this.browseButton.Text = Settings.Default.S6BrowseButtonText;
         }
 
         private void saveTransferTask_Click(object sender, EventArgs e)

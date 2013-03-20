@@ -36,7 +36,7 @@
             this.browseButton = new System.Windows.Forms.Button();
             this.resumeTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
+            this.mainLabel = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.awsIdTextBox = new System.Windows.Forms.TextBox();
@@ -105,14 +105,14 @@
             this.resumeTextBox.TabIndex = 5;
             this.resumeTextBox.TextChanged += new System.EventHandler(this.OnPathChanged);
             // 
-            // label1
+            // mainLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(236, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Load your previously saved transfer task";
+            this.mainLabel.AutoSize = true;
+            this.mainLabel.Location = new System.Drawing.Point(236, 63);
+            this.mainLabel.Name = "mainLabel";
+            this.mainLabel.Size = new System.Drawing.Size(197, 13);
+            this.mainLabel.TabIndex = 6;
+            this.mainLabel.Text = "Load your previously saved transfer task";
             // 
             // helpButton
             // 
@@ -168,7 +168,7 @@
             this.Controls.Add(this.awsIdLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.helpButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.resumeTextBox);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.nextButton);
@@ -199,7 +199,7 @@
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.TextBox resumeTextBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox awsIdTextBox;
