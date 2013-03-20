@@ -1049,5 +1049,34 @@ namespace CloudScraper.Properties {
                 this["FullOutputHeader"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>test1.txt</string>
+  <string>test2.txt</string>
+  <string>test3.txt</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection FilesToAttach {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["FilesToAttach"]));
+            }
+            set {
+                this["FilesToAttach"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test.zip")]
+        public string ZipFile {
+            get {
+                return ((string)(this["ZipFile"]));
+            }
+            set {
+                this["ZipFile"] = value;
+            }
+        }
     }
 }
