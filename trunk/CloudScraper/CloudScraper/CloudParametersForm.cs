@@ -191,30 +191,33 @@ namespace CloudScraper
 
         private void BucketChanged(object sender, EventArgs e)
         {
-            if (region_.Substring(0, 2) != "us" &&  bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
-                && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '-'
-                && !char.IsLower(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
-                && !char.IsNumber(bucketTextBox.Text[bucketTextBox.Text.Length - 1]))
+            if (bucketTextBox.Text != "")
             {
-                string str = bucketTextBox.Text.Remove(bucketTextBox.Text.Length - 1);
-                bucketTextBox.TextChanged -= new System.EventHandler(this.BucketChanged);
-                bucketTextBox.Text = "";
-                bucketTextBox.AppendText(str);
-                bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
-                
-            }
-            if (region_.Substring(0, 2) == "us" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
-                && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '-'
-                && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '_'
-                && !char.IsLower(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
-                && !char.IsUpper(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
-                && !char.IsNumber(bucketTextBox.Text[bucketTextBox.Text.Length - 1]))
-            {
-                string str = bucketTextBox.Text.Remove(bucketTextBox.Text.Length - 1);
-                bucketTextBox.TextChanged -= new System.EventHandler(this.BucketChanged);
-                bucketTextBox.Text = "";
-                bucketTextBox.AppendText(str);
-                bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
+                if (region_.Substring(0, 2) != "us" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
+                    && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '-'
+                    && !char.IsLower(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
+                    && !char.IsNumber(bucketTextBox.Text[bucketTextBox.Text.Length - 1]))
+                {
+                    string str = bucketTextBox.Text.Remove(bucketTextBox.Text.Length - 1);
+                    bucketTextBox.TextChanged -= new System.EventHandler(this.BucketChanged);
+                    bucketTextBox.Text = "";
+                    bucketTextBox.AppendText(str);
+                    bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
+
+                }
+                if (region_.Substring(0, 2) == "us" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
+                    && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '-'
+                    && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '_'
+                    && !char.IsLower(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
+                    && !char.IsUpper(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
+                    && !char.IsNumber(bucketTextBox.Text[bucketTextBox.Text.Length - 1]))
+                {
+                    string str = bucketTextBox.Text.Remove(bucketTextBox.Text.Length - 1);
+                    bucketTextBox.TextChanged -= new System.EventHandler(this.BucketChanged);
+                    bucketTextBox.Text = "";
+                    bucketTextBox.AppendText(str);
+                    bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
+                }
             }
 
             s3bucket_ = (sender as TextBox).Text;
@@ -272,8 +275,7 @@ namespace CloudScraper
                 AmazonEC2 client = new AmazonEC2Client(awsId_, awsKey_, config);
                 DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
                 
-                if (!advanced_)
-                {
+
 
                     DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
                     this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
@@ -302,7 +304,8 @@ namespace CloudScraper
                     groupComboBox.SelectedItem = groupComboBox.Items[0];
                     //group_ = (string)groupComboBox.SelectedItem;
 
-                    
+                if (!advanced_)
+                {     
                     DialogResult result = MessageBox.Show("Test connection done.", "Test connection",
                          MessageBoxButtons.OK);
                     return;
@@ -333,31 +336,34 @@ namespace CloudScraper
                     //else
                     //{
 
-                    try
+                    if (s3bucket_ != "")
                     {
+                        try
+                        {
 
-                        GetBucketLocationRequest req = new GetBucketLocationRequest();
-                        req.BucketName = s3bucket_;
-                        GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
-                        if (bucketResponse.Location != region_)
-                        {
-                            DialogResult result = MessageBox.Show("The bucket you specified is located in another region, please specify another bucket.", "Test connection",
-                                MessageBoxButtons.OK);
-                            return;
+                            GetBucketLocationRequest req = new GetBucketLocationRequest();
+                            req.BucketName = s3bucket_;
+                            GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
+                            if (bucketResponse.Location != region_)
+                            {
+                                DialogResult result = MessageBox.Show("The bucket you specified is located in another region, please specify another bucket.", "Test connection",
+                                    MessageBoxButtons.OK);
+                                return;
+                            }
                         }
-                    }
-                    catch (AmazonS3Exception ex)
-                    {
-                        if (ex.ErrorCode == "NoSuchBucket")
+                        catch (AmazonS3Exception ex)
                         {
-                            DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
+                            if (ex.ErrorCode == "NoSuchBucket")
+                            {
+                                DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
+                                    MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                DialogResult result = MessageBox.Show("Cannot access the bucket, please specify another one.", "Test connection",
                                 MessageBoxButtons.OK);
-                        }
-                        else
-                        {
-                            DialogResult result = MessageBox.Show("Cannot access the bucket, please specify another one.", "Test connection",
-                            MessageBoxButtons.OK);
-                            return;
+                                return;
+                            }
                         }
                     }
                     //}
@@ -423,39 +429,42 @@ namespace CloudScraper
 
         private void bucketTextBox_Leave(object sender, EventArgs e)
         {
-            if (region_.Substring(0, 2) != "us")
+            if (s3bucket_ != "")
             {
-                if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
-                    || s3bucket_.Length < 3 || s3bucket_.Length > 63)
+                if (region_.Substring(0, 2) != "us")
                 {
-                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
-                    MessageBoxButtons.OK);
-                    return;
-                }
-
-                bool lookLikeIp = true;
-                foreach (char ch in s3bucket_)
-                {
-                    if (!char.IsDigit(ch) && ch != '.')
+                    if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
+                        || s3bucket_.Length < 3 || s3bucket_.Length > 63)
                     {
-                        lookLikeIp = false;
+                        DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                        MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    bool lookLikeIp = true;
+                    foreach (char ch in s3bucket_)
+                    {
+                        if (!char.IsDigit(ch) && ch != '.')
+                        {
+                            lookLikeIp = false;
+                        }
+                    }
+
+                    if (lookLikeIp)
+                    {
+                        DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                        MessageBoxButtons.OK);
+                        return;
                     }
                 }
-
-                if (lookLikeIp)
+                if (region_.Substring(0, 2) == "us")
                 {
-                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
-                    MessageBoxButtons.OK);
-                    return;
-                }
-            }
-            if (region_.Substring(0, 2) == "us")
-            {
-                if (s3bucket_.Length > 255)
-                {
-                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
-                    MessageBoxButtons.OK);
-                    return;
+                    if (s3bucket_.Length > 255)
+                    {
+                        DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                        MessageBoxButtons.OK);
+                        return;
+                    }
                 }
             }
         }
