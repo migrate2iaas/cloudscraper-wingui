@@ -357,20 +357,21 @@ namespace CloudScraper
                 this.resumeTransferForm_.Close();
             }
 
+            System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
+            foreach (System.Diagnostics.Process pr in localByName)
+            {
+                if (pr.ProcessName == "python.exe")
+                {
+                    pr.Kill();
+                }
+            }
+
             if (p != null && !p.HasExited)
             {
                 p.Exited -= new EventHandler(p_Exited);
                 p.Kill();
-
-                System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
-                foreach (System.Diagnostics.Process pr in localByName)
-                {
-                    if (pr.ProcessName == "python.exe")
-                    {
-                        pr.Kill();
-                    }
-                }
             }
+            
         }
 
         public void SendMail(string userName, string email)
@@ -469,19 +470,20 @@ namespace CloudScraper
         {
             if (e.KeyData == Keys.X)
             {
+
+                System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
+                foreach (System.Diagnostics.Process pr in localByName)
+                {
+                    if (pr.ProcessName == "python.exe")
+                    {
+                        pr.Kill();
+                    }
+                }
+
                 if (p != null && !p.HasExited)
                 {
                     p.Kill();
-
-                    System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
-                    foreach (System.Diagnostics.Process pr in localByName)
-                    {
-                        if (pr.ProcessName == "python.exe")
-                        {
-                            pr.Kill();
-                        }
-                    }
-                }
+                }             
 
             }
         }
