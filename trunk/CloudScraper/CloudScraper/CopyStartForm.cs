@@ -179,8 +179,8 @@ namespace CloudScraper
                 }
             //}
 
-            if (File.Exists(Properties.Settings.Default.TextFile))
-                File.Delete(Properties.Settings.Default.TextFile);
+                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
+                    File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile);
 
             //if (File.Exists("testcopy.txt"))
             //    File.Delete("testcopy.txt");
@@ -227,7 +227,7 @@ namespace CloudScraper
                 {
                     Thread.Sleep(3000);
 
-                    if (File.Exists(Properties.Settings.Default.TextFile))
+                    if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
                     {
                         //if (File.Exists("testcopy.txt"))
                         //    File.Delete("testcopy.txt");
@@ -235,7 +235,7 @@ namespace CloudScraper
                         //File.Copy("test.txt", "testcopy.txt");
                         //StreamReader stream = new StreamReader("testcopy.txt");
 
-                        var fs = new FileStream(Properties.Settings.Default.TextFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        var fs = new FileStream(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                         StreamReader stream = new StreamReader(fs);
                         
                         if (stream.BaseStream.Length == length)
@@ -248,7 +248,7 @@ namespace CloudScraper
                                 {
                                     this.startButton.Visible = false;
                                     this.finishButton.Visible = true;
-                                    if (File.Exists(Properties.Settings.Default.TextFile))
+                                    if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
                                     this.fullOutputButton.Visible = true;
 
                                     if (withError)
@@ -291,7 +291,7 @@ namespace CloudScraper
                         {
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
-                            if (File.Exists(Properties.Settings.Default.TextFile))
+                            if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
                                 this.fullOutputButton.Visible = true;
                             if (this.withError)
                                 this.mailButton.Visible = true;
@@ -419,16 +419,16 @@ namespace CloudScraper
                     }
                 }
 
-                string file = Properties.Settings.Default.TextFile;
+                string file = Application.StartupPath + "\\" + Properties.Settings.Default.TextFile;
                 FastZip fz = new FastZip();
                 Directory.CreateDirectory("ToZip");
-                File.Copy(Properties.Settings.Default.TextFile, "ToZip\\" + Properties.Settings.Default.TextFile);
+                File.Copy(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile, "ToZip\\" + Properties.Settings.Default.TextFile);
 
                 foreach (string fileToAttach in Settings.Default.FilesToAttach)
                 {
-                    if (File.Exists(fileToAttach))
+                    if (File.Exists(Application.StartupPath + "\\" + fileToAttach))
                     {
-                        File.Copy(fileToAttach, "ToZip\\" + fileToAttach);
+                        File.Copy(Application.StartupPath + "\\" + fileToAttach, "ToZip\\" + fileToAttach);
                     }
                 }
 
@@ -468,7 +468,7 @@ namespace CloudScraper
 
         private void fullOutputButton_Click(object sender, EventArgs e)
         {
-            FullOutputForm form = new FullOutputForm(Properties.Settings.Default.TextFile);
+            FullOutputForm form = new FullOutputForm(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile);
             form.ShowDialog();
         }
 
