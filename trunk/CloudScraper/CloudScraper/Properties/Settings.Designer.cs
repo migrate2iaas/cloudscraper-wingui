@@ -1001,5 +1001,53 @@ namespace CloudScraper.Properties {
                 this["S2MessageSecond"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("E-mail Report")]
+        public string MailHeader {
+            get {
+                return ((string)(this["MailHeader"]));
+            }
+            set {
+                this["MailHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("User Name:")]
+        public string MailUserNameLabelText {
+            get {
+                return ((string)(this["MailUserNameLabelText"]));
+            }
+            set {
+                this["MailUserNameLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("e-mail:")]
+        public string MailEmailLabelText {
+            get {
+                return ((string)(this["MailEmailLabelText"]));
+            }
+            set {
+                this["MailEmailLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Full output")]
+        public string FullOutputHeader {
+            get {
+                return ((string)(this["FullOutputHeader"]));
+            }
+            set {
+                this["FullOutputHeader"] = value;
+            }
+        }
     }
 }

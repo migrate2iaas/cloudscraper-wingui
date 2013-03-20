@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using CloudScraper.Properties;
 
 namespace CloudScraper
 {
@@ -21,6 +22,9 @@ namespace CloudScraper
             email_ = "";
 
             InitializeComponent();
+            this.Text = Settings.Default.MailHeader;
+            this.userNameLabel.Text = Settings.Default.MailUserNameLabelText;
+            this.emailLabel.Text = Settings.Default.MailEmailLabelText;
         }
 
         private void UserChanged(object sender, EventArgs e)
