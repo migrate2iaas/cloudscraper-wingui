@@ -361,6 +361,15 @@ namespace CloudScraper
             {
                 p.Exited -= new EventHandler(p_Exited);
                 p.Kill();
+
+                System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
+                foreach (System.Diagnostics.Process pr in localByName)
+                {
+                    if (pr.ProcessName == "python.exe")
+                    {
+                        pr.Kill();
+                    }
+                }
             }
         }
 
@@ -417,6 +426,9 @@ namespace CloudScraper
 
                 Message.Attachments.Add(attach);
                 Smtp.Send(Message);
+
+                if (File.Exists(Properties.Settings.Default.ZipFile))
+                    File.Delete(Properties.Settings.Default.ZipFile);
             }
             catch (Exception e)
             {
@@ -460,6 +472,15 @@ namespace CloudScraper
                 if (p != null && !p.HasExited)
                 {
                     p.Kill();
+
+                    System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
+                    foreach (System.Diagnostics.Process pr in localByName)
+                    {
+                        if (pr.ProcessName == "python.exe")
+                        {
+                            pr.Kill();
+                        }
+                    }
                 }
 
             }
