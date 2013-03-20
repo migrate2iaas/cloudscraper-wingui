@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using CloudScraper.Properties;
 
 namespace CloudScraper
 {
@@ -15,9 +16,11 @@ namespace CloudScraper
         {
             InitializeComponent();
 
+            this.Text = Settings.Default.FullOutputHeader;
             //using (StreamReader stream = new StreamReader(path))
             //{
                 this.fullOutputBox.Lines = File.ReadAllLines(path);
+
 
             //}
         }

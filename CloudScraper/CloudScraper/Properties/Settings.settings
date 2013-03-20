@@ -260,5 +260,17 @@
     <Setting Name="S2MessageSecond" Type="System.String" Scope="User">
       <Value Profile="(Default)">In this case no cloud servers will be created!</Value>
     </Setting>
+    <Setting Name="MailHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E-mail Report</Value>
+    </Setting>
+    <Setting Name="MailUserNameLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">User Name:</Value>
+    </Setting>
+    <Setting Name="MailEmailLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">e-mail:</Value>
+    </Setting>
+    <Setting Name="FullOutputHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Full output</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
