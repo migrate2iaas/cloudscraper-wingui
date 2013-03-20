@@ -68,6 +68,18 @@ namespace CloudScraper
             this.serverTypeComboBox.SelectedIndex = 0;
             this.nextButton.Enabled = false;
             this.Text = Settings.Default.S4Header;
+            this.backButton.Text = Settings.Default.S4BackButtonText;
+            this.nextButton.Text = Settings.Default.S4NextButtonText;
+            this.testButton.Text = Settings.Default.S4TestButtonText;
+            this.regionLabel.Text = Settings.Default.S4RegionLabelText;
+            this.awsIdLabel.Text = Settings.Default.S4awsIdLabelText;
+            this.awsKeyLabel.Text = Settings.Default.S4awsKeyLabelText;
+            this.advancedCheckBox.Text = Settings.Default.S4AdvancedCheckBoxText;
+            this.bucketLabel.Text = Settings.Default.S4BucketLabelText;
+            this.folderKeyLabel.Text = Settings.Default.S4FolderKeyLabelText;
+            this.typeLabel.Text = Settings.Default.S4TypeLabelText;
+            this.zoneLabel.Text = Settings.Default.S4ZoneLabelText;
+            this.groupLabel.Text = Settings.Default.S4GroupLabelText;
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -83,7 +95,8 @@ namespace CloudScraper
                 if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
                     || s3bucket_.Length < 3 || s3bucket_.Length > 63)
                 {
-                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
+                        Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                     return;
                 }
@@ -99,7 +112,8 @@ namespace CloudScraper
 
                 if (lookLikeIp)
                 {
-                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
+                        Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                     return;
                 }
@@ -108,7 +122,8 @@ namespace CloudScraper
             {
                 if (s3bucket_.Length > 255)
                 {
-                    DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                    DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
+                        Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                     return;
                 }
@@ -175,6 +190,8 @@ namespace CloudScraper
             else
             {
                 advanced_ = false;
+                s3bucket_ = "";
+                bucketTextBox.Text = "";
                 this.bucketTextBox.Enabled = false;
                 this.bucketLabel.Enabled = false;
                 this.folderKeyBox.Enabled = false;
@@ -265,7 +282,7 @@ namespace CloudScraper
             {
                 if (awsId_ == "" || awsKey_ == "")
                 {
-                    DialogResult result = MessageBox.Show("Enter your AWSId and AWSKey.", "Test connection",
+                    DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                     return;
                 }
@@ -274,39 +291,40 @@ namespace CloudScraper
                 config.ServiceURL = "https://ec2." + region_+ ".amazonaws.com";
                 AmazonEC2 client = new AmazonEC2Client(awsId_, awsKey_, config);
                 DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
-                
 
+                DescribeAvailabilityZonesResponse availabilityZonesResponse = 
+                    client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
+                this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                this.zoneComboBox.Items.Clear();
 
-                    DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
-                    this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
-                    this.zoneComboBox.Items.Clear();
-
-                    foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
+                foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
+                {
+                    if (zone.ZoneState == "available")
                     {
-                        if (zone.ZoneState == "available")
-                        {
-                            this.zoneComboBox.Items.Add(zone.ZoneName);
-                        }
+                        this.zoneComboBox.Items.Add(zone.ZoneName);
                     }
-                    zoneComboBox.SelectedIndex = 0;
-                    zoneComboBox.SelectedItem = zoneComboBox.Items[0];
-                    //zone_ = (string)zoneComboBox.SelectedItem;
+                }
+                zoneComboBox.SelectedIndex = 0;
+                zoneComboBox.SelectedItem = zoneComboBox.Items[0];
+                //zone_ = (string)zoneComboBox.SelectedItem;
 
 
-                    DescribeSecurityGroupsResponse securityGroupResponse = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
-                    this.groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
-                    this.groupComboBox.Items.Clear();
-                    foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
-                    {
-                        this.groupComboBox.Items.Add(group.GroupName);
-                    }
-                    groupComboBox.SelectedIndex = 0;
-                    groupComboBox.SelectedItem = groupComboBox.Items[0];
-                    //group_ = (string)groupComboBox.SelectedItem;
+                DescribeSecurityGroupsResponse securityGroupResponse = 
+                    client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
+                this.groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                this.groupComboBox.Items.Clear();
+                foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
+                {
+                    this.groupComboBox.Items.Add(group.GroupName);
+                }
+                groupComboBox.SelectedIndex = 0;
+                groupComboBox.SelectedItem = groupComboBox.Items[0];
+                //group_ = (string)groupComboBox.SelectedItem;
 
                 if (!advanced_)
                 {     
-                    DialogResult result = MessageBox.Show("Test connection done.", "Test connection",
+                    DialogResult result = MessageBox.Show(Settings.Default.S4TestConnectionText, 
+                        Settings.Default.S4TestConnectionHeader,
                          MessageBoxButtons.OK);
                     return;
                 }
@@ -315,92 +333,50 @@ namespace CloudScraper
                 AmazonS3 client2 = Amazon.AWSClientFactory.CreateAmazonS3Client(
                     awsId_, awsKey_);
 
-                using (ListBucketsResponse response = client2.ListBuckets())
+                if (s3bucket_ != "")
                 {
-                    //bool isExists_ = false;
-
-                    //foreach (S3Bucket bucket in response.Buckets)
-                    //{
-                    //    if (bucket.BucketName == s3bucket_)
-                    //    {
-                    //        isExists_ = true;    
-                    //    }
-                    //}
-
-                    //if (!isExists_)
-                    //{
-                    //    DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
-                    //        MessageBoxButtons.OK);
-                    //    //return;
-                    //}
-                    //else
-                    //{
-
-                    if (s3bucket_ != "")
+                    try
                     {
-                        try
+                        GetBucketLocationRequest req = new GetBucketLocationRequest();
+                        req.BucketName = s3bucket_;
+                        GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
+                        if (bucketResponse.Location != region_)
                         {
-
-                            GetBucketLocationRequest req = new GetBucketLocationRequest();
-                            req.BucketName = s3bucket_;
-                            GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
-                            if (bucketResponse.Location != region_)
-                            {
-                                DialogResult result = MessageBox.Show("The bucket you specified is located in another region, please specify another bucket.", "Test connection",
-                                    MessageBoxButtons.OK);
-                                return;
-                            }
-                        }
-                        catch (AmazonS3Exception ex)
-                        {
-                            if (ex.ErrorCode == "NoSuchBucket")
-                            {
-                                DialogResult result = MessageBox.Show("No bucket with name specified exists, it’ll be created automatically.", "Test connection",
-                                    MessageBoxButtons.OK);
-                            }
-                            else
-                            {
-                                DialogResult result = MessageBox.Show("Cannot access the bucket, please specify another one.", "Test connection",
+                            DialogResult result = MessageBox.Show(Settings.Default.S4BucketLocated, 
+                                Settings.Default.S4TestConnectionHeader,
                                 MessageBoxButtons.OK);
-                                return;
-                            }
+                            return;
                         }
                     }
-                    //}
+                    catch (AmazonS3Exception ex)
+                    {
+                        if (ex.ErrorCode == "NoSuchBucket")
+                        {
+                            DialogResult result = MessageBox.Show(Settings.Default.S4NoBucketExists, 
+                                Settings.Default.S4TestConnectionHeader,
+                                MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            DialogResult result = MessageBox.Show(Settings.Default.S4CannotAccessBucketText, 
+                                Settings.Default.S4TestConnectionHeader,
+                            MessageBoxButtons.OK);
+                            return;
+                        }
+                    }
                 }
 
-                DialogResult result2 = MessageBox.Show("Test connection done.", "Test connection",
+
+                DialogResult result2 = MessageBox.Show(Settings.Default.S4TestConnectionText, 
+                    Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                 return;
 
-                //DescribeInstancesResponse instancesResponse = client.DescribeInstances(new DescribeInstancesRequest());
-
-                //foreach (Reservation reservation in instancesResponse.DescribeInstancesResult.Reservation)
-                //{
-                //    this.serverTypeComboBox.Items.Add(reservation.GroupName);
-                //}
-                
-                //GetBucketLocationRequest req = new GetBucketLocationRequest();
-                //req = req.WithBucketName(s3bucket_);
-                //GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
-
-                //DescribeSecurityGroupsResponse response = client3.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
-                //DescribeRegionsResponse response3 = client.DescribeRegions(new DescribeRegionsRequest());
-                //DescribeReservedInstancesOfferingsResponse response2 = client3.DescribeReservedInstancesOfferings(new DescribeReservedInstancesOfferingsRequest());
-                //DescribeInstancesResponse response4 = client3.DescribeInstances(new DescribeInstancesRequest());
-                //DescribeAvailabilityZonesResponse response5 = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
-                //DescribeSecurityGroupsResponse response = client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
-                
-                //AmazonS3 client2 = Amazon.AWSClientFactory.CreateAmazonS3Client(
-                //    awsId_, awsKey_);
-
-                //GetBucketLocationRequest req = new GetBucketLocationRequest();
-                //req.BucketName = "testc";
-                //GetBucketLocationResponse response6 = client2.GetBucketLocation(new GetBucketLocationRequest());
             }
             catch (AmazonEC2Exception amazonEC2Exception)
             {
-                DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" + "AWSId and AWSKey are Invalid.", "Test connection",
+                DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" + 
+                    Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
             }
         }
@@ -436,7 +412,8 @@ namespace CloudScraper
                     if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
                         || s3bucket_.Length < 3 || s3bucket_.Length > 63)
                     {
-                        DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
+                            Settings.Default.S4TestConnectionHeader,
                         MessageBoxButtons.OK);
                         return;
                     }
@@ -452,7 +429,8 @@ namespace CloudScraper
 
                     if (lookLikeIp)
                     {
-                        DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
+                            Settings.Default.S4TestConnectionHeader,
                         MessageBoxButtons.OK);
                         return;
                     }
@@ -461,7 +439,8 @@ namespace CloudScraper
                 {
                     if (s3bucket_.Length > 255)
                     {
-                        DialogResult result = MessageBox.Show("Invalid bucket name.", "Test connection",
+                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
+                            Settings.Default.S4TestConnectionHeader,
                         MessageBoxButtons.OK);
                         return;
                     }

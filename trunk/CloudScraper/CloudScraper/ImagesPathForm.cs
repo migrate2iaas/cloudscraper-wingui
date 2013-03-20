@@ -23,6 +23,13 @@ namespace CloudScraper
             InitializeComponent();
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.Text = Settings.Default.S5Header;
+            this.nextButton.Text = Settings.Default.S5NextButtonText;
+            this.backButton.Text = Settings.Default.S5BackButtonText;
+            this.browseButton.Text = Settings.Default.S5BrowseButtonText;
+            this.mainLabel.Text = Settings.Default.S5MainLabelText;
+            this.totalSpaceLabel.Text = Settings.Default.S5TotalSpaceLabelText;
+            this.freeSpaceLabel.Text = Settings.Default.S5FreeSpaceLabelText;
+            this.errorLabel.Text = Settings.Default.S5ErrorLabelText;
         }
 
         private void BrowseButtonClick(object sender, EventArgs e)

@@ -35,6 +35,9 @@ namespace CloudScraper
             this.totalSpaceLabel.Text = totalSpaceRequired_.ToString() + "GB";
             this.Text = Settings.Default.S2Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.labelTotalSpace.Text = Settings.Default.S2LabelTotalSpace;
+            this.nextButton.Text = Settings.Default.S2NextButtonText;
+            this.backButton.Text = Settings.Default.S2BackButtonText;
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -113,8 +116,8 @@ namespace CloudScraper
 
                 if (e.RowIndex == 0 && this.volumes_[0].IsChecked == false)
                 { 
-                    DialogResult result = MessageBox.Show("Are you sure you don't want to move your system? \n" +
-                    "In this case no cloud servers will be created!", "Message",
+                    DialogResult result = MessageBox.Show(Settings.Default.S2MessageFirst + "\n" +
+                    Settings.Default.S2MessageSecond, Settings.Default.S2MessgeHeader,
                         MessageBoxButtons.OKCancel);
 
 

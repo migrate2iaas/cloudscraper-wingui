@@ -24,7 +24,9 @@ namespace CloudScraper
             InitializeComponent();
 
             this.startNewButton.Image = new Bitmap(Image.FromFile("Icons\\StartNew.ico"), new Size(32, 32));
+            this.startNewButton.Text = Settings.Default.S1StartNewButtonText;
             this.resumeButton.Image = new Bitmap(Image.FromFile("Icons\\Resume.ico"), new Size(32, 32));
+            this.resumeButton.Text = Settings.Default.S1ResumeButtonText;
             this.Text = Settings.Default.S1Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
         }

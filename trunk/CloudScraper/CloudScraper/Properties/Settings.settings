@@ -95,5 +95,170 @@
     <Setting Name="TextFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">test.txt</Value>
     </Setting>
+    <Setting Name="S1StartNewButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start New Transfer...</Value>
+    </Setting>
+    <Setting Name="S1ResumeButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume Existing Transfer...</Value>
+    </Setting>
+    <Setting Name="S2LabelTotalSpace" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Total Space Required:</Value>
+    </Setting>
+    <Setting Name="S2NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="S2BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S3BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S3AmazonButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Amazon EC2</Value>
+    </Setting>
+    <Setting Name="S3WindowsAzureButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Windows Azure (Not supported)</Value>
+    </Setting>
+    <Setting Name="S3ElasticHostsButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ElasticHosts (Not supported)</Value>
+    </Setting>
+    <Setting Name="S4BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S4NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="S4TestButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test Connection</Value>
+    </Setting>
+    <Setting Name="S4RegionLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose Region:</Value>
+    </Setting>
+    <Setting Name="S4awsIdLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">You AWS Id:</Value>
+    </Setting>
+    <Setting Name="S4awsKeyLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">You AWS Secret Key:</Value>
+    </Setting>
+    <Setting Name="S4AdvancedCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Use advanced settings</Value>
+    </Setting>
+    <Setting Name="S4BucketLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your S3 Bucket:</Value>
+    </Setting>
+    <Setting Name="S4FolderKeyLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify folder (key):</Value>
+    </Setting>
+    <Setting Name="S4TypeLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your cloud server type:</Value>
+    </Setting>
+    <Setting Name="S4ZoneLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your availability zone:</Value>
+    </Setting>
+    <Setting Name="S4GroupLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your security group:</Value>
+    </Setting>
+    <Setting Name="S5NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="S5BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S5BrowseButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse...</Value>
+    </Setting>
+    <Setting Name="S5MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Please choose folder where to store your server disk images:</Value>
+    </Setting>
+    <Setting Name="S5TotalSpaceLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Total Space Required:</Value>
+    </Setting>
+    <Setting Name="S5FreeSpaceLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Free Space:</Value>
+    </Setting>
+    <Setting Name="S5ErrorLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Not enough space!</Value>
+    </Setting>
+    <Setting Name="S6MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Select path to save transfer file:</Value>
+    </Setting>
+    <Setting Name="S6NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="S6BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S6BrowseButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse...</Value>
+    </Setting>
+    <Setting Name="S7BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S7StartButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start</Value>
+    </Setting>
+    <Setting Name="S7FinishButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Finish</Value>
+    </Setting>
+    <Setting Name="S7FullOutputButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Show full output</Value>
+    </Setting>
+    <Setting Name="S7MailButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Send Report to Support</Value>
+    </Setting>
+    <Setting Name="R2MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Load your previously saved transfer task</Value>
+    </Setting>
+    <Setting Name="R2UploadCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume Upload (check if your images is already created)</Value>
+    </Setting>
+    <Setting Name="R2RedeployCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Redeploy Uploaded Image (creates cloud server from the image already uploaded)</Value>
+    </Setting>
+    <Setting Name="R2awsIdLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">You AWS Key:</Value>
+    </Setting>
+    <Setting Name="R2NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="R2BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="R2BrowseButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse...</Value>
+    </Setting>
+    <Setting Name="S4TestConnectionText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test connection done.</Value>
+    </Setting>
+    <Setting Name="S4TestConnectionHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test connection</Value>
+    </Setting>
+    <Setting Name="S4InvalidBucketText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Invalid bucket name.</Value>
+    </Setting>
+    <Setting Name="S4CannotAccessBucketText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cannot access the bucket, please specify another one.</Value>
+    </Setting>
+    <Setting Name="S4NoBucketExists" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No bucket with name specified exists, it’ll be created automatically.</Value>
+    </Setting>
+    <Setting Name="S4IDKeyInvalid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AWSId and AWSKey are Invalid.</Value>
+    </Setting>
+    <Setting Name="S4BucketLocated" Type="System.String" Scope="User">
+      <Value Profile="(Default)">The bucket you specified is located in another region, please specify another bucket.</Value>
+    </Setting>
+    <Setting Name="S4EnterAWS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter your AWSId and AWSKey.</Value>
+    </Setting>
+    <Setting Name="S2MessgeHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Message</Value>
+    </Setting>
+    <Setting Name="S2MessageFirst" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Are you sure you don't want to move your system?</Value>
+    </Setting>
+    <Setting Name="S2MessageSecond" Type="System.String" Scope="User">
+      <Value Profile="(Default)">In this case no cloud servers will be created!</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

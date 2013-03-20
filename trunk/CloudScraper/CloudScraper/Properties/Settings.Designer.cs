@@ -340,5 +340,666 @@ namespace CloudScraper.Properties {
                 this["TextFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Start New Transfer...")]
+        public string S1StartNewButtonText {
+            get {
+                return ((string)(this["S1StartNewButtonText"]));
+            }
+            set {
+                this["S1StartNewButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Resume Existing Transfer...")]
+        public string S1ResumeButtonText {
+            get {
+                return ((string)(this["S1ResumeButtonText"]));
+            }
+            set {
+                this["S1ResumeButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Total Space Required:")]
+        public string S2LabelTotalSpace {
+            get {
+                return ((string)(this["S2LabelTotalSpace"]));
+            }
+            set {
+                this["S2LabelTotalSpace"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next >>")]
+        public string S2NextButtonText {
+            get {
+                return ((string)(this["S2NextButtonText"]));
+            }
+            set {
+                this["S2NextButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<< Back")]
+        public string S2BackButtonText {
+            get {
+                return ((string)(this["S2BackButtonText"]));
+            }
+            set {
+                this["S2BackButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<< Back")]
+        public string S3BackButtonText {
+            get {
+                return ((string)(this["S3BackButtonText"]));
+            }
+            set {
+                this["S3BackButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Amazon EC2")]
+        public string S3AmazonButtonText {
+            get {
+                return ((string)(this["S3AmazonButtonText"]));
+            }
+            set {
+                this["S3AmazonButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Windows Azure (Not supported)")]
+        public string S3WindowsAzureButtonText {
+            get {
+                return ((string)(this["S3WindowsAzureButtonText"]));
+            }
+            set {
+                this["S3WindowsAzureButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ElasticHosts (Not supported)")]
+        public string S3ElasticHostsButtonText {
+            get {
+                return ((string)(this["S3ElasticHostsButtonText"]));
+            }
+            set {
+                this["S3ElasticHostsButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<< Back")]
+        public string S4BackButtonText {
+            get {
+                return ((string)(this["S4BackButtonText"]));
+            }
+            set {
+                this["S4BackButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next >>")]
+        public string S4NextButtonText {
+            get {
+                return ((string)(this["S4NextButtonText"]));
+            }
+            set {
+                this["S4NextButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Test Connection")]
+        public string S4TestButtonText {
+            get {
+                return ((string)(this["S4TestButtonText"]));
+            }
+            set {
+                this["S4TestButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Choose Region:")]
+        public string S4RegionLabelText {
+            get {
+                return ((string)(this["S4RegionLabelText"]));
+            }
+            set {
+                this["S4RegionLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("You AWS Id:")]
+        public string S4awsIdLabelText {
+            get {
+                return ((string)(this["S4awsIdLabelText"]));
+            }
+            set {
+                this["S4awsIdLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("You AWS Secret Key:")]
+        public string S4awsKeyLabelText {
+            get {
+                return ((string)(this["S4awsKeyLabelText"]));
+            }
+            set {
+                this["S4awsKeyLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Use advanced settings")]
+        public string S4AdvancedCheckBoxText {
+            get {
+                return ((string)(this["S4AdvancedCheckBoxText"]));
+            }
+            set {
+                this["S4AdvancedCheckBoxText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify your S3 Bucket:")]
+        public string S4BucketLabelText {
+            get {
+                return ((string)(this["S4BucketLabelText"]));
+            }
+            set {
+                this["S4BucketLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify folder (key):")]
+        public string S4FolderKeyLabelText {
+            get {
+                return ((string)(this["S4FolderKeyLabelText"]));
+            }
+            set {
+                this["S4FolderKeyLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify your cloud server type:")]
+        public string S4TypeLabelText {
+            get {
+                return ((string)(this["S4TypeLabelText"]));
+            }
+            set {
+                this["S4TypeLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify your availability zone:")]
+        public string S4ZoneLabelText {
+            get {
+                return ((string)(this["S4ZoneLabelText"]));
+            }
+            set {
+                this["S4ZoneLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify your security group:")]
+        public string S4GroupLabelText {
+            get {
+                return ((string)(this["S4GroupLabelText"]));
+            }
+            set {
+                this["S4GroupLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next >>")]
+        public string S5NextButtonText {
+            get {
+                return ((string)(this["S5NextButtonText"]));
+            }
+            set {
+                this["S5NextButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<< Back")]
+        public string S5BackButtonText {
+            get {
+                return ((string)(this["S5BackButtonText"]));
+            }
+            set {
+                this["S5BackButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse...")]
+        public string S5BrowseButtonText {
+            get {
+                return ((string)(this["S5BrowseButtonText"]));
+            }
+            set {
+                this["S5BrowseButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Please choose folder where to store your server disk images:")]
+        public string S5MainLabelText {
+            get {
+                return ((string)(this["S5MainLabelText"]));
+            }
+            set {
+                this["S5MainLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Total Space Required:")]
+        public string S5TotalSpaceLabelText {
+            get {
+                return ((string)(this["S5TotalSpaceLabelText"]));
+            }
+            set {
+                this["S5TotalSpaceLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Free Space:")]
+        public string S5FreeSpaceLabelText {
+            get {
+                return ((string)(this["S5FreeSpaceLabelText"]));
+            }
+            set {
+                this["S5FreeSpaceLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Not enough space!")]
+        public string S5ErrorLabelText {
+            get {
+                return ((string)(this["S5ErrorLabelText"]));
+            }
+            set {
+                this["S5ErrorLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select path to save transfer file:")]
+        public string S6MainLabelText {
+            get {
+                return ((string)(this["S6MainLabelText"]));
+            }
+            set {
+                this["S6MainLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next >>")]
+        public string S6NextButtonText {
+            get {
+                return ((string)(this["S6NextButtonText"]));
+            }
+            set {
+                this["S6NextButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<< Back")]
+        public string S6BackButtonText {
+            get {
+                return ((string)(this["S6BackButtonText"]));
+            }
+            set {
+                this["S6BackButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse...")]
+        public string S6BrowseButtonText {
+            get {
+                return ((string)(this["S6BrowseButtonText"]));
+            }
+            set {
+                this["S6BrowseButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<< Back")]
+        public string S7BackButtonText {
+            get {
+                return ((string)(this["S7BackButtonText"]));
+            }
+            set {
+                this["S7BackButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Start")]
+        public string S7StartButtonText {
+            get {
+                return ((string)(this["S7StartButtonText"]));
+            }
+            set {
+                this["S7StartButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Finish")]
+        public string S7FinishButtonText {
+            get {
+                return ((string)(this["S7FinishButtonText"]));
+            }
+            set {
+                this["S7FinishButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Show full output")]
+        public string S7FullOutputButtonText {
+            get {
+                return ((string)(this["S7FullOutputButtonText"]));
+            }
+            set {
+                this["S7FullOutputButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Send Report to Support")]
+        public string S7MailButtonText {
+            get {
+                return ((string)(this["S7MailButtonText"]));
+            }
+            set {
+                this["S7MailButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Load your previously saved transfer task")]
+        public string R2MainLabelText {
+            get {
+                return ((string)(this["R2MainLabelText"]));
+            }
+            set {
+                this["R2MainLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Resume Upload (check if your images is already created)")]
+        public string R2UploadCheckBoxText {
+            get {
+                return ((string)(this["R2UploadCheckBoxText"]));
+            }
+            set {
+                this["R2UploadCheckBoxText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Redeploy Uploaded Image (creates cloud server from the image already uploaded)")]
+        public string R2RedeployCheckBoxText {
+            get {
+                return ((string)(this["R2RedeployCheckBoxText"]));
+            }
+            set {
+                this["R2RedeployCheckBoxText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("You AWS Key:")]
+        public string R2awsIdLabelText {
+            get {
+                return ((string)(this["R2awsIdLabelText"]));
+            }
+            set {
+                this["R2awsIdLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next >>")]
+        public string R2NextButtonText {
+            get {
+                return ((string)(this["R2NextButtonText"]));
+            }
+            set {
+                this["R2NextButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<< Back")]
+        public string R2BackButtonText {
+            get {
+                return ((string)(this["R2BackButtonText"]));
+            }
+            set {
+                this["R2BackButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse...")]
+        public string R2BrowseButtonText {
+            get {
+                return ((string)(this["R2BrowseButtonText"]));
+            }
+            set {
+                this["R2BrowseButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Test connection done.")]
+        public string S4TestConnectionText {
+            get {
+                return ((string)(this["S4TestConnectionText"]));
+            }
+            set {
+                this["S4TestConnectionText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Test connection")]
+        public string S4TestConnectionHeader {
+            get {
+                return ((string)(this["S4TestConnectionHeader"]));
+            }
+            set {
+                this["S4TestConnectionHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Invalid bucket name.")]
+        public string S4InvalidBucketText {
+            get {
+                return ((string)(this["S4InvalidBucketText"]));
+            }
+            set {
+                this["S4InvalidBucketText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cannot access the bucket, please specify another one.")]
+        public string S4CannotAccessBucketText {
+            get {
+                return ((string)(this["S4CannotAccessBucketText"]));
+            }
+            set {
+                this["S4CannotAccessBucketText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("No bucket with name specified exists, it’ll be created automatically.")]
+        public string S4NoBucketExists {
+            get {
+                return ((string)(this["S4NoBucketExists"]));
+            }
+            set {
+                this["S4NoBucketExists"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("AWSId and AWSKey are Invalid.")]
+        public string S4IDKeyInvalid {
+            get {
+                return ((string)(this["S4IDKeyInvalid"]));
+            }
+            set {
+                this["S4IDKeyInvalid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("The bucket you specified is located in another region, please specify another buc" +
+            "ket.")]
+        public string S4BucketLocated {
+            get {
+                return ((string)(this["S4BucketLocated"]));
+            }
+            set {
+                this["S4BucketLocated"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your AWSId and AWSKey.")]
+        public string S4EnterAWS {
+            get {
+                return ((string)(this["S4EnterAWS"]));
+            }
+            set {
+                this["S4EnterAWS"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Message")]
+        public string S2MessgeHeader {
+            get {
+                return ((string)(this["S2MessgeHeader"]));
+            }
+            set {
+                this["S2MessgeHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Are you sure you don\'t want to move your system?")]
+        public string S2MessageFirst {
+            get {
+                return ((string)(this["S2MessageFirst"]));
+            }
+            set {
+                this["S2MessageFirst"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("In this case no cloud servers will be created!")]
+        public string S2MessageSecond {
+            get {
+                return ((string)(this["S2MessageSecond"]));
+            }
+            set {
+                this["S2MessageSecond"] = value;
+            }
+        }
     }
 }
