@@ -280,10 +280,13 @@ namespace CloudScraper
         {
             try
             {
+                this.testButton.Enabled = false;
+
                 if (awsId_ == "" || awsKey_ == "")
                 {
                     DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
+                    this.testButton.Enabled = true;
                     return;
                 }
 
@@ -326,6 +329,7 @@ namespace CloudScraper
                     DialogResult result = MessageBox.Show(Settings.Default.S4TestConnectionText, 
                         Settings.Default.S4TestConnectionHeader,
                          MessageBoxButtons.OK);
+                    this.testButton.Enabled = true;
                     return;
                 }
 
@@ -345,6 +349,7 @@ namespace CloudScraper
                             DialogResult result = MessageBox.Show(Settings.Default.S4BucketLocated, 
                                 Settings.Default.S4TestConnectionHeader,
                                 MessageBoxButtons.OK);
+                            this.testButton.Enabled = true;
                             return;
                         }
                     }
@@ -361,6 +366,7 @@ namespace CloudScraper
                             DialogResult result = MessageBox.Show(Settings.Default.S4CannotAccessBucketText, 
                                 Settings.Default.S4TestConnectionHeader,
                             MessageBoxButtons.OK);
+                            this.testButton.Enabled = true;
                             return;
                         }
                     }
@@ -370,6 +376,7 @@ namespace CloudScraper
                 DialogResult result2 = MessageBox.Show(Settings.Default.S4TestConnectionText, 
                     Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
+                this.testButton.Enabled = true;
                 return;
 
             }
