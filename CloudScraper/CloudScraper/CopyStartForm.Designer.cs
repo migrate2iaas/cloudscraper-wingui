@@ -142,12 +142,13 @@
             this.Controls.Add(this.mailButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.fullOutputButton);
-            this.Controls.Add(this.finishButton);
             this.Controls.Add(this.messageGridView);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.startButton);
+            this.Controls.Add(this.finishButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CopyStartForm";
@@ -157,6 +158,7 @@
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.CopyStartForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CopyStartForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).EndInit();
             this.ResumeLayout(false);
 

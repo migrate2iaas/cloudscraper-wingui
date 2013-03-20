@@ -14,6 +14,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 
+
 using CloudScraper.Properties;
 using ICSharpCode.SharpZipLib.Zip;
 
@@ -32,6 +33,8 @@ namespace CloudScraper
         public bool migrateStopped;
         public bool withError;
 
+        Process p;
+
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
             this.lockObject = new Object();
@@ -46,6 +49,8 @@ namespace CloudScraper
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             withError = false;
+
+            p = null;
             
         }
 
@@ -58,6 +63,8 @@ namespace CloudScraper
             InitializeComponent();
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+
+            p = null;
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -162,7 +169,7 @@ namespace CloudScraper
             //if (File.Exists("testcopy.txt"))
             //    File.Delete("testcopy.txt");
 
-            Process p = new Process();
+            p = new Process();
             ProcessStartInfo info = new ProcessStartInfo("migrate.cmd");
             info.UseShellExecute = true;
             p.StartInfo = info;
@@ -425,6 +432,21 @@ namespace CloudScraper
             MailForm mail = new MailForm(this);
             mail.ShowDialog();
         }
+
+        private void CopyStartForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.X)
+            {
+                if (p != null && !p.HasExited)
+                {
+                    p.Kill();
+                }
+
+            }
+        }
+
+
+
 
     
     }
