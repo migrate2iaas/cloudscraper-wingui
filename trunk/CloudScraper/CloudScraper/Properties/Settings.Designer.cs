@@ -328,5 +328,17 @@ namespace CloudScraper.Properties {
                 this["SupportEmail"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test.txt")]
+        public string TextFile {
+            get {
+                return ((string)(this["TextFile"]));
+            }
+            set {
+                this["TextFile"] = value;
+            }
+        }
     }
 }

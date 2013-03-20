@@ -92,5 +92,8 @@
     <Setting Name="SupportEmail" Type="System.String" Scope="User">
       <Value Profile="(Default)">cloudscraper@support.assembla.com</Value>
     </Setting>
+    <Setting Name="TextFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">test.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
