@@ -396,10 +396,19 @@ namespace CloudScraper
                 FastZip fz = new FastZip();
                 Directory.CreateDirectory("ToZip");
                 File.Copy(Properties.Settings.Default.TextFile, "ToZip\\" + Properties.Settings.Default.TextFile);
-                fz.CreateZip("test.zip", "ToZip", true, null);
+
+                foreach (string fileToAttach in Settings.Default.FilesToAttach)
+                {
+                    if (File.Exists(fileToAttach))
+                    {
+                        File.Copy(fileToAttach, "ToZip\\" + fileToAttach);
+                    }
+                }
+
+                fz.CreateZip(Properties.Settings.Default.ZipFile, "ToZip", true, null);
                 Directory.Delete("ToZip", true);
 
-                Attachment attach = new Attachment("test.zip", MediaTypeNames.Application.Octet);
+                Attachment attach = new Attachment(Properties.Settings.Default.ZipFile, MediaTypeNames.Application.Octet);
 
                 ContentDisposition disposition = attach.ContentDisposition;
                 disposition.CreationDate = System.IO.File.GetCreationTime(file);
