@@ -85,19 +85,22 @@ namespace CloudScraper
                 {
                     stream.WriteLine("[EC2]");
                     stream.WriteLine("region = " + CloudParametersForm.region_);
-                    stream.WriteLine("zone = " + CloudParametersForm.zone_);
-                    if (CloudParametersForm.advanced_)
-                    {
+                    if (CloudParametersForm.zone_ != "")
+                        stream.WriteLine("zone = " + CloudParametersForm.zone_);
+                    //if (CloudParametersForm.advanced_)
+                    //{
+                    if (CloudParametersForm.type_ != "")    
                         stream.WriteLine("instance-type = " + CloudParametersForm.type_);
-                    }
-                    else
-                    {
-                        stream.WriteLine("instance-type = ");
-                    }
+                    //}
+                    //else
+                    //{
+                    //    stream.WriteLine("instance-type = ");
+                    //}
                     stream.WriteLine("target-arch = x86_64");
                     stream.WriteLine("s3prefix = " + CloudParametersForm.folderKey_);
                     stream.WriteLine("s3key = " + CloudParametersForm.awsId_);
-                    stream.WriteLine("bucket = " + CloudParametersForm.s3bucket_);
+                    if (CloudParametersForm.s3bucket_ != "")
+                        stream.WriteLine("bucket = " + CloudParametersForm.s3bucket_);
                     stream.WriteLine("[Image]");
                     stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
                     stream.WriteLine("source-arch = x86_64");
@@ -126,7 +129,7 @@ namespace CloudScraper
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                         " -k " + CloudParametersForm.awsKey_ +
                         " -c " + SaveTransferTaskForm.transferPath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile);
                 }
                 else if (ResumeTransferForm.resumeUpload_)
                 {
@@ -134,7 +137,7 @@ namespace CloudScraper
                         " --resumeupload " +
                         " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile);
                 }
                 else if (ResumeTransferForm.skipUpload_)
                 {
@@ -142,19 +145,19 @@ namespace CloudScraper
                         " --skipupload " +
                         " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile);
                 }
                 else if (ResumeTransferForm.resumeFilePath_ != null)
                 {
                     stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                         " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\test.txt");
+                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile);
                 }
             }
 
-            if (File.Exists("test.txt"))
-                File.Delete("test.txt");
+            if (File.Exists(Properties.Settings.Default.TextFile))
+                File.Delete(Properties.Settings.Default.TextFile);
 
             //if (File.Exists("testcopy.txt"))
             //    File.Delete("testcopy.txt");
@@ -195,7 +198,7 @@ namespace CloudScraper
                 {
                     Thread.Sleep(3000);
 
-                    if (File.Exists("test.txt"))
+                    if (File.Exists(Properties.Settings.Default.TextFile))
                     {
                         //if (File.Exists("testcopy.txt"))
                         //    File.Delete("testcopy.txt");
@@ -203,7 +206,7 @@ namespace CloudScraper
                         //File.Copy("test.txt", "testcopy.txt");
                         //StreamReader stream = new StreamReader("testcopy.txt");
 
-                        var fs = new FileStream("test.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        var fs = new FileStream(Properties.Settings.Default.TextFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                         StreamReader stream = new StreamReader(fs);
                         
                         if (stream.BaseStream.Length == length)
@@ -216,7 +219,7 @@ namespace CloudScraper
                                 {
                                     this.startButton.Visible = false;
                                     this.finishButton.Visible = true;
-                                    if (File.Exists("test.txt"))
+                                    if (File.Exists(Properties.Settings.Default.TextFile))
                                     this.fullOutputButton.Visible = true;
 
                                     if (withError)
@@ -259,7 +262,7 @@ namespace CloudScraper
                         {
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
-                            if (File.Exists("test.txt"))
+                            if (File.Exists(Properties.Settings.Default.TextFile))
                                 this.fullOutputButton.Visible = true;
                             if (this.withError)
                                 this.mailButton.Visible = true;
@@ -371,10 +374,10 @@ namespace CloudScraper
                     }
                 }
 
-                string file = "test.txt";
+                string file = Properties.Settings.Default.TextFile;
                 FastZip fz = new FastZip();
                 Directory.CreateDirectory("ToZip");
-                File.Copy("test.txt", "ToZip\\test.txt");
+                File.Copy(Properties.Settings.Default.TextFile, "ToZip\\" + Properties.Settings.Default.TextFile);
                 fz.CreateZip("test.zip", "ToZip", true, null);
                 Directory.Delete("ToZip", true);
 
@@ -408,7 +411,7 @@ namespace CloudScraper
 
         private void fullOutputButton_Click(object sender, EventArgs e)
         {
-            FullOutputForm form = new FullOutputForm("test.txt");
+            FullOutputForm form = new FullOutputForm(Properties.Settings.Default.TextFile);
             form.ShowDialog();
         }
 
