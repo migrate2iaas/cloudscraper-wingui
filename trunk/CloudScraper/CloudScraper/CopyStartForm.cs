@@ -360,7 +360,7 @@ namespace CloudScraper
             System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pr in localByName)
             {
-                if (pr.ProcessName == "python.exe")
+                if (pr.ProcessName == "python")
                 {
                     pr.Kill();
                 }
@@ -474,7 +474,7 @@ namespace CloudScraper
                 System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
                 foreach (System.Diagnostics.Process pr in localByName)
                 {
-                    if (pr.ProcessName == "python.exe")
+                    if (pr.ProcessName == "python")
                     {
                         pr.Kill();
                     }
