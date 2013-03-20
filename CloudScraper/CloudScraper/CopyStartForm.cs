@@ -87,6 +87,7 @@ namespace CloudScraper
             }
         }
 
+
         private void StartButtonClick(object sender, EventArgs e)
         {
             this.backButton.Enabled = false;
@@ -131,42 +132,52 @@ namespace CloudScraper
                 }
             }
 
-            using (StreamWriter stream = new StreamWriter("migrate.cmd", false))
-            {
-                stream.WriteLine("@echo off");
-                stream.WriteLine("set PATH=%PATH%;%~dp0\\3rdparty\\Portable_Python_2.7.3.1\\App");
-                stream.WriteLine("cd /d \"%~dp0\\Migrate\\Migrate\"");
+            string arguments = "";
+
+            //using (StreamWriter stream = new StreamWriter("migrate.cmd", false))
+            //{
+                //stream.WriteLine("@echo off");
+                //stream.WriteLine("set PATH=%PATH%;%~dp0\\3rdparty\\Portable_Python_2.7.3.1\\App");
+                //stream.WriteLine("cd /d \"%~dp0\\Migrate\\Migrate\"");
                 if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
                 {
-                    stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                        " -k " + CloudParametersForm.awsKey_ +
-                        " -c " + SaveTransferTaskForm.transferPath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile);
+                    //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    arguments =
+                    " -k " + CloudParametersForm.awsKey_ +
+                    " -c " + SaveTransferTaskForm.transferPath_ +
+                    " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile;
+                    //);
                 }
                 else if (ResumeTransferForm.resumeUpload_)
                 {
-                    stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    arguments =
                         " --resumeupload " +
                         " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile);
+                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile;
+                    //);
                 }
                 else if (ResumeTransferForm.skipUpload_)
                 {
-                    stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    arguments =
                         " --skipupload " +
                         " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile);
+                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile;
+                    //);
                 }
                 else if (ResumeTransferForm.resumeFilePath_ != null)
                 {
-                    stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    arguments =
                         " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile);
+                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile;
+                    //);
                 }
-            }
+            //}
 
             if (File.Exists(Properties.Settings.Default.TextFile))
                 File.Delete(Properties.Settings.Default.TextFile);
@@ -175,9 +186,17 @@ namespace CloudScraper
             //    File.Delete("testcopy.txt");
 
             p = new Process();
-            ProcessStartInfo info = new ProcessStartInfo("migrate.cmd");
+            ProcessStartInfo info = new ProcessStartInfo();
+            //info.FileName = "migrate.cmd";
+            Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH") 
+                + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.3.1\\App");
+            
+            Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Migrate\\Migrate");
+
+            info.FileName = "..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe";
+            info.Arguments = "migrate.py" + arguments;
             info.UseShellExecute = true;
-            p.StartInfo = info;
+            p.StartInfo = info;           
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.Exited += new EventHandler(p_Exited);
             p.EnableRaisingEvents = true;
@@ -185,7 +204,7 @@ namespace CloudScraper
             this.startButton.Enabled = false;
             this.backButton.Enabled = false;
             this.migrateStopped = false;
-
+            
             //timer_.Interval = 1000;
             //timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
             //timer_.Start();
@@ -195,8 +214,6 @@ namespace CloudScraper
             task.Priority = ThreadPriority.Normal;
             task.IsBackground = true;
             task.Start();
-
-            //this.SendMail();
         }
 
 
@@ -296,7 +313,7 @@ namespace CloudScraper
                 }
                 this.messages_.Add(new MessageInfo()
                 {
-                    Image = new Bitmap(Image.FromFile("Icons\\arrow.png"), new Size(16, 16)),
+                    Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\arrow.png"), new Size(16, 16)),
                     Message = str,
                     Type = 1
                 });
@@ -307,7 +324,7 @@ namespace CloudScraper
             {
                 this.messages_.Add(new MessageInfo()
                 {
-                    Image = new Bitmap(Image.FromFile("Icons\\error.png"), new Size(16, 16)),
+                    Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\error.png"), new Size(16, 16)),
                     Message = str.Remove(0, 3),
                     Type = 2
                 });
@@ -319,7 +336,7 @@ namespace CloudScraper
             {
                 this.messages_.Add(new MessageInfo()
                 {
-                    Image = new Bitmap(Image.FromFile("Icons\\warning.png"), new Size(16, 16)),
+                    Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\warning.png"), new Size(16, 16)),
                     Message = str.Remove(0, 1),
                     Type = 3
                 });
@@ -332,7 +349,7 @@ namespace CloudScraper
                     this.messages_.RemoveAt(this.messages_.Count - 1);
                 this.messages_.Add(new MessageInfo()
                 {
-                    Image = new Bitmap(Image.FromFile("Icons\\hourglass.png"), new Size(16, 16)),
+                    Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\hourglass.png"), new Size(16, 16)),
                     Message = str.Remove(0,2),
                     Type = 4
                 });
