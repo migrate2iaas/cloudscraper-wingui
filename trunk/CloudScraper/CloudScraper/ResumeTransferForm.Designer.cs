@@ -146,6 +146,7 @@
             this.awsIdTextBox.Location = new System.Drawing.Point(239, 213);
             this.awsIdTextBox.MaxLength = 40;
             this.awsIdTextBox.Name = "awsIdTextBox";
+            this.awsIdTextBox.PasswordChar = '*';
             this.awsIdTextBox.Size = new System.Drawing.Size(296, 20);
             this.awsIdTextBox.TabIndex = 19;
             this.awsIdTextBox.TextChanged += new System.EventHandler(this.AwsIdChanged);
