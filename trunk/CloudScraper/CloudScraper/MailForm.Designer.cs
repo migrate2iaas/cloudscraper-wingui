@@ -51,7 +51,7 @@
             this.mailTextBox.Name = "mailTextBox";
             this.mailTextBox.Size = new System.Drawing.Size(168, 20);
             this.mailTextBox.TabIndex = 1;
-            this.mailTextBox.TextChanged += new System.EventHandler(this.mailTextBox_TextChanged);
+            this.mailTextBox.TextChanged += new System.EventHandler(this.MailTextChanged);
             // 
             // userNameLabel
             // 
@@ -79,7 +79,7 @@
             this.okButton.TabIndex = 4;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OkButtonClick);
             // 
             // cancelButton
             // 
@@ -89,7 +89,7 @@
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
             // 
             // MailForm
             // 
