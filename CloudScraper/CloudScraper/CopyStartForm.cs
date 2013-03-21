@@ -326,7 +326,7 @@ namespace CloudScraper
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\arrow.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString("HH:MM:ss") + " " + str,
+                    Message = DateTime.Now.ToString("HH:mm:ss") + " " + str,
                     Type = 1
                 });
                 return;
@@ -337,7 +337,7 @@ namespace CloudScraper
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\error.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString("HH:MM:ss") + " " + str.Remove(0, 3),
+                    Message = DateTime.Now.ToString("HH:mm:ss") + " " + str.Remove(0, 3),
                     Type = 2
                 });
                 withError = true;
@@ -349,7 +349,7 @@ namespace CloudScraper
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\warning.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString("HH:MM:ss") + " " + str.Remove(0, 1),
+                    Message = DateTime.Now.ToString("HH:mm:ss") + " " + str.Remove(0, 1),
                     Type = 3
                 });
                 return;
@@ -362,7 +362,7 @@ namespace CloudScraper
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\hourglass.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString("HH:MM:ss") + " " +  str.Remove(0, 2),
+                    Message = DateTime.Now.ToString("HH:mm:ss") + " " +  str.Remove(0, 2),
                     Type = 4
                 });
                 return;
