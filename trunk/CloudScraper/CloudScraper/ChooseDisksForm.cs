@@ -33,6 +33,8 @@ namespace CloudScraper
             
             totalSpaceRequired_ = 0;
             this.totalSpaceLabel.Text = totalSpaceRequired_.ToString() + "GB";
+            
+            //Initialize basic strings UI from from settings file.
             this.Text = Settings.Default.S2Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.labelTotalSpace.Text = Settings.Default.S2LabelTotalSpace;
@@ -50,6 +52,7 @@ namespace CloudScraper
 
         private void ChooseDisksLoad(object sender, EventArgs e)
         {
+            //For show Form in the same position as prev.
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.newResumeForm_.Location;
 
@@ -90,6 +93,7 @@ namespace CloudScraper
                     }
                 }
 
+                //DataGrid change columns width.
                 dataGridView.DataSource = this.volumes_;
                 dataGridView.AutoResizeColumn(0);
                 dataGridView.AutoResizeColumn(1);
@@ -123,7 +127,7 @@ namespace CloudScraper
 
                 if (e.RowIndex == 0 && this.volumes_[0].IsChecked == false)
                 { 
-                    //Show message when drive is unchecked.
+                    //Show message when system drive is unchecked.
                     DialogResult result = MessageBox.Show(Settings.Default.S2MessageFirst + "\n" +
                     Settings.Default.S2MessageSecond, Settings.Default.S2MessgeHeader,
                         MessageBoxButtons.OKCancel);
@@ -172,6 +176,7 @@ namespace CloudScraper
 
         private void HelpButtonClick(object sender, EventArgs e)
         {
+            //Help button url.
             System.Diagnostics.Process.Start(Settings.Default.S2Link);
         }
 

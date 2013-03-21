@@ -20,6 +20,7 @@ namespace CloudScraper
 
             InitializeComponent();
 
+            //Initialize basic UI strings from settings file.
             this.amazonButton.Image = new Bitmap(Image.FromFile("Icons\\Amazon.ico"), new Size(32, 32));
             this.windowsAzureButton.Image = new Bitmap(Image.FromFile("Icons\\Azure.ico"), new Size(32, 32));
             this.elasticHostsButton.Image = new Bitmap(Image.FromFile("Icons\\Elastic.ico"), new Size(32, 32));
@@ -59,11 +60,13 @@ namespace CloudScraper
 
         private void HelpButtonClick(object sender, EventArgs e)
         {
+            //Start help url.
             System.Diagnostics.Process.Start(Settings.Default.S3Link);
         }
 
         private void ChooseCloudLoad(object sender, EventArgs e)
         {
+            //For show  window in same position as prev.
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseDiskForm_.Location;
         }
