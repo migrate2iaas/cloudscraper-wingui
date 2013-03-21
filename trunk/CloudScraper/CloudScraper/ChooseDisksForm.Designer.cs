@@ -112,7 +112,7 @@
             this.helpButton.TabIndex = 19;
             this.helpButton.Tag = "Help";
             this.helpButton.UseVisualStyleBackColor = false;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.Click += new System.EventHandler(this.HelpButtonClick);
             // 
             // ChooseDisksForm
             // 

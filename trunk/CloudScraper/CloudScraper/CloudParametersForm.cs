@@ -91,6 +91,7 @@ namespace CloudScraper
         private void NextButtonClick(object sender, EventArgs e)
         {
             //Check bucket name is correct.
+            //See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
             if (s3bucket_ != "")
             {
                 if (region_.Substring(0, 7) != "us-east")
@@ -213,6 +214,7 @@ namespace CloudScraper
         private void BucketChanged(object sender, EventArgs e)
         {
             //Check correct enter for bucket name.
+            //See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
             if (bucketTextBox.Text != "")
             {
                 if (region_.Substring(0, 7) != "us-east" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
@@ -422,6 +424,7 @@ namespace CloudScraper
         }
 
         //Check bucket when lost focus.
+        // See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
         private void BucketTextBoxLeave(object sender, EventArgs e)
         {
             if (s3bucket_ != "")

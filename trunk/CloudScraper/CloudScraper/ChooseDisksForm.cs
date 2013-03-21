@@ -162,7 +162,7 @@ namespace CloudScraper
             }
         }
 
-        private void helpButton_Click(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S2Link);
         }

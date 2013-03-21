@@ -38,10 +38,10 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.mainLabel = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.logoPicture = new System.Windows.Forms.PictureBox();
             this.awsIdTextBox = new System.Windows.Forms.TextBox();
             this.awsIdLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // backButton
@@ -128,18 +128,18 @@
             this.helpButton.TabIndex = 13;
             this.helpButton.Tag = "Help";
             this.helpButton.UseVisualStyleBackColor = false;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.Click += new System.EventHandler(this.HelpButtonClick);
             // 
-            // pictureBox1
+            // logoPicture
             // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-4, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 299);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
+            this.logoPicture.ErrorImage = null;
+            this.logoPicture.Image = ((System.Drawing.Image)(resources.GetObject("logoPicture.Image")));
+            this.logoPicture.Location = new System.Drawing.Point(-4, 1);
+            this.logoPicture.Name = "logoPicture";
+            this.logoPicture.Size = new System.Drawing.Size(137, 299);
+            this.logoPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoPicture.TabIndex = 18;
+            this.logoPicture.TabStop = false;
             // 
             // awsIdTextBox
             // 
@@ -167,7 +167,7 @@
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.awsIdTextBox);
             this.Controls.Add(this.awsIdLabel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.logoPicture);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.resumeTextBox);
@@ -185,7 +185,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resume your transfer task";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,7 +202,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox logoPicture;
         private System.Windows.Forms.TextBox awsIdTextBox;
         private System.Windows.Forms.Label awsIdLabel;
     }

@@ -30,6 +30,7 @@ namespace CloudScraper
             this.nextButton.Text = Settings.Default.S6NextButtonText;
             this.backButton.Text = Settings.Default.S6BackButtonText;
             this.browseButton.Text = Settings.Default.S6BrowseButtonText;
+            this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
         private void saveTransferTask_Click(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace CloudScraper
             this.imagesPathForm_.Close();
         }
 
-        private void helpButton_Click(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S6Link);
         }

@@ -29,15 +29,16 @@ namespace CloudScraper
             this.amazonButton.Text = Settings.Default.S3AmazonButtonText;
             this.windowsAzureButton.Text = Settings.Default.S3WindowsAzureButtonText;
             this.elasticHostsButton.Text = Settings.Default.S3ElasticHostsButtonText;
+            this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
             this.chooseDiskForm_.Show();
         }
 
-        private void amazonButton_Click(object sender, EventArgs e)
+        private void AmazonButtonClick(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -49,12 +50,12 @@ namespace CloudScraper
             cloudParametersForm_.ShowDialog();
         }
 
-        private void On_closed(object sender, FormClosedEventArgs e)
+        private void OnClosed(object sender, FormClosedEventArgs e)
         {
             this.chooseDiskForm_.Close();
         }
 
-        private void helpButton_Click(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S3Link);
         }
