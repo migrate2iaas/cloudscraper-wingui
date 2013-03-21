@@ -10,6 +10,8 @@ namespace CloudScraper
 {
     public partial class GhostForm : Form
     {
+        public static NewResumeForm S1;
+
         public GhostForm()
         {
             InitializeComponent();

@@ -202,10 +202,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ImagesPathForm";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Images Location...";
-            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.ImagesPathFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).EndInit();

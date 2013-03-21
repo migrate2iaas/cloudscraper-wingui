@@ -130,10 +130,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ChooseDisksForm";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choose volumes to copy...";
-            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.ChooseDisksLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
