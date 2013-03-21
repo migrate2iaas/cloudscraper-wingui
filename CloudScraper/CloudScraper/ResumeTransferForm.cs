@@ -43,6 +43,8 @@ namespace CloudScraper
         private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
+            this.newResumeForm_.StartPosition = FormStartPosition.Manual;
+            this.newResumeForm_.Location = this.Location;
             this.newResumeForm_.Show();
         }
 
@@ -128,6 +130,12 @@ namespace CloudScraper
             {
                 this.nextButton.Enabled = false;
             }
+        }
+
+        private void ResumeTransferLoad(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = this.newResumeForm_.Location;
         }
 
     }

@@ -85,6 +85,8 @@ namespace CloudScraper
         private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
+            this.chooseCloudForm_.StartPosition = FormStartPosition.Manual;
+            this.chooseCloudForm_.Location = this.Location;
             this.chooseCloudForm_.Show();
         }
 
@@ -468,6 +470,12 @@ namespace CloudScraper
                     }
                 }
             }
+        }
+
+        private void CloudParametersLoad(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = this.chooseCloudForm_.Location;
         }
     }
 }

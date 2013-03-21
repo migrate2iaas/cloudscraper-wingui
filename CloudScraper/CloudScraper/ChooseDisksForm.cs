@@ -27,7 +27,7 @@ namespace CloudScraper
             this.loaded_ = false;
             this.newResumeForm_ = newResumeForm;
             this.drives_ = DriveInfo.GetDrives();
-            this.volumes_ = new BindingList<VolumeInfo>();
+            this.volumes_ = new BindingList<VolumeInfo>();            
             
             InitializeComponent();
             
@@ -43,17 +43,23 @@ namespace CloudScraper
         private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
+            this.newResumeForm_.StartPosition = FormStartPosition.Manual;
+            this.newResumeForm_.Location = this.Location;
             this.newResumeForm_.Show();
         }
 
         private void ChooseDisksLoad(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = this.newResumeForm_.Location;
+
             if (!this.loaded_ && this.drives_ != null)
             {
                 foreach (DriveInfo info in this.drives_)
                 {
                     if (info.IsReady)
                     {
+                        //Create VolumeInfo object.
                         VolumeInfo volume = new VolumeInfo()
                         {
                             IsChecked = false,
@@ -66,6 +72,7 @@ namespace CloudScraper
                             FreeSpace = Math.Round((decimal)info.AvailableFreeSpace / (1024 * 1024 * 1024), 1)
                         };
                             
+                        //Check System drive.
                         if (Environment.GetEnvironmentVariable("SystemRoot").Contains(info.Name))
                         {
                             //string str = Environment.GetEnvironmentVariable("windir");
@@ -116,6 +123,7 @@ namespace CloudScraper
 
                 if (e.RowIndex == 0 && this.volumes_[0].IsChecked == false)
                 { 
+                    //Show message when drive is unchecked.
                     DialogResult result = MessageBox.Show(Settings.Default.S2MessageFirst + "\n" +
                     Settings.Default.S2MessageSecond, Settings.Default.S2MessgeHeader,
                         MessageBoxButtons.OKCancel);
@@ -169,6 +177,7 @@ namespace CloudScraper
 
     }
 
+    //Class to store volume info information.
     public class VolumeInfo
     {   
         [DisplayName("       ")]

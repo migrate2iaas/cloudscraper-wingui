@@ -343,6 +343,7 @@
             this.Text = "Cloud Options";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
+            this.Load += new System.EventHandler(this.CloudParametersLoad);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
