@@ -40,10 +40,10 @@
             this.totalSpace = new System.Windows.Forms.Label();
             this.mainLabel = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.logoPicture = new System.Windows.Forms.PictureBox();
             this.errorPicture = new System.Windows.Forms.PictureBox();
             this.errorLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,18 +144,18 @@
             this.helpButton.TabIndex = 12;
             this.helpButton.Tag = "Help";
             this.helpButton.UseVisualStyleBackColor = false;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.Click += new System.EventHandler(this.HelpButtonClick);
             // 
-            // pictureBox1
+            // logoPicture
             // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 299);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
+            this.logoPicture.ErrorImage = null;
+            this.logoPicture.Image = ((System.Drawing.Image)(resources.GetObject("logoPicture.Image")));
+            this.logoPicture.Location = new System.Drawing.Point(-3, 1);
+            this.logoPicture.Name = "logoPicture";
+            this.logoPicture.Size = new System.Drawing.Size(137, 299);
+            this.logoPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoPicture.TabIndex = 16;
+            this.logoPicture.TabStop = false;
             // 
             // errorPicture
             // 
@@ -187,7 +187,7 @@
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.errorPicture);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.logoPicture);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.totalSpace);
@@ -209,7 +209,7 @@
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.ImagesPathFormLoad);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -229,7 +229,7 @@
         private System.Windows.Forms.Label totalSpace;
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox logoPicture;
         private System.Windows.Forms.PictureBox errorPicture;
         private System.Windows.Forms.Label errorLabel;
     }

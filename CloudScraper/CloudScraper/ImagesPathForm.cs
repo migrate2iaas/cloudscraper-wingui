@@ -30,6 +30,7 @@ namespace CloudScraper
             this.totalSpaceLabel.Text = Settings.Default.S5TotalSpaceLabelText;
             this.freeSpaceLabel.Text = Settings.Default.S5FreeSpaceLabelText;
             this.errorLabel.Text = Settings.Default.S5ErrorLabelText;
+            this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
         private void BrowseButtonClick(object sender, EventArgs e)
@@ -117,7 +118,7 @@ namespace CloudScraper
             }
         }
 
-        private void helpButton_Click(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S5Link);
         }
@@ -155,6 +156,5 @@ namespace CloudScraper
                 this.errorPicture.Visible = true;
             }
         }
-
     }
 }

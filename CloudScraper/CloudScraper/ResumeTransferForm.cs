@@ -37,6 +37,7 @@ namespace CloudScraper
             this.nextButton.Text = Settings.Default.R2NextButtonText;
             this.backButton.Text = Settings.Default.R2BackButtonText;
             this.browseButton.Text = Settings.Default.R2BrowseButtonText;
+            this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -106,7 +107,7 @@ namespace CloudScraper
             skipUpload_ = this.redeployUploadCheckBox.Checked;
         }
 
-        private void helpButton_Click(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.R2Link);
         }

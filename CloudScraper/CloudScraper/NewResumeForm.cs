@@ -29,6 +29,7 @@ namespace CloudScraper
             this.resumeButton.Text = Settings.Default.S1ResumeButtonText;
             this.Text = Settings.Default.S1Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
         private void StartNewButtonClick(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace CloudScraper
             ghost_.Close();
         }
 
-        private void helpButton_Click(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S1Link);
         }

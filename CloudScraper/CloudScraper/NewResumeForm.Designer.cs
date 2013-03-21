@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewResumeForm));
             this.startNewButton = new System.Windows.Forms.Button();
             this.resumeButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.logoPicture = new System.Windows.Forms.PictureBox();
             this.helpButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // startNewButton
@@ -60,16 +60,16 @@
             this.resumeButton.UseVisualStyleBackColor = true;
             this.resumeButton.Click += new System.EventHandler(this.ResumeButtonClick);
             // 
-            // pictureBox1
+            // logoPicture
             // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-2, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 299);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            this.logoPicture.ErrorImage = null;
+            this.logoPicture.Image = ((System.Drawing.Image)(resources.GetObject("logoPicture.Image")));
+            this.logoPicture.Location = new System.Drawing.Point(-2, 1);
+            this.logoPicture.Name = "logoPicture";
+            this.logoPicture.Size = new System.Drawing.Size(137, 299);
+            this.logoPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoPicture.TabIndex = 17;
+            this.logoPicture.TabStop = false;
             // 
             // helpButton
             // 
@@ -85,7 +85,7 @@
             this.helpButton.TabIndex = 18;
             this.helpButton.Tag = "Help";
             this.helpButton.UseVisualStyleBackColor = false;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.Click += new System.EventHandler(this.HelpButtonClick);
             // 
             // NewResumeForm
             // 
@@ -93,7 +93,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.helpButton);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.logoPicture);
             this.Controls.Add(this.resumeButton);
             this.Controls.Add(this.startNewButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -106,7 +106,7 @@
             this.Text = "Cloudscraper Server Copy";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -115,7 +115,7 @@
 
         private System.Windows.Forms.Button startNewButton;
         private System.Windows.Forms.Button resumeButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox logoPicture;
         private System.Windows.Forms.Button helpButton;
     }
 }
