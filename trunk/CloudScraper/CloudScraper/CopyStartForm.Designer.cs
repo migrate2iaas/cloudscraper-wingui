@@ -155,7 +155,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transfer progress";
-            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.CopyStartFormLoad);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CopyStartForm_KeyDown);

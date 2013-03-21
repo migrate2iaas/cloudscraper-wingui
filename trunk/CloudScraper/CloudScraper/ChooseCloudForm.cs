@@ -35,6 +35,8 @@ namespace CloudScraper
         private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
+            this.chooseDiskForm_.StartPosition = FormStartPosition.Manual;
+            this.chooseDiskForm_.Location = this.Location;
             this.chooseDiskForm_.Show();
         }
 
@@ -58,6 +60,12 @@ namespace CloudScraper
         private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S3Link);
+        }
+
+        private void ChooseCloudLoad(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = this.chooseDiskForm_.Location;
         }
     }
 }

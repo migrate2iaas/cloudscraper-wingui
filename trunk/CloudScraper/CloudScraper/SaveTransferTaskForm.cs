@@ -49,6 +49,8 @@ namespace CloudScraper
         private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
+            this.imagesPathForm_.StartPosition = FormStartPosition.Manual;
+            this.imagesPathForm_.Location = this.Location;
             this.imagesPathForm_.Show();
         }
 
@@ -85,6 +87,12 @@ namespace CloudScraper
             {
                 this.nextButton.Enabled = true;
             }
+        }
+
+        private void SaveTransferTaskLoad(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = this.imagesPathForm_.Location;
         }
     }
 }

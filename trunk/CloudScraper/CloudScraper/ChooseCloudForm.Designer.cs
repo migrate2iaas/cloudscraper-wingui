@@ -100,7 +100,6 @@
             // logoPicture
             // 
             this.logoPicture.ErrorImage = null;
-            this.logoPicture.Image = ((System.Drawing.Image)(resources.GetObject("logoPicture.Image")));
             this.logoPicture.Location = new System.Drawing.Point(-2, 0);
             this.logoPicture.Name = "logoPicture";
             this.logoPicture.Size = new System.Drawing.Size(137, 299);
@@ -129,6 +128,7 @@
             this.Text = "Choose Your Cloud";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
+            this.Load += new System.EventHandler(this.ChooseCloudLoad);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).EndInit();
             this.ResumeLayout(false);
 

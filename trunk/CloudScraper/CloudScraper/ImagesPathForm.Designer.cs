@@ -149,7 +149,6 @@
             // logoPicture
             // 
             this.logoPicture.ErrorImage = null;
-            this.logoPicture.Image = ((System.Drawing.Image)(resources.GetObject("logoPicture.Image")));
             this.logoPicture.Location = new System.Drawing.Point(-3, 1);
             this.logoPicture.Name = "logoPicture";
             this.logoPicture.Size = new System.Drawing.Size(137, 299);

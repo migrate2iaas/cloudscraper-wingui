@@ -68,6 +68,8 @@ namespace CloudScraper
         private void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
+            this.cloudParametersForm_.StartPosition = FormStartPosition.Manual;
+            this.cloudParametersForm_.Location = this.Location;
             this.cloudParametersForm_.Show();
         }
 
@@ -90,6 +92,9 @@ namespace CloudScraper
 
         private void ImagesPathFormLoad(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = this.cloudParametersForm_.Location;
+
             this.totalSpace.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB";
 
             this.browseTextBox.Text = Directory.GetCurrentDirectory();

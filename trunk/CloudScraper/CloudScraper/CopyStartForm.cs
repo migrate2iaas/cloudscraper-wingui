@@ -45,6 +45,7 @@ namespace CloudScraper
             ResumeTransferForm.resumeUpload_ = false; 
             ResumeTransferForm.skipUpload_ = false; 
             ResumeTransferForm.resumeFilePath_ = null;
+            this.resumeTransferForm_ = null;
             
             InitializeComponent();
 
@@ -69,6 +70,7 @@ namespace CloudScraper
             this.lockObject = new Object();
             this.messages_ = new BindingList<MessageInfo>();
             this.resumeTransferForm_ = resumeTransferForm;
+            this.saveTransferForm_ = null;
             
             InitializeComponent();
 
@@ -91,12 +93,16 @@ namespace CloudScraper
             // For S way
             if (this.saveTransferForm_ != null && this.resumeTransferForm_ == null)
             {
+                this.saveTransferForm_.StartPosition = FormStartPosition.Manual;
+                this.saveTransferForm_.Location = this.Location;
                 this.saveTransferForm_.Show();
             }
 
             // For R way
             if (this.resumeTransferForm_ != null && this.saveTransferForm_ == null)
             {
+                this.resumeTransferForm_.StartPosition = FormStartPosition.Manual;
+                this.resumeTransferForm_.Location = this.Location;
                 this.resumeTransferForm_.Show();
             }
         }
@@ -489,6 +495,8 @@ namespace CloudScraper
 
         private void CopyStartFormLoad(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = this.resumeTransferForm_ != null ? this.resumeTransferForm_.Location : this.saveTransferForm_.Location; 
             this.messageGridView.DataSource = this.messages_;
             this.messageGridView.AutoResizeColumn(0);
         }
