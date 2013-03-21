@@ -19,9 +19,11 @@ namespace CloudScraper
         public NewResumeForm()
         {
             ghost_ = new GhostForm();
+            
             ghost_.Show();
 
             InitializeComponent();
+            
 
             this.startNewButton.Image = new Bitmap(Image.FromFile("Icons\\StartNew.ico"), new Size(32, 32));
             this.startNewButton.Text = Settings.Default.S1StartNewButtonText;
