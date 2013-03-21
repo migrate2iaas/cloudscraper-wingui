@@ -8,12 +8,11 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
-
 using System.Web;
+
 using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
-
 
 using CloudScraper.Properties;
 using ICSharpCode.SharpZipLib.Zip;
@@ -22,30 +21,34 @@ namespace CloudScraper
 {
     public partial class CopyStartForm : Form
     {
-        SaveTransferTaskForm saveTransferForm_;
-        ResumeTransferForm resumeTransferForm_;
+        private SaveTransferTaskForm saveTransferForm_;
+        private ResumeTransferForm resumeTransferForm_;
 
         public BindingList<MessageInfo> messages_;
-        
-        private System.Timers.Timer timer_ = new System.Timers.Timer();
-        delegate void MyDelegate();
         public object lockObject;
         public bool migrateStopped;
         public bool withError;
-
+        
+        delegate void MyDelegate();
         Process p;
 
+        /// <summary>
+        /// There are two constructors. First for Start New way.
+        /// </summary>
+        /// <param name="saveTransferForm"></param>
         public CopyStartForm(SaveTransferTaskForm saveTransferForm)
         {
             this.lockObject = new Object();
             this.messages_ = new BindingList<MessageInfo>();
-
             this.saveTransferForm_ = saveTransferForm;
+            
             ResumeTransferForm.resumeUpload_ = false; 
             ResumeTransferForm.skipUpload_ = false; 
             ResumeTransferForm.resumeFilePath_ = null;
             
             InitializeComponent();
+
+            // Initialize UI strings in Form. 
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.backButton.Text = Settings.Default.S7BackButtonText;
@@ -53,12 +56,14 @@ namespace CloudScraper
             this.mailButton.Text = Settings.Default.S7MailButtonText;
             this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
             
-            withError = false;
-
-            p = null;
-            
+            this.withError = false;
+            this.p = null;
         }
 
+        /// <summary>
+        /// There are two constructors. Second for Resume way. 
+        /// </summary>
+        /// <param name="resumeTransferForm"></param>
         public CopyStartForm(ResumeTransferForm resumeTransferForm)
         {
             this.lockObject = new Object();
@@ -66,9 +71,16 @@ namespace CloudScraper
             this.resumeTransferForm_ = resumeTransferForm;
             
             InitializeComponent();
+
+            // Initialize UI strings in Form.
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.backButton.Text = Settings.Default.S7BackButtonText;
+            this.startButton.Text = Settings.Default.S7StartButtonText;
+            this.mailButton.Text = Settings.Default.S7MailButtonText;
+            this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
 
+            this.withError = false;
             p = null;
         }
 
@@ -76,11 +88,13 @@ namespace CloudScraper
         {
             this.Hide();
 
+            // For S way
             if (this.saveTransferForm_ != null && this.resumeTransferForm_ == null)
             {
                 this.saveTransferForm_.Show();
             }
 
+            // For R way
             if (this.resumeTransferForm_ != null && this.saveTransferForm_ == null)
             {
                 this.resumeTransferForm_.Show();
@@ -94,21 +108,15 @@ namespace CloudScraper
 
             if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
             {
+                // Create transfer file.
                 using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false))
                 {
                     stream.WriteLine("[EC2]");
                     stream.WriteLine("region = " + CloudParametersForm.region_);
                     if (CloudParametersForm.zone_ != "")
                         stream.WriteLine("zone = " + CloudParametersForm.zone_);
-                    //if (CloudParametersForm.advanced_)
-                    //{
                     if (CloudParametersForm.type_ != "")    
                         stream.WriteLine("instance-type = " + CloudParametersForm.type_);
-                    //}
-                    //else
-                    //{
-                    //    stream.WriteLine("instance-type = ");
-                    //}
                     stream.WriteLine("target-arch = x86_64");
                     stream.WriteLine("s3prefix = " + CloudParametersForm.folderKey_);
                     stream.WriteLine("s3key = " + CloudParametersForm.awsId_);
@@ -132,6 +140,7 @@ namespace CloudScraper
                 }
             }
 
+            // arguments for migrate.py
             string arguments = "";
 
             //using (StreamWriter stream = new StreamWriter("migrate.cmd", false))
@@ -179,22 +188,22 @@ namespace CloudScraper
                 }
             //}
 
-                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
-                    File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile);
+            if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
+                File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile);
 
-            //if (File.Exists("testcopy.txt"))
-            //    File.Delete("testcopy.txt");
-
+            //python process.
             p = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
+            
+            //If we start throwgh .cmd file.
             //info.FileName = "migrate.cmd";
             Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH") 
-                + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.3.1\\App");
-            
+                + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.3.1\\App");            
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Migrate\\Migrate");
 
             if (!File.Exists("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe") || !File.Exists("migrate.py"))
             {
+                //There are no python.exe
                 DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
                 Settings.Default.S7PythonErrorHeader,
                 MessageBoxButtons.OK);
@@ -206,7 +215,7 @@ namespace CloudScraper
             info.UseShellExecute = true;
             p.StartInfo = info;           
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p.Exited += new EventHandler(p_Exited);
+            p.Exited += new EventHandler(this.PythonExited);
             p.EnableRaisingEvents = true;
 
             if (p.Start())
@@ -215,6 +224,7 @@ namespace CloudScraper
                 this.backButton.Enabled = false;
                 this.migrateStopped = false;
 
+                //Start background worker for reading exchange .txt file.
                 Thread task = new Thread(new ThreadStart(this.Work));
                 task.Priority = ThreadPriority.Normal;
                 task.IsBackground = true;
@@ -222,6 +232,7 @@ namespace CloudScraper
             }
             else
             {
+                //Python started with errors.
                 DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
                 Settings.Default.S7PythonErrorHeader,
                 MessageBoxButtons.OK);                
@@ -229,33 +240,31 @@ namespace CloudScraper
         }
 
 
+        //Background worker. Periodicly ~3 seconds read .txt exchange file and print messages. 
         public void Work()
         {
             lock(this.lockObject)
             {
                 long length = 0;
                 long lineNumber = 0;
+                //Background worker main loop. 
                 while (true)
                 {
+                    // ~3s sleep for reduce processor usage.
                     Thread.Sleep(3000);
 
                     if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
                     {
-                        //if (File.Exists("testcopy.txt"))
-                        //    File.Delete("testcopy.txt");
-
-                        //File.Copy("test.txt", "testcopy.txt");
-                        //StreamReader stream = new StreamReader("testcopy.txt");
-
                         var fs = new FileStream(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                         StreamReader stream = new StreamReader(fs);
                         
+                        //There are no new messages in .txt exchange file.
                         if (stream.BaseStream.Length == length)
                         {
                             stream.Close();
+                            // if python stopped.
                             if (this.migrateStopped)
-                            {
-                                
+                            {                               
                                 this.BeginInvoke(new MyDelegate(() =>
                                 {
                                     this.startButton.Visible = false;
@@ -265,12 +274,9 @@ namespace CloudScraper
 
                                     if (withError)
                                         this.mailButton.Visible = true;
-                                    //if (File.Exists("testcopy.txt"))
-                                    //    File.Delete("testcopy.txt");
                                 }));
                                 return;
                             }
-                            //Thread.Sleep(1000);
                             continue;
                         }
                         else
@@ -280,7 +286,6 @@ namespace CloudScraper
 
                             while (!stream.EndOfStream)
                             {
-
                                 string str = stream.ReadLine();
                                 currentLineNum++;
 
@@ -296,9 +301,9 @@ namespace CloudScraper
                             lineNumber = currentLineNum;
                         }
                     }
+                    //If there are no .txt exchange file and python.exe stooped
                     else if (this.migrateStopped)
                     {
-                        
                         this.BeginInvoke(new MyDelegate(() =>
                         {
                             this.startButton.Visible = false;
@@ -307,7 +312,6 @@ namespace CloudScraper
                                 this.fullOutputButton.Visible = true;
                             if (this.withError)
                                 this.mailButton.Visible = true;
-
                         }));
                         return;
                     }
@@ -315,8 +319,10 @@ namespace CloudScraper
             }
         }
 
+        //Insert messge in Form.
         public void InsertMessage(string str)
         {
+            //Basic message (type = 1).
             if (str.Length > 3 && str.Substring(0, 3) == ">>>")
             {
                 while (str[0] == '>')
@@ -332,6 +338,7 @@ namespace CloudScraper
                 return;
             }
 
+            //Error message (type = 2).
             if (str.Length > 3 && str.Substring(0, 3) == "!!!")
             {
                 this.messages_.Add(new MessageInfo()
@@ -344,6 +351,7 @@ namespace CloudScraper
                 return;
             }
 
+            //Warninig message (type = 3).
             if (str.Length >= 2 && str.Substring(0, 1) == "!")
             {
                 this.messages_.Add(new MessageInfo()
@@ -355,6 +363,7 @@ namespace CloudScraper
                 return;
             }
 
+            //Time message (type = 4).
             if (str.Length > 2 && str.Substring(0, 1) == "%")
             {
                 if (this.messages_[this.messages_.Count - 1].Type == 4)
@@ -369,23 +378,27 @@ namespace CloudScraper
             }
         }
 
-        void p_Exited(object sender, EventArgs e)
+        void PythonExited(object sender, EventArgs e)
         {
+            //Rise flag for Background worker.
             this.migrateStopped = true;
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
         {
+            //For S way.
             if (saveTransferForm_ != null)
             {
                 this.saveTransferForm_.Close();
             }
 
+            //For R way.
             if (this.resumeTransferForm_ != null)
             {
                 this.resumeTransferForm_.Close();
             }
 
+            //Kill python.exe process in TaskManager if exists. 
             System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pr in localByName)
             {
@@ -395,12 +408,12 @@ namespace CloudScraper
                 }
             }
 
+            //Kill local process if still work.
             if (p != null && !p.HasExited)
             {
-                p.Exited -= new EventHandler(p_Exited);
+                p.Exited -= new EventHandler(PythonExited);
                 p.Kill();
             }
-            
         }
 
         public void SendMail(string userName, string email)
@@ -433,21 +446,29 @@ namespace CloudScraper
 
                 string file = Application.StartupPath + "\\" + Properties.Settings.Default.TextFile;
                 FastZip fz = new FastZip();
-                Directory.CreateDirectory("ToZip");
-                File.Copy(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile, "ToZip\\" + Properties.Settings.Default.TextFile);
+                
+                //Create folder for zip archive.
+                Directory.CreateDirectory(Application.StartupPath + "\\ToZip");
+                //Add report file.
+                File.Copy(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile, 
+                   Application.StartupPath + "\\ToZip\\" + Properties.Settings.Default.TextFile);
 
+                //Add atachment files from configs.
                 foreach (string fileToAttach in Settings.Default.FilesToAttach)
                 {
                     if (File.Exists(Application.StartupPath + "\\" + fileToAttach))
                     {
-                        File.Copy(Application.StartupPath + "\\" + fileToAttach, "ToZip\\" + fileToAttach);
+                        File.Copy(Application.StartupPath + "\\" + fileToAttach, Application.StartupPath + "\\ToZip\\" + fileToAttach);
                     }
                 }
 
-                fz.CreateZip(Properties.Settings.Default.ZipFile, "ToZip", true, null);
-                Directory.Delete("ToZip", true);
+                fz.CreateZip(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile, 
+                    Application.StartupPath + "\\ToZip", true, null);
+                //delete archive
+                Directory.Delete(Application.StartupPath + "\\ToZip", true);
 
-                Attachment attach = new Attachment(Properties.Settings.Default.ZipFile, MediaTypeNames.Application.Octet);
+                Attachment attach = new Attachment(Application.StartupPath + Properties.Settings.Default.ZipFile, 
+                    MediaTypeNames.Application.Octet);
 
                 ContentDisposition disposition = attach.ContentDisposition;
                 disposition.CreationDate = System.IO.File.GetCreationTime(file);
@@ -466,25 +487,34 @@ namespace CloudScraper
             }
         }
 
-        private void CopyStartForm_Load(object sender, EventArgs e)
+        private void CopyStartFormLoad(object sender, EventArgs e)
         {
             this.messageGridView.DataSource = this.messages_;
             this.messageGridView.AutoResizeColumn(0);
         }
 
 
-        private void finishButton_Click(object sender, EventArgs e)
+        private void FinishButtonClick(object sender, EventArgs e)
         {
+            //Kill python.exe process in TaskManager if exists. 
+            System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
+            foreach (System.Diagnostics.Process pr in localByName)
+            {
+                if (pr.ProcessName == "python")
+                {
+                    pr.Kill();
+                }
+            }
             Application.Exit();
         }
 
-        private void fullOutputButton_Click(object sender, EventArgs e)
+        private void FullOutputButtonClick(object sender, EventArgs e)
         {
             FullOutputForm form = new FullOutputForm(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile);
             form.ShowDialog();
         }
 
-        private void helpButton_Click(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S7Link);
         }
@@ -497,9 +527,10 @@ namespace CloudScraper
 
         private void CopyStartForm_KeyDown(object sender, KeyEventArgs e)
         {
+            //When "X" button pressed.
             if (e.KeyData == Keys.X)
             {
-
+                //Kill python.exe process in TaskManager if exists.
                 System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
                 foreach (System.Diagnostics.Process pr in localByName)
                 {
@@ -509,16 +540,16 @@ namespace CloudScraper
                     }
                 }
 
+                //Kill local process if still work.
                 if (p != null && !p.HasExited)
                 {
                     p.Kill();
                 }             
-
             }
-        }
-    
+        }    
     }
 
+    //Class for storage messages from .txt exchange file.
     public class MessageInfo
     {
         [DisplayName("      ")]
