@@ -18,9 +18,8 @@ namespace CloudScraper
 
         public NewResumeForm()
         {
-            ghost_ = new GhostForm();
-            
-            ghost_.Show();
+            //ghost_ = new GhostForm();            
+            //ghost_.Show();
 
             InitializeComponent();
             
@@ -60,12 +59,16 @@ namespace CloudScraper
 
         private void OnClosed(object sender, FormClosedEventArgs e)
         {
-            ghost_.Close();
+            //ghost_.Close();
         }
 
         private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S1Link);
+        }
+
+        private void NewResumeFormLoad(object sender, EventArgs e)
+        {
         }
     }
 }

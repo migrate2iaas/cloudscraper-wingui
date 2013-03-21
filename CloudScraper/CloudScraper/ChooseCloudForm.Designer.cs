@@ -123,10 +123,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ChooseCloudForm";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choose Your Cloud";
-            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.ChooseCloudLoad);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).EndInit();

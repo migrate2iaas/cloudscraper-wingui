@@ -338,10 +338,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CloudParametersForm";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cloud Options";
-            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.CloudParametersLoad);
             this.tabControl1.ResumeLayout(false);
