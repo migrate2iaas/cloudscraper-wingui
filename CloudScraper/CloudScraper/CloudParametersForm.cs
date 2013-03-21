@@ -40,7 +40,7 @@ namespace CloudScraper
 
             InitializeComponent();
 
-
+            //Move regions strings from settings file to regionComboBox.
             foreach (string str in Settings.Default.Regions)
             {
                 string key = str.Split(new char[] { Settings.Default.Separator }, 2)[1];
@@ -54,6 +54,7 @@ namespace CloudScraper
                 }
             }
 
+            //Move server types strings from settings file to serverTypeComboBox.
             foreach (string str in Settings.Default.ServerTypes)
             {
                 string key = str.Split(new char[] { Settings.Default.Separator }, 2)[1];
@@ -62,6 +63,7 @@ namespace CloudScraper
                 this.serverTypeComboBox.Items.Add(key);
             }
 
+            //Set basic UI strings in Form. 
             this.helpButton.Image = new Bitmap(System.Drawing.Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.serverTypeComboBox.SelectedIndex = 0;
             this.nextButton.Enabled = false;
@@ -88,6 +90,7 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
+            //Check bucket name is correct.
             if (s3bucket_ != "")
             {
                 if (region_.Substring(0, 7) != "us-east")
@@ -209,6 +212,7 @@ namespace CloudScraper
 
         private void BucketChanged(object sender, EventArgs e)
         {
+            //Check correct enter for bucket name.
             if (bucketTextBox.Text != "")
             {
                 if (region_.Substring(0, 7) != "us-east" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
@@ -243,18 +247,17 @@ namespace CloudScraper
         }
 
         private void FolderKeyChanged(object sender, EventArgs e)
-        {
-            
+        {            
             folderKey_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
-
 
         private void ServerTypeChanged(object sender, EventArgs e)
         {
             type_ = this.serverTypeList_[(string)(sender as ComboBox).SelectedItem];
         }
 
+        //Check enter in Form for activate Next button.
         private void CheckEnter()
         {
             if (!advanced_ && awsId_ != "" && awsKey_ != "")
@@ -272,17 +275,19 @@ namespace CloudScraper
             }
         }
 
-        private void helpButton_Click(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S4Link);
         }
 
-        private void testButton_Click(object sender, EventArgs e)
+        //Test connection.
+        private void TestButtonClick(object sender, EventArgs e)
         {
             try
             {
                 this.testButton.Enabled = false;
 
+                //If there are no keys entered.
                 if (awsId_ == "" || awsKey_ == "")
                 {
                     DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
@@ -296,6 +301,7 @@ namespace CloudScraper
                 AmazonEC2 client = new AmazonEC2Client(awsId_, awsKey_, config);
                 DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
 
+                //Download zones.
                 DescribeAvailabilityZonesResponse availabilityZonesResponse = 
                     client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
                 this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
@@ -312,7 +318,7 @@ namespace CloudScraper
                 zoneComboBox.SelectedItem = zoneComboBox.Items[0];
                 //zone_ = (string)zoneComboBox.SelectedItem;
 
-
+                //Download security groups.
                 DescribeSecurityGroupsResponse securityGroupResponse = 
                     client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
                 this.groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
@@ -325,6 +331,7 @@ namespace CloudScraper
                 groupComboBox.SelectedItem = groupComboBox.Items[0];
                 //group_ = (string)groupComboBox.SelectedItem;
 
+                //If not advanced mode, show done message and return.
                 if (!advanced_)
                 {     
                     DialogResult result = MessageBox.Show(Settings.Default.S4TestConnectionText, 
@@ -334,7 +341,7 @@ namespace CloudScraper
                     return;
                 }
 
-
+                //If advanced mode, continue. 
                 AmazonS3 client2 = Amazon.AWSClientFactory.CreateAmazonS3Client(
                     awsId_, awsKey_);
 
@@ -358,12 +365,14 @@ namespace CloudScraper
                     {
                         if (ex.ErrorCode == "NoSuchBucket")
                         {
+                            //If no such bucket.
                             DialogResult result = MessageBox.Show(Settings.Default.S4NoBucketExists, 
                                 Settings.Default.S4TestConnectionHeader,
                                 MessageBoxButtons.OK);
                         }
                         else
                         {
+                            //If bucket exist but locked.
                             DialogResult result = MessageBox.Show(Settings.Default.S4CannotAccessBucketText, 
                                 Settings.Default.S4TestConnectionHeader,
                             MessageBoxButtons.OK);
@@ -373,7 +382,7 @@ namespace CloudScraper
                     }
                 }
 
-
+                //Show done message in advanced mode.
                 DialogResult result2 = MessageBox.Show(Settings.Default.S4TestConnectionText, 
                     Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
@@ -383,35 +392,37 @@ namespace CloudScraper
             }
             catch (AmazonEC2Exception amazonEC2Exception)
             {
+                //Show dialog  when auth failed.
                 DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" + 
                     Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
             }
         }
 
-        private void zoneComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ZoneComboBoxIndexChanged(object sender, EventArgs e)
         {
             zone_ = (string)(sender as ComboBox).SelectedItem;
         }
 
-        private void groupComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void GroupComboBoxIndexChanged(object sender, EventArgs e)
         {
             group_ = (string)(sender as ComboBox).SelectedItem;
         }
 
-        private void groupComboBox_TextChanged(object sender, EventArgs e)
+        private void GroupComboBoxTextChanged(object sender, EventArgs e)
         {
             group_ = (sender as ComboBox).Text;
             this.CheckEnter();
         }
 
-        private void zoneComboBox_TextChanged(object sender, EventArgs e)
+        private void ZoneComboBoxTextChanged(object sender, EventArgs e)
         {
             zone_ = (sender as ComboBox).Text;
             this.CheckEnter();
         }
 
-        private void bucketTextBox_Leave(object sender, EventArgs e)
+        //Check bucket when lost focus.
+        private void BucketTextBoxLeave(object sender, EventArgs e)
         {
             if (s3bucket_ != "")
             {
@@ -455,7 +466,5 @@ namespace CloudScraper
                 }
             }
         }
-
-
     }
 }

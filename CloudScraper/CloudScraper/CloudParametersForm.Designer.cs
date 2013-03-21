@@ -249,7 +249,7 @@
             this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
             this.bucketTextBox.TabIndex = 1;
             this.bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
-            this.bucketTextBox.Leave += new System.EventHandler(this.bucketTextBox_Leave);
+            this.bucketTextBox.Leave += new System.EventHandler(this.BucketTextBoxLeave);
             // 
             // bucketLabel
             // 
@@ -271,8 +271,8 @@
             this.zoneComboBox.Name = "zoneComboBox";
             this.zoneComboBox.Size = new System.Drawing.Size(237, 21);
             this.zoneComboBox.TabIndex = 11;
-            this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.zoneComboBox_SelectedIndexChanged);
-            this.zoneComboBox.TextChanged += new System.EventHandler(this.zoneComboBox_TextChanged);
+            this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.ZoneComboBoxIndexChanged);
+            this.zoneComboBox.TextChanged += new System.EventHandler(this.ZoneComboBoxTextChanged);
             // 
             // groupComboBox
             // 
@@ -284,8 +284,8 @@
             this.groupComboBox.Name = "groupComboBox";
             this.groupComboBox.Size = new System.Drawing.Size(237, 21);
             this.groupComboBox.TabIndex = 12;
-            this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.groupComboBox_SelectedIndexChanged);
-            this.groupComboBox.TextChanged += new System.EventHandler(this.groupComboBox_TextChanged);
+            this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.GroupComboBoxIndexChanged);
+            this.groupComboBox.TextChanged += new System.EventHandler(this.GroupComboBoxTextChanged);
             // 
             // nextButton
             // 
@@ -311,7 +311,7 @@
             this.helpButton.TabIndex = 11;
             this.helpButton.Tag = "Help";
             this.helpButton.UseVisualStyleBackColor = false;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.Click += new System.EventHandler(this.HelpButtonClick);
             // 
             // testButton
             // 
@@ -321,7 +321,7 @@
             this.testButton.TabIndex = 12;
             this.testButton.Text = "Test Connection";
             this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            this.testButton.Click += new System.EventHandler(this.TestButtonClick);
             // 
             // CloudParametersForm
             // 

@@ -21,8 +21,8 @@ namespace CloudScraper
 {
     public partial class CopyStartForm : Form
     {
-        private SaveTransferTaskForm saveTransferForm_;
-        private ResumeTransferForm resumeTransferForm_;
+        SaveTransferTaskForm saveTransferForm_;
+        ResumeTransferForm resumeTransferForm_;
 
         public BindingList<MessageInfo> messages_;
         public object lockObject;

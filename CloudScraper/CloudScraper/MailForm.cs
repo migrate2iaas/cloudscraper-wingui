@@ -18,10 +18,11 @@ namespace CloudScraper
         public MailForm(CopyStartForm copyStartForm)
         {
             this.copyStartForm_ = copyStartForm;
-            userName_ = "";
-            email_ = "";
+            this.userName_ = "";
+            this.email_ = "";
 
             InitializeComponent();
+
             this.Text = Settings.Default.MailHeader;
             this.userNameLabel.Text = Settings.Default.MailUserNameLabelText;
             this.emailLabel.Text = Settings.Default.MailEmailLabelText;
@@ -29,15 +30,15 @@ namespace CloudScraper
 
         private void UserChanged(object sender, EventArgs e)
         {
-            userName_ = userTextBox.Text;
+            this.userName_ = userTextBox.Text;
         }
 
-        private void mailTextBox_TextChanged(object sender, EventArgs e)
+        private void MailTextChanged(object sender, EventArgs e)
         {
-            email_ = mailTextBox.Text;
+            this.email_ = mailTextBox.Text;
         }
 
-        private void okButton_Click(object sender, EventArgs e)
+        private void OkButtonClick(object sender, EventArgs e)
         {
             if (userName_ != "" && email_ != "" && email_.Contains("@"))
             {
@@ -46,7 +47,7 @@ namespace CloudScraper
             }
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButtonClick(object sender, EventArgs e)
         {
             this.Close();
         }
