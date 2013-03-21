@@ -1078,5 +1078,29 @@ namespace CloudScraper.Properties {
                 this["ZipFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Error")]
+        public string S7PythonErrorHeader {
+            get {
+                return ((string)(this["S7PythonErrorHeader"]));
+            }
+            set {
+                this["S7PythonErrorHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Error occur during start migrate.py ")]
+        public string S7PythonErrorMessage {
+            get {
+                return ((string)(this["S7PythonErrorMessage"]));
+            }
+            set {
+                this["S7PythonErrorMessage"] = value;
+            }
+        }
     }
 }

@@ -283,5 +283,11 @@
     <Setting Name="ZipFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">test.zip</Value>
     </Setting>
+    <Setting Name="S7PythonErrorHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Error</Value>
+    </Setting>
+    <Setting Name="S7PythonErrorMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Error occur during start migrate.py </Value>
+    </Setting>
   </Settings>
 </SettingsFile>

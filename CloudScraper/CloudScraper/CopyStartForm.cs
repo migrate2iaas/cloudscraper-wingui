@@ -193,6 +193,14 @@ namespace CloudScraper
             
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Migrate\\Migrate");
 
+            if (!File.Exists("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe") || !File.Exists("migrate.py"))
+            {
+                DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
+                Settings.Default.S7PythonErrorHeader,
+                MessageBoxButtons.OK);
+                return;
+            }
+            
             info.FileName = "..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe";
             info.Arguments = "migrate.py" + arguments;
             info.UseShellExecute = true;
@@ -200,20 +208,24 @@ namespace CloudScraper
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.Exited += new EventHandler(p_Exited);
             p.EnableRaisingEvents = true;
-            p.Start();
-            this.startButton.Enabled = false;
-            this.backButton.Enabled = false;
-            this.migrateStopped = false;
-            
-            //timer_.Interval = 1000;
-            //timer_.Elapsed += new System.Timers.ElapsedEventHandler(timer__Elapsed);
-            //timer_.Start();
 
-            //Thread.Sleep(2000);
-            Thread task = new Thread(new ThreadStart(this.Work));
-            task.Priority = ThreadPriority.Normal;
-            task.IsBackground = true;
-            task.Start();
+            if (p.Start())
+            {
+                this.startButton.Enabled = false;
+                this.backButton.Enabled = false;
+                this.migrateStopped = false;
+
+                Thread task = new Thread(new ThreadStart(this.Work));
+                task.Priority = ThreadPriority.Normal;
+                task.IsBackground = true;
+                task.Start();
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
+                Settings.Default.S7PythonErrorHeader,
+                MessageBoxButtons.OK);                
+            }
         }
 
 
@@ -314,7 +326,7 @@ namespace CloudScraper
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\arrow.png"), new Size(16, 16)),
-                    Message = str,
+                    Message = DateTime.Now.ToString("HH:MM:ss") + " " + str,
                     Type = 1
                 });
                 return;
@@ -325,7 +337,7 @@ namespace CloudScraper
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\error.png"), new Size(16, 16)),
-                    Message = str.Remove(0, 3),
+                    Message = DateTime.Now.ToString("HH:MM:ss") + " " + str.Remove(0, 3),
                     Type = 2
                 });
                 withError = true;
@@ -337,7 +349,7 @@ namespace CloudScraper
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\warning.png"), new Size(16, 16)),
-                    Message = str.Remove(0, 1),
+                    Message = DateTime.Now.ToString("HH:MM:ss") + " " + str.Remove(0, 1),
                     Type = 3
                 });
                 return;
@@ -350,7 +362,7 @@ namespace CloudScraper
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\hourglass.png"), new Size(16, 16)),
-                    Message = str.Remove(0,2),
+                    Message = DateTime.Now.ToString("HH:MM:ss") + " " +  str.Remove(0, 2),
                     Type = 4
                 });
                 return;
