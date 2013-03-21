@@ -12,8 +12,6 @@ using Amazon.S3.Model;
 using Amazon.EC2;
 using Amazon.EC2.Model;
 
-
-
 namespace CloudScraper
 {
     public partial class CloudParametersForm : Form
@@ -90,42 +88,45 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
-            if (region_.Substring(0, 2) != "us")
+            if (s3bucket_ != "")
             {
-                if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
-                    || s3bucket_.Length < 3 || s3bucket_.Length > 63)
+                if (region_.Substring(0, 7) != "us-east")
                 {
-                    DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
-                        Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
-                    return;
-                }
-
-                bool lookLikeIp = true;
-                foreach (char ch in s3bucket_)
-                {
-                    if (!char.IsDigit(ch) && ch != '.')
+                    if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
+                        || s3bucket_.Length < 3 || s3bucket_.Length > 63)
                     {
-                        lookLikeIp = false;
+                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                            Settings.Default.S4TestConnectionHeader,
+                        MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    bool lookLikeIp = true;
+                    foreach (char ch in s3bucket_)
+                    {
+                        if (!char.IsDigit(ch) && ch != '.')
+                        {
+                            lookLikeIp = false;
+                        }
+                    }
+
+                    if (lookLikeIp)
+                    {
+                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                            Settings.Default.S4TestConnectionHeader,
+                        MessageBoxButtons.OK);
+                        return;
                     }
                 }
-
-                if (lookLikeIp)
+                if (region_.Substring(0, 7) == "us-east")
                 {
-                    DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
-                        Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
-                    return;
-                }
-            }
-            if (region_.Substring(0, 2) == "us")
-            {
-                if (s3bucket_.Length > 255)
-                {
-                    DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
-                        Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
-                    return;
+                    if (s3bucket_.Length > 255)
+                    {
+                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                            Settings.Default.S4TestConnectionHeader,
+                        MessageBoxButtons.OK);
+                        return;
+                    }
                 }
             }
             
@@ -156,7 +157,7 @@ namespace CloudScraper
             this.CheckEnter();
         }
 
-        private void RegChanged(object sender, EventArgs e)
+        private void AmazonRegionChanged(object sender, EventArgs e)
         {
             region_ = this.regionList_[(string)(sender as ComboBox).SelectedItem];
             this.zoneComboBox.Items.Clear();
@@ -210,7 +211,7 @@ namespace CloudScraper
         {
             if (bucketTextBox.Text != "")
             {
-                if (region_.Substring(0, 2) != "us" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
+                if (region_.Substring(0, 7) != "us-east" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
                     && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '-'
                     && !char.IsLower(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
                     && !char.IsNumber(bucketTextBox.Text[bucketTextBox.Text.Length - 1]))
@@ -222,7 +223,7 @@ namespace CloudScraper
                     bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
 
                 }
-                if (region_.Substring(0, 2) == "us" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
+                if (region_.Substring(0, 7) == "us-east" && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '.'
                     && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '-'
                     && bucketTextBox.Text[bucketTextBox.Text.Length - 1] != '_'
                     && !char.IsLower(bucketTextBox.Text[bucketTextBox.Text.Length - 1])
@@ -414,7 +415,7 @@ namespace CloudScraper
         {
             if (s3bucket_ != "")
             {
-                if (region_.Substring(0, 2) != "us")
+                if (region_.Substring(0, 7) != "us-east")
                 {
                     if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
                         || s3bucket_.Length < 3 || s3bucket_.Length > 63)
@@ -442,7 +443,7 @@ namespace CloudScraper
                         return;
                     }
                 }
-                if (region_.Substring(0, 2) == "us")
+                if (region_.Substring(0, 7) == "us-east")
                 {
                     if (s3bucket_.Length > 255)
                     {

@@ -94,7 +94,7 @@
             this.finishButton.Text = "Finish";
             this.finishButton.UseVisualStyleBackColor = true;
             this.finishButton.Visible = false;
-            this.finishButton.Click += new System.EventHandler(this.finishButton_Click);
+            this.finishButton.Click += new System.EventHandler(this.FinishButtonClick);
             // 
             // fullOutputButton
             // 
@@ -105,7 +105,7 @@
             this.fullOutputButton.Text = "Show full output";
             this.fullOutputButton.UseVisualStyleBackColor = true;
             this.fullOutputButton.Visible = false;
-            this.fullOutputButton.Click += new System.EventHandler(this.fullOutputButton_Click);
+            this.fullOutputButton.Click += new System.EventHandler(this.FullOutputButtonClick);
             // 
             // helpButton
             // 
@@ -121,7 +121,7 @@
             this.helpButton.TabIndex = 20;
             this.helpButton.Tag = "Help";
             this.helpButton.UseVisualStyleBackColor = false;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.Click += new System.EventHandler(this.HelpButtonClick);
             // 
             // mailButton
             // 
@@ -157,7 +157,7 @@
             this.Text = "Transfer progress";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
-            this.Load += new System.EventHandler(this.CopyStartForm_Load);
+            this.Load += new System.EventHandler(this.CopyStartFormLoad);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CopyStartForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).EndInit();
             this.ResumeLayout(false);

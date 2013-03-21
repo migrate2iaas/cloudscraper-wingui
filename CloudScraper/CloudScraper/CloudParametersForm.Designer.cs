@@ -137,7 +137,7 @@
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
-            this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.RegChanged);
+            this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.AmazonRegionChanged);
             // 
             // regionLabel
             // 
