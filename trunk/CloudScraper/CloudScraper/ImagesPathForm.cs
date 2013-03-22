@@ -131,7 +131,7 @@ namespace CloudScraper
         private void BrowseTextChanged(object sender, EventArgs e)
       {
             imagesPath_ = this.browseTextBox.Text;
-            if (imagesPath_.Length >= 2)
+            if (imagesPath_.Length >= 2 && Directory.Exists(imagesPath_))
             {
                 string rootName = Directory.GetDirectoryRoot(imagesPath_);
                 DriveInfo[] drives = DriveInfo.GetDrives();
