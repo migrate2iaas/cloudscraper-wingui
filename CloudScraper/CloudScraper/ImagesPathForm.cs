@@ -21,6 +21,8 @@ namespace CloudScraper
         {
             this.cloudParametersForm_ = cloudParametersForm;
             InitializeComponent();
+            
+            //Init basic UI strings from seettings file.
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.Text = Settings.Default.S5Header;
             this.nextButton.Text = Settings.Default.S5NextButtonText;
@@ -33,6 +35,7 @@ namespace CloudScraper
             this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
+        //Choose path through Brose button.
         private void BrowseButtonClick(object sender, EventArgs e)
         {
             this.folderBrowserDialog.SelectedPath = Directory.GetCurrentDirectory();
@@ -42,6 +45,7 @@ namespace CloudScraper
                 this.browseTextBox.Text = this.folderBrowserDialog.SelectedPath;
                 imagesPath_ = this.browseTextBox.Text;
 
+                //Count Free Space on selected volume.
                 string rootName = Directory.GetDirectoryRoot(this.folderBrowserDialog.SelectedPath);
                 DriveInfo[] drives = DriveInfo.GetDrives();
                 foreach (DriveInfo drive in drives)
@@ -49,6 +53,7 @@ namespace CloudScraper
                     if (rootName == drive.Name)
                     {
                         this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024),1).ToString() + "GB";
+                        //If  Free Space not enough (4GB additional program required).
                         if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1) - 4)
                         {
                             this.errorLabel.Visible = true;
@@ -103,6 +108,7 @@ namespace CloudScraper
             string rootName = Directory.GetDirectoryRoot(this.browseTextBox.Text);
             DriveInfo[] drives = DriveInfo.GetDrives();
 
+            //Free space on volume where program starts.
             foreach (DriveInfo drive in drives)
             {
                 if (rootName == drive.Name)
@@ -128,8 +134,9 @@ namespace CloudScraper
             System.Diagnostics.Process.Start(Settings.Default.S5Link);
         }
 
+        //Choose path throw keyboard input.
         private void BrowseTextChanged(object sender, EventArgs e)
-      {
+        {
             imagesPath_ = this.browseTextBox.Text;
             if (imagesPath_.Length >= 2 && Directory.Exists(imagesPath_))
             {
