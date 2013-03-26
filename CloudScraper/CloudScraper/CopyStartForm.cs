@@ -489,7 +489,7 @@ namespace CloudScraper
             }
             catch (Exception e)
             {
-                e.ToString();
+	MessageBox.Show( e.ToString(),   "Mail Send Failed",    MessageBoxButtons.OK);  
             }
         }
 
