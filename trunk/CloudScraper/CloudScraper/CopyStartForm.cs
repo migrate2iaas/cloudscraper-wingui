@@ -473,7 +473,7 @@ namespace CloudScraper
                 //delete archive
                 Directory.Delete(Application.StartupPath + "\\ToZip", true);
 
-                Attachment attach = new Attachment(Application.StartupPath + Properties.Settings.Default.ZipFile, 
+                Attachment attach = new Attachment(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile, 
                     MediaTypeNames.Application.Octet);
 
                 ContentDisposition disposition = attach.ContentDisposition;
