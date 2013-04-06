@@ -140,7 +140,7 @@ namespace CloudScraper
             imagesPath_ = this.browseTextBox.Text;
             if (imagesPath_.Length >= 2 && Directory.Exists(imagesPath_))
             {
-                string rootName = Directory.GetDirectoryRoot(imagesPath_);
+                string rootName = Directory.GetDirectoryRoot(imagesPath_).ToUpper();
                 DriveInfo[] drives = DriveInfo.GetDrives();
                 foreach (DriveInfo drive in drives)
                 {
