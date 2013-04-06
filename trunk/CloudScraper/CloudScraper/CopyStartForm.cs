@@ -124,7 +124,8 @@ namespace CloudScraper
                     if (CloudParametersForm.type_ != "")    
                         stream.WriteLine("instance-type = " + CloudParametersForm.type_);
                     stream.WriteLine("target-arch = x86_64");
-                    stream.WriteLine("s3prefix = " + CloudParametersForm.folderKey_);
+                    if (CloudParametersForm.folderKey_ != "")
+                        stream.WriteLine("s3prefix = " + CloudParametersForm.folderKey_);
                     stream.WriteLine("s3key = " + CloudParametersForm.awsId_);
                     if (CloudParametersForm.s3bucket_ != "")
                         stream.WriteLine("bucket = " + CloudParametersForm.s3bucket_);
