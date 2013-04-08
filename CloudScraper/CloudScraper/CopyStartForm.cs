@@ -348,6 +348,7 @@ namespace CloudScraper
             //Error message (type = 2).
             if (str.Length > 3 && str.Substring(0, 3) == "!!!")
             {
+                
                 this.messages_.Add(new MessageInfo()
                 {
                     Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\error.png"), new Size(16, 16)),
