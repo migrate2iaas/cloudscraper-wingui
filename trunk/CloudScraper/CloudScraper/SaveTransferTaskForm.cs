@@ -56,6 +56,15 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
+            if (File.Exists(transferPath_))
+            {
+                DialogResult result = MessageBox.Show(Settings.Default.S6WarningMessage,
+                Settings.Default.S6WarningHeader,
+                MessageBoxButtons.OKCancel);
+                if (result == DialogResult.Cancel)
+                   return;
+            }
+            
             this.Hide();
 
             if (this.copyStartForm_ == null)
