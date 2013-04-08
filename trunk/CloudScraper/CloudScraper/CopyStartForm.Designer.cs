@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CopyStartForm));
             this.startButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
@@ -66,6 +67,7 @@
             this.messageGridView.AllowUserToResizeColumns = false;
             this.messageGridView.AllowUserToResizeRows = false;
             this.messageGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.messageGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.messageGridView.BackgroundColor = System.Drawing.Color.White;
             this.messageGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.messageGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -75,6 +77,9 @@
             this.messageGridView.Name = "messageGridView";
             this.messageGridView.ReadOnly = true;
             this.messageGridView.RowHeadersVisible = false;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.messageGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.messageGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.messageGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.messageGridView.ShowCellErrors = false;
