@@ -110,6 +110,15 @@ namespace CloudScraper
 
         private void StartButtonClick(object sender, EventArgs e)
         {
+            Properties.Settings.Default.TextFile = Properties.Settings.Default.TextFile.Substring(0,
+                Properties.Settings.Default.TextFile.Length - 4) + "_" +
+                DateTime.Now.Year.ToString() + "_" + 
+                DateTime.Now.Month.ToString() + "_" + 
+                DateTime.Now.Day.ToString() + "_" + 
+                DateTime.Now.Hour.ToString() + "-" + 
+                DateTime.Now.Minute.ToString() +
+                Properties.Settings.Default.TextFile.Substring(Properties.Settings.Default.TextFile.Length - 4);
+            
             this.backButton.Enabled = false;
 
             if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
