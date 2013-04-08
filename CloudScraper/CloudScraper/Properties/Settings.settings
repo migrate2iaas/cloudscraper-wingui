@@ -290,5 +290,11 @@
     <Setting Name="TextFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">transfer.txt</Value>
     </Setting>
+    <Setting Name="S6WarningHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Warning</Value>
+    </Setting>
+    <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">"Transfer configuration file already exists, do you want to rewrite it?"</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
