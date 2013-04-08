@@ -74,7 +74,7 @@ namespace CloudScraper
                             UsedSpace = Math.Round((decimal)(info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024), 1),
                             FreeSpace = Math.Round((decimal)info.AvailableFreeSpace / (1024 * 1024 * 1024), 1)
                         };
-                            
+
                         //Check System drive.
                         if (Environment.GetEnvironmentVariable("SystemRoot").Contains(info.Name))
                         {
@@ -88,7 +88,7 @@ namespace CloudScraper
                             this.volumes_.Insert(0, volume);
                             continue;
                         }
-                                                        
+
                         this.volumes_.Add(volume);
                     }
                 }
@@ -99,6 +99,10 @@ namespace CloudScraper
                 dataGridView.AutoResizeColumn(1);
 
                 this.loaded_ = true;
+            }
+            else if (this.drives_ != null)
+            {
+                this.UpdateVolumes();
             }
         }
 
@@ -119,11 +123,35 @@ namespace CloudScraper
             this.newResumeForm_.Close();
         }
 
+        private void UpdateVolumes()
+        {
+            this.drives_ = DriveInfo.GetDrives();
+            foreach (DriveInfo info in this.drives_)
+            {
+                if (info.IsReady)
+                {
+                    foreach (VolumeInfo volume in this.volumes_)
+                    {
+                        if (volume.ShortName == info.Name)
+                        {
+                            //Update volumme info.
+                            volume.TotalSpace = Math.Round((decimal)info.TotalSize / (1024 * 1024 * 1024), 1);
+                            volume.UsedSpace = Math.Round((decimal)(info.TotalSize - info.TotalFreeSpace) / (1024 * 1024 * 1024), 1);
+                            volume.FreeSpace = Math.Round((decimal)info.AvailableFreeSpace / (1024 * 1024 * 1024), 1);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
         private void OnSelect(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (sender is DataGridView && e.ColumnIndex == 0)
             {
                 this.volumes_[e.RowIndex].IsChecked = !this.volumes_[e.RowIndex].IsChecked;
+
+                this.UpdateVolumes();
 
                 if (e.RowIndex == 0 && this.volumes_[0].IsChecked == false)
                 { 
