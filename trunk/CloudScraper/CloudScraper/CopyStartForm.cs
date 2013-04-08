@@ -467,7 +467,8 @@ namespace CloudScraper
                 {
                     if (File.Exists(Application.StartupPath + "\\" + fileToAttach))
                     {
-                        File.Copy(Application.StartupPath + "\\" + fileToAttach, Application.StartupPath + "\\ToZip\\" + fileToAttach);
+                        string fileName = Path.GetFileName(Application.StartupPath + "\\" + fileToAttach);
+                        File.Copy(Application.StartupPath + "\\" + fileToAttach, Application.StartupPath + "\\ToZip\\" + fileName);
                     }
                 }
 

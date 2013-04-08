@@ -283,42 +283,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("smtp.mail.ru")]
-        public string SMTPServer {
-            get {
-                return ((string)(this["SMTPServer"]));
-            }
-            set {
-                this["SMTPServer"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("login@mail.ru")]
-        public string SMTPLogin {
-            get {
-                return ((string)(this["SMTPLogin"]));
-            }
-            set {
-                this["SMTPLogin"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("password")]
-        public string SMTPPassword {
-            get {
-                return ((string)(this["SMTPPassword"]));
-            }
-            set {
-                this["SMTPPassword"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("cloudscraper@support.assembla.com")]
         public string SupportEmail {
             get {
@@ -326,18 +290,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["SupportEmail"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test.txt")]
-        public string TextFile {
-            get {
-                return ((string)(this["TextFile"]));
-            }
-            set {
-                this["TextFile"] = value;
             }
         }
         
@@ -1057,6 +1009,7 @@ namespace CloudScraper.Properties {
   <string>test1.txt</string>
   <string>test2.txt</string>
   <string>test3.txt</string>
+  <string>logs\migrate.log</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection FilesToAttach {
             get {
@@ -1100,6 +1053,54 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S7PythonErrorMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("smtp.yandex.ru")]
+        public string SMTPServer {
+            get {
+                return ((string)(this["SMTPServer"]));
+            }
+            set {
+                this["SMTPServer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("cloudscraper2@yandex.ru")]
+        public string SMTPLogin {
+            get {
+                return ((string)(this["SMTPLogin"]));
+            }
+            set {
+                this["SMTPLogin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("cloudscraper")]
+        public string SMTPPassword {
+            get {
+                return ((string)(this["SMTPPassword"]));
+            }
+            set {
+                this["SMTPPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("transfer.txt")]
+        public string TextFile {
+            get {
+                return ((string)(this["TextFile"]));
+            }
+            set {
+                this["TextFile"] = value;
             }
         }
     }

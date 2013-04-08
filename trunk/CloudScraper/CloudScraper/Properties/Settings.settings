@@ -80,20 +80,8 @@
     <Setting Name="Setting" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://ya.ru</Value>
     </Setting>
-    <Setting Name="SMTPServer" Type="System.String" Scope="User">
-      <Value Profile="(Default)">smtp.mail.ru</Value>
-    </Setting>
-    <Setting Name="SMTPLogin" Type="System.String" Scope="User">
-      <Value Profile="(Default)">login@mail.ru</Value>
-    </Setting>
-    <Setting Name="SMTPPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)">password</Value>
-    </Setting>
     <Setting Name="SupportEmail" Type="System.String" Scope="User">
       <Value Profile="(Default)">cloudscraper@support.assembla.com</Value>
-    </Setting>
-    <Setting Name="TextFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">test.txt</Value>
     </Setting>
     <Setting Name="S1StartNewButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Start New Transfer...</Value>
@@ -278,6 +266,7 @@
   &lt;string&gt;test1.txt&lt;/string&gt;
   &lt;string&gt;test2.txt&lt;/string&gt;
   &lt;string&gt;test3.txt&lt;/string&gt;
+  &lt;string&gt;logs\migrate.log&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="ZipFile" Type="System.String" Scope="User">
@@ -288,6 +277,18 @@
     </Setting>
     <Setting Name="S7PythonErrorMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">Error occur during start migrate.py </Value>
+    </Setting>
+    <Setting Name="SMTPServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">smtp.yandex.ru</Value>
+    </Setting>
+    <Setting Name="SMTPLogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cloudscraper2@yandex.ru</Value>
+    </Setting>
+    <Setting Name="SMTPPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cloudscraper</Value>
+    </Setting>
+    <Setting Name="TextFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">transfer.txt</Value>
     </Setting>
   </Settings>
 </SettingsFile>
