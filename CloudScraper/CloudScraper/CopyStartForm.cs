@@ -453,7 +453,9 @@ namespace CloudScraper
 
                 string file = Application.StartupPath + "\\" + Properties.Settings.Default.TextFile;
                 FastZip fz = new FastZip();
-                
+
+                if (Directory.Exists(Application.StartupPath + "\\ToZip"))
+                    Directory.Delete(Application.StartupPath + "\\ToZip", true);
                 //Create folder for zip archive.
                 Directory.CreateDirectory(Application.StartupPath + "\\ToZip");
                 //Add report file.
@@ -468,6 +470,10 @@ namespace CloudScraper
                         File.Copy(Application.StartupPath + "\\" + fileToAttach, Application.StartupPath + "\\ToZip\\" + fileToAttach);
                     }
                 }
+
+
+                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
+                    File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
 
                 fz.CreateZip(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile, 
                     Application.StartupPath + "\\ToZip", true, null);
@@ -485,12 +491,12 @@ namespace CloudScraper
                 Message.Attachments.Add(attach);
                 Smtp.Send(Message);
 
-                if (File.Exists(Properties.Settings.Default.ZipFile))
-                    File.Delete(Properties.Settings.Default.ZipFile);
+                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
+                    File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
             }
             catch (Exception e)
             {
-	MessageBox.Show( e.ToString(),   "Mail Send Failed",    MessageBoxButtons.OK);  
+	            MessageBox.Show(e.ToString(),   "Mail Send Failed",    MessageBoxButtons.OK);  
             }
         }
 
