@@ -478,6 +478,8 @@ namespace CloudScraper
 
                 fz.CreateZip(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile, 
                     Application.StartupPath + "\\ToZip", true, null);
+
+
                 //delete archive
                 Directory.Delete(Application.StartupPath + "\\ToZip", true);
 
@@ -492,7 +494,9 @@ namespace CloudScraper
                 Message.Attachments.Add(attach);
                 Smtp.Send(Message);
 
-                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
+               attach.Dispose();
+ 
+               if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
                     File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
             }
             catch (Exception e)
