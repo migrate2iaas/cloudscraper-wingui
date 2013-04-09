@@ -294,7 +294,13 @@
       <Value Profile="(Default)">Warning</Value>
     </Setting>
     <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">"Transfer configuration file already exists, do you want to rewrite it?"</Value>
+      <Value Profile="(Default)">Transfer configuration file already exists, do you want to rewrite it?</Value>
+    </Setting>
+    <Setting Name="S5WarningHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Warning</Value>
+    </Setting>
+    <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Folder is  not empty</Value>
     </Setting>
   </Settings>
 </SettingsFile>

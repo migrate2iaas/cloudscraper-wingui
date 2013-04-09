@@ -130,6 +130,8 @@ namespace CloudScraper
                     stream.WriteLine("region = " + CloudParametersForm.region_);
                     if (CloudParametersForm.zone_ != "")
                         stream.WriteLine("zone = " + CloudParametersForm.zone_);
+                    if (CloudParametersForm.group_ != "")
+                        stream.WriteLine("security-group = " + CloudParametersForm.group_);
                     if (CloudParametersForm.type_ != "")    
                         stream.WriteLine("instance-type = " + CloudParametersForm.type_);
                     stream.WriteLine("target-arch = x86_64");
