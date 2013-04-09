@@ -1118,13 +1118,37 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"Transfer configuration file already exists, do you want to rewrite it?\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transfer configuration file already exists, do you want to rewrite it?")]
         public string S6WarningMessage {
             get {
                 return ((string)(this["S6WarningMessage"]));
             }
             set {
                 this["S6WarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Warning")]
+        public string S5WarningHeader {
+            get {
+                return ((string)(this["S5WarningHeader"]));
+            }
+            set {
+                this["S5WarningHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Folder is  not empty")]
+        public string S5WarningMessage {
+            get {
+                return ((string)(this["S5WarningMessage"]));
+            }
+            set {
+                this["S5WarningMessage"] = value;
             }
         }
     }

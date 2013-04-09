@@ -80,6 +80,13 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
+            if (Directory.GetFiles(imagesPath_).Length != 0)
+            {
+                DialogResult result = MessageBox.Show(Settings.Default.S5WarningMessage,
+                Settings.Default.S5WarningHeader,
+                MessageBoxButtons.OK);
+            }
+
             this.Hide();
 
             if (this.saveTransferTaskForm_ == null)
