@@ -219,7 +219,8 @@ namespace CloudScraper
                 + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.3.1\\App");            
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Migrate\\Migrate");
 
-            if (!File.Exists("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe") || !File.Exists("migrate.py"))
+            if (!File.Exists("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe") || 
+                (!File.Exists("migrate.py") && !File.Exists("migrate.pyc")))
             {
                 //There are no python.exe
                 DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
@@ -229,7 +230,16 @@ namespace CloudScraper
             }
             
             info.FileName = "..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe";
-            info.Arguments = "migrate.py" + arguments;
+
+            if (File.Exists("migrate.py"))
+            {
+                info.Arguments = "migrate.py" + arguments;
+            }
+            else
+            {
+                info.Arguments = "migrate.pyc" + arguments;
+            }
+
             info.UseShellExecute = true;
             p.StartInfo = info;           
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
