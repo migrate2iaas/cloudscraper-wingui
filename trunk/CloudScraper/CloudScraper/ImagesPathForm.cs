@@ -80,45 +80,57 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
-            if (!Directory.Exists(imagesPath_))
+            try
             {
-                if (Path.IsPathRooted(imagesPath_))
+                if (!Directory.Exists(imagesPath_))
                 {
-                    string test = Path.GetPathRoot(imagesPath_);
-
-                    imagesPath_ = imagesPath_.Replace(test, "");
-
-                    foreach (char c in Path.GetInvalidPathChars())
+                    if (Path.IsPathRooted(imagesPath_))
                     {
-                        if (imagesPath_.Contains(c.ToString()) ||
-                            imagesPath_.Contains("/") ||
-                            imagesPath_.Contains("\\\\") ||
-                            imagesPath_.Contains(":") ||
-                            imagesPath_.Contains("*") ||
-                            imagesPath_.Contains("?") ||
-                            imagesPath_.Contains("\"") ||
-                            imagesPath_.Contains("<") || imagesPath_.Contains(">") ||
-                            imagesPath_.Contains("|"))
-                        {
-                            DialogResult result = MessageBox.Show(
-                                "Contains: \\ / : * ? \" < > |",
-                                Settings.Default.S5WarningHeader,
-                                MessageBoxButtons.OK);
-                            return;
-                        }
-                    }
+                        string root = Path.GetPathRoot(imagesPath_);
 
-                    imagesPath_ = imagesPath_.Insert(0, test);
-                    Directory.CreateDirectory(imagesPath_);
+                        imagesPath_ = imagesPath_.Replace(root, "");
+
+                        foreach (char c in Path.GetInvalidPathChars())
+                        {
+                            if (imagesPath_.Contains(c.ToString()) ||
+                                imagesPath_.Contains("/") ||
+                                imagesPath_.Contains("\\\\") ||
+                                imagesPath_.Contains(":") ||
+                                imagesPath_.Contains("*") ||
+                                imagesPath_.Contains("?") ||
+                                imagesPath_.Contains("\"") ||
+                                imagesPath_.Contains("<") || imagesPath_.Contains(">") ||
+                                imagesPath_.Contains("|"))
+                            {
+                                DialogResult result = MessageBox.Show(
+                                    "Path contains: \\ / : * ? \" < > |",
+                                    Settings.Default.S5WarningHeader,
+                                    MessageBoxButtons.OK);
+                                return;
+                            }
+                        }
+
+                        imagesPath_ = imagesPath_.Insert(0, root);
+                        Directory.CreateDirectory(imagesPath_);
+
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show(
+                            "Path incorrect",
+                            Settings.Default.S5WarningHeader,
+                            MessageBoxButtons.OK);
+                        return;
+                    }
                 }
-                else
-                {
-                    DialogResult result = MessageBox.Show(
-                        "Path incorrect",
-                        Settings.Default.S5WarningHeader,
-                        MessageBoxButtons.OK);
-                    return;
-                }
+            }
+            catch
+            {
+                DialogResult result = MessageBox.Show(
+                    "Path incorrect",
+                    Settings.Default.S5WarningHeader,
+                    MessageBoxButtons.OK);
+                return;
             }
             
             if (Directory.GetFiles(imagesPath_).Length != 0)
