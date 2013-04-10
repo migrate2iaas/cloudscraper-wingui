@@ -487,6 +487,13 @@ namespace CloudScraper
                 //Add atachment files from configs.
                 foreach (string fileToAttach in Settings.Default.FilesToAttach)
                 {
+                    if (File.Exists(fileToAttach))
+                    {
+                        string fileName = Path.GetFileName(fileToAttach);
+                        File.Copy(fileToAttach, Application.StartupPath + "\\ToZip\\" + fileName);
+                        continue;
+                    }
+                    
                     if (File.Exists(Application.StartupPath + "\\" + fileToAttach))
                     {
                         string fileName = Path.GetFileName(Application.StartupPath + "\\" + fileToAttach);
