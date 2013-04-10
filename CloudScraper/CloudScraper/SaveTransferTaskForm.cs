@@ -62,7 +62,57 @@ namespace CloudScraper
                 Settings.Default.S6WarningHeader,
                 MessageBoxButtons.OKCancel);
                 if (result == DialogResult.Cancel)
-                   return;
+                    return;
+            }
+            else
+            {
+                try
+                {
+                    if (Path.IsPathRooted(transferPath_))
+                    {
+                        string root = Path.GetPathRoot(transferPath_);
+                        transferPath_ = transferPath_.Replace(root, "");
+
+                        foreach (char c in Path.GetInvalidPathChars())
+                        {
+                            if (transferPath_.Contains(c.ToString()) ||
+                                transferPath_.Contains("/") ||
+                                transferPath_.Contains("\\\\") ||
+                                transferPath_.Contains(":") ||
+                                transferPath_.Contains("*") ||
+                                transferPath_.Contains("?") ||
+                                transferPath_.Contains("\"") ||
+                                transferPath_.Contains("<") || transferPath_.Contains(">") ||
+                                transferPath_.Contains("|"))
+                            {
+                                DialogResult result = MessageBox.Show(
+                                    "File name contains: \\ / : * ? \" < > |",
+                                    Settings.Default.S6WarningHeader,
+                                    MessageBoxButtons.OK);
+                                return;
+                            }
+                        }
+
+                        transferPath_ = transferPath_.Insert(0, root);
+                        File.Create(transferPath_);
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show(
+                            "File name incorrect",
+                            Settings.Default.S6WarningHeader,
+                            MessageBoxButtons.OK);
+                        return;
+                    }
+                }
+                catch
+                {
+                    DialogResult result = MessageBox.Show(
+                        "File name incorrect",
+                        Settings.Default.S6WarningHeader,
+                        MessageBoxButtons.OK);
+                    return;
+                }
             }
             
             this.Hide();
