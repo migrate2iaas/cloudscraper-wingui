@@ -264,11 +264,13 @@ namespace CloudScraper
         //Check enter in Form for activate Next button.
         private void CheckEnter()
         {
-            if (!advanced_ && awsId_ != "" && awsKey_ != "")
+            if (!advanced_ && awsId_ != "" && awsId_.Length == 20 && 
+                awsKey_ != "" && awsKey_.Length == 40)
             {
                 this.nextButton.Enabled = true;
             }
-            else if (advanced_ && awsId_ != "" && awsKey_ != ""
+            else if (advanced_ && awsId_ != "" && awsId_.Length == 20
+                && awsKey_ != "" && awsKey_.Length == 40
                 && s3bucket_ != "" && zone_ != "" && group_ != "" && folderKey_ != "")
             {
                 this.nextButton.Enabled = true;
