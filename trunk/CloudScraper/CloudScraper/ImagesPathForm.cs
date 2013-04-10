@@ -84,7 +84,10 @@ namespace CloudScraper
             {
                 DialogResult result = MessageBox.Show(Settings.Default.S5WarningMessage,
                 Settings.Default.S5WarningHeader,
-                MessageBoxButtons.OK);
+                MessageBoxButtons.OKCancel);
+
+                if (result == DialogResult.Cancel)
+                    return;
             }
 
             this.Hide();
