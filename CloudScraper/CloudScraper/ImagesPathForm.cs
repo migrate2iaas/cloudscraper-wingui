@@ -82,7 +82,43 @@ namespace CloudScraper
         {
             if (!Directory.Exists(imagesPath_))
             {
-                return;
+                if (Path.IsPathRooted(imagesPath_))
+                {
+                    string test = Path.GetPathRoot(imagesPath_);
+
+                    imagesPath_ = imagesPath_.Replace(test, "");
+
+                    foreach (char c in Path.GetInvalidPathChars())
+                    {
+                        if (imagesPath_.Contains(c.ToString()) ||
+                            imagesPath_.Contains("/") ||
+                            imagesPath_.Contains("\\\\") ||
+                            imagesPath_.Contains(":") ||
+                            imagesPath_.Contains("*") ||
+                            imagesPath_.Contains("?") ||
+                            imagesPath_.Contains("\"") ||
+                            imagesPath_.Contains("<") || imagesPath_.Contains(">") ||
+                            imagesPath_.Contains("|"))
+                        {
+                            DialogResult result = MessageBox.Show(
+                                "Contains: \\ / : * ? \" < > |",
+                                Settings.Default.S5WarningHeader,
+                                MessageBoxButtons.OK);
+                            return;
+                        }
+                    }
+
+                    imagesPath_ = imagesPath_.Insert(0, test);
+                    Directory.CreateDirectory(imagesPath_);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show(
+                        "Path incorrect",
+                        Settings.Default.S5WarningHeader,
+                        MessageBoxButtons.OK);
+                    return;
+                }
             }
             
             if (Directory.GetFiles(imagesPath_).Length != 0)
