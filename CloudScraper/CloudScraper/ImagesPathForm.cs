@@ -80,6 +80,11 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
+            if (!Directory.Exists(imagesPath_))
+            {
+                return;
+            }
+            
             if (Directory.GetFiles(imagesPath_).Length != 0)
             {
                 DialogResult result = MessageBox.Show(Settings.Default.S5WarningMessage,
