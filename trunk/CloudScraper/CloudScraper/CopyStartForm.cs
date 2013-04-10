@@ -171,8 +171,8 @@ namespace CloudScraper
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                     arguments =
                     " -k " + CloudParametersForm.awsKey_ +
-                    " -c " + SaveTransferTaskForm.transferPath_ +
-                    " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile;
+                    " -c " + "\"" + SaveTransferTaskForm.transferPath_ + "\"" +
+                    " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
                 }
                 else if (ResumeTransferForm.resumeUpload_)
@@ -181,8 +181,8 @@ namespace CloudScraper
                     arguments =
                         " --resumeupload " +
                         " -k " + ResumeTransferForm.awsKey_ +
-                        " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile;
+                        " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
+                        " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
                 }
                 else if (ResumeTransferForm.skipUpload_)
@@ -191,8 +191,8 @@ namespace CloudScraper
                     arguments =
                         " --skipupload " +
                         " -k " + ResumeTransferForm.awsKey_ +
-                        " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile;
+                        " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
+                        " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
                 }
                 else if (ResumeTransferForm.resumeFilePath_ != null)
@@ -200,8 +200,8 @@ namespace CloudScraper
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                     arguments =
                         " -k " + ResumeTransferForm.awsKey_ +
-                        " -c " + ResumeTransferForm.resumeFilePath_ +
-                        " -o " + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile;
+                        " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
+                        " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
                 }
             //}
