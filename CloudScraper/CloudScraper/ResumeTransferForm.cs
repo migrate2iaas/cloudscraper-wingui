@@ -122,7 +122,7 @@ namespace CloudScraper
 
         private void CheckEdit()
         {
-            if (resumeFilePath_ != "" && File.Exists(resumeFilePath_) && awsKey_ != "")
+            if (resumeFilePath_ != "" && File.Exists(resumeFilePath_) && awsKey_ != "" && awsKey_.Length == 40)
             {
                 this.nextButton.Enabled = true;
             }
