@@ -575,7 +575,13 @@ namespace CloudScraper
             {
                 if (pr.ProcessName == "python")
                 {
-                    pr.Kill();
+                    try
+                    {
+                        pr.Kill();
+                    }
+                    catch
+                    {
+                    }
                 }
             }
             Application.Exit();
@@ -609,14 +615,26 @@ namespace CloudScraper
                 {
                     if (pr.ProcessName == "python")
                     {
-                        pr.Kill();
+                        try
+                        {
+                            pr.Kill();
+                        }
+                        catch
+                        {
+                        }
                     }
                 }
 
                 //Kill local process if still work.
                 if (p != null && !p.HasExited)
                 {
-                    p.Kill();
+                    try
+                    {
+                        p.Kill();
+                    }
+                    catch
+                    {
+                    }
                 }             
             }
         }    
