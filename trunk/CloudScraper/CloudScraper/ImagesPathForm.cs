@@ -124,9 +124,9 @@ namespace CloudScraper
                     }
                 }
             }
-            catch
+            catch (ArgumentException)
             {
-                DialogResult result = MessageBox.Show(
+                DialogResult result2 = MessageBox.Show(
                     "Path incorrect",
                     Settings.Default.S5WarningHeader,
                     MessageBoxButtons.OK);
@@ -204,26 +204,35 @@ namespace CloudScraper
             if (imagesPath_.Length >= 2) 
                 //&& Directory.Exists(imagesPath_))
             {
-                string rootName = Directory.GetDirectoryRoot(imagesPath_).ToUpper();
-                DriveInfo[] drives = DriveInfo.GetDrives();
-                foreach (DriveInfo drive in drives)
+                try
                 {
-                    if (rootName == drive.Name)
+                    string rootName = Directory.GetDirectoryRoot(imagesPath_).ToUpper();
+                
+                    DriveInfo[] drives = DriveInfo.GetDrives();
+                    foreach (DriveInfo drive in drives)
                     {
-                        this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1).ToString() + "GB";
-                        if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1) - 4)
+                        if (rootName == drive.Name)
                         {
-                            this.errorLabel.Visible = true;
-                            this.errorPicture.Visible = true;
+                            this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1).ToString() + "GB";
+                            if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1) - 4)
+                            {
+                                this.errorLabel.Visible = true;
+                                this.errorPicture.Visible = true;
+                            }
+                            else
+                            {
+                                this.errorLabel.Visible = false;
+                                this.errorPicture.Visible = false;
+                            }
+                            break;
                         }
-                        else
-                        {
-                            this.errorLabel.Visible = false;
-                            this.errorPicture.Visible = false;
-                        }
-                        break;
                     }
                 }
+                catch
+                {
+                    return;
+                }
+
             }
             else
             {
