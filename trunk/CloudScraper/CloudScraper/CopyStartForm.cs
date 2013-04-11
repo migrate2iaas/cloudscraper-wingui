@@ -527,6 +527,9 @@ namespace CloudScraper
  
                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
                     File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
+
+               MessageBox.Show("Report sent. You’ll be contacted via e-mail provided", 
+                   "Mail Send", MessageBoxButtons.OK); 
             }
             catch (Exception e)
             {
