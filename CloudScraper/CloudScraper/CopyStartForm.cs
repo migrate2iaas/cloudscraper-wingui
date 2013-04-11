@@ -29,6 +29,8 @@ namespace CloudScraper
         public object lockObject;
         public bool migrateStopped;
         public bool withError;
+
+        private Attachment attach;
         
         delegate void MyDelegate();
         Process p;
@@ -530,7 +532,7 @@ namespace CloudScraper
                 //delete archive
                 Directory.Delete(Application.StartupPath + "\\ToZip", true);
 
-                Attachment attach = new Attachment(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile, 
+                this.attach = new Attachment(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile, 
                     MediaTypeNames.Application.Octet);
 
                 ContentDisposition disposition = attach.ContentDisposition;
@@ -541,7 +543,7 @@ namespace CloudScraper
                 Message.Attachments.Add(attach);
                 Smtp.Send(Message);
 
-               attach.Dispose();
+               this.attach.Dispose();
  
                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
                     File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
@@ -551,7 +553,8 @@ namespace CloudScraper
             }
             catch (Exception e)
             {
-	            MessageBox.Show(e.ToString(),   "Mail Send Failed",    MessageBoxButtons.OK);  
+                this.attach.Dispose();
+                MessageBox.Show(e.ToString(),   "Mail Send Failed",    MessageBoxButtons.OK);  
             }
         }
 
