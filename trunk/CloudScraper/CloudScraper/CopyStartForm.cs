@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Web;
+using System.Collections;
 
 using System.Net;
 using System.Net.Mail;
@@ -487,17 +488,34 @@ namespace CloudScraper
                 //Add atachment files from configs.
                 foreach (string fileToAttach in Settings.Default.FilesToAttach)
                 {
-                    if (File.Exists(fileToAttach))
+                    string fileToAttachTmp = fileToAttach;
+                    //For system environment.
+                    IDictionary dictionary = Environment.GetEnvironmentVariables();
+                    foreach (DictionaryEntry de in dictionary)
                     {
-                        string fileName = Path.GetFileName(fileToAttach);
-                        File.Copy(fileToAttach, Application.StartupPath + "\\ToZip\\" + fileName);
+                        string entry = "%" + de.Key.ToString() + "%";
+                        if (fileToAttachTmp.ToLower().Contains(entry.ToLower()))
+                        {
+                            int index = fileToAttachTmp.ToLower().IndexOf(entry.ToLower());
+                            fileToAttachTmp = fileToAttachTmp.Remove(index, entry.Length).Insert(index, de.Value.ToString());
+                            break;
+                        }
+                    }
+                    
+                    //For absolute path.
+                    if (File.Exists(fileToAttachTmp))
+                    {
+                        string fileName = Path.GetFileName(fileToAttachTmp);
+                        File.Copy(fileToAttachTmp, Application.StartupPath + "\\ToZip\\" + fileName);
                         continue;
                     }
                     
-                    if (File.Exists(Application.StartupPath + "\\" + fileToAttach))
+                    //For relative path.
+                    if (File.Exists(Application.StartupPath + "\\" + fileToAttachTmp))
                     {
-                        string fileName = Path.GetFileName(Application.StartupPath + "\\" + fileToAttach);
-                        File.Copy(Application.StartupPath + "\\" + fileToAttach, Application.StartupPath + "\\ToZip\\" + fileName);
+                        string fileName = Path.GetFileName(Application.StartupPath + "\\" + fileToAttachTmp);
+                        File.Copy(Application.StartupPath + "\\" + fileToAttachTmp, Application.StartupPath + "\\ToZip\\" + fileName);
+                        continue;
                     }
                 }
 
