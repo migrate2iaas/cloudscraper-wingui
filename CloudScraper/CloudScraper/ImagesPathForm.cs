@@ -111,7 +111,20 @@ namespace CloudScraper
                         }
 
                         imagesPath_ = imagesPath_.Insert(0, root);
-                        Directory.CreateDirectory(imagesPath_);
+
+                        DialogResult reslt = MessageBox.Show(
+                            "Directory doesn’t exist. Do you want to create it?",
+                            Settings.Default.S5WarningHeader,
+                            MessageBoxButtons.OKCancel);
+
+                        if (reslt == DialogResult.OK)
+                        {
+                            Directory.CreateDirectory(imagesPath_);
+                        }
+                        else
+                        {
+                            return;
+                        }
 
                     }
                     else
