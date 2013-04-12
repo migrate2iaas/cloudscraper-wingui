@@ -86,7 +86,7 @@ namespace CloudScraper
                                 transferPath_.Contains("|"))
                             {
                                 DialogResult result = MessageBox.Show(
-                                    "File name contains: \\ / : * ? \" < > |",
+                                    Settings.Default.S6WrongSymbolsWarningMessage,
                                     Settings.Default.S6WarningHeader,
                                     MessageBoxButtons.OK);
                                 return;
@@ -99,7 +99,7 @@ namespace CloudScraper
                     else
                     {
                         DialogResult result = MessageBox.Show(
-                            "File name incorrect",
+                            Settings.Default.S6PathIncorrectWarningMessage,
                             Settings.Default.S6WarningHeader,
                             MessageBoxButtons.OK);
                         return;
@@ -108,7 +108,7 @@ namespace CloudScraper
                 catch
                 {
                     DialogResult result = MessageBox.Show(
-                        "File name incorrect",
+                        Settings.Default.S6PathIncorrectWarningMessage,
                         Settings.Default.S6WarningHeader,
                         MessageBoxButtons.OK);
                     return;

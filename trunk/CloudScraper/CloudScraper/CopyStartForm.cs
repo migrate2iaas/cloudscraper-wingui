@@ -548,13 +548,14 @@ namespace CloudScraper
                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
                     File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
 
-               MessageBox.Show("Report sent. You’ll be contacted via e-mail provided", 
-                   "Mail Send", MessageBoxButtons.OK); 
+               MessageBox.Show(Settings.Default.MailSendMessage,
+                   Settings.Default.MailSendHeader, MessageBoxButtons.OK); 
             }
             catch (Exception e)
             {
                 this.attach.Dispose();
-                MessageBox.Show(e.ToString(),   "Mail Send Failed",    MessageBoxButtons.OK);  
+                MessageBox.Show(e.ToString(),   
+                    Settings.Default.MailSendFailedHeader,    MessageBoxButtons.OK);  
             }
         }
 

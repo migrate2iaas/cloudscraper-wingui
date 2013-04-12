@@ -303,5 +303,29 @@
     <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">Folder is  not empty</Value>
     </Setting>
+    <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Path incorrect</Value>
+    </Setting>
+    <Setting Name="S5DirectoryNotExistWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Directory doesn’t exist. Do you want to create it?</Value>
+    </Setting>
+    <Setting Name="S5WrongSymbolsWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Path contains: \\ / : * ? \" &lt; &gt; |</Value>
+    </Setting>
+    <Setting Name="S6PathIncorrectWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">File name incorrect</Value>
+    </Setting>
+    <Setting Name="S6WrongSymbolsWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">File name contains: \\ / : * ? \" &lt; &gt; |</Value>
+    </Setting>
+    <Setting Name="MailSendFailedHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mail Send Failed</Value>
+    </Setting>
+    <Setting Name="MailSendHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mail Send</Value>
+    </Setting>
+    <Setting Name="MailSendMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Report sent. You’ll be contacted via e-mail provided</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

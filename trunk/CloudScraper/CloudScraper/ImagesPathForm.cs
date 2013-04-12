@@ -103,7 +103,7 @@ namespace CloudScraper
                                 imagesPath_.Contains("|"))
                             {
                                 DialogResult result = MessageBox.Show(
-                                    "Path contains: \\ / : * ? \" < > |",
+                                    Settings.Default.S5WrongSymbolsWarningMessage,
                                     Settings.Default.S5WarningHeader,
                                     MessageBoxButtons.OK);
                                 return;
@@ -113,7 +113,7 @@ namespace CloudScraper
                         imagesPath_ = imagesPath_.Insert(0, root);
 
                         DialogResult reslt = MessageBox.Show(
-                            "Directory doesn’t exist. Do you want to create it?",
+                            Settings.Default.S5DirectoryNotExistWarningMessage,
                             Settings.Default.S5WarningHeader,
                             MessageBoxButtons.OKCancel);
 
@@ -130,7 +130,7 @@ namespace CloudScraper
                     else
                     {
                         DialogResult result = MessageBox.Show(
-                            "Path incorrect",
+                            Settings.Default.S5PathIncorrectWarningMessage,
                             Settings.Default.S5WarningHeader,
                             MessageBoxButtons.OK);
                         return;
@@ -140,7 +140,7 @@ namespace CloudScraper
             catch (ArgumentException)
             {
                 DialogResult result2 = MessageBox.Show(
-                    "Path incorrect",
+                    Settings.Default.S5PathIncorrectWarningMessage,
                     Settings.Default.S5WarningHeader,
                     MessageBoxButtons.OK);
                 return;
