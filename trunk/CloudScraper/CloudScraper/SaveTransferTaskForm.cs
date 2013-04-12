@@ -94,7 +94,7 @@ namespace CloudScraper
                         }
 
                         transferPath_ = transferPath_.Insert(0, root);
-                        File.Create(transferPath_);
+                        //File.Create(transferPath_);
                     }
                     else
                     {
