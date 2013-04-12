@@ -1152,5 +1152,101 @@ namespace CloudScraper.Properties {
                 this["S5WarningMessage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Path incorrect")]
+        public string S5PathIncorrectWarningMessage {
+            get {
+                return ((string)(this["S5PathIncorrectWarningMessage"]));
+            }
+            set {
+                this["S5PathIncorrectWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Directory doesn’t exist. Do you want to create it?")]
+        public string S5DirectoryNotExistWarningMessage {
+            get {
+                return ((string)(this["S5DirectoryNotExistWarningMessage"]));
+            }
+            set {
+                this["S5DirectoryNotExistWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Path contains: \\\\ / : * ? \\\" < > |")]
+        public string S5WrongSymbolsWarningMessage {
+            get {
+                return ((string)(this["S5WrongSymbolsWarningMessage"]));
+            }
+            set {
+                this["S5WrongSymbolsWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("File name incorrect")]
+        public string S6PathIncorrectWarningMessage {
+            get {
+                return ((string)(this["S6PathIncorrectWarningMessage"]));
+            }
+            set {
+                this["S6PathIncorrectWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("File name contains: \\\\ / : * ? \\\" < > |")]
+        public string S6WrongSymbolsWarningMessage {
+            get {
+                return ((string)(this["S6WrongSymbolsWarningMessage"]));
+            }
+            set {
+                this["S6WrongSymbolsWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Mail Send Failed")]
+        public string MailSendFailedHeader {
+            get {
+                return ((string)(this["MailSendFailedHeader"]));
+            }
+            set {
+                this["MailSendFailedHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Mail Send")]
+        public string MailSendHeader {
+            get {
+                return ((string)(this["MailSendHeader"]));
+            }
+            set {
+                this["MailSendHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Report sent. You’ll be contacted via e-mail provided")]
+        public string MailSendMessage {
+            get {
+                return ((string)(this["MailSendMessage"]));
+            }
+            set {
+                this["MailSendMessage"] = value;
+            }
+        }
     }
 }
