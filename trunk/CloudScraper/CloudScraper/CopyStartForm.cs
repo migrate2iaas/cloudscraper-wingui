@@ -33,7 +33,7 @@ namespace CloudScraper
         private Attachment attach;
         
         delegate void MyDelegate();
-        Process p;
+        Process pythonProcess;
 
         /// <summary>
         /// There are two constructors. First for Start New way.
@@ -61,7 +61,7 @@ namespace CloudScraper
             this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
             
             this.withError = false;
-            this.p = null;
+            this.pythonProcess = null;
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace CloudScraper
             this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
 
             this.withError = false;
-            p = null;
+            pythonProcess = null;
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -213,7 +213,7 @@ namespace CloudScraper
                 File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile);
 
             //python process.
-            p = new Process();
+            pythonProcess = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
             
             //If we start throwgh .cmd file.
@@ -244,12 +244,12 @@ namespace CloudScraper
             }
 
             info.UseShellExecute = true;
-            p.StartInfo = info;           
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p.Exited += new EventHandler(this.PythonExited);
-            p.EnableRaisingEvents = true;
+            pythonProcess.StartInfo = info;           
+            pythonProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            pythonProcess.Exited += new EventHandler(this.PythonExited);
+            pythonProcess.EnableRaisingEvents = true;
 
-            if (p.Start())
+            if (pythonProcess.Start())
             {
                 this.startButton.Enabled = false;
                 this.backButton.Enabled = false;
@@ -434,17 +434,17 @@ namespace CloudScraper
             System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pr in localByName)
             {
-                if (pr.ProcessName == "python")
+                if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id)
                 {
                     pr.Kill();
                 }
             }
 
             //Kill local process if still work.
-            if (p != null && !p.HasExited)
+            if (pythonProcess != null && !pythonProcess.HasExited)
             {
-                p.Exited -= new EventHandler(PythonExited);
-                p.Kill();
+                pythonProcess.Exited -= new EventHandler(PythonExited);
+                pythonProcess.Kill();
             }
         }
 
@@ -574,7 +574,7 @@ namespace CloudScraper
             System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pr in localByName)
             {
-                if (pr.ProcessName == "python")
+                if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id)
                 {
                     try
                     {
@@ -614,7 +614,7 @@ namespace CloudScraper
                 System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
                 foreach (System.Diagnostics.Process pr in localByName)
                 {
-                    if (pr.ProcessName == "python")
+                    if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id)
                     {
                         try
                         {
@@ -627,11 +627,11 @@ namespace CloudScraper
                 }
 
                 //Kill local process if still work.
-                if (p != null && !p.HasExited)
+                if (pythonProcess != null && !pythonProcess.HasExited)
                 {
                     try
                     {
-                        p.Kill();
+                        pythonProcess.Kill();
                     }
                     catch
                     {
