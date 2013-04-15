@@ -432,9 +432,6 @@ namespace CloudScraper
 
             //Kill python.exe process in TaskManager if exists. 
 
-            // VFedorov: kinda bad way to close the python. 
-            // Especially when there are several python processes present
-            // The best way is to save the python process id on its start and then delete it
             System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pr in localByName)
             {
@@ -444,8 +441,7 @@ namespace CloudScraper
                 }
             }
 
-            // VFedorov: WTF is "p"? 
-            //Kill local process if still work.
+         
             if (pythonProcess != null && !pythonProcess.HasExited)
             {
                 pythonProcess.Exited -= new EventHandler(PythonExited);
