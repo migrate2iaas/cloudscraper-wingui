@@ -611,6 +611,15 @@ namespace CloudScraper
             //When "X" button pressed.
             if (e.KeyData == Keys.X)
             {
+
+                DialogResult result = MessageBox.Show(
+                Settings.Default.S7XKeyWarningMessage,
+                Settings.Default.S7WarningHeader,
+                MessageBoxButtons.OKCancel);
+
+                if (result == DialogResult.Cancel)
+                    return;
+
                 //Kill python.exe process in TaskManager if exists.
                 System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
                 foreach (System.Diagnostics.Process pr in localByName)

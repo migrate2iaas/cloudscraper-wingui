@@ -1248,5 +1248,29 @@ namespace CloudScraper.Properties {
                 this["MailSendMessage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Do you want to stop the transfer?")]
+        public string S7XKeyWarningMessage {
+            get {
+                return ((string)(this["S7XKeyWarningMessage"]));
+            }
+            set {
+                this["S7XKeyWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Warning")]
+        public string S7WarningHeader {
+            get {
+                return ((string)(this["S7WarningHeader"]));
+            }
+            set {
+                this["S7WarningHeader"] = value;
+            }
+        }
     }
 }
