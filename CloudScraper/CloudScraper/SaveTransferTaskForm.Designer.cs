@@ -80,12 +80,12 @@
             // 
             // mainLabel
             // 
-            this.mainLabel.AutoSize = true;
-            this.mainLabel.Location = new System.Drawing.Point(275, 65);
+            this.mainLabel.Location = new System.Drawing.Point(141, 1);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(156, 13);
+            this.mainLabel.Size = new System.Drawing.Size(414, 121);
             this.mainLabel.TabIndex = 4;
             this.mainLabel.Text = "Select path to save transfer file:";
+            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // helpButton
             // 

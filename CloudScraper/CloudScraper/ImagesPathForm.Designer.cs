@@ -123,12 +123,12 @@
             // 
             // mainLabel
             // 
-            this.mainLabel.AutoSize = true;
-            this.mainLabel.Location = new System.Drawing.Point(200, 62);
+            this.mainLabel.Location = new System.Drawing.Point(140, 9);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(292, 13);
+            this.mainLabel.Size = new System.Drawing.Size(415, 110);
             this.mainLabel.TabIndex = 8;
             this.mainLabel.Text = "Please choose folder where to store your server disk images:";
+            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // helpButton
             // 
