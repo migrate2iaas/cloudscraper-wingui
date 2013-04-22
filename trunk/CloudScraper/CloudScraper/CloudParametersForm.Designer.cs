@@ -115,6 +115,7 @@
             // 
             // awsKeyLabel
             // 
+            this.awsKeyLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.awsKeyLabel.AutoSize = true;
             this.awsKeyLabel.Location = new System.Drawing.Point(75, 143);
             this.awsKeyLabel.Name = "awsKeyLabel";
@@ -141,12 +142,13 @@
             // 
             // regionLabel
             // 
+            this.regionLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.regionLabel.AutoSize = true;
             this.regionLabel.Location = new System.Drawing.Point(104, 41);
             this.regionLabel.Name = "regionLabel";
             this.regionLabel.Size = new System.Drawing.Size(83, 13);
             this.regionLabel.TabIndex = 2;
-            this.regionLabel.Text = "Choose Region:";
+            this.regionLabel.Text = "Choose Region:\r\n";
             // 
             // tabPage2
             // 

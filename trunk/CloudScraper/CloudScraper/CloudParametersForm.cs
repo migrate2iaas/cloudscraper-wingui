@@ -80,6 +80,7 @@ namespace CloudScraper
             this.typeLabel.Text = Settings.Default.S4TypeLabelText;
             this.zoneLabel.Text = Settings.Default.S4ZoneLabelText;
             this.groupLabel.Text = Settings.Default.S4GroupLabelText;
+            
         }
 
         private void BackButtonClick(object sender, EventArgs e)

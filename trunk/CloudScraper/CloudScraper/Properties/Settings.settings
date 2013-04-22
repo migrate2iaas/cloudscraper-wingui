@@ -327,5 +327,11 @@
     <Setting Name="MailSendMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">Report sent. You’ll be contacted via e-mail provided</Value>
     </Setting>
+    <Setting Name="S7XKeyWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Do you want to stop the transfer?</Value>
+    </Setting>
+    <Setting Name="S7WarningHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Warning</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
