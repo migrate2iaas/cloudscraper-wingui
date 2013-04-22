@@ -480,5 +480,6 @@ namespace CloudScraper
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseCloudForm_.Location;
         }
+
     }
 }

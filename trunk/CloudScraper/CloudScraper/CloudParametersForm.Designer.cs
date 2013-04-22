@@ -116,21 +116,21 @@
             // awsKeyLabel
             // 
             this.awsKeyLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.awsKeyLabel.AutoSize = true;
-            this.awsKeyLabel.Location = new System.Drawing.Point(75, 143);
+            this.awsKeyLabel.Location = new System.Drawing.Point(0, 126);
             this.awsKeyLabel.Name = "awsKeyLabel";
-            this.awsKeyLabel.Size = new System.Drawing.Size(112, 13);
+            this.awsKeyLabel.Size = new System.Drawing.Size(194, 47);
             this.awsKeyLabel.TabIndex = 6;
             this.awsKeyLabel.Text = "You AWS Secret Key:";
+            this.awsKeyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // awsIdLabel
             // 
-            this.awsIdLabel.AutoSize = true;
-            this.awsIdLabel.Location = new System.Drawing.Point(117, 93);
+            this.awsIdLabel.Location = new System.Drawing.Point(7, 74);
             this.awsIdLabel.Name = "awsIdLabel";
-            this.awsIdLabel.Size = new System.Drawing.Size(69, 13);
+            this.awsIdLabel.Size = new System.Drawing.Size(186, 50);
             this.awsIdLabel.TabIndex = 4;
             this.awsIdLabel.Text = "You AWS Id:";
+            this.awsIdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // regionComboBox
             // 
@@ -143,12 +143,12 @@
             // regionLabel
             // 
             this.regionLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.regionLabel.AutoSize = true;
-            this.regionLabel.Location = new System.Drawing.Point(104, 41);
+            this.regionLabel.Location = new System.Drawing.Point(6, 23);
             this.regionLabel.Name = "regionLabel";
-            this.regionLabel.Size = new System.Drawing.Size(83, 13);
+            this.regionLabel.Size = new System.Drawing.Size(187, 48);
             this.regionLabel.TabIndex = 2;
-            this.regionLabel.Text = "Choose Region:\r\n";
+            this.regionLabel.Text = "Choose Region:";
+            this.regionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabPage2
             // 
@@ -173,13 +173,13 @@
             // 
             // folderKeyLabel
             // 
-            this.folderKeyLabel.AutoSize = true;
             this.folderKeyLabel.Enabled = false;
-            this.folderKeyLabel.Location = new System.Drawing.Point(110, 78);
+            this.folderKeyLabel.Location = new System.Drawing.Point(0, 64);
             this.folderKeyLabel.Name = "folderKeyLabel";
-            this.folderKeyLabel.Size = new System.Drawing.Size(100, 13);
+            this.folderKeyLabel.Size = new System.Drawing.Size(213, 41);
             this.folderKeyLabel.TabIndex = 10;
             this.folderKeyLabel.Text = "Specify folder (key):";
+            this.folderKeyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // folderKeyBox
             // 
@@ -204,23 +204,23 @@
             // 
             // groupLabel
             // 
-            this.groupLabel.AutoSize = true;
             this.groupLabel.Enabled = false;
-            this.groupLabel.Location = new System.Drawing.Point(76, 184);
+            this.groupLabel.Location = new System.Drawing.Point(0, 171);
             this.groupLabel.Name = "groupLabel";
-            this.groupLabel.Size = new System.Drawing.Size(137, 13);
+            this.groupLabel.Size = new System.Drawing.Size(213, 45);
             this.groupLabel.TabIndex = 7;
             this.groupLabel.Text = "Specify your security group:";
+            this.groupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // zoneLabel
             // 
-            this.zoneLabel.AutoSize = true;
             this.zoneLabel.Enabled = false;
-            this.zoneLabel.Location = new System.Drawing.Point(68, 149);
+            this.zoneLabel.Location = new System.Drawing.Point(0, 130);
             this.zoneLabel.Name = "zoneLabel";
-            this.zoneLabel.Size = new System.Drawing.Size(145, 13);
+            this.zoneLabel.Size = new System.Drawing.Size(216, 50);
             this.zoneLabel.TabIndex = 5;
             this.zoneLabel.Text = "Specify your availability zone:";
+            this.zoneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // serverTypeComboBox
             // 
@@ -234,13 +234,13 @@
             // 
             // typeLabel
             // 
-            this.typeLabel.AutoSize = true;
             this.typeLabel.Enabled = false;
-            this.typeLabel.Location = new System.Drawing.Point(61, 113);
+            this.typeLabel.Location = new System.Drawing.Point(0, 97);
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(152, 13);
+            this.typeLabel.Size = new System.Drawing.Size(216, 46);
             this.typeLabel.TabIndex = 2;
             this.typeLabel.Text = "Specify your cloud server type:";
+            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bucketTextBox
             // 
@@ -255,13 +255,13 @@
             // 
             // bucketLabel
             // 
-            this.bucketLabel.AutoSize = true;
             this.bucketLabel.Enabled = false;
-            this.bucketLabel.Location = new System.Drawing.Point(89, 41);
+            this.bucketLabel.Location = new System.Drawing.Point(3, 32);
             this.bucketLabel.Name = "bucketLabel";
-            this.bucketLabel.Size = new System.Drawing.Size(121, 13);
+            this.bucketLabel.Size = new System.Drawing.Size(213, 30);
             this.bucketLabel.TabIndex = 0;
             this.bucketLabel.Text = "Specify your S3 Bucket:";
+            this.bucketLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // zoneComboBox
             // 
