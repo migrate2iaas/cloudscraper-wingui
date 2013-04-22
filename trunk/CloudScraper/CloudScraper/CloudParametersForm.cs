@@ -403,6 +403,7 @@ namespace CloudScraper
                 DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" + 
                     Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
+                this.testButton.Enabled = true;
             }
         }
 
