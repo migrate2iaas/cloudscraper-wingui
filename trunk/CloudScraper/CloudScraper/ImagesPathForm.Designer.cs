@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImagesPathForm));
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.browseButton = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.logoPicture = new System.Windows.Forms.PictureBox();
             this.errorPicture = new System.Windows.Forms.PictureBox();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPicture)).BeginInit();
             this.SuspendLayout();
@@ -229,5 +231,6 @@
         private System.Windows.Forms.PictureBox logoPicture;
         private System.Windows.Forms.PictureBox errorPicture;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

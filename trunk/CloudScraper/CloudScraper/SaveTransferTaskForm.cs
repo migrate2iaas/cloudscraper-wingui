@@ -23,13 +23,17 @@ namespace CloudScraper
             InitializeComponent();
 
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "transfer.ini";
             transferPath_ = this.saveTransferTextBox.Text;
             this.Text = Settings.Default.S6Header;
             this.mainLabel.Text = Settings.Default.S6MainLabelText;
             this.nextButton.Text = Settings.Default.S6NextButtonText;
+            this.toolTip.SetToolTip(this.nextButton, Settings.Default.S6NextButtonToolTip);
             this.backButton.Text = Settings.Default.S6BackButtonText;
+            this.toolTip.SetToolTip(this.backButton, Settings.Default.S6BackButtonToolTip);
             this.browseButton.Text = Settings.Default.S6BrowseButtonText;
+            this.toolTip.SetToolTip(this.browseButton, Settings.Default.S6BrowseButtonToolTip);
             this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 

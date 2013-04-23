@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResumeTransferForm));
             this.backButton = new System.Windows.Forms.Button();
             this.resumeUploadCheckBox = new System.Windows.Forms.CheckBox();
@@ -41,6 +42,7 @@
             this.logoPicture = new System.Windows.Forms.PictureBox();
             this.awsIdTextBox = new System.Windows.Forms.TextBox();
             this.awsIdLabel = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -204,5 +206,6 @@
         private System.Windows.Forms.PictureBox logoPicture;
         private System.Windows.Forms.TextBox awsIdTextBox;
         private System.Windows.Forms.Label awsIdLabel;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

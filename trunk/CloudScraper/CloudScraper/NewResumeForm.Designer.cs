@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewResumeForm));
             this.startNewButton = new System.Windows.Forms.Button();
             this.resumeButton = new System.Windows.Forms.Button();
             this.logoPicture = new System.Windows.Forms.PictureBox();
             this.helpButton = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +45,7 @@
             this.startNewButton.Name = "startNewButton";
             this.startNewButton.Size = new System.Drawing.Size(160, 54);
             this.startNewButton.TabIndex = 0;
+            this.startNewButton.Tag = "";
             this.startNewButton.Text = "Start New Transfer...";
             this.startNewButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.startNewButton.UseVisualStyleBackColor = true;
@@ -55,6 +58,7 @@
             this.resumeButton.Name = "resumeButton";
             this.resumeButton.Size = new System.Drawing.Size(160, 54);
             this.resumeButton.TabIndex = 1;
+            this.resumeButton.Tag = "";
             this.resumeButton.Text = "Resume Existing Transfer...";
             this.resumeButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.resumeButton.UseVisualStyleBackColor = true;
@@ -115,6 +119,7 @@
         private System.Windows.Forms.Button resumeButton;
         private System.Windows.Forms.PictureBox logoPicture;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

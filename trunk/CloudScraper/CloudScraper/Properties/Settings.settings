@@ -333,5 +333,80 @@
     <Setting Name="MailSendHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Send Request</Value>
     </Setting>
+    <Setting Name="S1StartNewButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start new</Value>
+    </Setting>
+    <Setting Name="S1ResumeButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume upload</Value>
+    </Setting>
+    <Setting Name="S2NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next</Value>
+    </Setting>
+    <Setting Name="S2BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Back</Value>
+    </Setting>
+    <Setting Name="S4BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Back</Value>
+    </Setting>
+    <Setting Name="S4NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next</Value>
+    </Setting>
+    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test connection</Value>
+    </Setting>
+    <Setting Name="S3BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Back</Value>
+    </Setting>
+    <Setting Name="S3AmazonButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Amazon</Value>
+    </Setting>
+    <Setting Name="S3WindowsAzureButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Windows Azure</Value>
+    </Setting>
+    <Setting Name="S3ElasticHostsButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Elastic Hosts</Value>
+    </Setting>
+    <Setting Name="S5NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next</Value>
+    </Setting>
+    <Setting Name="S5BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Back</Value>
+    </Setting>
+    <Setting Name="S5BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse</Value>
+    </Setting>
+    <Setting Name="S6NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next</Value>
+    </Setting>
+    <Setting Name="S6BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Back</Value>
+    </Setting>
+    <Setting Name="S6BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse</Value>
+    </Setting>
+    <Setting Name="R2NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next</Value>
+    </Setting>
+    <Setting Name="R2BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Back</Value>
+    </Setting>
+    <Setting Name="R2BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse</Value>
+    </Setting>
+    <Setting Name="S7BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Back</Value>
+    </Setting>
+    <Setting Name="S7StartButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start</Value>
+    </Setting>
+    <Setting Name="S7MailButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Send mail</Value>
+    </Setting>
+    <Setting Name="S7FullOutputButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Show full output</Value>
+    </Setting>
+    <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Help</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

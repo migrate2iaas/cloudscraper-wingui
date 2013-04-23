@@ -65,12 +65,16 @@ namespace CloudScraper
 
             //Set basic UI strings in Form. 
             this.helpButton.Image = new Bitmap(System.Drawing.Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.serverTypeComboBox.SelectedIndex = 0;
             this.nextButton.Enabled = false;
             this.Text = Settings.Default.S4Header;
             this.backButton.Text = Settings.Default.S4BackButtonText;
+            this.toolTip.SetToolTip(this.backButton, Settings.Default.S4BackButtonToolTip);
             this.nextButton.Text = Settings.Default.S4NextButtonText;
+            this.toolTip.SetToolTip(this.nextButton, Settings.Default.S4NextButtonToolTip);
             this.testButton.Text = Settings.Default.S4TestButtonText;
+            this.toolTip.SetToolTip(this.testButton, Settings.Default.S4TestButtonToolTip);
             this.regionLabel.Text = Settings.Default.S4RegionLabelText;
             this.awsIdLabel.Text = Settings.Default.S4awsIdLabelText;
             this.awsKeyLabel.Text = Settings.Default.S4awsKeyLabelText;

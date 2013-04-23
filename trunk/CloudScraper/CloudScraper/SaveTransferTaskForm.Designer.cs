@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaveTransferTaskForm));
             this.saveTransferTextBox = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.mainLabel = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
             this.logoPicture = new System.Windows.Forms.PictureBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,5 +152,6 @@
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.PictureBox logoPicture;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
