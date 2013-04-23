@@ -55,10 +55,15 @@ namespace CloudScraper
             // Initialize UI strings in Form. 
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.backButton.Text = Settings.Default.S7BackButtonText;
+            this.toolTip.SetToolTip(this.backButton, Settings.Default.S7BackButtonToolTip);
             this.startButton.Text = Settings.Default.S7StartButtonText;
+            this.toolTip.SetToolTip(this.startButton, Settings.Default.S7StartButtonToolTip);
             this.mailButton.Text = Settings.Default.S7MailButtonText;
+            this.toolTip.SetToolTip(this.mailButton, Settings.Default.S7MailButtonToolTip);
             this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
+            this.toolTip.SetToolTip(this.fullOutputButton, Settings.Default.S7FullOutputButtonToolTip);
             
             this.withError = false;
             this.pythonProcess = null;
@@ -80,10 +85,15 @@ namespace CloudScraper
             // Initialize UI strings in Form.
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.backButton.Text = Settings.Default.S7BackButtonText;
+            this.toolTip.SetToolTip(this.backButton, Settings.Default.S7BackButtonToolTip);
             this.startButton.Text = Settings.Default.S7StartButtonText;
+            this.toolTip.SetToolTip(this.startButton, Settings.Default.S7StartButtonToolTip);
             this.mailButton.Text = Settings.Default.S7MailButtonText;
+            this.toolTip.SetToolTip(this.mailButton, Settings.Default.S7MailButtonToolTip);
             this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
+            this.toolTip.SetToolTip(this.fullOutputButton, Settings.Default.S7FullOutputButtonToolTip);
 
             this.withError = false;
             pythonProcess = null;

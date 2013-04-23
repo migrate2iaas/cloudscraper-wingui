@@ -1273,5 +1273,305 @@ namespace CloudScraper.Properties {
                 this["MailSendHeader"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Start new")]
+        public string S1StartNewButtonToolTip {
+            get {
+                return ((string)(this["S1StartNewButtonToolTip"]));
+            }
+            set {
+                this["S1StartNewButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Resume upload")]
+        public string S1ResumeButtonToolTip {
+            get {
+                return ((string)(this["S1ResumeButtonToolTip"]));
+            }
+            set {
+                this["S1ResumeButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next")]
+        public string S2NextButtonToolTip {
+            get {
+                return ((string)(this["S2NextButtonToolTip"]));
+            }
+            set {
+                this["S2NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Back")]
+        public string S2BackButtonToolTip {
+            get {
+                return ((string)(this["S2BackButtonToolTip"]));
+            }
+            set {
+                this["S2BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Back")]
+        public string S4BackButtonToolTip {
+            get {
+                return ((string)(this["S4BackButtonToolTip"]));
+            }
+            set {
+                this["S4BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next")]
+        public string S4NextButtonToolTip {
+            get {
+                return ((string)(this["S4NextButtonToolTip"]));
+            }
+            set {
+                this["S4NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Test connection")]
+        public string S4TestButtonToolTip {
+            get {
+                return ((string)(this["S4TestButtonToolTip"]));
+            }
+            set {
+                this["S4TestButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Back")]
+        public string S3BackButtonToolTip {
+            get {
+                return ((string)(this["S3BackButtonToolTip"]));
+            }
+            set {
+                this["S3BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Amazon")]
+        public string S3AmazonButtonToolTip {
+            get {
+                return ((string)(this["S3AmazonButtonToolTip"]));
+            }
+            set {
+                this["S3AmazonButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Windows Azure")]
+        public string S3WindowsAzureButtonToolTip {
+            get {
+                return ((string)(this["S3WindowsAzureButtonToolTip"]));
+            }
+            set {
+                this["S3WindowsAzureButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Elastic Hosts")]
+        public string S3ElasticHostsButtonToolTip {
+            get {
+                return ((string)(this["S3ElasticHostsButtonToolTip"]));
+            }
+            set {
+                this["S3ElasticHostsButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next")]
+        public string S5NextButtonToolTip {
+            get {
+                return ((string)(this["S5NextButtonToolTip"]));
+            }
+            set {
+                this["S5NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Back")]
+        public string S5BackButtonToolTip {
+            get {
+                return ((string)(this["S5BackButtonToolTip"]));
+            }
+            set {
+                this["S5BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse")]
+        public string S5BrowseButtonToolTip {
+            get {
+                return ((string)(this["S5BrowseButtonToolTip"]));
+            }
+            set {
+                this["S5BrowseButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next")]
+        public string S6NextButtonToolTip {
+            get {
+                return ((string)(this["S6NextButtonToolTip"]));
+            }
+            set {
+                this["S6NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Back")]
+        public string S6BackButtonToolTip {
+            get {
+                return ((string)(this["S6BackButtonToolTip"]));
+            }
+            set {
+                this["S6BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse")]
+        public string S6BrowseButtonToolTip {
+            get {
+                return ((string)(this["S6BrowseButtonToolTip"]));
+            }
+            set {
+                this["S6BrowseButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Next")]
+        public string R2NextButtonToolTip {
+            get {
+                return ((string)(this["R2NextButtonToolTip"]));
+            }
+            set {
+                this["R2NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Back")]
+        public string R2BackButtonToolTip {
+            get {
+                return ((string)(this["R2BackButtonToolTip"]));
+            }
+            set {
+                this["R2BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse")]
+        public string R2BrowseButtonToolTip {
+            get {
+                return ((string)(this["R2BrowseButtonToolTip"]));
+            }
+            set {
+                this["R2BrowseButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Back")]
+        public string S7BackButtonToolTip {
+            get {
+                return ((string)(this["S7BackButtonToolTip"]));
+            }
+            set {
+                this["S7BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Start")]
+        public string S7StartButtonToolTip {
+            get {
+                return ((string)(this["S7StartButtonToolTip"]));
+            }
+            set {
+                this["S7StartButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Send mail")]
+        public string S7MailButtonToolTip {
+            get {
+                return ((string)(this["S7MailButtonToolTip"]));
+            }
+            set {
+                this["S7MailButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Show full output")]
+        public string S7FullOutputButtonToolTip {
+            get {
+                return ((string)(this["S7FullOutputButtonToolTip"]));
+            }
+            set {
+                this["S7FullOutputButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Help")]
+        public string HelpButtonToolTip {
+            get {
+                return ((string)(this["HelpButtonToolTip"]));
+            }
+            set {
+                this["HelpButtonToolTip"] = value;
+            }
+        }
     }
 }

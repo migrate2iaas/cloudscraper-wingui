@@ -25,11 +25,16 @@ namespace CloudScraper
             this.windowsAzureButton.Image = new Bitmap(Image.FromFile("Icons\\Azure.ico"), new Size(32, 32));
             this.elasticHostsButton.Image = new Bitmap(Image.FromFile("Icons\\Elastic.ico"), new Size(32, 32));
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
+            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.Text = Settings.Default.S3Header;
             this.backButton.Text = Settings.Default.S3BackButtonText;
+            this.toolTip.SetToolTip(this.backButton, Settings.Default.S3BackButtonToolTip);
             this.amazonButton.Text = Settings.Default.S3AmazonButtonText;
+            this.toolTip.SetToolTip(this.amazonButton, Settings.Default.S3AmazonButtonToolTip);
             this.windowsAzureButton.Text = Settings.Default.S3WindowsAzureButtonText;
+            this.toolTip.SetToolTip(this.windowsAzureButton, Settings.Default.S3WindowsAzureButtonToolTip);
             this.elasticHostsButton.Text = Settings.Default.S3ElasticHostsButtonText;
+            this.toolTip.SetToolTip(this.elasticHostsButton, Settings.Default.S3ElasticHostsButtonToolTip);
             this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 

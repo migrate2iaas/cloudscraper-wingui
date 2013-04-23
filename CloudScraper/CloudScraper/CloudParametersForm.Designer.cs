@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CloudParametersForm));
             this.backButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -53,6 +54,7 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -379,5 +381,6 @@
         private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.ComboBox zoneComboBox;
         private System.Windows.Forms.ComboBox groupComboBox;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
