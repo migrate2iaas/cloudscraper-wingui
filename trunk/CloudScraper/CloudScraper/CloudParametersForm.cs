@@ -293,6 +293,7 @@ namespace CloudScraper
             try
             {
                 this.testButton.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
 
                 //If there are no keys entered.
                 if (awsId_ == "" || awsKey_ == "")
@@ -300,6 +301,7 @@ namespace CloudScraper
                     DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                     this.testButton.Enabled = true;
+                    this.Cursor = Cursors.Arrow;
                     return;
                 }
 
@@ -345,6 +347,7 @@ namespace CloudScraper
                         Settings.Default.S4TestConnectionHeader,
                          MessageBoxButtons.OK);
                     this.testButton.Enabled = true;
+                    this.Cursor = Cursors.Arrow;
                     return;
                 }
 
@@ -365,6 +368,7 @@ namespace CloudScraper
                                 Settings.Default.S4TestConnectionHeader,
                                 MessageBoxButtons.OK);
                             this.testButton.Enabled = true;
+                            this.Cursor = Cursors.Arrow;
                             return;
                         }
                     }
@@ -384,6 +388,7 @@ namespace CloudScraper
                                 Settings.Default.S4TestConnectionHeader,
                             MessageBoxButtons.OK);
                             this.testButton.Enabled = true;
+                            this.Cursor = Cursors.Arrow;
                             return;
                         }
                     }
@@ -394,6 +399,7 @@ namespace CloudScraper
                     Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                 this.testButton.Enabled = true;
+                this.Cursor = Cursors.Arrow;
                 return;
 
             }
@@ -404,6 +410,7 @@ namespace CloudScraper
                     Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                 this.testButton.Enabled = true;
+                this.Cursor = Cursors.Arrow;
             }
         }
 
