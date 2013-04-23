@@ -254,6 +254,7 @@ namespace CloudScraper
                 this.startButton.Enabled = false;
                 this.backButton.Enabled = false;
                 this.migrateStopped = false;
+                this.Cursor = Cursors.WaitCursor;
 
                 //Start background worker for reading exchange .txt file.
                 Thread task = new Thread(new ThreadStart(this.Work));
@@ -300,6 +301,7 @@ namespace CloudScraper
                                 {
                                     this.startButton.Visible = false;
                                     this.finishButton.Visible = true;
+                                    this.Cursor = Cursors.Arrow;
                                     if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
                                     this.fullOutputButton.Visible = true;
 
@@ -339,6 +341,7 @@ namespace CloudScraper
                         {
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
+                            this.Cursor = Cursors.Arrow;
                             if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
                                 this.fullOutputButton.Visible = true;
                             if (this.withError)
@@ -453,6 +456,8 @@ namespace CloudScraper
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
+
                 SmtpClient Smtp = new SmtpClient(Properties.Settings.Default.SMTPServer, 25);
                 Smtp.Credentials = new NetworkCredential(Properties.Settings.Default.SMTPLogin,
                     Properties.Settings.Default.SMTPPassword);
@@ -549,12 +554,14 @@ namespace CloudScraper
                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
                     File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
 
+               this.Cursor = Cursors.Arrow;
                MessageBox.Show(Settings.Default.MailSendMessage,
                    Settings.Default.MailSendHeader, MessageBoxButtons.OK); 
             }
             catch (Exception e)
             {
                 this.attach.Dispose();
+                this.Cursor = Cursors.Arrow;
                 MessageBox.Show(e.ToString(),   
                     Settings.Default.MailSendFailedHeader,    MessageBoxButtons.OK);  
             }
