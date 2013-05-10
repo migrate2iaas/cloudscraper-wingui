@@ -1,0 +1,331 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CloudScraper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;m1.medium/M1 Medium&lt;/string&gt;
+  &lt;string&gt;m1.small/M1 Small&lt;/string&gt;
+  &lt;string&gt;m1.large/M1 Large&lt;/string&gt;
+  &lt;string&gt;m1.xlarge/M1 Extra Large&lt;/string&gt;
+  &lt;string&gt;m3.2xlarge/M3 Double Extra Large&lt;/string&gt;
+  &lt;string&gt;m3.xlarge/M3 Extra Large&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;us-east-1/US East (Northern Virginia)&lt;/string&gt;
+  &lt;string&gt;us-west-2/US West (Oregon)&lt;/string&gt;
+  &lt;string&gt;us-west-1/US West (Northern California)&lt;/string&gt;
+  &lt;string&gt;eu-west-1/EU (Ireland)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-1/Asia Pacific (Singapore)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-2/Asia Pacific (Sydney)&lt;/string&gt;
+  &lt;string&gt;ap-northeast-1/Asia Pacific (Tokyo)&lt;/string&gt;
+  &lt;string&gt;sa-east-1/South America (Sao Paulo)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Separator" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">/</Value>
+    </Setting>
+    <Setting Name="S1Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cloudscraper Server Copy</Value>
+    </Setting>
+    <Setting Name="S2Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose volumes to copy...</Value>
+    </Setting>
+    <Setting Name="S3Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose Your Cloud</Value>
+    </Setting>
+    <Setting Name="S4Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cloud Options</Value>
+    </Setting>
+    <Setting Name="S5Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Images Location...</Value>
+    </Setting>
+    <Setting Name="S6Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Save transfer task</Value>
+    </Setting>
+    <Setting Name="S7Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer progress</Value>
+    </Setting>
+    <Setting Name="R2Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume your transfer task</Value>
+    </Setting>
+    <Setting Name="S1Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S2Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S3Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S4Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S5Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S6Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="S7Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="R2Link" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ya.ru</Value>
+    </Setting>
+    <Setting Name="SupportEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cloudscraper@support.assembla.com</Value>
+    </Setting>
+    <Setting Name="S1StartNewButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start New Transfer...</Value>
+    </Setting>
+    <Setting Name="S1ResumeButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume Existing Transfer...</Value>
+    </Setting>
+    <Setting Name="S2LabelTotalSpace" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Total Space Required:</Value>
+    </Setting>
+    <Setting Name="S2NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="S2BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S3BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S3AmazonButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Amazon EC2</Value>
+    </Setting>
+    <Setting Name="S3WindowsAzureButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Windows Azure (Not supported)</Value>
+    </Setting>
+    <Setting Name="S3ElasticHostsButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ElasticHosts (Not supported)</Value>
+    </Setting>
+    <Setting Name="S4BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S4NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="S4TestButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test Connection</Value>
+    </Setting>
+    <Setting Name="S4RegionLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose Region:</Value>
+    </Setting>
+    <Setting Name="S4awsIdLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">You AWS Id:</Value>
+    </Setting>
+    <Setting Name="S4awsKeyLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">You AWS Secret Key:</Value>
+    </Setting>
+    <Setting Name="S4AdvancedCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Use advanced settings</Value>
+    </Setting>
+    <Setting Name="S4BucketLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your S3 Bucket:</Value>
+    </Setting>
+    <Setting Name="S4FolderKeyLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify folder (key):</Value>
+    </Setting>
+    <Setting Name="S4TypeLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your cloud server type:</Value>
+    </Setting>
+    <Setting Name="S4ZoneLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your availability zone:</Value>
+    </Setting>
+    <Setting Name="S4GroupLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your security group:</Value>
+    </Setting>
+    <Setting Name="S5NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="S5BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S5BrowseButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse...</Value>
+    </Setting>
+    <Setting Name="S5MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Please choose folder where to store your server disk images:</Value>
+    </Setting>
+    <Setting Name="S5TotalSpaceLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Total Space Required:</Value>
+    </Setting>
+    <Setting Name="S5FreeSpaceLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Free Space:</Value>
+    </Setting>
+    <Setting Name="S5ErrorLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Not enough space!</Value>
+    </Setting>
+    <Setting Name="S6MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Select path to save transfer file:</Value>
+    </Setting>
+    <Setting Name="S6NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="S6BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S6BrowseButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse...</Value>
+    </Setting>
+    <Setting Name="S7BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="S7StartButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start</Value>
+    </Setting>
+    <Setting Name="S7FinishButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Finish</Value>
+    </Setting>
+    <Setting Name="S7FullOutputButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Show full output</Value>
+    </Setting>
+    <Setting Name="S7MailButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Send Report to Support</Value>
+    </Setting>
+    <Setting Name="R2MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Load your previously saved transfer task</Value>
+    </Setting>
+    <Setting Name="R2UploadCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume Upload (check if your images is already created)</Value>
+    </Setting>
+    <Setting Name="R2RedeployCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Redeploy Uploaded Image (creates cloud server from the image already uploaded)</Value>
+    </Setting>
+    <Setting Name="R2awsIdLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">You AWS Key:</Value>
+    </Setting>
+    <Setting Name="R2NextButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Next &gt;&gt;</Value>
+    </Setting>
+    <Setting Name="R2BackButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;&lt; Back</Value>
+    </Setting>
+    <Setting Name="R2BrowseButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse...</Value>
+    </Setting>
+    <Setting Name="S4TestConnectionText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test connection done.</Value>
+    </Setting>
+    <Setting Name="S4TestConnectionHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test connection</Value>
+    </Setting>
+    <Setting Name="S4InvalidBucketText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Invalid bucket name.</Value>
+    </Setting>
+    <Setting Name="S4CannotAccessBucketText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cannot access the bucket, please specify another one.</Value>
+    </Setting>
+    <Setting Name="S4NoBucketExists" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No bucket with name specified exists, it’ll be created automatically.</Value>
+    </Setting>
+    <Setting Name="S4IDKeyInvalid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AWSId and AWSKey are Invalid.</Value>
+    </Setting>
+    <Setting Name="S4BucketLocated" Type="System.String" Scope="User">
+      <Value Profile="(Default)">The bucket you specified is located in another region, please specify another bucket.</Value>
+    </Setting>
+    <Setting Name="S4EnterAWS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter your AWSId and AWSKey.</Value>
+    </Setting>
+    <Setting Name="S2MessgeHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Message</Value>
+    </Setting>
+    <Setting Name="S2MessageFirst" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Are you sure you don't want to move your system?</Value>
+    </Setting>
+    <Setting Name="S2MessageSecond" Type="System.String" Scope="User">
+      <Value Profile="(Default)">In this case no cloud servers will be created!</Value>
+    </Setting>
+    <Setting Name="MailHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E-mail Report</Value>
+    </Setting>
+    <Setting Name="MailUserNameLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">User Name:</Value>
+    </Setting>
+    <Setting Name="MailEmailLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">e-mail:</Value>
+    </Setting>
+    <Setting Name="FullOutputHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Full output</Value>
+    </Setting>
+    <Setting Name="FilesToAttach" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;%Windir%\test.txt&lt;/string&gt;
+  &lt;string&gt;test1.txt&lt;/string&gt;
+  &lt;string&gt;test2.txt&lt;/string&gt;
+  &lt;string&gt;test3.txt&lt;/string&gt;
+  &lt;string&gt;logs\migrate.log&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ZipFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">test.zip</Value>
+    </Setting>
+    <Setting Name="S7PythonErrorHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Error</Value>
+    </Setting>
+    <Setting Name="S7PythonErrorMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Error occur during start migrate.py </Value>
+    </Setting>
+    <Setting Name="SMTPServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">smtp.yandex.ru</Value>
+    </Setting>
+    <Setting Name="SMTPLogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cloudscraper2@yandex.ru</Value>
+    </Setting>
+    <Setting Name="SMTPPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cloudscraper</Value>
+    </Setting>
+    <Setting Name="TextFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">transfer.txt</Value>
+    </Setting>
+    <Setting Name="S6WarningHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Warning</Value>
+    </Setting>
+    <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer configuration file already exists, do you want to rewrite it?</Value>
+    </Setting>
+    <Setting Name="S5WarningHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Warning</Value>
+    </Setting>
+    <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Folder is  not empty</Value>
+    </Setting>
+    <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Path incorrect</Value>
+    </Setting>
+    <Setting Name="S5DirectoryNotExistWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Directory doesn’t exist. Do you want to create it?</Value>
+    </Setting>
+    <Setting Name="S5WrongSymbolsWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Path contains: \\ / : * ? \" &lt; &gt; |</Value>
+    </Setting>
+    <Setting Name="S6PathIncorrectWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">File name incorrect</Value>
+    </Setting>
+    <Setting Name="S6WrongSymbolsWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">File name contains: \\ / : * ? \" &lt; &gt; |</Value>
+    </Setting>
+    <Setting Name="MailSendFailedHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mail Send Failed</Value>
+    </Setting>
+    <Setting Name="MailSendHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mail Send</Value>
+    </Setting>
+    <Setting Name="MailSendMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Report sent. You’ll be contacted via e-mail provided</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
