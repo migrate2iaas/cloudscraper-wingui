@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseDisksForm));
             this.nextButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
@@ -36,7 +35,6 @@
             this.totalSpaceLabel = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.helpButton = new System.Windows.Forms.Button();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,6 +148,5 @@
         private System.Windows.Forms.Label totalSpaceLabel;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.ToolTip toolTip;
     }
 }

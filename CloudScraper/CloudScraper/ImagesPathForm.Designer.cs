@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImagesPathForm));
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.browseButton = new System.Windows.Forms.Button();
@@ -44,7 +43,6 @@
             this.logoPicture = new System.Windows.Forms.PictureBox();
             this.errorPicture = new System.Windows.Forms.PictureBox();
             this.errorLabel = new System.Windows.Forms.Label();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPicture)).BeginInit();
             this.SuspendLayout();
@@ -125,12 +123,12 @@
             // 
             // mainLabel
             // 
-            this.mainLabel.Location = new System.Drawing.Point(140, 9);
+            this.mainLabel.AutoSize = true;
+            this.mainLabel.Location = new System.Drawing.Point(200, 62);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(415, 110);
+            this.mainLabel.Size = new System.Drawing.Size(292, 13);
             this.mainLabel.TabIndex = 8;
             this.mainLabel.Text = "Please choose folder where to store your server disk images:";
-            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // helpButton
             // 
@@ -231,6 +229,5 @@
         private System.Windows.Forms.PictureBox logoPicture;
         private System.Windows.Forms.PictureBox errorPicture;
         private System.Windows.Forms.Label errorLabel;
-        private System.Windows.Forms.ToolTip toolTip;
     }
 }

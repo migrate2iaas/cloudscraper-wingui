@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResumeTransferForm));
             this.backButton = new System.Windows.Forms.Button();
             this.resumeUploadCheckBox = new System.Windows.Forms.CheckBox();
@@ -42,7 +41,6 @@
             this.logoPicture = new System.Windows.Forms.PictureBox();
             this.awsIdTextBox = new System.Windows.Forms.TextBox();
             this.awsIdLabel = new System.Windows.Forms.Label();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,12 +107,12 @@
             // 
             // mainLabel
             // 
-            this.mainLabel.Location = new System.Drawing.Point(139, 9);
+            this.mainLabel.AutoSize = true;
+            this.mainLabel.Location = new System.Drawing.Point(236, 63);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(420, 90);
+            this.mainLabel.Size = new System.Drawing.Size(197, 13);
             this.mainLabel.TabIndex = 6;
             this.mainLabel.Text = "Load your previously saved transfer task";
-            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // helpButton
             // 
@@ -154,12 +152,12 @@
             // 
             // awsIdLabel
             // 
-            this.awsIdLabel.Location = new System.Drawing.Point(139, 198);
+            this.awsIdLabel.AutoSize = true;
+            this.awsIdLabel.Location = new System.Drawing.Point(155, 216);
             this.awsIdLabel.Name = "awsIdLabel";
-            this.awsIdLabel.Size = new System.Drawing.Size(94, 49);
+            this.awsIdLabel.Size = new System.Drawing.Size(78, 13);
             this.awsIdLabel.TabIndex = 20;
             this.awsIdLabel.Text = "You AWS Key:";
-            this.awsIdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ResumeTransferForm
             // 
@@ -206,6 +204,5 @@
         private System.Windows.Forms.PictureBox logoPicture;
         private System.Windows.Forms.TextBox awsIdTextBox;
         private System.Windows.Forms.Label awsIdLabel;
-        private System.Windows.Forms.ToolTip toolTip;
     }
 }

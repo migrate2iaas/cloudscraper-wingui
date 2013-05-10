@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseCloudForm));
             this.backButton = new System.Windows.Forms.Button();
             this.amazonButton = new System.Windows.Forms.Button();
@@ -36,7 +35,6 @@
             this.elasticHostsButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.logoPicture = new System.Windows.Forms.PictureBox();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,6 +140,5 @@
         private System.Windows.Forms.Button elasticHostsButton;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.PictureBox logoPicture;
-        private System.Windows.Forms.ToolTip toolTip;
     }
 }

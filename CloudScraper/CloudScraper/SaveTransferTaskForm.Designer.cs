@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaveTransferTaskForm));
             this.saveTransferTextBox = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
@@ -38,7 +37,6 @@
             this.mainLabel = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
             this.logoPicture = new System.Windows.Forms.PictureBox();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,12 +80,12 @@
             // 
             // mainLabel
             // 
-            this.mainLabel.Location = new System.Drawing.Point(141, 1);
+            this.mainLabel.AutoSize = true;
+            this.mainLabel.Location = new System.Drawing.Point(275, 65);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(414, 121);
+            this.mainLabel.Size = new System.Drawing.Size(156, 13);
             this.mainLabel.TabIndex = 4;
             this.mainLabel.Text = "Select path to save transfer file:";
-            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // helpButton
             // 
@@ -152,6 +150,5 @@
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.PictureBox logoPicture;
-        private System.Windows.Forms.ToolTip toolTip;
     }
 }

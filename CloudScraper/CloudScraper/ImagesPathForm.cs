@@ -24,14 +24,10 @@ namespace CloudScraper
             
             //Init basic UI strings from seettings file.
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
-            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.Text = Settings.Default.S5Header;
             this.nextButton.Text = Settings.Default.S5NextButtonText;
-            this.toolTip.SetToolTip(this.nextButton, Settings.Default.S5NextButtonToolTip);
             this.backButton.Text = Settings.Default.S5BackButtonText;
-            this.toolTip.SetToolTip(this.backButton, Settings.Default.S5BackButtonToolTip);
             this.browseButton.Text = Settings.Default.S5BrowseButtonText;
-            this.toolTip.SetToolTip(this.browseButton, Settings.Default.S5BrowseButtonToolTip);
             this.mainLabel.Text = Settings.Default.S5MainLabelText;
             this.totalSpaceLabel.Text = Settings.Default.S5TotalSpaceLabelText;
             this.freeSpaceLabel.Text = Settings.Default.S5FreeSpaceLabelText;

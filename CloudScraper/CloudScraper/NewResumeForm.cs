@@ -26,13 +26,10 @@ namespace CloudScraper
 
             this.startNewButton.Image = new Bitmap(Image.FromFile("Icons\\StartNew.ico"), new Size(32, 32));
             this.startNewButton.Text = Settings.Default.S1StartNewButtonText;
-            this.toolTip.SetToolTip(this.startNewButton, Settings.Default.S1StartNewButtonToolTip);
             this.resumeButton.Image = new Bitmap(Image.FromFile("Icons\\Resume.ico"), new Size(32, 32));
             this.resumeButton.Text = Settings.Default.S1ResumeButtonText;
-            this.toolTip.SetToolTip(this.resumeButton, Settings.Default.S1ResumeButtonToolTip);
             this.Text = Settings.Default.S1Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
-            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CopyStartForm));
             this.startButton = new System.Windows.Forms.Button();
@@ -38,7 +37,6 @@
             this.fullOutputButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.mailButton = new System.Windows.Forms.Button();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,6 +176,5 @@
         private System.Windows.Forms.Button fullOutputButton;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Button mailButton;
-        private System.Windows.Forms.ToolTip toolTip;
     }
 }

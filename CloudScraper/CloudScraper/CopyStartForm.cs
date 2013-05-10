@@ -55,15 +55,10 @@ namespace CloudScraper
             // Initialize UI strings in Form. 
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
-            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.backButton.Text = Settings.Default.S7BackButtonText;
-            this.toolTip.SetToolTip(this.backButton, Settings.Default.S7BackButtonToolTip);
             this.startButton.Text = Settings.Default.S7StartButtonText;
-            this.toolTip.SetToolTip(this.startButton, Settings.Default.S7StartButtonToolTip);
             this.mailButton.Text = Settings.Default.S7MailButtonText;
-            this.toolTip.SetToolTip(this.mailButton, Settings.Default.S7MailButtonToolTip);
             this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
-            this.toolTip.SetToolTip(this.fullOutputButton, Settings.Default.S7FullOutputButtonToolTip);
             
             this.withError = false;
             this.pythonProcess = null;
@@ -85,15 +80,10 @@ namespace CloudScraper
             // Initialize UI strings in Form.
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
-            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.backButton.Text = Settings.Default.S7BackButtonText;
-            this.toolTip.SetToolTip(this.backButton, Settings.Default.S7BackButtonToolTip);
             this.startButton.Text = Settings.Default.S7StartButtonText;
-            this.toolTip.SetToolTip(this.startButton, Settings.Default.S7StartButtonToolTip);
             this.mailButton.Text = Settings.Default.S7MailButtonText;
-            this.toolTip.SetToolTip(this.mailButton, Settings.Default.S7MailButtonToolTip);
             this.fullOutputButton.Text = Settings.Default.S7FullOutputButtonText;
-            this.toolTip.SetToolTip(this.fullOutputButton, Settings.Default.S7FullOutputButtonToolTip);
 
             this.withError = false;
             pythonProcess = null;
@@ -264,7 +254,6 @@ namespace CloudScraper
                 this.startButton.Enabled = false;
                 this.backButton.Enabled = false;
                 this.migrateStopped = false;
-                this.Cursor = Cursors.WaitCursor;
 
                 //Start background worker for reading exchange .txt file.
                 Thread task = new Thread(new ThreadStart(this.Work));
@@ -311,7 +300,6 @@ namespace CloudScraper
                                 {
                                     this.startButton.Visible = false;
                                     this.finishButton.Visible = true;
-                                    this.Cursor = Cursors.Arrow;
                                     if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
                                     this.fullOutputButton.Visible = true;
 
@@ -351,7 +339,6 @@ namespace CloudScraper
                         {
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
-                            this.Cursor = Cursors.Arrow;
                             if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
                                 this.fullOutputButton.Visible = true;
                             if (this.withError)
@@ -466,8 +453,6 @@ namespace CloudScraper
         {
             try
             {
-                this.Cursor = Cursors.WaitCursor;
-
                 SmtpClient Smtp = new SmtpClient(Properties.Settings.Default.SMTPServer, 25);
                 Smtp.Credentials = new NetworkCredential(Properties.Settings.Default.SMTPLogin,
                     Properties.Settings.Default.SMTPPassword);
@@ -564,14 +549,12 @@ namespace CloudScraper
                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
                     File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
 
-               this.Cursor = Cursors.Arrow;
                MessageBox.Show(Settings.Default.MailSendMessage,
                    Settings.Default.MailSendHeader, MessageBoxButtons.OK); 
             }
             catch (Exception e)
             {
                 this.attach.Dispose();
-                this.Cursor = Cursors.Arrow;
                 MessageBox.Show(e.ToString(),   
                     Settings.Default.MailSendFailedHeader,    MessageBoxButtons.OK);  
             }
@@ -628,15 +611,6 @@ namespace CloudScraper
             //When "X" button pressed.
             if (e.KeyData == Keys.X)
             {
-
-                DialogResult result = MessageBox.Show(
-                Settings.Default.S7XKeyWarningMessage,
-                Settings.Default.S7WarningHeader,
-                MessageBoxButtons.OKCancel);
-
-                if (result == DialogResult.Cancel)
-                    return;
-
                 //Kill python.exe process in TaskManager if exists.
                 System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
                 foreach (System.Diagnostics.Process pr in localByName)

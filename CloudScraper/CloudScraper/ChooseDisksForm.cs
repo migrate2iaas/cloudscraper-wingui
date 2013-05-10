@@ -39,10 +39,7 @@ namespace CloudScraper
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.labelTotalSpace.Text = Settings.Default.S2LabelTotalSpace;
             this.nextButton.Text = Settings.Default.S2NextButtonText;
-            this.toolTip.SetToolTip(this.nextButton, Settings.Default.S2NextButtonToolTip); 
             this.backButton.Text = Settings.Default.S2BackButtonText;
-            this.toolTip.SetToolTip(this.backButton, Settings.Default.S2BackButtonToolTip);
-            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
         }
 
         private void BackButtonClick(object sender, EventArgs e)

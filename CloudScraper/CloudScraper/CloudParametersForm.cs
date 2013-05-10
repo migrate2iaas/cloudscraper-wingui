@@ -65,16 +65,12 @@ namespace CloudScraper
 
             //Set basic UI strings in Form. 
             this.helpButton.Image = new Bitmap(System.Drawing.Image.FromFile("Icons\\Help.png"), new Size(16, 16));
-            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.serverTypeComboBox.SelectedIndex = 0;
             this.nextButton.Enabled = false;
             this.Text = Settings.Default.S4Header;
             this.backButton.Text = Settings.Default.S4BackButtonText;
-            this.toolTip.SetToolTip(this.backButton, Settings.Default.S4BackButtonToolTip);
             this.nextButton.Text = Settings.Default.S4NextButtonText;
-            this.toolTip.SetToolTip(this.nextButton, Settings.Default.S4NextButtonToolTip);
             this.testButton.Text = Settings.Default.S4TestButtonText;
-            this.toolTip.SetToolTip(this.testButton, Settings.Default.S4TestButtonToolTip);
             this.regionLabel.Text = Settings.Default.S4RegionLabelText;
             this.awsIdLabel.Text = Settings.Default.S4awsIdLabelText;
             this.awsKeyLabel.Text = Settings.Default.S4awsKeyLabelText;
@@ -84,7 +80,6 @@ namespace CloudScraper
             this.typeLabel.Text = Settings.Default.S4TypeLabelText;
             this.zoneLabel.Text = Settings.Default.S4ZoneLabelText;
             this.groupLabel.Text = Settings.Default.S4GroupLabelText;
-            
         }
 
         private void BackButtonClick(object sender, EventArgs e)
@@ -297,7 +292,6 @@ namespace CloudScraper
             try
             {
                 this.testButton.Enabled = false;
-                this.Cursor = Cursors.WaitCursor;
 
                 //If there are no keys entered.
                 if (awsId_ == "" || awsKey_ == "")
@@ -305,7 +299,6 @@ namespace CloudScraper
                     DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                     this.testButton.Enabled = true;
-                    this.Cursor = Cursors.Arrow;
                     return;
                 }
 
@@ -351,7 +344,6 @@ namespace CloudScraper
                         Settings.Default.S4TestConnectionHeader,
                          MessageBoxButtons.OK);
                     this.testButton.Enabled = true;
-                    this.Cursor = Cursors.Arrow;
                     return;
                 }
 
@@ -372,7 +364,6 @@ namespace CloudScraper
                                 Settings.Default.S4TestConnectionHeader,
                                 MessageBoxButtons.OK);
                             this.testButton.Enabled = true;
-                            this.Cursor = Cursors.Arrow;
                             return;
                         }
                     }
@@ -392,7 +383,6 @@ namespace CloudScraper
                                 Settings.Default.S4TestConnectionHeader,
                             MessageBoxButtons.OK);
                             this.testButton.Enabled = true;
-                            this.Cursor = Cursors.Arrow;
                             return;
                         }
                     }
@@ -403,7 +393,6 @@ namespace CloudScraper
                     Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                 this.testButton.Enabled = true;
-                this.Cursor = Cursors.Arrow;
                 return;
 
             }
@@ -413,8 +402,6 @@ namespace CloudScraper
                 DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" + 
                     Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
-                this.testButton.Enabled = true;
-                this.Cursor = Cursors.Arrow;
             }
         }
 
@@ -492,6 +479,5 @@ namespace CloudScraper
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseCloudForm_.Location;
         }
-
     }
 }

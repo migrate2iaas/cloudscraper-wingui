@@ -27,7 +27,6 @@ namespace CloudScraper
             InitializeComponent();
 
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
-            this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             resumeUpload_ = false;
             skipUpload_ = false;
             this.Text = Settings.Default.R2Header;
@@ -36,11 +35,8 @@ namespace CloudScraper
             this.redeployUploadCheckBox.Text = Settings.Default.R2RedeployCheckBoxText;
             this.resumeUploadCheckBox.Text = Settings.Default.R2UploadCheckBoxText;
             this.nextButton.Text = Settings.Default.R2NextButtonText;
-            this.toolTip.SetToolTip(this.nextButton, Settings.Default.R2NextButtonToolTip);
             this.backButton.Text = Settings.Default.R2BackButtonText;
-            this.toolTip.SetToolTip(this.backButton, Settings.Default.R2BackButtonToolTip);
             this.browseButton.Text = Settings.Default.R2BrowseButtonText;
-            this.toolTip.SetToolTip(this.browseButton, Settings.Default.R2BrowseButtonToolTip);
             this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
