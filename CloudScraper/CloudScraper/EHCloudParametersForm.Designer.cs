@@ -34,7 +34,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.awsKeyTextBox = new System.Windows.Forms.TextBox();
-            this.awsIdTextBox = new System.Windows.Forms.TextBox();
+            this.uuidTextBox = new System.Windows.Forms.TextBox();
             this.awsKeyLabel = new System.Windows.Forms.Label();
             this.awsIdLabel = new System.Windows.Forms.Label();
             this.regionComboBox = new System.Windows.Forms.ComboBox();
@@ -73,7 +73,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.awsKeyTextBox);
-            this.tabPage1.Controls.Add(this.awsIdTextBox);
+            this.tabPage1.Controls.Add(this.uuidTextBox);
             this.tabPage1.Controls.Add(this.awsKeyLabel);
             this.tabPage1.Controls.Add(this.awsIdLabel);
             this.tabPage1.Controls.Add(this.regionComboBox);
@@ -94,16 +94,16 @@
             this.awsKeyTextBox.PasswordChar = '*';
             this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
             this.awsKeyTextBox.TabIndex = 7;
-            this.awsKeyTextBox.TextChanged += new System.EventHandler(this.AwsKeyChanged);
+            this.awsKeyTextBox.TextChanged += new System.EventHandler(this.ApiKeyChanged);
             // 
-            // awsIdTextBox
+            // uuidTextBox
             // 
-            this.awsIdTextBox.Location = new System.Drawing.Point(193, 90);
-            this.awsIdTextBox.MaxLength = 20;
-            this.awsIdTextBox.Name = "awsIdTextBox";
-            this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
-            this.awsIdTextBox.TabIndex = 3;
-            this.awsIdTextBox.TextChanged += new System.EventHandler(this.AwsIDChanged);
+            this.uuidTextBox.Location = new System.Drawing.Point(193, 90);
+            this.uuidTextBox.MaxLength = 36;
+            this.uuidTextBox.Name = "uuidTextBox";
+            this.uuidTextBox.Size = new System.Drawing.Size(220, 20);
+            this.uuidTextBox.TabIndex = 3;
+            this.uuidTextBox.TextChanged += new System.EventHandler(this.UUIDChanged);
             // 
             // awsKeyLabel
             // 
@@ -130,6 +130,7 @@
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(219, 21);
             this.regionComboBox.TabIndex = 8;
+            this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.RegionChanged);
             // 
             // regionLabel
             // 
@@ -157,9 +158,9 @@
             this.advancedCheckBox.AutoSize = true;
             this.advancedCheckBox.Location = new System.Drawing.Point(90, 15);
             this.advancedCheckBox.Name = "advancedCheckBox";
-            this.advancedCheckBox.Size = new System.Drawing.Size(135, 17);
+            this.advancedCheckBox.Size = new System.Drawing.Size(89, 17);
             this.advancedCheckBox.TabIndex = 8;
-            this.advancedCheckBox.Text = "Use advanced settings";
+            this.advancedCheckBox.Text = "Direct upload";
             this.advancedCheckBox.UseVisualStyleBackColor = true;
             this.advancedCheckBox.CheckedChanged += new System.EventHandler(this.AdvancedChecked);
             // 
@@ -233,7 +234,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox awsKeyTextBox;
-        private System.Windows.Forms.TextBox awsIdTextBox;
+        private System.Windows.Forms.TextBox uuidTextBox;
         private System.Windows.Forms.Label awsKeyLabel;
         private System.Windows.Forms.Label awsIdLabel;
         private System.Windows.Forms.ComboBox regionComboBox;

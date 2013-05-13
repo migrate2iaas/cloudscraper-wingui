@@ -12,23 +12,20 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.EC2;
 using Amazon.EC2.Model;
+using System.Text.RegularExpressions;
 
 namespace CloudScraper
 {
     public partial class EHCloudParametersForm : Form
     {
-        public static string awsId_ = "";
-        public static string awsKey_ = "";
+        public static string uuid_ = "";
+        public static string apiKey_ = "";
         public static string region_;
-        public static bool advanced_ = false;
-        public static string s3bucket_ = "";
-        public static string folderKey_ = "";
-        public static string type_;
-        public static string zone_ = "";
-        public static string group_ = "";
+        public static bool directUpload_ = false;
         
         ChooseCloudForm chooseCloudForm_;
         ImagesPathForm imagesPathForm_;
+        SaveTransferTaskForm saveTransferTaskForm_;
 
         SortedDictionary<string, string> regionList_;
         SortedDictionary<string, string> serverTypeList_;
@@ -91,59 +88,27 @@ namespace CloudScraper
         }
 
         private void NextButtonClick(object sender, EventArgs e)
-        {
-            //Check bucket name is correct.
-            //See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
-            if (s3bucket_ != "")
-            {
-                if (region_.Substring(0, 7) != "us-east")
-                {
-                    if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
-                        || s3bucket_.Length < 3 || s3bucket_.Length > 63)
-                    {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
-                        return;
-                    }
-
-                    bool lookLikeIp = true;
-                    foreach (char ch in s3bucket_)
-                    {
-                        if (!char.IsDigit(ch) && ch != '.')
-                        {
-                            lookLikeIp = false;
-                        }
-                    }
-
-                    if (lookLikeIp)
-                    {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
-                        return;
-                    }
-                }
-                if (region_.Substring(0, 7) == "us-east")
-                {
-                    if (s3bucket_.Length > 255)
-                    {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
-                        return;
-                    }
-                }
-            }
-            
+        {            
             this.Hide();
 
-            if (this.imagesPathForm_ == null)
+            if (!directUpload_)
             {
-                //this.imagesPathForm_ = new ImagesPathForm(this);
-            }
+                if (this.imagesPathForm_ == null)
+                {
+                    this.imagesPathForm_ = new ImagesPathForm(this);
+                }
 
-            imagesPathForm_.ShowDialog();
+                imagesPathForm_.ShowDialog();
+            }
+            else
+            {
+                if (this.saveTransferTaskForm_ == null)
+                {
+                    this.saveTransferTaskForm_ = new SaveTransferTaskForm(this);
+                }
+
+                saveTransferTaskForm_.ShowDialog();
+            }
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
@@ -151,60 +116,39 @@ namespace CloudScraper
             this.chooseCloudForm_.Close();
         }
 
-        private void AwsIDChanged(object sender, EventArgs e)
+        private void UUIDChanged(object sender, EventArgs e)
         {
-            awsId_ = (sender as TextBox).Text;
+            uuid_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        private void AwsKeyChanged(object sender, EventArgs e)
+        private void ApiKeyChanged(object sender, EventArgs e)
         {
-            awsKey_ = (sender as TextBox).Text;
+            apiKey_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
-
-
 
         private void AdvancedChecked(object sender, EventArgs e)
         {
             if ((sender as CheckBox).Checked)
             {
-                advanced_ = true;
-
+                directUpload_ = true;
                 this.CheckEnter();
             }
             else
             {
-                advanced_ = false;
-                s3bucket_ = "";
-
+                directUpload_ = false;
                 this.CheckEnter();
             }
-        }
-
-
-        private void FolderKeyChanged(object sender, EventArgs e)
-        {            
-            folderKey_ = (sender as TextBox).Text;
-            this.CheckEnter();
-        }
-
-        private void ServerTypeChanged(object sender, EventArgs e)
-        {
-            type_ = this.serverTypeList_[(string)(sender as ComboBox).SelectedItem];
         }
 
         //Check enter in Form for activate Next button.
         private void CheckEnter()
         {
-            if (!advanced_ && awsId_ != "" && awsId_.Length == 20 && 
-                awsKey_ != "" && awsKey_.Length == 40)
-            {
-                this.nextButton.Enabled = true;
-            }
-            else if (advanced_ && awsId_ != "" && awsId_.Length == 20
-                && awsKey_ != "" && awsKey_.Length == 40
-                && s3bucket_ != "" && zone_ != "" && group_ != "" && folderKey_ != "")
+            Guid guid = StringToGuid(uuid_);
+
+            if (guid != Guid.Empty
+                && apiKey_ != "" && apiKey_.Length == 40)
             {
                 this.nextButton.Enabled = true;
             }
@@ -219,34 +163,29 @@ namespace CloudScraper
             System.Diagnostics.Process.Start(Settings.Default.S4Link);
         }
 
+        
+        private static Regex reGuid = new Regex(@"^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$",  
+            RegexOptions.Compiled);  
+  
+        public static Guid StringToGuid(string id)  
+        {  
+            if (id == null || id.Length != 36 ) return Guid.Empty;  
+            if (reGuid.IsMatch(id))  
+                return new Guid(id);  
+            else  
+                return Guid.Empty;  
+        }  
+        
         //Test connection.
         private void TestButtonClick(object sender, EventArgs e)
-        {
-            try
-            {
-                string credentials = "570a0faa-ca17-4689-b06b-3400ce8b5294:EcbSsaj6YbQnX2qPeYzJBdx4PCtL9zbgk2wEGDcE";
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api-sat-p.elastichosts.com/servers/list");
-                request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes(credentials)));
-                //request.PreAuthenticate = true;
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            }
-            catch (WebException ex)
-            {
-                if (ex.Status == WebExceptionStatus.Success)
-                {
-                
-                }
-            }
-            
-
+        {            
             try
             {
                 this.testButton.Enabled = false;
                 this.Cursor = Cursors.WaitCursor;
 
                 //If there are no keys entered.
-                if (awsId_ == "" || awsKey_ == "")
+                if (uuid_ == "" || apiKey_ == "")
                 {
                     DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
@@ -255,93 +194,26 @@ namespace CloudScraper
                     return;
                 }
 
-                AmazonEC2Config config = new AmazonEC2Config();
-                config.ServiceURL = "https://ec2." + region_+ ".amazonaws.com";
-                AmazonEC2 client = new AmazonEC2Client(awsId_, awsKey_, config);
-                DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
+                string credentials = uuid_ + ":" + apiKey_;
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api-" + region_ + ".elastichosts.com/servers/list");
+                request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes(credentials)));
+                //request.PreAuthenticate = true;
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-                //Download zones.
-                DescribeAvailabilityZonesResponse availabilityZonesResponse = 
-                    client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
-
-
-
-                //zone_ = (string)zoneComboBox.SelectedItem;
-
-                //Download security groups.
-                DescribeSecurityGroupsResponse securityGroupResponse = 
-                    client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
-
-
-                //group_ = (string)groupComboBox.SelectedItem;
-
-                //If not advanced mode, show done message and return.
-                if (!advanced_)
-                {     
-                    DialogResult result = MessageBox.Show(Settings.Default.S4TestConnectionText, 
-                        Settings.Default.S4TestConnectionHeader,
-                         MessageBoxButtons.OK);
-                    this.testButton.Enabled = true;
-                    this.Cursor = Cursors.Arrow;
-                    return;
-                }
-
-                //If advanced mode, continue. 
-                AmazonS3 client2 = Amazon.AWSClientFactory.CreateAmazonS3Client(
-                    awsId_, awsKey_);
-
-                if (s3bucket_ != "")
-                {
-                    try
-                    {
-                        GetBucketLocationRequest req = new GetBucketLocationRequest();
-                        req.BucketName = s3bucket_;
-                        GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
-                        if (bucketResponse.Location != region_)
-                        {
-                            DialogResult result = MessageBox.Show(Settings.Default.S4BucketLocated, 
-                                Settings.Default.S4TestConnectionHeader,
-                                MessageBoxButtons.OK);
-                            this.testButton.Enabled = true;
-                            this.Cursor = Cursors.Arrow;
-                            return;
-                        }
-                    }
-                    catch (AmazonS3Exception ex)
-                    {
-                        if (ex.ErrorCode == "NoSuchBucket")
-                        {
-                            //If no such bucket.
-                            DialogResult result = MessageBox.Show(Settings.Default.S4NoBucketExists, 
-                                Settings.Default.S4TestConnectionHeader,
-                                MessageBoxButtons.OK);
-                        }
-                        else
-                        {
-                            //If bucket exist but locked.
-                            DialogResult result = MessageBox.Show(Settings.Default.S4CannotAccessBucketText, 
-                                Settings.Default.S4TestConnectionHeader,
-                            MessageBoxButtons.OK);
-                            this.testButton.Enabled = true;
-                            this.Cursor = Cursors.Arrow;
-                            return;
-                        }
-                    }
-                }
-
-                //Show done message in advanced mode.
-                DialogResult result2 = MessageBox.Show(Settings.Default.S4TestConnectionText, 
+   
+                DialogResult reslt = MessageBox.Show(Settings.Default.S4TestConnectionText, 
                     Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
+                        MessageBoxButtons.OK);
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
                 return;
+              
 
             }
-            catch (AmazonEC2Exception amazonEC2Exception)
+            catch (WebException ex)
             {
                 //Show dialog  when auth failed.
-                DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" + 
+                DialogResult result = MessageBox.Show(ex.Status + "\n" + 
                     Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                 this.testButton.Enabled = true;
@@ -349,79 +221,15 @@ namespace CloudScraper
             }
         }
 
-        private void ZoneComboBoxIndexChanged(object sender, EventArgs e)
-        {
-            zone_ = (string)(sender as ComboBox).SelectedItem;
-        }
-
-        private void GroupComboBoxIndexChanged(object sender, EventArgs e)
-        {
-            group_ = (string)(sender as ComboBox).SelectedItem;
-        }
-
-        private void GroupComboBoxTextChanged(object sender, EventArgs e)
-        {
-            group_ = (sender as ComboBox).Text;
-            this.CheckEnter();
-        }
-
-        private void ZoneComboBoxTextChanged(object sender, EventArgs e)
-        {
-            zone_ = (sender as ComboBox).Text;
-            this.CheckEnter();
-        }
-
-        //Check bucket when lost focus.
-        // See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
-        private void BucketTextBoxLeave(object sender, EventArgs e)
-        {
-            if (s3bucket_ != "")
-            {
-                if (region_.Substring(0, 7) != "us-east")
-                {
-                    if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
-                        || s3bucket_.Length < 3 || s3bucket_.Length > 63)
-                    {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
-                        return;
-                    }
-
-                    bool lookLikeIp = true;
-                    foreach (char ch in s3bucket_)
-                    {
-                        if (!char.IsDigit(ch) && ch != '.')
-                        {
-                            lookLikeIp = false;
-                        }
-                    }
-
-                    if (lookLikeIp)
-                    {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
-                        return;
-                    }
-                }
-                if (region_.Substring(0, 7) == "us-east")
-                {
-                    if (s3bucket_.Length > 255)
-                    {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText, 
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
-                        return;
-                    }
-                }
-            }
-        }
-
         private void CloudParametersLoad(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseCloudForm_.Location;
+        }
+
+        private void RegionChanged(object sender, EventArgs e)
+        {
+            region_ = this.regionList_[(string)(sender as ComboBox).SelectedItem];
         }
 
     }
