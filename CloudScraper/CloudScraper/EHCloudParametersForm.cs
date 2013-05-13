@@ -49,7 +49,7 @@ namespace CloudScraper
                 this.regionList_.Add(key, value);
 
                 this.regionComboBox.Items.Add(key);
-                if (value == "lon-m")
+                if (value == "sat-p")
                 {
                     this.regionComboBox.SelectedItem = key;
                 }
@@ -224,31 +224,12 @@ namespace CloudScraper
         {
             try
             {
-
-                Uri uri = new Uri("https://api-lon-p.elastichosts.com/");
-                
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-
-
-                //string authInfo = "570a0faa-ca17-4689-b06b-3400ce8b5294" + ":" + "EcbSsaj6YbQnX2qPeYzJBdx4PCtL9zbgk2wEGDcE";
-                //authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
-                //request.Headers["Authorization"] = "Basic " + authInfo;
-
-
-                NetworkCredential credential = new NetworkCredential("570a0faa-ca17-4689-b06b-3400ce8b5294",
-                    "EcbSsaj6YbQnX2qPeYzJBdx4PCtL9zbgk2wEGDcE");
-                //CredentialCache cache = new CredentialCache();
-                //cache.Add(uri, "Basic", credential);
-
-                request.Credentials = credential;
-                request.Method = WebRequestMethods.Http.Get;
-
+                string credentials = "570a0faa-ca17-4689-b06b-3400ce8b5294:EcbSsaj6YbQnX2qPeYzJBdx4PCtL9zbgk2wEGDcE";
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api-sat-p.elastichosts.com/servers/list");
+                request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes(credentials)));
+                //request.PreAuthenticate = true;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-                // string userdata = "570a0faa-ca17-4689-b06b-3400ce8b5294" + ":" + "EcbSsaj6YbQnX2qPeYzJBdx4PCtL9zbgk2wEGDcE";
-                //byte[] authBytes = Encoding.UTF8.GetBytes(userdata.ToCharArray());
-
-                //request.Headers["Authorization"] = "basic " + Convert.ToBase64String(authBytes);
             }
             catch (WebException ex)
             {
@@ -257,6 +238,7 @@ namespace CloudScraper
                 
                 }
             }
+            
 
             try
             {
