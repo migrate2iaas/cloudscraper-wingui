@@ -17,6 +17,11 @@ namespace CloudScraper
         ImagesPathForm imagesPathForm_;
         CopyStartForm copyStartForm_;
 
+        public SaveTransferTaskForm(EHCloudParametersForm ehCloudParametersForm)
+        {
+            InitializeComponent();
+        }
+        
         public SaveTransferTaskForm(ImagesPathForm imagesPathForm)
         {
             this.imagesPathForm_ = imagesPathForm;
