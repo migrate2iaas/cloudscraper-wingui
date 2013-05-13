@@ -283,7 +283,7 @@
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/221</Value>
     </Setting>
     <Setting Name="S3ElasticHostsButtonText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Rackspace (Not supported)</Value>
+      <Value Profile="(Default)">Elastic Hosts</Value>
     </Setting>
     <Setting Name="S4awsIdLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">    Access ID:</Value>
@@ -407,6 +407,20 @@
     </Setting>
     <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Help</Value>
+    </Setting>
+    <Setting Name="EHRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;lon-m/UK (London, Maidenhead)&lt;/string&gt;
+  &lt;string&gt;lon-p/UK (London, Portsmouth)&lt;/string&gt;
+  &lt;string&gt;ams-e/Netherlands (Amsterdam)&lt;/string&gt;
+  &lt;string&gt;hkg-e/Asia (Hong Kong)&lt;/string&gt;
+  &lt;string&gt;syd-v/Australia (Sydney)&lt;/string&gt;
+  &lt;string&gt;sjc-c/USA (California, San Jose)&lt;/string&gt;
+  &lt;string&gt;lax-p/USA (California, Los Angeles)&lt;/string&gt;
+  &lt;string&gt;sat-p/USA (Texas, San Antonio)&lt;/string&gt;
+  &lt;string&gt;tor-p/Canada (Toronto)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

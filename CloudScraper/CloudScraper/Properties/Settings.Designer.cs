@@ -1071,7 +1071,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Rackspace (Not supported)")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Elastic Hosts")]
         public string S3ElasticHostsButtonText {
             get {
                 return ((string)(this["S3ElasticHostsButtonText"]));
@@ -1571,6 +1571,29 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["HelpButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>lon-m/UK (London, Maidenhead)</string>
+  <string>lon-p/UK (London, Portsmouth)</string>
+  <string>ams-e/Netherlands (Amsterdam)</string>
+  <string>hkg-e/Asia (Hong Kong)</string>
+  <string>syd-v/Australia (Sydney)</string>
+  <string>sjc-c/USA (California, San Jose)</string>
+  <string>lax-p/USA (California, Los Angeles)</string>
+  <string>sat-p/USA (Texas, San Antonio)</string>
+  <string>tor-p/Canada (Toronto)</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection EHRegions {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["EHRegions"]));
+            }
+            set {
+                this["EHRegions"] = value;
             }
         }
     }

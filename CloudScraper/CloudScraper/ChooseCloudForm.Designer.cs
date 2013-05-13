@@ -74,14 +74,14 @@
             // 
             // elasticHostsButton
             // 
-            this.elasticHostsButton.Enabled = false;
             this.elasticHostsButton.Location = new System.Drawing.Point(255, 180);
             this.elasticHostsButton.Name = "elasticHostsButton";
             this.elasticHostsButton.Size = new System.Drawing.Size(189, 74);
             this.elasticHostsButton.TabIndex = 4;
-            this.elasticHostsButton.Text = "ElasticHosts (Not supported)";
+            this.elasticHostsButton.Text = "ElasticHosts";
             this.elasticHostsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.elasticHostsButton.UseVisualStyleBackColor = true;
+            this.elasticHostsButton.Click += new System.EventHandler(this.ElasticHostsButtonClick);
             // 
             // helpButton
             // 
