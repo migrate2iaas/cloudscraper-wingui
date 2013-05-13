@@ -13,6 +13,7 @@ namespace CloudScraper
     {
         ChooseDisksForm chooseDiskForm_;
         CloudParametersForm cloudParametersForm_;
+        EHCloudParametersForm eHCloudParametersForm_;
         
         public ChooseCloudForm(ChooseDisksForm chooseDiskForm)
         {
@@ -74,6 +75,18 @@ namespace CloudScraper
             //For show  window in same position as prev.
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseDiskForm_.Location;
+        }
+
+        private void ElasticHostsButtonClick(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            if (this.eHCloudParametersForm_ == null)
+            {
+                this.eHCloudParametersForm_ = new EHCloudParametersForm(this);
+            }
+
+            eHCloudParametersForm_.ShowDialog();
         }
     }
 }
