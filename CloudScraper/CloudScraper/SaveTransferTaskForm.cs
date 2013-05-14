@@ -15,18 +15,25 @@ namespace CloudScraper
         public static string transferPath_;
 
         ImagesPathForm imagesPathForm_;
+        EHCloudParametersForm ehCloudParametersForm_;
         CopyStartForm copyStartForm_;
 
         public SaveTransferTaskForm(EHCloudParametersForm ehCloudParametersForm)
         {
+            this.ehCloudParametersForm_ = ehCloudParametersForm;
             InitializeComponent();
+            this.SetSaveTransferTaskForm();
         }
         
         public SaveTransferTaskForm(ImagesPathForm imagesPathForm)
         {
             this.imagesPathForm_ = imagesPathForm;
             InitializeComponent();
+            this.SetSaveTransferTaskForm();
+        }
 
+        private void SetSaveTransferTaskForm()
+        {
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "transfer.ini";
@@ -57,10 +64,20 @@ namespace CloudScraper
 
         private void BackButtonClick(object sender, EventArgs e)
         {
-            this.Hide();
-            this.imagesPathForm_.StartPosition = FormStartPosition.Manual;
-            this.imagesPathForm_.Location = this.Location;
-            this.imagesPathForm_.Show();
+            if (this.imagesPathForm_ != null)
+            {
+                this.Hide();
+                this.imagesPathForm_.StartPosition = FormStartPosition.Manual;
+                this.imagesPathForm_.Location = this.Location;
+                this.imagesPathForm_.Show();
+            }
+            else if (this.ehCloudParametersForm_ != null)
+            {
+                this.Hide();
+                this.ehCloudParametersForm_.StartPosition = FormStartPosition.Manual;
+                this.ehCloudParametersForm_.Location = this.Location;
+                this.ehCloudParametersForm_.Show();
+            }
         }
 
         private void NextButtonClick(object sender, EventArgs e)
@@ -160,7 +177,10 @@ namespace CloudScraper
         private void SaveTransferTaskLoad(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = this.imagesPathForm_.Location;
+            if (this.imagesPathForm_!= null)
+                this.Location = this.imagesPathForm_.Location;
+            if (this.ehCloudParametersForm_ != null)
+                this.Location = this.ehCloudParametersForm_.Location;
         }
     }
 }
