@@ -218,7 +218,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cloud Options";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
-            this.Load += new System.EventHandler(this.CloudParametersLoad);
+            this.Load += new System.EventHandler(this.EHCloudParametersLoad);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

@@ -25,6 +25,7 @@ namespace CloudScraper
         public static string type_;
         public static string zone_ = "";
         public static string group_ = "";
+        public static bool isAmazon_ = false;
         
         ChooseCloudForm chooseCloudForm_;
         ImagesPathForm imagesPathForm_;
@@ -142,6 +143,7 @@ namespace CloudScraper
             }
             
             this.Hide();
+            isAmazon_ = true;
 
             if (this.imagesPathForm_ == null)
             {
@@ -491,6 +493,7 @@ namespace CloudScraper
         {
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseCloudForm_.Location;
+            isAmazon_ = false;
         }
 
     }

@@ -22,6 +22,7 @@ namespace CloudScraper
         public static string apiKey_ = "";
         public static string region_;
         public static bool directUpload_ = false;
+        public static bool isElasticHosts_ = false;
         
         ChooseCloudForm chooseCloudForm_;
         ImagesPathForm imagesPathForm_;
@@ -90,6 +91,7 @@ namespace CloudScraper
         private void NextButtonClick(object sender, EventArgs e)
         {            
             this.Hide();
+            isElasticHosts_ = true;
 
             if (!directUpload_)
             {
@@ -221,10 +223,11 @@ namespace CloudScraper
             }
         }
 
-        private void CloudParametersLoad(object sender, EventArgs e)
+        private void EHCloudParametersLoad(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseCloudForm_.Location;
+            isElasticHosts_ = false;
         }
 
         private void RegionChanged(object sender, EventArgs e)
