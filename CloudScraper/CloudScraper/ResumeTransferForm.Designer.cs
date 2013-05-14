@@ -111,7 +111,7 @@
             // 
             this.mainLabel.Location = new System.Drawing.Point(139, 9);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(420, 90);
+            this.mainLabel.Size = new System.Drawing.Size(420, 88);
             this.mainLabel.TabIndex = 6;
             this.mainLabel.Text = "Load your previously saved transfer task";
             this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
