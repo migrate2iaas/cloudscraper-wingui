@@ -155,8 +155,8 @@ namespace CloudScraper
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("Warning",
-                        "WarningHeader",
+                        DialogResult result = MessageBox.Show(Settings.Default.R2WarningMessageText,
+                        Settings.Default.R2WarningMessageHeader,
                         MessageBoxButtons.OK);
                         this.nextButton.Enabled = false;
                         return;

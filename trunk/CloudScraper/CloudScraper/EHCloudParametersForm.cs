@@ -189,7 +189,7 @@ namespace CloudScraper
                 //If there are no keys entered.
                 if (uuid_ == "" || apiKey_ == "")
                 {
-                    DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
+                    DialogResult result = MessageBox.Show(Settings.Default.S4EnterUUID, Settings.Default.S4TestConnectionHeader,
                     MessageBoxButtons.OK);
                     this.testButton.Enabled = true;
                     this.Cursor = Cursors.Arrow;

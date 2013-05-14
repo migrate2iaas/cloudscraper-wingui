@@ -422,5 +422,14 @@
   &lt;string&gt;tor-p/Canada (Toronto)&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="R2WarningMessageHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Warning</Value>
+    </Setting>
+    <Setting Name="R2WarningMessageText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Incorrect .ini file</Value>
+    </Setting>
+    <Setting Name="S4EnterUUID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter your UUID and APIKey.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
