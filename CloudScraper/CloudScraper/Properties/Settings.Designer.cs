@@ -1596,5 +1596,41 @@ namespace CloudScraper.Properties {
                 this["EHRegions"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Warning")]
+        public string R2WarningMessageHeader {
+            get {
+                return ((string)(this["R2WarningMessageHeader"]));
+            }
+            set {
+                this["R2WarningMessageHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Incorrect .ini file")]
+        public string R2WarningMessageText {
+            get {
+                return ((string)(this["R2WarningMessageText"]));
+            }
+            set {
+                this["R2WarningMessageText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your UUID and APIKey.")]
+        public string S4EnterUUID {
+            get {
+                return ((string)(this["S4EnterUUID"]));
+            }
+            set {
+                this["S4EnterUUID"] = value;
+            }
+        }
     }
 }
