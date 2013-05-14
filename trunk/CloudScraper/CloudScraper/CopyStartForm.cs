@@ -392,60 +392,66 @@ namespace CloudScraper
         //Insert messge in Form.
         public void InsertMessage(string str)
         {
-            //Basic message (type = 1).
-            if (str.Length > 3 && str.Substring(0, 3) == ">>>")
+            try
             {
-                while (str[0] == '>')
+                //Basic message (type = 1).
+                if (str.Length > 3 && str.Substring(0, 3) == ">>>")
                 {
-                    str = str.Remove(0, 1);
+                    while (str[0] == '>')
+                    {
+                        str = str.Remove(0, 1);
+                    }
+                    this.messages_.Add(new MessageInfo()
+                    {
+                        Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\arrow.png"), new Size(16, 16)),
+                        Message = DateTime.Now.ToString("HH:mm:ss") + " " + str,
+                        Type = 1
+                    });
+                    return;
                 }
-                this.messages_.Add(new MessageInfo()
-                {
-                    Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\arrow.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString("HH:mm:ss") + " " + str,
-                    Type = 1
-                });
-                return;
-            }
 
-            //Error message (type = 2).
-            if (str.Length > 3 && str.Substring(0, 3) == "!!!")
-            {
-                
-                this.messages_.Add(new MessageInfo()
+                //Error message (type = 2).
+                if (str.Length > 3 && str.Substring(0, 3) == "!!!")
                 {
-                    Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\error.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString("HH:mm:ss") + " " + str.Remove(0, 3),
-                    Type = 2
-                });
-                withError = true;
-                return;
-            }
 
-            //Warninig message (type = 3).
-            if (str.Length >= 2 && str.Substring(0, 1) == "!")
-            {
-                this.messages_.Add(new MessageInfo()
-                {
-                    Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\warning.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString("HH:mm:ss") + " " + str.Remove(0, 1),
-                    Type = 3
-                });
-                return;
-            }
+                    this.messages_.Add(new MessageInfo()
+                    {
+                        Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\error.png"), new Size(16, 16)),
+                        Message = DateTime.Now.ToString("HH:mm:ss") + " " + str.Remove(0, 3),
+                        Type = 2
+                    });
+                    withError = true;
+                    return;
+                }
 
-            //Time message (type = 4).
-            if (str.Length > 2 && str.Substring(0, 1) == "%")
-            {
-                if (this.messages_[this.messages_.Count - 1].Type == 4)
-                    this.messages_.RemoveAt(this.messages_.Count - 1);
-                this.messages_.Add(new MessageInfo()
+                //Warninig message (type = 3).
+                if (str.Length >= 2 && str.Substring(0, 1) == "!")
                 {
-                    Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\hourglass.png"), new Size(16, 16)),
-                    Message = DateTime.Now.ToString("HH:mm:ss") + " " +  str.Remove(0, 2),
-                    Type = 4
-                });
-                return;
+                    this.messages_.Add(new MessageInfo()
+                    {
+                        Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\warning.png"), new Size(16, 16)),
+                        Message = DateTime.Now.ToString("HH:mm:ss") + " " + str.Remove(0, 1),
+                        Type = 3
+                    });
+                    return;
+                }
+
+                //Time message (type = 4).
+                if (str.Length > 2 && str.Substring(0, 1) == "%")
+                {
+                    if (this.messages_[this.messages_.Count - 1].Type == 4)
+                        this.messages_.RemoveAt(this.messages_.Count - 1);
+                    this.messages_.Add(new MessageInfo()
+                    {
+                        Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\hourglass.png"), new Size(16, 16)),
+                        Message = DateTime.Now.ToString("HH:mm:ss") + " " + str.Remove(0, 2),
+                        Type = 4
+                    });
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
             }
         }
 
