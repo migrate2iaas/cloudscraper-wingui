@@ -126,6 +126,48 @@ namespace CloudScraper
 
         private void CheckEdit()
         {
+            this.redeployUploadCheckBox.Enabled = true;
+            this.resumeUploadCheckBox.Enabled = true;
+
+            if (resumeFilePath_ != "" && File.Exists(resumeFilePath_))
+            {
+                using (StreamReader stream = new StreamReader(resumeFilePath_))
+                {
+                    string header = stream.ReadLine();
+                    if (header == "[EC2]")
+                    {
+                        this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Amazon";
+                    }
+                    else if (header == "[ElasticHosts]")
+                    {
+                        this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Elastic Hosts";
+                        this.redeployUploadCheckBox.Checked = false;
+                        this.redeployUploadCheckBox.Enabled = false;
+                        skipUpload_ = false;
+                        
+                        string body = stream.ReadToEnd();
+                        if (body.Contains("image-placement = direct"))
+                        {
+                            this.resumeUploadCheckBox.Checked = false;
+                            this.resumeUploadCheckBox.Enabled = false;
+                            resumeUpload_ = false;
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("Warning",
+                        "WarningHeader",
+                        MessageBoxButtons.OK);
+                        this.nextButton.Enabled = false;
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                this.mainLabel.Text = Settings.Default.R2MainLabelText;
+            }
+
             if (resumeFilePath_ != "" && File.Exists(resumeFilePath_) && awsKey_ != "" && awsKey_.Length == 40)
             {
                 this.nextButton.Enabled = true;
