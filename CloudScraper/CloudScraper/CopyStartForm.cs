@@ -208,7 +208,7 @@ namespace CloudScraper
                     if (CloudParametersForm.isAmazon_)
                         arguments = " -k " + CloudParametersForm.awsKey_;
                     else if (EHCloudParametersForm.isElasticHosts_)
-                        arguments = " -k " + EHCloudParametersForm.apiKey_;
+                        arguments = " --ehkey " + EHCloudParametersForm.apiKey_;
                     arguments += 
                     " -c " + "\"" + SaveTransferTaskForm.transferPath_ + "\"" +
                     " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
