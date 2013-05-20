@@ -96,7 +96,7 @@ namespace CloudScraper
             
         }
 
-        public void BackButtonClick(object sender, EventArgs e)
+        public virtual void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
             this.chooseCloudForm_.StartPosition = FormStartPosition.Manual;

@@ -277,6 +277,12 @@ namespace CloudScraper
             }
         }
 
+        public override void BackButtonClick(object sender, EventArgs e)
+        {
+            isAmazon_ = false;
+            base.BackButtonClick(sender, e);
+        }
+
         public override void NextButtonClick(object sender, EventArgs e)
         {
             //Check bucket name is correct.

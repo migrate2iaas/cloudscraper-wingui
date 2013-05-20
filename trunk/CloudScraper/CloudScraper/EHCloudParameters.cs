@@ -113,6 +113,12 @@ namespace CloudScraper
             }
         }
 
+        public override void BackButtonClick(object sender, EventArgs e)
+        {
+            isElasticHosts_ = false;
+            base.BackButtonClick(sender, e);
+        }
+
         public override void NextButtonClick(object sender, EventArgs e)
         {
             isElasticHosts_ = true;
