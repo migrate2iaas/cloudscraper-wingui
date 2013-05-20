@@ -33,10 +33,10 @@
             this.backButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.awsKeyTextBox = new System.Windows.Forms.TextBox();
-            this.awsIdTextBox = new System.Windows.Forms.TextBox();
-            this.awsKeyLabel = new System.Windows.Forms.Label();
-            this.awsIdLabel = new System.Windows.Forms.Label();
+            this.keyTextBox = new System.Windows.Forms.TextBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.keyLabel = new System.Windows.Forms.Label();
+            this.idLabel = new System.Windows.Forms.Label();
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -82,10 +82,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.awsKeyTextBox);
-            this.tabPage1.Controls.Add(this.awsIdTextBox);
-            this.tabPage1.Controls.Add(this.awsKeyLabel);
-            this.tabPage1.Controls.Add(this.awsIdLabel);
+            this.tabPage1.Controls.Add(this.keyTextBox);
+            this.tabPage1.Controls.Add(this.idTextBox);
+            this.tabPage1.Controls.Add(this.keyLabel);
+            this.tabPage1.Controls.Add(this.idLabel);
             this.tabPage1.Controls.Add(this.regionComboBox);
             this.tabPage1.Controls.Add(this.regionLabel);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -96,43 +96,43 @@
             this.tabPage1.Text = "Basic";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // awsKeyTextBox
+            // keyTextBox
             // 
-            this.awsKeyTextBox.Location = new System.Drawing.Point(193, 140);
-            this.awsKeyTextBox.MaxLength = 40;
-            this.awsKeyTextBox.Name = "awsKeyTextBox";
-            this.awsKeyTextBox.PasswordChar = '*';
-            this.awsKeyTextBox.Size = new System.Drawing.Size(219, 20);
-            this.awsKeyTextBox.TabIndex = 7;
-            this.awsKeyTextBox.TextChanged += new System.EventHandler(this.AwsKeyChanged);
+            this.keyTextBox.Location = new System.Drawing.Point(193, 140);
+            this.keyTextBox.MaxLength = 40;
+            this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.PasswordChar = '*';
+            this.keyTextBox.Size = new System.Drawing.Size(219, 20);
+            this.keyTextBox.TabIndex = 7;
+            this.keyTextBox.TextChanged += new System.EventHandler(this.KeyChanged);
             // 
-            // awsIdTextBox
+            // idTextBox
             // 
-            this.awsIdTextBox.Location = new System.Drawing.Point(193, 90);
-            this.awsIdTextBox.MaxLength = 20;
-            this.awsIdTextBox.Name = "awsIdTextBox";
-            this.awsIdTextBox.Size = new System.Drawing.Size(220, 20);
-            this.awsIdTextBox.TabIndex = 3;
-            this.awsIdTextBox.TextChanged += new System.EventHandler(this.AwsIDChanged);
+            this.idTextBox.Location = new System.Drawing.Point(193, 90);
+            this.idTextBox.MaxLength = 20;
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(220, 20);
+            this.idTextBox.TabIndex = 3;
+            this.idTextBox.TextChanged += new System.EventHandler(this.IDChanged);
             // 
-            // awsKeyLabel
+            // keyLabel
             // 
-            this.awsKeyLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.awsKeyLabel.Location = new System.Drawing.Point(0, 126);
-            this.awsKeyLabel.Name = "awsKeyLabel";
-            this.awsKeyLabel.Size = new System.Drawing.Size(194, 47);
-            this.awsKeyLabel.TabIndex = 6;
-            this.awsKeyLabel.Text = "You AWS Secret Key:";
-            this.awsKeyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.keyLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.keyLabel.Location = new System.Drawing.Point(0, 126);
+            this.keyLabel.Name = "keyLabel";
+            this.keyLabel.Size = new System.Drawing.Size(194, 47);
+            this.keyLabel.TabIndex = 6;
+            this.keyLabel.Text = "You AWS Secret Key:";
+            this.keyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // awsIdLabel
+            // idLabel
             // 
-            this.awsIdLabel.Location = new System.Drawing.Point(7, 74);
-            this.awsIdLabel.Name = "awsIdLabel";
-            this.awsIdLabel.Size = new System.Drawing.Size(186, 50);
-            this.awsIdLabel.TabIndex = 4;
-            this.awsIdLabel.Text = "You AWS Id:";
-            this.awsIdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.idLabel.Location = new System.Drawing.Point(7, 74);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(186, 50);
+            this.idLabel.TabIndex = 4;
+            this.idLabel.Text = "You AWS Id:";
+            this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // regionComboBox
             // 
@@ -140,7 +140,7 @@
             this.regionComboBox.Name = "regionComboBox";
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
-            this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.AmazonRegionChanged);
+            this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.RegionListBoxChanged);
             // 
             // regionLabel
             // 
@@ -357,30 +357,30 @@
 
         #endregion
 
-        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox awsKeyTextBox;
-        private System.Windows.Forms.TextBox awsIdTextBox;
-        private System.Windows.Forms.Label awsKeyLabel;
-        private System.Windows.Forms.Label awsIdLabel;
-        private System.Windows.Forms.ComboBox regionComboBox;
-        private System.Windows.Forms.Label regionLabel;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label groupLabel;
-        private System.Windows.Forms.Label zoneLabel;
-        private System.Windows.Forms.ComboBox serverTypeComboBox;
-        private System.Windows.Forms.Label typeLabel;
-        private System.Windows.Forms.TextBox bucketTextBox;
-        private System.Windows.Forms.Label bucketLabel;
-        private System.Windows.Forms.Button nextButton;
-        private System.Windows.Forms.CheckBox advancedCheckBox;
-        private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.Label folderKeyLabel;
-        private System.Windows.Forms.TextBox folderKeyBox;
-        private System.Windows.Forms.Button testButton;
-        private System.Windows.Forms.ComboBox zoneComboBox;
-        private System.Windows.Forms.ComboBox groupComboBox;
-        private System.Windows.Forms.ToolTip toolTip;
+        public System.Windows.Forms.Label regionLabel;
+        public System.Windows.Forms.TextBox keyTextBox;
+        public System.Windows.Forms.TextBox idTextBox;
+        public System.Windows.Forms.Label keyLabel;
+        public System.Windows.Forms.Label idLabel;
+        public System.Windows.Forms.ComboBox regionComboBox;
+        public System.Windows.Forms.Label groupLabel;
+        public System.Windows.Forms.Label zoneLabel;
+        public System.Windows.Forms.ComboBox serverTypeComboBox;
+        public System.Windows.Forms.Label typeLabel;
+        public System.Windows.Forms.TextBox bucketTextBox;
+        public System.Windows.Forms.Label bucketLabel;
+        public System.Windows.Forms.CheckBox advancedCheckBox;
+        public System.Windows.Forms.Label folderKeyLabel;
+        public System.Windows.Forms.TextBox folderKeyBox;
+        public System.Windows.Forms.ComboBox zoneComboBox;
+        public System.Windows.Forms.ComboBox groupComboBox;
+        public System.Windows.Forms.Button backButton;
+        public System.Windows.Forms.Button nextButton;
+        public System.Windows.Forms.Button testButton;
+        public System.Windows.Forms.Button helpButton;
+        public System.Windows.Forms.ToolTip toolTip;
     }
 }

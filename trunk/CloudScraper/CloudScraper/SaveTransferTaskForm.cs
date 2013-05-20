@@ -15,12 +15,12 @@ namespace CloudScraper
         public static string transferPath_;
 
         ImagesPathForm imagesPathForm_;
-        EHCloudParametersForm ehCloudParametersForm_;
+        CloudParametersForm cloudParametersForm_;
         CopyStartForm copyStartForm_;
 
-        public SaveTransferTaskForm(EHCloudParametersForm ehCloudParametersForm)
+        public SaveTransferTaskForm(CloudParametersForm cloudParametersForm)
         {
-            this.ehCloudParametersForm_ = ehCloudParametersForm;
+            this.cloudParametersForm_ = cloudParametersForm;
             InitializeComponent();
             this.SetSaveTransferTaskForm();
         }
@@ -71,12 +71,12 @@ namespace CloudScraper
                 this.imagesPathForm_.Location = this.Location;
                 this.imagesPathForm_.Show();
             }
-            else if (this.ehCloudParametersForm_ != null)
+            else if (this.cloudParametersForm_ != null)
             {
                 this.Hide();
-                this.ehCloudParametersForm_.StartPosition = FormStartPosition.Manual;
-                this.ehCloudParametersForm_.Location = this.Location;
-                this.ehCloudParametersForm_.Show();
+                this.cloudParametersForm_.StartPosition = FormStartPosition.Manual;
+                this.cloudParametersForm_.Location = this.Location;
+                this.cloudParametersForm_.Show();
             }
         }
 
@@ -179,8 +179,8 @@ namespace CloudScraper
             this.StartPosition = FormStartPosition.Manual;
             if (this.imagesPathForm_!= null)
                 this.Location = this.imagesPathForm_.Location;
-            if (this.ehCloudParametersForm_ != null)
-                this.Location = this.ehCloudParametersForm_.Location;
+            if (this.cloudParametersForm_ != null)
+                this.Location = this.cloudParametersForm_.Location;
         }
     }
 }

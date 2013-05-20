@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmazonCloudParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ChooseCloudForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +91,9 @@
     </Compile>
     <Compile Include="CopyStartForm.Designer.cs">
       <DependentUpon>CopyStartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EHCloudParameters.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FullOutputForm.cs">
       <SubType>Form</SubType>
@@ -138,12 +144,6 @@
     <Compile Include="SaveTransferTaskForm.Designer.cs">
       <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EHCloudParametersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EHCloudParametersForm.Designer.cs">
-      <DependentUpon>EHCloudParametersForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ChooseCloudForm.resx">
       <DependentUpon>ChooseCloudForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,9 +181,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SaveTransferTaskForm.resx">
       <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EHCloudParametersForm.resx">
-      <DependentUpon>EHCloudParametersForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="logs\migrate.log">
