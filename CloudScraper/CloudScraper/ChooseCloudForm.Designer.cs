@@ -66,7 +66,7 @@
             this.windowsAzureButton.Enabled = false;
             this.windowsAzureButton.Location = new System.Drawing.Point(255, 98);
             this.windowsAzureButton.Name = "windowsAzureButton";
-            this.windowsAzureButton.Size = new System.Drawing.Size(189, 76);
+            this.windowsAzureButton.Size = new System.Drawing.Size(189, 70);
             this.windowsAzureButton.TabIndex = 3;
             this.windowsAzureButton.Text = "Windows Azure (Not supported)";
             this.windowsAzureButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -74,9 +74,9 @@
             // 
             // elasticHostsButton
             // 
-            this.elasticHostsButton.Location = new System.Drawing.Point(255, 180);
+            this.elasticHostsButton.Location = new System.Drawing.Point(255, 174);
             this.elasticHostsButton.Name = "elasticHostsButton";
-            this.elasticHostsButton.Size = new System.Drawing.Size(189, 74);
+            this.elasticHostsButton.Size = new System.Drawing.Size(189, 70);
             this.elasticHostsButton.TabIndex = 4;
             this.elasticHostsButton.Text = "ElasticHosts";
             this.elasticHostsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

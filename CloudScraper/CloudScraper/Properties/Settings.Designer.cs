@@ -1696,5 +1696,22 @@ namespace CloudScraper.Properties {
                 this["HelpButtonToolTip"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>Amazon/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/true</string>
+  <string>ElasticHosts/255,174/189,70/ElasticHosts/Transfer your server to ElasticHosts/Icons\\Elastic.ico/true</string>
+  <string>WindowsAzure/255,98/189,70/WindowsAzure (Not supported)/Transfer your server to WindowsAzure/Icons\\Azure.ico/false</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection Buttons {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Buttons"]));
+            }
+            set {
+                this["Buttons"] = value;
+            }
+        }
     }
 }
