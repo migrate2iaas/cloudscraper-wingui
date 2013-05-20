@@ -50,7 +50,7 @@ namespace CloudScraper
         {
             this.Hide();
 
-            if (this.cloudParametersForm_ == null)
+            if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_ is AmazonCloudParameters))
             {
                 this.cloudParametersForm_ = new AmazonCloudParameters(this);
                 //this.cloudParametersForm_ = new CloudParametersForm(this);
@@ -81,7 +81,7 @@ namespace CloudScraper
         {
             this.Hide();
 
-            if (this.cloudParametersForm_ == null)
+            if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_ is EHCloudParameters))
             {
                 //this.eHCloudParametersForm_ = new EHCloudParametersForm(this);
                 this.cloudParametersForm_ = new EHCloudParameters(this);
