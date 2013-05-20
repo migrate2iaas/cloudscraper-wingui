@@ -30,6 +30,7 @@ namespace CloudScraper
         public AmazonCloudParameters(ChooseCloudForm chooseCloudForm)
         {
             isAmazon_ = false;
+
             //Move regions strings from settings file to regionComboBox.
             foreach (string str in Settings.Default.Regions)
             {
@@ -65,15 +66,15 @@ namespace CloudScraper
             this.toolTip.SetToolTip(this.nextButton, Settings.Default.S4NextButtonToolTip);
             this.testButton.Text = Settings.Default.S4TestButtonText;
             this.toolTip.SetToolTip(this.testButton, Settings.Default.S4TestButtonToolTip);
-            this.regionLabel.Text = Settings.Default.S4RegionLabelText;
+            this.regionLabel.Text = Settings.Default.S4AmazonRegionLabelText;
             this.idLabel.Text = Settings.Default.S4awsIdLabelText;
             this.keyLabel.Text = Settings.Default.S4awsKeyLabelText;
-            this.advancedCheckBox.Text = Settings.Default.S4AdvancedCheckBoxText;
-            this.bucketLabel.Text = Settings.Default.S4BucketLabelText;
-            this.folderKeyLabel.Text = Settings.Default.S4FolderKeyLabelText;
-            this.typeLabel.Text = Settings.Default.S4TypeLabelText;
-            this.zoneLabel.Text = Settings.Default.S4ZoneLabelText;
-            this.groupLabel.Text = Settings.Default.S4GroupLabelText;
+            this.advancedCheckBox.Text = Settings.Default.S4AmazonAdvancedCheckBoxText;
+            this.bucketLabel.Text = Settings.Default.S4AmazonBucketLabelText;
+            this.folderKeyLabel.Text = Settings.Default.S4AmazonFolderKeyLabelText;
+            this.typeLabel.Text = Settings.Default.S4AmazonTypeLabelText;
+            this.zoneLabel.Text = Settings.Default.S4AmazonZoneLabelText;
+            this.groupLabel.Text = Settings.Default.S4AmazonGroupLabelText;
 
             this.SetChooseCloudForm(chooseCloudForm);
         }
