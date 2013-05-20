@@ -260,84 +260,84 @@ namespace CloudScraper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Choose Region:")]
-        public string S4RegionLabelText {
+        public string S4AmazonRegionLabelText {
             get {
-                return ((string)(this["S4RegionLabelText"]));
+                return ((string)(this["S4AmazonRegionLabelText"]));
             }
             set {
-                this["S4RegionLabelText"] = value;
+                this["S4AmazonRegionLabelText"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Use advanced settings")]
-        public string S4AdvancedCheckBoxText {
+        public string S4AmazonAdvancedCheckBoxText {
             get {
-                return ((string)(this["S4AdvancedCheckBoxText"]));
+                return ((string)(this["S4AmazonAdvancedCheckBoxText"]));
             }
             set {
-                this["S4AdvancedCheckBoxText"] = value;
+                this["S4AmazonAdvancedCheckBoxText"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Specify your S3 Bucket:")]
-        public string S4BucketLabelText {
+        public string S4AmazonBucketLabelText {
             get {
-                return ((string)(this["S4BucketLabelText"]));
+                return ((string)(this["S4AmazonBucketLabelText"]));
             }
             set {
-                this["S4BucketLabelText"] = value;
+                this["S4AmazonBucketLabelText"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Specify folder (key):")]
-        public string S4FolderKeyLabelText {
+        public string S4AmazonFolderKeyLabelText {
             get {
-                return ((string)(this["S4FolderKeyLabelText"]));
+                return ((string)(this["S4AmazonFolderKeyLabelText"]));
             }
             set {
-                this["S4FolderKeyLabelText"] = value;
+                this["S4AmazonFolderKeyLabelText"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Specify your cloud server type:")]
-        public string S4TypeLabelText {
+        public string S4AmazonTypeLabelText {
             get {
-                return ((string)(this["S4TypeLabelText"]));
+                return ((string)(this["S4AmazonTypeLabelText"]));
             }
             set {
-                this["S4TypeLabelText"] = value;
+                this["S4AmazonTypeLabelText"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Specify your availability zone:")]
-        public string S4ZoneLabelText {
+        public string S4AmazonZoneLabelText {
             get {
-                return ((string)(this["S4ZoneLabelText"]));
+                return ((string)(this["S4AmazonZoneLabelText"]));
             }
             set {
-                this["S4ZoneLabelText"] = value;
+                this["S4AmazonZoneLabelText"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Specify your security group:")]
-        public string S4GroupLabelText {
+        public string S4AmazonGroupLabelText {
             get {
-                return ((string)(this["S4GroupLabelText"]));
+                return ((string)(this["S4AmazonGroupLabelText"]));
             }
             set {
-                this["S4GroupLabelText"] = value;
+                this["S4AmazonGroupLabelText"] = value;
             }
         }
         
