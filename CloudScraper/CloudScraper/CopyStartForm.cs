@@ -139,42 +139,42 @@ namespace CloudScraper
                 // Create transfer file.
                 using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false))
                 {
-                    if (CloudParametersForm.isAmazon_)
+                    if (AmazonCloudParameters.isAmazon_)
                     {
                         stream.WriteLine("[EC2]");
-                        stream.WriteLine("region = " + CloudParametersForm.region_);
-                        if (CloudParametersForm.zone_ != "")
-                            stream.WriteLine("zone = " + CloudParametersForm.zone_);
-                        if (CloudParametersForm.group_ != "")
-                            stream.WriteLine("security-group = " + CloudParametersForm.group_);
-                        if (CloudParametersForm.type_ != "")
-                            stream.WriteLine("instance-type = " + CloudParametersForm.type_);
+                        stream.WriteLine("region = " + AmazonCloudParameters.region_);
+                        if (AmazonCloudParameters.zone_ != "")
+                            stream.WriteLine("zone = " + AmazonCloudParameters.zone_);
+                        if (AmazonCloudParameters.group_ != "")
+                            stream.WriteLine("security-group = " + AmazonCloudParameters.group_);
+                        if (AmazonCloudParameters.type_ != "")
+                            stream.WriteLine("instance-type = " + AmazonCloudParameters.type_);
                         stream.WriteLine("target-arch = x86_64");
-                        if (CloudParametersForm.folderKey_ != "")
-                            stream.WriteLine("s3prefix = " + CloudParametersForm.folderKey_);
-                        stream.WriteLine("s3key = " + CloudParametersForm.awsId_);
-                        if (CloudParametersForm.s3bucket_ != "")
-                            stream.WriteLine("bucket = " + CloudParametersForm.s3bucket_);
+                        if (AmazonCloudParameters.folderKey_ != "")
+                            stream.WriteLine("s3prefix = " + AmazonCloudParameters.folderKey_);
+                        stream.WriteLine("s3key = " + AmazonCloudParameters.awsId_);
+                        if (AmazonCloudParameters.s3bucket_ != "")
+                            stream.WriteLine("bucket = " + AmazonCloudParameters.s3bucket_);
                         stream.WriteLine("[Image]");
                         stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
                         stream.WriteLine("source-arch = x86_64");
                         stream.WriteLine("image-type = VHD");
                     }
-                    else if (EHCloudParametersForm.isElasticHosts_)
+                    else if (EHCloudParameters.isElasticHosts_)
                     {
                         stream.WriteLine("[ElasticHosts]");
-                        stream.WriteLine("region = " + EHCloudParametersForm.region_);
-                        stream.WriteLine("user-uuid = " + EHCloudParametersForm.uuid_);
+                        stream.WriteLine("region = " + EHCloudParameters.region_);
+                        stream.WriteLine("user-uuid = " + EHCloudParameters.uuid_);
                         stream.WriteLine("[Image]");
-                        if (!EHCloudParametersForm.directUpload_)
+                        if (!EHCloudParameters.directUpload_)
                             stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
                         stream.WriteLine("source-arch = x86_64");
-                        if (EHCloudParametersForm.directUpload_)
+                        if (EHCloudParameters.directUpload_)
                             stream.WriteLine("image-type = raw");
                         else
                             stream.WriteLine("image-type = raw.tar");
                         stream.WriteLine("image-chunck = 4194304");
-                        if (EHCloudParametersForm.directUpload_)
+                        if (EHCloudParameters.directUpload_)
                             stream.WriteLine("image-placement = direct");
                         else
                             stream.WriteLine("image-placement = local");
@@ -205,10 +205,10 @@ namespace CloudScraper
                 if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
                 {
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                    if (CloudParametersForm.isAmazon_)
-                        arguments = " -k " + CloudParametersForm.awsKey_;
-                    else if (EHCloudParametersForm.isElasticHosts_)
-                        arguments = " --ehkey " + EHCloudParametersForm.apiKey_;
+                    if (AmazonCloudParameters.isAmazon_)
+                        arguments = " -k " + AmazonCloudParameters.awsKey_;
+                    else if (EHCloudParameters.isElasticHosts_)
+                        arguments = " --ehkey " + EHCloudParameters.apiKey_;
                     arguments += 
                     " -c " + "\"" + SaveTransferTaskForm.transferPath_ + "\"" +
                     " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";

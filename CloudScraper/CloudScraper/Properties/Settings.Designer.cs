@@ -1632,5 +1632,65 @@ namespace CloudScraper.Properties {
                 this["S4EnterUUID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Choose Region:")]
+        public string S4ehRegionLabelText {
+            get {
+                return ((string)(this["S4ehRegionLabelText"]));
+            }
+            set {
+                this["S4ehRegionLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("User UUID:")]
+        public string S4ehIdLabelText {
+            get {
+                return ((string)(this["S4ehIdLabelText"]));
+            }
+            set {
+                this["S4ehIdLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("API Secret Key:")]
+        public string S4ehKeyLabelText {
+            get {
+                return ((string)(this["S4ehKeyLabelText"]));
+            }
+            set {
+                this["S4ehKeyLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Direct upload")]
+        public string S4ehDirectUploadCheckBoxText {
+            get {
+                return ((string)(this["S4ehDirectUploadCheckBoxText"]));
+            }
+            set {
+                this["S4ehDirectUploadCheckBoxText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Elastic Hosts Cloud Options")]
+        public string S4ehHeader {
+            get {
+                return ((string)(this["S4ehHeader"]));
+            }
+            set {
+                this["S4ehHeader"] = value;
+            }
+        }
     }
 }

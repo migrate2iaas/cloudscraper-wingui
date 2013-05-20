@@ -13,7 +13,6 @@ namespace CloudScraper
     {
         ChooseDisksForm chooseDiskForm_;
         CloudParametersForm cloudParametersForm_;
-        EHCloudParametersForm eHCloudParametersForm_;
         
         public ChooseCloudForm(ChooseDisksForm chooseDiskForm)
         {
@@ -53,7 +52,8 @@ namespace CloudScraper
 
             if (this.cloudParametersForm_ == null)
             {
-                this.cloudParametersForm_ = new CloudParametersForm(this);
+                this.cloudParametersForm_ = new AmazonCloudParameters(this);
+                //this.cloudParametersForm_ = new CloudParametersForm(this);
             }
 
             cloudParametersForm_.ShowDialog();
@@ -81,12 +81,14 @@ namespace CloudScraper
         {
             this.Hide();
 
-            if (this.eHCloudParametersForm_ == null)
+            if (this.cloudParametersForm_ == null)
             {
-                this.eHCloudParametersForm_ = new EHCloudParametersForm(this);
+                //this.eHCloudParametersForm_ = new EHCloudParametersForm(this);
+                this.cloudParametersForm_ = new EHCloudParameters(this);
             }
 
-            eHCloudParametersForm_.ShowDialog();
+            this.cloudParametersForm_.ShowDialog();
+            //eHCloudParametersForm_.ShowDialog();
         }
     }
 }

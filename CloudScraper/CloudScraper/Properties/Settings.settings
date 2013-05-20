@@ -431,5 +431,20 @@
     <Setting Name="S4EnterUUID" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enter your UUID and APIKey.</Value>
     </Setting>
+    <Setting Name="S4ehRegionLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose Region:</Value>
+    </Setting>
+    <Setting Name="S4ehIdLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">User UUID:</Value>
+    </Setting>
+    <Setting Name="S4ehKeyLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">API Secret Key:</Value>
+    </Setting>
+    <Setting Name="S4ehDirectUploadCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Direct upload</Value>
+    </Setting>
+    <Setting Name="S4ehHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Elastic Hosts Cloud Options</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

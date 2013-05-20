@@ -16,14 +16,6 @@ namespace CloudScraper
 
         CloudParametersForm cloudParametersForm_;
         SaveTransferTaskForm saveTransferTaskForm_;
-        EHCloudParametersForm ehCloudParametersForm_;
-
-        public ImagesPathForm(EHCloudParametersForm ehCloudParametersForm)
-        {
-            this.ehCloudParametersForm_ = ehCloudParametersForm;
-            InitializeComponent();
-            SetImagesPathForm();
-        }
 
         public ImagesPathForm(CloudParametersForm cloudParametersForm)
         {
@@ -95,12 +87,12 @@ namespace CloudScraper
                 this.cloudParametersForm_.Location = this.Location;
                 this.cloudParametersForm_.Show();
             }
-            else if (ehCloudParametersForm_ != null)
-            {
-                this.ehCloudParametersForm_.StartPosition = FormStartPosition.Manual;
-                this.ehCloudParametersForm_.Location = this.Location;
-                this.ehCloudParametersForm_.Show();
-            }
+            //else if (ehCloudParametersForm_ != null)
+            //{
+            //    this.ehCloudParametersForm_.StartPosition = FormStartPosition.Manual;
+            //    this.ehCloudParametersForm_.Location = this.Location;
+            //    this.ehCloudParametersForm_.Show();
+            //}
         }
 
         private void NextButtonClick(object sender, EventArgs e)
@@ -195,8 +187,8 @@ namespace CloudScraper
         {
             if (this.cloudParametersForm_ != null)
                 this.cloudParametersForm_.Close();
-            if (this.ehCloudParametersForm_ != null)
-                this.ehCloudParametersForm_.Close();
+            //if (this.ehCloudParametersForm_ != null)
+            //    this.ehCloudParametersForm_.Close();
         }
 
         private void ImagesPathFormLoad(object sender, EventArgs e)
@@ -204,8 +196,8 @@ namespace CloudScraper
             this.StartPosition = FormStartPosition.Manual;
             if (this.cloudParametersForm_ != null)
                 this.Location = this.cloudParametersForm_.Location;
-            if (this.ehCloudParametersForm_ != null)
-                this.Location = this.ehCloudParametersForm_.Location;
+            //if (this.ehCloudParametersForm_ != null)
+            //    this.Location = this.ehCloudParametersForm_.Location;
 
             this.totalSpace.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB";
 
