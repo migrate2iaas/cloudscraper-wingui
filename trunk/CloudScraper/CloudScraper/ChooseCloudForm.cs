@@ -29,12 +29,58 @@ namespace CloudScraper
             this.Text = Settings.Default.S3Header;
             this.backButton.Text = Settings.Default.S3BackButtonText;
             this.toolTip.SetToolTip(this.backButton, Settings.Default.S3BackButtonToolTip);
+
+            //set buttons
             this.amazonButton.Text = Settings.Default.S3AmazonButtonText;
             this.toolTip.SetToolTip(this.amazonButton, Settings.Default.S3AmazonButtonToolTip);
             this.windowsAzureButton.Text = Settings.Default.S3WindowsAzureButtonText;
             this.toolTip.SetToolTip(this.windowsAzureButton, Settings.Default.S3WindowsAzureButtonToolTip);
             this.elasticHostsButton.Text = Settings.Default.S3ElasticHostsButtonText;
             this.toolTip.SetToolTip(this.elasticHostsButton, Settings.Default.S3ElasticHostsButtonToolTip);
+
+
+            this.amazonButton.Visible = false;
+            this.elasticHostsButton.Visible = false;
+            this.windowsAzureButton.Visible = false;
+
+
+            foreach (string str in Settings.Default.Buttons)
+            {
+                string buttonName = str.Split(new char[] { Settings.Default.Separator }, 7)[0];
+                string coordinats = str.Split(new char[] { Settings.Default.Separator }, 7)[1];
+                string size = str.Split(new char[] { Settings.Default.Separator }, 7)[2];
+                string buttonText = str.Split(new char[] { Settings.Default.Separator }, 7)[3];
+                string toolTip = str.Split(new char[] { Settings.Default.Separator }, 7)[4];
+                string icon = str.Split(new char[] { Settings.Default.Separator }, 7)[5];
+                bool enable = Convert.ToBoolean(str.Split(new char[] { Settings.Default.Separator }, 7)[6]);
+
+                Button button = new Button();
+                button.Size =  new Size(Convert.ToInt32(size.Split(new char[] { ',' }, 2)[0]), 
+                    Convert.ToInt32(size.Split(new char[] { ',' }, 2)[1]));
+                button.Location = new Point(Convert.ToInt32(coordinats.Split(new char[] { ',' }, 2)[0]),
+                    Convert.ToInt32(coordinats.Split(new char[] { ',' }, 2)[1]));
+                button.Text = buttonText;
+                this.toolTip.SetToolTip(button, toolTip);
+                button.Image = new Bitmap(Image.FromFile(icon), new Size(32, 32));
+                button.TabIndex = 2;
+                button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+                button.UseVisualStyleBackColor = true;
+                button.Enabled = enable;
+
+                if (buttonName == "Amazon")
+                {
+                    button.Click += new System.EventHandler(this.AmazonButtonClick);
+                }
+                if (buttonName == "ElasticHosts")
+                {
+                    button.Click += new System.EventHandler(this.ElasticHostsButtonClick);
+                }
+
+                this.Controls.Add(button);
+
+            }
+            
+            
             this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
