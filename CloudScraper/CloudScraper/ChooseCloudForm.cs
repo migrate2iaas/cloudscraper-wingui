@@ -46,13 +46,14 @@ namespace CloudScraper
 
             foreach (string str in Settings.Default.Buttons)
             {
-                string buttonName = str.Split(new char[] { Settings.Default.Separator }, 7)[0];
-                string coordinats = str.Split(new char[] { Settings.Default.Separator }, 7)[1];
-                string size = str.Split(new char[] { Settings.Default.Separator }, 7)[2];
-                string buttonText = str.Split(new char[] { Settings.Default.Separator }, 7)[3];
-                string toolTip = str.Split(new char[] { Settings.Default.Separator }, 7)[4];
-                string icon = str.Split(new char[] { Settings.Default.Separator }, 7)[5];
-                bool enable = Convert.ToBoolean(str.Split(new char[] { Settings.Default.Separator }, 7)[6]);
+                string buttonName = str.Split(new char[] { Settings.Default.Separator }, 8)[0];
+                string coordinats = str.Split(new char[] { Settings.Default.Separator }, 8)[1];
+                string size = str.Split(new char[] { Settings.Default.Separator }, 8)[2];
+                string buttonText = str.Split(new char[] { Settings.Default.Separator }, 8)[3];
+                string toolTip = str.Split(new char[] { Settings.Default.Separator }, 8)[4];
+                string icon = str.Split(new char[] { Settings.Default.Separator }, 8)[5];
+                string iconSize = str.Split(new char[] { Settings.Default.Separator }, 8)[6];
+                bool enable = Convert.ToBoolean(str.Split(new char[] { Settings.Default.Separator }, 8)[7]);
 
                 Button button = new Button();
                 button.Name = buttonName;
@@ -62,17 +63,16 @@ namespace CloudScraper
                     Convert.ToInt32(coordinats.Split(new char[] { ',' }, 2)[1]));
                 button.Text = buttonText;
                 this.toolTip.SetToolTip(button, toolTip);
-                button.Image = new Bitmap(Image.FromFile(icon), new Size(32, 32));
+                button.Image = new Bitmap(Image.FromFile(icon), new Size(Convert.ToInt32(iconSize.Split(new char[] { ',' }, 2)[0]),
+                    Convert.ToInt32(iconSize.Split(new char[] { ',' }, 2)[1])));
                 button.TabIndex = 2;
                 button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
                 button.UseVisualStyleBackColor = true;
                 button.Enabled = enable;
                 button.Click += new System.EventHandler(this.ButtonClick);
                 this.Controls.Add(button);
-
             }
-            
-            
+                        
             this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
@@ -116,13 +116,14 @@ namespace CloudScraper
             this.Hide();
             string assemblyName = "CloudScraper." + (sender as Button).Name + 
                 ", CloudScraper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
-            //if (this.cloudParametersForm_ == null ||  !(this.cloudParametersForm_.Type(assemblyName)))
-
-            this.cloudParametersForm_ = 
-                (CloudParametersForm)Activator.CreateInstance(Type.GetType(assemblyName), new Object[1] {this});
-
-            this.cloudParametersForm_.ShowDialog();
             
+            if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_.GetType().AssemblyQualifiedName == assemblyName))
+            {
+                this.cloudParametersForm_ =
+                    (CloudParametersForm)Activator.CreateInstance(Type.GetType(assemblyName), new Object[1] { this });
+            }
+                        
+            this.cloudParametersForm_.ShowDialog();
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
