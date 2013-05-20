@@ -318,12 +318,6 @@
     <Setting Name="MailEmailLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">E-mail:</Value>
     </Setting>
-    <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Path is incorrect</Value>
-    </Setting>
-    <Setting Name="S5WrongSymbolsWarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Path contains invalid characters: \\ / : * ? \" &lt; &gt; |</Value>
-    </Setting>
     <Setting Name="S6WrongSymbolsWarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">File name contains invalid characters: \\ / : * ? \" &lt; &gt; |</Value>
     </Setting>
@@ -333,80 +327,8 @@
     <Setting Name="MailSendHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Send Request</Value>
     </Setting>
-    <Setting Name="S1StartNewButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Start new</Value>
-    </Setting>
-    <Setting Name="S1ResumeButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Resume upload</Value>
-    </Setting>
-    <Setting Name="S2NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Next</Value>
-    </Setting>
-    <Setting Name="S2BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Back</Value>
-    </Setting>
-    <Setting Name="S4BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Back</Value>
-    </Setting>
-    <Setting Name="S4NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Next</Value>
-    </Setting>
-    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Test connection</Value>
-    </Setting>
-    <Setting Name="S3BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Back</Value>
-    </Setting>
-    <Setting Name="S3AmazonButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Amazon</Value>
-    </Setting>
     <Setting Name="S3WindowsAzureButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Windows Azure</Value>
-    </Setting>
-    <Setting Name="S3ElasticHostsButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Elastic Hosts</Value>
-    </Setting>
-    <Setting Name="S5NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Next</Value>
-    </Setting>
-    <Setting Name="S5BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Back</Value>
-    </Setting>
-    <Setting Name="S5BrowseButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Browse</Value>
-    </Setting>
-    <Setting Name="S6NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Next</Value>
-    </Setting>
-    <Setting Name="S6BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Back</Value>
-    </Setting>
-    <Setting Name="S6BrowseButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Browse</Value>
-    </Setting>
-    <Setting Name="R2NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Next</Value>
-    </Setting>
-    <Setting Name="R2BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Back</Value>
-    </Setting>
-    <Setting Name="R2BrowseButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Browse</Value>
-    </Setting>
-    <Setting Name="S7BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Back</Value>
-    </Setting>
-    <Setting Name="S7StartButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Start</Value>
-    </Setting>
-    <Setting Name="S7MailButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Send mail</Value>
-    </Setting>
-    <Setting Name="S7FullOutputButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Show full output</Value>
-    </Setting>
-    <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Help</Value>
     </Setting>
     <Setting Name="EHRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -445,6 +367,84 @@
     </Setting>
     <Setting Name="S4ehHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Elastic Hosts Cloud Options</Value>
+    </Setting>
+    <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Path is incorrect!</Value>
+    </Setting>
+    <Setting Name="S5WrongSymbolsWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">The path specified contains invalid characters: \\ / : * ? \" &lt; &gt; |</Value>
+    </Setting>
+    <Setting Name="S1StartNewButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Starts new transfer. Click here if you run Cloudscraper first time for this server.</Value>
+    </Setting>
+    <Setting Name="S1ResumeButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume existing transfer. Click here if you have already configured your transfer task and wish to resume or repeat it.</Value>
+    </Setting>
+    <Setting Name="S2NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step</Value>
+    </Setting>
+    <Setting Name="S2BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window</Value>
+    </Setting>
+    <Setting Name="S4BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window</Value>
+    </Setting>
+    <Setting Name="S4NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step</Value>
+    </Setting>
+    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tests your connectivity and credentials. It also requests the cloud what advanced options are available.</Value>
+    </Setting>
+    <Setting Name="S3BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window</Value>
+    </Setting>
+    <Setting Name="S3AmazonButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer your server to Amazon Elastic Compute Cloud</Value>
+    </Setting>
+    <Setting Name="S3ElasticHostsButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer your server to ElasticHosts</Value>
+    </Setting>
+    <Setting Name="S5NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step</Value>
+    </Setting>
+    <Setting Name="S5BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window</Value>
+    </Setting>
+    <Setting Name="S5BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse your computer and network shares</Value>
+    </Setting>
+    <Setting Name="S6NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step</Value>
+    </Setting>
+    <Setting Name="S6BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window</Value>
+    </Setting>
+    <Setting Name="S6BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse your computer and network shares</Value>
+    </Setting>
+    <Setting Name="R2NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step</Value>
+    </Setting>
+    <Setting Name="R2BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window</Value>
+    </Setting>
+    <Setting Name="R2BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse your computer and network shares</Value>
+    </Setting>
+    <Setting Name="S7BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window</Value>
+    </Setting>
+    <Setting Name="S7StartButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step</Value>
+    </Setting>
+    <Setting Name="S7MailButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Send request to our support team so they could help troubleshooting the failed transfer.</Value>
+    </Setting>
+    <Setting Name="S7FullOutputButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Shows detailed transfer output</Value>
+    </Setting>
+    <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Click here to read manual entry on this window</Value>
     </Setting>
   </Settings>
 </SettingsFile>

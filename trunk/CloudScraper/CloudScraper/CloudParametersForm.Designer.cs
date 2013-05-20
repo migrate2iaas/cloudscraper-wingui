@@ -122,7 +122,7 @@
             this.keyLabel.Name = "keyLabel";
             this.keyLabel.Size = new System.Drawing.Size(194, 47);
             this.keyLabel.TabIndex = 6;
-            this.keyLabel.Text = "You AWS Secret Key:";
+            this.keyLabel.Text = "Key Label:";
             this.keyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // idLabel
@@ -131,7 +131,7 @@
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(186, 50);
             this.idLabel.TabIndex = 4;
-            this.idLabel.Text = "You AWS Id:";
+            this.idLabel.Text = "Id Label:";
             this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // regionComboBox
@@ -149,7 +149,7 @@
             this.regionLabel.Name = "regionLabel";
             this.regionLabel.Size = new System.Drawing.Size(187, 48);
             this.regionLabel.TabIndex = 2;
-            this.regionLabel.Text = "Choose Region:";
+            this.regionLabel.Text = "Region Label:";
             this.regionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabPage2
@@ -198,9 +198,9 @@
             this.advancedCheckBox.AutoSize = true;
             this.advancedCheckBox.Location = new System.Drawing.Point(90, 15);
             this.advancedCheckBox.Name = "advancedCheckBox";
-            this.advancedCheckBox.Size = new System.Drawing.Size(135, 17);
+            this.advancedCheckBox.Size = new System.Drawing.Size(114, 17);
             this.advancedCheckBox.TabIndex = 8;
-            this.advancedCheckBox.Text = "Use advanced settings";
+            this.advancedCheckBox.Text = "Advanced settings";
             this.advancedCheckBox.UseVisualStyleBackColor = true;
             this.advancedCheckBox.CheckedChanged += new System.EventHandler(this.AdvancedChecked);
             // 
