@@ -449,9 +449,9 @@
     <Setting Name="Buttons" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;Amazon/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/true&lt;/string&gt;
-  &lt;string&gt;ElasticHosts/255,174/189,70/ElasticHosts/Transfer your server to ElasticHosts/Icons\\Elastic.ico/true&lt;/string&gt;
-  &lt;string&gt;WindowsAzure/255,98/189,70/WindowsAzure (Not supported)/Transfer your server to WindowsAzure/Icons\\Azure.ico/false&lt;/string&gt;
+  &lt;string&gt;AmazonCloudParameters/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/true&lt;/string&gt;
+  &lt;string&gt;EHCloudParameters/255,174/189,70/ElasticHosts/Transfer your server to ElasticHosts/Icons\\Elastic.ico/true&lt;/string&gt;
+  &lt;string&gt;WindowsAzureCloudParameters/255,98/189,70/WindowsAzure (Not supported)/Transfer your server to WindowsAzure/Icons\\Azure.ico/false&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>

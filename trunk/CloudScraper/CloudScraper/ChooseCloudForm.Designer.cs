@@ -59,7 +59,6 @@
             this.amazonButton.Text = "Amazon EC2";
             this.amazonButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.amazonButton.UseVisualStyleBackColor = true;
-            this.amazonButton.Click += new System.EventHandler(this.AmazonButtonClick);
             // 
             // windowsAzureButton
             // 
@@ -81,7 +80,6 @@
             this.elasticHostsButton.Text = "ElasticHosts";
             this.elasticHostsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.elasticHostsButton.UseVisualStyleBackColor = true;
-            this.elasticHostsButton.Click += new System.EventHandler(this.ElasticHostsButtonClick);
             // 
             // helpButton
             // 

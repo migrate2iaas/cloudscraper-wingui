@@ -55,6 +55,7 @@ namespace CloudScraper
                 bool enable = Convert.ToBoolean(str.Split(new char[] { Settings.Default.Separator }, 7)[6]);
 
                 Button button = new Button();
+                button.Name = buttonName;
                 button.Size =  new Size(Convert.ToInt32(size.Split(new char[] { ',' }, 2)[0]), 
                     Convert.ToInt32(size.Split(new char[] { ',' }, 2)[1]));
                 button.Location = new Point(Convert.ToInt32(coordinats.Split(new char[] { ',' }, 2)[0]),
@@ -66,16 +67,7 @@ namespace CloudScraper
                 button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
                 button.UseVisualStyleBackColor = true;
                 button.Enabled = enable;
-
-                if (buttonName == "Amazon")
-                {
-                    button.Click += new System.EventHandler(this.AmazonButtonClick);
-                }
-                if (buttonName == "ElasticHosts")
-                {
-                    button.Click += new System.EventHandler(this.ElasticHostsButtonClick);
-                }
-
+                button.Click += new System.EventHandler(this.ButtonClick);
                 this.Controls.Add(button);
 
             }
@@ -92,17 +84,45 @@ namespace CloudScraper
             this.chooseDiskForm_.Show();
         }
 
-        private void AmazonButtonClick(object sender, EventArgs e)
+        //private void AmazonButtonClick(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+
+        //    if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_ is AmazonCloudParameters))
+        //    {
+        //        this.cloudParametersForm_ = new AmazonCloudParameters(this);
+        //        //this.cloudParametersForm_ = new CloudParametersForm(this);
+        //    }
+
+        //    cloudParametersForm_.ShowDialog();
+        //}
+
+        //private void ElasticHostsButtonClick(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+
+        //    if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_ is EHCloudParameters))
+        //    {
+        //        //this.eHCloudParametersForm_ = new EHCloudParametersForm(this);
+        //        this.cloudParametersForm_ = new EHCloudParameters(this);
+        //    }
+
+        //    this.cloudParametersForm_.ShowDialog();
+        //    //eHCloudParametersForm_.ShowDialog();
+        //}
+
+        private void ButtonClick(object sender, EventArgs e)
         {
             this.Hide();
+            string assemblyName = "CloudScraper." + (sender as Button).Name + 
+                ", CloudScraper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
+            //if (this.cloudParametersForm_ == null ||  !(this.cloudParametersForm_.Type(assemblyName)))
 
-            if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_ is AmazonCloudParameters))
-            {
-                this.cloudParametersForm_ = new AmazonCloudParameters(this);
-                //this.cloudParametersForm_ = new CloudParametersForm(this);
-            }
+            this.cloudParametersForm_ = 
+                (CloudParametersForm)Activator.CreateInstance(Type.GetType(assemblyName), new Object[1] {this});
 
-            cloudParametersForm_.ShowDialog();
+            this.cloudParametersForm_.ShowDialog();
+            
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
@@ -123,18 +143,5 @@ namespace CloudScraper
             this.Location = this.chooseDiskForm_.Location;
         }
 
-        private void ElasticHostsButtonClick(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_ is EHCloudParameters))
-            {
-                //this.eHCloudParametersForm_ = new EHCloudParametersForm(this);
-                this.cloudParametersForm_ = new EHCloudParameters(this);
-            }
-
-            this.cloudParametersForm_.ShowDialog();
-            //eHCloudParametersForm_.ShowDialog();
-        }
     }
 }
