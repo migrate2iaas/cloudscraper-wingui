@@ -35,6 +35,8 @@
             this.emailLabel = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.commentsTextBox = new System.Windows.Forms.TextBox();
+            this.commentsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userTextBox
@@ -67,13 +69,13 @@
             this.emailLabel.AutoSize = true;
             this.emailLabel.Location = new System.Drawing.Point(38, 62);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(37, 13);
+            this.emailLabel.Size = new System.Drawing.Size(38, 13);
             this.emailLabel.TabIndex = 3;
-            this.emailLabel.Text = "e-mail:";
+            this.emailLabel.Text = "E-mail:";
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(174, 113);
+            this.okButton.Location = new System.Drawing.Point(174, 182);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 4;
@@ -83,7 +85,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(15, 113);
+            this.cancelButton.Location = new System.Drawing.Point(12, 182);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 5;
@@ -91,11 +93,31 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
             // 
+            // commentsTextBox
+            // 
+            this.commentsTextBox.Location = new System.Drawing.Point(12, 112);
+            this.commentsTextBox.Multiline = true;
+            this.commentsTextBox.Name = "commentsTextBox";
+            this.commentsTextBox.Size = new System.Drawing.Size(237, 64);
+            this.commentsTextBox.TabIndex = 6;
+            this.commentsTextBox.TextChanged += new System.EventHandler(this.CommentsChanged);
+            // 
+            // commentsLabel
+            // 
+            this.commentsLabel.AutoSize = true;
+            this.commentsLabel.Location = new System.Drawing.Point(17, 96);
+            this.commentsLabel.Name = "commentsLabel";
+            this.commentsLabel.Size = new System.Drawing.Size(59, 13);
+            this.commentsLabel.TabIndex = 7;
+            this.commentsLabel.Text = "Comments:";
+            // 
             // MailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 149);
+            this.ClientSize = new System.Drawing.Size(264, 220);
+            this.Controls.Add(this.commentsLabel);
+            this.Controls.Add(this.commentsTextBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.emailLabel);
@@ -124,5 +146,7 @@
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.TextBox commentsTextBox;
+        private System.Windows.Forms.Label commentsLabel;
     }
 }

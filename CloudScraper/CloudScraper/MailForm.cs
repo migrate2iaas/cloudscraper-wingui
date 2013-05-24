@@ -14,6 +14,7 @@ namespace CloudScraper
         CopyStartForm copyStartForm_;
         private string userName_;
         private string email_;
+        private string comments_;
 
         public MailForm(CopyStartForm copyStartForm)
         {
@@ -43,13 +44,18 @@ namespace CloudScraper
             if (userName_ != "" && email_ != "" && email_.Contains("@"))
             {
                 this.Close();
-                this.copyStartForm_.SendMail(userName_, email_);
+                this.copyStartForm_.SendMail(userName_, email_, comments_);
             }
         }
 
         private void CancelButtonClick(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CommentsChanged(object sender, EventArgs e)
+        {
+            this.comments_ = commentsTextBox.Text;
         }
     }
 }
