@@ -454,5 +454,8 @@
   &lt;string&gt;WindowsAzureCloudParameters/255,98/189,70/WindowsAzure (Not supported)/Transfer your server to WindowsAzure/Icons\\Azure.ico/32,32/false&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="TotalSizeGap" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
