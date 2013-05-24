@@ -1713,5 +1713,17 @@ namespace CloudScraper.Properties {
                 this["Buttons"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public decimal TotalSizeGap {
+            get {
+                return ((decimal)(this["TotalSizeGap"]));
+            }
+            set {
+                this["TotalSizeGap"] = value;
+            }
+        }
     }
 }

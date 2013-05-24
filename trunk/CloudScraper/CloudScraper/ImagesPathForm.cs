@@ -62,7 +62,7 @@ namespace CloudScraper
                     {
                         this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024),1).ToString() + "GB";
                         //If  Free Space not enough (4GB additional program required).
-                        if (ChooseDisksForm.totalSpaceRequired_ > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1) - 4)
+                        if (ChooseDisksForm.totalSpaceRequired_ + Settings.Default.TotalSizeGap > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1))
                         {
                             this.errorLabel.Visible = true;
                             this.errorPicture.Visible = true;
@@ -199,7 +199,7 @@ namespace CloudScraper
             //if (this.ehCloudParametersForm_ != null)
             //    this.Location = this.ehCloudParametersForm_.Location;
 
-            this.totalSpace.Text = ChooseDisksForm.totalSpaceRequired_.ToString() + "GB";
+            this.totalSpace.Text = (ChooseDisksForm.totalSpaceRequired_ + Settings.Default.TotalSizeGap).ToString() + "GB";
 
             this.browseTextBox.Text = Directory.GetCurrentDirectory();
             imagesPath_ = this.browseTextBox.Text;

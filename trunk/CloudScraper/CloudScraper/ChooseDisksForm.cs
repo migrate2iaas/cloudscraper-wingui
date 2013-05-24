@@ -32,7 +32,8 @@ namespace CloudScraper
             InitializeComponent();
             
             totalSpaceRequired_ = 0;
-            this.totalSpaceLabel.Text = totalSpaceRequired_.ToString() + "GB";
+            this.totalSpaceLabel.Text = totalSpaceRequired_ == 0 ? totalSpaceRequired_.ToString() + "GB" :
+                (totalSpaceRequired_ + Settings.Default.TotalSizeGap).ToString() + "GB";
             
             //Initialize basic strings UI from from settings file.
             this.Text = Settings.Default.S2Header;
@@ -86,7 +87,8 @@ namespace CloudScraper
                             volume.Image = new Bitmap(Image.FromFile("Icons\\WindowsDrive.ico"), new Size(24, 24));
                             totalSpaceRequired_ = volume.UsedSpace;
                             this.nextButton.Enabled = true;
-                            this.totalSpaceLabel.Text = Math.Round(totalSpaceRequired_, 1).ToString() + "GB";
+                            this.totalSpaceLabel.Text = totalSpaceRequired_ == 0 ? Math.Round(totalSpaceRequired_, 1).ToString() + "GB" :
+                                Math.Round(totalSpaceRequired_ + Settings.Default.TotalSizeGap, 1).ToString() + "GB";
                             selectedDisks_.Add(volume.ShortName);
                             this.volumes_.Insert(0, volume);
                             continue;
@@ -201,7 +203,8 @@ namespace CloudScraper
                     }
                 }
 
-                this.totalSpaceLabel.Text = Math.Round(totalSpaceRequired_,1).ToString() + "GB";
+                this.totalSpaceLabel.Text = totalSpaceRequired_ == 0 ? Math.Round(totalSpaceRequired_,1).ToString() + "GB" :
+                    Math.Round(totalSpaceRequired_ + Settings.Default.TotalSizeGap, 1).ToString() + "GB";
             }
         }
 
