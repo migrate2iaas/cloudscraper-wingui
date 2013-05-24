@@ -439,8 +439,9 @@ namespace CloudScraper
                 //Time message (type = 4).
                 if (str.Length > 2 && str.Substring(0, 1) == "%")
                 {
-                    if (this.messages_[this.messages_.Count - 1].Type == 4)
+                    if (this.messages_.Count != 0 && this.messages_[this.messages_.Count - 1].Type == 4)
                         this.messages_.RemoveAt(this.messages_.Count - 1);
+
                     this.messages_.Add(new MessageInfo()
                     {
                         Image = new Bitmap(Image.FromFile(Application.StartupPath + "\\Icons\\hourglass.png"), new Size(16, 16)),
