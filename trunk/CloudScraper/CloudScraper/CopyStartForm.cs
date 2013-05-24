@@ -481,7 +481,7 @@ namespace CloudScraper
             System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pr in localByName)
             {
-                if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id)
+                if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id && !pr.HasExited)
                 {
                     pr.Kill();
                 }
@@ -627,7 +627,7 @@ namespace CloudScraper
             System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pr in localByName)
             {
-                if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id)
+                if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id && !pr.HasExited)
                 {
                     try
                     {
@@ -676,13 +676,13 @@ namespace CloudScraper
                 System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
                 foreach (System.Diagnostics.Process pr in localByName)
                 {
-                    if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id)
+                    if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id && !pr.HasExited)
                     {
                         try
                         {
                             pr.Kill();
                         }
-                        catch
+                        catch (Exception expt)
                         {
                         }
                     }
