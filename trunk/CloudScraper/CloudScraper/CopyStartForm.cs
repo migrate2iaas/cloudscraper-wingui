@@ -494,7 +494,7 @@ namespace CloudScraper
             }
         }
 
-        public void SendMail(string userName, string email)
+        public void SendMail(string userName, string email, string comments)
         {
             try
             {
@@ -523,6 +523,8 @@ namespace CloudScraper
                         Message.Body += info.Message + "\n";
                     }
                 }
+                Message.Body += "------------------- User comments:\n";
+                Message.Body += comments;
 
                 string file = Application.StartupPath + "\\" + Properties.Settings.Default.TextFile;
                 FastZip fz = new FastZip();
