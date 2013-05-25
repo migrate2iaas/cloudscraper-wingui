@@ -477,5 +477,16 @@ namespace CloudScraper
             base.CloudParametersLoad(sender, e);
         }
 
+        public override void TextBoxMouseHover(object sender, EventArgs e)
+        {
+            if ((sender as TextBox).Text == "")
+            {
+                this.toolTip.SetToolTip((sender as TextBox), "Test");
+            }
+            else
+            {
+                this.toolTip.SetToolTip((sender as TextBox), "");
+            }
+        }
     }
 }
