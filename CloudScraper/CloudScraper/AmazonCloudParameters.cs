@@ -10,12 +10,13 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.EC2;
 using Amazon.EC2.Model;
+using System.Configuration;
+using System.Collections.Specialized;
 
 namespace CloudScraper
 {
     public class AmazonCloudParameters : CloudParametersForm
     {
-
         public static string awsId_ = "";
         public static string awsKey_ = "";
         public static string region_;
@@ -26,7 +27,7 @@ namespace CloudScraper
         public static string zone_ = "";
         public static string group_ = "";
         public static bool isAmazon_ = false;
-        
+
         public AmazonCloudParameters(ChooseCloudForm chooseCloudForm)
         {
             isAmazon_ = false;
