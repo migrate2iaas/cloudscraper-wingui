@@ -105,7 +105,7 @@
             this.keyTextBox.Size = new System.Drawing.Size(219, 20);
             this.keyTextBox.TabIndex = 7;
             this.keyTextBox.TextChanged += new System.EventHandler(this.KeyChanged);
-            this.keyTextBox.MouseHover += new System.EventHandler(this.TextBoxMouseHover);
+            this.keyTextBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // idTextBox
             // 
@@ -115,7 +115,7 @@
             this.idTextBox.Size = new System.Drawing.Size(220, 20);
             this.idTextBox.TabIndex = 3;
             this.idTextBox.TextChanged += new System.EventHandler(this.IDChanged);
-            this.idTextBox.MouseHover += new System.EventHandler(this.TextBoxMouseHover);
+            this.idTextBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // keyLabel
             // 
@@ -194,7 +194,7 @@
             this.folderKeyBox.Size = new System.Drawing.Size(235, 20);
             this.folderKeyBox.TabIndex = 9;
             this.folderKeyBox.TextChanged += new System.EventHandler(this.FolderKeyChanged);
-            this.folderKeyBox.MouseHover += new System.EventHandler(this.TextBoxMouseHover);
+            this.folderKeyBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // advancedCheckBox
             // 
@@ -257,7 +257,7 @@
             this.bucketTextBox.TabIndex = 1;
             this.bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
             this.bucketTextBox.Leave += new System.EventHandler(this.BucketTextBoxLeave);
-            this.bucketTextBox.MouseHover += new System.EventHandler(this.TextBoxMouseHover);
+            this.bucketTextBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // bucketLabel
             // 
@@ -281,7 +281,7 @@
             this.zoneComboBox.TabIndex = 11;
             this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.ZoneComboBoxIndexChanged);
             this.zoneComboBox.TextChanged += new System.EventHandler(this.ZoneComboBoxTextChanged);
-            this.zoneComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseHover);
+            this.zoneComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // groupComboBox
             // 
@@ -295,7 +295,7 @@
             this.groupComboBox.TabIndex = 12;
             this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.GroupComboBoxIndexChanged);
             this.groupComboBox.TextChanged += new System.EventHandler(this.GroupComboBoxTextChanged);
-            this.groupComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseHover);
+            this.groupComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // nextButton
             // 
