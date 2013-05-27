@@ -505,7 +505,7 @@ namespace CloudScraper
             //isAmazon_ = false;
         }
 
-        public virtual void TextBoxMouseHover(object sender, EventArgs e)
+        public virtual void TextBoxMouseEnter(object sender, EventArgs e)
         {
         }
 

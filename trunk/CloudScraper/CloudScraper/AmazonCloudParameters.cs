@@ -477,15 +477,30 @@ namespace CloudScraper
             base.CloudParametersLoad(sender, e);
         }
 
-        public override void TextBoxMouseHover(object sender, EventArgs e)
+        public override void TextBoxMouseEnter(object sender, EventArgs e)
         {
-            if ((sender as TextBox).Text == "")
+            if (sender is TextBox)
             {
-                this.toolTip.SetToolTip((sender as TextBox), "Test");
+                if ((sender as TextBox).Text == "")
+                {
+                    this.toolTip.SetToolTip((sender as TextBox), "Test");
+                }
+                else
+                {
+                    this.toolTip.SetToolTip((sender as TextBox), "");
+                }
             }
-            else
+
+            if ((sender is ComboBox))
             {
-                this.toolTip.SetToolTip((sender as TextBox), "");
+                if ((sender as ComboBox).Text == "")
+                {
+                    this.toolTip.SetToolTip((sender as ComboBox), "Test");
+                }
+                else
+                {
+                    this.toolTip.SetToolTip((sender as ComboBox), "Test");
+                }
             }
         }
     }
