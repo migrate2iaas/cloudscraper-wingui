@@ -483,7 +483,14 @@ namespace CloudScraper
             {
                 if ((sender as TextBox).Text == "")
                 {
-                    this.toolTip.SetToolTip((sender as TextBox), "Test");
+                    if ((sender as TextBox) == keyTextBox)
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AmazonAccessIDToolTip);
+                    if ((sender as TextBox) == idTextBox)
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AmazonAccessKeyToolTip);
+                    if ((sender as TextBox) == bucketTextBox)
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AmazonS3BucketToolTip);
+                    if ((sender as TextBox) == folderKeyBox)
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AmazonFolderToolTip);
                 }
                 else
                 {
@@ -495,11 +502,14 @@ namespace CloudScraper
             {
                 if ((sender as ComboBox).Text == "")
                 {
-                    this.toolTip.SetToolTip((sender as ComboBox), "Test");
+                    if ((sender as ComboBox) == zoneComboBox)
+                        this.toolTip.SetToolTip((sender as ComboBox), Settings.Default.S4AmazonAvailabilityZoneToolTip);
+                    if ((sender as ComboBox) == groupComboBox)
+                        this.toolTip.SetToolTip((sender as ComboBox), Settings.Default.S4AmazonSecurityGroupToolTip);
                 }
                 else
                 {
-                    this.toolTip.SetToolTip((sender as ComboBox), "Test");
+                    this.toolTip.SetToolTip((sender as ComboBox), "");
                 }
             }
         }

@@ -1701,7 +1701,7 @@ namespace CloudScraper.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>AmazonCloudParameters/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/16,16/true</string>
+  <string>AmazonCloudParameters/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/32,32/true</string>
   <string>EHCloudParameters/255,174/189,70/ElasticHosts/Transfer your server to ElasticHosts/Icons\\Elastic.ico/32,32/true</string>
   <string>WindowsAzureCloudParameters/255,98/189,70/WindowsAzure (Not supported)/Transfer your server to WindowsAzure/Icons\\Azure.ico/32,32/false</string>
 </ArrayOfString>")]
@@ -1723,6 +1723,102 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["TotalSizeGap"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string S4AmazonAccessIDToolTip {
+            get {
+                return ((string)(this["S4AmazonAccessIDToolTip"]));
+            }
+            set {
+                this["S4AmazonAccessIDToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string S4AmazonAccessKeyToolTip {
+            get {
+                return ((string)(this["S4AmazonAccessKeyToolTip"]));
+            }
+            set {
+                this["S4AmazonAccessKeyToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string S4AmazonS3BucketToolTip {
+            get {
+                return ((string)(this["S4AmazonS3BucketToolTip"]));
+            }
+            set {
+                this["S4AmazonS3BucketToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string S4AmazonFolderToolTip {
+            get {
+                return ((string)(this["S4AmazonFolderToolTip"]));
+            }
+            set {
+                this["S4AmazonFolderToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string S4AmazonAvailabilityZoneToolTip {
+            get {
+                return ((string)(this["S4AmazonAvailabilityZoneToolTip"]));
+            }
+            set {
+                this["S4AmazonAvailabilityZoneToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string S4AmazonSecurityGroupToolTip {
+            get {
+                return ((string)(this["S4AmazonSecurityGroupToolTip"]));
+            }
+            set {
+                this["S4AmazonSecurityGroupToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string S4EHUserUIDToolTip {
+            get {
+                return ((string)(this["S4EHUserUIDToolTip"]));
+            }
+            set {
+                this["S4EHUserUIDToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string S4EHApiKeyToolTip {
+            get {
+                return ((string)(this["S4EHApiKeyToolTip"]));
+            }
+            set {
+                this["S4EHApiKeyToolTip"] = value;
             }
         }
     }
