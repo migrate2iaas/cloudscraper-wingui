@@ -225,6 +225,36 @@ namespace CloudScraper
                 return new Guid(id);
             else
                 return Guid.Empty;
-        }  
+        }
+
+        public override void TextBoxMouseEnter(object sender, EventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                if ((sender as TextBox).Text == "")
+                {
+                    if ((sender as TextBox) == keyTextBox)
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4EHApiKeyToolTip);
+                    if ((sender as TextBox) == idTextBox)
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4EHUserUIDToolTip);
+                }
+                else
+                {
+                    this.toolTip.SetToolTip((sender as TextBox), "");
+                }
+            }
+
+            if ((sender is ComboBox))
+            {
+                if ((sender as ComboBox).Text == "")
+                {
+                    this.toolTip.SetToolTip((sender as ComboBox), "Test");
+                }
+                else
+                {
+                    this.toolTip.SetToolTip((sender as ComboBox), "");
+                }
+            }
+        }
     }
 }
