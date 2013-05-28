@@ -20,7 +20,7 @@ namespace CloudScraper
 
             InitializeComponent();
 
-            //Initialize basic UI strings from settings file.
+            //Initialize basic UI strings from settings file. 
             this.amazonButton.Image = new Bitmap(Image.FromFile("Icons\\Amazon.ico"), new Size(32, 32));
             this.windowsAzureButton.Image = new Bitmap(Image.FromFile("Icons\\Azure.ico"), new Size(32, 32));
             this.elasticHostsButton.Image = new Bitmap(Image.FromFile("Icons\\Elastic.ico"), new Size(32, 32));
@@ -43,7 +43,8 @@ namespace CloudScraper
             this.elasticHostsButton.Visible = false;
             this.windowsAzureButton.Visible = false;
 
-
+            //! please, comment what is going on in here
+            //! it could be quite confusing 
             foreach (string str in Settings.Default.Buttons)
             {
                 string buttonName = str.Split(new char[] { Settings.Default.Separator }, 8)[0];
@@ -113,6 +114,9 @@ namespace CloudScraper
 
         private void ButtonClick(object sender, EventArgs e)
         {
+            //! some more comments, please!
+            //! imagine I have no point what reflection is.
+            //! And is there any way to get name of "this" assembly? What if , e.g. the version or filename changes? 
             this.Hide();
             string assemblyName = "CloudScraper." + (sender as Button).Name + 
                 ", CloudScraper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
