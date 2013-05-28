@@ -479,7 +479,7 @@
       <Value Profile="(Default)">test</Value>
     </Setting>
     <Setting Name="S4EHApiKeyToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">test2</Value>
+      <Value Profile="(Default)">test</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -1812,7 +1812,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
         public string S4EHApiKeyToolTip {
             get {
                 return ((string)(this["S4EHApiKeyToolTip"]));
