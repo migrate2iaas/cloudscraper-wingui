@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using CloudScraper.Properties;
+using System.Reflection;
 
 namespace CloudScraper
 {
@@ -119,7 +120,7 @@ namespace CloudScraper
             //! And is there any way to get name of "this" assembly? What if , e.g. the version or filename changes? 
             this.Hide();
             string assemblyName = "CloudScraper." + (sender as Button).Name + 
-                ", CloudScraper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
+                ", " + Assembly.GetExecutingAssembly().FullName;
             
             if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_.GetType().AssemblyQualifiedName == assemblyName))
             {
