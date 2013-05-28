@@ -183,7 +183,9 @@
     <EmbeddedResource Include="SaveTransferTaskForm.resx">
       <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="logs\migrate.log">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
