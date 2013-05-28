@@ -45,6 +45,7 @@ namespace CloudScraper
 
         public virtual void NextButtonClick(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         private void OnClosed(object sender, FormClosedEventArgs e)
@@ -54,61 +55,75 @@ namespace CloudScraper
 
         public virtual void IDChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void KeyChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void RegionListBoxChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void AdvancedChecked(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void BucketChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void FolderKeyChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void ServerTypeChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void ZoneComboBoxIndexChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void GroupComboBoxIndexChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void GroupComboBoxTextChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void ZoneComboBoxTextChanged(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         //Check bucket when lost focus.
         // See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
         public virtual void BucketTextBoxLeave(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         public virtual void HelpButtonClick(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
         //Test connection.
         public virtual void TestButtonClick(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
 
@@ -121,6 +136,7 @@ namespace CloudScraper
 
         public virtual void TextBoxMouseEnter(object sender, EventArgs e)
         {
+            throw new NotImplementedException();
         }
 
     }
