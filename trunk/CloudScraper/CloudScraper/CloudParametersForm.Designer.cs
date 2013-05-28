@@ -363,6 +363,11 @@
 
         #endregion
 
+        //! Why these buttons\forms are public?
+        //! these boxes are Amazon-related too? 
+        //! So they are created nevertheless of cloud but not shown?
+        //! Should I add new buttons here to add any new cloud support?
+
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

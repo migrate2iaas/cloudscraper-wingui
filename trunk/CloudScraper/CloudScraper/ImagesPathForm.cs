@@ -61,7 +61,7 @@ namespace CloudScraper
                     if (rootName == drive.Name)
                     {
                         this.freeSpace.Text = Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024),1).ToString() + "GB";
-                        //If  Free Space not enough (4GB additional program required).
+                        //If  Free Space not enough (4GB ,exact value got from config, of additional space required).
                         if (ChooseDisksForm.totalSpaceRequired_ + Settings.Default.TotalSizeGap > Math.Round((decimal)drive.AvailableFreeSpace / (1024 * 1024 * 1024), 1))
                         {
                             this.errorLabel.Visible = true;

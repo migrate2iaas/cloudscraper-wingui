@@ -133,6 +133,8 @@ namespace CloudScraper
             {
                 using (StreamReader stream = new StreamReader(resumeFilePath_))
                 {
+                    //! THe [EC2] or [ElasticHosts] could be not in the first line really. (.ini syntax allows to enter comments in the header or write sections in any order)
+                    //! please, 
                     string header = stream.ReadLine();
                     if (header == "[EC2]")
                     {
