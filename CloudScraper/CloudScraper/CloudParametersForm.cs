@@ -35,7 +35,7 @@ namespace CloudScraper
             this.chooseCloudForm_ = chooseCloudForm;          
         }
 
-        public virtual void BackButtonClick(object sender, EventArgs e)
+        protected virtual void BackButtonClick(object sender, EventArgs e)
         {
             this.Hide();
             this.chooseCloudForm_.StartPosition = FormStartPosition.Manual;
@@ -43,7 +43,7 @@ namespace CloudScraper
             this.chooseCloudForm_.Show();
         }
 
-        public virtual void NextButtonClick(object sender, EventArgs e)
+        protected virtual void NextButtonClick(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
@@ -53,88 +53,88 @@ namespace CloudScraper
             this.chooseCloudForm_.Close();
         }
 
-        public virtual void IDChanged(object sender, EventArgs e)
+        protected virtual void IDChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void KeyChanged(object sender, EventArgs e)
+        protected virtual void KeyChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void RegionListBoxChanged(object sender, EventArgs e)
+        protected virtual void RegionListBoxChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void AdvancedChecked(object sender, EventArgs e)
+        protected virtual void AdvancedChecked(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void BucketChanged(object sender, EventArgs e)
+        protected virtual void BucketChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void FolderKeyChanged(object sender, EventArgs e)
+        protected virtual void FolderKeyChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void ServerTypeChanged(object sender, EventArgs e)
+        protected virtual void ServerTypeChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void ZoneComboBoxIndexChanged(object sender, EventArgs e)
+        protected virtual void ZoneComboBoxIndexChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void GroupComboBoxIndexChanged(object sender, EventArgs e)
+        protected virtual void GroupComboBoxIndexChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void GroupComboBoxTextChanged(object sender, EventArgs e)
+        protected virtual void GroupComboBoxTextChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void ZoneComboBoxTextChanged(object sender, EventArgs e)
+        protected virtual void ZoneComboBoxTextChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
         //Check bucket when lost focus.
         // See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
-        public virtual void BucketTextBoxLeave(object sender, EventArgs e)
+        protected virtual void BucketTextBoxLeave(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void HelpButtonClick(object sender, EventArgs e)
+        protected virtual void HelpButtonClick(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
         //Test connection.
-        public virtual void TestButtonClick(object sender, EventArgs e)
+        protected virtual void TestButtonClick(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
 
-        public virtual void CloudParametersLoad(object sender, EventArgs e)
+        protected virtual void CloudParametersLoad(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseCloudForm_.Location;
             //isAmazon_ = false;
         }
 
-        public virtual void TextBoxMouseEnter(object sender, EventArgs e)
+        protected virtual void TextBoxMouseEnter(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
