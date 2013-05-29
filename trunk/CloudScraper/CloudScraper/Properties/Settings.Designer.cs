@@ -1716,7 +1716,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public decimal TotalSizeGap {
             get {
                 return ((decimal)(this["TotalSizeGap"]));
@@ -1728,7 +1728,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your Amazon Access Key ID here...")]
         public string S4AmazonAccessIDToolTip {
             get {
                 return ((string)(this["S4AmazonAccessIDToolTip"]));
@@ -1740,7 +1740,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter corresponding Amazon Access Secret Key here...")]
         public string S4AmazonAccessKeyToolTip {
             get {
                 return ((string)(this["S4AmazonAccessKeyToolTip"]));
@@ -1752,7 +1752,9 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter S3 bucket name you wish to save the image to. \\r\\n The bucket name should b" +
+            "e unique for whole S3 system\\n Press \'Test Connection\' button in order to test w" +
+            "hether the bucket name is available.")]
         public string S4AmazonS3BucketToolTip {
             get {
                 return ((string)(this["S4AmazonS3BucketToolTip"]));
@@ -1764,7 +1766,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter folder name in your bucket to save the image to")]
         public string S4AmazonFolderToolTip {
             get {
                 return ((string)(this["S4AmazonFolderToolTip"]));
@@ -1776,7 +1778,8 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Choose Availability Zone (sub-datacenter) where your cloud server instance will r" +
+            "un. \\r\\n Press \'Test Connection\' button to get available zones.")]
         public string S4AmazonAvailabilityZoneToolTip {
             get {
                 return ((string)(this["S4AmazonAvailabilityZoneToolTip"]));
@@ -1788,7 +1791,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"Choose Security Group. Security group defines firewall settings for your instance. \r\n Attention: it couldn't be changed so choose wisely \r\n Alternatively create new security group for the machine in the specified region using AWS EC2 management console. \r\n Consult AWS documentation for more info.")]
         public string S4AmazonSecurityGroupToolTip {
             get {
                 return ((string)(this["S4AmazonSecurityGroupToolTip"]));
@@ -1800,7 +1803,8 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your API UUID. It could be got from Profile section of your ElasticHosts ac" +
+            "count.")]
         public string S4EHUserUIDToolTip {
             get {
                 return ((string)(this["S4EHUserUIDToolTip"]));
@@ -1812,7 +1816,8 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your Secret API key. It could be got from Profile section of your ElasticHo" +
+            "sts account.")]
         public string S4EHApiKeyToolTip {
             get {
                 return ((string)(this["S4EHApiKeyToolTip"]));
