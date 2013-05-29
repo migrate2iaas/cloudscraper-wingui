@@ -485,9 +485,9 @@ namespace CloudScraper
                 if ((sender as TextBox).Text == "")
                 {
                     if ((sender as TextBox) == keyTextBox)
-                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AmazonAccessIDToolTip);
-                    if ((sender as TextBox) == idTextBox)
                         this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AmazonAccessKeyToolTip);
+                    if ((sender as TextBox) == idTextBox)
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AmazonAccessIDToolTip);
                     if ((sender as TextBox) == bucketTextBox)
                         this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AmazonS3BucketToolTip);
                     if ((sender as TextBox) == folderKeyBox)
