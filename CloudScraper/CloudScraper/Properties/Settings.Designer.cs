@@ -1779,7 +1779,7 @@ namespace CloudScraper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Choose Availability Zone (sub-datacenter) where your cloud server instance will r" +
-            "un. \\r\\n Press \'Test Connection\' button to get available zones.")]
+            "un.\r\nPress \'Test Connection\' button to get available zones.")]
         public string S4AmazonAvailabilityZoneToolTip {
             get {
                 return ((string)(this["S4AmazonAvailabilityZoneToolTip"]));
