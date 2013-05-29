@@ -31,7 +31,7 @@ namespace CloudScraper
             
             InitializeComponent();
             
-            //! please comment why do we calculate the space
+            //Use totalSpaceRequired for use in other forms.
             totalSpaceRequired_ = 0;
             this.totalSpaceLabel.Text = totalSpaceRequired_ == 0 ? totalSpaceRequired_.ToString() + "GB" :
                 (totalSpaceRequired_ + Settings.Default.TotalSizeGap).ToString() + "GB";
