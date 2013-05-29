@@ -44,10 +44,10 @@ namespace CloudScraper
             this.elasticHostsButton.Visible = false;
             this.windowsAzureButton.Visible = false;
 
-            //! please, comment what is going on in here
-            //! it could be quite confusing 
+            //Load button settings from config file. 
             foreach (string str in Settings.Default.Buttons)
             {
+                //ButtonName should be the same as fileName for corresponding Cloud.  
                 string buttonName = str.Split(new char[] { Settings.Default.Separator }, 8)[0];
                 string coordinats = str.Split(new char[] { Settings.Default.Separator }, 8)[1];
                 string size = str.Split(new char[] { Settings.Default.Separator }, 8)[2];
@@ -57,6 +57,7 @@ namespace CloudScraper
                 string iconSize = str.Split(new char[] { Settings.Default.Separator }, 8)[6];
                 bool enable = Convert.ToBoolean(str.Split(new char[] { Settings.Default.Separator }, 8)[7]);
 
+                //Make button and place into the Form.
                 Button button = new Button();
                 button.Name = buttonName;
                 button.Size =  new Size(Convert.ToInt32(size.Split(new char[] { ',' }, 2)[0]), 
@@ -71,6 +72,7 @@ namespace CloudScraper
                 button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
                 button.UseVisualStyleBackColor = true;
                 button.Enabled = enable;
+                //Add Click event for the button.
                 button.Click += new System.EventHandler(this.ButtonClick);
                 this.Controls.Add(button);
             }
@@ -86,44 +88,17 @@ namespace CloudScraper
             this.chooseDiskForm_.Show();
         }
 
-        //private void AmazonButtonClick(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-
-        //    if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_ is AmazonCloudParameters))
-        //    {
-        //        this.cloudParametersForm_ = new AmazonCloudParameters(this);
-        //        //this.cloudParametersForm_ = new CloudParametersForm(this);
-        //    }
-
-        //    cloudParametersForm_.ShowDialog();
-        //}
-
-        //private void ElasticHostsButtonClick(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-
-        //    if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_ is EHCloudParameters))
-        //    {
-        //        //this.eHCloudParametersForm_ = new EHCloudParametersForm(this);
-        //        this.cloudParametersForm_ = new EHCloudParameters(this);
-        //    }
-
-        //    this.cloudParametersForm_.ShowDialog();
-        //    //eHCloudParametersForm_.ShowDialog();
-        //}
 
         private void ButtonClick(object sender, EventArgs e)
         {
-            //! some more comments, please!
-            //! imagine I have no point what reflection is.
-            //! And is there any way to get name of "this" assembly? What if , e.g. the version or filename changes? 
+            //Hide current ChooseCloudForm and show parameters form for corresponding cloud.
             this.Hide();
             string assemblyName = "CloudScraper." + (sender as Button).Name + 
                 ", " + Assembly.GetExecutingAssembly().FullName;
             
             if (this.cloudParametersForm_ == null || !(this.cloudParametersForm_.GetType().AssemblyQualifiedName == assemblyName))
             {
+                //Create cloud corresponding form here.
                 this.cloudParametersForm_ =
                     (CloudParametersForm)Activator.CreateInstance(Type.GetType(assemblyName), new Object[1] { this });
             }

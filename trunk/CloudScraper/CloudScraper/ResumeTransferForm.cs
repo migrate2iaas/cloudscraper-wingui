@@ -133,29 +133,37 @@ namespace CloudScraper
             {
                 using (StreamReader stream = new StreamReader(resumeFilePath_))
                 {
-                    //! THe [EC2] or [ElasticHosts] could be not in the first line really. (.ini syntax allows to enter comments in the header or write sections in any order)
-                    //! please, 
-                    string header = stream.ReadLine();
-                    if (header == "[EC2]")
+
+                    bool isHeaderPresent = false;
+                    while (!stream.EndOfStream)
                     {
-                        this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Amazon";
-                    }
-                    else if (header == "[ElasticHosts]")
-                    {
-                        this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Elastic Hosts";
-                        this.redeployUploadCheckBox.Checked = false;
-                        this.redeployUploadCheckBox.Enabled = false;
-                        skipUpload_ = false;
-                        
-                        string body = stream.ReadToEnd();
-                        if (body.Contains("image-placement = direct"))
+                        string header = stream.ReadLine();
+                        if (header == "[EC2]")
                         {
-                            this.resumeUploadCheckBox.Checked = false;
-                            this.resumeUploadCheckBox.Enabled = false;
-                            resumeUpload_ = false;
+                            this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Amazon";
+                            isHeaderPresent = true;
+                            break;
+                        }
+                        else if (header == "[ElasticHosts]")
+                        {
+                            this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Elastic Hosts";
+                            this.redeployUploadCheckBox.Checked = false;
+                            this.redeployUploadCheckBox.Enabled = false;
+                            skipUpload_ = false;
+                        
+                            string body = stream.ReadToEnd();
+                            if (body.Contains("image-placement = direct"))
+                            {
+                                this.resumeUploadCheckBox.Checked = false;
+                                this.resumeUploadCheckBox.Enabled = false;
+                                resumeUpload_ = false;
+                            }
+                            isHeaderPresent = true;
+                            break;
                         }
                     }
-                    else
+
+                    if (!isHeaderPresent)
                     {
                         DialogResult result = MessageBox.Show(Settings.Default.R2WarningMessageText,
                         Settings.Default.R2WarningMessageHeader,

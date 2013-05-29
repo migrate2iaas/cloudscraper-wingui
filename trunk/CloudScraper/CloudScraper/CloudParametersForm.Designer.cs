@@ -363,35 +363,30 @@
 
         #endregion
 
-        //! Why these buttons\forms are public?
-        //! these boxes are Amazon-related too? 
-        //! So they are created nevertheless of cloud but not shown?
-        //! Should I add new buttons here to add any new cloud support?
-
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        public System.Windows.Forms.Label regionLabel;
-        public System.Windows.Forms.TextBox keyTextBox;
-        public System.Windows.Forms.TextBox idTextBox;
-        public System.Windows.Forms.Label keyLabel;
-        public System.Windows.Forms.Label idLabel;
-        public System.Windows.Forms.ComboBox regionComboBox;
-        public System.Windows.Forms.Label groupLabel;
-        public System.Windows.Forms.Label zoneLabel;
-        public System.Windows.Forms.ComboBox serverTypeComboBox;
-        public System.Windows.Forms.Label typeLabel;
-        public System.Windows.Forms.TextBox bucketTextBox;
-        public System.Windows.Forms.Label bucketLabel;
-        public System.Windows.Forms.CheckBox advancedCheckBox;
-        public System.Windows.Forms.Label folderKeyLabel;
-        public System.Windows.Forms.TextBox folderKeyBox;
-        public System.Windows.Forms.ComboBox zoneComboBox;
-        public System.Windows.Forms.ComboBox groupComboBox;
-        public System.Windows.Forms.Button backButton;
-        public System.Windows.Forms.Button nextButton;
-        public System.Windows.Forms.Button testButton;
-        public System.Windows.Forms.Button helpButton;
-        public System.Windows.Forms.ToolTip toolTip;
+        protected System.Windows.Forms.Label regionLabel;
+        protected System.Windows.Forms.TextBox keyTextBox;
+        protected System.Windows.Forms.TextBox idTextBox;
+        protected System.Windows.Forms.Label keyLabel;
+        protected System.Windows.Forms.Label idLabel;
+        protected System.Windows.Forms.ComboBox regionComboBox;
+        protected System.Windows.Forms.Label groupLabel;
+        protected System.Windows.Forms.Label zoneLabel;
+        protected System.Windows.Forms.ComboBox serverTypeComboBox;
+        protected System.Windows.Forms.Label typeLabel;
+        protected System.Windows.Forms.TextBox bucketTextBox;
+        protected System.Windows.Forms.Label bucketLabel;
+        protected System.Windows.Forms.CheckBox advancedCheckBox;
+        protected System.Windows.Forms.Label folderKeyLabel;
+        protected System.Windows.Forms.TextBox folderKeyBox;
+        protected System.Windows.Forms.ComboBox zoneComboBox;
+        protected System.Windows.Forms.ComboBox groupComboBox;
+        protected System.Windows.Forms.Button backButton;
+        protected System.Windows.Forms.Button nextButton;
+        protected System.Windows.Forms.Button testButton;
+        protected System.Windows.Forms.Button helpButton;
+        protected System.Windows.Forms.ToolTip toolTip;
     }
 }

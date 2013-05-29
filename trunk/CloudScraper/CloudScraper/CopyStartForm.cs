@@ -319,7 +319,6 @@ namespace CloudScraper
                 while (true)
                 {
                     // ~3s sleep for reduce processor usage.
-                    //! What is it? Kinda method to avoid possible collisions e.g. access denied errors on the start?
                     Thread.Sleep(3000);
 
                     if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
@@ -465,14 +464,13 @@ namespace CloudScraper
 
         private void OnClosed(object sender, FormClosedEventArgs e)
         {
-            //For S way.
-            //! please, specify what is R and what is S path
+            //For S way. When we start new copy process.
             if (saveTransferForm_ != null)
             {
                 this.saveTransferForm_.Close();
             }
 
-            //For R way.
+            //For R way. When we resume previous copy process.
             if (this.resumeTransferForm_ != null)
             {
                 this.resumeTransferForm_.Close();

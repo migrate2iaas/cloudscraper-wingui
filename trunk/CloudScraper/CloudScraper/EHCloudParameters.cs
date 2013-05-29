@@ -81,25 +81,25 @@ namespace CloudScraper
             this.SetChooseCloudForm(chooseCloudForm);
         }
 
-        public override void RegionListBoxChanged(object sender, EventArgs e)
+        protected override void RegionListBoxChanged(object sender, EventArgs e)
         {
             region_ = this.regionList_[(string)(sender as ComboBox).SelectedItem];
         }
 
-        public override void IDChanged(object sender, EventArgs e)
+        protected override void IDChanged(object sender, EventArgs e)
         {
             uuid_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        public override void KeyChanged(object sender, EventArgs e)
+        protected override void KeyChanged(object sender, EventArgs e)
         {
             apiKey_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
 
-        public override void AdvancedChecked(object sender, EventArgs e)
+        protected override void AdvancedChecked(object sender, EventArgs e)
         {
             if ((sender as CheckBox).Checked)
             {
@@ -113,13 +113,13 @@ namespace CloudScraper
             }
         }
 
-        public override void BackButtonClick(object sender, EventArgs e)
+        protected override void BackButtonClick(object sender, EventArgs e)
         {
             isElasticHosts_ = false;
             base.BackButtonClick(sender, e);
         }
 
-        public override void NextButtonClick(object sender, EventArgs e)
+        protected override void NextButtonClick(object sender, EventArgs e)
         {
             isElasticHosts_ = true;
             this.Hide();
@@ -144,12 +144,12 @@ namespace CloudScraper
             }
         }
 
-        public override void HelpButtonClick(object sender, EventArgs e)
+        protected override void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S4Link);
         }
 
-        public override void TestButtonClick(object sender, EventArgs e)
+        protected override void TestButtonClick(object sender, EventArgs e)
         {
             try
             {
@@ -193,7 +193,7 @@ namespace CloudScraper
             }
         }
 
-        public override void CloudParametersLoad(object sender, EventArgs e)
+        protected override void CloudParametersLoad(object sender, EventArgs e)
         {
             isElasticHosts_ = false;
             base.CloudParametersLoad(sender, e);
@@ -227,7 +227,7 @@ namespace CloudScraper
                 return Guid.Empty;
         }
 
-        public override void TextBoxMouseEnter(object sender, EventArgs e)
+        protected override void TextBoxMouseEnter(object sender, EventArgs e)
         {
             if (sender is TextBox)
             {

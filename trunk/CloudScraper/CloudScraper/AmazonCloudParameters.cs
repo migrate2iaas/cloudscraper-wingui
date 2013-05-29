@@ -80,19 +80,19 @@ namespace CloudScraper
             this.SetChooseCloudForm(chooseCloudForm);
         }
 
-        public override void IDChanged(object sender, EventArgs e)
+        protected override void IDChanged(object sender, EventArgs e)
         {
             awsId_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        public override void KeyChanged(object sender, EventArgs e)
+        protected override void KeyChanged(object sender, EventArgs e)
         {
             awsKey_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        public override void RegionListBoxChanged(object sender, EventArgs e)
+        protected override void RegionListBoxChanged(object sender, EventArgs e)
         {
             region_ = this.regionList_[(string)(sender as ComboBox).SelectedItem];
             this.zoneComboBox.Items.Clear();
@@ -106,7 +106,7 @@ namespace CloudScraper
             this.bucketTextBox.Text = "";
         }
 
-        public override void AdvancedChecked(object sender, EventArgs e)
+        protected override void AdvancedChecked(object sender, EventArgs e)
         {
             if ((sender as CheckBox).Checked)
             {
@@ -142,7 +142,7 @@ namespace CloudScraper
             }
         }
 
-        public override void BucketChanged(object sender, EventArgs e)
+        protected override void BucketChanged(object sender, EventArgs e)
         {
             //Check correct enter for bucket name.
             //See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
@@ -179,34 +179,34 @@ namespace CloudScraper
             this.CheckEnter();
         }
 
-        public override void FolderKeyChanged(object sender, EventArgs e)
+        protected override void FolderKeyChanged(object sender, EventArgs e)
         {
             folderKey_ = (sender as TextBox).Text;
             this.CheckEnter();
         }
 
-        public override void ServerTypeChanged(object sender, EventArgs e)
+        protected override void ServerTypeChanged(object sender, EventArgs e)
         {
             type_ = this.serverTypeList_[(string)(sender as ComboBox).SelectedItem];
         }
 
-        public override void ZoneComboBoxIndexChanged(object sender, EventArgs e)
+        protected override void ZoneComboBoxIndexChanged(object sender, EventArgs e)
         {
             zone_ = (string)(sender as ComboBox).SelectedItem;
         }
 
-        public override void GroupComboBoxIndexChanged(object sender, EventArgs e)
+        protected override void GroupComboBoxIndexChanged(object sender, EventArgs e)
         {
             group_ = (string)(sender as ComboBox).SelectedItem;
         }
 
-        public override void GroupComboBoxTextChanged(object sender, EventArgs e)
+        protected override void GroupComboBoxTextChanged(object sender, EventArgs e)
         {
             group_ = (sender as ComboBox).Text;
             this.CheckEnter();
         }
 
-        public override void ZoneComboBoxTextChanged(object sender, EventArgs e)
+        protected override void ZoneComboBoxTextChanged(object sender, EventArgs e)
         {
             zone_ = (sender as ComboBox).Text;
             this.CheckEnter();
@@ -214,7 +214,7 @@ namespace CloudScraper
 
         //Check bucket when lost focus.
         // See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
-        public override void BucketTextBoxLeave(object sender, EventArgs e)
+        protected override void BucketTextBoxLeave(object sender, EventArgs e)
         {
             if (s3bucket_ != "")
             {
@@ -259,7 +259,7 @@ namespace CloudScraper
             }
         }
 
-        private void CheckEnter()
+        protected void CheckEnter()
         {
             if (!advanced_ && awsId_ != "" && awsId_.Length == 20 &&
                 awsKey_ != "" && awsKey_.Length == 40)
@@ -278,13 +278,13 @@ namespace CloudScraper
             }
         }
 
-        public override void BackButtonClick(object sender, EventArgs e)
+        protected override void BackButtonClick(object sender, EventArgs e)
         {
             isAmazon_ = false;
             base.BackButtonClick(sender, e);
         }
 
-        public override void NextButtonClick(object sender, EventArgs e)
+        protected override void NextButtonClick(object sender, EventArgs e)
         {
             //Check bucket name is correct.
             //See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
@@ -341,12 +341,12 @@ namespace CloudScraper
             imagesPathForm_.ShowDialog();
         }
 
-        public override void HelpButtonClick(object sender, EventArgs e)
+        protected override void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S4Link);
         }
         
-        public override void TestButtonClick(object sender, EventArgs e)
+        protected override void TestButtonClick(object sender, EventArgs e)
         {
             try
             {
@@ -472,13 +472,13 @@ namespace CloudScraper
             }
         }
 
-        public override void CloudParametersLoad(object sender, EventArgs e)
+        protected override void CloudParametersLoad(object sender, EventArgs e)
         {
             isAmazon_ = false;
             base.CloudParametersLoad(sender, e);
         }
 
-        public override void TextBoxMouseEnter(object sender, EventArgs e)
+        protected override void TextBoxMouseEnter(object sender, EventArgs e)
         {
             if (sender is TextBox)
             {
