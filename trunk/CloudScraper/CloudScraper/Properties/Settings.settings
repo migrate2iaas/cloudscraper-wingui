@@ -470,7 +470,8 @@
       <Value Profile="(Default)">Enter folder name in your bucket to save the image to</Value>
     </Setting>
     <Setting Name="S4AmazonAvailabilityZoneToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Choose Availability Zone (sub-datacenter) where your cloud server instance will run. \r\n Press 'Test Connection' button to get available zones.</Value>
+      <Value Profile="(Default)">Choose Availability Zone (sub-datacenter) where your cloud server instance will run.
+Press 'Test Connection' button to get available zones.</Value>
     </Setting>
     <Setting Name="S4AmazonSecurityGroupToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Choose Security Group. Security group defines firewall settings for your instance. \r\n Attention: it couldn't be changed so choose wisely \r\n Alternatively create new security group for the machine in the specified region using AWS EC2 management console. \r\n Consult AWS documentation for more info.</Value>
