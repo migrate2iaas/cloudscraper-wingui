@@ -343,7 +343,7 @@ namespace CloudScraper
 
         protected override void HelpButtonClick(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Settings.Default.S4Link);
+            System.Diagnostics.Process.Start(Settings.Default.S4AmazonLink);
         }
         
         protected override void TestButtonClick(object sender, EventArgs e)

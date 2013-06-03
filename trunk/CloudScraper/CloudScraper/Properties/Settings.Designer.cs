@@ -1012,12 +1012,12 @@ namespace CloudScraper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.migrate2iaas.com/node/181")]
-        public string S4Link {
+        public string S4AmazonLink {
             get {
-                return ((string)(this["S4Link"]));
+                return ((string)(this["S4AmazonLink"]));
             }
             set {
-                this["S4Link"] = value;
+                this["S4AmazonLink"] = value;
             }
         }
         
@@ -1752,32 +1752,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Enter S3 bucket name you wish to save the image to. \\r\\n The bucket name should b" +
-            "e unique for whole S3 system\\n Press \'Test Connection\' button in order to test w" +
-            "hether the bucket name is available.")]
-        public string S4AmazonS3BucketToolTip {
-            get {
-                return ((string)(this["S4AmazonS3BucketToolTip"]));
-            }
-            set {
-                this["S4AmazonS3BucketToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Enter folder name in your bucket to save the image to")]
-        public string S4AmazonFolderToolTip {
-            get {
-                return ((string)(this["S4AmazonFolderToolTip"]));
-            }
-            set {
-                this["S4AmazonFolderToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Choose Availability Zone (sub-datacenter) where your cloud server instance will r" +
             "un.\r\nPress \'Test Connection\' button to get available zones.")]
         public string S4AmazonAvailabilityZoneToolTip {
@@ -1786,18 +1760,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4AmazonAvailabilityZoneToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"Choose Security Group. Security group defines firewall settings for your instance. \r\n Attention: it couldn't be changed so choose wisely \r\n Alternatively create new security group for the machine in the specified region using AWS EC2 management console. \r\n Consult AWS documentation for more info.")]
-        public string S4AmazonSecurityGroupToolTip {
-            get {
-                return ((string)(this["S4AmazonSecurityGroupToolTip"]));
-            }
-            set {
-                this["S4AmazonSecurityGroupToolTip"] = value;
             }
         }
         
@@ -1824,6 +1786,59 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4EHApiKeyToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter S3 bucket name you wish to save the image to.\r\nThe bucket name should be un" +
+            "ique for whole S3 system.\r\nPress \'Test Connection\' button in order to test wheth" +
+            "er the bucket name is available.")]
+        public string S4AmazonS3BucketToolTip {
+            get {
+                return ((string)(this["S4AmazonS3BucketToolTip"]));
+            }
+            set {
+                this["S4AmazonS3BucketToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter folder name in your bucket to save the image to.")]
+        public string S4AmazonFolderToolTip {
+            get {
+                return ((string)(this["S4AmazonFolderToolTip"]));
+            }
+            set {
+                this["S4AmazonFolderToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"Choose Security Group. Security group defines firewall settings for your instance.
+Attention: it couldn't be changed so choose wisely
+Alternatively create new security group for the machine in the specified region using AWS EC2 management console.
+Consult AWS documentation for more info.")]
+        public string S4AmazonSecurityGroupToolTip {
+            get {
+                return ((string)(this["S4AmazonSecurityGroupToolTip"]));
+            }
+            set {
+                this["S4AmazonSecurityGroupToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.migrate2iaas.com/node/181")]
+        public string S4EHLink {
+            get {
+                return ((string)(this["S4EHLink"]));
+            }
+            set {
+                this["S4EHLink"] = value;
             }
         }
     }

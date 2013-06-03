@@ -267,7 +267,7 @@
     <Setting Name="S3Link" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/171</Value>
     </Setting>
-    <Setting Name="S4Link" Type="System.String" Scope="User">
+    <Setting Name="S4AmazonLink" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/181</Value>
     </Setting>
     <Setting Name="S5Link" Type="System.String" Scope="User">
@@ -463,24 +463,32 @@
     <Setting Name="S4AmazonAccessKeyToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enter corresponding Amazon Access Secret Key here...</Value>
     </Setting>
-    <Setting Name="S4AmazonS3BucketToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter S3 bucket name you wish to save the image to. \r\n The bucket name should be unique for whole S3 system\n Press 'Test Connection' button in order to test whether the bucket name is available.</Value>
-    </Setting>
-    <Setting Name="S4AmazonFolderToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter folder name in your bucket to save the image to</Value>
-    </Setting>
     <Setting Name="S4AmazonAvailabilityZoneToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Choose Availability Zone (sub-datacenter) where your cloud server instance will run.
 Press 'Test Connection' button to get available zones.</Value>
-    </Setting>
-    <Setting Name="S4AmazonSecurityGroupToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Choose Security Group. Security group defines firewall settings for your instance. \r\n Attention: it couldn't be changed so choose wisely \r\n Alternatively create new security group for the machine in the specified region using AWS EC2 management console. \r\n Consult AWS documentation for more info.</Value>
     </Setting>
     <Setting Name="S4EHUserUIDToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enter your API UUID. It could be got from Profile section of your ElasticHosts account.</Value>
     </Setting>
     <Setting Name="S4EHApiKeyToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enter your Secret API key. It could be got from Profile section of your ElasticHosts account.</Value>
+    </Setting>
+    <Setting Name="S4AmazonS3BucketToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter S3 bucket name you wish to save the image to.
+The bucket name should be unique for whole S3 system.
+Press 'Test Connection' button in order to test whether the bucket name is available.</Value>
+    </Setting>
+    <Setting Name="S4AmazonFolderToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter folder name in your bucket to save the image to.</Value>
+    </Setting>
+    <Setting Name="S4AmazonSecurityGroupToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose Security Group. Security group defines firewall settings for your instance.
+Attention: it couldn't be changed so choose wisely
+Alternatively create new security group for the machine in the specified region using AWS EC2 management console.
+Consult AWS documentation for more info.</Value>
+    </Setting>
+    <Setting Name="S4EHLink" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.migrate2iaas.com/node/181</Value>
     </Setting>
   </Settings>
 </SettingsFile>
