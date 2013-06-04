@@ -53,6 +53,7 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="AWSSDK">
       <HintPath>.\AWSSDK.dll</HintPath>
@@ -204,9 +205,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Icons\Cloud.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <Compile Include="Icons\Cloud.ico" />
     <EmbeddedResource Include="Icons\WindowsDrive.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
