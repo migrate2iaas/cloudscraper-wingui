@@ -56,7 +56,7 @@
   <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup>
-    <Win32Resource>F:\cloudscraper.wingui\cloudscraper.wingui\trunk\CloudScraper\CloudScraper\app.RES</Win32Resource>
+    <Win32Resource>app.RES</Win32Resource>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AWSSDK">
