@@ -205,7 +205,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Icons\Cloud.ico" />
+    <EmbeddedResource Include="Icons\Cloud.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Icons\WindowsDrive.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
