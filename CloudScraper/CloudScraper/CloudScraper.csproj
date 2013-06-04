@@ -48,12 +48,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icons\Cloud.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <Win32Resource>F:\cloudscraper.wingui\cloudscraper.wingui\trunk\CloudScraper\CloudScraper\app.RES</Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AWSSDK">
       <HintPath>.\AWSSDK.dll</HintPath>
@@ -190,7 +194,9 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="app.manifest" />
+    <EmbeddedResource Include="app.manifest">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="logs\migrate.log">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -280,7 +286,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="app.rc" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
