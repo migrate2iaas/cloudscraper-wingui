@@ -15,11 +15,4 @@
       </requestedPrivileges>
     </security>
   </trustInfo>
-  
-  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
-    <application>
-      
-    </application>
-  </compatibility>
-
 </asmv1:assembly>
