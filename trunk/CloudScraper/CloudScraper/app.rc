@@ -1,6 +1,2 @@
-﻿1 24 "CloudScraper.exe.manifest"
-3 ICON "Icons\\Cloud.ico"
-/* 
-Run rc.exe (could be found in Windows SDK or Visual Studio) on it to get res file containing appropriate manifest and icon. 
-Really dunno why but the first string is ignored but it's needed in order to compile...
-*/
+1 24 "CloudScraper.exe.manifest"
+2 ICON "Icons\\Cloud.ico"
