@@ -1,5 +1,5 @@
-﻿1 ICON "Icons\\Cloud.ico"
-2 24 "CloudScraper.exe.manifest"
+﻿2 25 "update_res.bat"
+1 24 "CloudScraper.exe.manifest"
 3 ICON "Icons\\Cloud.ico"
 /* 
 Run rc.exe (could be found in Windows SDK or Visual Studio) on it to get res file containing appropriate manifest and icon. 
