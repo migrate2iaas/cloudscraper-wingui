@@ -210,7 +210,7 @@
             // groupLabel
             // 
             this.groupLabel.Enabled = false;
-            this.groupLabel.Location = new System.Drawing.Point(0, 171);
+            this.groupLabel.Location = new System.Drawing.Point(3, 167);
             this.groupLabel.Name = "groupLabel";
             this.groupLabel.Size = new System.Drawing.Size(213, 45);
             this.groupLabel.TabIndex = 7;
