@@ -279,8 +279,8 @@ namespace CloudScraper
                 info.Arguments = "migrate.pyc" + arguments;
             }
 
-            info.UseShellExecute = false;
-            info.LoadUserProfile = true;
+            info.UseShellExecute = true;
+            //info.LoadUserProfile = true;
             //info.Domain = "domainname";
             //info.UserName = System.Environment.UserName;
             //string password = "test";
@@ -291,6 +291,9 @@ namespace CloudScraper
             //}
             //info.Password = ssPwd;
 
+            info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
+            info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
+            
             pythonProcess.StartInfo = info;           
             pythonProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             pythonProcess.Exited += new EventHandler(this.PythonExited);
