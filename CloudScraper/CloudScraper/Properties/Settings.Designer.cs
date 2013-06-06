@@ -27,26 +27,6 @@ namespace CloudScraper.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>m1.medium/M1 Medium</string>
-  <string>m1.small/M1 Small</string>
-  <string>m1.large/M1 Large</string>
-  <string>m1.xlarge/M1 Extra Large</string>
-  <string>m3.2xlarge/M3 Double Extra Large</string>
-  <string>m3.xlarge/M3 Extra Large</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection ServerTypes {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["ServerTypes"]));
-            }
-            set {
-                this["ServerTypes"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>us-east-1/US East (Northern Virginia)</string>
   <string>us-west-2/US West (Oregon)</string>
   <string>us-west-1/US West (Northern California)</string>
@@ -1839,6 +1819,26 @@ Consult AWS documentation for more info.")]
             }
             set {
                 this["S4EHLink"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>m1.medium/M1 Medium</string>
+  <string>m1.small/M1 Small</string>
+  <string>m1.large/M1 Large</string>
+  <string>m1.xlarge/M1 Extra Large</string>
+  <string>m3.2xlarge/M3 Double Extra Large</string>
+  <string>m3.xlarge/M3 Extra Large</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection ServerTypes {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ServerTypes"]));
+            }
+            set {
+                this["ServerTypes"] = value;
             }
         }
     }

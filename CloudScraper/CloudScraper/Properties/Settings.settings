@@ -2,17 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CloudScraper.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;m1.medium/M1 Medium&lt;/string&gt;
-  &lt;string&gt;m1.small/M1 Small&lt;/string&gt;
-  &lt;string&gt;m1.large/M1 Large&lt;/string&gt;
-  &lt;string&gt;m1.xlarge/M1 Extra Large&lt;/string&gt;
-  &lt;string&gt;m3.2xlarge/M3 Double Extra Large&lt;/string&gt;
-  &lt;string&gt;m3.xlarge/M3 Extra Large&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -489,6 +478,17 @@ Consult AWS documentation for more info.</Value>
     </Setting>
     <Setting Name="S4EHLink" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/181</Value>
+    </Setting>
+    <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;m1.medium/M1 Medium&lt;/string&gt;
+  &lt;string&gt;m1.small/M1 Small&lt;/string&gt;
+  &lt;string&gt;m1.large/M1 Large&lt;/string&gt;
+  &lt;string&gt;m1.xlarge/M1 Extra Large&lt;/string&gt;
+  &lt;string&gt;m3.2xlarge/M3 Double Extra Large&lt;/string&gt;
+  &lt;string&gt;m3.xlarge/M3 Extra Large&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>
