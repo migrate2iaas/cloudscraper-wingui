@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using CloudScraper.Properties;
 using System.Reflection;
+using System.IO;
 
 namespace CloudScraper
 {
@@ -102,7 +103,12 @@ namespace CloudScraper
                 this.cloudParametersForm_ =
                     (CloudParametersForm)Activator.CreateInstance(Type.GetType(assemblyName), new Object[1] { this });
             }
-                        
+
+            using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+            {
+                stream.WriteLine(DateTime.Now.ToString() + " " + "Scenario " + (sender as Button).Name + " started");
+            }
+
             this.cloudParametersForm_.ShowDialog();
         }
 
