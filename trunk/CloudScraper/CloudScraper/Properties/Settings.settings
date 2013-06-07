@@ -24,6 +24,8 @@
     <Setting Name="SupportEmail" Type="System.String" Scope="User">
       <Value Profile="(Default)">cloudscraper@support.assembla.com</Value>
     </Setting>
+
+    <!-- TEST -->
     <Setting Name="S1Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Cloudscraper Server Clone</Value>
     </Setting>
