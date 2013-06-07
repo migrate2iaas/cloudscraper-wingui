@@ -465,8 +465,12 @@ namespace CloudScraper
                     return;
                 }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
+                using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                {
+                    stream.WriteLine(DateTime.Now.ToString() + " " + e);
+                }
             }
         }
 
@@ -617,8 +621,13 @@ namespace CloudScraper
                MessageBox.Show(Settings.Default.MailSendMessage,
                    Settings.Default.MailSendHeader, MessageBoxButtons.OK); 
             }
-            catch (Exception e)
+            catch(Exception e)
             {
+                using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                {
+                    stream.WriteLine(DateTime.Now.ToString() + " " + e);
+                }
+
                 this.attach.Dispose();
                 this.Cursor = Cursors.Arrow;
                 MessageBox.Show(e.ToString(),   
@@ -647,8 +656,12 @@ namespace CloudScraper
                     {
                         pr.Kill();
                     }
-                    catch
+                    catch(Exception exept)
                     {
+                        using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                        {
+                            stream.WriteLine(DateTime.Now.ToString() + " " + exept);
+                        }
                     }
                 }
             }
@@ -696,8 +709,12 @@ namespace CloudScraper
                         {
                             pr.Kill();
                         }
-                        catch (Exception expt)
+                        catch(Exception expt)
                         {
+                            using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                            {
+                                stream.WriteLine(DateTime.Now.ToString() + " " + expt);
+                            }
                         }
                     }
                 }
@@ -709,8 +726,12 @@ namespace CloudScraper
                     {
                         pythonProcess.Kill();
                     }
-                    catch
+                    catch(Exception exp)
                     {
+                        using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                        {
+                            stream.WriteLine(DateTime.Now.ToString() + " " + exp);
+                        }
                     }
                 }             
             }
