@@ -153,6 +153,7 @@
     <Compile Include="SaveTransferTaskForm.Designer.cs">
       <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="ChooseCloudForm.resx">
       <DependentUpon>ChooseCloudForm.cs</DependentUpon>
     </EmbeddedResource>
