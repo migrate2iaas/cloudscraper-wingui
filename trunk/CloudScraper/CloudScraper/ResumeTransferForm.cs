@@ -42,6 +42,8 @@ namespace CloudScraper
             this.browseButton.Text = Settings.Default.R2BrowseButtonText;
             this.toolTip.SetToolTip(this.browseButton, Settings.Default.R2BrowseButtonToolTip);
             this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
+            this.toolTip.SetToolTip(this.resumeUploadCheckBox, Settings.Default.R2ResumeUploadCheckBoxToolTip);
+            this.toolTip.SetToolTip(this.redeployUploadCheckBox, Settings.Default.R2RedeployUploadedCheckBoxToolTip);
         }
 
         private void BackButtonClick(object sender, EventArgs e)

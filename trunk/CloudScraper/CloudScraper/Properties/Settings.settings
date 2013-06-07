@@ -490,5 +490,11 @@ Consult AWS documentation for more info.</Value>
   &lt;string&gt;m3.xlarge/M3 Extra Large&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="R2ResumeUploadCheckBoxToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume upload tool tip</Value>
+    </Setting>
+    <Setting Name="R2RedeployUploadedCheckBoxToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Redeploy uploaded tool tip</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1841,5 +1841,29 @@ Consult AWS documentation for more info.")]
                 this["ServerTypes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Resume upload tool tip")]
+        public string R2ResumeUploadCheckBoxToolTip {
+            get {
+                return ((string)(this["R2ResumeUploadCheckBoxToolTip"]));
+            }
+            set {
+                this["R2ResumeUploadCheckBoxToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Redeploy uploaded tool tip")]
+        public string R2RedeployUploadedCheckBoxToolTip {
+            get {
+                return ((string)(this["R2RedeployUploadedCheckBoxToolTip"]));
+            }
+            set {
+                this["R2RedeployUploadedCheckBoxToolTip"] = value;
+            }
+        }
     }
 }
