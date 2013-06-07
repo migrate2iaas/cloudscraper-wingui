@@ -26,7 +26,8 @@ namespace CloudScraper
             // create log file
             if (File.Exists(path + "gui.log"))
             {
-                if (File.Exists(path + "gui_3.log") && File.Exists(path + "gui_2.log"))
+                if (File.Exists(path + "gui_3.log") && File.Exists(path + "gui_2.log") &&
+                    File.Exists(path + "gui_1.log"))
                 {
                     File.Delete(path + "gui_3.log");
                 }
