@@ -10,6 +10,8 @@ namespace CloudScraper
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
+        public static string logPath_;
+        
         [STAThread]
         static void Main()
         {
@@ -49,7 +51,9 @@ namespace CloudScraper
                 File.Delete(path + "gui.log");
             }
 
-            using (StreamWriter stream = new StreamWriter(path + "gui.log", false))
+            logPath_ = path + "gui.log";
+
+            using (StreamWriter stream = new StreamWriter(logPath_, false))
             {
                 stream.WriteLine(DateTime.Now.ToString() + " " + "Start application");
             }

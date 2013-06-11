@@ -467,7 +467,7 @@ namespace CloudScraper
             }
             catch(Exception e)
             {
-                using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
                 {
                     stream.WriteLine(DateTime.Now.ToString() + " " + e);
                 }
@@ -623,7 +623,7 @@ namespace CloudScraper
             }
             catch(Exception e)
             {
-                using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
                 {
                     stream.WriteLine(DateTime.Now.ToString() + " " + e);
                 }
@@ -658,7 +658,7 @@ namespace CloudScraper
                     }
                     catch(Exception exept)
                     {
-                        using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                        using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
                         {
                             stream.WriteLine(DateTime.Now.ToString() + " " + exept);
                         }
@@ -711,7 +711,7 @@ namespace CloudScraper
                         }
                         catch(Exception expt)
                         {
-                            using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                            using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
                             {
                                 stream.WriteLine(DateTime.Now.ToString() + " " + expt);
                             }
@@ -728,7 +728,7 @@ namespace CloudScraper
                     }
                     catch(Exception exp)
                     {
-                        using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+                        using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
                         {
                             stream.WriteLine(DateTime.Now.ToString() + " " + exp);
                         }

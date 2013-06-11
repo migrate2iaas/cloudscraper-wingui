@@ -104,7 +104,7 @@ namespace CloudScraper
                     (CloudParametersForm)Activator.CreateInstance(Type.GetType(assemblyName), new Object[1] { this });
             }
 
-            using (StreamWriter stream = new StreamWriter(Directory.GetCurrentDirectory() + "\\logs\\" + "gui.log", true))
+            using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
             {
                 stream.WriteLine(DateTime.Now.ToString() + " " + "Scenario " + (sender as Button).Name + " started");
             }
