@@ -136,8 +136,9 @@ namespace CloudScraper
 
             if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
             {
-                // Create transfer file.
-                using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false))
+                // Create transfer file, encode in utf with no BOM (first marking bytes)
+                var utf16WithoutBom = new System.Text.UnicodeEncoding(false , true);
+                using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false, utf16WithoutBom))
                 {
                     if (AmazonCloudParameters.isAmazon_)
                     {
