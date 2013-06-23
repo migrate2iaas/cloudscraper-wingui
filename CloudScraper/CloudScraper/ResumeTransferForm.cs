@@ -16,6 +16,8 @@ namespace CloudScraper
         public static bool skipUpload_;
         public static string resumeFilePath_;
         public static string awsKey_ = "";
+
+        public string cloudName;
         
         NewResumeForm newResumeForm_;
         CopyStartForm copyStartForm_;
@@ -126,6 +128,12 @@ namespace CloudScraper
             this.CheckEdit();
         }
 
+        public string getCloudName()
+        {
+            return this.cloudName;
+        }
+
+
         private void CheckEdit()
         {
             this.redeployUploadCheckBox.Enabled = true;
@@ -133,7 +141,8 @@ namespace CloudScraper
 
             if (resumeFilePath_ != "" && File.Exists(resumeFilePath_))
             {
-                using (StreamReader stream = new StreamReader(resumeFilePath_))
+	            var utf16WithBom = new System.Text.UnicodeEncoding(false , true);
+                using (StreamReader stream = new StreamReader(resumeFilePath_, utf16WithBom))
                 {
 
                     bool isHeaderPresent = false;
@@ -144,6 +153,7 @@ namespace CloudScraper
                         {
                             this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Amazon";
                             isHeaderPresent = true;
+                            this.cloudName = "EC2";
                             break;
                         }
                         else if (header == "[ElasticHosts]")
@@ -151,6 +161,7 @@ namespace CloudScraper
                             this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Elastic Hosts";
                             this.redeployUploadCheckBox.Checked = false;
                             this.redeployUploadCheckBox.Enabled = false;
+                            this.cloudName = "ElasticHosts";
                             skipUpload_ = false;
                         
                             string body = stream.ReadToEnd();
