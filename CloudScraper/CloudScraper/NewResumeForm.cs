@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using CloudScraper.Properties;
 
+
 namespace CloudScraper
 {
     public partial class NewResumeForm : Form
@@ -20,7 +21,6 @@ namespace CloudScraper
         {
             //ghost_ = new GhostForm();            
             //ghost_.Show();
-
             InitializeComponent();
             
 

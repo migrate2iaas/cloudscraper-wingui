@@ -133,6 +133,15 @@ namespace CloudScraper
             return this.cloudName;
         }
 
+        public void setCloudName(string newname)
+        {
+            this.cloudName = newname;
+        }
+
+        public string getPassword()
+        {
+            return awsKey_;
+        }
 
         private void CheckEdit()
         {
@@ -153,7 +162,7 @@ namespace CloudScraper
                         {
                             this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Amazon";
                             isHeaderPresent = true;
-                            this.cloudName = "EC2";
+                            this.setCloudName("EC2");
                             break;
                         }
                         else if (header == "[ElasticHosts]")
@@ -161,7 +170,7 @@ namespace CloudScraper
                             this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Elastic Hosts";
                             this.redeployUploadCheckBox.Checked = false;
                             this.redeployUploadCheckBox.Enabled = false;
-                            this.cloudName = "ElasticHosts";
+                            this.setCloudName("ElasticHosts");
                             skipUpload_ = false;
                         
                             string body = stream.ReadToEnd();
