@@ -31,6 +31,7 @@ namespace CloudScraper
         public bool withError;
         private bool isAmazon;
         private bool isElasticHosts;
+        private string password;
 
         private Attachment attach;
         
@@ -52,8 +53,17 @@ namespace CloudScraper
             ResumeTransferForm.resumeFilePath_ = null;
             this.resumeTransferForm_ = null;
 
-            isAmazon = AmazonCloudParameters.isAmazon_;
-            isElasticHosts = EHCloudParameters.isElasticHosts_;
+            if (AmazonCloudParameters.isAmazon_)
+            {
+                this.isAmazon = true;
+                this.password = AmazonCloudParameters.awsKey_;
+            }
+            if (EHCloudParameters.isElasticHosts_)
+            {
+                this.isElasticHosts = true;
+                this.password = EHCloudParameters.apiKey_;
+            }
+
 
             InitializeComponent();
 
@@ -86,8 +96,15 @@ namespace CloudScraper
             this.saveTransferForm_ = null;
 
             // TODO: make enum/constants for cloud names
-            isAmazon = resumeTransferForm.getCloudName() == "EC2";
-            isElasticHosts = resumeTransferForm.getCloudName() == "ElasticHosts";
+            if (resumeTransferForm.getCloudName() == "EC2")
+            {
+                this.isAmazon = true;
+            }
+            if (resumeTransferForm.getCloudName() == "ElasticHosts")
+            {
+                this.isElasticHosts = true;
+            }
+            this.password = resumeTransferForm.getPassword();
 
             InitializeComponent();
             
@@ -208,9 +225,9 @@ namespace CloudScraper
             string arguments = "";
             string passwordarg = "";
             if (this.isAmazon)
-                passwordarg = " -k " + AmazonCloudParameters.awsKey_;
+                passwordarg = " -k " + this.password;
             else if (this.isElasticHosts)
-                passwordarg = " --ehkey " + EHCloudParameters.apiKey_;
+                passwordarg = " --ehkey " + this.password;
             //using (StreamWriter stream = new StreamWriter("migrate.cmd", false))
             //{
                 //stream.WriteLine("@echo off");
