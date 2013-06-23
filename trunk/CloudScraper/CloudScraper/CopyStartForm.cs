@@ -29,6 +29,8 @@ namespace CloudScraper
         public object lockObject;
         public bool migrateStopped;
         public bool withError;
+        private bool isAmazon;
+        private bool isElasticHosts;
 
         private Attachment attach;
         
@@ -49,7 +51,10 @@ namespace CloudScraper
             ResumeTransferForm.skipUpload_ = false; 
             ResumeTransferForm.resumeFilePath_ = null;
             this.resumeTransferForm_ = null;
-            
+
+            isAmazon = AmazonCloudParameters.isAmazon_;
+            isElasticHosts = EHCloudParameters.isElasticHosts_;
+
             InitializeComponent();
 
             // Initialize UI strings in Form. 
@@ -79,9 +84,13 @@ namespace CloudScraper
             this.messages_ = new BindingList<MessageInfo>();
             this.resumeTransferForm_ = resumeTransferForm;
             this.saveTransferForm_ = null;
-            
-            InitializeComponent();
 
+            // TODO: make enum/constants for cloud names
+            isAmazon = resumeTransferForm.getCloudName() == "EC2";
+            isElasticHosts = resumeTransferForm.getCloudName() == "ElasticHosts";
+
+            InitializeComponent();
+            
             // Initialize UI strings in Form.
             this.Text = Settings.Default.S7Header;
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
@@ -137,10 +146,10 @@ namespace CloudScraper
             if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
             {
                 // Create transfer file, encode in utf with no BOM (first marking bytes)
-                var utf16WithoutBom = new System.Text.UnicodeEncoding(false , true);
-                using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false, utf16WithoutBom))
+                var utf16 = new System.Text.UnicodeEncoding(false , true);
+                using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false, utf16))
                 {
-                    if (AmazonCloudParameters.isAmazon_)
+                    if (this.isAmazon)
                     {
                         stream.WriteLine("[EC2]");
                         stream.WriteLine("region = " + AmazonCloudParameters.region_);
@@ -161,7 +170,7 @@ namespace CloudScraper
                         stream.WriteLine("source-arch = x86_64");
                         stream.WriteLine("image-type = VHD");
                     }
-                    else if (EHCloudParameters.isElasticHosts_)
+                    else if (this.isElasticHosts)
                     {
                         stream.WriteLine("[ElasticHosts]");
                         stream.WriteLine("region = " + EHCloudParameters.region_);
@@ -197,7 +206,11 @@ namespace CloudScraper
 
             // arguments for migrate.py
             string arguments = "";
-
+            string passwordarg = "";
+            if (this.isAmazon)
+                passwordarg = " -k " + AmazonCloudParameters.awsKey_;
+            else if (this.isElasticHosts)
+                passwordarg = " --ehkey " + EHCloudParameters.apiKey_;
             //using (StreamWriter stream = new StreamWriter("migrate.cmd", false))
             //{
                 //stream.WriteLine("@echo off");
@@ -206,11 +219,8 @@ namespace CloudScraper
                 if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
                 {
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                    if (AmazonCloudParameters.isAmazon_)
-                        arguments = " -k " + AmazonCloudParameters.awsKey_;
-                    else if (EHCloudParameters.isElasticHosts_)
-                        arguments = " --ehkey " + EHCloudParameters.apiKey_;
                     arguments += 
+                    passwordarg +
                     " -c " + "\"" + SaveTransferTaskForm.transferPath_ + "\"" +
                     " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
@@ -219,8 +229,8 @@ namespace CloudScraper
                 {
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                     arguments =
+                        passwordarg + 
                         " --resumeupload " +
-                        " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
                         " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
@@ -229,8 +239,8 @@ namespace CloudScraper
                 {
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                     arguments =
+                        passwordarg + 
                         " --skipupload " +
-                        " -k " + ResumeTransferForm.awsKey_ +
                         " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
                         " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
@@ -239,7 +249,7 @@ namespace CloudScraper
                 {
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                     arguments =
-                        " -k " + ResumeTransferForm.awsKey_ +
+                        passwordarg + 
                         " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
                         " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
