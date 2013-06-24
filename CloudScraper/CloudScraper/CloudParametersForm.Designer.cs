@@ -40,6 +40,9 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.drivesListLabel = new System.Windows.Forms.Label();
+            this.drivesListBox = new System.Windows.Forms.CheckedListBox();
+            this.deduplcationCheckBox = new System.Windows.Forms.CheckBox();
             this.folderKeyLabel = new System.Windows.Forms.Label();
             this.folderKeyBox = new System.Windows.Forms.TextBox();
             this.advancedCheckBox = new System.Windows.Forms.CheckBox();
@@ -156,6 +159,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.drivesListLabel);
+            this.tabPage2.Controls.Add(this.drivesListBox);
+            this.tabPage2.Controls.Add(this.deduplcationCheckBox);
             this.tabPage2.Controls.Add(this.folderKeyLabel);
             this.tabPage2.Controls.Add(this.folderKeyBox);
             this.tabPage2.Controls.Add(this.advancedCheckBox);
@@ -174,6 +180,36 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // drivesListLabel
+            // 
+            this.drivesListLabel.AutoSize = true;
+            this.drivesListLabel.Location = new System.Drawing.Point(56, 82);
+            this.drivesListLabel.Name = "drivesListLabel";
+            this.drivesListLabel.Size = new System.Drawing.Size(145, 13);
+            this.drivesListLabel.TabIndex = 15;
+            this.drivesListLabel.Text = "Choose drives to be avoided:";
+            // 
+            // drivesListBox
+            // 
+            this.drivesListBox.FormattingEnabled = true;
+            this.drivesListBox.HorizontalScrollbar = true;
+            this.drivesListBox.Location = new System.Drawing.Point(51, 101);
+            this.drivesListBox.Name = "drivesListBox";
+            this.drivesListBox.Size = new System.Drawing.Size(438, 109);
+            this.drivesListBox.TabIndex = 14;
+            this.drivesListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.DrivesSelect);
+            // 
+            // deduplcationCheckBox
+            // 
+            this.deduplcationCheckBox.AutoSize = true;
+            this.deduplcationCheckBox.Location = new System.Drawing.Point(90, 58);
+            this.deduplcationCheckBox.Name = "deduplcationCheckBox";
+            this.deduplcationCheckBox.Size = new System.Drawing.Size(111, 17);
+            this.deduplcationCheckBox.TabIndex = 13;
+            this.deduplcationCheckBox.Text = "Use deduplication";
+            this.deduplcationCheckBox.UseVisualStyleBackColor = true;
+            this.deduplcationCheckBox.CheckedChanged += new System.EventHandler(this.UseDeduplicationChecked);
             // 
             // folderKeyLabel
             // 
@@ -397,5 +433,8 @@
         protected System.Windows.Forms.Button testButton;
         protected System.Windows.Forms.Button helpButton;
         protected System.Windows.Forms.ToolTip toolTip;
+        protected System.Windows.Forms.CheckBox deduplcationCheckBox;
+        protected System.Windows.Forms.CheckedListBox drivesListBox;
+        protected System.Windows.Forms.Label drivesListLabel;
     }
 }

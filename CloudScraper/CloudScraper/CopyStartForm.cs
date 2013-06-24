@@ -192,6 +192,21 @@ namespace CloudScraper
                         stream.WriteLine("[ElasticHosts]");
                         stream.WriteLine("region = " + EHCloudParameters.region_);
                         stream.WriteLine("user-uuid = " + EHCloudParameters.uuid_);
+                        if (EHCloudParameters.drivesList_.Count != 0)
+                        {
+                            string str = "avoid-disks = ";
+                            foreach (string disk in EHCloudParameters.drivesList_)
+                            {
+                                if (EHCloudParameters.drivesList_.IndexOf(disk) !=
+                                    EHCloudParameters.drivesList_.Count - 1)
+                                    str += disk + "; ";
+                                else
+                                    str += disk;
+                            }
+                            stream.WriteLine(str);
+                        }
+                        if (EHCloudParameters.useDeduplication_)
+                            stream.WriteLine("deduplication = True");
                         stream.WriteLine("[Image]");
                         if (!EHCloudParameters.directUpload_)
                             stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
