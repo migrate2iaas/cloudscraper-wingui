@@ -24,11 +24,6 @@
     <Setting Name="SupportEmail" Type="System.String" Scope="User">
       <Value Profile="(Default)">cloudscraper@support.assembla.com</Value>
     </Setting>
-
-    <!-- TEST -->
-    <Setting Name="S1Header" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Cloudscraper Server Clone</Value>
-    </Setting>
     <Setting Name="S1Link" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/151</Value>
     </Setting>
@@ -37,12 +32,6 @@
     </Setting>
     <Setting Name="S1ResumeButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Resume Existing Transfer...</Value>
-    </Setting>
-    <Setting Name="S1StartNewButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Starts new transfer. Click here if you run Cloudscraper first time for this server.</Value>
-    </Setting>
-    <Setting Name="S1ResumeButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Resume existing transfer. Click here if you have already configured your transfer task and wish to resume or repeat it.</Value>
     </Setting>
     <Setting Name="S2Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Choose Volumes To Transfer...</Value>
@@ -68,12 +57,6 @@
     <Setting Name="S2MessageSecond" Type="System.String" Scope="User">
       <Value Profile="(Default)">In this case no cloud servers will be created!</Value>
     </Setting>
-    <Setting Name="S2NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Proceed to the next step</Value>
-    </Setting>
-    <Setting Name="S2BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Return to the previous window</Value>
-    </Setting>
     <Setting Name="S3Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Choose Your Cloud</Value>
     </Setting>
@@ -92,18 +75,6 @@
     <Setting Name="S3ElasticHostsButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Elastic Hosts</Value>
     </Setting>
-    <Setting Name="S3WindowsAzureButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Windows Azure</Value>
-    </Setting>
-    <Setting Name="S3BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Return to the previous window</Value>
-    </Setting>
-    <Setting Name="S3AmazonButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Transfer your server to Amazon Elastic Compute Cloud</Value>
-    </Setting>
-    <Setting Name="S3ElasticHostsButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Transfer your server to ElasticHosts</Value>
-    </Setting>
     <Setting Name="S4Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Amazon EC2 Cloud Options</Value>
     </Setting>
@@ -116,20 +87,11 @@
     <Setting Name="S4NextButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Next &gt;&gt;</Value>
     </Setting>
-    <Setting Name="S4TestButtonText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Test Connection</Value>
-    </Setting>
     <Setting Name="S4AmazonRegionLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Choose Region:</Value>
     </Setting>
     <Setting Name="S4AmazonAdvancedCheckBoxText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Use advanced settings</Value>
-    </Setting>
-    <Setting Name="S4AmazonBucketLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your S3 Bucket:</Value>
-    </Setting>
-    <Setting Name="S4AmazonFolderKeyLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify folder (key):</Value>
     </Setting>
     <Setting Name="S4AmazonTypeLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Specify your cloud server type:</Value>
@@ -140,38 +102,14 @@
     <Setting Name="S4AmazonGroupLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Specify your security group:</Value>
     </Setting>
-    <Setting Name="S4TestConnectionHeader" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Test connection</Value>
-    </Setting>
-    <Setting Name="S4InvalidBucketText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Invalid bucket name.</Value>
-    </Setting>
-    <Setting Name="S4CannotAccessBucketText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Cannot access the bucket, please specify another one.</Value>
-    </Setting>
-    <Setting Name="S4NoBucketExists" Type="System.String" Scope="User">
-      <Value Profile="(Default)">No bucket with name specified exists, it’ll be created automatically.</Value>
-    </Setting>
     <Setting Name="S4BucketLocated" Type="System.String" Scope="User">
       <Value Profile="(Default)">The bucket you specified is located in another region, please specify another bucket.</Value>
-    </Setting>
-    <Setting Name="S4EnterAWS" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter your AWSId and AWSKey.</Value>
     </Setting>
     <Setting Name="S4awsIdLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">    Access ID:</Value>
     </Setting>
     <Setting Name="S4awsKeyLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">    Secret Access Key:</Value>
-    </Setting>
-    <Setting Name="S4TestConnectionText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Connection was tested successfully.</Value>
-    </Setting>
-    <Setting Name="S4IDKeyInvalid" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Amazon AWS doesn't recognize keys you entered! Check "Access Keys" section in security credentials page of your AWS account.</Value>
-    </Setting>
-    <Setting Name="S4EnterUUID" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter your UUID and APIKey.</Value>
     </Setting>
     <Setting Name="S4ehRegionLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Choose Region:</Value>
@@ -182,30 +120,8 @@
     <Setting Name="S4ehKeyLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">API Secret Key:</Value>
     </Setting>
-    <Setting Name="S4ehDirectUploadCheckBoxText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Direct upload</Value>
-    </Setting>
     <Setting Name="S4ehHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Elastic Hosts Cloud Options</Value>
-    </Setting>
-    <Setting Name="S4BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Return to the previous window</Value>
-    </Setting>
-    <Setting Name="S4NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Proceed to the next step</Value>
-    </Setting>
-    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Tests your connectivity and credentials. It also requests the cloud what advanced options are available.</Value>
-    </Setting>
-    <Setting Name="S4AmazonAccessIDToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter your Amazon Access Key ID here...</Value>
-    </Setting>
-    <Setting Name="S4AmazonAccessKeyToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter corresponding Amazon Access Secret Key here...</Value>
-    </Setting>
-    <Setting Name="S4AmazonAvailabilityZoneToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Choose Availability Zone (sub-datacenter) where your cloud server instance will run.
-Press 'Test Connection' button to get available zones.</Value>
     </Setting>
     <Setting Name="S4EHUserUIDToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enter your API UUID. It could be got from Profile section of your ElasticHosts account.</Value>
@@ -213,25 +129,8 @@ Press 'Test Connection' button to get available zones.</Value>
     <Setting Name="S4EHApiKeyToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enter your Secret API key. It could be got from Profile section of your ElasticHosts account.</Value>
     </Setting>
-    <Setting Name="S4AmazonS3BucketToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter S3 bucket name you wish to save the image to.
-The bucket name should be unique for whole S3 system.
-Press 'Test Connection' button in order to test whether the bucket name is available.</Value>
-    </Setting>
-    <Setting Name="S4AmazonFolderToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter folder name in your bucket to save the image to.</Value>
-    </Setting>
-    <Setting Name="S4AmazonSecurityGroupToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Choose Security Group. Security group defines firewall settings for your instance.
-Attention: it couldn't be changed so choose wisely
-Alternatively create new security group for the machine in the specified region using AWS EC2 management console.
-Consult AWS documentation for more info.</Value>
-    </Setting>
     <Setting Name="S4EHLink" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/181</Value>
-    </Setting>
-    <Setting Name="S5Header" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Images Location...</Value>
     </Setting>
     <Setting Name="S5Link" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/191</Value>
@@ -245,9 +144,6 @@ Consult AWS documentation for more info.</Value>
     <Setting Name="S5BrowseButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Browse...</Value>
     </Setting>
-    <Setting Name="S5MainLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Please choose folder where to store your server disk images:</Value>
-    </Setting>
     <Setting Name="S5TotalSpaceLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Total Space Required:</Value>
     </Setting>
@@ -260,26 +156,11 @@ Consult AWS documentation for more info.</Value>
     <Setting Name="S5WarningHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Warning</Value>
     </Setting>
-    <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Folder is  not empty</Value>
-    </Setting>
     <Setting Name="S5DirectoryNotExistWarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">Directory doesn’t exist. Do you want to create it?</Value>
     </Setting>
-    <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Path is incorrect!</Value>
-    </Setting>
     <Setting Name="S5WrongSymbolsWarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">The path specified contains invalid characters: \\ / : * ? \" &lt; &gt; |</Value>
-    </Setting>
-    <Setting Name="S5NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Proceed to the next step</Value>
-    </Setting>
-    <Setting Name="S5BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Return to the previous window</Value>
-    </Setting>
-    <Setting Name="S5BrowseButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Browse your computer and network shares</Value>
     </Setting>
     <Setting Name="S6Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Save Transfer Configuration...</Value>
@@ -299,29 +180,8 @@ Consult AWS documentation for more info.</Value>
     <Setting Name="S6WarningHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Warning</Value>
     </Setting>
-    <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Transfer configuration file already exists, do you want to rewrite it?</Value>
-    </Setting>
-    <Setting Name="S6PathIncorrectWarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">File name incorrect</Value>
-    </Setting>
-    <Setting Name="S6MainLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Save your transfer configuration settings:</Value>
-    </Setting>
     <Setting Name="S6WrongSymbolsWarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">File name contains invalid characters: \\ / : * ? \" &lt; &gt; |</Value>
-    </Setting>
-    <Setting Name="S6NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Proceed to the next step</Value>
-    </Setting>
-    <Setting Name="S6BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Return to the previous window</Value>
-    </Setting>
-    <Setting Name="S6BrowseButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Browse your computer and network shares</Value>
-    </Setting>
-    <Setting Name="S7Header" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Transfer Process</Value>
     </Setting>
     <Setting Name="S7Link" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/211</Value>
@@ -329,23 +189,8 @@ Consult AWS documentation for more info.</Value>
     <Setting Name="S7BackButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">&lt;&lt; Back</Value>
     </Setting>
-    <Setting Name="S7StartButtonText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Start</Value>
-    </Setting>
     <Setting Name="S7FinishButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Finish</Value>
-    </Setting>
-    <Setting Name="S7FullOutputButtonText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Show full output</Value>
-    </Setting>
-    <Setting Name="S7PythonErrorHeader" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Error</Value>
-    </Setting>
-    <Setting Name="S7PythonErrorMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Error occur during start migrate.py </Value>
-    </Setting>
-    <Setting Name="S7XKeyWarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Do you want to stop the transfer?</Value>
     </Setting>
     <Setting Name="S7WarningHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Warning</Value>
@@ -353,29 +198,11 @@ Consult AWS documentation for more info.</Value>
     <Setting Name="S7MailButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Request Support...</Value>
     </Setting>
-    <Setting Name="S7BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Return to the previous window</Value>
-    </Setting>
-    <Setting Name="S7StartButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Proceed to the next step</Value>
-    </Setting>
-    <Setting Name="S7MailButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Send request to our support team so they could help troubleshooting the failed transfer.</Value>
-    </Setting>
-    <Setting Name="S7FullOutputButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Shows detailed transfer output</Value>
-    </Setting>
     <Setting Name="R2Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Resume Your Transfer Task</Value>
     </Setting>
     <Setting Name="R2Link" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/221</Value>
-    </Setting>
-    <Setting Name="R2MainLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Load your previously saved transfer task</Value>
-    </Setting>
-    <Setting Name="R2RedeployCheckBoxText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Redeploy Uploaded Image (creates cloud server from the image already uploaded)</Value>
     </Setting>
     <Setting Name="R2NextButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Next &gt;&gt;</Value>
@@ -386,9 +213,6 @@ Consult AWS documentation for more info.</Value>
     <Setting Name="R2BrowseButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Browse...</Value>
     </Setting>
-    <Setting Name="R2UploadCheckBoxText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Resume Upload (check if your local images are already created)</Value>
-    </Setting>
     <Setting Name="R2awsIdLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">  Secret Key:</Value>
     </Setting>
@@ -398,33 +222,8 @@ Consult AWS documentation for more info.</Value>
     <Setting Name="R2WarningMessageText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Incorrect .ini file</Value>
     </Setting>
-    <Setting Name="R2NextButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Proceed to the next step</Value>
-    </Setting>
-    <Setting Name="R2BackButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Return to the previous window</Value>
-    </Setting>
-    <Setting Name="R2BrowseButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Browse your computer and network shares</Value>
-    </Setting>
-    <Setting Name="R2RedeployUploadedCheckBoxToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Redeploy uploaded tool tip</Value>
-    </Setting>
-    <Setting Name="R2ResumeUploadCheckBoxToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Resume upload tool tip</Value>
-    </Setting>
     <Setting Name="FullOutputHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Full output</Value>
-    </Setting>
-    <Setting Name="FilesToAttach" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;%Windir%\test.txt&lt;/string&gt;
-  &lt;string&gt;test1.txt&lt;/string&gt;
-  &lt;string&gt;test2.txt&lt;/string&gt;
-  &lt;string&gt;test3.txt&lt;/string&gt;
-  &lt;string&gt;logs\migrate.log&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="ZipFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">test.zip</Value>
@@ -473,9 +272,6 @@ Consult AWS documentation for more info.</Value>
   &lt;string&gt;tor-p/Canada (Toronto)&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Click here to read manual entry on this window</Value>
-    </Setting>
     <Setting Name="Buttons" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -487,11 +283,244 @@ Consult AWS documentation for more info.</Value>
     <Setting Name="TotalSizeGap" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
+    <Setting Name="S4EHDirectUploadCheckBoxToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tool tip for EH direct upload</Value>
+    </Setting>
+    <Setting Name="S4EHDeduplicationCheckBoxToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tool tip for EH deduplication</Value>
+    </Setting>
+    <Setting Name="S4EHDrivesListBoxToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tool tip for Drives List</Value>
+    </Setting>
+    <Setting Name="S1Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cloudscraper Server Transfer</Value>
+    </Setting>
+    <Setting Name="S1StartNewButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Click to configure your server migration.</Value>
+    </Setting>
+    <Setting Name="S1ResumeButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Click to resume or repeat your previous migration.</Value>
+    </Setting>
+    <Setting Name="S2NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step.</Value>
+    </Setting>
+    <Setting Name="S2BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window.</Value>
+    </Setting>
+    <Setting Name="S3WindowsAzureButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer your server image to Windows Azure.</Value>
+    </Setting>
+    <Setting Name="S3BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window.</Value>
+    </Setting>
+    <Setting Name="S3AmazonButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer your server image to Amazon Elastic Compute Cloud.</Value>
+    </Setting>
+    <Setting Name="S3ElasticHostsButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer your server image to ElasticHosts cloud.</Value>
+    </Setting>
+    <Setting Name="S4TestButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Check Access</Value>
+    </Setting>
+    <Setting Name="S4AmazonBucketLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your S3 bucket:</Value>
+    </Setting>
+    <Setting Name="S4AmazonFolderKeyLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify folder in S3 bucket:</Value>
+    </Setting>
+    <Setting Name="S4TestConnectionHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cloud Access Checked</Value>
+    </Setting>
+    <Setting Name="S4InvalidBucketText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Invalid bucket name. Please, specify another one.</Value>
+    </Setting>
+    <Setting Name="S4CannotAccessBucketText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cannot access the bucket, please specify another bucket name.</Value>
+    </Setting>
+    <Setting Name="S4NoBucketExists" Type="System.String" Scope="User">
+      <Value Profile="(Default)">The bucket name is valid and free to use.</Value>
+    </Setting>
+    <Setting Name="S4EnterAWS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Please, enter your AWS credentials: 
+Access ID and Secret Access Key.</Value>
+    </Setting>
+    <Setting Name="S4TestConnectionText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Amazon AWS login succeeded.</Value>
+    </Setting>
+    <Setting Name="S4IDKeyInvalid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Amazon AWS doesn't recognize entered keys! Check "Access Keys" section in Security Credentials page of your AWS account.</Value>
+    </Setting>
+    <Setting Name="S4EnterUUID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Please, enter your ElasticHosts API credentials: UUID and API Key.</Value>
+    </Setting>
+    <Setting Name="S4ehDirectUploadCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Direct upload. 
+No intermidiate images will be created.</Value>
+    </Setting>
+    <Setting Name="S4BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window.</Value>
+    </Setting>
+    <Setting Name="S4NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step.</Value>
+    </Setting>
+    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Makes an attempt to access your cloud account.
+Tests your both cloud credentials, internet connection. 
+Checks for available advanced options.</Value>
+    </Setting>
+    <Setting Name="S4AmazonAccessIDToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter your Amazon Access Key ID. 
+It could be found on Security Credentials page of your AWS account.</Value>
+    </Setting>
+    <Setting Name="S4AmazonAccessKeyToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter your Amazon Access Secret Key. 
+It could be found on Security Credentials page of your AWS account.</Value>
+    </Setting>
+    <Setting Name="S4AmazonAvailabilityZoneToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose Availability Zone where your cloud server is to run.
+Availiability Zone is subsection of EC2 datacenter. 
+Press 'Check Access' button to download availability zone list.</Value>
+    </Setting>
+    <Setting Name="S4AmazonS3BucketToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter S3 bucket name to upload your server image to.
+See manual for more info on S3 buckets.
+Press 'Check Access' button in order to test if bucket is available.
+</Value>
+    </Setting>
+    <Setting Name="S4AmazonFolderToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Provide a folder in your S3 bucket, 
+e.g. upload2013-06-02, to identify your uploaded image.</Value>
+    </Setting>
+    <Setting Name="S4AmazonSecurityGroupToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Security group defines firewall settings for your instance.
+Attention! It couldn't be changed so choose wisely. 
+See manual and AWS documentation for more info on security groups.
+Press 'Check Access' button to download security group list.</Value>
+    </Setting>
+    <Setting Name="S5Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify Location to Store Images...</Value>
+    </Setting>
+    <Setting Name="S5MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Please choose folder where to store your disk images.
+
+There should be enough free space to store them.
+You are free to delete them after transfer completes.</Value>
+    </Setting>
+    <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Folder is not empty.
+ It's recommended to use empty folders to store images.
+Do you wish to proceed anyway?</Value>
+    </Setting>
+    <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Path is not correct!</Value>
+    </Setting>
+    <Setting Name="S5NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step.</Value>
+    </Setting>
+    <Setting Name="S5BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window.</Value>
+    </Setting>
+    <Setting Name="S5BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse your computer and network shares.</Value>
+    </Setting>
+    <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer configuration file with this name already exists.
+Do you want to rewrite it?</Value>
+    </Setting>
+    <Setting Name="S6PathIncorrectWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">File name is not correct</Value>
+    </Setting>
+    <Setting Name="S6MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Save your transfer configuration settings. 
+
+These settings could be reused afterwards to resume your upload or deploy several cloud server instances based on the same image.
+	</Value>
+    </Setting>
+    <Setting Name="S6NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step.</Value>
+    </Setting>
+    <Setting Name="S6BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window.</Value>
+    </Setting>
+    <Setting Name="S6BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse your computer and network shares.</Value>
+    </Setting>
+    <Setting Name="S7Header" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transfer Process Console</Value>
+    </Setting>
+    <Setting Name="S7StartButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start!</Value>
+    </Setting>
+    <Setting Name="S7FullOutputButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Show Full Output</Value>
+    </Setting>
+    <Setting Name="S7PythonErrorHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Operation Failed</Value>
+    </Setting>
+    <Setting Name="S7PythonErrorMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Error occured while starting the transfer process (migrate.pyc) </Value>
+    </Setting>
+    <Setting Name="S7XKeyWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Do you want to stop the ongoing transfer?</Value>
+    </Setting>
+    <Setting Name="S7BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window.</Value>
+    </Setting>
+    <Setting Name="S7StartButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start the transfer process.</Value>
+    </Setting>
+    <Setting Name="S7MailButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Send request to our support team so they could help.</Value>
+    </Setting>
+    <Setting Name="S7FullOutputButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Shows detailed transfer process output.</Value>
+    </Setting>
+    <Setting Name="R2MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Load your previously saved transfer task you want to restart</Value>
+    </Setting>
+    <Setting Name="R2RedeployCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Redeploy Uploaded Image</Value>
+    </Setting>
+    <Setting Name="R2UploadCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resume Previous Upload</Value>
+    </Setting>
+    <Setting Name="R2NextButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proceed to the next step.</Value>
+    </Setting>
+    <Setting Name="R2BackButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Return to the previous window.</Value>
+    </Setting>
+    <Setting Name="R2BrowseButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Browse your computer and network shares.</Value>
+    </Setting>
+    <Setting Name="R2RedeployUploadedCheckBoxToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose this option in case your image is already uploaded to create one more EC2 instance (VM) from it.</Value>
+    </Setting>
+    <Setting Name="R2ResumeUploadCheckBoxToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose this option to resume disrupted upload of image file already created.</Value>
+    </Setting>
+    <Setting Name="FilesToAttach" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;%Windir%\test.txt&lt;/string&gt;
+  &lt;string&gt;Migrate\Migrate\diskpart_open.tmp&lt;/string&gt;
+  &lt;string&gt;Migrate\Migrate\diskpart_close.tmp&lt;/string&gt;
+  &lt;string&gt;Migrate\Migrate\boto.log&lt;/string&gt;
+  &lt;string&gt;build&lt;/string&gt;
+  &lt;string&gt;Migrate\revision&lt;/string&gt;
+  &lt;string&gt;logs\gui.log&lt;/string&gt;
+  &lt;string&gt;logs\migrate.log&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Need help? 
+Click here to read manual entry on this step.</Value>
+    </Setting>
     <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;m1.medium/M1 Medium&lt;/string&gt;
   &lt;string&gt;m1.small/M1 Small&lt;/string&gt;
+  &lt;string&gt;m1.medium/M1 Medium&lt;/string&gt;
   &lt;string&gt;m1.large/M1 Large&lt;/string&gt;
   &lt;string&gt;m1.xlarge/M1 Extra Large&lt;/string&gt;
   &lt;string&gt;m3.2xlarge/M3 Double Extra Large&lt;/string&gt;

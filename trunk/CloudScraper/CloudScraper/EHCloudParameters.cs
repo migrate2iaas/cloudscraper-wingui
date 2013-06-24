@@ -6,6 +6,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using CloudScraper.Properties;
 using System.Drawing;
+using System.IO;
 
 namespace CloudScraper
 {
@@ -17,6 +18,8 @@ namespace CloudScraper
         public static string region_;
         public static bool directUpload_ = false;
         public static bool isElasticHosts_ = false;
+        public static bool useDeduplication_ = false;
+        public static List<string> drivesList_ = new List<string>();
 
         public SaveTransferTaskForm saveTransferTaskForm_;
         
@@ -65,6 +68,10 @@ namespace CloudScraper
             this.idLabel.Text = Settings.Default.S4ehIdLabelText;
             this.keyLabel.Text = Settings.Default.S4ehKeyLabelText;
             this.advancedCheckBox.Text = Settings.Default.S4ehDirectUploadCheckBoxText;
+
+            this.toolTip.SetToolTip(this.advancedCheckBox, Settings.Default.S4EHDirectUploadCheckBoxToolTip);
+            this.toolTip.SetToolTip(this.deduplcationCheckBox, Settings.Default.S4EHDeduplicationCheckBoxToolTip);
+            this.toolTip.SetToolTip(this.drivesListBox, Settings.Default.S4EHDrivesListBoxToolTip);
             
             this.bucketLabel.Visible = false;
             this.folderKeyLabel.Visible = false;
@@ -76,8 +83,7 @@ namespace CloudScraper
             this.serverTypeComboBox.Visible = false;
             this.zoneComboBox.Visible = false;
             this.groupComboBox.Visible = false;
-            
-            
+        
             this.SetChooseCloudForm(chooseCloudForm);
         }
 
@@ -104,12 +110,27 @@ namespace CloudScraper
             if ((sender as CheckBox).Checked)
             {
                 directUpload_ = true;
-                this.CheckEnter();
+                //this.CheckEnter();
             }
             else
             {
                 directUpload_ = false;
-                this.CheckEnter();
+                //this.CheckEnter();
+            }
+        }
+
+
+        protected override void UseDeduplicationChecked(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+            {
+                useDeduplication_ = true;
+                //this.CheckEnter();
+            }
+            else
+            {
+                useDeduplication_ = false;
+                //this.CheckEnter();
             }
         }
 
@@ -167,11 +188,41 @@ namespace CloudScraper
                 }
 
                 string credentials = uuid_ + ":" + apiKey_;
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api-" + region_ + ".elastichosts.com/servers/list");
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api-" + region_ + ".elastichosts.com/drives/info"); 
+                    //".elastichosts.com/servers/list");
                 request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes(credentials)));
                 //request.PreAuthenticate = true;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
+
+                List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
+                this.drivesListBox.Items.Clear();
+                string key = null;
+                string value = null;
+                using (StreamReader myStreamReader = new StreamReader(response.GetResponseStream(), Encoding.GetEncoding(1251)))
+                {
+                    while (!myStreamReader.EndOfStream)
+                    {
+                        string str = myStreamReader.ReadLine();
+                        if (str.Contains("drive"))
+                            key = str.Remove(0, 6);
+                        if (str.Contains("name"))
+                            value = str.Remove(0,5);
+
+                        if (key != null && value != null)
+                        {
+                            list.Add(new KeyValuePair<string, string>(key, value));
+                            this.drivesListBox.Items.Add(new KeyValuePair<string, string>(key, value));
+                            key = null;
+                            value = null;
+                        }
+                    }
+                }
+
+                if (this.drivesListBox.Items.Count != 0)
+                {
+                    this.drivesListBox.Items.Insert(0, "Select all");
+                }
 
                 DialogResult reslt = MessageBox.Show(Settings.Default.S4TestConnectionText,
                     Settings.Default.S4TestConnectionHeader,
@@ -256,5 +307,40 @@ namespace CloudScraper
                 }
             }
         }
+
+        protected override void DrivesSelect(object sender, ItemCheckEventArgs e)
+        {
+            if (e.Index == 0 && e.CurrentValue == CheckState.Unchecked && e.NewValue == CheckState.Checked)
+            {
+                (sender as CheckedListBox).ItemCheck -= DrivesSelect; 
+                for (int i = 1; i < (sender as CheckedListBox).Items.Count; i++)
+                    (sender as CheckedListBox).SetItemCheckState(i, CheckState.Checked);
+                (sender as CheckedListBox).ItemCheck += DrivesSelect;
+            }
+            if (e.Index == 0 && e.CurrentValue == CheckState.Checked && e.NewValue == CheckState.Unchecked)
+            {
+                (sender as CheckedListBox).ItemCheck -= DrivesSelect;
+                for (int i = 1; i < (sender as CheckedListBox).Items.Count; i++)
+                    (sender as CheckedListBox).SetItemCheckState(i, CheckState.Unchecked);
+                (sender as CheckedListBox).ItemCheck += DrivesSelect;
+            }
+
+            drivesList_.Clear();
+           
+            foreach (var pair in (sender as CheckedListBox).CheckedItems)
+            {
+                if (pair is KeyValuePair<string, string>)
+                    drivesList_.Add(((KeyValuePair<string, string>)pair).Key);
+            }
+
+            if (e.NewValue == CheckState.Checked && 
+                !(sender as CheckedListBox).CheckedItems.Contains((sender as CheckedListBox).SelectedItem)
+                && ((sender as CheckedListBox).SelectedItem is KeyValuePair<string, string>))
+            {
+                drivesList_.Add(((KeyValuePair<string, string>)((sender as CheckedListBox).SelectedItem)).Key);
+            }
+
+        }
+
     }
 }

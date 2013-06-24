@@ -139,5 +139,15 @@ namespace CloudScraper
             throw new NotImplementedException();
         }
 
+        protected virtual void DrivesSelect(object sender, ItemCheckEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected virtual void UseDeduplicationChecked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

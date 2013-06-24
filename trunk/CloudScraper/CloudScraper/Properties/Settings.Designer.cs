@@ -83,18 +83,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Cloudscraper Server Clone")]
-        public string S1Header {
-            get {
-                return ((string)(this["S1Header"]));
-            }
-            set {
-                this["S1Header"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.migrate2iaas.com/node/151")]
         public string S1Link {
             get {
@@ -126,32 +114,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S1ResumeButtonText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Starts new transfer. Click here if you run Cloudscraper first time for this serve" +
-            "r.")]
-        public string S1StartNewButtonToolTip {
-            get {
-                return ((string)(this["S1StartNewButtonToolTip"]));
-            }
-            set {
-                this["S1StartNewButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Resume existing transfer. Click here if you have already configured your transfer" +
-            " task and wish to resume or repeat it.")]
-        public string S1ResumeButtonToolTip {
-            get {
-                return ((string)(this["S1ResumeButtonToolTip"]));
-            }
-            set {
-                this["S1ResumeButtonToolTip"] = value;
             }
         }
         
@@ -253,30 +215,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step")]
-        public string S2NextButtonToolTip {
-            get {
-                return ((string)(this["S2NextButtonToolTip"]));
-            }
-            set {
-                this["S2NextButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window")]
-        public string S2BackButtonToolTip {
-            get {
-                return ((string)(this["S2BackButtonToolTip"]));
-            }
-            set {
-                this["S2BackButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Choose Your Cloud")]
         public string S3Header {
             get {
@@ -349,54 +287,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Windows Azure")]
-        public string S3WindowsAzureButtonToolTip {
-            get {
-                return ((string)(this["S3WindowsAzureButtonToolTip"]));
-            }
-            set {
-                this["S3WindowsAzureButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window")]
-        public string S3BackButtonToolTip {
-            get {
-                return ((string)(this["S3BackButtonToolTip"]));
-            }
-            set {
-                this["S3BackButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Transfer your server to Amazon Elastic Compute Cloud")]
-        public string S3AmazonButtonToolTip {
-            get {
-                return ((string)(this["S3AmazonButtonToolTip"]));
-            }
-            set {
-                this["S3AmazonButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Transfer your server to ElasticHosts")]
-        public string S3ElasticHostsButtonToolTip {
-            get {
-                return ((string)(this["S3ElasticHostsButtonToolTip"]));
-            }
-            set {
-                this["S3ElasticHostsButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Amazon EC2 Cloud Options")]
         public string S4Header {
             get {
@@ -445,18 +335,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Test Connection")]
-        public string S4TestButtonText {
-            get {
-                return ((string)(this["S4TestButtonText"]));
-            }
-            set {
-                this["S4TestButtonText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Choose Region:")]
         public string S4AmazonRegionLabelText {
             get {
@@ -476,30 +354,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4AmazonAdvancedCheckBoxText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Specify your S3 Bucket:")]
-        public string S4AmazonBucketLabelText {
-            get {
-                return ((string)(this["S4AmazonBucketLabelText"]));
-            }
-            set {
-                this["S4AmazonBucketLabelText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Specify folder (key):")]
-        public string S4AmazonFolderKeyLabelText {
-            get {
-                return ((string)(this["S4AmazonFolderKeyLabelText"]));
-            }
-            set {
-                this["S4AmazonFolderKeyLabelText"] = value;
             }
         }
         
@@ -541,54 +395,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Test connection")]
-        public string S4TestConnectionHeader {
-            get {
-                return ((string)(this["S4TestConnectionHeader"]));
-            }
-            set {
-                this["S4TestConnectionHeader"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Invalid bucket name.")]
-        public string S4InvalidBucketText {
-            get {
-                return ((string)(this["S4InvalidBucketText"]));
-            }
-            set {
-                this["S4InvalidBucketText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Cannot access the bucket, please specify another one.")]
-        public string S4CannotAccessBucketText {
-            get {
-                return ((string)(this["S4CannotAccessBucketText"]));
-            }
-            set {
-                this["S4CannotAccessBucketText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("No bucket with name specified exists, it’ll be created automatically.")]
-        public string S4NoBucketExists {
-            get {
-                return ((string)(this["S4NoBucketExists"]));
-            }
-            set {
-                this["S4NoBucketExists"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("The bucket you specified is located in another region, please specify another buc" +
             "ket.")]
         public string S4BucketLocated {
@@ -597,18 +403,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4BucketLocated"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Enter your AWSId and AWSKey.")]
-        public string S4EnterAWS {
-            get {
-                return ((string)(this["S4EnterAWS"]));
-            }
-            set {
-                this["S4EnterAWS"] = value;
             }
         }
         
@@ -633,43 +427,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4awsKeyLabelText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Connection was tested successfully.")]
-        public string S4TestConnectionText {
-            get {
-                return ((string)(this["S4TestConnectionText"]));
-            }
-            set {
-                this["S4TestConnectionText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Amazon AWS doesn\'t recognize keys you entered! Check \"Access Keys\" section in sec" +
-            "urity credentials page of your AWS account.")]
-        public string S4IDKeyInvalid {
-            get {
-                return ((string)(this["S4IDKeyInvalid"]));
-            }
-            set {
-                this["S4IDKeyInvalid"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Enter your UUID and APIKey.")]
-        public string S4EnterUUID {
-            get {
-                return ((string)(this["S4EnterUUID"]));
-            }
-            set {
-                this["S4EnterUUID"] = value;
             }
         }
         
@@ -711,18 +468,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Direct upload")]
-        public string S4ehDirectUploadCheckBoxText {
-            get {
-                return ((string)(this["S4ehDirectUploadCheckBoxText"]));
-            }
-            set {
-                this["S4ehDirectUploadCheckBoxText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Elastic Hosts Cloud Options")]
         public string S4ehHeader {
             get {
@@ -730,80 +475,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4ehHeader"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window")]
-        public string S4BackButtonToolTip {
-            get {
-                return ((string)(this["S4BackButtonToolTip"]));
-            }
-            set {
-                this["S4BackButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step")]
-        public string S4NextButtonToolTip {
-            get {
-                return ((string)(this["S4NextButtonToolTip"]));
-            }
-            set {
-                this["S4NextButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Tests your connectivity and credentials. It also requests the cloud what advanced" +
-            " options are available.")]
-        public string S4TestButtonToolTip {
-            get {
-                return ((string)(this["S4TestButtonToolTip"]));
-            }
-            set {
-                this["S4TestButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Enter your Amazon Access Key ID here...")]
-        public string S4AmazonAccessIDToolTip {
-            get {
-                return ((string)(this["S4AmazonAccessIDToolTip"]));
-            }
-            set {
-                this["S4AmazonAccessIDToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Enter corresponding Amazon Access Secret Key here...")]
-        public string S4AmazonAccessKeyToolTip {
-            get {
-                return ((string)(this["S4AmazonAccessKeyToolTip"]));
-            }
-            set {
-                this["S4AmazonAccessKeyToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Choose Availability Zone (sub-datacenter) where your cloud server instance will r" +
-            "un.\r\nPress \'Test Connection\' button to get available zones.")]
-        public string S4AmazonAvailabilityZoneToolTip {
-            get {
-                return ((string)(this["S4AmazonAvailabilityZoneToolTip"]));
-            }
-            set {
-                this["S4AmazonAvailabilityZoneToolTip"] = value;
             }
         }
         
@@ -835,47 +506,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Enter S3 bucket name you wish to save the image to.\r\nThe bucket name should be un" +
-            "ique for whole S3 system.\r\nPress \'Test Connection\' button in order to test wheth" +
-            "er the bucket name is available.")]
-        public string S4AmazonS3BucketToolTip {
-            get {
-                return ((string)(this["S4AmazonS3BucketToolTip"]));
-            }
-            set {
-                this["S4AmazonS3BucketToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Enter folder name in your bucket to save the image to.")]
-        public string S4AmazonFolderToolTip {
-            get {
-                return ((string)(this["S4AmazonFolderToolTip"]));
-            }
-            set {
-                this["S4AmazonFolderToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"Choose Security Group. Security group defines firewall settings for your instance.
-Attention: it couldn't be changed so choose wisely
-Alternatively create new security group for the machine in the specified region using AWS EC2 management console.
-Consult AWS documentation for more info.")]
-        public string S4AmazonSecurityGroupToolTip {
-            get {
-                return ((string)(this["S4AmazonSecurityGroupToolTip"]));
-            }
-            set {
-                this["S4AmazonSecurityGroupToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.migrate2iaas.com/node/181")]
         public string S4EHLink {
             get {
@@ -883,18 +513,6 @@ Consult AWS documentation for more info.")]
             }
             set {
                 this["S4EHLink"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Images Location...")]
-        public string S5Header {
-            get {
-                return ((string)(this["S5Header"]));
-            }
-            set {
-                this["S5Header"] = value;
             }
         }
         
@@ -948,18 +566,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Please choose folder where to store your server disk images:")]
-        public string S5MainLabelText {
-            get {
-                return ((string)(this["S5MainLabelText"]));
-            }
-            set {
-                this["S5MainLabelText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Total Space Required:")]
         public string S5TotalSpaceLabelText {
             get {
@@ -1008,18 +614,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Folder is  not empty")]
-        public string S5WarningMessage {
-            get {
-                return ((string)(this["S5WarningMessage"]));
-            }
-            set {
-                this["S5WarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Directory doesn’t exist. Do you want to create it?")]
         public string S5DirectoryNotExistWarningMessage {
             get {
@@ -1032,18 +626,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Path is incorrect!")]
-        public string S5PathIncorrectWarningMessage {
-            get {
-                return ((string)(this["S5PathIncorrectWarningMessage"]));
-            }
-            set {
-                this["S5PathIncorrectWarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("The path specified contains invalid characters: \\\\ / : * ? \\\" < > |")]
         public string S5WrongSymbolsWarningMessage {
             get {
@@ -1051,42 +633,6 @@ Consult AWS documentation for more info.")]
             }
             set {
                 this["S5WrongSymbolsWarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step")]
-        public string S5NextButtonToolTip {
-            get {
-                return ((string)(this["S5NextButtonToolTip"]));
-            }
-            set {
-                this["S5NextButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window")]
-        public string S5BackButtonToolTip {
-            get {
-                return ((string)(this["S5BackButtonToolTip"]));
-            }
-            set {
-                this["S5BackButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Browse your computer and network shares")]
-        public string S5BrowseButtonToolTip {
-            get {
-                return ((string)(this["S5BrowseButtonToolTip"]));
-            }
-            set {
-                this["S5BrowseButtonToolTip"] = value;
             }
         }
         
@@ -1164,42 +710,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Transfer configuration file already exists, do you want to rewrite it?")]
-        public string S6WarningMessage {
-            get {
-                return ((string)(this["S6WarningMessage"]));
-            }
-            set {
-                this["S6WarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("File name incorrect")]
-        public string S6PathIncorrectWarningMessage {
-            get {
-                return ((string)(this["S6PathIncorrectWarningMessage"]));
-            }
-            set {
-                this["S6PathIncorrectWarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Save your transfer configuration settings:")]
-        public string S6MainLabelText {
-            get {
-                return ((string)(this["S6MainLabelText"]));
-            }
-            set {
-                this["S6MainLabelText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("File name contains invalid characters: \\\\ / : * ? \\\" < > |")]
         public string S6WrongSymbolsWarningMessage {
             get {
@@ -1207,54 +717,6 @@ Consult AWS documentation for more info.")]
             }
             set {
                 this["S6WrongSymbolsWarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step")]
-        public string S6NextButtonToolTip {
-            get {
-                return ((string)(this["S6NextButtonToolTip"]));
-            }
-            set {
-                this["S6NextButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window")]
-        public string S6BackButtonToolTip {
-            get {
-                return ((string)(this["S6BackButtonToolTip"]));
-            }
-            set {
-                this["S6BackButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Browse your computer and network shares")]
-        public string S6BrowseButtonToolTip {
-            get {
-                return ((string)(this["S6BrowseButtonToolTip"]));
-            }
-            set {
-                this["S6BrowseButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Transfer Process")]
-        public string S7Header {
-            get {
-                return ((string)(this["S7Header"]));
-            }
-            set {
-                this["S7Header"] = value;
             }
         }
         
@@ -1284,18 +746,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Start")]
-        public string S7StartButtonText {
-            get {
-                return ((string)(this["S7StartButtonText"]));
-            }
-            set {
-                this["S7StartButtonText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Finish")]
         public string S7FinishButtonText {
             get {
@@ -1303,54 +753,6 @@ Consult AWS documentation for more info.")]
             }
             set {
                 this["S7FinishButtonText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Show full output")]
-        public string S7FullOutputButtonText {
-            get {
-                return ((string)(this["S7FullOutputButtonText"]));
-            }
-            set {
-                this["S7FullOutputButtonText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Error")]
-        public string S7PythonErrorHeader {
-            get {
-                return ((string)(this["S7PythonErrorHeader"]));
-            }
-            set {
-                this["S7PythonErrorHeader"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Error occur during start migrate.py ")]
-        public string S7PythonErrorMessage {
-            get {
-                return ((string)(this["S7PythonErrorMessage"]));
-            }
-            set {
-                this["S7PythonErrorMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Do you want to stop the transfer?")]
-        public string S7XKeyWarningMessage {
-            get {
-                return ((string)(this["S7XKeyWarningMessage"]));
-            }
-            set {
-                this["S7XKeyWarningMessage"] = value;
             }
         }
         
@@ -1380,55 +782,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window")]
-        public string S7BackButtonToolTip {
-            get {
-                return ((string)(this["S7BackButtonToolTip"]));
-            }
-            set {
-                this["S7BackButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step")]
-        public string S7StartButtonToolTip {
-            get {
-                return ((string)(this["S7StartButtonToolTip"]));
-            }
-            set {
-                this["S7StartButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Send request to our support team so they could help troubleshooting the failed tr" +
-            "ansfer.")]
-        public string S7MailButtonToolTip {
-            get {
-                return ((string)(this["S7MailButtonToolTip"]));
-            }
-            set {
-                this["S7MailButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Shows detailed transfer output")]
-        public string S7FullOutputButtonToolTip {
-            get {
-                return ((string)(this["S7FullOutputButtonToolTip"]));
-            }
-            set {
-                this["S7FullOutputButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Resume Your Transfer Task")]
         public string R2Header {
             get {
@@ -1448,30 +801,6 @@ Consult AWS documentation for more info.")]
             }
             set {
                 this["R2Link"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Load your previously saved transfer task")]
-        public string R2MainLabelText {
-            get {
-                return ((string)(this["R2MainLabelText"]));
-            }
-            set {
-                this["R2MainLabelText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Redeploy Uploaded Image (creates cloud server from the image already uploaded)")]
-        public string R2RedeployCheckBoxText {
-            get {
-                return ((string)(this["R2RedeployCheckBoxText"]));
-            }
-            set {
-                this["R2RedeployCheckBoxText"] = value;
             }
         }
         
@@ -1513,18 +842,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Resume Upload (check if your local images are already created)")]
-        public string R2UploadCheckBoxText {
-            get {
-                return ((string)(this["R2UploadCheckBoxText"]));
-            }
-            set {
-                this["R2UploadCheckBoxText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("  Secret Key:")]
         public string R2awsIdLabelText {
             get {
@@ -1561,66 +878,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step")]
-        public string R2NextButtonToolTip {
-            get {
-                return ((string)(this["R2NextButtonToolTip"]));
-            }
-            set {
-                this["R2NextButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window")]
-        public string R2BackButtonToolTip {
-            get {
-                return ((string)(this["R2BackButtonToolTip"]));
-            }
-            set {
-                this["R2BackButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Browse your computer and network shares")]
-        public string R2BrowseButtonToolTip {
-            get {
-                return ((string)(this["R2BrowseButtonToolTip"]));
-            }
-            set {
-                this["R2BrowseButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Redeploy uploaded tool tip")]
-        public string R2RedeployUploadedCheckBoxToolTip {
-            get {
-                return ((string)(this["R2RedeployUploadedCheckBoxToolTip"]));
-            }
-            set {
-                this["R2RedeployUploadedCheckBoxToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Resume upload tool tip")]
-        public string R2ResumeUploadCheckBoxToolTip {
-            get {
-                return ((string)(this["R2ResumeUploadCheckBoxToolTip"]));
-            }
-            set {
-                this["R2ResumeUploadCheckBoxToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Full output")]
         public string FullOutputHeader {
             get {
@@ -1628,25 +885,6 @@ Consult AWS documentation for more info.")]
             }
             set {
                 this["FullOutputHeader"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>%Windir%\test.txt</string>
-  <string>test1.txt</string>
-  <string>test2.txt</string>
-  <string>test3.txt</string>
-  <string>logs\migrate.log</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection FilesToAttach {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["FilesToAttach"]));
-            }
-            set {
-                this["FilesToAttach"] = value;
             }
         }
         
@@ -1807,18 +1045,6 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Click here to read manual entry on this window")]
-        public string HelpButtonToolTip {
-            get {
-                return ((string)(this["HelpButtonToolTip"]));
-            }
-            set {
-                this["HelpButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>AmazonCloudParameters/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/32,32/true</string>
@@ -1848,10 +1074,830 @@ Consult AWS documentation for more info.")]
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tool tip for EH direct upload")]
+        public string S4EHDirectUploadCheckBoxToolTip {
+            get {
+                return ((string)(this["S4EHDirectUploadCheckBoxToolTip"]));
+            }
+            set {
+                this["S4EHDirectUploadCheckBoxToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tool tip for EH deduplication")]
+        public string S4EHDeduplicationCheckBoxToolTip {
+            get {
+                return ((string)(this["S4EHDeduplicationCheckBoxToolTip"]));
+            }
+            set {
+                this["S4EHDeduplicationCheckBoxToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tool tip for Drives List")]
+        public string S4EHDrivesListBoxToolTip {
+            get {
+                return ((string)(this["S4EHDrivesListBoxToolTip"]));
+            }
+            set {
+                this["S4EHDrivesListBoxToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cloudscraper Server Transfer")]
+        public string S1Header {
+            get {
+                return ((string)(this["S1Header"]));
+            }
+            set {
+                this["S1Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Click to configure your server migration.")]
+        public string S1StartNewButtonToolTip {
+            get {
+                return ((string)(this["S1StartNewButtonToolTip"]));
+            }
+            set {
+                this["S1StartNewButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Click to resume or repeat your previous migration.")]
+        public string S1ResumeButtonToolTip {
+            get {
+                return ((string)(this["S1ResumeButtonToolTip"]));
+            }
+            set {
+                this["S1ResumeButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step.")]
+        public string S2NextButtonToolTip {
+            get {
+                return ((string)(this["S2NextButtonToolTip"]));
+            }
+            set {
+                this["S2NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window.")]
+        public string S2BackButtonToolTip {
+            get {
+                return ((string)(this["S2BackButtonToolTip"]));
+            }
+            set {
+                this["S2BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transfer your server image to Windows Azure.")]
+        public string S3WindowsAzureButtonToolTip {
+            get {
+                return ((string)(this["S3WindowsAzureButtonToolTip"]));
+            }
+            set {
+                this["S3WindowsAzureButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window.")]
+        public string S3BackButtonToolTip {
+            get {
+                return ((string)(this["S3BackButtonToolTip"]));
+            }
+            set {
+                this["S3BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transfer your server image to Amazon Elastic Compute Cloud.")]
+        public string S3AmazonButtonToolTip {
+            get {
+                return ((string)(this["S3AmazonButtonToolTip"]));
+            }
+            set {
+                this["S3AmazonButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transfer your server image to ElasticHosts cloud.")]
+        public string S3ElasticHostsButtonToolTip {
+            get {
+                return ((string)(this["S3ElasticHostsButtonToolTip"]));
+            }
+            set {
+                this["S3ElasticHostsButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Check Access")]
+        public string S4TestButtonText {
+            get {
+                return ((string)(this["S4TestButtonText"]));
+            }
+            set {
+                this["S4TestButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify your S3 bucket:")]
+        public string S4AmazonBucketLabelText {
+            get {
+                return ((string)(this["S4AmazonBucketLabelText"]));
+            }
+            set {
+                this["S4AmazonBucketLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify folder in S3 bucket:")]
+        public string S4AmazonFolderKeyLabelText {
+            get {
+                return ((string)(this["S4AmazonFolderKeyLabelText"]));
+            }
+            set {
+                this["S4AmazonFolderKeyLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cloud Access Checked")]
+        public string S4TestConnectionHeader {
+            get {
+                return ((string)(this["S4TestConnectionHeader"]));
+            }
+            set {
+                this["S4TestConnectionHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Invalid bucket name. Please, specify another one.")]
+        public string S4InvalidBucketText {
+            get {
+                return ((string)(this["S4InvalidBucketText"]));
+            }
+            set {
+                this["S4InvalidBucketText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cannot access the bucket, please specify another bucket name.")]
+        public string S4CannotAccessBucketText {
+            get {
+                return ((string)(this["S4CannotAccessBucketText"]));
+            }
+            set {
+                this["S4CannotAccessBucketText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("The bucket name is valid and free to use.")]
+        public string S4NoBucketExists {
+            get {
+                return ((string)(this["S4NoBucketExists"]));
+            }
+            set {
+                this["S4NoBucketExists"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Please, enter your AWS credentials: \r\nAccess ID and Secret Access Key.")]
+        public string S4EnterAWS {
+            get {
+                return ((string)(this["S4EnterAWS"]));
+            }
+            set {
+                this["S4EnterAWS"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Amazon AWS login succeeded.")]
+        public string S4TestConnectionText {
+            get {
+                return ((string)(this["S4TestConnectionText"]));
+            }
+            set {
+                this["S4TestConnectionText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Amazon AWS doesn\'t recognize entered keys! Check \"Access Keys\" section in Securit" +
+            "y Credentials page of your AWS account.")]
+        public string S4IDKeyInvalid {
+            get {
+                return ((string)(this["S4IDKeyInvalid"]));
+            }
+            set {
+                this["S4IDKeyInvalid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Please, enter your ElasticHosts API credentials: UUID and API Key.")]
+        public string S4EnterUUID {
+            get {
+                return ((string)(this["S4EnterUUID"]));
+            }
+            set {
+                this["S4EnterUUID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Direct upload. \r\nNo intermidiate images will be created.")]
+        public string S4ehDirectUploadCheckBoxText {
+            get {
+                return ((string)(this["S4ehDirectUploadCheckBoxText"]));
+            }
+            set {
+                this["S4ehDirectUploadCheckBoxText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window.")]
+        public string S4BackButtonToolTip {
+            get {
+                return ((string)(this["S4BackButtonToolTip"]));
+            }
+            set {
+                this["S4BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step.")]
+        public string S4NextButtonToolTip {
+            get {
+                return ((string)(this["S4NextButtonToolTip"]));
+            }
+            set {
+                this["S4NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Makes an attempt to access your cloud account.\r\nTests your both cloud credentials" +
+            ", internet connection. \r\nChecks for available advanced options.")]
+        public string S4TestButtonToolTip {
+            get {
+                return ((string)(this["S4TestButtonToolTip"]));
+            }
+            set {
+                this["S4TestButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your Amazon Access Key ID. \r\nIt could be found on Security Credentials page" +
+            " of your AWS account.")]
+        public string S4AmazonAccessIDToolTip {
+            get {
+                return ((string)(this["S4AmazonAccessIDToolTip"]));
+            }
+            set {
+                this["S4AmazonAccessIDToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your Amazon Access Secret Key. \r\nIt could be found on Security Credentials " +
+            "page of your AWS account.")]
+        public string S4AmazonAccessKeyToolTip {
+            get {
+                return ((string)(this["S4AmazonAccessKeyToolTip"]));
+            }
+            set {
+                this["S4AmazonAccessKeyToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Choose Availability Zone where your cloud server is to run.\r\nAvailiability Zone i" +
+            "s subsection of EC2 datacenter. \r\nPress \'Check Access\' button to download availa" +
+            "bility zone list.")]
+        public string S4AmazonAvailabilityZoneToolTip {
+            get {
+                return ((string)(this["S4AmazonAvailabilityZoneToolTip"]));
+            }
+            set {
+                this["S4AmazonAvailabilityZoneToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter S3 bucket name to upload your server image to.\r\nSee manual for more info on" +
+            " S3 buckets.\r\nPress \'Check Access\' button in order to test if bucket is availabl" +
+            "e.\r\n")]
+        public string S4AmazonS3BucketToolTip {
+            get {
+                return ((string)(this["S4AmazonS3BucketToolTip"]));
+            }
+            set {
+                this["S4AmazonS3BucketToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provide a folder in your S3 bucket, \r\ne.g. upload2013-06-02, to identify your upl" +
+            "oaded image.")]
+        public string S4AmazonFolderToolTip {
+            get {
+                return ((string)(this["S4AmazonFolderToolTip"]));
+            }
+            set {
+                this["S4AmazonFolderToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Security group defines firewall settings for your instance.\r\nAttention! It couldn" +
+            "\'t be changed so choose wisely. \r\nSee manual and AWS documentation for more info" +
+            " on security groups.\r\nPress \'Check Access\' button to download security group lis" +
+            "t.")]
+        public string S4AmazonSecurityGroupToolTip {
+            get {
+                return ((string)(this["S4AmazonSecurityGroupToolTip"]));
+            }
+            set {
+                this["S4AmazonSecurityGroupToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify Location to Store Images...")]
+        public string S5Header {
+            get {
+                return ((string)(this["S5Header"]));
+            }
+            set {
+                this["S5Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Please choose folder where to store your disk images.\r\n\r\nThere should be enough f" +
+            "ree space to store them.\r\nYou are free to delete them after transfer completes.")]
+        public string S5MainLabelText {
+            get {
+                return ((string)(this["S5MainLabelText"]));
+            }
+            set {
+                this["S5MainLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Folder is not empty.\r\n It\'s recommended to use empty folders to store images.\r\nDo" +
+            " you wish to proceed anyway?")]
+        public string S5WarningMessage {
+            get {
+                return ((string)(this["S5WarningMessage"]));
+            }
+            set {
+                this["S5WarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Path is not correct!")]
+        public string S5PathIncorrectWarningMessage {
+            get {
+                return ((string)(this["S5PathIncorrectWarningMessage"]));
+            }
+            set {
+                this["S5PathIncorrectWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step.")]
+        public string S5NextButtonToolTip {
+            get {
+                return ((string)(this["S5NextButtonToolTip"]));
+            }
+            set {
+                this["S5NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window.")]
+        public string S5BackButtonToolTip {
+            get {
+                return ((string)(this["S5BackButtonToolTip"]));
+            }
+            set {
+                this["S5BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse your computer and network shares.")]
+        public string S5BrowseButtonToolTip {
+            get {
+                return ((string)(this["S5BrowseButtonToolTip"]));
+            }
+            set {
+                this["S5BrowseButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transfer configuration file with this name already exists.\r\nDo you want to rewrit" +
+            "e it?")]
+        public string S6WarningMessage {
+            get {
+                return ((string)(this["S6WarningMessage"]));
+            }
+            set {
+                this["S6WarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("File name is not correct")]
+        public string S6PathIncorrectWarningMessage {
+            get {
+                return ((string)(this["S6PathIncorrectWarningMessage"]));
+            }
+            set {
+                this["S6PathIncorrectWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Save your transfer configuration settings. \r\n\r\nThese settings could be reused aft" +
+            "erwards to resume your upload or deploy several cloud server instances based on " +
+            "the same image.\r\n\t")]
+        public string S6MainLabelText {
+            get {
+                return ((string)(this["S6MainLabelText"]));
+            }
+            set {
+                this["S6MainLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step.")]
+        public string S6NextButtonToolTip {
+            get {
+                return ((string)(this["S6NextButtonToolTip"]));
+            }
+            set {
+                this["S6NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window.")]
+        public string S6BackButtonToolTip {
+            get {
+                return ((string)(this["S6BackButtonToolTip"]));
+            }
+            set {
+                this["S6BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse your computer and network shares.")]
+        public string S6BrowseButtonToolTip {
+            get {
+                return ((string)(this["S6BrowseButtonToolTip"]));
+            }
+            set {
+                this["S6BrowseButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transfer Process Console")]
+        public string S7Header {
+            get {
+                return ((string)(this["S7Header"]));
+            }
+            set {
+                this["S7Header"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Start!")]
+        public string S7StartButtonText {
+            get {
+                return ((string)(this["S7StartButtonText"]));
+            }
+            set {
+                this["S7StartButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Show Full Output")]
+        public string S7FullOutputButtonText {
+            get {
+                return ((string)(this["S7FullOutputButtonText"]));
+            }
+            set {
+                this["S7FullOutputButtonText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Operation Failed")]
+        public string S7PythonErrorHeader {
+            get {
+                return ((string)(this["S7PythonErrorHeader"]));
+            }
+            set {
+                this["S7PythonErrorHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Error occured while starting the transfer process (migrate.pyc) ")]
+        public string S7PythonErrorMessage {
+            get {
+                return ((string)(this["S7PythonErrorMessage"]));
+            }
+            set {
+                this["S7PythonErrorMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Do you want to stop the ongoing transfer?")]
+        public string S7XKeyWarningMessage {
+            get {
+                return ((string)(this["S7XKeyWarningMessage"]));
+            }
+            set {
+                this["S7XKeyWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window.")]
+        public string S7BackButtonToolTip {
+            get {
+                return ((string)(this["S7BackButtonToolTip"]));
+            }
+            set {
+                this["S7BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Start the transfer process.")]
+        public string S7StartButtonToolTip {
+            get {
+                return ((string)(this["S7StartButtonToolTip"]));
+            }
+            set {
+                this["S7StartButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Send request to our support team so they could help.")]
+        public string S7MailButtonToolTip {
+            get {
+                return ((string)(this["S7MailButtonToolTip"]));
+            }
+            set {
+                this["S7MailButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Shows detailed transfer process output.")]
+        public string S7FullOutputButtonToolTip {
+            get {
+                return ((string)(this["S7FullOutputButtonToolTip"]));
+            }
+            set {
+                this["S7FullOutputButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Load your previously saved transfer task you want to restart")]
+        public string R2MainLabelText {
+            get {
+                return ((string)(this["R2MainLabelText"]));
+            }
+            set {
+                this["R2MainLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Redeploy Uploaded Image")]
+        public string R2RedeployCheckBoxText {
+            get {
+                return ((string)(this["R2RedeployCheckBoxText"]));
+            }
+            set {
+                this["R2RedeployCheckBoxText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Resume Previous Upload")]
+        public string R2UploadCheckBoxText {
+            get {
+                return ((string)(this["R2UploadCheckBoxText"]));
+            }
+            set {
+                this["R2UploadCheckBoxText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Proceed to the next step.")]
+        public string R2NextButtonToolTip {
+            get {
+                return ((string)(this["R2NextButtonToolTip"]));
+            }
+            set {
+                this["R2NextButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window.")]
+        public string R2BackButtonToolTip {
+            get {
+                return ((string)(this["R2BackButtonToolTip"]));
+            }
+            set {
+                this["R2BackButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Browse your computer and network shares.")]
+        public string R2BrowseButtonToolTip {
+            get {
+                return ((string)(this["R2BrowseButtonToolTip"]));
+            }
+            set {
+                this["R2BrowseButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Choose this option in case your image is already uploaded to create one more EC2 " +
+            "instance (VM) from it.")]
+        public string R2RedeployUploadedCheckBoxToolTip {
+            get {
+                return ((string)(this["R2RedeployUploadedCheckBoxToolTip"]));
+            }
+            set {
+                this["R2RedeployUploadedCheckBoxToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Choose this option to resume disrupted upload of image file already created.")]
+        public string R2ResumeUploadCheckBoxToolTip {
+            get {
+                return ((string)(this["R2ResumeUploadCheckBoxToolTip"]));
+            }
+            set {
+                this["R2ResumeUploadCheckBoxToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>m1.medium/M1 Medium</string>
+  <string>%Windir%\test.txt</string>
+  <string>Migrate\Migrate\diskpart_open.tmp</string>
+  <string>Migrate\Migrate\diskpart_close.tmp</string>
+  <string>Migrate\Migrate\boto.log</string>
+  <string>build</string>
+  <string>Migrate\revision</string>
+  <string>logs\gui.log</string>
+  <string>logs\migrate.log</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection FilesToAttach {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["FilesToAttach"]));
+            }
+            set {
+                this["FilesToAttach"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Need help? \r\nClick here to read manual entry on this step.")]
+        public string HelpButtonToolTip {
+            get {
+                return ((string)(this["HelpButtonToolTip"]));
+            }
+            set {
+                this["HelpButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>m1.small/M1 Small</string>
+  <string>m1.medium/M1 Medium</string>
   <string>m1.large/M1 Large</string>
   <string>m1.xlarge/M1 Extra Large</string>
   <string>m3.2xlarge/M3 Double Extra Large</string>
