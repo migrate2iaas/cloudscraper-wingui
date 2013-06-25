@@ -18,12 +18,16 @@ using System.Net.Mime;
 using CloudScraper.Properties;
 using ICSharpCode.SharpZipLib.Zip;
 
+using NLog;
+
 namespace CloudScraper
 {
     public partial class CopyStartForm : Form
     {
         SaveTransferTaskForm saveTransferForm_;
         ResumeTransferForm resumeTransferForm_;
+
+        private static Logger logger_ = LogManager.GetLogger("CopyStartForm");
 
         public BindingList<MessageInfo> messages_;
         public object lockObject;
@@ -680,6 +684,9 @@ namespace CloudScraper
 
         private void CopyStartFormLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form load.");
+            
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.resumeTransferForm_ != null ? this.resumeTransferForm_.Location : this.saveTransferForm_.Location; 
             this.messageGridView.DataSource = this.messages_;
