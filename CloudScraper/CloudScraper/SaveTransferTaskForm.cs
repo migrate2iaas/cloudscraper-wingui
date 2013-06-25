@@ -38,7 +38,11 @@ namespace CloudScraper
         {
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
-            this.saveTransferTextBox.Text = Directory.GetCurrentDirectory() + "\\" + "transfer.ini";
+
+            if (!Directory.Exists(Environment.GetEnvironmentVariable("USERPROFILE") + "\\CloudScraper"))
+                Directory.CreateDirectory(Environment.GetEnvironmentVariable("USERPROFILE") + "\\CloudScraper");
+
+            this.saveTransferTextBox.Text = Environment.GetEnvironmentVariable("USERPROFILE") + "\\CloudScraper\\transfer.ini";
             transferPath_ = this.saveTransferTextBox.Text;
             this.Text = Settings.Default.S6Header;
             this.mainLabel.Text = Settings.Default.S6MainLabelText;
