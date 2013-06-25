@@ -44,7 +44,7 @@ namespace CloudScraper
 
             this.saveTransferTextBox.Text = Environment.GetEnvironmentVariable("USERPROFILE") + "\\CloudScraper\\transfer.ini";
             transferPath_ = this.saveTransferTextBox.Text;
-            //Encoding.Unicode.GetString(Encoding.ASCII.GetBytes(transferPath_));
+            //Encoding.UTF8.GetString(Encoding.ASCII.GetBytes(transferPath_));
             this.Text = Settings.Default.S6Header;
             this.mainLabel.Text = Settings.Default.S6MainLabelText;
             this.nextButton.Text = Settings.Default.S6NextButtonText;

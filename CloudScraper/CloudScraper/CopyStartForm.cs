@@ -257,7 +257,7 @@ namespace CloudScraper
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
                     arguments += 
                     passwordarg +
-                    " -c " + "\"" + SaveTransferTaskForm.transferPath_ + "\"" +
+                    " -c " + "\"" + Encoding.UTF8.GetString(Encoding.ASCII.GetBytes(SaveTransferTaskForm.transferPath_)) + "\"" +
                     " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
                 }
