@@ -193,8 +193,6 @@ namespace CloudScraper
         {
             if (this.cloudParametersForm_ != null)
                 this.cloudParametersForm_.Close();
-            //if (this.ehCloudParametersForm_ != null)
-            //    this.ehCloudParametersForm_.Close();
         }
 
         private void ImagesPathFormLoad(object sender, EventArgs e)
@@ -205,17 +203,29 @@ namespace CloudScraper
             this.StartPosition = FormStartPosition.Manual;
             if (this.cloudParametersForm_ != null)
                 this.Location = this.cloudParametersForm_.Location;
-            //if (this.ehCloudParametersForm_ != null)
-            //    this.Location = this.ehCloudParametersForm_.Location;
 
             this.totalSpace.Text = (ChooseDisksForm.totalSpaceRequired_ + Settings.Default.TotalSizeGap).ToString() + "GB";
 
-            this.browseTextBox.Text = Directory.GetCurrentDirectory();
+            DriveInfo[] drives = DriveInfo.GetDrives();
+            DriveInfo driveHi = null;
+            
+            foreach (DriveInfo drive in drives)
+            {
+                if (drive.IsReady && (driveHi == null || drive.AvailableFreeSpace > driveHi.AvailableFreeSpace))
+                {
+                    driveHi = drive;
+                }
+            }
+
+            if (!Directory.Exists(driveHi.Name + "cloudscraper-images\\" + DateTime.Now.ToString("yyyy-MM-dd")))
+                Directory.CreateDirectory(driveHi.Name + "cloudscraper-images\\" + DateTime.Now.ToString("yyyy-MM-dd"));
+
+            //GetCurrentDirectory as default path for Image path.
+            this.browseTextBox.Text = driveHi.Name + "cloudscraper-images\\" + DateTime.Now.ToString("yyyy-MM-dd");
             imagesPath_ = this.browseTextBox.Text;
 
             string rootName = Directory.GetDirectoryRoot(this.browseTextBox.Text);
-            DriveInfo[] drives = DriveInfo.GetDrives();
-
+           
             //Free space on volume where program starts.
             foreach (DriveInfo drive in drives)
             {

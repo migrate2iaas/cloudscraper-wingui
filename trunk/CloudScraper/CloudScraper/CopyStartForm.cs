@@ -525,11 +525,6 @@ namespace CloudScraper
                 //Logs errors.
                 if (logger_.IsErrorEnabled)
                     logger_.Error(e.Message);
-                
-                //using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
-                //{
-                //    stream.WriteLine(DateTime.Now.ToString() + " " + e);
-                //}
             }
         }
 
@@ -685,11 +680,6 @@ namespace CloudScraper
                 //Logs error.
                 if (logger_.IsErrorEnabled)
                     logger_.Error(e.Message);
-           
-                //using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
-                //{
-                //    stream.WriteLine(DateTime.Now.ToString() + " " + e);
-                //}
 
                 this.attach.Dispose();
                 this.Cursor = Cursors.Arrow;
@@ -727,11 +717,6 @@ namespace CloudScraper
                         //Logs error.
                         if (logger_.IsErrorEnabled)
                             logger_.Error(exept.Message);
-
-                        //using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
-                        //{
-                        //    stream.WriteLine(DateTime.Now.ToString() + " " + exept);
-                        //}
                     }
                 }
             }
@@ -784,11 +769,6 @@ namespace CloudScraper
                             //Logs error.
                             if (logger_.IsErrorEnabled)
                                 logger_.Error(expt.Message);
-                            
-                            //using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
-                            //{
-                            //    stream.WriteLine(DateTime.Now.ToString() + " " + expt);
-                            //}
                         }
                     }
                 }
@@ -805,11 +785,6 @@ namespace CloudScraper
                         //Logs error.
                         if (logger_.IsErrorEnabled)
                             logger_.Error(exp.Message);
-                        
-                        //using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
-                        //{
-                        //    stream.WriteLine(DateTime.Now.ToString() + " " + exp);
-                        //}
                     }
                 }             
             }
