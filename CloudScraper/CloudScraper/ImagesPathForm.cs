@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using CloudScraper.Properties;
+using NLog;
 
 namespace CloudScraper
 {
@@ -16,7 +17,8 @@ namespace CloudScraper
 
         CloudParametersForm cloudParametersForm_;
         SaveTransferTaskForm saveTransferTaskForm_;
-
+        private static Logger logger_ = LogManager.GetLogger("ImagesPathForm");
+        
         public ImagesPathForm(CloudParametersForm cloudParametersForm)
         {
             this.cloudParametersForm_ = cloudParametersForm;
@@ -80,6 +82,9 @@ namespace CloudScraper
 
         private void BackButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Return to the CloudParametersForm.");
+            
             this.Hide();
             if (this.cloudParametersForm_ != null)
             {
@@ -87,12 +92,6 @@ namespace CloudScraper
                 this.cloudParametersForm_.Location = this.Location;
                 this.cloudParametersForm_.Show();
             }
-            //else if (ehCloudParametersForm_ != null)
-            //{
-            //    this.ehCloudParametersForm_.StartPosition = FormStartPosition.Manual;
-            //    this.ehCloudParametersForm_.Location = this.Location;
-            //    this.ehCloudParametersForm_.Show();
-            //}
         }
 
         private void NextButtonClick(object sender, EventArgs e)
@@ -154,8 +153,11 @@ namespace CloudScraper
                     }
                 }
             }
-            catch (ArgumentException)
+            catch (ArgumentException expt)
             {
+                if (logger_.IsErrorEnabled)
+                    logger_.Error(expt.Message);
+                
                 DialogResult result2 = MessageBox.Show(
                     Settings.Default.S5PathIncorrectWarningMessage,
                     Settings.Default.S5WarningHeader,
@@ -173,6 +175,10 @@ namespace CloudScraper
                     return;
             }
 
+
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Next to the SaveTransferTaskForm.");
+            
             this.Hide();
 
             if (this.saveTransferTaskForm_ == null)
@@ -193,6 +199,9 @@ namespace CloudScraper
 
         private void ImagesPathFormLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form loaded.");
+            
             this.StartPosition = FormStartPosition.Manual;
             if (this.cloudParametersForm_ != null)
                 this.Location = this.cloudParametersForm_.Location;

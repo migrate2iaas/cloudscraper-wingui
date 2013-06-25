@@ -7,12 +7,14 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using CloudScraper.Properties;
+using NLog;
 
 namespace CloudScraper
 {
     public partial class SaveTransferTaskForm : Form
     {
         public static string transferPath_;
+        private static Logger logger_ = LogManager.GetLogger("SaveTransferTaskForm");
 
         ImagesPathForm imagesPathForm_;
         CloudParametersForm cloudParametersForm_;
@@ -66,6 +68,9 @@ namespace CloudScraper
         {
             if (this.imagesPathForm_ != null)
             {
+                if (logger_.IsDebugEnabled)
+                    logger_.Debug("Back to the ImagesPathForm");
+                
                 this.Hide();
                 this.imagesPathForm_.StartPosition = FormStartPosition.Manual;
                 this.imagesPathForm_.Location = this.Location;
@@ -73,6 +78,9 @@ namespace CloudScraper
             }
             else if (this.cloudParametersForm_ != null)
             {
+                if (logger_.IsDebugEnabled)
+                    logger_.Debug("Back to the CloudParametersForm");
+                
                 this.Hide();
                 this.cloudParametersForm_.StartPosition = FormStartPosition.Manual;
                 this.cloudParametersForm_.Location = this.Location;
@@ -131,8 +139,11 @@ namespace CloudScraper
                         return;
                     }
                 }
-                catch
+                catch (Exception expt)
                 {
+                    if (logger_.IsErrorEnabled)
+                        logger_.Error(expt.Message);
+
                     DialogResult result = MessageBox.Show(
                         Settings.Default.S6PathIncorrectWarningMessage,
                         Settings.Default.S6WarningHeader,
@@ -140,6 +151,9 @@ namespace CloudScraper
                     return;
                 }
             }
+
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Next to the CopyStartForm");
             
             this.Hide();
 
@@ -176,6 +190,9 @@ namespace CloudScraper
 
         private void SaveTransferTaskLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form loaded.");
+            
             this.StartPosition = FormStartPosition.Manual;
             if (this.imagesPathForm_!= null)
                 this.Location = this.imagesPathForm_.Location;

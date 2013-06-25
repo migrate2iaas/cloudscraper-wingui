@@ -19,7 +19,7 @@ namespace CloudScraper
         static void Main()
         {
             InitFileLog();
-            logger_.Debug("Application start");
+            logger_.Debug("Application started.");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new NewResumeForm());
@@ -57,10 +57,10 @@ namespace CloudScraper
 
             logPath_ = path + "gui.log";
 
-            using (StreamWriter stream = new StreamWriter(logPath_, false))
-            {
-                stream.WriteLine(DateTime.Now.ToString() + " " + "Start application");
-            }
+            //using (StreamWriter stream = new StreamWriter(logPath_, false))
+            //{
+            //    stream.WriteLine(DateTime.Now.ToString() + " " + "Start application");
+            //}
         }
     }
 }

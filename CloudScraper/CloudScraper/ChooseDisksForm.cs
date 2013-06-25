@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Windows;
 using System.IO;
 using CloudScraper.Properties;
+using NLog;
 
 namespace CloudScraper
 {
@@ -15,6 +16,7 @@ namespace CloudScraper
     {
         public static decimal totalSpaceRequired_;
         public static List<string> selectedDisks_ = new List<string>();
+        private static Logger logger_ = LogManager.GetLogger("ChooseDisksForm");
 
         ChooseCloudForm chooseCloudForm_;
         NewResumeForm newResumeForm_;
@@ -49,6 +51,9 @@ namespace CloudScraper
 
         private void BackButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Return to NewResumeForm.");
+
             this.Hide();
             this.newResumeForm_.StartPosition = FormStartPosition.Manual;
             this.newResumeForm_.Location = this.Location;
@@ -57,6 +62,9 @@ namespace CloudScraper
 
         private void ChooseDisksLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form loaded.");
+            
             //For show Form in the same position as prev.
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.newResumeForm_.Location;
@@ -114,6 +122,9 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("To the ChooseCloudForm.");
+            
             this.Hide();
 
             if (this.chooseCloudForm_ == null)
