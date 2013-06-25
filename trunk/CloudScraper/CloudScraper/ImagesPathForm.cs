@@ -8,6 +8,10 @@ using System.Windows.Forms;
 using System.IO;
 using CloudScraper.Properties;
 using NLog;
+using System.Runtime.InteropServices;
+
+
+
 
 namespace CloudScraper
 {
@@ -94,10 +98,83 @@ namespace CloudScraper
             }
         }
 
+
+        // helper functions\struct from WINAPI to logon to network share
+        [StructLayout(LayoutKind.Sequential)]
+        public struct NETRESOURCE
+        {
+            public int dwScope;
+            public int dwType;
+            public int dwDisplayType;
+            public int dwUsage;
+            public string lpLocalName;
+            public string lpRemoteName;
+            public string lpComment;
+            public string lpProvider;
+        }
+
+        [DllImport("mpr.dll", EntryPoint = "WNetAddConnection2A")]
+        public static extern int WNetAddConnection2(ref NETRESOURCE lpNetResource, string lpPassword, string lpUserName, int dwFlags);
+        [DllImport("mpr.dll", EntryPoint = "WNetCancelConnection2A")]
+        public static extern int WNetCancelConnection2(string lpName, int dwFlags, int fForce);
+
+        // tries to make a logon to network share, will prompt user for login and password in case interactive flag specified 
+        // if interactive is ommited, current credentials would be used
+        private bool LogonNetworkShare(string UNCPath , bool interactive)
+        {
+            NETRESOURCE nr;
+            string strUsername;
+            string strPassword;
+            nr = new NETRESOURCE();
+            nr.lpRemoteName = UNCPath;
+            nr.lpLocalName = null; // (DriveLetter + ":");
+            strUsername = null;
+            strPassword = null;
+
+            int CONNECT_INTERACTIVE = 0x8;
+            int CONNECT_PROMPT = 0x10;
+
+            int result;
+            // calls the plain C WINAPI function exported from dll
+            // http://msdn.microsoft.com/en-us/library/windows/desktop/aa385413%28v=vs.85%29.aspx 
+            result = WNetAddConnection2(ref nr, strPassword, strUsername, interactive?(CONNECT_PROMPT+CONNECT_INTERACTIVE):0x0);
+
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("WNetAddConnection2 result is " + result.ToString());
+
+            if ((result == 0))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
         private void NextButtonClick(object sender, EventArgs e)
         {
             try
             {
+                // try to login to network share
+                if (Path.IsPathRooted(imagesPath_))
+                {
+                    string networkroot = Path.GetPathRoot(imagesPath_);
+                    if (networkroot.StartsWith("\\\\"))
+                    {
+                        if (logger_.IsDebugEnabled)
+                            logger_.Debug("Openning network path: '" + networkroot + "'");
+                        if (LogonNetworkShare(networkroot, true) == false)
+                        {
+                            DialogResult result5 = MessageBox.Show(
+                            Settings.Default.S5PathNetworkLoginFailure,
+                            Settings.Default.S5WarningHeader,
+                            MessageBoxButtons.OK);
+                            return;
+                        }
+                    }   
+                }
                 if (!Directory.Exists(imagesPath_))
                 {
                     if (Path.IsPathRooted(imagesPath_))
@@ -251,6 +328,8 @@ namespace CloudScraper
         {
             System.Diagnostics.Process.Start(Settings.Default.S5Link);
         }
+
+        
 
         //Choose path throw keyboard input.
         private void BrowseTextChanged(object sender, EventArgs e)

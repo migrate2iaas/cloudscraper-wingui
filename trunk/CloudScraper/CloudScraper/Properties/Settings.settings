@@ -527,5 +527,8 @@ Click here to read manual entry on this step.</Value>
   &lt;string&gt;m3.xlarge/M3 Extra Large&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="S5PathNetworkLoginFailure" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Failed to connect to network location. Please, specify another one.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
