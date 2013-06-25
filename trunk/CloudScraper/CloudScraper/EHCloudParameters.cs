@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using CloudScraper.Properties;
 using System.Drawing;
 using System.IO;
+using NLog;
 
 namespace CloudScraper
 {
@@ -20,6 +21,7 @@ namespace CloudScraper
         public static bool isElasticHosts_ = false;
         public static bool useDeduplication_ = false;
         public static List<string> drivesList_ = new List<string>();
+        private static Logger logger_ = LogManager.GetLogger("EHCloudParametersForm");
 
         public SaveTransferTaskForm saveTransferTaskForm_;
         
@@ -136,17 +138,23 @@ namespace CloudScraper
 
         protected override void BackButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Return to the ChooseCloudForm.");
+            
             isElasticHosts_ = false;
             base.BackButtonClick(sender, e);
         }
 
         protected override void NextButtonClick(object sender, EventArgs e)
-        {
+        {            
             isElasticHosts_ = true;
             this.Hide();
 
             if (!directUpload_)
             {
+                if (logger_.IsDebugEnabled)
+                    logger_.Debug("Next to the ImagesPathForm.");
+
                 if (this.imagesPathForm_ == null)
                 {
                     this.imagesPathForm_ = new ImagesPathForm(this);
@@ -156,6 +164,9 @@ namespace CloudScraper
             }
             else
             {
+                if (logger_.IsDebugEnabled)
+                    logger_.Debug("Next to the SaveTransferTaskForm.");
+                
                 if (this.saveTransferTaskForm_ == null)
                 {
                     this.saveTransferTaskForm_ = new SaveTransferTaskForm(this);
@@ -246,6 +257,9 @@ namespace CloudScraper
 
         protected override void CloudParametersLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form loaded.");
+
             isElasticHosts_ = false;
             base.CloudParametersLoad(sender, e);
         }

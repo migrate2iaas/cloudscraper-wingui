@@ -12,6 +12,7 @@ using Amazon.EC2;
 using Amazon.EC2.Model;
 using System.Configuration;
 using System.Collections.Specialized;
+using NLog;
 
 namespace CloudScraper
 {
@@ -27,6 +28,8 @@ namespace CloudScraper
         public static string zone_ = "";
         public static string group_ = "";
         public static bool isAmazon_ = false;
+
+        private static Logger logger_ = LogManager.GetLogger("AmazonCloudParametersForm");
 
         public AmazonCloudParameters(ChooseCloudForm chooseCloudForm)
         {
@@ -285,6 +288,9 @@ namespace CloudScraper
 
         protected override void BackButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Return to the ChooseCloudForm.");
+            
             isAmazon_ = false;
             base.BackButtonClick(sender, e);
         }
@@ -335,6 +341,9 @@ namespace CloudScraper
                 }
             }
 
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Next to the ImagesPathForm.");
+            
             isAmazon_ = true;
             this.Hide();
 
@@ -479,6 +488,9 @@ namespace CloudScraper
 
         protected override void CloudParametersLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form loaded.");
+            
             isAmazon_ = false;
             base.CloudParametersLoad(sender, e);
         }

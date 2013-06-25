@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using CloudScraper.Properties;
 using System.Reflection;
 using System.IO;
+using NLog;
 
 namespace CloudScraper
 {
@@ -15,6 +16,7 @@ namespace CloudScraper
     {
         ChooseDisksForm chooseDiskForm_;
         CloudParametersForm cloudParametersForm_;
+        private static Logger logger_ = LogManager.GetLogger("ChooseCloudForm");
         
         public ChooseCloudForm(ChooseDisksForm chooseDiskForm)
         {
@@ -83,6 +85,9 @@ namespace CloudScraper
 
         private void BackButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Return to the ChooseDisksForm.");
+            
             this.Hide();
             this.chooseDiskForm_.StartPosition = FormStartPosition.Manual;
             this.chooseDiskForm_.Location = this.Location;
@@ -104,10 +109,13 @@ namespace CloudScraper
                     (CloudParametersForm)Activator.CreateInstance(Type.GetType(assemblyName), new Object[1] { this });
             }
 
-            using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
-            {
-                stream.WriteLine(DateTime.Now.ToString() + " " + "Scenario " + (sender as Button).Name + " started");
-            }
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Scenario " + (sender as Button).Name + " selected.");
+
+            //using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
+            //{
+            //    stream.WriteLine(DateTime.Now.ToString() + " " + "Scenario " + (sender as Button).Name + " started");
+            //}
 
             this.cloudParametersForm_.ShowDialog();
         }
@@ -125,6 +133,9 @@ namespace CloudScraper
 
         private void ChooseCloudLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form loaded.");
+            
             //For show  window in same position as prev.
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseDiskForm_.Location;
