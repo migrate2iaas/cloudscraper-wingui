@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using CloudScraper.Properties;
+using NLog;
 
 namespace CloudScraper
 {
@@ -16,6 +17,8 @@ namespace CloudScraper
         public static bool skipUpload_;
         public static string resumeFilePath_;
         public static string awsKey_ = "";
+
+        private static Logger logger_ = LogManager.GetLogger("ResumeTransferForm");
 
         public string cloudName;
         
@@ -50,6 +53,9 @@ namespace CloudScraper
 
         private void BackButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Return to NewResumeForm.");
+
             this.Hide();
             this.newResumeForm_.StartPosition = FormStartPosition.Manual;
             this.newResumeForm_.Location = this.Location;
@@ -58,6 +64,9 @@ namespace CloudScraper
 
         private void NextButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("To CopyStartForm.");
+
             this.Hide();
 
             if (this.copyStartForm_ == null)
@@ -212,6 +221,9 @@ namespace CloudScraper
 
         private void ResumeTransferLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form load.");
+
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.newResumeForm_.Location;
         }

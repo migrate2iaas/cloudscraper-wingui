@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
+using NLog;
 
 namespace CloudScraper
 {
     static class CloudScraper
     {
+        private static Logger logger_ = LogManager.GetLogger("App");
+        
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,6 +19,7 @@ namespace CloudScraper
         static void Main()
         {
             InitFileLog();
+            logger_.Debug("Application start");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new NewResumeForm());

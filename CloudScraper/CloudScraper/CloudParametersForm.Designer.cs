@@ -184,7 +184,7 @@
             // drivesListLabel
             // 
             this.drivesListLabel.AutoSize = true;
-            this.drivesListLabel.Location = new System.Drawing.Point(56, 82);
+            this.drivesListLabel.Location = new System.Drawing.Point(6, 92);
             this.drivesListLabel.Name = "drivesListLabel";
             this.drivesListLabel.Size = new System.Drawing.Size(145, 13);
             this.drivesListLabel.TabIndex = 15;
@@ -194,9 +194,9 @@
             // 
             this.drivesListBox.FormattingEnabled = true;
             this.drivesListBox.HorizontalScrollbar = true;
-            this.drivesListBox.Location = new System.Drawing.Point(51, 101);
+            this.drivesListBox.Location = new System.Drawing.Point(0, 111);
             this.drivesListBox.Name = "drivesListBox";
-            this.drivesListBox.Size = new System.Drawing.Size(438, 109);
+            this.drivesListBox.Size = new System.Drawing.Size(534, 109);
             this.drivesListBox.TabIndex = 14;
             this.drivesListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.DrivesSelect);
             // 

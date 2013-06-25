@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using CloudScraper.Properties;
+using NLog;
 
 
 namespace CloudScraper
@@ -15,15 +16,12 @@ namespace CloudScraper
         ChooseDisksForm chooseDiskForm_;
         ResumeTransferForm resumeTransferForm_;
 
-        static GhostForm ghost_;
+        private static Logger logger_ = LogManager.GetLogger("NewResumeForm");
 
         public NewResumeForm()
         {
-            //ghost_ = new GhostForm();            
-            //ghost_.Show();
             InitializeComponent();
             
-
             this.startNewButton.Image = new Bitmap(Image.FromFile("Icons\\StartNew.ico"), new Size(32, 32));
             this.startNewButton.Text = Settings.Default.S1StartNewButtonText;
             this.toolTip.SetToolTip(this.startNewButton, Settings.Default.S1StartNewButtonToolTip);
@@ -37,7 +35,10 @@ namespace CloudScraper
         }
 
         private void StartNewButtonClick(object sender, EventArgs e)
-        {            
+        {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("New scenario select.");
+            
             this.Hide();
             
             if (this.chooseDiskForm_ == null)
@@ -50,6 +51,9 @@ namespace CloudScraper
 
         private void ResumeButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Resume scenario select.");
+            
             this.Hide();
 
             if (this.resumeTransferForm_ == null)
@@ -62,7 +66,6 @@ namespace CloudScraper
 
         private void OnClosed(object sender, FormClosedEventArgs e)
         {
-            //ghost_.Close();
         }
 
         private void HelpButtonClick(object sender, EventArgs e)
@@ -72,6 +75,8 @@ namespace CloudScraper
 
         private void NewResumeFormLoad(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form load.");
         }
     }
 }
