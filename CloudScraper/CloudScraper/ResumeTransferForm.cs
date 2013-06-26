@@ -86,7 +86,9 @@ namespace CloudScraper
         {
             this.openFileDialog.Filter = "Transfer task file (*.ini)|*.ini";
             this.openFileDialog.Multiselect = false;
-            this.openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            if (!Directory.Exists(Environment.GetEnvironmentVariable("USERPROFILE") + "\\CloudScraper"))
+                Directory.CreateDirectory(Environment.GetEnvironmentVariable("USERPROFILE") + "\\CloudScraper");
+            this.openFileDialog.InitialDirectory = Environment.GetEnvironmentVariable("USERPROFILE") + "\\CloudScraper";
 
             if (this.openFileDialog.ShowDialog() == DialogResult.OK)
             {
