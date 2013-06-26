@@ -255,9 +255,10 @@ namespace CloudScraper
                 if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
                 {
                     //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                    //Encoding.UTF8.GetString(Encoding.ASCII.GetBytes(SaveTransferTaskForm.transferPath_))
                     arguments += 
                     passwordarg +
-                    " -c " + "\"" + Encoding.UTF8.GetString(Encoding.ASCII.GetBytes(SaveTransferTaskForm.transferPath_)) + "\"" +
+                    " -c " + "\"" + SaveTransferTaskForm.transferPath_ + "\"" +
                     " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
                     //);
                 }
