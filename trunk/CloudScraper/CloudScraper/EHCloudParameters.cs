@@ -215,8 +215,6 @@ namespace CloudScraper
                 //request.PreAuthenticate = true;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-
-                List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
                 this.drives_.Clear();
 
                 string key = null;
@@ -233,7 +231,6 @@ namespace CloudScraper
 
                         if (key != null && value != null)
                         {
-                            list.Add(new KeyValuePair<string, string>(key, value));
                             //Create DriveInfo object.
                             DrivesInfo drive = new DrivesInfo()
                             {
@@ -295,6 +292,9 @@ namespace CloudScraper
             drivesDataGridView.Columns[0].Width = 30;
             drivesDataGridView.Columns[1].Width = 240;
             drivesDataGridView.Columns[2].Width = 240;
+
+            drivesDataGridView.Columns[1].DefaultCellStyle.Font = 
+                new Font(drivesDataGridView.Font.Name, 8, FontStyle.Bold);
            
 
             isElasticHosts_ = false;
