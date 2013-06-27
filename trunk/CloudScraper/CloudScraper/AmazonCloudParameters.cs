@@ -81,8 +81,9 @@ namespace CloudScraper
             this.zoneLabel.Text = Settings.Default.S4AmazonZoneLabelText;
             this.groupLabel.Text = Settings.Default.S4AmazonGroupLabelText;
 
-            this.drivesListBox.Visible = false;
             this.drivesListLabel.Visible = false;
+            this.drivesDataGridView.Visible = false;
+            this.selectAllCheckBox.Visible = false;
 
             this.deduplcationCheckBox.Visible = false;
 

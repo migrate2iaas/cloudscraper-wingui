@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.ComponentModel;
 using System.Net;
 using System.Text.RegularExpressions;
 using CloudScraper.Properties;
@@ -25,10 +26,13 @@ namespace CloudScraper
         private static Logger logger_ = LogManager.GetLogger("EHCloudParametersForm");
 
         public SaveTransferTaskForm saveTransferTaskForm_;
+
+        BindingList<DrivesInfo> drives_;
         
         public EHCloudParameters(ChooseCloudForm chooseCloudForm)
         {
             isElasticHosts_ = false;
+            this.drives_ = new BindingList<DrivesInfo>();  
 
             //Move regions strings from settings file to regionComboBox.
             foreach (string str in Settings.Default.EHRegions)
@@ -74,7 +78,7 @@ namespace CloudScraper
 
             this.toolTip.SetToolTip(this.advancedCheckBox, Settings.Default.S4EHDirectUploadCheckBoxToolTip);
             this.toolTip.SetToolTip(this.deduplcationCheckBox, Settings.Default.S4EHDeduplicationCheckBoxToolTip);
-            this.toolTip.SetToolTip(this.drivesListBox, Settings.Default.S4EHDrivesListBoxToolTip);
+            this.toolTip.SetToolTip(this.drivesDataGridView, Settings.Default.S4EHDrivesListBoxToolTip);
             
             this.bucketLabel.Visible = false;
             this.folderKeyLabel.Visible = false;
@@ -213,7 +217,8 @@ namespace CloudScraper
 
 
                 List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
-                this.drivesListBox.Items.Clear();
+                this.drives_.Clear();
+
                 string key = null;
                 string value = null;
                 using (StreamReader myStreamReader = new StreamReader(response.GetResponseStream(), Encoding.GetEncoding(1251)))
@@ -229,17 +234,24 @@ namespace CloudScraper
                         if (key != null && value != null)
                         {
                             list.Add(new KeyValuePair<string, string>(key, value));
-                            this.drivesListBox.Items.Add(new KeyValuePair<string, string>(key, value));
+                            //Create DriveInfo object.
+                            DrivesInfo drive = new DrivesInfo()
+                            {
+                                IsChecked = false,
+                                Name = value,
+                                UUID = key
+                            };
+
+                            this.drives_.Add(drive);
+
                             key = null;
                             value = null;
                         }
                     }
+                    
+                    //drivesDataGridView.AutoResizeColumn(0);
                 }
 
-                if (this.drivesListBox.Items.Count != 0)
-                {
-                    this.drivesListBox.Items.Insert(0, "Select all");
-                }
 
                 DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     Settings.Default.S4TestConnectionHeader, Settings.Default.S4TestConnectionText, "OK", "OK",
@@ -277,6 +289,13 @@ namespace CloudScraper
         {
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Form loaded.");
+
+            //DataGrid change columns width.
+            drivesDataGridView.DataSource = this.drives_;
+            drivesDataGridView.Columns[0].Width = 30;
+            drivesDataGridView.Columns[1].Width = 240;
+            drivesDataGridView.Columns[2].Width = 240;
+           
 
             isElasticHosts_ = false;
             base.CloudParametersLoad(sender, e);
@@ -374,5 +393,55 @@ namespace CloudScraper
 
         }
 
+        protected override void OnSelect(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (sender is DataGridView && e.ColumnIndex == 0)
+            {
+                this.drives_[e.RowIndex].IsChecked = !this.drives_[e.RowIndex].IsChecked;
+            }
+
+            drivesList_.Clear();
+
+            foreach (DrivesInfo drive in this.drives_)
+            {
+                if (drive.IsChecked == true)
+                    drivesList_.Add(drive.UUID);
+            }
+        }
+
+        protected override void SelectAll(object sender, EventArgs e)
+        {
+            drivesList_.Clear();
+            if ((sender as CheckBox).Checked)
+            {
+                foreach (DrivesInfo drive in this.drives_)
+                {
+                    drive.IsChecked = true;
+                    drivesList_.Add(drive.UUID);
+                }
+                drivesDataGridView.Refresh();
+            }
+            else
+            {
+                foreach (DrivesInfo drive in this.drives_)
+                {
+                    drive.IsChecked = false;
+                }
+                drivesDataGridView.Refresh();
+            }
+        }
+
+    }
+
+    public class DrivesInfo
+    {
+        [DisplayName("     ")]
+        public bool IsChecked { get; set; }
+
+        [DisplayName("Name")]
+        public string Name { get; set; }
+
+        [DisplayName("UUID")]
+        public string UUID { get; set; }
     }
 }
