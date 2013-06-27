@@ -85,6 +85,12 @@
     <Compile Include="AmazonCloudParameters.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BetterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BetterDialog.designer.cs">
+      <DependentUpon>BetterDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChooseCloudForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
       <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="BetterDialog.resx">
+      <DependentUpon>BetterDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChooseCloudForm.resx">
       <DependentUpon>ChooseCloudForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +309,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.rc" />
+    <EmbeddedResource Include="Icons\ErrorDialog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\InfoDialog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\WarningDialog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

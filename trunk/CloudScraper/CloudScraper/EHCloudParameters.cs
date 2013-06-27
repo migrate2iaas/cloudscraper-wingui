@@ -8,6 +8,7 @@ using CloudScraper.Properties;
 using System.Drawing;
 using System.IO;
 using NLog;
+using DotNetPerls;
 
 namespace CloudScraper
 {
@@ -191,8 +192,13 @@ namespace CloudScraper
                 //If there are no keys entered.
                 if (uuid_ == "" || apiKey_ == "")
                 {
-                    DialogResult result = MessageBox.Show(Settings.Default.S4EnterUUID, Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
+                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                        Settings.Default.S4TestConnectionHeader, Settings.Default.S4EnterUUID, "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+
+                    //DialogResult result = MessageBox.Show(Settings.Default.S4EnterUUID, Settings.Default.S4TestConnectionHeader,
+                    //MessageBoxButtons.OK);
+                    
                     this.testButton.Enabled = true;
                     this.Cursor = Cursors.Arrow;
                     return;
@@ -235,9 +241,14 @@ namespace CloudScraper
                     this.drivesListBox.Items.Insert(0, "Select all");
                 }
 
-                DialogResult reslt = MessageBox.Show(Settings.Default.S4TestConnectionText,
-                    Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
+                DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4TestConnectionHeader, Settings.Default.S4TestConnectionText, "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                
+                //DialogResult reslt = MessageBox.Show(Settings.Default.S4TestConnectionText,
+                //    Settings.Default.S4TestConnectionHeader,
+                //        MessageBoxButtons.OK);
+
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
                 return;
@@ -247,9 +258,16 @@ namespace CloudScraper
             catch (WebException ex)
             {
                 //Show dialog  when auth failed.
-                DialogResult result = MessageBox.Show(ex.Status + "\n" +
-                    Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
+
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4TestConnectionHeader, ex.Status + "\n" +
+                    Settings.Default.S4IDKeyInvalid, "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                
+                //DialogResult result = MessageBox.Show(ex.Status + "\n" +
+                //    Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
+                //    MessageBoxButtons.OK);
+                
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
             }

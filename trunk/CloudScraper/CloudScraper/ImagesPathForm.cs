@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.IO;
 using CloudScraper.Properties;
 using NLog;
+using DotNetPerls;
 using System.Runtime.InteropServices;
 
 
@@ -167,10 +168,14 @@ namespace CloudScraper
                             logger_.Debug("Openning network path: '" + networkroot + "'");
                         if (LogonNetworkShare(networkroot, true) == false)
                         {
-                            DialogResult result5 = MessageBox.Show(
-                            Settings.Default.S5PathNetworkLoginFailure,
-                            Settings.Default.S5WarningHeader,
-                            MessageBoxButtons.OK);
+                            DialogResult result5 = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
+                                Settings.Default.S5WarningHeader, Settings.Default.S5PathNetworkLoginFailure, "OK", "OK",
+                                Image.FromFile("Icons\\WarningDialog.png"), false);
+                            
+                            //DialogResult result5 = MessageBox.Show(
+                            //Settings.Default.S5PathNetworkLoginFailure,
+                            //Settings.Default.S5WarningHeader,
+                            //MessageBoxButtons.OK);
                             return;
                         }
                     }   
@@ -195,20 +200,28 @@ namespace CloudScraper
                                 imagesPath_.Contains("<") || imagesPath_.Contains(">") ||
                                 imagesPath_.Contains("|"))
                             {
-                                DialogResult result = MessageBox.Show(
-                                    Settings.Default.S5WrongSymbolsWarningMessage,
-                                    Settings.Default.S5WarningHeader,
-                                    MessageBoxButtons.OK);
+                                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
+                                    Settings.Default.S5WarningHeader, Settings.Default.S5WrongSymbolsWarningMessage, "OK", "OK",
+                                    Image.FromFile("Icons\\ErrorDialog.png"), false);
+                                
+                                //DialogResult result = MessageBox.Show(
+                                //    Settings.Default.S5WrongSymbolsWarningMessage,
+                                //    Settings.Default.S5WarningHeader,
+                                //    MessageBoxButtons.OK);
                                 return;
                             }
                         }
 
                         imagesPath_ = imagesPath_.Insert(0, root);
 
-                        DialogResult reslt = MessageBox.Show(
-                            Settings.Default.S5DirectoryNotExistWarningMessage,
-                            Settings.Default.S5WarningHeader,
-                            MessageBoxButtons.OKCancel);
+                        DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
+                            Settings.Default.S5WarningHeader, Settings.Default.S5DirectoryNotExistWarningMessage, "OK", "Cancel",
+                            Image.FromFile("Icons\\WarningDialog.png"), true);
+
+                        //DialogResult reslt = MessageBox.Show(
+                        //    Settings.Default.S5DirectoryNotExistWarningMessage,
+                        //    Settings.Default.S5WarningHeader,
+                        //    MessageBoxButtons.OKCancel);
 
                         if (reslt == DialogResult.OK)
                         {
@@ -222,10 +235,14 @@ namespace CloudScraper
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show(
-                            Settings.Default.S5PathIncorrectWarningMessage,
-                            Settings.Default.S5WarningHeader,
-                            MessageBoxButtons.OK);
+                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
+                         Settings.Default.S5WarningHeader, Settings.Default.S5PathIncorrectWarningMessage, "OK", "OK",
+                         Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        
+                        //DialogResult result = MessageBox.Show(
+                        //    Settings.Default.S5PathIncorrectWarningMessage,
+                        //    Settings.Default.S5WarningHeader,
+                        //    MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -234,19 +251,28 @@ namespace CloudScraper
             {
                 if (logger_.IsErrorEnabled)
                     logger_.Error(expt.Message);
+
+                DialogResult result2 = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
+                     Settings.Default.S5WarningHeader, Settings.Default.S5PathIncorrectWarningMessage, "OK", "OK",
+                     Image.FromFile("Icons\\ErrorDialog.png"), false);
                 
-                DialogResult result2 = MessageBox.Show(
-                    Settings.Default.S5PathIncorrectWarningMessage,
-                    Settings.Default.S5WarningHeader,
-                    MessageBoxButtons.OK);
+                //DialogResult result2 = MessageBox.Show(
+                //    Settings.Default.S5PathIncorrectWarningMessage,
+                //    Settings.Default.S5WarningHeader,
+                //    MessageBoxButtons.OK);
                 return;
             }
             
             if (Directory.GetFiles(imagesPath_).Length != 0)
             {
-                DialogResult result = MessageBox.Show(Settings.Default.S5WarningMessage,
-                Settings.Default.S5WarningHeader,
-                MessageBoxButtons.OKCancel);
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
+                    Settings.Default.S5WarningHeader, Settings.Default.S5WarningMessage, "OK", "Cancel",
+                    Image.FromFile("Icons\\WarningDialog.png"), true);
+                
+                
+                //DialogResult result = MessageBox.Show(Settings.Default.S5WarningMessage,
+                //Settings.Default.S5WarningHeader,
+                //MessageBoxButtons.OKCancel);
 
                 if (result == DialogResult.Cancel)
                     return;
