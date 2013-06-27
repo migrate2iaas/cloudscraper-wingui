@@ -13,6 +13,7 @@ using Amazon.EC2.Model;
 using System.Configuration;
 using System.Collections.Specialized;
 using NLog;
+using DotNetPerls;
 
 namespace CloudScraper
 {
@@ -231,9 +232,13 @@ namespace CloudScraper
                     if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
                         || s3bucket_.Length < 3 || s3bucket_.Length > 63)
                     {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
+                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            Settings.Default.S4TestConnectionHeader, Settings.Default.S4InvalidBucketText, "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        
+                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                        //    Settings.Default.S4TestConnectionHeader,
+                        //MessageBoxButtons.OK);
                         return;
                     }
 
@@ -248,9 +253,13 @@ namespace CloudScraper
 
                     if (lookLikeIp)
                     {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
+                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            Settings.Default.S4TestConnectionHeader, Settings.Default.S4InvalidBucketText, "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        
+                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                        //    Settings.Default.S4TestConnectionHeader,
+                        //MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -258,9 +267,13 @@ namespace CloudScraper
                 {
                     if (s3bucket_.Length > 255)
                     {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
+                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            Settings.Default.S4TestConnectionHeader, Settings.Default.S4InvalidBucketText, "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        
+                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                        //    Settings.Default.S4TestConnectionHeader,
+                        //MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -306,9 +319,13 @@ namespace CloudScraper
                     if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
                         || s3bucket_.Length < 3 || s3bucket_.Length > 63)
                     {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
+                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            Settings.Default.S4TestConnectionHeader, Settings.Default.S4InvalidBucketText, "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        
+                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                        //    Settings.Default.S4TestConnectionHeader,
+                        //MessageBoxButtons.OK);
                         return;
                     }
 
@@ -323,9 +340,13 @@ namespace CloudScraper
 
                     if (lookLikeIp)
                     {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
+                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            Settings.Default.S4TestConnectionHeader, Settings.Default.S4InvalidBucketText, "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        
+                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                        //    Settings.Default.S4TestConnectionHeader,
+                        //MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -333,9 +354,13 @@ namespace CloudScraper
                 {
                     if (s3bucket_.Length > 255)
                     {
-                        DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                            Settings.Default.S4TestConnectionHeader,
-                        MessageBoxButtons.OK);
+                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            Settings.Default.S4TestConnectionHeader, Settings.Default.S4InvalidBucketText, "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        
+                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
+                        //    Settings.Default.S4TestConnectionHeader,
+                        //MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -370,8 +395,13 @@ namespace CloudScraper
                 //If there are no keys entered.
                 if (awsId_ == "" || awsKey_ == "")
                 {
-                    DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
+                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                        Settings.Default.S4TestConnectionHeader, Settings.Default.S4EnterAWS, "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                    
+                    //DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
+                    //MessageBoxButtons.OK);
+
                     this.testButton.Enabled = true;
                     this.Cursor = Cursors.Arrow;
                     return;
@@ -415,9 +445,14 @@ namespace CloudScraper
                 //If not advanced mode, show done message and return.
                 if (!advanced_)
                 {
-                    DialogResult result = MessageBox.Show(Settings.Default.S4TestConnectionText,
-                        Settings.Default.S4TestConnectionHeader,
-                         MessageBoxButtons.OK);
+                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                        Settings.Default.S4TestConnectionHeader, Settings.Default.S4TestConnectionText, "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                    
+                    //DialogResult result = MessageBox.Show(Settings.Default.S4TestConnectionText,
+                    //    Settings.Default.S4TestConnectionHeader,
+                    //     MessageBoxButtons.OK);
+                    
                     this.testButton.Enabled = true;
                     this.Cursor = Cursors.Arrow;
                     return;
@@ -436,9 +471,14 @@ namespace CloudScraper
                         GetBucketLocationResponse bucketResponse = client2.GetBucketLocation(req);
                         if (bucketResponse.Location != region_)
                         {
-                            DialogResult result = MessageBox.Show(Settings.Default.S4BucketLocated,
-                                Settings.Default.S4TestConnectionHeader,
-                                MessageBoxButtons.OK);
+                            DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                                Settings.Default.S4TestConnectionHeader, Settings.Default.S4BucketLocated, "OK", "OK",
+                                System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                            
+                            //DialogResult result = MessageBox.Show(Settings.Default.S4BucketLocated,
+                            //    Settings.Default.S4TestConnectionHeader,
+                            //    MessageBoxButtons.OK);
+                            
                             this.testButton.Enabled = true;
                             this.Cursor = Cursors.Arrow;
                             return;
@@ -449,16 +489,25 @@ namespace CloudScraper
                         if (ex.ErrorCode == "NoSuchBucket")
                         {
                             //If no such bucket.
-                            DialogResult result = MessageBox.Show(Settings.Default.S4NoBucketExists,
-                                Settings.Default.S4TestConnectionHeader,
-                                MessageBoxButtons.OK);
+                            DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                                Settings.Default.S4TestConnectionHeader, Settings.Default.S4NoBucketExists, "OK", "OK",
+                                System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                            
+                            //DialogResult result = MessageBox.Show(Settings.Default.S4NoBucketExists,
+                            //    Settings.Default.S4TestConnectionHeader,
+                            //    MessageBoxButtons.OK);
                         }
                         else
                         {
                             //If bucket exist but locked.
-                            DialogResult result = MessageBox.Show(Settings.Default.S4CannotAccessBucketText,
-                                Settings.Default.S4TestConnectionHeader,
-                            MessageBoxButtons.OK);
+                            DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                                Settings.Default.S4TestConnectionHeader, Settings.Default.S4CannotAccessBucketText, "OK", "OK",
+                                System.Drawing.Image.FromFile("Icons\\WarningDialog.png"), false);
+                            
+                            //DialogResult result = MessageBox.Show(Settings.Default.S4CannotAccessBucketText,
+                            //    Settings.Default.S4TestConnectionHeader,
+                            //MessageBoxButtons.OK);
+
                             this.testButton.Enabled = true;
                             this.Cursor = Cursors.Arrow;
                             return;
@@ -467,9 +516,13 @@ namespace CloudScraper
                 }
 
                 //Show done message in advanced mode.
-                DialogResult result2 = MessageBox.Show(Settings.Default.S4TestConnectionText,
-                    Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
+                DialogResult result2 = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4TestConnectionHeader, Settings.Default.S4TestConnectionText, "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+
+                //DialogResult result2 = MessageBox.Show(Settings.Default.S4TestConnectionText,
+                //    Settings.Default.S4TestConnectionHeader,
+                //    MessageBoxButtons.OK);
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
                 return;
@@ -478,9 +531,15 @@ namespace CloudScraper
             catch (AmazonEC2Exception amazonEC2Exception)
             {
                 //Show dialog  when auth failed.
-                DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" +
-                    Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
-                    MessageBoxButtons.OK);
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4TestConnectionHeader, amazonEC2Exception.ErrorCode + "\n" +
+                    Settings.Default.S4IDKeyInvalid, "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+
+                //DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" +
+                //    Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
+                //    MessageBoxButtons.OK);
+                
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
             }

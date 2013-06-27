@@ -9,6 +9,7 @@ using System.Windows;
 using System.IO;
 using CloudScraper.Properties;
 using NLog;
+using DotNetPerls;
 
 namespace CloudScraper
 {
@@ -173,9 +174,14 @@ namespace CloudScraper
                 if (e.RowIndex == 0 && this.volumes_[0].IsChecked == false)
                 { 
                     //Show message when system drive is unchecked.
-                    DialogResult result = MessageBox.Show(Settings.Default.S2MessageFirst + "\n" +
-                    Settings.Default.S2MessageSecond, Settings.Default.S2MessgeHeader,
-                        MessageBoxButtons.OKCancel);
+                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S2MessgeHeader,
+                        Settings.Default.S2MessgeHeader, Settings.Default.S2MessageFirst + "\n" +
+                    Settings.Default.S2MessageSecond, "OK", "Cancel",
+                        Image.FromFile("Icons\\WarningDialog.png"), true);
+
+                    //DialogResult result = MessageBox.Show(Settings.Default.S2MessageFirst + "\n" +
+                    //Settings.Default.S2MessageSecond, Settings.Default.S2MessgeHeader,
+                    //    MessageBoxButtons.OKCancel);
 
 
                     if (result == DialogResult.Cancel)

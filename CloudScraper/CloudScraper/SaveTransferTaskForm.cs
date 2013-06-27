@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.IO;
 using CloudScraper.Properties;
 using NLog;
+using DotNetPerls;
 
 namespace CloudScraper
 {
@@ -97,9 +98,14 @@ namespace CloudScraper
         {
             if (File.Exists(transferPath_))
             {
-                DialogResult result = MessageBox.Show(Settings.Default.S6WarningMessage,
-                Settings.Default.S6WarningHeader,
-                MessageBoxButtons.OKCancel);
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader, 
+                Settings.Default.S6WarningHeader, Settings.Default.S6WarningMessage, "OK", "Cancel",
+                Image.FromFile("Icons\\WarningDialog.png"), true);
+                
+                //DialogResult result = MessageBox.Show(Settings.Default.S6WarningMessage,
+                //Settings.Default.S6WarningHeader,
+                //MessageBoxButtons.OKCancel);
+                
                 if (result == DialogResult.Cancel)
                     return;
             }
@@ -124,10 +130,14 @@ namespace CloudScraper
                                 transferPath_.Contains("<") || transferPath_.Contains(">") ||
                                 transferPath_.Contains("|"))
                             {
-                                DialogResult result = MessageBox.Show(
-                                    Settings.Default.S6WrongSymbolsWarningMessage,
-                                    Settings.Default.S6WarningHeader,
-                                    MessageBoxButtons.OK);
+                                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
+                                Settings.Default.S6WarningHeader, Settings.Default.S6WrongSymbolsWarningMessage, "OK", "OK",
+                                Image.FromFile("Icons\\ErrorDialog.png"), false);
+
+                                //DialogResult result = MessageBox.Show(
+                                //    Settings.Default.S6WrongSymbolsWarningMessage,
+                                //    Settings.Default.S6WarningHeader,
+                                //    MessageBoxButtons.OK);
                                 return;
                             }
                         }
@@ -137,10 +147,14 @@ namespace CloudScraper
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show(
-                            Settings.Default.S6PathIncorrectWarningMessage,
-                            Settings.Default.S6WarningHeader,
-                            MessageBoxButtons.OK);
+
+                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
+                        Settings.Default.S6WarningHeader, Settings.Default.S6PathIncorrectWarningMessage, "OK", "OK",
+                        Image.FromFile("Icons\\WarningDialog.png"), false);
+                        //DialogResult result = MessageBox.Show(
+                        //    Settings.Default.S6PathIncorrectWarningMessage,
+                        //    Settings.Default.S6WarningHeader,
+                        //    MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -149,10 +163,15 @@ namespace CloudScraper
                     if (logger_.IsErrorEnabled)
                         logger_.Error(expt.Message);
 
-                    DialogResult result = MessageBox.Show(
-                        Settings.Default.S6PathIncorrectWarningMessage,
-                        Settings.Default.S6WarningHeader,
-                        MessageBoxButtons.OK);
+                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
+                        Settings.Default.S6WarningHeader, Settings.Default.S6PathIncorrectWarningMessage, "OK", "OK",
+                        Image.FromFile("Icons\\WarningDialog.png"), false);
+                    
+                    //DialogResult result = MessageBox.Show(
+                    //    Settings.Default.S6PathIncorrectWarningMessage,
+                    //    Settings.Default.S6WarningHeader,
+                    //    MessageBoxButtons.OK);
+
                     return;
                 }
             }

@@ -19,6 +19,7 @@ using CloudScraper.Properties;
 using ICSharpCode.SharpZipLib.Zip;
 
 using NLog;
+using DotNetPerls;
 
 namespace CloudScraper
 {
@@ -310,9 +311,13 @@ namespace CloudScraper
                 (!File.Exists("migrate.py") && !File.Exists("migrate.pyc")))
             {
                 //There are no python.exe
-                DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
-                Settings.Default.S7PythonErrorHeader,
-                MessageBoxButtons.OK);
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7PythonErrorHeader,
+                    Settings.Default.S7PythonErrorHeader, Settings.Default.S7PythonErrorMessage, "OK", "OK",
+                    Image.FromFile("Icons\\ErrorDialog.png"), false);
+                
+                //DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
+                //Settings.Default.S7PythonErrorHeader,
+                //MessageBoxButtons.OK);
                 return;
             }
             
@@ -371,9 +376,13 @@ namespace CloudScraper
                     logger_.Error("Python started with errors.");
 
                 //Python started with errors.
-                DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
-                Settings.Default.S7PythonErrorHeader,
-                MessageBoxButtons.OK);                
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7PythonErrorHeader,
+                    Settings.Default.S7PythonErrorHeader, Settings.Default.S7PythonErrorMessage, "OK", "OK",
+                    Image.FromFile("Icons\\ErrorDialog.png"), false);
+
+                //DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
+                //Settings.Default.S7PythonErrorHeader,
+                //MessageBoxButtons.OK);                
             }
         }
 
@@ -746,11 +755,14 @@ namespace CloudScraper
             //When "X" button pressed.
             if (e.KeyData == Keys.X)
             {
-
-                DialogResult result = MessageBox.Show(
-                Settings.Default.S7XKeyWarningMessage,
-                Settings.Default.S7WarningHeader,
-                MessageBoxButtons.OKCancel);
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7WarningHeader,
+                     Settings.Default.S7WarningHeader, Settings.Default.S7XKeyWarningMessage, "OK", "Cancel",
+                    Image.FromFile("Icons\\WarningDialog.png"), true);
+                
+                //DialogResult result = MessageBox.Show(
+                //Settings.Default.S7XKeyWarningMessage,
+                //Settings.Default.S7WarningHeader,
+                //MessageBoxButtons.OKCancel);
 
                 if (result == DialogResult.Cancel)
                     return;
