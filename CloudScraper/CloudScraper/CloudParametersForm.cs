@@ -149,5 +149,15 @@ namespace CloudScraper
             throw new NotImplementedException();
         }
 
+        protected virtual void OnSelect(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected virtual void SelectAll(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

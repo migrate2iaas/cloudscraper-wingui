@@ -41,7 +41,6 @@
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.drivesListLabel = new System.Windows.Forms.Label();
-            this.drivesListBox = new System.Windows.Forms.CheckedListBox();
             this.deduplcationCheckBox = new System.Windows.Forms.CheckBox();
             this.folderKeyLabel = new System.Windows.Forms.Label();
             this.folderKeyBox = new System.Windows.Forms.TextBox();
@@ -58,9 +57,12 @@
             this.helpButton = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.drivesDataGridView = new System.Windows.Forms.DataGridView();
+            this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.drivesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // backButton
@@ -159,8 +161,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.selectAllCheckBox);
+            this.tabPage2.Controls.Add(this.drivesDataGridView);
             this.tabPage2.Controls.Add(this.drivesListLabel);
-            this.tabPage2.Controls.Add(this.drivesListBox);
             this.tabPage2.Controls.Add(this.deduplcationCheckBox);
             this.tabPage2.Controls.Add(this.folderKeyLabel);
             this.tabPage2.Controls.Add(this.folderKeyBox);
@@ -189,16 +192,6 @@
             this.drivesListLabel.Size = new System.Drawing.Size(145, 13);
             this.drivesListLabel.TabIndex = 15;
             this.drivesListLabel.Text = "Choose drives to be avoided:";
-            // 
-            // drivesListBox
-            // 
-            this.drivesListBox.FormattingEnabled = true;
-            this.drivesListBox.HorizontalScrollbar = true;
-            this.drivesListBox.Location = new System.Drawing.Point(0, 111);
-            this.drivesListBox.Name = "drivesListBox";
-            this.drivesListBox.Size = new System.Drawing.Size(534, 109);
-            this.drivesListBox.TabIndex = 14;
-            this.drivesListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.DrivesSelect);
             // 
             // deduplcationCheckBox
             // 
@@ -378,6 +371,37 @@
             this.toolTip.InitialDelay = 1500;
             this.toolTip.ReshowDelay = 600;
             // 
+            // drivesDataGridView
+            // 
+            this.drivesDataGridView.AllowUserToAddRows = false;
+            this.drivesDataGridView.AllowUserToDeleteRows = false;
+            this.drivesDataGridView.AllowUserToResizeRows = false;
+            this.drivesDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.drivesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.drivesDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.drivesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.drivesDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.drivesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.drivesDataGridView.Location = new System.Drawing.Point(3, 109);
+            this.drivesDataGridView.MultiSelect = false;
+            this.drivesDataGridView.Name = "drivesDataGridView";
+            this.drivesDataGridView.RowHeadersVisible = false;
+            this.drivesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.drivesDataGridView.Size = new System.Drawing.Size(528, 104);
+            this.drivesDataGridView.TabIndex = 5;
+            this.drivesDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnSelect);
+            // 
+            // selectAllCheckBox
+            // 
+            this.selectAllCheckBox.AutoSize = true;
+            this.selectAllCheckBox.Location = new System.Drawing.Point(433, 91);
+            this.selectAllCheckBox.Name = "selectAllCheckBox";
+            this.selectAllCheckBox.Size = new System.Drawing.Size(69, 17);
+            this.selectAllCheckBox.TabIndex = 16;
+            this.selectAllCheckBox.Text = "Select all";
+            this.selectAllCheckBox.UseVisualStyleBackColor = true;
+            this.selectAllCheckBox.CheckedChanged += new System.EventHandler(this.SelectAll);
+            // 
             // CloudParametersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,6 +426,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.drivesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,7 +459,8 @@
         protected System.Windows.Forms.Button helpButton;
         protected System.Windows.Forms.ToolTip toolTip;
         protected System.Windows.Forms.CheckBox deduplcationCheckBox;
-        protected System.Windows.Forms.CheckedListBox drivesListBox;
         protected System.Windows.Forms.Label drivesListLabel;
+        protected System.Windows.Forms.DataGridView drivesDataGridView;
+        protected System.Windows.Forms.CheckBox selectAllCheckBox;
     }
 }
