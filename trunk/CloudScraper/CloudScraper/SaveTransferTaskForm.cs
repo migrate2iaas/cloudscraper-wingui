@@ -116,6 +116,9 @@ namespace CloudScraper
                     if (Path.IsPathRooted(transferPath_))
                     {
                         string root = Path.GetPathRoot(transferPath_);
+                        if (!Directory.Exists(Path.GetDirectoryName(transferPath_)))
+                            Directory.CreateDirectory(Path.GetDirectoryName(transferPath_));
+
                         transferPath_ = transferPath_.Replace(root, "");
 
                         foreach (char c in Path.GetInvalidPathChars())
