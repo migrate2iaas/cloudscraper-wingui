@@ -163,7 +163,7 @@
             this.Text = "Transfer progress";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.CopyStartFormLoad);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CopyStartForm_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CopyStartFormKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).EndInit();
             this.ResumeLayout(false);
 
