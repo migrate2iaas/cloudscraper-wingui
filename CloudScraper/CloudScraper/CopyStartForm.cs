@@ -750,7 +750,7 @@ namespace CloudScraper
             mail.ShowDialog();
         }
 
-        private void CopyStartForm_KeyDown(object sender, KeyEventArgs e)
+        private void CopyStartFormKeyDown(object sender, KeyEventArgs e)
         {
             //When "X" button pressed.
             if (e.KeyData == Keys.X)
@@ -787,19 +787,19 @@ namespace CloudScraper
                 }
 
                 //Kill local process if still work.
-                if (pythonProcess != null && !pythonProcess.HasExited)
-                {
-                    try
-                    {
-                        pythonProcess.Kill();
-                    }
-                    catch(Exception exp)
-                    {
-                        //Logs error.
-                        if (logger_.IsErrorEnabled)
-                            logger_.Error(exp.Message);
-                    }
-                }             
+                //if (pythonProcess != null && !pythonProcess.HasExited)
+                //{
+                //    try
+                //    {
+                //        pythonProcess.Kill();
+                //    }
+                //    catch(Exception exp)
+                //    {
+                //        //Logs error.
+                //        if (logger_.IsErrorEnabled)
+                //            logger_.Error(exp.Message);
+                //    }
+                //}             
             }
         }    
     }
