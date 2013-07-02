@@ -251,7 +251,7 @@ namespace CloudScraper
 
 
                 DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                    Settings.Default.S4TestConnectionHeader, Settings.Default.S4TestConnectionText, "OK", "OK",
+                    Settings.Default.S4TestConnectionHeader, Settings.Default.S4EHTestConnectionText, "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
                 
                 //DialogResult reslt = MessageBox.Show(Settings.Default.S4TestConnectionText,
@@ -270,7 +270,7 @@ namespace CloudScraper
 
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     Settings.Default.S4TestConnectionHeader, ex.Status + "\n" +
-                    Settings.Default.S4IDKeyInvalid, "OK", "OK",
+                    Settings.Default.S4EHIDKeyInvalid, "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                 
                 //DialogResult result = MessageBox.Show(ex.Status + "\n" +
