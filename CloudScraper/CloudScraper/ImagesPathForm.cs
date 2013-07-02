@@ -169,7 +169,7 @@ namespace CloudScraper
                         if (LogonNetworkShare(networkroot, true) == false)
                         {
                             DialogResult result5 = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
-                                Settings.Default.S5WarningHeader, Settings.Default.S5PathNetworkLoginFailure, "OK", "OK",
+                                Settings.Default.S5PathNetworkLoginFailure, "", "OK", "OK",
                                 Image.FromFile("Icons\\WarningDialog.png"), false);
                             
                             //DialogResult result5 = MessageBox.Show(
@@ -201,7 +201,7 @@ namespace CloudScraper
                                 imagesPath_.Contains("|"))
                             {
                                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
-                                    Settings.Default.S5WarningHeader, Settings.Default.S5WrongSymbolsWarningMessage, "OK", "OK",
+                                    Settings.Default.S5WrongSymbolsWarningMessage, "", "OK", "OK",
                                     Image.FromFile("Icons\\ErrorDialog.png"), false);
                                 
                                 //DialogResult result = MessageBox.Show(
@@ -215,7 +215,7 @@ namespace CloudScraper
                         imagesPath_ = imagesPath_.Insert(0, root);
 
                         DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
-                            Settings.Default.S5WarningHeader, Settings.Default.S5DirectoryNotExistWarningMessage, "OK", "Cancel",
+                            Settings.Default.S5DirectoryNotExistWarningMessage, "", "OK", "Cancel",
                             Image.FromFile("Icons\\WarningDialog.png"), true);
 
                         //DialogResult reslt = MessageBox.Show(
@@ -236,7 +236,7 @@ namespace CloudScraper
                     else
                     {
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
-                         Settings.Default.S5WarningHeader, Settings.Default.S5PathIncorrectWarningMessage, "OK", "OK",
+                         Settings.Default.S5PathIncorrectWarningMessage, "", "OK", "OK",
                          Image.FromFile("Icons\\ErrorDialog.png"), false);
                         
                         //DialogResult result = MessageBox.Show(
@@ -253,7 +253,7 @@ namespace CloudScraper
                     logger_.Error(expt.Message);
 
                 DialogResult result2 = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
-                     Settings.Default.S5WarningHeader, Settings.Default.S5PathIncorrectWarningMessage, "OK", "OK",
+                     Settings.Default.S5PathIncorrectWarningMessage, "", "OK", "OK",
                      Image.FromFile("Icons\\ErrorDialog.png"), false);
                 
                 //DialogResult result2 = MessageBox.Show(
@@ -266,7 +266,7 @@ namespace CloudScraper
             if (Directory.GetFiles(imagesPath_).Length != 0)
             {
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
-                    Settings.Default.S5WarningHeader, Settings.Default.S5WarningMessage, "OK", "Cancel",
+                    Settings.Default.S5WarningMessage, "", "OK", "Cancel",
                     Image.FromFile("Icons\\WarningDialog.png"), true);
                 
                 

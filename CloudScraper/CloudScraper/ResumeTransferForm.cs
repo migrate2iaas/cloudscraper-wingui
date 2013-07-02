@@ -200,7 +200,7 @@ namespace CloudScraper
                     if (!isHeaderPresent)
                     {
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.R2WarningMessageHeader,
-                            Settings.Default.R2WarningMessageHeader, Settings.Default.R2WarningMessageText, "OK", "OK",
+                            Settings.Default.R2WarningMessageText, "", "OK", "OK",
                             Image.FromFile("Icons\\WarningDialog.png"), false);
 
                         //DialogResult result = MessageBox.Show(Settings.Default.R2WarningMessageText,

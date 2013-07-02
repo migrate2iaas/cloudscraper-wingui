@@ -98,8 +98,8 @@ namespace CloudScraper
         {
             if (File.Exists(transferPath_))
             {
-                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader, 
-                Settings.Default.S6WarningHeader, Settings.Default.S6WarningMessage, "OK", "Cancel",
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
+                Settings.Default.S6WarningMessage, "", "OK", "Cancel",
                 Image.FromFile("Icons\\WarningDialog.png"), true);
                 
                 //DialogResult result = MessageBox.Show(Settings.Default.S6WarningMessage,
@@ -134,7 +134,7 @@ namespace CloudScraper
                                 transferPath_.Contains("|"))
                             {
                                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
-                                Settings.Default.S6WarningHeader, Settings.Default.S6WrongSymbolsWarningMessage, "OK", "OK",
+                                Settings.Default.S6WrongSymbolsWarningMessage, "", "OK", "OK",
                                 Image.FromFile("Icons\\ErrorDialog.png"), false);
 
                                 //DialogResult result = MessageBox.Show(
@@ -152,7 +152,7 @@ namespace CloudScraper
                     {
 
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
-                        Settings.Default.S6WarningHeader, Settings.Default.S6PathIncorrectWarningMessage, "OK", "OK",
+                        Settings.Default.S6PathIncorrectWarningMessage, "", "OK", "OK",
                         Image.FromFile("Icons\\WarningDialog.png"), false);
                         //DialogResult result = MessageBox.Show(
                         //    Settings.Default.S6PathIncorrectWarningMessage,
@@ -167,7 +167,7 @@ namespace CloudScraper
                         logger_.Error(expt.Message);
 
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
-                        Settings.Default.S6WarningHeader, Settings.Default.S6PathIncorrectWarningMessage, "OK", "OK",
+                        Settings.Default.S6PathIncorrectWarningMessage, "", "OK", "OK",
                         Image.FromFile("Icons\\WarningDialog.png"), false);
                     
                     //DialogResult result = MessageBox.Show(
