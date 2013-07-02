@@ -530,5 +530,11 @@ Click here to read manual entry on this step.</Value>
     <Setting Name="S5PathNetworkLoginFailure" Type="System.String" Scope="User">
       <Value Profile="(Default)">Failed to connect to network location. Please, specify another one.</Value>
     </Setting>
+    <Setting Name="S4EHTestConnectionText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EH login succeeded.</Value>
+    </Setting>
+    <Setting Name="S4EHIDKeyInvalid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EH doesn't recognize entered keys! Check "Keys" section in Security Credentials page of your account.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
