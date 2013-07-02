@@ -312,7 +312,7 @@ namespace CloudScraper
             {
                 //There are no python.exe
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7PythonErrorHeader,
-                    Settings.Default.S7PythonErrorHeader, Settings.Default.S7PythonErrorMessage, "OK", "OK",
+                    Settings.Default.S7PythonErrorMessage, "", "OK", "OK",
                     Image.FromFile("Icons\\ErrorDialog.png"), false);
                 
                 //DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
@@ -377,7 +377,7 @@ namespace CloudScraper
 
                 //Python started with errors.
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7PythonErrorHeader,
-                    Settings.Default.S7PythonErrorHeader, Settings.Default.S7PythonErrorMessage, "OK", "OK",
+                    Settings.Default.S7PythonErrorMessage, "", "OK", "OK",
                     Image.FromFile("Icons\\ErrorDialog.png"), false);
 
                 //DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
@@ -756,7 +756,7 @@ namespace CloudScraper
             if (e.KeyData == Keys.X)
             {
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7WarningHeader,
-                     Settings.Default.S7WarningHeader, Settings.Default.S7XKeyWarningMessage, "OK", "Cancel",
+                     Settings.Default.S7XKeyWarningMessage, "", "OK", "Cancel",
                     Image.FromFile("Icons\\WarningDialog.png"), true);
                 
                 //DialogResult result = MessageBox.Show(

@@ -175,8 +175,8 @@ namespace CloudScraper
                 { 
                     //Show message when system drive is unchecked.
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S2MessgeHeader,
-                        Settings.Default.S2MessgeHeader, Settings.Default.S2MessageFirst + "\n" +
-                    Settings.Default.S2MessageSecond, "OK", "Cancel",
+                        Settings.Default.S2MessageFirst + "\n" +
+                    Settings.Default.S2MessageSecond,"", "OK", "Cancel",
                         Image.FromFile("Icons\\WarningDialog.png"), true);
 
                     //DialogResult result = MessageBox.Show(Settings.Default.S2MessageFirst + "\n" +
