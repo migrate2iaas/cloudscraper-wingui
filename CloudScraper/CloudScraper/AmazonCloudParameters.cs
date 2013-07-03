@@ -492,7 +492,7 @@ namespace CloudScraper
                             //If no such bucket.
                             DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                                 Settings.Default.S4NoBucketExists, "", "OK", "OK",
-                                System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                                System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
                             
                             //DialogResult result = MessageBox.Show(Settings.Default.S4NoBucketExists,
                             //    Settings.Default.S4TestConnectionHeader,
