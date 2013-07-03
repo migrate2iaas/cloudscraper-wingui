@@ -560,14 +560,14 @@ namespace CloudScraper
 
             //Kill python.exe process in TaskManager if exists. 
 
-            System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
-            foreach (System.Diagnostics.Process pr in localByName)
-            {
-                if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id && !pr.HasExited)
-                {
-                    pr.Kill();
-                }
-            }
+            //System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
+            //foreach (System.Diagnostics.Process pr in localByName)
+            //{
+            //    if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id && !pr.HasExited)
+            //    {
+            //        pr.Kill();
+            //    }
+            //}
 
          
             if (pythonProcess != null && !pythonProcess.HasExited)
@@ -768,38 +768,38 @@ namespace CloudScraper
                     return;
 
                 //Kill python.exe process in TaskManager if exists.
-                System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
-                foreach (System.Diagnostics.Process pr in localByName)
-                {
-                    if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id && !pr.HasExited)
-                    {
-                        try
-                        {
-                            pr.Kill();
-                        }
-                        catch(Exception expt)
-                        {
-                            //Logs error.
-                            if (logger_.IsErrorEnabled)
-                                logger_.Error(expt.Message);
-                        }
-                    }
-                }
+                //System.Diagnostics.Process[] localByName = System.Diagnostics.Process.GetProcesses();
+                //foreach (System.Diagnostics.Process pr in localByName)
+                //{
+                //    if (pr.ProcessName == "python" && pr.Id == pythonProcess.Id && !pr.HasExited)
+                //    {
+                //        try
+                //        {
+                //            pr.Kill();
+                //        }
+                //        catch(Exception expt)
+                //        {
+                //            //Logs error.
+                //            if (logger_.IsErrorEnabled)
+                //                logger_.Error(expt.Message);
+                //        }
+                //    }
+                //}
 
                 //Kill local process if still work.
-                //if (pythonProcess != null && !pythonProcess.HasExited)
-                //{
-                //    try
-                //    {
-                //        pythonProcess.Kill();
-                //    }
-                //    catch(Exception exp)
-                //    {
-                //        //Logs error.
-                //        if (logger_.IsErrorEnabled)
-                //            logger_.Error(exp.Message);
-                //    }
-                //}             
+                if (pythonProcess != null && !pythonProcess.HasExited)
+                {
+                    try
+                    {
+                        pythonProcess.Kill();
+                    }
+                    catch (Exception exp)
+                    {
+                        //Logs error.
+                        if (logger_.IsErrorEnabled)
+                            logger_.Error(exp.Message);
+                    }
+                }             
             }
         }    
     }
