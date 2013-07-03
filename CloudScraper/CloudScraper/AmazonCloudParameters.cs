@@ -229,7 +229,7 @@ namespace CloudScraper
         {
             if (s3bucket_ != "")
             {
-                if (region_.Substring(0, 7) != "us-east")
+                //if (region_.Substring(0, 7) != "us-east")
                 {
                     if (s3bucket_[0] == '.' || s3bucket_[s3bucket_.Length - 1] == '.' || s3bucket_.Contains("..")
                         || s3bucket_.Length < 3 || s3bucket_.Length > 63)
@@ -265,7 +265,8 @@ namespace CloudScraper
                         return;
                     }
                 }
-                if (region_.Substring(0, 7) == "us-east")
+                // The migration utility doesn't support non-strict naming available for us-east-1 region
+               /* if (region_.Substring(0, 7) == "us-east")
                 {
                     if (s3bucket_.Length > 255)
                     {
@@ -278,7 +279,7 @@ namespace CloudScraper
                         //MessageBoxButtons.OK);
                         return;
                     }
-                }
+                }*/
             }
         }
 
@@ -353,7 +354,7 @@ namespace CloudScraper
                         return;
                     }
                 }
-               // if (region_.Substring(0, 7) == "us-east")
+               /* if (region_.Substring(0, 7) == "us-east")
                 {
                     if (s3bucket_.Length > 255)
                     {
@@ -366,7 +367,7 @@ namespace CloudScraper
                         //MessageBoxButtons.OK);
                         return;
                     }
-                }
+                }*/
             }
 
             if (logger_.IsDebugEnabled)
