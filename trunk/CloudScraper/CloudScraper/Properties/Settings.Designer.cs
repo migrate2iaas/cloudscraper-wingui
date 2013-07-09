@@ -1049,7 +1049,7 @@ namespace CloudScraper.Properties {
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>AmazonCloudParameters/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/32,32/true</string>
   <string>EHCloudParameters/255,174/189,70/ElasticHosts/Transfer your server to ElasticHosts/Icons\\Elastic.ico/32,32/true</string>
-  <string>WindowsAzureCloudParameters/255,98/189,70/WindowsAzure (Not supported)/Transfer your server to WindowsAzure/Icons\\Azure.ico/32,32/false</string>
+  <string>AzureCloudParameters/255,98/189,70/WindowsAzure/Transfer your server to WindowsAzure/Icons\\Azure.ico/32,32/true</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection Buttons {
             get {
@@ -1946,6 +1946,74 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4EHIDKeyInvalid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>West US/West US</string>
+  <string>East US/East US</string>
+  <string>East Asia/East Asia</string>
+  <string>Southeast Asia/Southeast Asia</string>
+  <string>West Europe/West Europe</string>
+  <string>North Europe/North Europe</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection AzureRegions {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["AzureRegions"]));
+            }
+            set {
+                this["AzureRegions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Region")]
+        public string S4AzureRegionLabelText {
+            get {
+                return ((string)(this["S4AzureRegionLabelText"]));
+            }
+            set {
+                this["S4AzureRegionLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Storage Account Name")]
+        public string S4AzureIdLabelText {
+            get {
+                return ((string)(this["S4AzureIdLabelText"]));
+            }
+            set {
+                this["S4AzureIdLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Primary Access Key")]
+        public string S4AzureKeyLabelText {
+            get {
+                return ((string)(this["S4AzureKeyLabelText"]));
+            }
+            set {
+                this["S4AzureKeyLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Windows Azure Cloud Options")]
+        public string S4AzureHeader {
+            get {
+                return ((string)(this["S4AzureHeader"]));
+            }
+            set {
+                this["S4AzureHeader"] = value;
             }
         }
     }
