@@ -36,6 +36,7 @@ namespace CloudScraper
         public bool withError;
         private bool isAmazon;
         private bool isElasticHosts;
+        private bool isAzure;
         private string password;
 
         private Attachment attach;
@@ -67,6 +68,11 @@ namespace CloudScraper
             {
                 this.isElasticHosts = true;
                 this.password = EHCloudParameters.apiKey_;
+            }
+            if (AzureCloudParameters.isAzure_)
+            {
+                this.isAzure = true;
+                this.password = AzureCloudParameters.primaryAccessKey_;
             }
 
 
@@ -226,6 +232,24 @@ namespace CloudScraper
                         else
                             stream.WriteLine("image-placement = local");
                     }
+                    else if (this.isAzure)
+                    {
+                        stream.WriteLine("[Azure]");
+                        stream.WriteLine("region = " + AzureCloudParameters.region_);
+                        stream.WriteLine("storage-account = " + AzureCloudParameters.storageAccount_);
+                        //if (AzureCloudParameters.certificateThumbprint_ != "")
+                        //    stream.WriteLine("certificate-thumbprint = " + AzureCloudParameters.certificateThumbprint_);
+                        //if (AzureCloudParameters.subscriptionId_ != "")
+                        //    stream.WriteLine("subscription-id = " + AzureCloudParameters.subscriptionId_);
+                        //if (AzureCloudParameters.containerName_ != "")
+                        //    stream.WriteLine("container-name = " + AzureCloudParameters.containerName_);
+                        stream.WriteLine("[Image]");
+                        stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
+                        stream.WriteLine("source-arch = x86_64");
+                        stream.WriteLine("image-type = VHD");
+                        stream.WriteLine("image-chunck = 4194304");
+                        stream.WriteLine("image-placement = local");
+                    }
                     
                     stream.WriteLine("[Volumes]");
                     string letters = null;
@@ -248,6 +272,8 @@ namespace CloudScraper
                 passwordarg = " -k " + this.password;
             else if (this.isElasticHosts)
                 passwordarg = " --ehkey " + this.password;
+            else if (this.isAzure)
+                passwordarg = " --azurekey " + this.password;
             //using (StreamWriter stream = new StreamWriter("migrate.cmd", false))
             //{
                 //stream.WriteLine("@echo off");
