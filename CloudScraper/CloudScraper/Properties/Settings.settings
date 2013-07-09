@@ -277,7 +277,7 @@
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;AmazonCloudParameters/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/32,32/true&lt;/string&gt;
   &lt;string&gt;EHCloudParameters/255,174/189,70/ElasticHosts/Transfer your server to ElasticHosts/Icons\\Elastic.ico/32,32/true&lt;/string&gt;
-  &lt;string&gt;WindowsAzureCloudParameters/255,98/189,70/WindowsAzure (Not supported)/Transfer your server to WindowsAzure/Icons\\Azure.ico/32,32/false&lt;/string&gt;
+  &lt;string&gt;AzureCloudParameters/255,98/189,70/WindowsAzure/Transfer your server to WindowsAzure/Icons\\Azure.ico/32,32/true&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="TotalSizeGap" Type="System.Decimal" Scope="User">
@@ -535,6 +535,29 @@ Click here to read manual entry on this step.</Value>
     </Setting>
     <Setting Name="S4EHIDKeyInvalid" Type="System.String" Scope="User">
       <Value Profile="(Default)">EH doesn't recognize entered keys! Check "Keys" section in Security Credentials page of your account.</Value>
+    </Setting>
+    <Setting Name="AzureRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;West US/West US&lt;/string&gt;
+  &lt;string&gt;East US/East US&lt;/string&gt;
+  &lt;string&gt;East Asia/East Asia&lt;/string&gt;
+  &lt;string&gt;Southeast Asia/Southeast Asia&lt;/string&gt;
+  &lt;string&gt;West Europe/West Europe&lt;/string&gt;
+  &lt;string&gt;North Europe/North Europe&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="S4AzureRegionLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Region</Value>
+    </Setting>
+    <Setting Name="S4AzureIdLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Storage Account Name</Value>
+    </Setting>
+    <Setting Name="S4AzureKeyLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Primary Access Key</Value>
+    </Setting>
+    <Setting Name="S4AzureHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Windows Azure Cloud Options</Value>
     </Setting>
   </Settings>
 </SettingsFile>
