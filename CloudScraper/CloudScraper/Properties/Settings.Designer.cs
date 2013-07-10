@@ -2056,13 +2056,26 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure login success.")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure login success. Unable to verify the storage account region.  Please fill in" +
+            " your subscription id and certificate in advanced tab.")]
         public string S4AzureTestConnectionText {
             get {
                 return ((string)(this["S4AzureTestConnectionText"]));
             }
             set {
                 this["S4AzureTestConnectionText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Container Name")]
+        public string S4AzureContainerNameLabelText {
+            get {
+                return ((string)(this["S4AzureContainerNameLabelText"]));
+            }
+            set {
+                this["S4AzureContainerNameLabelText"] = value;
             }
         }
     }

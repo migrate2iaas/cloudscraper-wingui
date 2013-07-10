@@ -26,9 +26,12 @@ namespace CloudScraper
         public static bool isAzure_ = false;
 
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
+
+        private List<string> containers_;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
         {
+            this.containers_ = new List<string>(); 
             isAzure_ = false;
 
             //Move regions strings from settings file to regionComboBox.
@@ -60,7 +63,7 @@ namespace CloudScraper
             this.regionLabel.Text = Settings.Default.S4AzureRegionLabelText;
             this.idLabel.Text = Settings.Default.S4AzureIdLabelText;
             this.keyLabel.Text = Settings.Default.S4AzureKeyLabelText;
-            
+            this.bucketLabel.Text = Settings.Default.S4AzureContainerNameLabelText;
             this.idTextBox.MaxLength = 24;
             this.keyTextBox.MaxLength = 1024;
             //this.advancedCheckBox.Text = Settings.Default.S4ehDirectUploadCheckBoxText;
@@ -69,12 +72,12 @@ namespace CloudScraper
             //this.toolTip.SetToolTip(this.deduplcationCheckBox, Settings.Default.S4EHDeduplicationCheckBoxToolTip);
             //this.toolTip.SetToolTip(this.drivesDataGridView, Settings.Default.S4EHDrivesListBoxToolTip);
 
-            this.bucketLabel.Visible = false;
+            //this.bucketLabel.Visible = false;
             this.folderKeyLabel.Visible = false;
             this.typeLabel.Visible = false;
             this.zoneLabel.Visible = false;
             this.groupLabel.Visible = false;
-            this.bucketTextBox.Visible = false;
+            //this.bucketTextBox.Visible = false;
             this.folderKeyBox.Visible = false;
             this.serverTypeComboBox.Visible = false;
             this.zoneComboBox.Visible = false;
@@ -83,6 +86,7 @@ namespace CloudScraper
             this.deduplcationCheckBox.Visible = false;
             this.drivesListLabel.Visible = false;
             this.selectAllCheckBox.Visible = false;
+            this.advancedCheckBox.Visible = false;
 
             this.SetChooseCloudForm(chooseCloudForm);
         }
@@ -246,25 +250,16 @@ namespace CloudScraper
                             Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
 
-                       // using (Stream stream = response.GetResponseStream())
-                       // {
                             using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
                             {
                                 while (reader.Read())
                                 {
                                     if (reader.Name == "Name")
                                     {
-                                       string test = reader.ReadElementString("Name");
+                                       this.containers_.Add(reader.ReadElementString("Name"));
                                     }
                                 }
                             }
-
-                            //using (StreamReader sr = new StreamReader(stream))
-                            //{
-                            //    string s = sr.ReadToEnd();
-
-                            //}
-                        //}
                     }
                 }
             }
