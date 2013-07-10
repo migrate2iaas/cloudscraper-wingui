@@ -62,6 +62,7 @@ namespace CloudScraper
             this.regionLabel.Text = Settings.Default.S4AzureRegionLabelText;
             this.idLabel.Text = Settings.Default.S4AzureIdLabelText;
             this.keyLabel.Text = Settings.Default.S4AzureKeyLabelText;
+            this.keyTextBox.MaxLength = 88;
             //this.advancedCheckBox.Text = Settings.Default.S4ehDirectUploadCheckBoxText;
 
             //this.toolTip.SetToolTip(this.advancedCheckBox, Settings.Default.S4EHDirectUploadCheckBoxToolTip);
@@ -180,23 +181,13 @@ namespace CloudScraper
                 this.Cursor = Cursors.Arrow;
                 return;
             }
-            ////////////////////////////////////
-            const string _bloburi = @"http://127.0.0.1:10000/devstoreaccount1";
-            //https://myaccount.blob.core.windows.net/mycontainer?restype=container&comp=list
-            //http://127.0.0.1:10000/devstoreaccount1/mycontainer?restype=container&comp=list
-            //const string _accountname = "devstoreaccount1";
-            //const string _key = "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
-            //const string _method = "GET";
 
             string AccountName = storageAccount_;
             string AccountSharedKey = primaryAccessKey_;
-            string Address = _bloburi;
             string MessageSignature = "";
-
-            string container = "mycontainer";
+            Console.WriteLine("Please input the name of the container press <ENTER>. Its blobs info will be listed:");
             // Set request URI
-            string QueryString = "?restype=container&comp=list";
-            Uri requesturi = new Uri(Address + "/" + container + QueryString);
+            Uri requesturi = new Uri("https://" + storageAccount_ + ".blob.core.windows.net/?comp=list");
 
             // Create HttpWebRequest object
             HttpWebRequest Request = (HttpWebRequest)HttpWebRequest.Create(requesturi.AbsoluteUri);
@@ -252,7 +243,7 @@ namespace CloudScraper
                     {
                         // If success
                         DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                            Settings.Default.S4EHTestConnectionText, "", "OK", "OK",
+                            Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
                             
                         //using (Stream stream = response.GetResponseStream())
@@ -272,14 +263,13 @@ namespace CloudScraper
             {
                 //Console.WriteLine("An error occured. Status code:" + ((HttpWebResponse)ex.Response).StatusCode);
                 //Console.WriteLine("Error information:");
-                //using (Stream stream = ex.Response.GetResponseStream())
-                //{
-                //    using (StreamReader sr = new StreamReader(stream))
-                //    {
-                //        var s = sr.ReadToEnd();
-                //        Console.WriteLine(s);
-                //    }
-                //}
+                using (Stream stream = ex.Response.GetResponseStream())
+                {
+                    using (StreamReader sr = new StreamReader(stream))
+                    {
+                        string s = sr.ReadToEnd();
+                    }
+                }
                 //Show dialog  when auth failed.
 
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
@@ -299,7 +289,7 @@ namespace CloudScraper
         private void CheckEnter()
         {
             if (storageAccount_ != "" && storageAccount_.Length >= 3 && storageAccount_.Length <= 24 &&
-                primaryAccessKey_ != "" && primaryAccessKey_.Length == 40)
+                primaryAccessKey_ != "" && primaryAccessKey_.Length == 88)
             {
 
                 foreach (char ch in storageAccount_)

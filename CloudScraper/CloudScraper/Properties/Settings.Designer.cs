@@ -2053,5 +2053,17 @@ namespace CloudScraper.Properties {
                 this["S4AzureEnterID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure login success.")]
+        public string S4AzureTestConnectionText {
+            get {
+                return ((string)(this["S4AzureTestConnectionText"]));
+            }
+            set {
+                this["S4AzureTestConnectionText"] = value;
+            }
+        }
     }
 }
