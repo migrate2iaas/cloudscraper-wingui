@@ -569,7 +569,10 @@ Click here to read manual entry on this step.</Value>
       <Value Profile="(Default)">Please, enter your WindowsAzure API credentials: Storage Account Name and Primary Access Key.</Value>
     </Setting>
     <Setting Name="S4AzureTestConnectionText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure login success.</Value>
+      <Value Profile="(Default)">Azure login success. Unable to verify the storage account region.  Please fill in your subscription id and certificate in advanced tab.</Value>
+    </Setting>
+    <Setting Name="S4AzureContainerNameLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Container Name</Value>
     </Setting>
   </Settings>
 </SettingsFile>
