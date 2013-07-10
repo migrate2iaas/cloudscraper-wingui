@@ -73,6 +73,10 @@ namespace CloudScraper
             this.serverTypeComboBox.Visible = false;
             this.zoneComboBox.Visible = false;
             this.groupComboBox.Visible = false;
+            this.drivesDataGridView.Visible = false;
+            this.deduplcationCheckBox.Visible = false;
+            this.drivesListLabel.Visible = false;
+            this.selectAllCheckBox.Visible = false;
 
             this.SetChooseCloudForm(chooseCloudForm);
         }
@@ -89,9 +93,9 @@ namespace CloudScraper
                 if ((sender as TextBox).Text == "")
                 {
                     if ((sender as TextBox) == keyTextBox)
-                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4EHApiKeyToolTip);
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AzureApiKeyToolTip);
                     if ((sender as TextBox) == idTextBox)
-                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4EHUserUIDToolTip);
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AzureUserUIDToolTip);
                 }
                 else
                 {

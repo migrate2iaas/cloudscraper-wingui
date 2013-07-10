@@ -111,9 +111,13 @@ namespace CloudScraper
             {
                 this.isAmazon = true;
             }
-            if (resumeTransferForm.getCloudName() == "ElasticHosts")
+            else if (resumeTransferForm.getCloudName() == "ElasticHosts")
             {
                 this.isElasticHosts = true;
+            }
+            else if (resumeTransferForm.getCloudName() == "Azure")
+            {
+                this.isAzure = true;
             }
             this.password = resumeTransferForm.getPassword();
 

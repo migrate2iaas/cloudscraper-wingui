@@ -559,5 +559,11 @@ Click here to read manual entry on this step.</Value>
     <Setting Name="S4AzureHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Windows Azure Cloud Options</Value>
     </Setting>
+    <Setting Name="S4AzureApiKeyToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test</Value>
+    </Setting>
+    <Setting Name="S4AzureUserUIDToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

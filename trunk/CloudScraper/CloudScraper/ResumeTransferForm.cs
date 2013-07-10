@@ -195,6 +195,13 @@ namespace CloudScraper
                             isHeaderPresent = true;
                             break;
                         }
+                        else if (header == "[Azure]")
+                        {
+                            this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Azure";
+                            isHeaderPresent = true;
+                            this.setCloudName("Azure");
+                            break;
+                        }
                     }
 
                     if (!isHeaderPresent)
