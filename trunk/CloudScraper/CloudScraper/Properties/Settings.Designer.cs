@@ -2040,5 +2040,18 @@ namespace CloudScraper.Properties {
                 this["S4AzureUserUIDToolTip"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Please, enter your WindowsAzure API credentials: Storage Account Name and Primary" +
+            " Access Key.")]
+        public string S4AzureEnterID {
+            get {
+                return ((string)(this["S4AzureEnterID"]));
+            }
+            set {
+                this["S4AzureEnterID"] = value;
+            }
+        }
     }
 }
