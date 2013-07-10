@@ -2016,5 +2016,29 @@ namespace CloudScraper.Properties {
                 this["S4AzureHeader"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Test")]
+        public string S4AzureApiKeyToolTip {
+            get {
+                return ((string)(this["S4AzureApiKeyToolTip"]));
+            }
+            set {
+                this["S4AzureApiKeyToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Test")]
+        public string S4AzureUserUIDToolTip {
+            get {
+                return ((string)(this["S4AzureUserUIDToolTip"]));
+            }
+            set {
+                this["S4AzureUserUIDToolTip"] = value;
+            }
+        }
     }
 }
