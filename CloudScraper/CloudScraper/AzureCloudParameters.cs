@@ -14,7 +14,7 @@ using DotNetPerls;
 using System.Collections.Specialized;
 using System.Collections;
 using System.Web;
-
+using System.Xml;
 
 namespace CloudScraper
 {
@@ -245,16 +245,25 @@ namespace CloudScraper
                         DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                             Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-                            
-                        //using (Stream stream = response.GetResponseStream())
-                        //{
-                        //    using (StreamReader sr = new StreamReader(stream))
-                        //    {
 
-                        //        var s = sr.ReadToEnd();
-                        //        // Output response
-                        //        Console.WriteLine(s);
-                        //    }
+                       // using (Stream stream = response.GetResponseStream())
+                       // {
+                            using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
+                            {
+                                while (reader.Read())
+                                {
+                                    if (reader.Name == "Name")
+                                    {
+                                       string test = reader.ReadElementString("Name");
+                                    }
+                                }
+                            }
+
+                            //using (StreamReader sr = new StreamReader(stream))
+                            //{
+                            //    string s = sr.ReadToEnd();
+
+                            //}
                         //}
                     }
                 }
