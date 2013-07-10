@@ -568,5 +568,8 @@ Click here to read manual entry on this step.</Value>
     <Setting Name="S4AzureEnterID" Type="System.String" Scope="User">
       <Value Profile="(Default)">Please, enter your WindowsAzure API credentials: Storage Account Name and Primary Access Key.</Value>
     </Setting>
+    <Setting Name="S4AzureTestConnectionText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure login success.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
