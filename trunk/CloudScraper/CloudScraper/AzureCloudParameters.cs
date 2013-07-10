@@ -57,12 +57,12 @@ namespace CloudScraper
             this.testButton.Text = Settings.Default.S4TestButtonText;
             this.toolTip.SetToolTip(this.testButton, Settings.Default.S4TestButtonToolTip);
 
-            this.idTextBox.MaxLength = 40;
-
             this.regionLabel.Text = Settings.Default.S4AzureRegionLabelText;
             this.idLabel.Text = Settings.Default.S4AzureIdLabelText;
             this.keyLabel.Text = Settings.Default.S4AzureKeyLabelText;
-            this.keyTextBox.MaxLength = 88;
+            
+            this.idTextBox.MaxLength = 24;
+            this.keyTextBox.MaxLength = 1024;
             //this.advancedCheckBox.Text = Settings.Default.S4ehDirectUploadCheckBoxText;
 
             //this.toolTip.SetToolTip(this.advancedCheckBox, Settings.Default.S4EHDirectUploadCheckBoxToolTip);
