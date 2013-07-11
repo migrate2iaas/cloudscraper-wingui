@@ -40,6 +40,8 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.azureCreateNewCertificateButton = new System.Windows.Forms.Button();
+            this.azureSubscriptionId = new System.Windows.Forms.TextBox();
             this.azureDeployVirtualMachineCheckBox = new System.Windows.Forms.CheckBox();
             this.azureContainerComboBox = new System.Windows.Forms.ComboBox();
             this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
@@ -61,8 +63,6 @@
             this.helpButton = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.azureSubscriptionId = new System.Windows.Forms.TextBox();
-            this.azureCreateNewCertificateButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -191,6 +191,26 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // azureCreateNewCertificateButton
+            // 
+            this.azureCreateNewCertificateButton.Enabled = false;
+            this.azureCreateNewCertificateButton.Location = new System.Drawing.Point(216, 178);
+            this.azureCreateNewCertificateButton.Name = "azureCreateNewCertificateButton";
+            this.azureCreateNewCertificateButton.Size = new System.Drawing.Size(183, 23);
+            this.azureCreateNewCertificateButton.TabIndex = 20;
+            this.azureCreateNewCertificateButton.Text = "Create and upload new certificate";
+            this.azureCreateNewCertificateButton.UseVisualStyleBackColor = true;
+            this.azureCreateNewCertificateButton.Click += new System.EventHandler(this.AzureCreateNewCertificateButtonClick);
+            // 
+            // azureSubscriptionId
+            // 
+            this.azureSubscriptionId.Enabled = false;
+            this.azureSubscriptionId.Location = new System.Drawing.Point(216, 109);
+            this.azureSubscriptionId.Name = "azureSubscriptionId";
+            this.azureSubscriptionId.Size = new System.Drawing.Size(235, 20);
+            this.azureSubscriptionId.TabIndex = 19;
+            this.azureSubscriptionId.TextChanged += new System.EventHandler(this.AzureSubscriptionIdTextChanged);
             // 
             // azureDeployVirtualMachineCheckBox
             // 
@@ -431,25 +451,6 @@
             this.toolTip.AutoPopDelay = 15000;
             this.toolTip.InitialDelay = 1500;
             this.toolTip.ReshowDelay = 600;
-            // 
-            // azureSubscriptionId
-            // 
-            this.azureSubscriptionId.Enabled = false;
-            this.azureSubscriptionId.Location = new System.Drawing.Point(216, 109);
-            this.azureSubscriptionId.Name = "azureSubscriptionId";
-            this.azureSubscriptionId.Size = new System.Drawing.Size(235, 20);
-            this.azureSubscriptionId.TabIndex = 19;
-            // 
-            // azureCreateNewCertificateButton
-            // 
-            this.azureCreateNewCertificateButton.Enabled = false;
-            this.azureCreateNewCertificateButton.Location = new System.Drawing.Point(216, 178);
-            this.azureCreateNewCertificateButton.Name = "azureCreateNewCertificateButton";
-            this.azureCreateNewCertificateButton.Size = new System.Drawing.Size(183, 23);
-            this.azureCreateNewCertificateButton.TabIndex = 20;
-            this.azureCreateNewCertificateButton.Text = "Create and upload new certificate";
-            this.azureCreateNewCertificateButton.UseVisualStyleBackColor = true;
-            this.azureCreateNewCertificateButton.Click += new System.EventHandler(this.AzureCreateNewCertificateButtonClick);
             // 
             // CloudParametersForm
             // 

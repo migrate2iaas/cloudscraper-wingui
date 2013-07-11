@@ -16,6 +16,13 @@ using System.Collections;
 using System.Web;
 using System.Xml;
 
+// for certificate
+using System.Security;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
+
+
 namespace CloudScraper
 {
     public class AzureCloudParameters : CloudParametersForm
@@ -25,6 +32,8 @@ namespace CloudScraper
         public static string region_;
         public static bool isAzure_ = false;
         public static bool advanced_ = false;
+        public static string subscriptionId_ = "";
+        public static string certificateThumbprint_ = "";
 
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
         
@@ -81,6 +90,7 @@ namespace CloudScraper
             this.folderKeyBox.Visible = false;
             this.serverTypeComboBox.Visible = false;
             this.zoneComboBox.Visible = true;
+            this.zoneComboBox.MaxLength = 40;
             this.groupComboBox.Visible = false;
             this.drivesDataGridView.Visible = false;
             this.deduplcationCheckBox.Visible = false;
@@ -149,6 +159,54 @@ namespace CloudScraper
 
         protected override void NextButtonClick(object sender, EventArgs e)
         {
+            if (advanced_)
+            {
+                X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+                // Try to open the store.
+                try
+                {
+                    certStore.Open(OpenFlags.ReadOnly);
+                }
+                catch (Exception ex)
+                {
+                    if (ex is CryptographicException)
+                    {
+                        Console.WriteLine("Error: The store is unreadable.");
+                    }
+                    else if (ex is SecurityException)
+                    {
+                        Console.WriteLine("Error: You don't have the required permission.");
+                    }
+                    else if (ex is ArgumentException)
+                    {
+                        Console.WriteLine("Error: Invalid values in the store.");
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+
+                // Find the certificate that matches the thumbprint.
+                X509Certificate2Collection certCollection = certStore.Certificates.Find(X509FindType.FindByThumbprint, 
+                    certificateThumbprint_, false);
+                certStore.Close();
+
+                // Check to see if our certificate was added to the collection. If no, throw an error, if yes, create a certificate using it.
+                if (0 == certCollection.Count)
+                {
+                    throw new Exception("Error: No certificate found containing thumbprint " + certificateThumbprint_);
+                }
+
+                // Create an X509Certificate2 object using our matching certificate.
+                X509Certificate2 certificate = certCollection[0];
+
+                
+                //certificateThumbprint_;
+                //subscriptionId_;
+            }
+            
             isAzure_ = true;
             this.Hide();
 
@@ -214,7 +272,75 @@ namespace CloudScraper
 
         protected override void AzureCreateNewCertificateButtonClick(object sender, EventArgs e)
         {
-            
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
+            saveFileDialog.DefaultExt = "." + "cer";
+            string path = "";
+
+            DialogResult result = saveFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                path = saveFileDialog.FileName;
+            }
+
+            Process process = new Process();
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.FileName = "makecert.exe";
+            info.Arguments = "-sky exchange -r -n \"CN=" + path + "\" -pe -a sha1 -len 2048 -ss My \"" + path + "\"";
+            info.UseShellExecute = true;
+            info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
+            info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
+            process.StartInfo = info;
+            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            process.Exited += new EventHandler(this.ProcessExited);
+            process.EnableRaisingEvents = true;
+            process.Start();
+        }
+
+        void ProcessExited(object sender, EventArgs e)
+        {
+            Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
+            try
+            {
+                X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
+                store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+                X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
+                X509Certificate2Collection fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+                //X509Certificate2Collection scollection = X509Certificate2UI.SelectFromCollection(fcollection, "Test Certificate Select", "Select a certificate from the following list to get information on that certificate", X509SelectionFlag.MultiSelection);
+                //Console.WriteLine("Number of certificates: {0}{1}", scollection.Count, Environment.NewLine);
+                //foreach (X509Certificate2 x509 in scollection)
+                //{
+                //    byte[] rawdata = x509.RawData;
+                //    Console.WriteLine("Content Type: {0}{1}", X509Certificate2.GetCertContentType(rawdata), Environment.NewLine);
+                //    Console.WriteLine("Friendly Name: {0}{1}", x509.FriendlyName, Environment.NewLine);
+                //    Console.WriteLine("Certificate Verified?: {0}{1}", x509.Verify(), Environment.NewLine);
+                //    Console.WriteLine("Simple Name: {0}{1}", x509.GetNameInfo(X509NameType.SimpleName, true), Environment.NewLine);
+                //    Console.WriteLine("Signature Algorithm: {0}{1}", x509.SignatureAlgorithm.FriendlyName, Environment.NewLine);
+                //    Console.WriteLine("Private Key: {0}{1}", x509.PrivateKey.ToXmlString(false), Environment.NewLine);
+                //    Console.WriteLine("Public Key: {0}{1}", x509.PublicKey.Key.ToXmlString(false), Environment.NewLine);
+                //    Console.WriteLine("Certificate Archived?: {0}{1}", x509.Archived, Environment.NewLine);
+                //    Console.WriteLine("Length of Raw Data: {0}{1}", x509.RawData.Length, Environment.NewLine);
+                //    X509Certificate2UI.DisplayCertificate(x509);
+                //    x509.Reset();
+                //}
+                store.Close();
+            }
+            catch (CryptographicException)
+            {
+                Console.WriteLine("Information could not be written out for this certificate.");
+            }
+        }
+
+        protected override void AzureSubscriptionIdTextChanged(object sender, EventArgs e)
+        {
+            subscriptionId_ = (sender as TextBox).Text;
+            this.CheckEnter();
+        }
+
+        protected override void ZoneComboBoxTextChanged(object sender, EventArgs e)
+        {
+            certificateThumbprint_ = (sender as ComboBox).Text;
+            this.CheckEnter();
         }
 
         protected override void TestButtonClick(object sender, EventArgs e)

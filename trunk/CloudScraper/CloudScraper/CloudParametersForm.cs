@@ -169,5 +169,10 @@ namespace CloudScraper
             throw new NotImplementedException();
         }
 
+        protected virtual void AzureSubscriptionIdTextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
