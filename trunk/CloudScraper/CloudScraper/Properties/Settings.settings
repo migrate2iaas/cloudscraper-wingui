@@ -574,5 +574,11 @@ Click here to read manual entry on this step.</Value>
     <Setting Name="S4AzureContainerNameLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Container Name</Value>
     </Setting>
+    <Setting Name="S4AzureSubscriptionIdText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure Subscription Id</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateThumbprintText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Certificate Thumbprint</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

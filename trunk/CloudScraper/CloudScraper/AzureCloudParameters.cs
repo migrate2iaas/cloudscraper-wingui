@@ -24,14 +24,12 @@ namespace CloudScraper
         public static string primaryAccessKey_ = "";
         public static string region_;
         public static bool isAzure_ = false;
+        public static bool advanced_ = false;
 
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
-
-        private List<string> containers_;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
         {
-            this.containers_ = new List<string>(); 
             isAzure_ = false;
 
             //Move regions strings from settings file to regionComboBox.
@@ -63,7 +61,9 @@ namespace CloudScraper
             this.regionLabel.Text = Settings.Default.S4AzureRegionLabelText;
             this.idLabel.Text = Settings.Default.S4AzureIdLabelText;
             this.keyLabel.Text = Settings.Default.S4AzureKeyLabelText;
+            this.typeLabel.Text = Settings.Default.S4AzureSubscriptionIdText;
             this.bucketLabel.Text = Settings.Default.S4AzureContainerNameLabelText;
+            this.zoneLabel.Text = Settings.Default.S4AzureCertificateThumbprintText;
             this.idTextBox.MaxLength = 24;
             this.keyTextBox.MaxLength = 1024;
             //this.advancedCheckBox.Text = Settings.Default.S4ehDirectUploadCheckBoxText;
@@ -74,19 +74,19 @@ namespace CloudScraper
 
             //this.bucketLabel.Visible = false;
             this.folderKeyLabel.Visible = false;
-            this.typeLabel.Visible = false;
-            this.zoneLabel.Visible = false;
+            this.typeLabel.Visible = true;
+            this.zoneLabel.Visible = true;
             this.groupLabel.Visible = false;
-            //this.bucketTextBox.Visible = false;
+            this.bucketTextBox.Visible = false;
             this.folderKeyBox.Visible = false;
             this.serverTypeComboBox.Visible = false;
-            this.zoneComboBox.Visible = false;
+            this.zoneComboBox.Visible = true;
             this.groupComboBox.Visible = false;
             this.drivesDataGridView.Visible = false;
             this.deduplcationCheckBox.Visible = false;
             this.drivesListLabel.Visible = false;
             this.selectAllCheckBox.Visible = false;
-            this.advancedCheckBox.Visible = false;
+            this.advancedCheckBox.Visible = true;
 
             this.SetChooseCloudForm(chooseCloudForm);
         }
@@ -167,6 +167,54 @@ namespace CloudScraper
         protected override void HelpButtonClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Settings.Default.S4EHLink);
+        }
+
+        protected override void AdvancedChecked(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+            {
+                advanced_ = true;
+                this.bucketLabel.Enabled = true;
+                this.azureContainerComboBox.Enabled = true;
+                this.azureDeployVirtualMachineCheckBox.Enabled = true;
+                this.CheckEnter();
+            }
+            else
+            {
+                advanced_ = false;
+                this.bucketLabel.Enabled = false;
+                this.azureContainerComboBox.Enabled = false;
+                this.azureDeployVirtualMachineCheckBox.Enabled = false;
+                this.azureDeployVirtualMachineCheckBox.Checked = false;
+                this.CheckEnter();
+            }
+        }
+
+        protected override void AzureDeployVirtualMachineChecked(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+            {
+                this.typeLabel.Enabled = true;
+                this.azureSubscriptionId.Enabled = true;
+                this.zoneLabel.Enabled = true;
+                this.zoneComboBox.Enabled = true;
+                this.azureCreateNewCertificateButton.Enabled = true;
+                this.CheckEnter();
+            }
+            else
+            {
+                this.typeLabel.Enabled = false;
+                this.azureSubscriptionId.Enabled = false;
+                this.zoneLabel.Enabled = false;
+                this.zoneComboBox.Enabled = false;
+                this.azureCreateNewCertificateButton.Enabled = false;
+                this.CheckEnter();
+            }
+        }
+
+        protected override void AzureCreateNewCertificateButtonClick(object sender, EventArgs e)
+        {
+            
         }
 
         protected override void TestButtonClick(object sender, EventArgs e)
@@ -256,7 +304,7 @@ namespace CloudScraper
                                 {
                                     if (reader.Name == "Name")
                                     {
-                                       this.containers_.Add(reader.ReadElementString("Name"));
+                                       this.azureContainerComboBox.Items.Add(reader.ReadElementString("Name"));
                                     }
                                 }
                             }

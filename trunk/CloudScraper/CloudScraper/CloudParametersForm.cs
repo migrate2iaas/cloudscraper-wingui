@@ -73,6 +73,11 @@ namespace CloudScraper
             throw new NotImplementedException();
         }
 
+        protected virtual void AzureDeployVirtualMachineChecked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         protected virtual void BucketChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -155,6 +160,11 @@ namespace CloudScraper
         }
 
         protected virtual void SelectAll(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected virtual void AzureCreateNewCertificateButtonClick(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
