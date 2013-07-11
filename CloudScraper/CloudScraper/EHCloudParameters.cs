@@ -90,6 +90,10 @@ namespace CloudScraper
             this.serverTypeComboBox.Visible = false;
             this.zoneComboBox.Visible = false;
             this.groupComboBox.Visible = false;
+            this.azureContainerComboBox.Visible = false;
+            this.azureDeployVirtualMachineCheckBox.Visible = false;
+            this.azureSubscriptionId.Visible = false;
+            this.azureCreateNewCertificateButton.Visible = false;
         
             this.SetChooseCloudForm(chooseCloudForm);
         }

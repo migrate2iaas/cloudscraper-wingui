@@ -84,6 +84,10 @@ namespace CloudScraper
             this.drivesListLabel.Visible = false;
             this.drivesDataGridView.Visible = false;
             this.selectAllCheckBox.Visible = false;
+            this.azureContainerComboBox.Visible = false;
+            this.azureDeployVirtualMachineCheckBox.Visible = false;
+            this.azureSubscriptionId.Visible = false;
+            this.azureCreateNewCertificateButton.Visible = false;
 
             this.deduplcationCheckBox.Visible = false;
 

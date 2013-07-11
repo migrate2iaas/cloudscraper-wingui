@@ -40,8 +40,9 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.azureDeployVirtualMachineCheckBox = new System.Windows.Forms.CheckBox();
+            this.azureContainerComboBox = new System.Windows.Forms.ComboBox();
             this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
-            this.drivesDataGridView = new System.Windows.Forms.DataGridView();
             this.drivesListLabel = new System.Windows.Forms.Label();
             this.deduplcationCheckBox = new System.Windows.Forms.CheckBox();
             this.folderKeyLabel = new System.Windows.Forms.Label();
@@ -49,16 +50,19 @@
             this.advancedCheckBox = new System.Windows.Forms.CheckBox();
             this.groupLabel = new System.Windows.Forms.Label();
             this.zoneLabel = new System.Windows.Forms.Label();
-            this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
             this.typeLabel = new System.Windows.Forms.Label();
             this.bucketTextBox = new System.Windows.Forms.TextBox();
             this.bucketLabel = new System.Windows.Forms.Label();
             this.zoneComboBox = new System.Windows.Forms.ComboBox();
             this.groupComboBox = new System.Windows.Forms.ComboBox();
+            this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.drivesDataGridView = new System.Windows.Forms.DataGridView();
             this.nextButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.azureSubscriptionId = new System.Windows.Forms.TextBox();
+            this.azureCreateNewCertificateButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -161,6 +165,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.azureCreateNewCertificateButton);
+            this.tabPage2.Controls.Add(this.azureSubscriptionId);
+            this.tabPage2.Controls.Add(this.azureDeployVirtualMachineCheckBox);
+            this.tabPage2.Controls.Add(this.azureContainerComboBox);
             this.tabPage2.Controls.Add(this.selectAllCheckBox);
             this.tabPage2.Controls.Add(this.drivesListLabel);
             this.tabPage2.Controls.Add(this.deduplcationCheckBox);
@@ -184,6 +192,28 @@
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // azureDeployVirtualMachineCheckBox
+            // 
+            this.azureDeployVirtualMachineCheckBox.AutoSize = true;
+            this.azureDeployVirtualMachineCheckBox.Enabled = false;
+            this.azureDeployVirtualMachineCheckBox.Location = new System.Drawing.Point(90, 77);
+            this.azureDeployVirtualMachineCheckBox.Name = "azureDeployVirtualMachineCheckBox";
+            this.azureDeployVirtualMachineCheckBox.Size = new System.Drawing.Size(135, 17);
+            this.azureDeployVirtualMachineCheckBox.TabIndex = 18;
+            this.azureDeployVirtualMachineCheckBox.Text = "Deploy Virtual Machine";
+            this.azureDeployVirtualMachineCheckBox.UseVisualStyleBackColor = true;
+            this.azureDeployVirtualMachineCheckBox.CheckedChanged += new System.EventHandler(this.AzureDeployVirtualMachineChecked);
+            // 
+            // azureContainerComboBox
+            // 
+            this.azureContainerComboBox.Enabled = false;
+            this.azureContainerComboBox.FormattingEnabled = true;
+            this.azureContainerComboBox.Location = new System.Drawing.Point(216, 38);
+            this.azureContainerComboBox.MaxDropDownItems = 5;
+            this.azureContainerComboBox.Name = "azureContainerComboBox";
+            this.azureContainerComboBox.Size = new System.Drawing.Size(235, 21);
+            this.azureContainerComboBox.TabIndex = 17;
+            // 
             // selectAllCheckBox
             // 
             this.selectAllCheckBox.AutoSize = true;
@@ -194,26 +224,6 @@
             this.selectAllCheckBox.Text = "Select all";
             this.selectAllCheckBox.UseVisualStyleBackColor = true;
             this.selectAllCheckBox.CheckedChanged += new System.EventHandler(this.SelectAll);
-            // 
-            // drivesDataGridView
-            // 
-            this.drivesDataGridView.AllowUserToAddRows = false;
-            this.drivesDataGridView.AllowUserToDeleteRows = false;
-            this.drivesDataGridView.AllowUserToResizeRows = false;
-            this.drivesDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.drivesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.drivesDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.drivesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.drivesDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.drivesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.drivesDataGridView.Location = new System.Drawing.Point(3, 109);
-            this.drivesDataGridView.MultiSelect = false;
-            this.drivesDataGridView.Name = "drivesDataGridView";
-            this.drivesDataGridView.RowHeadersVisible = false;
-            this.drivesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.drivesDataGridView.Size = new System.Drawing.Size(528, 104);
-            this.drivesDataGridView.TabIndex = 5;
-            this.drivesDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnSelect);
             // 
             // drivesListLabel
             // 
@@ -287,16 +297,6 @@
             this.zoneLabel.Text = "Specify your availability zone:";
             this.zoneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // serverTypeComboBox
-            // 
-            this.serverTypeComboBox.Enabled = false;
-            this.serverTypeComboBox.FormattingEnabled = true;
-            this.serverTypeComboBox.Location = new System.Drawing.Point(217, 110);
-            this.serverTypeComboBox.Name = "serverTypeComboBox";
-            this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
-            this.serverTypeComboBox.TabIndex = 4;
-            this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ServerTypeChanged);
-            // 
             // typeLabel
             // 
             this.typeLabel.Enabled = false;
@@ -359,6 +359,36 @@
             this.groupComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             this.groupComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
+            // serverTypeComboBox
+            // 
+            this.serverTypeComboBox.Enabled = false;
+            this.serverTypeComboBox.FormattingEnabled = true;
+            this.serverTypeComboBox.Location = new System.Drawing.Point(217, 110);
+            this.serverTypeComboBox.Name = "serverTypeComboBox";
+            this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
+            this.serverTypeComboBox.TabIndex = 4;
+            this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ServerTypeChanged);
+            // 
+            // drivesDataGridView
+            // 
+            this.drivesDataGridView.AllowUserToAddRows = false;
+            this.drivesDataGridView.AllowUserToDeleteRows = false;
+            this.drivesDataGridView.AllowUserToResizeRows = false;
+            this.drivesDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.drivesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.drivesDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.drivesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.drivesDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.drivesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.drivesDataGridView.Location = new System.Drawing.Point(3, 109);
+            this.drivesDataGridView.MultiSelect = false;
+            this.drivesDataGridView.Name = "drivesDataGridView";
+            this.drivesDataGridView.RowHeadersVisible = false;
+            this.drivesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.drivesDataGridView.Size = new System.Drawing.Size(528, 104);
+            this.drivesDataGridView.TabIndex = 5;
+            this.drivesDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnSelect);
+            // 
             // nextButton
             // 
             this.nextButton.Location = new System.Drawing.Point(476, 263);
@@ -401,6 +431,25 @@
             this.toolTip.AutoPopDelay = 15000;
             this.toolTip.InitialDelay = 1500;
             this.toolTip.ReshowDelay = 600;
+            // 
+            // azureSubscriptionId
+            // 
+            this.azureSubscriptionId.Enabled = false;
+            this.azureSubscriptionId.Location = new System.Drawing.Point(216, 109);
+            this.azureSubscriptionId.Name = "azureSubscriptionId";
+            this.azureSubscriptionId.Size = new System.Drawing.Size(235, 20);
+            this.azureSubscriptionId.TabIndex = 19;
+            // 
+            // azureCreateNewCertificateButton
+            // 
+            this.azureCreateNewCertificateButton.Enabled = false;
+            this.azureCreateNewCertificateButton.Location = new System.Drawing.Point(216, 178);
+            this.azureCreateNewCertificateButton.Name = "azureCreateNewCertificateButton";
+            this.azureCreateNewCertificateButton.Size = new System.Drawing.Size(183, 23);
+            this.azureCreateNewCertificateButton.TabIndex = 20;
+            this.azureCreateNewCertificateButton.Text = "Create and upload new certificate";
+            this.azureCreateNewCertificateButton.UseVisualStyleBackColor = true;
+            this.azureCreateNewCertificateButton.Click += new System.EventHandler(this.AzureCreateNewCertificateButtonClick);
             // 
             // CloudParametersForm
             // 
@@ -462,5 +511,9 @@
         protected System.Windows.Forms.Label drivesListLabel;
         protected System.Windows.Forms.DataGridView drivesDataGridView;
         protected System.Windows.Forms.CheckBox selectAllCheckBox;
+        protected System.Windows.Forms.ComboBox azureContainerComboBox;
+        protected System.Windows.Forms.CheckBox azureDeployVirtualMachineCheckBox;
+        protected System.Windows.Forms.TextBox azureSubscriptionId;
+        protected System.Windows.Forms.Button azureCreateNewCertificateButton;
     }
 }

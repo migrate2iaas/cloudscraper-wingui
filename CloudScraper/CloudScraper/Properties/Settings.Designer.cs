@@ -2078,5 +2078,29 @@ namespace CloudScraper.Properties {
                 this["S4AzureContainerNameLabelText"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure Subscription Id")]
+        public string S4AzureSubscriptionIdText {
+            get {
+                return ((string)(this["S4AzureSubscriptionIdText"]));
+            }
+            set {
+                this["S4AzureSubscriptionIdText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Certificate Thumbprint")]
+        public string S4AzureCertificateThumbprintText {
+            get {
+                return ((string)(this["S4AzureCertificateThumbprintText"]));
+            }
+            set {
+                this["S4AzureCertificateThumbprintText"] = value;
+            }
+        }
     }
 }
