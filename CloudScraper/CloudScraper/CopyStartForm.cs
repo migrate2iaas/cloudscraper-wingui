@@ -174,6 +174,7 @@ namespace CloudScraper
                 Properties.Settings.Default.TextFile.Substring(Properties.Settings.Default.TextFile.Length - 4);
             
             this.backButton.Enabled = false;
+            
 
             if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
             {
@@ -183,6 +184,14 @@ namespace CloudScraper
                 {
                     if (this.isAmazon)
                     {
+                        // we use VHD only if system natively support this format
+                        string imagetype = "RAW";
+                        bool win2008r2_or_above = ((System.Environment.Version.Major >= 6) && (System.Environment.Version.Minor >= 1));
+                        if (win2008r2_or_above)
+                        {
+                            imagetype = "VHD";
+                        }
+
                         stream.WriteLine("[EC2]");
                         stream.WriteLine("region = " + AmazonCloudParameters.region_);
                         if (AmazonCloudParameters.zone_ != "")
@@ -200,7 +209,7 @@ namespace CloudScraper
                         stream.WriteLine("[Image]");
                         stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
                         stream.WriteLine("source-arch = x86_64");
-                        stream.WriteLine("image-type = VHD");
+                        stream.WriteLine("image-type = " + imagetype);
                     }
                     else if (this.isElasticHosts)
                     {
