@@ -449,6 +449,8 @@ namespace CloudScraper
                             Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
 
+                        this.azureContainerComboBox.Items.Clear();
+
                         using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
                         {
                             while (reader.Read())
@@ -493,6 +495,14 @@ namespace CloudScraper
                 string thumbprint = certificateThumbprint_;
 
                 X509Certificate2 certificate = GetCertificate(thumbprint);
+
+                if (certificate == null)
+                {
+                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                        Settings.Default.S4AzureCertificateInvalid, "", "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                    return;
+                }
 
                 string uriFormat = "https://management.core.windows.net/{0}/services/storageservices/{1}";
                 Uri uri = new Uri(String.Format(uriFormat, subscriptionId, accountName));
@@ -592,9 +602,7 @@ namespace CloudScraper
                     store.Close();
                 }
             }
-            throw new ArgumentException(string.Format(
-              "A certificate with thumbprint '{0}' could not be located.",
-              thumbprint));
+            return null;
         }
 
         
