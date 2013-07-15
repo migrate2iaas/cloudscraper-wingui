@@ -2115,5 +2115,91 @@ namespace CloudScraper.Properties {
                 this["S4AzureIDKeyInvalid"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure certificate")]
+        public string S4AzureCertificateHeader {
+            get {
+                return ((string)(this["S4AzureCertificateHeader"]));
+            }
+            set {
+                this["S4AzureCertificateHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Can\'t access to Azure certificate store on you computer.")]
+        public string S4AzureCertificateStoreError {
+            get {
+                return ((string)(this["S4AzureCertificateStoreError"]));
+            }
+            set {
+                this["S4AzureCertificateStoreError"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Certificate with the same thumprint was no found.")]
+        public string S4AzureCertificateThumbprintError {
+            get {
+                return ((string)(this["S4AzureCertificateThumbprintError"]));
+            }
+            set {
+                this["S4AzureCertificateThumbprintError"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("You’ll be redirected to Windows Azure certificate management site.\r\nLogin and upl" +
+            "oad your newly created certificate (.cer) file.")]
+        public string S4AzureCertificateCreateSuccess {
+            get {
+                return ((string)(this["S4AzureCertificateCreateSuccess"]));
+            }
+            set {
+                this["S4AzureCertificateCreateSuccess"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Error with makecert.exe")]
+        public string S4AzureCertificateCreateError {
+            get {
+                return ((string)(this["S4AzureCertificateCreateError"]));
+            }
+            set {
+                this["S4AzureCertificateCreateError"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Storage account you specified belongs to another location. \r\nYou couldn’t use vir" +
+            "tual hard drives from the storage account in region you specified.")]
+        public string S4AzureRegionInvalid {
+            get {
+                return ((string)(this["S4AzureRegionInvalid"]));
+            }
+            set {
+                this["S4AzureRegionInvalid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Certificate Id error.")]
+        public string S4AzureCertificateInvalid {
+            get {
+                return ((string)(this["S4AzureCertificateInvalid"]));
+            }
+            set {
+                this["S4AzureCertificateInvalid"] = value;
+            }
+        }
     }
 }
