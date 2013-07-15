@@ -467,7 +467,8 @@ namespace CloudScraper
         private void CheckEnter()
         {
             if (storageAccount_ != "" && storageAccount_.Length >= 3 && storageAccount_.Length <= 24 &&
-                primaryAccessKey_ != "" && primaryAccessKey_.Length == 88)
+                primaryAccessKey_ != "") 
+                //&& primaryAccessKey_.Length == 88)
             {
 
                 foreach (char ch in storageAccount_)
