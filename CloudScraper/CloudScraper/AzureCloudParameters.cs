@@ -321,10 +321,21 @@ namespace CloudScraper
                 store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
                 X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
                 X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+
+                int indexOfthumbprint = 0;
+                foreach (X509Certificate certificate in fcollection)
+                {
+                    if (fcollection[fcollection.IndexOf(certificate)].NotBefore >
+                        fcollection[indexOfthumbprint].NotBefore)
+                    {
+                        indexOfthumbprint = fcollection.IndexOf(certificate);
+                    }
+                }
+                
                 //certificateThumbprint_ = fcollection[0].Thumbprint;
                 this.BeginInvoke(new MyDelegate(() =>
                 {
-                    zoneComboBox.Text = fcollection[0].Thumbprint;
+                    zoneComboBox.Text = fcollection[indexOfthumbprint].Thumbprint;
                 }));
                
                 //X509Certificate2Collection scollection = X509Certificate2UI.SelectFromCollection(fcollection, "Test Certificate Select", "Select a certificate from the following list to get information on that certificate", X509SelectionFlag.MultiSelection);
