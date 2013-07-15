@@ -2102,5 +2102,18 @@ namespace CloudScraper.Properties {
                 this["S4AzureCertificateThumbprintText"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure doesn\'t recognize entered keys! Check \"Keys\" section in Security Credential" +
+            "s page of your account.")]
+        public string S4AzureIDKeyInvalid {
+            get {
+                return ((string)(this["S4AzureIDKeyInvalid"]));
+            }
+            set {
+                this["S4AzureIDKeyInvalid"] = value;
+            }
+        }
     }
 }

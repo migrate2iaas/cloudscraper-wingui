@@ -406,11 +406,14 @@ namespace CloudScraper
             MessageSignature += GetCanonicalizedResourceVersion2(requesturi, AccountName);
             // Use HMAC-SHA256 to sign the signature
             byte[] SignatureBytes = System.Text.Encoding.UTF8.GetBytes(MessageSignature);
-            System.Security.Cryptography.HMACSHA256 SHA256 = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String(AccountSharedKey));
-            // Create Authorization HTTP header value
-            String AuthorizationHeader = "SharedKey " + AccountName + ":" + Convert.ToBase64String(SHA256.ComputeHash(SignatureBytes));
-            // Add Authorization HTTP header
-            Request.Headers.Add("Authorization", AuthorizationHeader);
+            if (AccountSharedKey.Length == 88)
+            {
+                System.Security.Cryptography.HMACSHA256 SHA256 = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String(AccountSharedKey));
+                // Create Authorization HTTP header value
+                String AuthorizationHeader = "SharedKey " + AccountName + ":" + Convert.ToBase64String(SHA256.ComputeHash(SignatureBytes));
+                // Add Authorization HTTP header
+                Request.Headers.Add("Authorization", AuthorizationHeader);
+            }
 
             try
             {
@@ -439,20 +442,18 @@ namespace CloudScraper
             }
             catch (WebException ex)
             {
-                //Console.WriteLine("An error occured. Status code:" + ((HttpWebResponse)ex.Response).StatusCode);
-                //Console.WriteLine("Error information:");
-                using (Stream stream = ex.Response.GetResponseStream())
-                {
-                    using (StreamReader sr = new StreamReader(stream))
-                    {
-                        string s = sr.ReadToEnd();
-                    }
-                }
-                //Show dialog  when auth failed.
+                //using (Stream stream = ex.Response.GetResponseStream())
+                //{
+                //    using (StreamReader sr = new StreamReader(stream))
+                //    {
+                //        string s = sr.ReadToEnd();
+                //    }
+                //}
 
+                //Show dialog  when auth failed.
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     ex.Status + "\n" +
-                    Settings.Default.S4EHIDKeyInvalid, "", "OK", "OK",
+                    Settings.Default.S4AzureIDKeyInvalid, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
 
                 this.testButton.Enabled = true;
