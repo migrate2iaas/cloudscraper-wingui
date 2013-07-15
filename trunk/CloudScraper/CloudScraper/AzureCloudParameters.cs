@@ -501,6 +501,8 @@ namespace CloudScraper
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                         Settings.Default.S4AzureCertificateInvalid, "", "OK", "OK",
                         System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                    this.testButton.Enabled = true;
+                    this.Cursor = Cursors.Arrow;
                     return;
                 }
 
