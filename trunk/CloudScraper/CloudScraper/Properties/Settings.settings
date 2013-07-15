@@ -583,5 +583,28 @@ Click here to read manual entry on this step.</Value>
     <Setting Name="S4AzureIDKeyInvalid" Type="System.String" Scope="User">
       <Value Profile="(Default)">Azure doesn't recognize entered keys! Check "Keys" section in Security Credentials page of your account.</Value>
     </Setting>
+    <Setting Name="S4AzureCertificateHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure certificate</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateStoreError" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Can't access to Azure certificate store on you computer.</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateThumbprintError" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Certificate with the same thumprint was no found.</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateCreateSuccess" Type="System.String" Scope="User">
+      <Value Profile="(Default)">You’ll be redirected to Windows Azure certificate management site.
+Login and upload your newly created certificate (.cer) file.</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateCreateError" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Error with makecert.exe</Value>
+    </Setting>
+    <Setting Name="S4AzureRegionInvalid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Storage account you specified belongs to another location. 
+You couldn’t use virtual hard drives from the storage account in region you specified.</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateInvalid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Certificate Id error.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -233,6 +233,7 @@
             this.azureContainerComboBox.Name = "azureContainerComboBox";
             this.azureContainerComboBox.Size = new System.Drawing.Size(235, 21);
             this.azureContainerComboBox.TabIndex = 17;
+            this.azureContainerComboBox.TextChanged += new System.EventHandler(this.AzureContainerChanged);
             // 
             // selectAllCheckBox
             // 

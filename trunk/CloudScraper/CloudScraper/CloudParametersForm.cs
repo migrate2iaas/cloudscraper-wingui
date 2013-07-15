@@ -174,5 +174,10 @@ namespace CloudScraper
             throw new NotImplementedException();
         }
 
+        protected virtual void AzureContainerChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
