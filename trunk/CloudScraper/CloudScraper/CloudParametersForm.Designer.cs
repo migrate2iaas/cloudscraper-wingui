@@ -152,6 +152,8 @@
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
             this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.RegionListBoxChanged);
+            this.regionComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
+            this.regionComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // regionLabel
             // 
@@ -211,6 +213,7 @@
             this.azureSubscriptionId.Size = new System.Drawing.Size(235, 20);
             this.azureSubscriptionId.TabIndex = 19;
             this.azureSubscriptionId.TextChanged += new System.EventHandler(this.AzureSubscriptionIdTextChanged);
+            this.azureSubscriptionId.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // azureDeployVirtualMachineCheckBox
             // 
@@ -234,6 +237,8 @@
             this.azureContainerComboBox.Size = new System.Drawing.Size(235, 21);
             this.azureContainerComboBox.TabIndex = 17;
             this.azureContainerComboBox.TextChanged += new System.EventHandler(this.AzureContainerChanged);
+            this.azureContainerComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
+            this.azureContainerComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // selectAllCheckBox
             // 
@@ -389,6 +394,8 @@
             this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
             this.serverTypeComboBox.TabIndex = 4;
             this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ServerTypeChanged);
+            this.serverTypeComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
+            this.serverTypeComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // drivesDataGridView
             // 
