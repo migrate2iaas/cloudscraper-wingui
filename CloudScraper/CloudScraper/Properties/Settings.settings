@@ -580,5 +580,8 @@ Click here to read manual entry on this step.</Value>
     <Setting Name="S4AzureCertificateThumbprintText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Certificate Thumbprint</Value>
     </Setting>
+    <Setting Name="S4AzureIDKeyInvalid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure doesn't recognize entered keys! Check "Keys" section in Security Credentials page of your account.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
