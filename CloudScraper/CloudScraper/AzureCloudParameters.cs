@@ -488,6 +488,9 @@ namespace CloudScraper
 
             if (advanced_ && this.azureDeployVirtualMachineCheckBox.Checked)
             {
+                this.testButton.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+
                 string accountName = storageAccount_;
                 string accountSharedKey = primaryAccessKey_;
                 
