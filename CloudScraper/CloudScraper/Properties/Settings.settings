@@ -560,10 +560,10 @@ Click here to read manual entry on this step.</Value>
       <Value Profile="(Default)">Windows Azure Cloud Options</Value>
     </Setting>
     <Setting Name="S4AzureApiKeyToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Test</Value>
+      <Value Profile="(Default)">Azure Key ToolTip</Value>
     </Setting>
     <Setting Name="S4AzureUserUIDToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Test</Value>
+      <Value Profile="(Default)">Azure User ID ToolTip</Value>
     </Setting>
     <Setting Name="S4AzureEnterID" Type="System.String" Scope="User">
       <Value Profile="(Default)">Please, enter your WindowsAzure API credentials: Storage Account Name and Primary Access Key.</Value>
@@ -605,6 +605,21 @@ You couldn’t use virtual hard drives from the storage account in region you sp
     </Setting>
     <Setting Name="S4AzureCertificateInvalid" Type="System.String" Scope="User">
       <Value Profile="(Default)">Certificate Id error.</Value>
+    </Setting>
+    <Setting Name="S4AzureRegionToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure Region ToolTip</Value>
+    </Setting>
+    <Setting Name="S4AzureContainerToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure Container ToolTip</Value>
+    </Setting>
+    <Setting Name="S4AzureSubscriptionIdToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure SubscriptionID ToolTip</Value>
+    </Setting>
+    <Setting Name="S4AzureThumbprintToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure Thumbprint ToolTip</Value>
+    </Setting>
+    <Setting Name="S4AzureCreateThumbprintButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure Create thumbprint button ToolTip</Value>
     </Setting>
   </Settings>
 </SettingsFile>

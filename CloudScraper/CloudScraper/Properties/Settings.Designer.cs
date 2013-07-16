@@ -2019,7 +2019,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure Key ToolTip")]
         public string S4AzureApiKeyToolTip {
             get {
                 return ((string)(this["S4AzureApiKeyToolTip"]));
@@ -2031,7 +2031,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Test")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure User ID ToolTip")]
         public string S4AzureUserUIDToolTip {
             get {
                 return ((string)(this["S4AzureUserUIDToolTip"]));
@@ -2199,6 +2199,66 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4AzureCertificateInvalid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure Region ToolTip")]
+        public string S4AzureRegionToolTip {
+            get {
+                return ((string)(this["S4AzureRegionToolTip"]));
+            }
+            set {
+                this["S4AzureRegionToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure Container ToolTip")]
+        public string S4AzureContainerToolTip {
+            get {
+                return ((string)(this["S4AzureContainerToolTip"]));
+            }
+            set {
+                this["S4AzureContainerToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure SubscriptionID ToolTip")]
+        public string S4AzureSubscriptionIdToolTip {
+            get {
+                return ((string)(this["S4AzureSubscriptionIdToolTip"]));
+            }
+            set {
+                this["S4AzureSubscriptionIdToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure Thumbprint ToolTip")]
+        public string S4AzureThumbprintToolTip {
+            get {
+                return ((string)(this["S4AzureThumbprintToolTip"]));
+            }
+            set {
+                this["S4AzureThumbprintToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure Create thumbprint button ToolTip")]
+        public string S4AzureCreateThumbprintButtonToolTip {
+            get {
+                return ((string)(this["S4AzureCreateThumbprintButtonToolTip"]));
+            }
+            set {
+                this["S4AzureCreateThumbprintButtonToolTip"] = value;
             }
         }
     }

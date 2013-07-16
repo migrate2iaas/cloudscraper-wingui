@@ -118,6 +118,8 @@ namespace CloudScraper
                         this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AzureApiKeyToolTip);
                     if ((sender as TextBox) == idTextBox)
                         this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AzureUserUIDToolTip);
+                    if ((sender as TextBox) == azureSubscriptionId)
+                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AzureSubscriptionIdToolTip);
                 }
                 else
                 {
@@ -125,16 +127,37 @@ namespace CloudScraper
                 }
             }
 
-            if ((sender is ComboBox))
+            if (sender is ComboBox)
             {
-                if ((sender as ComboBox).Text == "")
+                if ((sender as ComboBox) == regionComboBox)
                 {
-                    this.toolTip.SetToolTip((sender as ComboBox), "Test");
+                    this.toolTip.SetToolTip((sender as ComboBox), Settings.Default.S4AzureRegionToolTip);
+                }
+                else if ((sender as ComboBox) == azureContainerComboBox)
+                {
+                    this.toolTip.SetToolTip((sender as ComboBox), Settings.Default.S4AzureContainerToolTip);
+                }
+                else if ((sender as ComboBox) == zoneComboBox)
+                {
+                    this.toolTip.SetToolTip((sender as ComboBox), Settings.Default.S4AzureThumbprintToolTip);
                 }
                 else
                 {
-                    this.toolTip.SetToolTip((sender as ComboBox), "");
+                    if ((sender as ComboBox).Text == "")
+                    {
+                        this.toolTip.SetToolTip((sender as ComboBox), "Test");
+                    }
+                    else
+                    {
+                        this.toolTip.SetToolTip((sender as ComboBox), "");
+                    }
                 }
+            }
+
+            if (sender is Button)
+            {
+                if ((sender as Button) == azureCreateNewCertificateButton)
+                    this.toolTip.SetToolTip((sender as Button), Settings.Default.S4AzureCreateThumbprintButtonToolTip);
             }
         }
 
