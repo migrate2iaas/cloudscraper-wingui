@@ -154,6 +154,7 @@
       <DependentUpon>NewResumeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CloudScraper.cs" />
+    <Compile Include="OSInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
