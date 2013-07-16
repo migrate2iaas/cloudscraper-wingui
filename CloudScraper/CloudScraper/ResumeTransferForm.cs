@@ -199,7 +199,7 @@ namespace CloudScraper
                         }
                         else if (header == "[Azure]")
                         {
-                            this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Azure";
+                            this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Windows Azure";
                             isHeaderPresent = true;
                             this.setCloudName("Azure");
                             this.awsIdTextBox.MaxLength = 100;
