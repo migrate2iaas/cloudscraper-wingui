@@ -204,6 +204,7 @@
             this.azureCreateNewCertificateButton.Text = "Create and upload new certificate";
             this.azureCreateNewCertificateButton.UseVisualStyleBackColor = true;
             this.azureCreateNewCertificateButton.Click += new System.EventHandler(this.AzureCreateNewCertificateButtonClick);
+            this.azureCreateNewCertificateButton.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // azureSubscriptionId
             // 
