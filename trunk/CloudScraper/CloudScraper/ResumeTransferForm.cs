@@ -175,6 +175,7 @@ namespace CloudScraper
                             this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Amazon";
                             isHeaderPresent = true;
                             this.setCloudName("EC2");
+                            this.awsIdTextBox.MaxLength = 40;
                             break;
                         }
                         else if (header == "[ElasticHosts]")
@@ -183,6 +184,7 @@ namespace CloudScraper
                             this.redeployUploadCheckBox.Checked = false;
                             this.redeployUploadCheckBox.Enabled = false;
                             this.setCloudName("ElasticHosts");
+                            this.awsIdTextBox.MaxLength = 40;
                             skipUpload_ = false;
                         
                             string body = stream.ReadToEnd();
@@ -200,6 +202,7 @@ namespace CloudScraper
                             this.mainLabel.Text = Settings.Default.R2MainLabelText + "\n\n for Azure";
                             isHeaderPresent = true;
                             this.setCloudName("Azure");
+                            this.awsIdTextBox.MaxLength = 100;
                             break;
                         }
                     }
@@ -224,7 +227,8 @@ namespace CloudScraper
                 this.mainLabel.Text = Settings.Default.R2MainLabelText;
             }
 
-            if (resumeFilePath_ != "" && File.Exists(resumeFilePath_) && awsKey_ != "" && awsKey_.Length == 40)
+            if (resumeFilePath_ != "" && File.Exists(resumeFilePath_) && awsKey_ != "" && 
+                ((this.cloudName != "Azure" && awsKey_.Length == 40) || (this.cloudName == "Azure")))
             {
                 this.nextButton.Enabled = true;
             }
