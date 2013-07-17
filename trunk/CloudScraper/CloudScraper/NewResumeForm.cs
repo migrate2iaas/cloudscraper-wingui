@@ -15,7 +15,6 @@ namespace CloudScraper
     {
         ChooseDisksForm chooseDiskForm_;
         ResumeTransferForm resumeTransferForm_;
-
         private static Logger logger_ = LogManager.GetLogger("NewResumeForm");
 
         public NewResumeForm()
