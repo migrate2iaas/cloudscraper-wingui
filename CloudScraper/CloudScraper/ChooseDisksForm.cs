@@ -93,6 +93,11 @@ namespace CloudScraper
                         if (Environment.GetEnvironmentVariable("SystemRoot").Contains(info.Name))
                         {
                             volume.IsChecked = true;
+
+                            if (logger_.IsDebugEnabled)
+                                logger_.Debug("Disk " + volume.Name + " state changed to " +
+                                    volume.IsChecked.ToString());
+                            
                             volume.Image = new Bitmap(Image.FromFile("Icons\\WindowsDrive.ico"), new Size(24, 24));
                             totalSpaceRequired_ = volume.UsedSpace;
                             this.nextButton.Enabled = true;
