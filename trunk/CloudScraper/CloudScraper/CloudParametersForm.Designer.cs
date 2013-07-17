@@ -114,6 +114,7 @@
             this.keyTextBox.Size = new System.Drawing.Size(219, 20);
             this.keyTextBox.TabIndex = 7;
             this.keyTextBox.TextChanged += new System.EventHandler(this.KeyChanged);
+            this.keyTextBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.keyTextBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // idTextBox
@@ -124,6 +125,7 @@
             this.idTextBox.Size = new System.Drawing.Size(220, 20);
             this.idTextBox.TabIndex = 3;
             this.idTextBox.TextChanged += new System.EventHandler(this.IDChanged);
+            this.idTextBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.idTextBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // keyLabel
@@ -152,6 +154,7 @@
             this.regionComboBox.Size = new System.Drawing.Size(220, 21);
             this.regionComboBox.TabIndex = 1;
             this.regionComboBox.SelectedIndexChanged += new System.EventHandler(this.RegionListBoxChanged);
+            this.regionComboBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.regionComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             this.regionComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
@@ -214,6 +217,7 @@
             this.azureSubscriptionId.Size = new System.Drawing.Size(235, 20);
             this.azureSubscriptionId.TabIndex = 19;
             this.azureSubscriptionId.TextChanged += new System.EventHandler(this.AzureSubscriptionIdTextChanged);
+            this.azureSubscriptionId.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.azureSubscriptionId.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // azureDeployVirtualMachineCheckBox
@@ -227,6 +231,7 @@
             this.azureDeployVirtualMachineCheckBox.Text = "Deploy Virtual Machine";
             this.azureDeployVirtualMachineCheckBox.UseVisualStyleBackColor = true;
             this.azureDeployVirtualMachineCheckBox.CheckedChanged += new System.EventHandler(this.AzureDeployVirtualMachineChecked);
+            this.azureDeployVirtualMachineCheckBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             // 
             // azureContainerComboBox
             // 
@@ -238,6 +243,7 @@
             this.azureContainerComboBox.Size = new System.Drawing.Size(235, 21);
             this.azureContainerComboBox.TabIndex = 17;
             this.azureContainerComboBox.TextChanged += new System.EventHandler(this.AzureContainerChanged);
+            this.azureContainerComboBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.azureContainerComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             this.azureContainerComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
@@ -303,6 +309,7 @@
             this.advancedCheckBox.Text = "Advanced settings";
             this.advancedCheckBox.UseVisualStyleBackColor = true;
             this.advancedCheckBox.CheckedChanged += new System.EventHandler(this.AdvancedChecked);
+            this.advancedCheckBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             // 
             // groupLabel
             // 
@@ -368,6 +375,7 @@
             this.zoneComboBox.TabIndex = 11;
             this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.ZoneComboBoxIndexChanged);
             this.zoneComboBox.TextChanged += new System.EventHandler(this.ZoneComboBoxTextChanged);
+            this.zoneComboBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.zoneComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             this.zoneComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 

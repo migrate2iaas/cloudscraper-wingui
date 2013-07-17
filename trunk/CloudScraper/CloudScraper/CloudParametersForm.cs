@@ -179,5 +179,10 @@ namespace CloudScraper
             throw new NotImplementedException();
         }
 
+        protected virtual void OnLeaveEnter(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

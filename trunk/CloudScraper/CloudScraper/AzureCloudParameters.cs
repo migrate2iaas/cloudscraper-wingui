@@ -282,6 +282,9 @@ namespace CloudScraper
 
         protected override void AzureCreateNewCertificateButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Create Certificate button click.");
+
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
             saveFileDialog.DefaultExt = "." + "cer";
@@ -291,6 +294,10 @@ namespace CloudScraper
             if (result == DialogResult.OK)
             {
                 path = saveFileDialog.FileName;
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                return;
             }
 
             //Creating certificate process.
@@ -606,6 +613,47 @@ namespace CloudScraper
         protected override void AzureContainerChanged(object sender, EventArgs e)
         {
             containerName_ = this.azureContainerComboBox.Text;
+        }
+
+        protected override void OnLeaveEnter(object sender, EventArgs e)
+        {
+            if (logger_.IsDebugEnabled)
+            {
+                if (sender is ComboBox)
+                {
+                    if ((sender as ComboBox) == regionComboBox)
+                        logger_.Debug("Region select: " + (sender as ComboBox).Text);
+                    if ((sender as ComboBox) == azureContainerComboBox)
+                        logger_.Debug("Container select: " + (sender as ComboBox).Text);
+                    if ((sender as ComboBox) == zoneComboBox)
+                        logger_.Debug("Thumbprint enter: " + (sender as ComboBox).Text);
+                }
+                if (sender is TextBox)
+                {
+                    //if ((sender as TextBox) == keyTextBox)
+                    //    logger_.Debug("Key enter: " + (sender as TextBox).Text);
+                    if ((sender as TextBox) == idTextBox)
+                        logger_.Debug("Id enter: " + (sender as TextBox).Text);
+                    if ((sender as TextBox) == azureSubscriptionId)
+                        logger_.Debug("SubscriptionID enter: " + (sender as TextBox).Text);
+                }
+                if (sender is CheckBox)
+                {
+                    if ((sender as CheckBox) == advancedCheckBox)
+                        logger_.Debug("Advanced checked to: " + (sender as CheckBox).Checked.ToString());
+                    if ((sender as CheckBox) == azureDeployVirtualMachineCheckBox)
+                        logger_.Debug("Deploy virtual machine checked to: " + (sender as CheckBox).Checked.ToString());
+                }
+            }
+        }
+
+        protected override void CloudParametersLoad(object sender, EventArgs e)
+        {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Form loaded.");
+
+            isAzure_ = false;
+            base.CloudParametersLoad(sender, e);
         }
 
         #region Helper method/class
