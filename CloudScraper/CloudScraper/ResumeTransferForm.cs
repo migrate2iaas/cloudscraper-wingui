@@ -213,10 +213,6 @@ namespace CloudScraper
                             Settings.Default.R2WarningMessageText, "", "OK", "OK",
                             Image.FromFile("Icons\\WarningDialog.png"), false);
 
-                        //DialogResult result = MessageBox.Show(Settings.Default.R2WarningMessageText,
-                        //Settings.Default.R2WarningMessageHeader,
-                        //MessageBoxButtons.OK);
-
                         this.nextButton.Enabled = false;
                         return;
                     }
