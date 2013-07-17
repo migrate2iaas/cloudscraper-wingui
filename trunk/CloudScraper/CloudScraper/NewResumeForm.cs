@@ -69,6 +69,10 @@ namespace CloudScraper
 
         private void HelpButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Help button click.");
+            
+            //Start help url.
             System.Diagnostics.Process.Start(Settings.Default.S1Link);
         }
 

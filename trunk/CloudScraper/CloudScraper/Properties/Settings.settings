@@ -621,5 +621,8 @@ You couldn’t use virtual hard drives from the storage account in region you sp
     <Setting Name="S4AzureCreateThumbprintButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Azure Create thumbprint button ToolTip</Value>
     </Setting>
+    <Setting Name="S4AzureLink" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure  link</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -42,7 +42,6 @@ namespace CloudScraper
             this.elasticHostsButton.Text = Settings.Default.S3ElasticHostsButtonText;
             this.toolTip.SetToolTip(this.elasticHostsButton, Settings.Default.S3ElasticHostsButtonToolTip);
 
-
             this.amazonButton.Visible = false;
             this.elasticHostsButton.Visible = false;
             this.windowsAzureButton.Visible = false;
@@ -112,11 +111,6 @@ namespace CloudScraper
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Scenario " + (sender as Button).Name + " selected.");
 
-            //using (StreamWriter stream = new StreamWriter(CloudScraper.logPath_, true))
-            //{
-            //    stream.WriteLine(DateTime.Now.ToString() + " " + "Scenario " + (sender as Button).Name + " started");
-            //}
-
             this.cloudParametersForm_.ShowDialog();
         }
 
@@ -127,6 +121,9 @@ namespace CloudScraper
 
         private void HelpButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Help button click.");
+            
             //Start help url.
             System.Diagnostics.Process.Start(Settings.Default.S3Link);
         }
