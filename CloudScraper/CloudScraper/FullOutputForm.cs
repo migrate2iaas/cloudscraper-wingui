@@ -19,8 +19,7 @@ namespace CloudScraper
             this.Text = Settings.Default.FullOutputHeader;
             //using (StreamReader stream = new StreamReader(path))
             //{
-                this.fullOutputBox.Lines = File.ReadAllLines(path);
-
+            this.fullOutputBox.Lines = File.ReadAllLines(path);
 
             //}
         }

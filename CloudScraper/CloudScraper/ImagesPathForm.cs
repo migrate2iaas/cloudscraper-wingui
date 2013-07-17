@@ -12,8 +12,6 @@ using DotNetPerls;
 using System.Runtime.InteropServices;
 
 
-
-
 namespace CloudScraper
 {
     public partial class ImagesPathForm : Form
@@ -172,10 +170,6 @@ namespace CloudScraper
                                 Settings.Default.S5PathNetworkLoginFailure, "", "OK", "OK",
                                 Image.FromFile("Icons\\WarningDialog.png"), false);
                             
-                            //DialogResult result5 = MessageBox.Show(
-                            //Settings.Default.S5PathNetworkLoginFailure,
-                            //Settings.Default.S5WarningHeader,
-                            //MessageBoxButtons.OK);
                             return;
                         }
                     }   
@@ -204,10 +198,6 @@ namespace CloudScraper
                                     Settings.Default.S5WrongSymbolsWarningMessage, "", "OK", "OK",
                                     Image.FromFile("Icons\\ErrorDialog.png"), false);
                                 
-                                //DialogResult result = MessageBox.Show(
-                                //    Settings.Default.S5WrongSymbolsWarningMessage,
-                                //    Settings.Default.S5WarningHeader,
-                                //    MessageBoxButtons.OK);
                                 return;
                             }
                         }
@@ -217,11 +207,6 @@ namespace CloudScraper
                         DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
                             Settings.Default.S5DirectoryNotExistWarningMessage, "", "OK", "Cancel",
                             Image.FromFile("Icons\\WarningDialog.png"), true);
-
-                        //DialogResult reslt = MessageBox.Show(
-                        //    Settings.Default.S5DirectoryNotExistWarningMessage,
-                        //    Settings.Default.S5WarningHeader,
-                        //    MessageBoxButtons.OKCancel);
 
                         if (reslt == DialogResult.OK)
                         {
@@ -239,10 +224,6 @@ namespace CloudScraper
                          Settings.Default.S5PathIncorrectWarningMessage, "", "OK", "OK",
                          Image.FromFile("Icons\\ErrorDialog.png"), false);
                         
-                        //DialogResult result = MessageBox.Show(
-                        //    Settings.Default.S5PathIncorrectWarningMessage,
-                        //    Settings.Default.S5WarningHeader,
-                        //    MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -256,10 +237,6 @@ namespace CloudScraper
                      Settings.Default.S5PathIncorrectWarningMessage, "", "OK", "OK",
                      Image.FromFile("Icons\\ErrorDialog.png"), false);
                 
-                //DialogResult result2 = MessageBox.Show(
-                //    Settings.Default.S5PathIncorrectWarningMessage,
-                //    Settings.Default.S5WarningHeader,
-                //    MessageBoxButtons.OK);
                 return;
             }
             
@@ -268,16 +245,10 @@ namespace CloudScraper
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
                     Settings.Default.S5WarningMessage, "", "OK", "Cancel",
                     Image.FromFile("Icons\\WarningDialog.png"), true);
-                
-                
-                //DialogResult result = MessageBox.Show(Settings.Default.S5WarningMessage,
-                //Settings.Default.S5WarningHeader,
-                //MessageBoxButtons.OKCancel);
 
                 if (result == DialogResult.Cancel)
                     return;
             }
-
 
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Next to the SaveTransferTaskForm.");
@@ -354,8 +325,6 @@ namespace CloudScraper
         {
             System.Diagnostics.Process.Start(Settings.Default.S5Link);
         }
-
-        
 
         //Choose path throw keyboard input.
         private void BrowseTextChanged(object sender, EventArgs e)

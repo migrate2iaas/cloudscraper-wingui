@@ -15,7 +15,6 @@ namespace CloudScraper
 {
     public class EHCloudParameters : CloudParametersForm
     {
-
         public static string uuid_ = "";
         public static string apiKey_ = "";
         public static string region_;
@@ -54,7 +53,6 @@ namespace CloudScraper
                 string key = str.Split(new char[] { Settings.Default.Separator }, 2)[1];
                 string value = str.Split(new char[] { Settings.Default.Separator }, 2)[0];
                 this.serverTypeList_.Add(key, value);
-
             }
 
             //Set basic UI strings in Form. 
@@ -187,6 +185,9 @@ namespace CloudScraper
 
         protected override void HelpButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Help button click.");
+
             System.Diagnostics.Process.Start(Settings.Default.S4EHLink);
         }
 
@@ -203,9 +204,6 @@ namespace CloudScraper
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                         Settings.Default.S4EnterUUID, "", "OK", "OK",
                         System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-
-                    //DialogResult result = MessageBox.Show(Settings.Default.S4EnterUUID, Settings.Default.S4TestConnectionHeader,
-                    //MessageBoxButtons.OK);
                     
                     this.testButton.Enabled = true;
                     this.Cursor = Cursors.Arrow;
@@ -253,14 +251,9 @@ namespace CloudScraper
                     //drivesDataGridView.AutoResizeColumn(0);
                 }
 
-
                 DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     Settings.Default.S4EHTestConnectionText, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-                
-                //DialogResult reslt = MessageBox.Show(Settings.Default.S4TestConnectionText,
-                //    Settings.Default.S4TestConnectionHeader,
-                //        MessageBoxButtons.OK);
 
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
@@ -276,10 +269,6 @@ namespace CloudScraper
                     ex.Status + "\n" +
                     Settings.Default.S4EHIDKeyInvalid, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                
-                //DialogResult result = MessageBox.Show(ex.Status + "\n" +
-                //    Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
-                //    MessageBoxButtons.OK);
                 
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;

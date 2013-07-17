@@ -45,7 +45,6 @@ namespace CloudScraper
 
             this.saveTransferTextBox.Text = Environment.GetEnvironmentVariable("USERPROFILE") + "\\CloudScraper\\transfer.ini";
             transferPath_ = this.saveTransferTextBox.Text;
-            //Encoding.UTF8.GetString(Encoding.ASCII.GetBytes(transferPath_));
             this.Text = Settings.Default.S6Header;
             this.mainLabel.Text = Settings.Default.S6MainLabelText;
             this.nextButton.Text = Settings.Default.S6NextButtonText;
@@ -102,10 +101,6 @@ namespace CloudScraper
                 Settings.Default.S6WarningMessage, "", "OK", "Cancel",
                 Image.FromFile("Icons\\WarningDialog.png"), true);
                 
-                //DialogResult result = MessageBox.Show(Settings.Default.S6WarningMessage,
-                //Settings.Default.S6WarningHeader,
-                //MessageBoxButtons.OKCancel);
-                
                 if (result == DialogResult.Cancel)
                     return;
             }
@@ -137,16 +132,11 @@ namespace CloudScraper
                                 Settings.Default.S6WrongSymbolsWarningMessage, "", "OK", "OK",
                                 Image.FromFile("Icons\\ErrorDialog.png"), false);
 
-                                //DialogResult result = MessageBox.Show(
-                                //    Settings.Default.S6WrongSymbolsWarningMessage,
-                                //    Settings.Default.S6WarningHeader,
-                                //    MessageBoxButtons.OK);
                                 return;
                             }
                         }
 
                         transferPath_ = transferPath_.Insert(0, root);
-                        //File.Create(transferPath_);
                     }
                     else
                     {
@@ -154,10 +144,7 @@ namespace CloudScraper
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
                         Settings.Default.S6PathIncorrectWarningMessage, "", "OK", "OK",
                         Image.FromFile("Icons\\WarningDialog.png"), false);
-                        //DialogResult result = MessageBox.Show(
-                        //    Settings.Default.S6PathIncorrectWarningMessage,
-                        //    Settings.Default.S6WarningHeader,
-                        //    MessageBoxButtons.OK);
+
                         return;
                     }
                 }
@@ -169,11 +156,6 @@ namespace CloudScraper
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S6WarningHeader,
                         Settings.Default.S6PathIncorrectWarningMessage, "", "OK", "OK",
                         Image.FromFile("Icons\\WarningDialog.png"), false);
-                    
-                    //DialogResult result = MessageBox.Show(
-                    //    Settings.Default.S6PathIncorrectWarningMessage,
-                    //    Settings.Default.S6WarningHeader,
-                    //    MessageBoxButtons.OK);
 
                     return;
                 }

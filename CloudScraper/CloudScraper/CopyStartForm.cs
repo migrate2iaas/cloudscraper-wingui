@@ -354,9 +354,6 @@ namespace CloudScraper
                     Settings.Default.S7PythonErrorMessage, "", "OK", "OK",
                     Image.FromFile("Icons\\ErrorDialog.png"), false);
                 
-                //DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
-                //Settings.Default.S7PythonErrorHeader,
-                //MessageBoxButtons.OK);
                 return;
             }
             
@@ -417,11 +414,7 @@ namespace CloudScraper
                 //Python started with errors.
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7PythonErrorHeader,
                     Settings.Default.S7PythonErrorMessage, "", "OK", "OK",
-                    Image.FromFile("Icons\\ErrorDialog.png"), false);
-
-                //DialogResult result = MessageBox.Show(Settings.Default.S7PythonErrorMessage,
-                //Settings.Default.S7PythonErrorHeader,
-                //MessageBoxButtons.OK);                
+                    Image.FromFile("Icons\\ErrorDialog.png"), false);          
             }
         }
 
@@ -627,7 +620,6 @@ namespace CloudScraper
                     Properties.Settings.Default.SMTPPassword);
                 //Smtp.EnableSsl = false;
 
-
                 MailMessage Message = new MailMessage();
                 Message.From = new MailAddress(Properties.Settings.Default.SMTPLogin);
                 Message.ReplyTo = new MailAddress(email);
@@ -797,11 +789,6 @@ namespace CloudScraper
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7WarningHeader,
                      Settings.Default.S7XKeyWarningMessage, "", "OK", "Cancel",
                     Image.FromFile("Icons\\WarningDialog.png"), true);
-                
-                //DialogResult result = MessageBox.Show(
-                //Settings.Default.S7XKeyWarningMessage,
-                //Settings.Default.S7WarningHeader,
-                //MessageBoxButtons.OKCancel);
 
                 if (result == DialogResult.Cancel)
                     return;
