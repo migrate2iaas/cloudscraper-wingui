@@ -5,22 +5,20 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Net;
 using System.Text.RegularExpressions;
-using CloudScraper.Properties;
 using System.Drawing;
 using System.IO;
-using NLog;
-using DotNetPerls;
-
 using System.Collections.Specialized;
 using System.Collections;
 using System.Web;
 using System.Xml;
-
-// for certificate
 using System.Security;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics;
+
+using NLog;
+using DotNetPerls;
+using CloudScraper.Properties;
 
 
 namespace CloudScraper
@@ -38,6 +36,7 @@ namespace CloudScraper
 
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
         delegate void MyDelegate();
+        private string path;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
         {
@@ -77,13 +76,7 @@ namespace CloudScraper
             this.zoneLabel.Text = Settings.Default.S4AzureCertificateThumbprintText;
             this.idTextBox.MaxLength = 24;
             this.keyTextBox.MaxLength = 1024;
-            //this.advancedCheckBox.Text = Settings.Default.S4ehDirectUploadCheckBoxText;
 
-            //this.toolTip.SetToolTip(this.advancedCheckBox, Settings.Default.S4EHDirectUploadCheckBoxToolTip);
-            //this.toolTip.SetToolTip(this.deduplcationCheckBox, Settings.Default.S4EHDeduplicationCheckBoxToolTip);
-            //this.toolTip.SetToolTip(this.drivesDataGridView, Settings.Default.S4EHDrivesListBoxToolTip);
-
-            //this.bucketLabel.Visible = false;
             this.folderKeyLabel.Visible = false;
             this.typeLabel.Visible = true;
             this.zoneLabel.Visible = true;
@@ -198,24 +191,7 @@ namespace CloudScraper
                         Settings.Default.S4AzureCertificateStoreError, "", "OK", "OK",
                         System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                     return;
-                    //if (ex is CryptographicException)
-                    //{
-                    //    Console.WriteLine("Error: The store is unreadable.");
-                    //}
-                    //else if (ex is SecurityException)
-                    //{
-                    //    Console.WriteLine("Error: You don't have the required permission.");
-                    //}
-                    //else if (ex is ArgumentException)
-                    //{
-                    //    Console.WriteLine("Error: Invalid values in the store.");
-                    //}
-                    //else
-                    //{
-                    //    throw;
-                    //}
                 }
-
 
                 // Find the certificate that matches the thumbprint.
                 X509Certificate2Collection certCollection = certStore.Certificates.Find(X509FindType.FindByThumbprint, 
@@ -252,11 +228,16 @@ namespace CloudScraper
 
         protected override void HelpButtonClick(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Settings.Default.S4EHLink);
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Help button click.");
+            
+            //Help button url.
+            System.Diagnostics.Process.Start(Settings.Default.S4AzureLink);
         }
 
         protected override void AdvancedChecked(object sender, EventArgs e)
         {
+            //Swithching advanced/simple mode.
             if ((sender as CheckBox).Checked)
             {
                 advanced_ = true;
@@ -278,6 +259,7 @@ namespace CloudScraper
 
         protected override void AzureDeployVirtualMachineChecked(object sender, EventArgs e)
         {
+            //Switching deploy mode.
             if ((sender as CheckBox).Checked)
             {
                 this.typeLabel.Enabled = true;
@@ -298,13 +280,12 @@ namespace CloudScraper
             }
         }
 
-        private string path;
         protected override void AzureCreateNewCertificateButtonClick(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
             saveFileDialog.DefaultExt = "." + "cer";
-            path = "";
+            this.path = "";
 
             DialogResult result = saveFileDialog.ShowDialog();
             if (result == DialogResult.OK)
@@ -312,6 +293,7 @@ namespace CloudScraper
                 path = saveFileDialog.FileName;
             }
 
+            //Creating certificate process.
             Process process = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
             info.FileName = "makecert.exe";
@@ -331,7 +313,7 @@ namespace CloudScraper
             }
         }
 
-        void ProcessExited(object sender, EventArgs e)
+        private void ProcessExited(object sender, EventArgs e)
         {
             DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
                 Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
@@ -355,34 +337,17 @@ namespace CloudScraper
                     }
                 }
                 
-                //certificateThumbprint_ = fcollection[0].Thumbprint;
                 this.BeginInvoke(new MyDelegate(() =>
                 {
                     zoneComboBox.Text = fcollection[indexOfthumbprint].Thumbprint;
                 }));
                
-                //X509Certificate2Collection scollection = X509Certificate2UI.SelectFromCollection(fcollection, "Test Certificate Select", "Select a certificate from the following list to get information on that certificate", X509SelectionFlag.MultiSelection);
-                //Console.WriteLine("Number of certificates: {0}{1}", scollection.Count, Environment.NewLine);
-                //foreach (X509Certificate2 x509 in scollection)
-                //{
-                //    byte[] rawdata = x509.RawData;
-                //    Console.WriteLine("Content Type: {0}{1}", X509Certificate2.GetCertContentType(rawdata), Environment.NewLine);
-                //    Console.WriteLine("Friendly Name: {0}{1}", x509.FriendlyName, Environment.NewLine);
-                //    Console.WriteLine("Certificate Verified?: {0}{1}", x509.Verify(), Environment.NewLine);
-                //    Console.WriteLine("Simple Name: {0}{1}", x509.GetNameInfo(X509NameType.SimpleName, true), Environment.NewLine);
-                //    Console.WriteLine("Signature Algorithm: {0}{1}", x509.SignatureAlgorithm.FriendlyName, Environment.NewLine);
-                //    Console.WriteLine("Private Key: {0}{1}", x509.PrivateKey.ToXmlString(false), Environment.NewLine);
-                //    Console.WriteLine("Public Key: {0}{1}", x509.PublicKey.Key.ToXmlString(false), Environment.NewLine);
-                //    Console.WriteLine("Certificate Archived?: {0}{1}", x509.Archived, Environment.NewLine);
-                //    Console.WriteLine("Length of Raw Data: {0}{1}", x509.RawData.Length, Environment.NewLine);
-                //    X509Certificate2UI.DisplayCertificate(x509);
-                //    x509.Reset();
-                //}
                 store.Close();
             }
-            catch (CryptographicException)
+            catch (CryptographicException ex)
             {
-                Console.WriteLine("Information could not be written out for this certificate.");
+                if (logger_.IsErrorEnabled)
+                    logger_.Error(ex);
             }
         }
 
@@ -402,7 +367,6 @@ namespace CloudScraper
         {
             this.testButton.Enabled = false;
             this.Cursor = Cursors.WaitCursor;
-
 
             //If there are no keys entered.
             if (storageAccount_ == "" || primaryAccessKey_ == "")
@@ -500,14 +464,6 @@ namespace CloudScraper
             }
             catch (WebException ex)
             {
-                //using (Stream stream = ex.Response.GetResponseStream())
-                //{
-                //    using (StreamReader sr = new StreamReader(stream))
-                //    {
-                //        string s = sr.ReadToEnd();
-                //    }
-                //}
-
                 //Show dialog  when auth failed.
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     ex.Status + "\n" +
@@ -516,6 +472,7 @@ namespace CloudScraper
 
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
+                
                 return;
             }
             
@@ -546,32 +503,11 @@ namespace CloudScraper
                 string uriFormat = "https://management.core.windows.net/{0}/services/storageservices/{1}";
                 Uri uri = new Uri(String.Format(uriFormat, subscriptionId, accountName));
 
-                //Uri uri = new Uri(String.Format(uriFormat, subscriptionId));
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
                 request.Method = "GET";
                 request.Headers.Add("x-ms-version", "2011-10-01");
                 request.ClientCertificates.Add(certificate);
                 request.ContentType = "application/xml";
-
-                //HttpWebResponse response;
-
-                //try
-                //{
-                //    response = (HttpWebResponse)request.GetResponse();
-                //}
-                //catch (WebException ex)
-                //{
-                //    // GetResponse throws a WebException for 400 and 500 status codes
-                //    response = (HttpWebResponse)ex.Response;
-                //}
-                //using (Stream stream = response.GetResponseStream())
-                //{
-                //    using (StreamReader sr = new StreamReader(stream))
-                //    {
-                //        string s = sr.ReadToEnd();
-                //    }
-                //}
-                //response.Close();
 
                 try
                 {
@@ -612,7 +548,6 @@ namespace CloudScraper
                     this.Cursor = Cursors.Arrow;
                     return;
                 }
-
             }
 
             this.testButton.Enabled = true;
@@ -643,8 +578,7 @@ namespace CloudScraper
             }
             return null;
         }
-
-        
+       
         //Check enter in Form for activate Next button.
         private void CheckEnter()
         {
@@ -673,7 +607,6 @@ namespace CloudScraper
         {
             containerName_ = this.azureContainerComboBox.Text;
         }
-
 
         #region Helper method/class
 

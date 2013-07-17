@@ -92,7 +92,6 @@ namespace CloudScraper
                         //Check System drive.
                         if (Environment.GetEnvironmentVariable("SystemRoot").Contains(info.Name))
                         {
-                            //string str = Environment.GetEnvironmentVariable("windir");
                             volume.IsChecked = true;
                             volume.Image = new Bitmap(Image.FromFile("Icons\\WindowsDrive.ico"), new Size(24, 24));
                             totalSpaceRequired_ = volume.UsedSpace;
@@ -168,7 +167,11 @@ namespace CloudScraper
             if (sender is DataGridView && e.ColumnIndex == 0)
             {
                 this.volumes_[e.RowIndex].IsChecked = !this.volumes_[e.RowIndex].IsChecked;
-
+                
+                if (logger_.IsDebugEnabled)
+                    logger_.Debug("Disk " + this.volumes_[e.RowIndex].Name + " state changed to " + 
+                        this.volumes_[e.RowIndex].IsChecked.ToString());
+                
                 this.UpdateVolumes();
 
                 if (e.RowIndex == 0 && this.volumes_[0].IsChecked == false)
@@ -176,13 +179,8 @@ namespace CloudScraper
                     //Show message when system drive is unchecked.
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S2MessgeHeader,
                         Settings.Default.S2MessageFirst + "\n" +
-                    Settings.Default.S2MessageSecond,"", "OK", "Cancel",
+                        Settings.Default.S2MessageSecond,"", "OK", "Cancel",
                         Image.FromFile("Icons\\WarningDialog.png"), true);
-
-                    //DialogResult result = MessageBox.Show(Settings.Default.S2MessageFirst + "\n" +
-                    //Settings.Default.S2MessageSecond, Settings.Default.S2MessgeHeader,
-                    //    MessageBoxButtons.OKCancel);
-
 
                     if (result == DialogResult.Cancel)
                     {
@@ -228,6 +226,9 @@ namespace CloudScraper
 
         private void HelpButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Help button click.");
+
             //Help button url.
             System.Diagnostics.Process.Start(Settings.Default.S2Link);
         }

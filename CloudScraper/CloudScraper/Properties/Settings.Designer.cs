@@ -2261,5 +2261,17 @@ namespace CloudScraper.Properties {
                 this["S4AzureCreateThumbprintButtonToolTip"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure  link")]
+        public string S4AzureLink {
+            get {
+                return ((string)(this["S4AzureLink"]));
+            }
+            set {
+                this["S4AzureLink"] = value;
+            }
+        }
     }
 }
