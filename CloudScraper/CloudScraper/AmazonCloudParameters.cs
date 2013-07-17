@@ -562,6 +562,11 @@ namespace CloudScraper
             base.CloudParametersLoad(sender, e);
         }
 
+        protected override void OnLeaveEnter(object sender, EventArgs e)
+        {
+
+        }
+
         protected override void TextBoxMouseEnter(object sender, EventArgs e)
         {
             if (sender is TextBox)

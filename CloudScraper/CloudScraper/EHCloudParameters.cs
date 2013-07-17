@@ -322,6 +322,11 @@ namespace CloudScraper
                 return Guid.Empty;
         }
 
+        protected override void OnLeaveEnter(object sender, EventArgs e)
+        {
+            
+        }
+
         protected override void TextBoxMouseEnter(object sender, EventArgs e)
         {
             if (sender is TextBox)
