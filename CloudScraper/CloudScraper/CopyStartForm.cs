@@ -261,29 +261,9 @@ namespace CloudScraper
                 }
             }
         }
-        
-        
-        private void StartButtonClick(object sender, EventArgs e)
+
+        private void StartCopyProcess()
         {
-            Properties.Settings.Default.TextFile = Properties.Settings.Default.TextFile.Substring(0,
-                Properties.Settings.Default.TextFile.Length - 4) + "_" +
-                DateTime.Now.Year.ToString() + "_" + 
-                DateTime.Now.Month.ToString() + "_" + 
-                DateTime.Now.Day.ToString() + "_" + 
-                DateTime.Now.Hour.ToString() + "-" + 
-                DateTime.Now.Minute.ToString() +
-                Properties.Settings.Default.TextFile.Substring(Properties.Settings.Default.TextFile.Length - 4);
-            
-            this.backButton.Enabled = false;
-            
-
-            if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
-            {
-                // Create transfer file, encode in utf with no BOM (first marking bytes)
-                this.GenerateInf();
-            }
-            //! Move to seaprate function StartCopyProcess()
-
             // arguments for migrate.py
             string arguments = "";
             string passwordarg = "";
@@ -295,48 +275,48 @@ namespace CloudScraper
                 passwordarg = " --azurekey " + this.password;
             //using (StreamWriter stream = new StreamWriter("migrate.cmd", false))
             //{
-                //stream.WriteLine("@echo off");
-                //stream.WriteLine("set PATH=%PATH%;%~dp0\\3rdparty\\Portable_Python_2.7.3.1\\App");
-                //stream.WriteLine("cd /d \"%~dp0\\Migrate\\Migrate\"");
-                if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
-                {
-                    //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                    //Encoding.UTF8.GetString(Encoding.ASCII.GetBytes(SaveTransferTaskForm.transferPath_))
-                    arguments += 
+            //stream.WriteLine("@echo off");
+            //stream.WriteLine("set PATH=%PATH%;%~dp0\\3rdparty\\Portable_Python_2.7.3.1\\App");
+            //stream.WriteLine("cd /d \"%~dp0\\Migrate\\Migrate\"");
+            if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
+            {
+                //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                //Encoding.UTF8.GetString(Encoding.ASCII.GetBytes(SaveTransferTaskForm.transferPath_))
+                arguments +=
+                passwordarg +
+                " -c " + "\"" + SaveTransferTaskForm.transferPath_ + "\"" +
+                " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
+                //);
+            }
+            else if (ResumeTransferForm.resumeUpload_)
+            {
+                //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                arguments =
                     passwordarg +
-                    " -c " + "\"" + SaveTransferTaskForm.transferPath_ + "\"" +
+                    " --resumeupload " +
+                    " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
                     " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
-                    //);
-                }
-                else if (ResumeTransferForm.resumeUpload_)
-                {
-                    //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                    arguments =
-                        passwordarg + 
-                        " --resumeupload " +
-                        " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
-                        " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
-                    //);
-                }
-                else if (ResumeTransferForm.skipUpload_)
-                {
-                    //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                    arguments =
-                        passwordarg + 
-                        " --skipupload " +
-                        " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
-                        " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
-                    //);
-                }
-                else if (ResumeTransferForm.resumeFilePath_ != null)
-                {
-                    //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
-                    arguments =
-                        passwordarg + 
-                        " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
-                        " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
-                    //);
-                }
+                //);
+            }
+            else if (ResumeTransferForm.skipUpload_)
+            {
+                //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                arguments =
+                    passwordarg +
+                    " --skipupload " +
+                    " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
+                    " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
+                //);
+            }
+            else if (ResumeTransferForm.resumeFilePath_ != null)
+            {
+                //stream.WriteLine("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe migrate.py" +
+                arguments =
+                    passwordarg +
+                    " -c " + "\"" + ResumeTransferForm.resumeFilePath_ + "\"" +
+                    " -o " + "\"" + Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TextFile + "\"";
+                //);
+            }
             //}
 
             if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile))
@@ -345,24 +325,24 @@ namespace CloudScraper
             //python process.
             pythonProcess = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
-            
+
             //If we start throwgh .cmd file.
             //info.FileName = "migrate.cmd";
-            Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH") 
-                + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.3.1\\App");            
+            Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH")
+                + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.3.1\\App");
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Migrate\\Migrate");
 
-            if (!File.Exists("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe") || 
+            if (!File.Exists("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe") ||
                 (!File.Exists("migrate.py") && !File.Exists("migrate.pyc")))
             {
                 //There are no python.exe
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7PythonErrorHeader,
                     Settings.Default.S7PythonErrorMessage, "", "OK", "OK",
                     Image.FromFile("Icons\\ErrorDialog.png"), false);
-                
+
                 return;
             }
-            
+
             info.FileName = "..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe";
 
             if (File.Exists("migrate.py"))
@@ -388,8 +368,8 @@ namespace CloudScraper
 
             info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
             info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
-            
-            pythonProcess.StartInfo = info;           
+
+            pythonProcess.StartInfo = info;
             pythonProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             pythonProcess.Exited += new EventHandler(this.PythonExited);
             pythonProcess.EnableRaisingEvents = true;
@@ -420,8 +400,31 @@ namespace CloudScraper
                 //Python started with errors.
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S7PythonErrorHeader,
                     Settings.Default.S7PythonErrorMessage, "", "OK", "OK",
-                    Image.FromFile("Icons\\ErrorDialog.png"), false);          
+                    Image.FromFile("Icons\\ErrorDialog.png"), false);
             }
+        }
+        
+        private void StartButtonClick(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.TextFile = Properties.Settings.Default.TextFile.Substring(0,
+                Properties.Settings.Default.TextFile.Length - 4) + "_" +
+                DateTime.Now.Year.ToString() + "_" + 
+                DateTime.Now.Month.ToString() + "_" + 
+                DateTime.Now.Day.ToString() + "_" + 
+                DateTime.Now.Hour.ToString() + "-" + 
+                DateTime.Now.Minute.ToString() +
+                Properties.Settings.Default.TextFile.Substring(Properties.Settings.Default.TextFile.Length - 4);
+            
+            this.backButton.Enabled = false;
+            
+
+            if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
+            {
+                // Create transfer file, encode in utf with no BOM (first marking bytes)
+                this.GenerateInf();
+            }
+            //Start python process.
+            this.StartCopyProcess();
         }
 
 
