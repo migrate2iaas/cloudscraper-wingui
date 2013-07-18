@@ -37,6 +37,7 @@ namespace CloudScraper
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
         delegate void MyDelegate();
         private string certificatePath;
+        private int certificateCount;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
         {
@@ -321,6 +322,15 @@ namespace CloudScraper
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             process.Exited += new EventHandler(this.ProcessExited);
             process.EnableRaisingEvents = true;
+            
+            //Count certificates.
+            X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
+            store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+            X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
+            X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+            certificateCount = fcollection.Count;
+            store.Close();
+            
             if (!process.Start())
             {
                 DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
@@ -331,16 +341,7 @@ namespace CloudScraper
 
         private void ProcessExited(object sender, EventArgs e)
         {
-            
-            DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
-                System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-
-            //Open browser with Windows Azure, for user to upload created certificate.
-            Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
-            
-            //! and what this code is all about
-            //! what is to happen if we failed to find a certificate in the store?
+            //Verify that new certificate has created.
             try
             {
                 X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
@@ -348,21 +349,37 @@ namespace CloudScraper
                 X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
                 X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
 
-                int indexOfthumbprint = 0;
-                foreach (X509Certificate certificate in fcollection)
+                if (fcollection.Count > certificateCount)
                 {
-                    if (fcollection[fcollection.IndexOf(certificate)].NotBefore >
-                        fcollection[indexOfthumbprint].NotBefore)
-                    {
-                        indexOfthumbprint = fcollection.IndexOf(certificate);
-                    }
+                    DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
+                    Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                }
+                else
+                {
+                    DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
+                    Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                 }
                 
+                int indexOfthumbprint = 0;
+                if (fcollection.Count > 0)
+                {
+                    foreach (X509Certificate certificate in fcollection)
+                    {
+                        if (fcollection[fcollection.IndexOf(certificate)].NotBefore >
+                            fcollection[indexOfthumbprint].NotBefore)
+                        {
+                            indexOfthumbprint = fcollection.IndexOf(certificate);
+                        }
+                    }
+                }
+
                 this.BeginInvoke(new MyDelegate(() =>
                 {
                     zoneComboBox.Text = fcollection[indexOfthumbprint].Thumbprint;
                 }));
-               
+
                 store.Close();
             }
             catch (CryptographicException ex)
@@ -370,6 +387,10 @@ namespace CloudScraper
                 if (logger_.IsErrorEnabled)
                     logger_.Error(ex);
             }
+
+            //Open browser with Windows Azure, for user to upload created certificate.
+            Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
+            
         }
 
         protected override void AzureSubscriptionIdTextChanged(object sender, EventArgs e)
