@@ -210,6 +210,7 @@ namespace CloudScraper
                     return;
                 }
 
+                //! Move checking code to seaprate function e.g. CheckCredentials()
                 string credentials = uuid_ + ":" + apiKey_;
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api-" + region_ + ".elastichosts.com/drives/info"); 
                     //".elastichosts.com/servers/list");

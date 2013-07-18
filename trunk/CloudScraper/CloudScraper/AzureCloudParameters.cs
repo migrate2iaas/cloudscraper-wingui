@@ -25,6 +25,7 @@ namespace CloudScraper
 {
     public class AzureCloudParameters : CloudParametersForm
     {
+        //! why are these objects static?
         public static string storageAccount_ = "";
         public static string primaryAccessKey_ = "";
         public static string region_;
@@ -34,8 +35,11 @@ namespace CloudScraper
         public static string certificateThumbprint_ = "";
         public static string containerName_ = "";
 
+        //! do we use different logs for different forms or it's just a section?
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
+        //! delegate? for what?
         delegate void MyDelegate();
+        //! wtf is path? path to what? name it better
         private string path;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
@@ -50,6 +54,8 @@ namespace CloudScraper
                 this.regionList_.Add(key, value);
 
                 this.regionComboBox.Items.Add(key);
+                //! use key here instead of value. Imagine the program will be localized and East US value will become 'Восток США'. 
+                //! the same is true for other clouds too
                 if (value == "East US")
                 {
                     this.regionComboBox.SelectedItem = key;
@@ -177,6 +183,7 @@ namespace CloudScraper
 
         protected override void NextButtonClick(object sender, EventArgs e)
         {
+            //! Move it to separate function e.g. CheckCertificateInstalled()
             if (advanced_)
             {
                 X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
@@ -322,11 +329,15 @@ namespace CloudScraper
 
         private void ProcessExited(object sender, EventArgs e)
         {
+            
             DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
                 Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
                 System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-            
+
+            //! more comments is neded. What do we do here?
             Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
+            //! and what this code is all about
+            //! what is to happen if we failed to find a certificate in the store?
             try
             {
                 X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
@@ -390,7 +401,9 @@ namespace CloudScraper
             string AccountName = storageAccount_;
             string AccountSharedKey = primaryAccessKey_;
             string MessageSignature = "";
-                
+            
+            //! move it to a separate function: CheckStorageAccount()
+
             // Set request URI
             Uri requesturi = new Uri("https://" + storageAccount_ + ".blob.core.windows.net/?comp=list");
 
@@ -456,6 +469,7 @@ namespace CloudScraper
 
                         this.azureContainerComboBox.Items.Clear();
 
+                        //! add more comments here
                         using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
                         {
                             while (reader.Read())
@@ -482,10 +496,11 @@ namespace CloudScraper
                 
                 return;
             }
-            
 
+            //! move it to separate function CheckStroageAccountInRegion
             if (advanced_ && this.azureDeployVirtualMachineCheckBox.Checked)
             {
+                //! move it to separate function 
                 this.testButton.Enabled = false;
                 this.Cursor = Cursors.WaitCursor;
 

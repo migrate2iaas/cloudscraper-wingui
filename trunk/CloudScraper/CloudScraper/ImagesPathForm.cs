@@ -184,6 +184,7 @@ namespace CloudScraper
 
                         foreach (char c in Path.GetInvalidPathChars())
                         {
+                            //! make separate function e.g. CheckValidFilesystemPath 
                             if (imagesPath_.Contains(c.ToString()) ||
                                 imagesPath_.Contains("/") ||
                                 imagesPath_.Contains("\\\\") ||

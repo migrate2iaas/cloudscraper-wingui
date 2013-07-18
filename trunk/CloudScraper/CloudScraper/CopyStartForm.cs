@@ -178,6 +178,7 @@ namespace CloudScraper
 
             if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
             {
+                //! Move to separate function GenerateInf()
                 // Create transfer file, encode in utf with no BOM (first marking bytes)
                 var utf16 = new System.Text.UnicodeEncoding(false , true);
                 using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false, utf16))
@@ -277,6 +278,7 @@ namespace CloudScraper
                     }
                 }
             }
+            //! Move to seaprate function StartCopyProcess()
 
             // arguments for migrate.py
             string arguments = "";
