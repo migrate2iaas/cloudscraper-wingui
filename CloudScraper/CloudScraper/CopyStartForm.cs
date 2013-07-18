@@ -161,7 +161,108 @@ namespace CloudScraper
             }
         }
 
+        private void GenerateInf()
+        {
+            var utf16 = new System.Text.UnicodeEncoding(false, true);
+            using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false, utf16))
+            {
+                if (this.isAmazon)
+                {
+                    // we use VHD only if system natively support this format
+                    string imagetype = "RAW";
+                    bool win2008r2_or_above = ((System.Environment.Version.Major >= 6) && (System.Environment.Version.Minor >= 1));
+                    if (win2008r2_or_above)
+                    {
+                        imagetype = "VHD";
+                    }
 
+                    stream.WriteLine("[EC2]");
+                    stream.WriteLine("region = " + AmazonCloudParameters.region_);
+                    if (AmazonCloudParameters.zone_ != "")
+                        stream.WriteLine("zone = " + AmazonCloudParameters.zone_);
+                    if (AmazonCloudParameters.group_ != "")
+                        stream.WriteLine("security-group = " + AmazonCloudParameters.group_);
+                    if (AmazonCloudParameters.type_ != "")
+                        stream.WriteLine("instance-type = " + AmazonCloudParameters.type_);
+                    stream.WriteLine("target-arch = x86_64");
+                    if (AmazonCloudParameters.folderKey_ != "")
+                        stream.WriteLine("s3prefix = " + AmazonCloudParameters.folderKey_);
+                    stream.WriteLine("s3key = " + AmazonCloudParameters.awsId_);
+                    if (AmazonCloudParameters.s3bucket_ != "")
+                        stream.WriteLine("bucket = " + AmazonCloudParameters.s3bucket_);
+                    stream.WriteLine("[Image]");
+                    stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
+                    stream.WriteLine("source-arch = x86_64");
+                    stream.WriteLine("image-type = " + imagetype);
+                }
+                else if (this.isElasticHosts)
+                {
+                    stream.WriteLine("[ElasticHosts]");
+                    stream.WriteLine("region = " + EHCloudParameters.region_);
+                    stream.WriteLine("user-uuid = " + EHCloudParameters.uuid_);
+                    if (EHCloudParameters.drivesList_.Count != 0)
+                    {
+                        string str = "avoid-disks = ";
+                        foreach (string disk in EHCloudParameters.drivesList_)
+                        {
+                            if (EHCloudParameters.drivesList_.IndexOf(disk) !=
+                                EHCloudParameters.drivesList_.Count - 1)
+                                str += disk + "; ";
+                            else
+                                str += disk;
+                        }
+                        stream.WriteLine(str);
+                    }
+                    if (EHCloudParameters.useDeduplication_)
+                        stream.WriteLine("deduplication = True");
+                    stream.WriteLine("[Image]");
+                    if (!EHCloudParameters.directUpload_)
+                        stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
+                    stream.WriteLine("source-arch = x86_64");
+                    if (EHCloudParameters.directUpload_)
+                        stream.WriteLine("image-type = raw");
+                    else
+                        stream.WriteLine("image-type = raw.tar");
+                    stream.WriteLine("image-chunck = 4194304");
+                    if (EHCloudParameters.directUpload_)
+                        stream.WriteLine("image-placement = direct");
+                    else
+                        stream.WriteLine("image-placement = local");
+                }
+                else if (this.isAzure)
+                {
+                    stream.WriteLine("[Azure]");
+                    stream.WriteLine("region = " + AzureCloudParameters.region_);
+                    stream.WriteLine("storage-account = " + AzureCloudParameters.storageAccount_);
+                    if (AzureCloudParameters.certificateThumbprint_ != "")
+                        stream.WriteLine("certificate-thumbprint = " + AzureCloudParameters.certificateThumbprint_);
+                    if (AzureCloudParameters.subscriptionId_ != "")
+                        stream.WriteLine("subscription-id = " + AzureCloudParameters.subscriptionId_);
+                    if (AzureCloudParameters.containerName_ != "")
+                        stream.WriteLine("container-name = " + AzureCloudParameters.containerName_);
+                    stream.WriteLine("[Image]");
+                    stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
+                    stream.WriteLine("source-arch = x86_64");
+                    stream.WriteLine("image-type = VHD");
+                    stream.WriteLine("image-chunck = 4194304");
+                    stream.WriteLine("image-placement = local");
+                }
+
+                stream.WriteLine("[Volumes]");
+                string letters = null;
+                foreach (string str in ChooseDisksForm.selectedDisks_)
+                {
+                    letters = letters == null ? str.Replace(":\\", "") : letters + "," + str.Replace(":\\", "");
+                }
+                stream.WriteLine("letters = " + letters);
+                foreach (string str in ChooseDisksForm.selectedDisks_)
+                {
+                    stream.WriteLine("[" + str.Replace(":\\", "") + "]");
+                }
+            }
+        }
+        
+        
         private void StartButtonClick(object sender, EventArgs e)
         {
             Properties.Settings.Default.TextFile = Properties.Settings.Default.TextFile.Substring(0,
@@ -178,105 +279,8 @@ namespace CloudScraper
 
             if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
             {
-                //! Move to separate function GenerateInf()
                 // Create transfer file, encode in utf with no BOM (first marking bytes)
-                var utf16 = new System.Text.UnicodeEncoding(false , true);
-                using (StreamWriter stream = new StreamWriter(SaveTransferTaskForm.transferPath_, false, utf16))
-                {
-                    if (this.isAmazon)
-                    {
-                        // we use VHD only if system natively support this format
-                        string imagetype = "RAW";
-                        bool win2008r2_or_above = ((System.Environment.Version.Major >= 6) && (System.Environment.Version.Minor >= 1));
-                        if (win2008r2_or_above)
-                        {
-                            imagetype = "VHD";
-                        }
-
-                        stream.WriteLine("[EC2]");
-                        stream.WriteLine("region = " + AmazonCloudParameters.region_);
-                        if (AmazonCloudParameters.zone_ != "")
-                            stream.WriteLine("zone = " + AmazonCloudParameters.zone_);
-                        if (AmazonCloudParameters.group_ != "")
-                            stream.WriteLine("security-group = " + AmazonCloudParameters.group_);
-                        if (AmazonCloudParameters.type_ != "")
-                            stream.WriteLine("instance-type = " + AmazonCloudParameters.type_);
-                        stream.WriteLine("target-arch = x86_64");
-                        if (AmazonCloudParameters.folderKey_ != "")
-                            stream.WriteLine("s3prefix = " + AmazonCloudParameters.folderKey_);
-                        stream.WriteLine("s3key = " + AmazonCloudParameters.awsId_);
-                        if (AmazonCloudParameters.s3bucket_ != "")
-                            stream.WriteLine("bucket = " + AmazonCloudParameters.s3bucket_);
-                        stream.WriteLine("[Image]");
-                        stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
-                        stream.WriteLine("source-arch = x86_64");
-                        stream.WriteLine("image-type = " + imagetype);
-                    }
-                    else if (this.isElasticHosts)
-                    {
-                        stream.WriteLine("[ElasticHosts]");
-                        stream.WriteLine("region = " + EHCloudParameters.region_);
-                        stream.WriteLine("user-uuid = " + EHCloudParameters.uuid_);
-                        if (EHCloudParameters.drivesList_.Count != 0)
-                        {
-                            string str = "avoid-disks = ";
-                            foreach (string disk in EHCloudParameters.drivesList_)
-                            {
-                                if (EHCloudParameters.drivesList_.IndexOf(disk) !=
-                                    EHCloudParameters.drivesList_.Count - 1)
-                                    str += disk + "; ";
-                                else
-                                    str += disk;
-                            }
-                            stream.WriteLine(str);
-                        }
-                        if (EHCloudParameters.useDeduplication_)
-                            stream.WriteLine("deduplication = True");
-                        stream.WriteLine("[Image]");
-                        if (!EHCloudParameters.directUpload_)
-                            stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
-                        stream.WriteLine("source-arch = x86_64");
-                        if (EHCloudParameters.directUpload_)
-                            stream.WriteLine("image-type = raw");
-                        else
-                            stream.WriteLine("image-type = raw.tar");
-                        stream.WriteLine("image-chunck = 4194304");
-                        if (EHCloudParameters.directUpload_)
-                            stream.WriteLine("image-placement = direct");
-                        else
-                            stream.WriteLine("image-placement = local");
-                    }
-                    else if (this.isAzure)
-                    {
-                        stream.WriteLine("[Azure]");
-                        stream.WriteLine("region = " + AzureCloudParameters.region_);
-                        stream.WriteLine("storage-account = " + AzureCloudParameters.storageAccount_);
-                        if (AzureCloudParameters.certificateThumbprint_ != "")
-                            stream.WriteLine("certificate-thumbprint = " + AzureCloudParameters.certificateThumbprint_);
-                        if (AzureCloudParameters.subscriptionId_ != "")
-                            stream.WriteLine("subscription-id = " + AzureCloudParameters.subscriptionId_);
-                        if (AzureCloudParameters.containerName_ != "")
-                            stream.WriteLine("container-name = " + AzureCloudParameters.containerName_);
-                        stream.WriteLine("[Image]");
-                        stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
-                        stream.WriteLine("source-arch = x86_64");
-                        stream.WriteLine("image-type = VHD");
-                        stream.WriteLine("image-chunck = 4194304");
-                        stream.WriteLine("image-placement = local");
-                    }
-                    
-                    stream.WriteLine("[Volumes]");
-                    string letters = null;
-                    foreach (string str in ChooseDisksForm.selectedDisks_)
-                    {
-                        letters = letters == null ? str.Replace(":\\", "") : letters + "," + str.Replace(":\\", "");
-                    }
-                    stream.WriteLine("letters = " + letters);
-                    foreach (string str in ChooseDisksForm.selectedDisks_)
-                    {
-                        stream.WriteLine("[" + str.Replace(":\\", "") + "]");
-                    }
-                }
+                this.GenerateInf();
             }
             //! Move to seaprate function StartCopyProcess()
 

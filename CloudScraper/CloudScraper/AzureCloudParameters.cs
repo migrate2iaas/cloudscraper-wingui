@@ -25,7 +25,6 @@ namespace CloudScraper
 {
     public class AzureCloudParameters : CloudParametersForm
     {
-        //! why are these objects static?
         public static string storageAccount_ = "";
         public static string primaryAccessKey_ = "";
         public static string region_;
@@ -35,11 +34,8 @@ namespace CloudScraper
         public static string certificateThumbprint_ = "";
         public static string containerName_ = "";
 
-        //! do we use different logs for different forms or it's just a section?
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
-        //! delegate? for what?
         delegate void MyDelegate();
-        //! wtf is path? path to what? name it better
         private string certificatePath;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
@@ -340,8 +336,9 @@ namespace CloudScraper
                 Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
                 System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
 
-            //! more comments is neded. What do we do here?
+            //Open browser with Windows Azure, for user to upload created certificate.
             Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
+            
             //! and what this code is all about
             //! what is to happen if we failed to find a certificate in the store?
             try
@@ -447,19 +444,19 @@ namespace CloudScraper
 
             try
             {
-                // Send Http request and get response
+                //Send Http request and get response.
                 using (HttpWebResponse response = (HttpWebResponse)Request.GetResponse())
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        // If success
+                        //If success.
                         DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                             Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
 
                         this.azureContainerComboBox.Items.Clear();
 
-                        //! add more comments here
+                        //Read container names from response.  
                         using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
                         {
                             while (reader.Read())
