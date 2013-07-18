@@ -173,7 +173,14 @@ namespace CloudScraper
                     bool win2008r2_or_above = ((System.Environment.Version.Major >= 6) && (System.Environment.Version.Minor >= 1));
                     if (win2008r2_or_above)
                     {
+                        if (logger_.IsDebugEnabled)
+                             logger_.Debug("Using VHD image type for Windows 2008R2+");
                         imagetype = "VHD";
+                    }
+                    else
+                    {
+                       if (logger_.IsDebugEnabled)
+                            logger_.Debug("Using RAW image for Windows version " + System.Environment.Version.Major.ToString() + "." + System.Environment.Version.Minor.ToString());
                     }
 
                     stream.WriteLine("[EC2]");
