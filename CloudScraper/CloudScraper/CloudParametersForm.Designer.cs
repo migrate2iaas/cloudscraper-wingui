@@ -257,6 +257,7 @@
             this.selectAllCheckBox.Text = "Select all";
             this.selectAllCheckBox.UseVisualStyleBackColor = true;
             this.selectAllCheckBox.CheckedChanged += new System.EventHandler(this.SelectAll);
+            this.selectAllCheckBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             // 
             // drivesListLabel
             // 
@@ -277,6 +278,7 @@
             this.deduplcationCheckBox.Text = "Use deduplication";
             this.deduplcationCheckBox.UseVisualStyleBackColor = true;
             this.deduplcationCheckBox.CheckedChanged += new System.EventHandler(this.UseDeduplicationChecked);
+            this.deduplcationCheckBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             // 
             // folderKeyLabel
             // 
@@ -297,6 +299,7 @@
             this.folderKeyBox.Size = new System.Drawing.Size(235, 20);
             this.folderKeyBox.TabIndex = 9;
             this.folderKeyBox.TextChanged += new System.EventHandler(this.FolderKeyChanged);
+            this.folderKeyBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.folderKeyBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
             // advancedCheckBox
@@ -391,6 +394,7 @@
             this.groupComboBox.TabIndex = 12;
             this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.GroupComboBoxIndexChanged);
             this.groupComboBox.TextChanged += new System.EventHandler(this.GroupComboBoxTextChanged);
+            this.groupComboBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.groupComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             this.groupComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
@@ -403,6 +407,7 @@
             this.serverTypeComboBox.Size = new System.Drawing.Size(234, 21);
             this.serverTypeComboBox.TabIndex = 4;
             this.serverTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ServerTypeChanged);
+            this.serverTypeComboBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.serverTypeComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             this.serverTypeComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
