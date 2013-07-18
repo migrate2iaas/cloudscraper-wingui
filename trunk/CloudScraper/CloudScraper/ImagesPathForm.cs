@@ -152,6 +152,37 @@ namespace CloudScraper
 
         }
 
+        private bool CheckValidFileSystemPath()
+        {
+            string root = Path.GetPathRoot(imagesPath_);
+
+            imagesPath_ = imagesPath_.Replace(root, "");
+
+            foreach (char c in Path.GetInvalidPathChars())
+            {
+                if (imagesPath_.Contains(c.ToString()) ||
+                    imagesPath_.Contains("/") ||
+                    imagesPath_.Contains("\\\\") ||
+                    imagesPath_.Contains(":") ||
+                    imagesPath_.Contains("*") ||
+                    imagesPath_.Contains("?") ||
+                    imagesPath_.Contains("\"") ||
+                    imagesPath_.Contains("<") || imagesPath_.Contains(">") ||
+                    imagesPath_.Contains("|"))
+                {
+                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
+                        Settings.Default.S5WrongSymbolsWarningMessage, "", "OK", "OK",
+                        Image.FromFile("Icons\\ErrorDialog.png"), false);
+
+                    return false;
+                }
+            }
+
+            imagesPath_ = imagesPath_.Insert(0, root);
+            return true;
+        }
+        
+        
         private void NextButtonClick(object sender, EventArgs e)
         {
             try
@@ -178,32 +209,9 @@ namespace CloudScraper
                 {
                     if (Path.IsPathRooted(imagesPath_))
                     {
-                        string root = Path.GetPathRoot(imagesPath_);
 
-                        imagesPath_ = imagesPath_.Replace(root, "");
-
-                        foreach (char c in Path.GetInvalidPathChars())
-                        {
-                            //! make separate function e.g. CheckValidFilesystemPath 
-                            if (imagesPath_.Contains(c.ToString()) ||
-                                imagesPath_.Contains("/") ||
-                                imagesPath_.Contains("\\\\") ||
-                                imagesPath_.Contains(":") ||
-                                imagesPath_.Contains("*") ||
-                                imagesPath_.Contains("?") ||
-                                imagesPath_.Contains("\"") ||
-                                imagesPath_.Contains("<") || imagesPath_.Contains(">") ||
-                                imagesPath_.Contains("|"))
-                            {
-                                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
-                                    Settings.Default.S5WrongSymbolsWarningMessage, "", "OK", "OK",
-                                    Image.FromFile("Icons\\ErrorDialog.png"), false);
-                                
-                                return;
-                            }
-                        }
-
-                        imagesPath_ = imagesPath_.Insert(0, root);
+                        if (!this.CheckValidFileSystemPath())
+                            return;
 
                         DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S5WarningHeader,
                             Settings.Default.S5DirectoryNotExistWarningMessage, "", "OK", "Cancel",
