@@ -242,9 +242,6 @@ namespace CloudScraper
                             Settings.Default.S4InvalidBucketText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                         
-                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                        //    Settings.Default.S4TestConnectionHeader,
-                        //MessageBoxButtons.OK);
                         return;
                     }
 
@@ -263,9 +260,6 @@ namespace CloudScraper
                             Settings.Default.S4InvalidBucketText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                         
-                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                        //    Settings.Default.S4TestConnectionHeader,
-                        //MessageBoxButtons.OK);
                         return;
                     }
                 }
@@ -331,9 +325,6 @@ namespace CloudScraper
                             Settings.Default.S4InvalidBucketText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                         
-                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                        //    Settings.Default.S4TestConnectionHeader,
-                        //MessageBoxButtons.OK);
                         return;
                     }
 
@@ -351,10 +342,7 @@ namespace CloudScraper
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                             Settings.Default.S4InvalidBucketText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                        
-                        //DialogResult result = MessageBox.Show(Settings.Default.S4InvalidBucketText,
-                        //    Settings.Default.S4TestConnectionHeader,
-                        //MessageBoxButtons.OK);
+                       
                         return;
                     }
                 }
@@ -406,9 +394,6 @@ namespace CloudScraper
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                         Settings.Default.S4EnterAWS, "", "OK", "OK",
                         System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                    
-                    //DialogResult result = MessageBox.Show(Settings.Default.S4EnterAWS, Settings.Default.S4TestConnectionHeader,
-                    //MessageBoxButtons.OK);
 
                     this.testButton.Enabled = true;
                     this.Cursor = Cursors.Arrow;
@@ -457,10 +442,6 @@ namespace CloudScraper
                         Settings.Default.S4TestConnectionText, "", "OK", "OK",
                         System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
                     
-                    //DialogResult result = MessageBox.Show(Settings.Default.S4TestConnectionText,
-                    //    Settings.Default.S4TestConnectionHeader,
-                    //     MessageBoxButtons.OK);
-                    
                     this.testButton.Enabled = true;
                     this.Cursor = Cursors.Arrow;
                     return;
@@ -483,10 +464,6 @@ namespace CloudScraper
                                 Settings.Default.S4BucketLocated, "", "OK", "OK",
                                 System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
                             
-                            //DialogResult result = MessageBox.Show(Settings.Default.S4BucketLocated,
-                            //    Settings.Default.S4TestConnectionHeader,
-                            //    MessageBoxButtons.OK);
-                            
                             this.testButton.Enabled = true;
                             this.Cursor = Cursors.Arrow;
                             return;
@@ -500,10 +477,6 @@ namespace CloudScraper
                             DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                                 Settings.Default.S4NoBucketExists, "", "OK", "OK",
                                 System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-                            
-                            //DialogResult result = MessageBox.Show(Settings.Default.S4NoBucketExists,
-                            //    Settings.Default.S4TestConnectionHeader,
-                            //    MessageBoxButtons.OK);
                         }
                         else
                         {
@@ -511,10 +484,6 @@ namespace CloudScraper
                             DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                                 Settings.Default.S4CannotAccessBucketText, "", "OK", "OK",
                                 System.Drawing.Image.FromFile("Icons\\WarningDialog.png"), false);
-                            
-                            //DialogResult result = MessageBox.Show(Settings.Default.S4CannotAccessBucketText,
-                            //    Settings.Default.S4TestConnectionHeader,
-                            //MessageBoxButtons.OK);
 
                             this.testButton.Enabled = true;
                             this.Cursor = Cursors.Arrow;
@@ -528,9 +497,6 @@ namespace CloudScraper
                     Settings.Default.S4TestConnectionText, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
 
-                //DialogResult result2 = MessageBox.Show(Settings.Default.S4TestConnectionText,
-                //    Settings.Default.S4TestConnectionHeader,
-                //    MessageBoxButtons.OK);
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
                 return;
@@ -543,10 +509,6 @@ namespace CloudScraper
                     amazonEC2Exception.ErrorCode + "\n" +
                     Settings.Default.S4IDKeyInvalid, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-
-                //DialogResult result = MessageBox.Show(amazonEC2Exception.ErrorCode + "\n" +
-                //    Settings.Default.S4IDKeyInvalid, Settings.Default.S4TestConnectionHeader,
-                //    MessageBoxButtons.OK);
                 
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;

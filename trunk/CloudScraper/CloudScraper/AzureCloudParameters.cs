@@ -40,7 +40,7 @@ namespace CloudScraper
         //! delegate? for what?
         delegate void MyDelegate();
         //! wtf is path? path to what? name it better
-        private string path;
+        private string certificatePath;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
         {
@@ -181,41 +181,47 @@ namespace CloudScraper
             base.BackButtonClick(sender, e);
         }
 
+        private bool CheckCertificateInstalled()
+        {
+            X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+            // Try to open the store.
+            try
+            {
+                certStore.Open(OpenFlags.ReadOnly);
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
+                    Settings.Default.S4AzureCertificateStoreError, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                return false;
+            }
+
+            // Find the certificate that matches the thumbprint.
+            X509Certificate2Collection certCollection = certStore.Certificates.Find(X509FindType.FindByThumbprint,
+                certificateThumbprint_, false);
+            certStore.Close();
+
+            // Check to see if our certificate was added to the collection. If no, throw an error, if yes, create a certificate using it.
+            if (0 == certCollection.Count)
+            {
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
+                    Settings.Default.S4AzureCertificateThumbprintError, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                return false;
+            }
+
+            // Create an X509Certificate2 object using our matching certificate.
+            X509Certificate2 certificate = certCollection[0];
+            return true;
+        }
+        
         protected override void NextButtonClick(object sender, EventArgs e)
         {
-            //! Move it to separate function e.g. CheckCertificateInstalled()
             if (advanced_)
             {
-                X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-                // Try to open the store.
-                try
-                {
-                    certStore.Open(OpenFlags.ReadOnly);
-                }
-                catch (Exception ex)
-                {
-                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                        Settings.Default.S4AzureCertificateStoreError, "", "OK", "OK",
-                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                if (!this.CheckCertificateInstalled())
                     return;
-                }
-
-                // Find the certificate that matches the thumbprint.
-                X509Certificate2Collection certCollection = certStore.Certificates.Find(X509FindType.FindByThumbprint, 
-                    certificateThumbprint_, false);
-                certStore.Close();
-
-                // Check to see if our certificate was added to the collection. If no, throw an error, if yes, create a certificate using it.
-                if (0 == certCollection.Count)
-                {
-                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                        Settings.Default.S4AzureCertificateThumbprintError, "", "OK", "OK",
-                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                    return;
-                }
-
-                // Create an X509Certificate2 object using our matching certificate.
-                X509Certificate2 certificate = certCollection[0];
             }
             
             isAzure_ = true;
@@ -295,12 +301,12 @@ namespace CloudScraper
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
             saveFileDialog.DefaultExt = "." + "cer";
-            this.path = "";
+            this.certificatePath = "";
 
             DialogResult result = saveFileDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                path = saveFileDialog.FileName;
+                this.certificatePath = saveFileDialog.FileName;
             }
             else if (result == DialogResult.Cancel)
             {
@@ -311,7 +317,7 @@ namespace CloudScraper
             Process process = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
             info.FileName = "makecert.exe";
-            info.Arguments = "-sky exchange -r -n \"CN=" + path + "\" -pe -a sha1 -len 2048 -ss My \"" + path + "\"";
+            info.Arguments = "-sky exchange -r -n \"CN=" + certificatePath + "\" -pe -a sha1 -len 2048 -ss My \"" + certificatePath + "\"";
             info.UseShellExecute = true;
             info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
             info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
@@ -381,28 +387,12 @@ namespace CloudScraper
             this.CheckEnter();
         }
 
-        protected override void TestButtonClick(object sender, EventArgs e)
+
+        private bool CheckStorageAccount()
         {
-            this.testButton.Enabled = false;
-            this.Cursor = Cursors.WaitCursor;
-
-            //If there are no keys entered.
-            if (storageAccount_ == "" || primaryAccessKey_ == "")
-            {
-                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                    Settings.Default.S4AzureEnterID, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-
-                this.testButton.Enabled = true;
-                this.Cursor = Cursors.Arrow;
-                return;
-            }
-
             string AccountName = storageAccount_;
             string AccountSharedKey = primaryAccessKey_;
             string MessageSignature = "";
-            
-            //! move it to a separate function: CheckStorageAccount()
 
             // Set request URI
             Uri requesturi = new Uri("https://" + storageAccount_ + ".blob.core.windows.net/?comp=list");
@@ -480,7 +470,11 @@ namespace CloudScraper
                                 }
                             }
                         }
+
+                        return true;
                     }
+
+                    return false;
                 }
             }
             catch (WebException ex)
@@ -493,83 +487,112 @@ namespace CloudScraper
 
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
-                
-                return;
+
+                return false;
+            }
+        }
+
+        private bool CheckStroageAccountInRegion()
+        {
+            this.testButton.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            string accountName = storageAccount_;
+            string accountSharedKey = primaryAccessKey_;
+
+            string subscriptionId = subscriptionId_;
+            string thumbprint = certificateThumbprint_;
+
+            X509Certificate2 certificate = GetCertificate(thumbprint);
+
+            if (certificate == null)
+            {
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4AzureCertificateInvalid, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                this.testButton.Enabled = true;
+                this.Cursor = Cursors.Arrow;
+                return false;
             }
 
-            //! move it to separate function CheckStroageAccountInRegion
-            if (advanced_ && this.azureDeployVirtualMachineCheckBox.Checked)
+            string uriFormat = "https://management.core.windows.net/{0}/services/storageservices/{1}";
+            Uri uri = new Uri(String.Format(uriFormat, subscriptionId, accountName));
+
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
+            request.Method = "GET";
+            request.Headers.Add("x-ms-version", "2011-10-01");
+            request.ClientCertificates.Add(certificate);
+            request.ContentType = "application/xml";
+
+            try
             {
-                //! move it to separate function 
-                this.testButton.Enabled = false;
-                this.Cursor = Cursors.WaitCursor;
-
-                string accountName = storageAccount_;
-                string accountSharedKey = primaryAccessKey_;
-                
-                string subscriptionId = subscriptionId_;
-                string thumbprint = certificateThumbprint_;
-
-                X509Certificate2 certificate = GetCertificate(thumbprint);
-
-                if (certificate == null)
+                string location = "";
+                // Send Http request and get response
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
-                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                        Settings.Default.S4AzureCertificateInvalid, "", "OK", "OK",
-                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                    this.testButton.Enabled = true;
-                    this.Cursor = Cursors.Arrow;
-                    return;
-                }
-
-                string uriFormat = "https://management.core.windows.net/{0}/services/storageservices/{1}";
-                Uri uri = new Uri(String.Format(uriFormat, subscriptionId, accountName));
-
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
-                request.Method = "GET";
-                request.Headers.Add("x-ms-version", "2011-10-01");
-                request.ClientCertificates.Add(certificate);
-                request.ContentType = "application/xml";
-
-                try
-                {
-                    string location = "";
-                    // Send Http request and get response
-                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                    if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        if (response.StatusCode == HttpStatusCode.OK)
+                        using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
                         {
-                            using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
+                            while (reader.Read())
                             {
-                                while (reader.Read())
+                                if (reader.Name == "Location")
                                 {
-                                    if (reader.Name == "Location")
-                                    {
-                                       location = reader.ReadElementString("Location");
-                                    }
+                                    location = reader.ReadElementString("Location");
                                 }
                             }
                         }
                     }
-
-                    if (location != region_)
-                    {
-                        DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                            Settings.Default.S4AzureRegionInvalid, "", "OK", "OK",
-                            System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                    }
                 }
-                catch (WebException ex)
+
+                if (location != region_)
                 {
-                    //Show dialog  when auth failed.
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                        Settings.Default.S4AzureCertificateInvalid, "", "OK", "OK",
+                        Settings.Default.S4AzureRegionInvalid, "", "OK", "OK",
                         System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
 
-                    this.testButton.Enabled = true;
-                    this.Cursor = Cursors.Arrow;
-                    return;
+                    return true;
                 }
+
+                return true;
+            }
+            catch (WebException ex)
+            {
+                //Show dialog  when auth failed.
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4AzureCertificateInvalid, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+
+                this.testButton.Enabled = true;
+                this.Cursor = Cursors.Arrow;
+                return false;
+            }
+        }
+        
+        protected override void TestButtonClick(object sender, EventArgs e)
+        {
+            this.testButton.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            //If there are no keys entered.
+            if (storageAccount_ == "" || primaryAccessKey_ == "")
+            {
+                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4AzureEnterID, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+
+                this.testButton.Enabled = true;
+                this.Cursor = Cursors.Arrow;
+                return;
+            }
+
+            if (!this.CheckStorageAccount())
+                return;
+
+            if (advanced_ && this.azureDeployVirtualMachineCheckBox.Checked)
+            {
+                if (!this.CheckStroageAccountInRegion())
+                    return;
             }
 
             this.testButton.Enabled = true;
