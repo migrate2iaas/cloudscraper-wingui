@@ -325,7 +325,30 @@ namespace CloudScraper
 
         protected override void OnLeaveEnter(object sender, EventArgs e)
         {
-            
+            if (logger_.IsDebugEnabled)
+            {
+                if (sender is ComboBox)
+                {
+                    if ((sender as ComboBox) == regionComboBox)
+                        logger_.Debug("Region select: " + (sender as ComboBox).Text);
+                }
+                if (sender is TextBox)
+                {
+                    //if ((sender as TextBox) == keyTextBox)
+                    //    logger_.Debug("Key enter: " + (sender as TextBox).Text);
+                    if ((sender as TextBox) == idTextBox)
+                        logger_.Debug("Id enter: " + (sender as TextBox).Text);
+                }
+                if (sender is CheckBox)
+                {
+                    if ((sender as CheckBox) == advancedCheckBox)
+                        logger_.Debug("Direct upload checked to: " + (sender as CheckBox).Checked.ToString());
+                    if ((sender as CheckBox) == deduplcationCheckBox)
+                        logger_.Debug("Use deduplcation checked to: " + (sender as CheckBox).Checked.ToString());
+                    if ((sender as CheckBox) == selectAllCheckBox)
+                        logger_.Debug("Select all checked to: " + (sender as CheckBox).Checked.ToString());
+                }
+            }
         }
 
         protected override void TextBoxMouseEnter(object sender, EventArgs e)
