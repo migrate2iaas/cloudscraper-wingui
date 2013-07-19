@@ -44,11 +44,15 @@ namespace CloudScraper
                 this.regionList_.Add(key, value);
 
                 this.regionComboBox.Items.Add(key);
-                if (value == "us-east-1")
-                {
-                    this.regionComboBox.SelectedItem = key;
-                }
+                
+                //if (value == "us-east-1")
+                //{
+                //    this.regionComboBox.SelectedItem = key;
+                //}
             }
+
+            if (this.regionComboBox.Items.Count > 0)
+                this.regionComboBox.SelectedItem = this.regionComboBox.Items[0];
 
             //Move server types strings from settings file to serverTypeComboBox.
             foreach (string str in Settings.Default.ServerTypes)
