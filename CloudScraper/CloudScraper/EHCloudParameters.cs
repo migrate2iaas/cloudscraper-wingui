@@ -194,6 +194,50 @@ namespace CloudScraper
             System.Diagnostics.Process.Start(Settings.Default.S4EHLink);
         }
 
+        private void GetDrivesInfo()
+        {
+            string credentials = uuid_ + ":" + apiKey_;
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api-" + region_ + ".elastichosts.com/drives/info");
+            //".elastichosts.com/servers/list");
+            request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes(credentials)));
+            //request.PreAuthenticate = true;
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            this.drives_.Clear();
+
+            string key = null;
+            string value = null;
+            using (StreamReader myStreamReader = new StreamReader(response.GetResponseStream(), Encoding.GetEncoding(1251)))
+            {
+                while (!myStreamReader.EndOfStream)
+                {
+                    string str = myStreamReader.ReadLine();
+                    if (str.Contains("drive"))
+                        key = str.Remove(0, 6);
+                    if (str.Contains("name"))
+                        value = str.Remove(0, 5);
+
+                    if (key != null && value != null)
+                    {
+                        //Create DriveInfo object.
+                        DrivesInfo drive = new DrivesInfo()
+                        {
+                            IsChecked = false,
+                            Name = value,
+                            UUID = key
+                        };
+
+                        this.drives_.Add(drive);
+
+                        key = null;
+                        value = null;
+                    }
+                }
+
+                //drivesDataGridView.AutoResizeColumn(0);
+            }
+        }
+        
         protected override void TestButtonClick(object sender, EventArgs e)
         {
             try
@@ -213,48 +257,8 @@ namespace CloudScraper
                     return;
                 }
 
-                //! Move checking code to seaprate function e.g. CheckCredentials()
-                string credentials = uuid_ + ":" + apiKey_;
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api-" + region_ + ".elastichosts.com/drives/info"); 
-                    //".elastichosts.com/servers/list");
-                request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes(credentials)));
-                //request.PreAuthenticate = true;
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                this.drives_.Clear();
-
-                string key = null;
-                string value = null;
-                using (StreamReader myStreamReader = new StreamReader(response.GetResponseStream(), Encoding.GetEncoding(1251)))
-                {
-                    while (!myStreamReader.EndOfStream)
-                    {
-                        string str = myStreamReader.ReadLine();
-                        if (str.Contains("drive"))
-                            key = str.Remove(0, 6);
-                        if (str.Contains("name"))
-                            value = str.Remove(0,5);
-
-                        if (key != null && value != null)
-                        {
-                            //Create DriveInfo object.
-                            DrivesInfo drive = new DrivesInfo()
-                            {
-                                IsChecked = false,
-                                Name = value,
-                                UUID = key
-                            };
-
-                            this.drives_.Add(drive);
-
-                            key = null;
-                            value = null;
-                        }
-                    }
-                    
-                    //drivesDataGridView.AutoResizeColumn(0);
-                }
-
+                this.GetDrivesInfo();
+                
                 DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     Settings.Default.S4EHTestConnectionText, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
@@ -262,8 +266,6 @@ namespace CloudScraper
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
                 return;
-
-
             }
             catch (WebException ex)
             {
