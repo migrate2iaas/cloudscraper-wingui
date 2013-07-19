@@ -256,9 +256,8 @@ namespace CloudScraper
                     this.Cursor = Cursors.Arrow;
                     return;
                 }
-
                 this.GetDrivesInfo();
-                
+
                 DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     Settings.Default.S4EHTestConnectionText, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
@@ -266,6 +265,8 @@ namespace CloudScraper
                 this.testButton.Enabled = true;
                 this.Cursor = Cursors.Arrow;
                 return;
+
+
             }
             catch (WebException ex)
             {
