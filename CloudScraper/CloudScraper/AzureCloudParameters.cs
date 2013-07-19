@@ -51,13 +51,16 @@ namespace CloudScraper
                 this.regionList_.Add(key, value);
 
                 this.regionComboBox.Items.Add(key);
-                //! use key here instead of value. Imagine the program will be localized and East US value will become 'Восток США'. 
-                //! the same is true for other clouds too
-                if (value == "East US")
-                {
-                    this.regionComboBox.SelectedItem = key;
-                }
+                
+                //East US by default
+                //if (value == "East US")
+                //{
+                //    this.regionComboBox.SelectedItem = key;
+                //}
             }
+
+            if(this.regionComboBox.Items.Count > 0)
+                this.regionComboBox.SelectedItem = this.regionComboBox.Items[0];
 
             //Set basic UI strings in Form. 
             this.helpButton.Image = new Bitmap(System.Drawing.Image.FromFile("Icons\\Help.png"), new Size(16, 16));
