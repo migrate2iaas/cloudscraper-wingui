@@ -170,7 +170,7 @@ namespace CloudScraper
                 {
                     // we use VHD only if system natively support this format
                     string imagetype = "RAW";
-                    bool win2008r2_or_above = ((System.Environment.Version.Major >= 6) && (System.Environment.Version.Minor >= 1));
+                    bool win2008r2_or_above = ((OSInfo.MajorVersion >= 6) && (OSInfo.MinorVersion >= 1));
                     if (win2008r2_or_above)
                     {
                         if (logger_.IsDebugEnabled)
