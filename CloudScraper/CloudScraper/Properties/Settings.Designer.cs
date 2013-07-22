@@ -2273,5 +2273,29 @@ namespace CloudScraper.Properties {
                 this["S4AzureLink"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure login success. Starting test your subscription id and certificate...")]
+        public string S4AzureTestConnectionTextAdvancedMode {
+            get {
+                return ((string)(this["S4AzureTestConnectionTextAdvancedMode"]));
+            }
+            set {
+                this["S4AzureTestConnectionTextAdvancedMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Test Azure subscription id and certificate done. ")]
+        public string S4AzureRegionValid {
+            get {
+                return ((string)(this["S4AzureRegionValid"]));
+            }
+            set {
+                this["S4AzureRegionValid"] = value;
+            }
+        }
     }
 }
