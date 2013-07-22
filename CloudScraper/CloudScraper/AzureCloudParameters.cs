@@ -351,7 +351,8 @@ namespace CloudScraper
                 store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
                 X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
                 X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
-
+                //X509Certificate2Collection pcollection = fcollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=" + certificatePath, false);
+                
                 if (fcollection.Count > certificateCount)
                 {
                     DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
@@ -364,6 +365,7 @@ namespace CloudScraper
                     Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                 }
+                
                 
                 int indexOfthumbprint = 0;
                 if (fcollection.Count > 0)
