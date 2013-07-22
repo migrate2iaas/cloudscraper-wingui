@@ -699,6 +699,15 @@ namespace CloudScraper
                         File.Copy(Application.StartupPath + "\\" + fileToAttachTmp, Application.StartupPath + "\\ToZip\\" + fileName);
                         continue;
                     }
+
+                    if (fileToAttach == "logs\\gui.log")
+                    {
+                        string fileName = Path.GetFileName(Application.StartupPath + 
+                            "\\logs\\" + DateTime.Now.ToString("YYYY-MM-dd") + ".txt");
+                        File.Copy(Application.StartupPath +
+                            "\\logs\\" + DateTime.Now.ToString("YYYY-MM-dd") + ".txt", Application.StartupPath + "\\ToZip\\" + fileName);
+                        continue;
+                    }
                 }
 
 
