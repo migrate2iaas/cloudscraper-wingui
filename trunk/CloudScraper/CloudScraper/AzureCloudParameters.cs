@@ -474,9 +474,18 @@ namespace CloudScraper
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
                         //If success.
-                        DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                            Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
-                            System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                        if (advanced_ && this.azureDeployVirtualMachineCheckBox.Checked)
+                        {
+                            DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                                Settings.Default.S4AzureTestConnectionTextAdvancedMode, "", "OK", "OK",
+                                System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                        }
+                        else
+                        {
+                            DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                                Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
+                                System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                        }
 
                         this.azureContainerComboBox.Items.Clear();
 
@@ -570,12 +579,17 @@ namespace CloudScraper
                 {
                     DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                         Settings.Default.S4AzureRegionInvalid, "", "OK", "OK",
-                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        System.Drawing.Image.FromFile("Icons\\WarningDialog.png"), false);
 
                     return true;
                 }
-
-                return true;
+                else
+                {
+                    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                        Settings.Default.S4AzureRegionValid, "", "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                    return true;
+                }
             }
             catch (WebException ex)
             {

@@ -624,5 +624,11 @@ You couldn’t use virtual hard drives from the storage account in region you sp
     <Setting Name="S4AzureLink" Type="System.String" Scope="User">
       <Value Profile="(Default)">Azure  link</Value>
     </Setting>
+    <Setting Name="S4AzureTestConnectionTextAdvancedMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure login success. Starting test your subscription id and certificate...</Value>
+    </Setting>
+    <Setting Name="S4AzureRegionValid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test Azure subscription id and certificate done. </Value>
+    </Setting>
   </Settings>
 </SettingsFile>
