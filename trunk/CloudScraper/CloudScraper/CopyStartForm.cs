@@ -704,8 +704,12 @@ namespace CloudScraper
                     {
                         string fileName = Path.GetFileName(Application.StartupPath + 
                             "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
-                        File.Copy(Application.StartupPath +
-                            "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt", Application.StartupPath + "\\ToZip\\" + fileName);
+                        if (File.Exists(Application.StartupPath +
+                            "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt"))
+                        {
+                            File.Copy(Application.StartupPath +
+                                "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt", Application.StartupPath + "\\ToZip\\" + fileName);
+                        }
                         continue;
                     }
                 }
