@@ -24,7 +24,7 @@ using DotNetPerls;
 namespace CloudScraper
 {
     public partial class CopyStartForm : Form
-    {
+    {   
         SaveTransferTaskForm saveTransferForm_;
         ResumeTransferForm resumeTransferForm_;
 
@@ -700,18 +700,18 @@ namespace CloudScraper
                         continue;
                     }
 
-                    if (fileToAttach == "logs\\gui.log")
-                    {
-                        string fileName = Path.GetFileName(Application.StartupPath + 
-                            "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
-                        if (File.Exists(Application.StartupPath +
-                            "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt"))
-                        {
-                            File.Copy(Application.StartupPath +
-                                "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt", Application.StartupPath + "\\ToZip\\" + fileName);
-                        }
-                        continue;
-                    }
+                    //if (fileToAttach == "logs\\gui.log")
+                    //{
+                    //    string fileName = Path.GetFileName(Application.StartupPath + 
+                    //        "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
+                    //    if (File.Exists(Application.StartupPath +
+                    //        "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt"))
+                    //    {
+                    //        File.Copy(Application.StartupPath +
+                    //            "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt", Application.StartupPath + "\\ToZip\\" + fileName);
+                    //    }
+                    //    continue;
+                    //}
                 }
 
 

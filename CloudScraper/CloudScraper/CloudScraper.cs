@@ -18,7 +18,6 @@ namespace CloudScraper
         {
             if (logger_.IsDebugEnabled)
             {
-
                 System.Collections.IDictionary var = Environment.GetEnvironmentVariables();
                 logger_.Debug("=============================================================");
                 logger_.Debug("Application started " + DateTime.UtcNow.ToString() + " " + String.Format("{0:zzz}", DateTime.Now));
