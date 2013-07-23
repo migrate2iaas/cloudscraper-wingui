@@ -413,6 +413,9 @@ namespace CloudScraper
 
         private bool CheckStorageAccount()
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Start check storage account.");
+            
             string AccountName = storageAccount_;
             string AccountSharedKey = primaryAccessKey_;
             string MessageSignature = "";
@@ -608,6 +611,9 @@ namespace CloudScraper
         
         protected override void TestButtonClick(object sender, EventArgs e)
         {
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Start Test Connection procedure.");
+            
             this.testButton.Enabled = false;
             this.Cursor = Cursors.WaitCursor;
 
