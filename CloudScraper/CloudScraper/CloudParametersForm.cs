@@ -196,9 +196,5 @@ namespace CloudScraper
             if (e.KeyChar > 'z')
                 e.KeyChar = '\a';
         }
-
-
-
-
     }
 }
