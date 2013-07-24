@@ -26,8 +26,14 @@ namespace CloudScraper
         {
             this.regionList_ = new SortedDictionary<string, string>();
             this.serverTypeList_ = new SortedDictionary<string, string>();
+            
 
             InitializeComponent();
+        }
+
+        void tabControl1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
         
         public void SetChooseCloudForm(ChooseCloudForm chooseCloudForm)
@@ -183,6 +189,16 @@ namespace CloudScraper
         {
             throw new NotImplementedException();
         }
+
+
+        private void OnKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar > 'z')
+                e.KeyChar = '\a';
+        }
+
+
+
 
     }
 }
