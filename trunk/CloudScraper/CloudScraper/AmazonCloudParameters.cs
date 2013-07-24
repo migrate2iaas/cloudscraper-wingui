@@ -252,6 +252,7 @@ namespace CloudScraper
                     }
 
                     bool lookLikeIp = true;
+                    bool lookWrong = false;
                     foreach (char ch in s3bucket_)
                     {
                         if (!char.IsDigit(ch) && ch != '.')
@@ -260,7 +261,15 @@ namespace CloudScraper
                         }
                     }
 
-                    if (lookLikeIp)
+                    foreach (char ch in s3bucket_)
+                    {
+                        if (!Char.IsLower(ch) && ch != '.' && ch != '-')
+                        {
+                            lookWrong = true;
+                        }
+                    }
+
+                    if (lookLikeIp || lookWrong)
                     {
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                             Settings.Default.S4InvalidBucketText, "", "OK", "OK",
