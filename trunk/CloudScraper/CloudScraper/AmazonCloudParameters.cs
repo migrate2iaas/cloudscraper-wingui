@@ -263,7 +263,7 @@ namespace CloudScraper
 
                     foreach (char ch in s3bucket_)
                     {
-                        if (!Char.IsLower(ch) && ch != '.' && ch != '-')
+                        if (!Char.IsLower(ch) && ch != '.' && ch != '-' && !Char.IsDigit(ch))
                         {
                             lookWrong = true;
                         }

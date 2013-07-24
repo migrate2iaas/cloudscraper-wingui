@@ -244,6 +244,7 @@
             this.azureContainerComboBox.Size = new System.Drawing.Size(235, 21);
             this.azureContainerComboBox.TabIndex = 17;
             this.azureContainerComboBox.TextChanged += new System.EventHandler(this.AzureContainerChanged);
+            this.azureContainerComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BucketKeyPress);
             this.azureContainerComboBox.Leave += new System.EventHandler(this.OnLeaveEnter);
             this.azureContainerComboBox.MouseEnter += new System.EventHandler(this.TextBoxMouseEnter);
             this.azureContainerComboBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
@@ -354,6 +355,7 @@
             this.bucketTextBox.Size = new System.Drawing.Size(235, 20);
             this.bucketTextBox.TabIndex = 1;
             this.bucketTextBox.TextChanged += new System.EventHandler(this.BucketChanged);
+            this.bucketTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BucketKeyPress);
             this.bucketTextBox.Leave += new System.EventHandler(this.BucketTextBoxLeave);
             this.bucketTextBox.MouseHover += new System.EventHandler(this.TextBoxMouseEnter);
             // 
