@@ -196,5 +196,14 @@ namespace CloudScraper
             if (e.KeyChar > 'z')
                 e.KeyChar = '\a';
         }
+
+        private void BucketKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLower(e.KeyChar) || Char.IsDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '-' 
+                || e.KeyChar == '\b')
+                return;
+            else
+                e.KeyChar = '\a';
+        }
     }
 }
