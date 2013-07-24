@@ -252,24 +252,23 @@ namespace CloudScraper
                     }
 
                     bool lookLikeIp = true;
-                    bool lookWrong = false;
+                    bool lookDigitOnly = true;
                     foreach (char ch in s3bucket_)
                     {
                         if (!char.IsDigit(ch) && ch != '.')
                         {
                             lookLikeIp = false;
                         }
-                    }
 
-                    foreach (char ch in s3bucket_)
-                    {
-                        if (!Char.IsLower(ch) && ch != '.' && ch != '-' && !Char.IsDigit(ch))
+                        if (!char.IsDigit(ch))
                         {
-                            lookWrong = true;
+                            lookDigitOnly = false;
                         }
                     }
+                    
 
-                    if (lookLikeIp || lookWrong)
+
+                    if (lookLikeIp && !lookDigitOnly)
                     {
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                             Settings.Default.S4InvalidBucketText, "", "OK", "OK",
@@ -344,20 +343,28 @@ namespace CloudScraper
                     }
 
                     bool lookLikeIp = true;
+                    bool lookDigitOnly = true;
                     foreach (char ch in s3bucket_)
                     {
                         if (!char.IsDigit(ch) && ch != '.')
                         {
                             lookLikeIp = false;
                         }
-                    }
 
-                    if (lookLikeIp)
+                        if (!char.IsDigit(ch))
+                        {
+                            lookDigitOnly = false;
+                        }
+                    }
+                    
+
+
+                    if (lookLikeIp && !lookDigitOnly)
                     {
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                             Settings.Default.S4InvalidBucketText, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                       
+                        
                         return;
                     }
                 }
@@ -572,6 +579,15 @@ namespace CloudScraper
                         logger_.Debug("Advanced checked to: " + (sender as CheckBox).Checked.ToString());
                 }
             }
+        }
+
+        protected override void BucketKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLower(e.KeyChar) || Char.IsDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '-'
+                || e.KeyChar == '\b')
+                return;
+            else
+                e.KeyChar = '\a';
         }
 
 

@@ -30,11 +30,6 @@ namespace CloudScraper
 
             InitializeComponent();
         }
-
-        void tabControl1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
         
         public void SetChooseCloudForm(ChooseCloudForm chooseCloudForm)
         {
@@ -197,13 +192,8 @@ namespace CloudScraper
                 e.KeyChar = '\a';
         }
 
-        private void BucketKeyPress(object sender, KeyPressEventArgs e)
+        protected virtual void BucketKeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsLower(e.KeyChar) || Char.IsDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '-' 
-                || e.KeyChar == '\b')
-                return;
-            else
-                e.KeyChar = '\a';
         }
     }
 }
