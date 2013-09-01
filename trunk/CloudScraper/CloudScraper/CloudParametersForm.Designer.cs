@@ -40,6 +40,8 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.compressionUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ehCompressionLabel = new System.Windows.Forms.Label();
             this.azureCreateNewCertificateButton = new System.Windows.Forms.Button();
             this.azureSubscriptionId = new System.Windows.Forms.TextBox();
             this.azureDeployVirtualMachineCheckBox = new System.Windows.Forms.CheckBox();
@@ -66,6 +68,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.compressionUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drivesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,6 +174,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.compressionUpDown);
+            this.tabPage2.Controls.Add(this.ehCompressionLabel);
             this.tabPage2.Controls.Add(this.azureCreateNewCertificateButton);
             this.tabPage2.Controls.Add(this.azureSubscriptionId);
             this.tabPage2.Controls.Add(this.azureDeployVirtualMachineCheckBox);
@@ -197,6 +202,37 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // compressionUpDown
+            // 
+            this.compressionUpDown.Location = new System.Drawing.Point(364, 55);
+            this.compressionUpDown.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.compressionUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.compressionUpDown.Name = "compressionUpDown";
+            this.compressionUpDown.Size = new System.Drawing.Size(35, 20);
+            this.compressionUpDown.TabIndex = 23;
+            this.compressionUpDown.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // ehCompressionLabel
+            // 
+            this.ehCompressionLabel.AutoSize = true;
+            this.ehCompressionLabel.Location = new System.Drawing.Point(262, 58);
+            this.ehCompressionLabel.Name = "ehCompressionLabel";
+            this.ehCompressionLabel.Size = new System.Drawing.Size(96, 13);
+            this.ehCompressionLabel.TabIndex = 22;
+            this.ehCompressionLabel.Text = "Compression Level";
             // 
             // azureCreateNewCertificateButton
             // 
@@ -501,6 +537,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.compressionUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drivesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -510,7 +547,7 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        protected System.Windows.Forms.TabPage tabPage2;
         protected System.Windows.Forms.Label regionLabel;
         protected System.Windows.Forms.TextBox keyTextBox;
         protected System.Windows.Forms.TextBox idTextBox;
@@ -541,5 +578,7 @@
         protected System.Windows.Forms.CheckBox azureDeployVirtualMachineCheckBox;
         protected System.Windows.Forms.TextBox azureSubscriptionId;
         protected System.Windows.Forms.Button azureCreateNewCertificateButton;
+        protected System.Windows.Forms.Label ehCompressionLabel;
+        protected System.Windows.Forms.NumericUpDown compressionUpDown;
     }
 }

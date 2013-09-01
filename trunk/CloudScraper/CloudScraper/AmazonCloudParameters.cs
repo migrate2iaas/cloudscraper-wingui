@@ -85,6 +85,13 @@ namespace CloudScraper
             this.zoneLabel.Text = Settings.Default.S4AmazonZoneLabelText;
             this.groupLabel.Text = Settings.Default.S4AmazonGroupLabelText;
 
+            // TODO: recreate: make visible just our own controls
+            //The fastest way to fit the old code
+            foreach (Control item in this.tabPage2.Controls)
+            {
+                item.Visible = true;
+            }
+
             this.drivesListLabel.Visible = false;
             this.drivesDataGridView.Visible = false;
             this.selectAllCheckBox.Visible = false;
@@ -92,6 +99,8 @@ namespace CloudScraper
             this.azureDeployVirtualMachineCheckBox.Visible = false;
             this.azureSubscriptionId.Visible = false;
             this.azureCreateNewCertificateButton.Visible = false;
+            this.compressionUpDown.Visible = false;
+            this.ehCompressionLabel.Visible = false;
 
             this.deduplcationCheckBox.Visible = false;
 

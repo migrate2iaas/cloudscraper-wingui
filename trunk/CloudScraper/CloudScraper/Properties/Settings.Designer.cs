@@ -1107,7 +1107,18 @@ namespace CloudScraper.Properties {
                 this["S4EHDrivesListBoxToolTip"] = value;
             }
         }
-        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Specify the compression level. Greater compression level means more compact intermediate images but more load on your CPU.")]
+        public string S4EHCompressionUpDownToolTip{
+            get {
+                return ((string)(this["S4EHCompressionUpDownToolTip"]));
+            }
+            set {
+                this["S4EHCompressionUpDownToolTip"] = value;
+            }
+        }
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Cloudscraper Server Transfer")]
@@ -1361,6 +1372,19 @@ namespace CloudScraper.Properties {
             }
         }
         
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Compression Level")]
+        public string S4ehCompressionLabelText {
+            get {
+                return ((string)(this["S4ehCompressionLabelText"]));
+            }
+            set {
+                this["S4ehCompressionLabelText"] = value;
+            }
+        }
+        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Return to the previous window.")]
