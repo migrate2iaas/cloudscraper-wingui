@@ -15,12 +15,14 @@ namespace CloudScraper
 {
     public class EHCloudParameters : CloudParametersForm
     {
+        // TODO: refactor. Public statics are ugly
         public static string uuid_ = "";
         public static string apiKey_ = "";
         public static string region_;
         public static bool directUpload_ = false;
         public static bool isElasticHosts_ = false;
         public static bool useDeduplication_ = false;
+        public static int  compressionLevel_ = 2;
         public static List<string> drivesList_ = new List<string>();
         private static Logger logger_ = LogManager.GetLogger("EHCloudParametersForm");
 
@@ -76,25 +78,28 @@ namespace CloudScraper
             this.idLabel.Text = Settings.Default.S4ehIdLabelText;
             this.keyLabel.Text = Settings.Default.S4ehKeyLabelText;
             this.advancedCheckBox.Text = Settings.Default.S4ehDirectUploadCheckBoxText;
+            this.ehCompressionLabel.Text = Settings.Default.S4ehCompressionLabelText;
 
             this.toolTip.SetToolTip(this.advancedCheckBox, Settings.Default.S4EHDirectUploadCheckBoxToolTip);
             this.toolTip.SetToolTip(this.deduplcationCheckBox, Settings.Default.S4EHDeduplicationCheckBoxToolTip);
             this.toolTip.SetToolTip(this.drivesDataGridView, Settings.Default.S4EHDrivesListBoxToolTip);
-            
-            this.bucketLabel.Visible = false;
-            this.folderKeyLabel.Visible = false;
-            this.typeLabel.Visible = false;
-            this.zoneLabel.Visible = false;
-            this.groupLabel.Visible = false;
-            this.bucketTextBox.Visible = false;
-            this.folderKeyBox.Visible = false;
-            this.serverTypeComboBox.Visible = false;
-            this.zoneComboBox.Visible = false;
-            this.groupComboBox.Visible = false;
-            this.azureContainerComboBox.Visible = false;
-            this.azureDeployVirtualMachineCheckBox.Visible = false;
-            this.azureSubscriptionId.Visible = false;
-            this.azureCreateNewCertificateButton.Visible = false;
+            this.toolTip.SetToolTip(this.compressionUpDown, Settings.Default.S4EHCompressionUpDownToolTip);
+            this.toolTip.SetToolTip(this.ehCompressionLabel, Settings.Default.S4EHCompressionUpDownToolTip);
+
+            this.drivesDataGridView.Visible = true;
+            this.deduplcationCheckBox.Visible = true;
+            this.advancedCheckBox.Visible = true;
+            this.keyLabel.Visible = true;
+            this.idLabel.Visible = true;
+            this.regionLabel.Visible = true;
+            this.idTextBox.Visible = true;
+            this.testButton.Visible = true;
+            this.nextButton.Visible = true;
+            this.backButton.Visible = true;
+            this.helpButton.Visible = true;
+            this.compressionUpDown.Visible = true;
+            this.ehCompressionLabel.Visible = true;
+           
         
             this.SetChooseCloudForm(chooseCloudForm);
         }
@@ -158,6 +163,7 @@ namespace CloudScraper
         protected override void NextButtonClick(object sender, EventArgs e)
         {            
             isElasticHosts_ = true;
+            compressionLevel_ = (int)(this.compressionUpDown.Value);
             this.Hide();
 
             if (!directUpload_)

@@ -220,6 +220,7 @@ namespace CloudScraper
                         }
                         stream.WriteLine(str);
                     }
+                    stream.WriteLine("compression =" + EHCloudParameters.compressionLevel_.ToString());
                     if (EHCloudParameters.useDeduplication_)
                         stream.WriteLine("deduplication = True");
                     stream.WriteLine("[Image]");

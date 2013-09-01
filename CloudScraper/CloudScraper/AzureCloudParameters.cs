@@ -83,6 +83,13 @@ namespace CloudScraper
             this.idTextBox.MaxLength = 24;
             this.keyTextBox.MaxLength = 1024;
 
+            // TODO: recreate: make visible just our own controls
+            //The fastest way to fit the old code
+            foreach (Control item in this.tabPage2.Controls)
+            {
+                item.Visible = true;
+            }
+
             this.folderKeyLabel.Visible = false;
             this.typeLabel.Visible = true;
             this.zoneLabel.Visible = true;
@@ -98,6 +105,8 @@ namespace CloudScraper
             this.drivesListLabel.Visible = false;
             this.selectAllCheckBox.Visible = false;
             this.advancedCheckBox.Visible = true;
+            this.compressionUpDown.Visible = false;
+            this.ehCompressionLabel.Visible = false;
 
             this.SetChooseCloudForm(chooseCloudForm);
         }

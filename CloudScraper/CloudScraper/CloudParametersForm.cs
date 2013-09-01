@@ -29,6 +29,12 @@ namespace CloudScraper
             
 
             InitializeComponent();
+            // Due to strange design decision to have controls to all clouds in one parent form
+            // we just disable all of them so inhretied form could enable them
+            foreach (Control item in this.tabPage2.Controls)
+            {
+                item.Visible = false;
+            }
         }
         
         public void SetChooseCloudForm(ChooseCloudForm chooseCloudForm)
@@ -195,5 +201,6 @@ namespace CloudScraper
         protected virtual void BucketKeyPress(object sender, KeyPressEventArgs e)
         {
         }
+
     }
 }
