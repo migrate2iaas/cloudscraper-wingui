@@ -122,6 +122,12 @@ namespace CloudScraper
             this.password = resumeTransferForm.getPassword();
 
             InitializeComponent();
+
+            if (logger_.IsDebugEnabled)
+            {
+                string currentdir = Directory.GetCurrentDirectory();
+                logger_.Debug("Initing from Resume dialog. Current directory is  " + currentdir);
+            }
             
             // Initialize UI strings in Form.
             this.Text = Settings.Default.S7Header;

@@ -32,6 +32,7 @@ namespace CloudScraper
 
             InitializeComponent();
 
+
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             resumeUpload_ = false;
