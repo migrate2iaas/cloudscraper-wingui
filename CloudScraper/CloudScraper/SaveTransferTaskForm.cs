@@ -58,6 +58,7 @@ namespace CloudScraper
 
         private void saveTransferTask_Click(object sender, EventArgs e)
         {
+            this.saveFileDialog.RestoreDirectory = true; // needed for WinXP and Win2003
             this.saveFileDialog.Filter = "Transfer Task File (*.ini)|*.ini";
             this.saveFileDialog.DefaultExt = "." + "ini";
  
