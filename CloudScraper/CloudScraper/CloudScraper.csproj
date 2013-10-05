@@ -315,6 +315,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.rc" />
+    <None Include="Resources\ajax-loader%281%29.gif" />
     <EmbeddedResource Include="Icons\ErrorDialog.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

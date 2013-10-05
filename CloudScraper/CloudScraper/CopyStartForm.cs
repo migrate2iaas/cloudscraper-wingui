@@ -404,6 +404,9 @@ namespace CloudScraper
                 task.Priority = ThreadPriority.Normal;
                 task.IsBackground = true;
                 task.Start();
+
+                this.inProgressPictureBox.Visible = true;
+                this.inProgressPictureBox.Enabled = true;
             }
             else
             {
@@ -509,6 +512,8 @@ namespace CloudScraper
                     {
                         this.BeginInvoke(new MyDelegate(() =>
                         {
+                            this.inProgressPictureBox.Visible = false;
+                            this.inProgressPictureBox.Enabled = false;
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
                             this.Cursor = Cursors.Arrow;

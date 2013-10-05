@@ -39,7 +39,9 @@
             this.helpButton = new System.Windows.Forms.Button();
             this.mailButton = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.inProgressPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inProgressPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // startButton
@@ -105,7 +107,7 @@
             // 
             // fullOutputButton
             // 
-            this.fullOutputButton.Location = new System.Drawing.Point(359, 263);
+            this.fullOutputButton.Location = new System.Drawing.Point(293, 263);
             this.fullOutputButton.Name = "fullOutputButton";
             this.fullOutputButton.Size = new System.Drawing.Size(102, 23);
             this.fullOutputButton.TabIndex = 5;
@@ -132,7 +134,7 @@
             // 
             // mailButton
             // 
-            this.mailButton.Location = new System.Drawing.Point(212, 263);
+            this.mailButton.Location = new System.Drawing.Point(160, 263);
             this.mailButton.Name = "mailButton";
             this.mailButton.Size = new System.Drawing.Size(127, 23);
             this.mailButton.TabIndex = 21;
@@ -141,11 +143,24 @@
             this.mailButton.Visible = false;
             this.mailButton.Click += new System.EventHandler(this.MailButtonClick);
             // 
+            // inProgressPictureBox
+            // 
+            this.inProgressPictureBox.Enabled = false;
+            this.inProgressPictureBox.Image = global::CloudScraper.Properties.Resources.ajax_loader_1_;
+            this.inProgressPictureBox.Location = new System.Drawing.Point(411, 263);
+            this.inProgressPictureBox.Name = "inProgressPictureBox";
+            this.inProgressPictureBox.Size = new System.Drawing.Size(53, 23);
+            this.inProgressPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.inProgressPictureBox.TabIndex = 22;
+            this.inProgressPictureBox.TabStop = false;
+            this.inProgressPictureBox.Visible = false;
+            // 
             // CopyStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.inProgressPictureBox);
             this.Controls.Add(this.mailButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.fullOutputButton);
@@ -165,6 +180,7 @@
             this.Load += new System.EventHandler(this.CopyStartFormLoad);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CopyStartFormKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.messageGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inProgressPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,5 +195,6 @@
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Button mailButton;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.PictureBox inProgressPictureBox;
     }
 }
