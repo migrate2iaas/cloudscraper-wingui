@@ -472,6 +472,7 @@ namespace CloudScraper
                             {                               
                                 this.BeginInvoke(new MyDelegate(() =>
                                 {
+                                    this.inProgressPictureBox.Enabled = false;
                                     this.startButton.Visible = false;
                                     this.finishButton.Visible = true;
                                     this.Cursor = Cursors.Arrow;
@@ -512,7 +513,6 @@ namespace CloudScraper
                     {
                         this.BeginInvoke(new MyDelegate(() =>
                         {
-                            this.inProgressPictureBox.Visible = false;
                             this.inProgressPictureBox.Enabled = false;
                             this.startButton.Visible = false;
                             this.finishButton.Visible = true;
