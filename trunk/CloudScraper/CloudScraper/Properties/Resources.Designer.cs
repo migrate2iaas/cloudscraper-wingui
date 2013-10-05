@@ -63,49 +63,9 @@ namespace CloudScraper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ajax_loader {
-            get {
-                object obj = ResourceManager.GetObject("ajax-loader", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ajax_loader_1_ {
-            get {
-                object obj = ResourceManager.GetObject("ajax-loader(1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ajax_loader1_5s {
-            get {
-                object obj = ResourceManager.GetObject("ajax-loader1_5s", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ajax_loader20s {
             get {
                 object obj = ResourceManager.GetObject("ajax-loader20s", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ajax_loader3s {
-            get {
-                object obj = ResourceManager.GetObject("ajax-loader3s", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
