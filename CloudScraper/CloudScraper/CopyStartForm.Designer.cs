@@ -146,14 +146,13 @@
             // inProgressPictureBox
             // 
             this.inProgressPictureBox.Enabled = false;
-            this.inProgressPictureBox.Image = global::CloudScraper.Properties.Resources.ajax_loader_1_;
+            this.inProgressPictureBox.Image = global::CloudScraper.Properties.Resources.ajax_loader1_5s;
             this.inProgressPictureBox.Location = new System.Drawing.Point(411, 263);
             this.inProgressPictureBox.Name = "inProgressPictureBox";
             this.inProgressPictureBox.Size = new System.Drawing.Size(53, 23);
             this.inProgressPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.inProgressPictureBox.TabIndex = 22;
             this.inProgressPictureBox.TabStop = false;
-            this.inProgressPictureBox.Visible = false;
             // 
             // CopyStartForm
             // 
