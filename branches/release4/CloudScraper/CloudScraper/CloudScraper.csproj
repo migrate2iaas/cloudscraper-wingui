@@ -316,7 +316,6 @@
   <ItemGroup>
     <Content Include="app.rc" />
     <Content Include="Icons\AWS3.png" />
-    <Content Include="Icons\ehbutton_lightblue.png" />
     <None Include="Icons\ajax-loader20s.gif" />
     <None Include="Resources\ajax-loader%281%29.gif" />
     <EmbeddedResource Include="Icons\ErrorDialog.png">
