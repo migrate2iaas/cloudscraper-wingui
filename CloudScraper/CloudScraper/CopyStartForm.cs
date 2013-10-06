@@ -397,7 +397,7 @@ namespace CloudScraper
                 this.startButton.Enabled = false;
                 this.backButton.Enabled = false;
                 this.migrateStopped = false;
-                this.Cursor = Cursors.WaitCursor;
+                //this.Cursor = Cursors.WaitCursor;
 
                 //Start background worker for reading exchange .txt file.
                 Thread task = new Thread(new ThreadStart(this.Work));
