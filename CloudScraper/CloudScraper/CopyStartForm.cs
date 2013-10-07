@@ -876,7 +876,7 @@ namespace CloudScraper
             view.Columns["Image"].DisplayIndex = 0;
             view.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             view.Columns["Message"].DisplayIndex = 1;
-            view.Columns["Message"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            view.Columns["Message"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
     }
