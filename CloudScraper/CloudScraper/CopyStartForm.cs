@@ -780,7 +780,7 @@ namespace CloudScraper
             this.Location = this.resumeTransferForm_ != null ? this.resumeTransferForm_.Location : this.saveTransferForm_.Location; 
             this.messageGridView.DataSource = this.messages_;
             this.AdjustColumnOrder(this.messageGridView);
-            //this.messageGridView.AutoResizeColumn(0);
+            this.messageGridView.AutoResizeColumns();
         }
 
 
