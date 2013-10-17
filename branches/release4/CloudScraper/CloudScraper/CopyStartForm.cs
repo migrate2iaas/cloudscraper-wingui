@@ -93,6 +93,7 @@ namespace CloudScraper
             
             this.withError = false;
             this.pythonProcess = null;
+            
         }
 
         /// <summary>
@@ -778,7 +779,8 @@ namespace CloudScraper
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.resumeTransferForm_ != null ? this.resumeTransferForm_.Location : this.saveTransferForm_.Location; 
             this.messageGridView.DataSource = this.messages_;
-            this.messageGridView.AutoResizeColumn(0);
+            this.AdjustColumnOrder(this.messageGridView);
+            this.messageGridView.AutoResizeColumns();
         }
 
 
@@ -868,7 +870,15 @@ namespace CloudScraper
                     }
                 }             
             }
-        }    
+        }
+        private void AdjustColumnOrder(DataGridView view)
+        {
+            view.Columns["Image"].DisplayIndex = 0;
+            view.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            view.Columns["Message"].DisplayIndex = 1;
+            view.Columns["Message"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
     }
 
     //Class for storage messages from .txt exchange file.

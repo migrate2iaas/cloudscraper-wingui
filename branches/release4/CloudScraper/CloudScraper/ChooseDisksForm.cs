@@ -114,6 +114,7 @@ namespace CloudScraper
 
                 //DataGrid change columns width.
                 dataGridView.DataSource = this.volumes_;
+                this.AdjustColumnOrder(this.dataGridView);
                 dataGridView.AutoResizeColumn(0);
                 dataGridView.AutoResizeColumn(1);
 
@@ -237,6 +238,18 @@ namespace CloudScraper
             //Help button url.
             System.Diagnostics.Process.Start(Settings.Default.S2Link);
         }
+
+        // adjust in a right order. Needed for out-of-box .Net 2.0 for Windows Server 2003R2
+        private void AdjustColumnOrder(DataGridView view)
+        {
+            view.Columns["IsChecked"].DisplayIndex = 0;
+            view.Columns["Image"].DisplayIndex = 1;
+            view.Columns["Name"].DisplayIndex = 2;
+            view.Columns["TotalSpace"].DisplayIndex = 3;
+            view.Columns["UsedSpace"].DisplayIndex = 4;
+            view.Columns["FreeSpace"].DisplayIndex = 5;
+        }
+
 
     }
 
