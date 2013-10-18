@@ -205,7 +205,7 @@
             // 
             // compressionUpDown
             // 
-            this.compressionUpDown.Location = new System.Drawing.Point(364, 55);
+            this.compressionUpDown.Location = new System.Drawing.Point(271, 44);
             this.compressionUpDown.Maximum = new decimal(new int[] {
             9,
             0,
@@ -228,7 +228,7 @@
             // ehCompressionLabel
             // 
             this.ehCompressionLabel.AutoSize = true;
-            this.ehCompressionLabel.Location = new System.Drawing.Point(262, 58);
+            this.ehCompressionLabel.Location = new System.Drawing.Point(141, 46);
             this.ehCompressionLabel.Name = "ehCompressionLabel";
             this.ehCompressionLabel.Size = new System.Drawing.Size(96, 13);
             this.ehCompressionLabel.TabIndex = 22;
@@ -300,7 +300,7 @@
             // drivesListLabel
             // 
             this.drivesListLabel.AutoSize = true;
-            this.drivesListLabel.Location = new System.Drawing.Point(6, 92);
+            this.drivesListLabel.Location = new System.Drawing.Point(3, 91);
             this.drivesListLabel.Name = "drivesListLabel";
             this.drivesListLabel.Size = new System.Drawing.Size(145, 13);
             this.drivesListLabel.TabIndex = 15;
@@ -309,7 +309,7 @@
             // deduplcationCheckBox
             // 
             this.deduplcationCheckBox.AutoSize = true;
-            this.deduplcationCheckBox.Location = new System.Drawing.Point(90, 58);
+            this.deduplcationCheckBox.Location = new System.Drawing.Point(340, 56);
             this.deduplcationCheckBox.Name = "deduplcationCheckBox";
             this.deduplcationCheckBox.Size = new System.Drawing.Size(111, 17);
             this.deduplcationCheckBox.TabIndex = 13;
@@ -545,8 +545,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        protected System.Windows.Forms.TabControl tabControl1;
+        protected System.Windows.Forms.TabPage tabPage1;
         protected System.Windows.Forms.TabPage tabPage2;
         protected System.Windows.Forms.Label regionLabel;
         protected System.Windows.Forms.TextBox keyTextBox;

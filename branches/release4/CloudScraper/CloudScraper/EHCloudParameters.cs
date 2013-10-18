@@ -87,8 +87,9 @@ namespace CloudScraper
             this.toolTip.SetToolTip(this.ehCompressionLabel, Settings.Default.S4EHCompressionUpDownToolTip);
 
             this.drivesDataGridView.Visible = true;
-            this.deduplcationCheckBox.Visible = true;
-            this.advancedCheckBox.Visible = true;
+            this.drivesListLabel = true;
+            //this.deduplcationCheckBox.Visible = true;
+            //this.advancedCheckBox.Visible = true;
             this.keyLabel.Visible = true;
             this.idLabel.Visible = true;
             this.regionLabel.Visible = true;
