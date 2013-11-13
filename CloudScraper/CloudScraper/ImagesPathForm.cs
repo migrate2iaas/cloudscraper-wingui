@@ -294,16 +294,12 @@ namespace CloudScraper
             
             foreach (DriveInfo drive in drives)
             {
-                if (drive.IsReady && (driveHi == null || drive.AvailableFreeSpace > driveHi.AvailableFreeSpace))
+                if (drive.DriveType == DriveType.Fixed && drive.IsReady && (driveHi == null || drive.AvailableFreeSpace > driveHi.AvailableFreeSpace))
                 {
                     driveHi = drive;
                 }
             }
 
-            if (!Directory.Exists(driveHi.Name + "cloudscraper-images\\" + DateTime.Now.ToString("yyyy-MM-dd")))
-                Directory.CreateDirectory(driveHi.Name + "cloudscraper-images\\" + DateTime.Now.ToString("yyyy-MM-dd"));
-
-            //GetCurrentDirectory as default path for Image path.
             this.browseTextBox.Text = driveHi.Name + "cloudscraper-images\\" + DateTime.Now.ToString("yyyy-MM-dd");
             imagesPath_ = this.browseTextBox.Text;
 
