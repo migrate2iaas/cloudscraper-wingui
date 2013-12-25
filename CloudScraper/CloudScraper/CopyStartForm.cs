@@ -653,11 +653,13 @@ namespace CloudScraper
                 Message.From = new MailAddress(Properties.Settings.Default.SMTPLogin);
                 Message.ReplyTo = new MailAddress(email);
                 Message.To.Add(new MailAddress(Properties.Settings.Default.SupportEmail));
-                Message.Subject = "Support ticket: failure reported by " + userName + " " + email;
+                Message.Subject = "Support ticket: failure reported by " + userName;
                 Message.Body = "Milestone: Release 0.1" + "\n" +
                                "Component: migrate.py" + "\n" +
                                "Priority: 3" + "\n" +
-                               "Permission type: Public" + "\n" +
+                               "Permission_type: 2" + "\n" +
+                               "Permission-type: 2" + "\n" +
+                               "Followers: " + email + "\n" +
                                "Description:" + "\n";
                 foreach (MessageInfo info in messages_)
                 {
@@ -666,8 +668,10 @@ namespace CloudScraper
                         Message.Body += info.Message + "\n";
                     }
                 }
-                Message.Body += "------------------- User comments:\n";
+                Message.Body += "\n------------------- User comments:\n";
                 Message.Body += comments;
+
+                Message.Body += "\n\n Reply-to: " + email;
 
                 string file = Application.StartupPath + "\\" + Properties.Settings.Default.TextFile;
                 FastZip fz = new FastZip();
@@ -821,7 +825,7 @@ namespace CloudScraper
         private void MailButtonClick(object sender, EventArgs e)
         {
             MailForm mail = new MailForm(this);
-            mail.ShowDialog();
+            mail.Show();
         }
 
         private void CopyStartFormKeyDown(object sender, KeyEventArgs e)

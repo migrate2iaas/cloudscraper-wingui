@@ -57,5 +57,20 @@ namespace CloudScraper
         {
             this.comments_ = commentsTextBox.Text;
         }
+
+        private void MailForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

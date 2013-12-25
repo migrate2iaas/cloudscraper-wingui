@@ -37,45 +37,51 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.commentsTextBox = new System.Windows.Forms.TextBox();
             this.commentsLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userTextBox
             // 
-            this.userTextBox.Location = new System.Drawing.Point(81, 24);
+            this.userTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTextBox.Location = new System.Drawing.Point(107, 20);
             this.userTextBox.Name = "userTextBox";
-            this.userTextBox.Size = new System.Drawing.Size(168, 20);
+            this.userTextBox.Size = new System.Drawing.Size(212, 26);
             this.userTextBox.TabIndex = 0;
             this.userTextBox.TextChanged += new System.EventHandler(this.UserChanged);
             // 
             // mailTextBox
             // 
-            this.mailTextBox.Location = new System.Drawing.Point(81, 59);
+            this.mailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mailTextBox.Location = new System.Drawing.Point(107, 50);
             this.mailTextBox.Name = "mailTextBox";
-            this.mailTextBox.Size = new System.Drawing.Size(168, 20);
+            this.mailTextBox.Size = new System.Drawing.Size(212, 26);
             this.mailTextBox.TabIndex = 1;
             this.mailTextBox.TextChanged += new System.EventHandler(this.MailTextChanged);
             // 
             // userNameLabel
             // 
             this.userNameLabel.AutoSize = true;
-            this.userNameLabel.Location = new System.Drawing.Point(12, 27);
+            this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameLabel.Location = new System.Drawing.Point(8, 20);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(63, 13);
+            this.userNameLabel.Size = new System.Drawing.Size(93, 20);
             this.userNameLabel.TabIndex = 2;
             this.userNameLabel.Text = "User Name:";
             // 
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(38, 62);
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel.Location = new System.Drawing.Point(37, 50);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(38, 13);
+            this.emailLabel.Size = new System.Drawing.Size(57, 20);
             this.emailLabel.TabIndex = 3;
             this.emailLabel.Text = "E-mail:";
+            this.emailLabel.Click += new System.EventHandler(this.emailLabel_Click);
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(174, 182);
+            this.okButton.Location = new System.Drawing.Point(258, 262);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 4;
@@ -85,7 +91,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(12, 182);
+            this.cancelButton.Location = new System.Drawing.Point(12, 262);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 5;
@@ -95,27 +101,41 @@
             // 
             // commentsTextBox
             // 
-            this.commentsTextBox.Location = new System.Drawing.Point(12, 112);
+            this.commentsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commentsTextBox.Location = new System.Drawing.Point(15, 121);
             this.commentsTextBox.Multiline = true;
             this.commentsTextBox.Name = "commentsTextBox";
-            this.commentsTextBox.Size = new System.Drawing.Size(237, 64);
-            this.commentsTextBox.TabIndex = 6;
+            this.commentsTextBox.Size = new System.Drawing.Size(318, 110);
+            this.commentsTextBox.TabIndex = 3;
             this.commentsTextBox.TextChanged += new System.EventHandler(this.CommentsChanged);
             // 
             // commentsLabel
             // 
             this.commentsLabel.AutoSize = true;
-            this.commentsLabel.Location = new System.Drawing.Point(17, 96);
+            this.commentsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commentsLabel.Location = new System.Drawing.Point(12, 98);
             this.commentsLabel.Name = "commentsLabel";
-            this.commentsLabel.Size = new System.Drawing.Size(59, 13);
+            this.commentsLabel.Size = new System.Drawing.Size(90, 20);
             this.commentsLabel.TabIndex = 7;
             this.commentsLabel.Text = "Comments:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 246);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(283, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Note, Full Output is auto-attached to the request";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // MailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 220);
+            this.ClientSize = new System.Drawing.Size(345, 297);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.commentsLabel);
             this.Controls.Add(this.commentsTextBox);
             this.Controls.Add(this.cancelButton);
@@ -133,6 +153,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "E-mail Report";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.MailForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +169,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TextBox commentsTextBox;
         private System.Windows.Forms.Label commentsLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
