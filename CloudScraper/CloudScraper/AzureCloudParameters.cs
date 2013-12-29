@@ -32,12 +32,14 @@ namespace CloudScraper
         public static bool advanced_ = false;
         public static string subscriptionId_ = "";
         public static string certificateThumbprint_ = "";
+        public static string certificateSelection_ = "";
         public static string containerName_ = "";
 
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
         delegate void MyDelegate();
         private string certificatePath;
         private int certificateCount;
+        private string certificateStore = "My";
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
         {
@@ -190,13 +192,14 @@ namespace CloudScraper
             base.BackButtonClick(sender, e);
         }
 
+        // checks if certificate installed. Also sets auxillary certificate fields
         private bool CheckCertificateInstalled()
         {
-            X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
             // Try to open the store.
+            CertificatePath certificatepath = null;
             try
             {
-                certStore.Open(OpenFlags.ReadOnly);
+                certificatepath = GetCertificate(certificateThumbprint_, this.certificateStore);
             }
             catch (Exception ex)
             {
@@ -206,13 +209,8 @@ namespace CloudScraper
                 return false;
             }
 
-            // Find the certificate that matches the thumbprint.
-            X509Certificate2Collection certCollection = certStore.Certificates.Find(X509FindType.FindByThumbprint,
-                certificateThumbprint_, false);
-            certStore.Close();
-
             // Check to see if our certificate was added to the collection. If no, throw an error, if yes, create a certificate using it.
-            if (0 == certCollection.Count)
+            if (certificatepath == null)
             {
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
                     Settings.Default.S4AzureCertificateThumbprintError, "", "OK", "OK",
@@ -220,8 +218,8 @@ namespace CloudScraper
                 return false;
             }
 
-            // Create an X509Certificate2 object using our matching certificate.
-            X509Certificate2 certificate = certCollection[0];
+            certificateSelection_ = certificatepath.GetSelectionString();
+            
             return true;
         }
         
@@ -322,11 +320,14 @@ namespace CloudScraper
                 return;
             }
 
+            // NOTE: we should alter the argeuments of makecert to create cert in the local machine location in order to run from service context
+            // or impersonate alternatively the service process when accessing certs
+
             //Creating certificate process.
             Process process = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
             info.FileName = "makecert.exe";
-            info.Arguments = "-sky exchange -r -n \"CN=" + certificatePath + "\" -pe -a sha1 -len 2048 -ss My \"" + certificatePath + "\"";
+            info.Arguments = "-sky exchange -r -n \"CN=" + certificatePath + "\" -pe -a sha1 -len 2048 -ss " + this.certificateStore + " \"" + certificatePath + "\"";
             info.UseShellExecute = true;
             info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
             info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
@@ -336,7 +337,8 @@ namespace CloudScraper
             process.EnableRaisingEvents = true;
             
             //Count certificates.
-            X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
+            // note: predefined, could be changed
+            X509Store store = new X509Store(this.certificateStore, StoreLocation.CurrentUser);
             store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
             X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
             X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
@@ -356,7 +358,7 @@ namespace CloudScraper
             //Verify that new certificate has created.
             try
             {
-                X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
+                X509Store store = new X509Store(this.certificateStore, StoreLocation.CurrentUser);
                 store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
                 X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
                 X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
@@ -547,7 +549,7 @@ namespace CloudScraper
             string subscriptionId = subscriptionId_;
             string thumbprint = certificateThumbprint_;
 
-            X509Certificate2 certificate = GetCertificate(thumbprint);
+            X509Certificate2 certificate = GetCertificate(thumbprint, this.certificateStore).certificate;
 
             if (certificate == null)
             {
@@ -651,13 +653,38 @@ namespace CloudScraper
             this.Cursor = Cursors.Arrow;
         }
 
-        public static X509Certificate2 GetCertificate(string thumbprint)
+        // helper struct to contain both store and cert
+        public class CertificatePath
+        {
+            public X509Certificate2 certificate;
+            public X509Store store;
+
+            public CertificatePath(X509Certificate2 cert , X509Store stre )
+            {
+                certificate = cert;
+                store = stre;
+            }
+
+            // gets selection string compatible with IWinHttpRequest::SetClientCertificate 
+            public string GetSelectionString()
+            {
+                string result = "";
+                if (store.Location == StoreLocation.CurrentUser)
+                    result += "CURRENT_USER";
+                if (store.Location == StoreLocation.LocalMachine)
+                    result += "LOCAL_MACHINE";
+                result += "\\" + store.Name + "\\" + certificate.Subject;
+                return result;
+            }
+        };
+
+        public static CertificatePath GetCertificate(string thumbprint, string certstore = "My")
         {
             List<StoreLocation> locations = new List<StoreLocation> { StoreLocation.CurrentUser, StoreLocation.LocalMachine };
 
             foreach (var location in locations)
             {
-                X509Store store = new X509Store("My", location);
+                X509Store store = new X509Store(certstore, location);
                 try
                 {
                     store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
@@ -665,7 +692,8 @@ namespace CloudScraper
                       X509FindType.FindByThumbprint, thumbprint, false);
                     if (certificates.Count == 1)
                     {
-                        return certificates[0];
+                       CertificatePath path = new CertificatePath(certificates[0], store);
+                       return path;
                     }
                 }
                 finally
