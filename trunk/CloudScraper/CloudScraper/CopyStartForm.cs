@@ -251,6 +251,8 @@ namespace CloudScraper
                     stream.WriteLine("storage-account = " + AzureCloudParameters.storageAccount_);
                     if (AzureCloudParameters.certificateThumbprint_ != "")
                         stream.WriteLine("certificate-thumbprint = " + AzureCloudParameters.certificateThumbprint_);
+                    if (AzureCloudParameters.certificateSelection_ != "")
+                        stream.WriteLine("certificate-select = " + AzureCloudParameters.certificateSelection_);
                     if (AzureCloudParameters.subscriptionId_ != "")
                         stream.WriteLine("subscription-id = " + AzureCloudParameters.subscriptionId_);
                     if (AzureCloudParameters.containerName_ != "")
@@ -258,7 +260,7 @@ namespace CloudScraper
                     stream.WriteLine("[Image]");
                     stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
                     stream.WriteLine("source-arch = x86_64");
-                    stream.WriteLine("image-type = VHD");
+                    stream.WriteLine("image-type = VHD-fixed");
                     stream.WriteLine("image-chunck = 4194304");
                     stream.WriteLine("image-placement = local");
                 }
