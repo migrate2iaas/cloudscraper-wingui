@@ -260,7 +260,7 @@ namespace CloudScraper
                     stream.WriteLine("[Image]");
                     stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
                     stream.WriteLine("source-arch = x86_64");
-                    stream.WriteLine("image-type = VHD-fixed");
+                    stream.WriteLine("image-type = fixed.VHD");
                     stream.WriteLine("image-chunck = 4194304");
                     stream.WriteLine("image-placement = local");
                 }
