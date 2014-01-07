@@ -227,7 +227,6 @@ namespace CloudScraper
                         }
                         stream.WriteLine(str);
                     }
-                    stream.WriteLine("compression =" + EHCloudParameters.compressionLevel_.ToString());
                     if (EHCloudParameters.useDeduplication_)
                         stream.WriteLine("deduplication = True");
                     stream.WriteLine("[Image]");
@@ -239,6 +238,7 @@ namespace CloudScraper
                     else
                         stream.WriteLine("image-type = raw.tar");
                     stream.WriteLine("image-chunck = 4194304");
+                    stream.WriteLine("compression =" + EHCloudParameters.compressionLevel_.ToString());
                     if (EHCloudParameters.directUpload_)
                         stream.WriteLine("image-placement = direct");
                     else
