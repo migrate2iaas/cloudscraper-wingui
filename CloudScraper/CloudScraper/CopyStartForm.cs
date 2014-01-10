@@ -252,7 +252,7 @@ namespace CloudScraper
                     if (AzureCloudParameters.certificateThumbprint_ != "")
                         stream.WriteLine("certificate-thumbprint = " + AzureCloudParameters.certificateThumbprint_);
                     if (AzureCloudParameters.certificateSelection_ != "")
-                        stream.WriteLine("certificate-select = " + AzureCloudParameters.certificateSelection_);
+                        stream.WriteLine("certificate-selection = " + AzureCloudParameters.certificateSelection_);
                     if (AzureCloudParameters.subscriptionId_ != "")
                         stream.WriteLine("subscription-id = " + AzureCloudParameters.subscriptionId_);
                     if (AzureCloudParameters.containerName_ != "")
