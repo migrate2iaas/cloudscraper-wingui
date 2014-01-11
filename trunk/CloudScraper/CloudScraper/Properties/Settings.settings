@@ -630,5 +630,15 @@ You couldn’t use virtual hard drives from the storage account in region you sp
     <Setting Name="S4AzureRegionValid" Type="System.String" Scope="User">
       <Value Profile="(Default)">Test Azure subscription id and certificate done. </Value>
     </Setting>
+    <Setting Name="S4ehCompressionLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Compression level:</Value>
+    </Setting>
+    <Setting Name="S4EHCompressionUpDownToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Greater compression level means more compact intermediate image but would require more CPU resources while making the image.</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateUploadWait" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Attention! Proceed only after the certificate is uploaded! 
+ In newly opened browser window login to Windows Azure, choose Settings. Then choose Management Certificates tab, click upload and select certificate file you created for uploading. </Value>
+    </Setting>
   </Settings>
 </SettingsFile>

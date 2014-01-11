@@ -40,6 +40,7 @@ namespace CloudScraper
         private string certificatePath;
         private int certificateCount;
         private string certificateStore = "My";
+        private string certificateName;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
         {
@@ -309,6 +310,7 @@ namespace CloudScraper
             saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
             saveFileDialog.DefaultExt = "." + "cer";
             this.certificatePath = "";
+            this.certificateName = "";
 
             DialogResult result = saveFileDialog.ShowDialog();
             if (result == DialogResult.OK)
@@ -320,6 +322,8 @@ namespace CloudScraper
                 return;
             }
 
+            this.certificateName = this.certificatePath.Substring(saveFileDialog.FileName.LastIndexOf('\\') + 1);
+
             // NOTE: we should alter the argeuments of makecert to create cert in the local machine location in order to run from service context
             // or impersonate alternatively the service process when accessing certs
 
@@ -327,7 +331,7 @@ namespace CloudScraper
             Process process = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
             info.FileName = "makecert.exe";
-            info.Arguments = "-sky exchange -r -n \"CN=" + certificatePath + "\" -pe -a sha1 -len 2048 -ss " + this.certificateStore + " \"" + certificatePath + "\"";
+            info.Arguments = "-sky exchange -r -n \"CN=" + this.certificateName + "\" -pe -a sha1 -len 2048 -ss " + this.certificateStore + " \"" + certificatePath + "\"";
             info.UseShellExecute = true;
             info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
             info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
@@ -406,7 +410,8 @@ namespace CloudScraper
 
             //Open browser with Windows Azure, for user to upload created certificate.
             Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
-            
+
+            System.Windows.Forms.MessageBox.Show(this , Settings.Default.S4AzureCertificateUploadWait, Settings.Default.S4AzureCertificateHeader, MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
         }
 
         protected override void AzureSubscriptionIdTextChanged(object sender, EventArgs e)
@@ -673,7 +678,7 @@ namespace CloudScraper
                     result += "CURRENT_USER";
                 if (store.Location == StoreLocation.LocalMachine)
                     result += "LOCAL_MACHINE";
-                result += "\\" + store.Name + "\\" + certificate.Subject;
+                result += "\\" + store.Name + "\\" + certificate.GetNameInfo(X509NameType.SimpleName , false);
                 return result;
             }
         };
