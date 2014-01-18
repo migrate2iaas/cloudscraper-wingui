@@ -332,7 +332,7 @@
             // 
             this.folderKeyBox.Enabled = false;
             this.folderKeyBox.Location = new System.Drawing.Point(216, 75);
-            this.folderKeyBox.MaxLength = 20;
+            this.folderKeyBox.MaxLength = 80;
             this.folderKeyBox.Name = "folderKeyBox";
             this.folderKeyBox.Size = new System.Drawing.Size(235, 20);
             this.folderKeyBox.TabIndex = 9;

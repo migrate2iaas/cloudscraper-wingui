@@ -2325,10 +2325,10 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Attention! Proceed only after the certificate is uploaded! \r\n In newly opened bro" +
-            "wser window login to Windows Azure, choose Settings. Then choose Management Cert" +
-            "ificates tab, click upload and select certificate file you created for uploading" +
-            ". ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Attention! Proceed only after the certificate is uploaded! \r\n\r\nIn newly opened br" +
+            "owser window login to Windows Azure, choose Settings. Then choose Management Cer" +
+            "tificates tab, click upload and select certificate file you created for uploadin" +
+            "g. ")]
         public string S4AzureCertificateUploadWait {
             get {
                 return ((string)(this["S4AzureCertificateUploadWait"]));
