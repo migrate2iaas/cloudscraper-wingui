@@ -638,7 +638,8 @@ You couldn’t use virtual hard drives from the storage account in region you sp
     </Setting>
     <Setting Name="S4AzureCertificateUploadWait" Type="System.String" Scope="User">
       <Value Profile="(Default)">Attention! Proceed only after the certificate is uploaded! 
- In newly opened browser window login to Windows Azure, choose Settings. Then choose Management Certificates tab, click upload and select certificate file you created for uploading. </Value>
+
+In newly opened browser window login to Windows Azure, choose Settings. Then choose Management Certificates tab, click upload and select certificate file you created for uploading. </Value>
     </Setting>
   </Settings>
 </SettingsFile>
