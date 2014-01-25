@@ -190,20 +190,9 @@ namespace CloudScraper
                             logger_.Debug("Using RAW image for Windows version " + System.Environment.Version.Major.ToString() + "." + System.Environment.Version.Minor.ToString());
                     }
 
-                    stream.WriteLine("[EC2]");
-                    stream.WriteLine("region = " + AmazonCloudParameters.region_);
-                    if (AmazonCloudParameters.zone_ != "")
-                        stream.WriteLine("zone = " + AmazonCloudParameters.zone_);
-                    if (AmazonCloudParameters.group_ != "")
-                        stream.WriteLine("security-group = " + AmazonCloudParameters.group_);
-                    if (AmazonCloudParameters.type_ != "")
-                        stream.WriteLine("instance-type = " + AmazonCloudParameters.type_);
-                    stream.WriteLine("target-arch = x86_64");
-                    if (AmazonCloudParameters.folderKey_ != "")
-                        stream.WriteLine("s3prefix = " + AmazonCloudParameters.folderKey_);
-                    stream.WriteLine("s3key = " + AmazonCloudParameters.awsId_);
-                    if (AmazonCloudParameters.s3bucket_ != "")
-                        stream.WriteLine("bucket = " + AmazonCloudParameters.s3bucket_);
+                    Debug.Assert(null != AmazonCloudParameters.userInput_);
+                    AmazonCloudParameters.userInput_.WriteToIni(stream);
+
                     stream.WriteLine("[Image]");
                     stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
                     stream.WriteLine("source-arch = x86_64");

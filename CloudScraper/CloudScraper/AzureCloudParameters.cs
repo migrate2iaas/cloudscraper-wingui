@@ -88,26 +88,28 @@ namespace CloudScraper
 
             // TODO: recreate: make visible just our own controls
             //The fastest way to fit the old code
-            foreach (Control item in this.tabPage2.Controls)
+            foreach (Control item in this.pageAdvanced.Controls)
             {
                 item.Visible = true;
             }
 
-            this.folderKeyLabel.Visible = false;
             this.typeLabel.Visible = true;
             this.zoneLabel.Visible = true;
-            this.groupLabel.Visible = false;
-            this.bucketTextBox.Visible = false;
-            this.folderKeyBox.Visible = false;
-            this.serverTypeComboBox.Visible = false;
+            this.advancedCheckBox.Visible = true;
             this.zoneComboBox.Visible = true;
             this.zoneComboBox.MaxLength = 40;
+
+            this.folderKeyLabel.Visible = false;
+            this.folderKeyBox.Visible = false;
+            this.groupLabel.Visible = false;
             this.groupComboBox.Visible = false;
+            this.bucketTextBox.Visible = false;
+            this.serverTypeComboBox.Visible = false;
+            
             this.drivesDataGridView.Visible = false;
             this.deduplcationCheckBox.Visible = false;
             this.drivesListLabel.Visible = false;
             this.selectAllCheckBox.Visible = false;
-            this.advancedCheckBox.Visible = true;
             this.compressionUpDown.Visible = false;
             this.ehCompressionLabel.Visible = false;
 

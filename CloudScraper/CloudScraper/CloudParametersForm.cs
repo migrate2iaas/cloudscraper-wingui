@@ -31,7 +31,7 @@ namespace CloudScraper
             InitializeComponent();
             // Due to strange design decision to have controls to all clouds in one parent form
             // we just disable all of them so inhretied form could enable them
-            foreach (Control item in this.tabPage2.Controls)
+            foreach (Control item in this.pageAdvanced.Controls)
             {
                 item.Visible = false;
             }
@@ -202,5 +202,39 @@ namespace CloudScraper
         {
         }
 
+        #region Protected methods
+
+        protected void SetAdvancedPanel(UserControl panel)
+        {
+            // TODO: check if there is no controls on the placeholder once we move all controls to the dedicated classes
+            // by now check if there is no such panel on the placeholder and hide other controls.
+            if (!placeholderForAdvanced.Controls.Contains(panel))
+            {
+                foreach (Control ctrl in placeholderForAdvanced.Controls)
+                {
+                    ctrl.Visible = false;
+                }
+                placeholderForAdvanced.Visible = true;
+                panel.Dock = DockStyle.Fill;
+                placeholderForAdvanced.Controls.Add(panel);
+            }
+        }
+
+        protected void RemoveAdvancedPanel(UserControl panel)
+        {
+            // by now remove a panel and show all other control. We won't need 'show other controls' code once we move all
+            // controls from the placeholder to the dedicated classes.
+            if (placeholderForAdvanced.Controls.Contains(panel))
+            {
+                placeholderForAdvanced.Controls.Remove(panel);
+            }
+
+            foreach (Control ctrl in placeholderForAdvanced.Controls)
+            {
+                ctrl.Visible = true;
+            }
+        }
+
+        #endregion Protected methods
     }
 }
