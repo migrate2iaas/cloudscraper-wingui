@@ -87,6 +87,7 @@
     <Compile Include="AmazonCloudParameters.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Amazon\AmazonParams.cs" />
     <Compile Include="AzureCloudParameters.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +175,15 @@
       <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="Amazon\AmazonAdvansedSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Amazon\AmazonAdvansedSettingsPanel.Designer.cs">
+      <DependentUpon>AmazonAdvansedSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Amazon\AmazonAdvansedSettingsPanel.resx">
+      <DependentUpon>AmazonAdvansedSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BetterDialog.resx">
       <DependentUpon>BetterDialog.cs</DependentUpon>
     </EmbeddedResource>

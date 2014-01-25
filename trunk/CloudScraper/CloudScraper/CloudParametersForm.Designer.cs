@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CloudParametersForm));
             this.backButton = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPanel = new System.Windows.Forms.TabControl();
+            this.pageBasic = new System.Windows.Forms.TabPage();
             this.keyTextBox = new System.Windows.Forms.TextBox();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.keyLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pageAdvanced = new System.Windows.Forms.TabPage();
             this.compressionUpDown = new System.Windows.Forms.NumericUpDown();
             this.ehCompressionLabel = new System.Windows.Forms.Label();
             this.azureCreateNewCertificateButton = new System.Windows.Forms.Button();
@@ -64,10 +64,12 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
+            this.placeholderForAdvanced = new System.Windows.Forms.Panel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPanel.SuspendLayout();
+            this.pageBasic.SuspendLayout();
+            this.pageAdvanced.SuspendLayout();
+            this.placeholderForAdvanced.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.compressionUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drivesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -82,32 +84,32 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
-            // tabControl1
+            // tabPanel
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(13, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(542, 242);
-            this.tabControl1.TabIndex = 9;
-            this.tabControl1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnKeyPress);
+            this.tabPanel.Controls.Add(this.pageBasic);
+            this.tabPanel.Controls.Add(this.pageAdvanced);
+            this.tabPanel.Location = new System.Drawing.Point(13, 12);
+            this.tabPanel.Name = "tabPanel";
+            this.tabPanel.SelectedIndex = 0;
+            this.tabPanel.Size = new System.Drawing.Size(542, 242);
+            this.tabPanel.TabIndex = 9;
+            this.tabPanel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnKeyPress);
             // 
-            // tabPage1
+            // pageBasic
             // 
-            this.tabPage1.Controls.Add(this.keyTextBox);
-            this.tabPage1.Controls.Add(this.idTextBox);
-            this.tabPage1.Controls.Add(this.keyLabel);
-            this.tabPage1.Controls.Add(this.idLabel);
-            this.tabPage1.Controls.Add(this.regionComboBox);
-            this.tabPage1.Controls.Add(this.regionLabel);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(534, 216);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Basic";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.pageBasic.Controls.Add(this.keyTextBox);
+            this.pageBasic.Controls.Add(this.idTextBox);
+            this.pageBasic.Controls.Add(this.keyLabel);
+            this.pageBasic.Controls.Add(this.idLabel);
+            this.pageBasic.Controls.Add(this.regionComboBox);
+            this.pageBasic.Controls.Add(this.regionLabel);
+            this.pageBasic.Location = new System.Drawing.Point(4, 22);
+            this.pageBasic.Name = "pageBasic";
+            this.pageBasic.Padding = new System.Windows.Forms.Padding(3);
+            this.pageBasic.Size = new System.Drawing.Size(534, 216);
+            this.pageBasic.TabIndex = 0;
+            this.pageBasic.Text = "Basic";
+            this.pageBasic.UseVisualStyleBackColor = true;
             // 
             // keyTextBox
             // 
@@ -171,37 +173,45 @@
             this.regionLabel.TabIndex = 2;
             this.regionLabel.Text = "Region Label:";
             this.regionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //
+            // placeholderForAdvanced
+            //
+            this.placeholderForAdvanced.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.placeholderForAdvanced.Location = new System.Drawing.Point(0, 0);
+            this.placeholderForAdvanced.Name = "placeholderForAdvanced";
+            this.placeholderForAdvanced.Size = new System.Drawing.Size(534, 216);
+            this.placeholderForAdvanced.Controls.Add(this.compressionUpDown);
+            this.placeholderForAdvanced.Controls.Add(this.ehCompressionLabel);
+            this.placeholderForAdvanced.Controls.Add(this.azureCreateNewCertificateButton);
+            this.placeholderForAdvanced.Controls.Add(this.azureSubscriptionId);
+            this.placeholderForAdvanced.Controls.Add(this.azureDeployVirtualMachineCheckBox);
+            this.placeholderForAdvanced.Controls.Add(this.azureContainerComboBox);
+            this.placeholderForAdvanced.Controls.Add(this.selectAllCheckBox);
+            this.placeholderForAdvanced.Controls.Add(this.drivesListLabel);
+            this.placeholderForAdvanced.Controls.Add(this.deduplcationCheckBox);
+            this.placeholderForAdvanced.Controls.Add(this.folderKeyLabel);
+            this.placeholderForAdvanced.Controls.Add(this.folderKeyBox);
+            this.placeholderForAdvanced.Controls.Add(this.advancedCheckBox);
+            this.placeholderForAdvanced.Controls.Add(this.groupLabel);
+            this.placeholderForAdvanced.Controls.Add(this.zoneLabel);
+            this.placeholderForAdvanced.Controls.Add(this.typeLabel);
+            this.placeholderForAdvanced.Controls.Add(this.bucketTextBox);
+            this.placeholderForAdvanced.Controls.Add(this.bucketLabel);
+            this.placeholderForAdvanced.Controls.Add(this.zoneComboBox);
+            this.placeholderForAdvanced.Controls.Add(this.groupComboBox);
+            this.placeholderForAdvanced.Controls.Add(this.serverTypeComboBox);
+            this.placeholderForAdvanced.Controls.Add(this.drivesDataGridView);
             // 
-            // tabPage2
+            // pageAdvanced
             // 
-            this.tabPage2.Controls.Add(this.compressionUpDown);
-            this.tabPage2.Controls.Add(this.ehCompressionLabel);
-            this.tabPage2.Controls.Add(this.azureCreateNewCertificateButton);
-            this.tabPage2.Controls.Add(this.azureSubscriptionId);
-            this.tabPage2.Controls.Add(this.azureDeployVirtualMachineCheckBox);
-            this.tabPage2.Controls.Add(this.azureContainerComboBox);
-            this.tabPage2.Controls.Add(this.selectAllCheckBox);
-            this.tabPage2.Controls.Add(this.drivesListLabel);
-            this.tabPage2.Controls.Add(this.deduplcationCheckBox);
-            this.tabPage2.Controls.Add(this.folderKeyLabel);
-            this.tabPage2.Controls.Add(this.folderKeyBox);
-            this.tabPage2.Controls.Add(this.advancedCheckBox);
-            this.tabPage2.Controls.Add(this.groupLabel);
-            this.tabPage2.Controls.Add(this.zoneLabel);
-            this.tabPage2.Controls.Add(this.typeLabel);
-            this.tabPage2.Controls.Add(this.bucketTextBox);
-            this.tabPage2.Controls.Add(this.bucketLabel);
-            this.tabPage2.Controls.Add(this.zoneComboBox);
-            this.tabPage2.Controls.Add(this.groupComboBox);
-            this.tabPage2.Controls.Add(this.serverTypeComboBox);
-            this.tabPage2.Controls.Add(this.drivesDataGridView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(534, 216);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Advanced";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.pageAdvanced.Controls.Add(this.placeholderForAdvanced);
+            this.pageAdvanced.Location = new System.Drawing.Point(4, 22);
+            this.pageAdvanced.Name = "pageAdvanced";
+            this.pageAdvanced.Padding = new System.Windows.Forms.Padding(3);
+            this.pageAdvanced.Size = new System.Drawing.Size(534, 216);
+            this.pageAdvanced.TabIndex = 1;
+            this.pageAdvanced.Text = "Advanced";
+            this.pageAdvanced.UseVisualStyleBackColor = true;
             // 
             // compressionUpDown
             // 
@@ -521,7 +531,7 @@
             this.Controls.Add(this.testButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.nextButton);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabPanel);
             this.Controls.Add(this.backButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -532,11 +542,11 @@
             this.Text = "Cloud Options";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.CloudParametersLoad);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPanel.ResumeLayout(false);
+            this.pageBasic.ResumeLayout(false);
+            this.pageBasic.PerformLayout();
+            this.pageAdvanced.ResumeLayout(false);
+            this.pageAdvanced.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.compressionUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drivesDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -545,9 +555,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        protected System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel placeholderForAdvanced;
+        private System.Windows.Forms.TabControl tabPanel;
+        private System.Windows.Forms.TabPage pageBasic;
+        protected System.Windows.Forms.TabPage pageAdvanced;
         protected System.Windows.Forms.Label regionLabel;
         protected System.Windows.Forms.TextBox keyTextBox;
         protected System.Windows.Forms.TextBox idTextBox;
