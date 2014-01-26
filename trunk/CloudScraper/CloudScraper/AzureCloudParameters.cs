@@ -204,7 +204,7 @@ namespace CloudScraper
             {
                 certificatepath = GetCertificate(certificateThumbprint_, this.certificateStore);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
                     Settings.Default.S4AzureCertificateStoreError, "", "OK", "OK",
@@ -614,7 +614,7 @@ namespace CloudScraper
                     return true;
                 }
             }
-            catch (WebException ex)
+            catch (WebException)
             {
                 //Show dialog  when auth failed.
                 DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,

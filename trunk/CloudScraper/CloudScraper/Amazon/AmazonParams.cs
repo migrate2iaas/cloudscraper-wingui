@@ -15,10 +15,11 @@ namespace CloudScraper
         private readonly string serverType_;
         private readonly string zone_;
         private readonly string group_;
+        private readonly string vpc_;
 
         #endregion Data members
 
-        public AmazonParams(string id, string region, string s3Bucket, string folderKey, string serverType, string zone, string group)
+        public AmazonParams(string id, string region, string s3Bucket, string folderKey, string serverType, string zone, string group, string vpc)
         {
             id_ = id;
             region_ = region;
@@ -27,6 +28,7 @@ namespace CloudScraper
             serverType_ = serverType;
             zone_ = zone;
             group_ = group;
+            vpc_ = vpc;
         }
 
         #region Public methods
@@ -43,6 +45,11 @@ namespace CloudScraper
             if (!string.IsNullOrEmpty(group_))
             {
                 stream.WriteLine("security-group = " + group_);
+            }
+
+            if (!string.IsNullOrEmpty(vpc_))
+            {
+                stream.WriteLine("vpcsubnet = subnet-" + vpc_);
             }
 
             if (!string.IsNullOrEmpty(serverType_))

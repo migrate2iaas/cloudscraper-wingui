@@ -40,6 +40,14 @@ namespace CloudScraper
 
         #endregion Events
 
+        #region Exceptions
+
+        public class RegionMismatchException : ApplicationException
+        {
+        }
+
+        #endregion Exceptions
+
         #region Data members
 
         private static Logger logger_ = LogManager.GetLogger("AmazonCloudParametersForm");
@@ -52,6 +60,7 @@ namespace CloudScraper
         private string serverType_ = string.Empty; // the selection in serverTypeComboBox
         private string zone_ = string.Empty; // the selection in zoneComboBox
         private string group_ = string.Empty; // the selection in groupComboBox
+        private string vpc_ = string.Empty; // the selection in vpcComboBox
 
         #endregion Data members
 
@@ -68,6 +77,7 @@ namespace CloudScraper
             this.typeLabel.Text = Settings.Default.S4AmazonTypeLabelText;
             this.zoneLabel.Text = Settings.Default.S4AmazonZoneLabelText;
             this.groupLabel.Text = Settings.Default.S4AmazonGroupLabelText;
+            this.tagSelectVpc.Text = Settings.Default.S4AmazonVPCLabelText;
         }
 
         public AmazonAdvansedSettingsPanel(string region, SortedDictionary<string, string> serverTypeList)
@@ -117,13 +127,18 @@ namespace CloudScraper
 
         public bool IsContentValid()
         {
+            bool groupOk = 0 == groupComboBox.Items.Count || !string.IsNullOrEmpty(group_);
+            bool vpcOk = 0 == vpcComboBox.Items.Count || !string.IsNullOrEmpty(vpc_);
+            bool zoneOk = 0 == zoneComboBox.Items.Count || !string.IsNullOrEmpty(zone_);
+
             // TODO: do we need to check serverType_ here as well?
             return !advancedCheckBox.Checked ||
                 (advancedCheckBox.Checked && 
                 !string.IsNullOrEmpty(s3Bucket_) &&
                 !string.IsNullOrEmpty(folderKey_) &&
-                !string.IsNullOrEmpty(zone_) &&
-                !string.IsNullOrEmpty(group_));
+                zoneOk &&
+                vpcOk &&
+                groupOk);
         }
 
         public void VerifyBucket()
@@ -199,38 +214,61 @@ namespace CloudScraper
             AmazonEC2 client = new AmazonEC2Client(id, key, config);
             DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
 
-            //Download zones.
+            // Get zones.
             DescribeAvailabilityZonesResponse availabilityZonesResponse =
                 client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
-            this.zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
-            this.zoneComboBox.Items.Clear();
+            zoneComboBox.DropDownStyle = ComboBoxStyle.Simple;
+            zoneComboBox.Items.Clear();
 
-            foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
+            if (null != availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone &&
+                0 != availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone.Count)
             {
-                if (zone.ZoneState == "available")
+                foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
                 {
-                    this.zoneComboBox.Items.Add(zone.ZoneName);
+                    if (zone.ZoneState == "available")
+                    {
+                        zoneComboBox.Items.Add(zone.ZoneName);
+                    }
                 }
+                zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                zoneComboBox.SelectedIndex = 0;
+                zoneComboBox.SelectedItem = zoneComboBox.Items[0];
+                //zone_ = (string)zoneComboBox.SelectedItem;
             }
-            zoneComboBox.SelectedIndex = 0;
-            zoneComboBox.SelectedItem = zoneComboBox.Items[0];
-            //zone_ = (string)zoneComboBox.SelectedItem;
 
-            //Download security groups.
+            // Get security groups.
             DescribeSecurityGroupsResponse securityGroupResponse =
                 client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
-            this.groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
-            this.groupComboBox.Items.Clear();
-            foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
-            {
-                this.groupComboBox.Items.Add(group.GroupName);
-            }
-            groupComboBox.SelectedIndex = 0;
-            groupComboBox.SelectedItem = groupComboBox.Items[0];
-        }
+            groupComboBox.DropDownStyle = ComboBoxStyle.Simple;
+            groupComboBox.Items.Clear();
 
-        public class RegionMismatchException : ApplicationException
-        {
+            if (null != securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup &&
+                0 != securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup.Count)
+            {
+                foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
+                {
+                    groupComboBox.Items.Add(group.GroupName);
+                }
+                groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                groupComboBox.SelectedIndex = 0;
+                groupComboBox.SelectedItem = groupComboBox.Items[0];
+            }
+
+            // Get the VPC list.
+            DescribeVpcsResponse vpcResponse = client.DescribeVpcs(new DescribeVpcsRequest());
+            vpcComboBox.DropDownStyle = ComboBoxStyle.Simple;
+            vpcComboBox.Items.Clear();
+            if (null != vpcResponse && null != vpcResponse.DescribeVpcsResult &&
+                null != vpcResponse.DescribeVpcsResult.Vpc && 0 != vpcResponse.DescribeVpcsResult.Vpc.Count)
+            {
+                foreach (Vpc vpc in vpcResponse.DescribeVpcsResult.Vpc)
+                {
+                    vpcComboBox.Items.Add(vpc.VpcId);
+                }
+                vpcComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                vpcComboBox.SelectedIndex = 0;
+                vpcComboBox.SelectedItem = vpcComboBox.Items[0];
+            }
         }
 
         public void LoadS3UserSettingsFromServer(string id, string key)
@@ -256,7 +294,7 @@ namespace CloudScraper
 
         public AmazonParams GetUserInput(string id)
         {
-            return new AmazonParams(id, region_, s3Bucket_, folderKey_, serverType_, zone_, group_);
+            return new AmazonParams(id, region_, s3Bucket_, folderKey_, serverType_, zone_, group_, vpc_);
         }
 
         #endregion Public methods
@@ -269,6 +307,21 @@ namespace CloudScraper
             {
                 OnContentVerified(this, new ContentVerificationArgs(IsContentValid()));
             }
+        }
+
+        /// <summary>
+        /// Sets a tool tip for a contol only if there is no Text property set.
+        /// </summary>
+        /// <param name="ctrl">A control to set a tool tip for.</param>
+        /// <param name="text">A tool tip text.</param>
+        private void MySetToolTip(Control ctrl, string text)
+        {
+            if (!string.IsNullOrEmpty(ctrl.Text))
+            {
+                // the control contains text, drop the tool tip
+                text = string.Empty;
+            }
+            toolTip.SetToolTip(ctrl, text);
         }
 
         #endregion Private methods
@@ -336,8 +389,6 @@ namespace CloudScraper
                         }
                     }
 
-
-
                     if (lookLikeIp && !lookDigitOnly)
                     {
                         DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
@@ -367,6 +418,18 @@ namespace CloudScraper
             if (logger_.IsDebugEnabled)
             {
                 logger_.Debug("Bucket enter: " + bucketTextBox.Text);
+            }
+        }
+
+        private void bucketTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLower(e.KeyChar) || Char.IsDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '-' || e.KeyChar == '\b')
+            {
+                return;
+            }
+            else
+            {
+                e.KeyChar = '\a';
             }
         }
 
@@ -406,31 +469,21 @@ namespace CloudScraper
             MyVerifyContent();
         }
 
-        private void bucketTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void vpcComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Char.IsLower(e.KeyChar) || Char.IsDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '-' || e.KeyChar == '\b')
-            {
-                return;
-            }
-            else
-            {
-                e.KeyChar = '\a';
-            }
+            vpc_ = vpcComboBox.SelectedItem as string;
+            MyVerifyContent();
+        }
+
+        private void vpcComboBox_TextChanged(object sender, EventArgs e)
+        {
+            vpc_ = vpcComboBox.Text;
+            MyVerifyContent();
         }
 
         #endregion Event handlers
 
         #region Tool tips
-
-        private void MySetToolTip(Control ctrl, string text)
-        {
-            if (!string.IsNullOrEmpty(ctrl.Text))
-            {
-                // the control contains text, drop the tool tip
-                text = string.Empty;
-            }
-            toolTip.SetToolTip(ctrl, text);
-        }
 
         private void serverTypeComboBox_MouseEnter(object sender, EventArgs e)
         {
@@ -472,6 +525,16 @@ namespace CloudScraper
             MySetToolTip(folderKeyBox, Settings.Default.S4AmazonFolderToolTip);
         }
 
+        private void vpcComboBox_MouseEnter(object sender, EventArgs e)
+        {
+            MySetToolTip(folderKeyBox, Settings.Default.S4AmazonVPCToolTip);
+        }
+
+        private void vpcComboBox_MouseHover(object sender, EventArgs e)
+        {
+            MySetToolTip(folderKeyBox, Settings.Default.S4AmazonVPCToolTip);
+        }
+
         #endregion Tool tips
 
         #region Debug print-out
@@ -480,7 +543,7 @@ namespace CloudScraper
         {
             if (logger_.IsDebugEnabled)
             {
-                logger_.Debug("ServerType select: " + serverTypeComboBox.Text);
+                logger_.Debug("ServerType selected: " + serverTypeComboBox.Text);
             }
         }
 
@@ -488,7 +551,7 @@ namespace CloudScraper
         {
             if (logger_.IsDebugEnabled)
             {
-                logger_.Debug("Group select: " + groupComboBox.Text);
+                logger_.Debug("Group selected: " + groupComboBox.Text);
             }
         }
 
@@ -496,7 +559,7 @@ namespace CloudScraper
         {
             if (logger_.IsDebugEnabled)
             {
-                logger_.Debug("Zone select: " + zoneComboBox.Text);
+                logger_.Debug("Zone selected: " + zoneComboBox.Text);
             }
         }
 
@@ -504,7 +567,7 @@ namespace CloudScraper
         {
             if (logger_.IsDebugEnabled)
             {
-                logger_.Debug("Advanced checked to: " + advancedCheckBox.Checked.ToString());
+                logger_.Debug("Advanced check box set to: " + advancedCheckBox.Checked.ToString());
             }
         }
 
@@ -512,35 +575,18 @@ namespace CloudScraper
         {
             if (logger_.IsDebugEnabled)
             {
-                logger_.Debug("Folder enter: " + folderKeyBox.Text);
+                logger_.Debug("Folder entered: " + folderKeyBox.Text);
+            }
+        }
+
+        private void vpcComboBox_Leave(object sender, EventArgs e)
+        {
+            if (logger_.IsDebugEnabled)
+            {
+                logger_.Debug("VPC selected: " + vpcComboBox.Text);
             }
         }
 
         #endregion Debug print-out
-
-        private void vpcComboBox_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vpcComboBox_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vpcComboBox_MouseHover(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vpcComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vpcComboBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

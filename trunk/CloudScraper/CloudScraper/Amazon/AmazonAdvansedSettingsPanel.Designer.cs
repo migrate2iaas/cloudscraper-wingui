@@ -41,9 +41,9 @@
             this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
             this.pnlAdvanced = new System.Windows.Forms.Panel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.vpcComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tagSelectVpc = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnlAdvanced.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,7 +177,7 @@
             this.pnlAdvanced.Controls.Add(this.serverTypeComboBox);
             this.pnlAdvanced.Controls.Add(this.vpcComboBox);
             this.pnlAdvanced.Controls.Add(this.groupComboBox);
-            this.pnlAdvanced.Controls.Add(this.label1);
+            this.pnlAdvanced.Controls.Add(this.tagSelectVpc);
             this.pnlAdvanced.Controls.Add(this.groupLabel);
             this.pnlAdvanced.Controls.Add(this.zoneComboBox);
             this.pnlAdvanced.Controls.Add(this.zoneLabel);
@@ -204,14 +204,14 @@
             this.vpcComboBox.MouseEnter += new System.EventHandler(this.vpcComboBox_MouseEnter);
             this.vpcComboBox.MouseHover += new System.EventHandler(this.vpcComboBox_MouseHover);
             // 
-            // label1
+            // tagSelectVpc
             // 
-            this.label1.Location = new System.Drawing.Point(3, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 21);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Specify your VPC subnet:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tagSelectVpc.Location = new System.Drawing.Point(3, 139);
+            this.tagSelectVpc.Name = "tagSelectVpc";
+            this.tagSelectVpc.Size = new System.Drawing.Size(213, 21);
+            this.tagSelectVpc.TabIndex = 30;
+            this.tagSelectVpc.Text = "Specify your VPC subnet:";
+            this.tagSelectVpc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // AmazonAdvansedSettingsPanel
             // 
@@ -244,6 +244,6 @@
         private System.Windows.Forms.ComboBox serverTypeComboBox;
         private System.Windows.Forms.CheckBox advancedCheckBox;
         private System.Windows.Forms.ComboBox vpcComboBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label tagSelectVpc;
     }
 }
