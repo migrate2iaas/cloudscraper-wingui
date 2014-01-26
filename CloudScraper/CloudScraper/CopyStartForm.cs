@@ -426,7 +426,6 @@ namespace CloudScraper
             
             this.backButton.Enabled = false;
             
-
             if (!ResumeTransferForm.resumeUpload_ && !ResumeTransferForm.skipUpload_ && ResumeTransferForm.resumeFilePath_ == null)
             {
                 // Create transfer file, encode in utf with no BOM (first marking bytes)

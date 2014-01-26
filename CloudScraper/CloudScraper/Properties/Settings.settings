@@ -2,22 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CloudScraper.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;us-east-1/US East (Northern Virginia)&lt;/string&gt;
-  &lt;string&gt;us-west-2/US West (Oregon)&lt;/string&gt;
-  &lt;string&gt;us-west-1/US West (Northern California)&lt;/string&gt;
-  &lt;string&gt;eu-west-1/EU (Ireland)&lt;/string&gt;
-  &lt;string&gt;ap-southeast-1/Asia Pacific (Singapore)&lt;/string&gt;
-  &lt;string&gt;ap-southeast-2/Asia Pacific (Sydney)&lt;/string&gt;
-  &lt;string&gt;ap-northeast-1/Asia Pacific (Tokyo)&lt;/string&gt;
-  &lt;string&gt;sa-east-1/South America (Sao Paulo)&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="Separator" Type="System.Char" Scope="User">
-      <Value Profile="(Default)">/</Value>
-    </Setting>
     <Setting Name="Setting" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://ya.ru</Value>
     </Setting>
@@ -258,28 +242,6 @@
     <Setting Name="MailSendHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Send Request</Value>
     </Setting>
-    <Setting Name="EHRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;lon-m/UK (London, Maidenhead)&lt;/string&gt;
-  &lt;string&gt;lon-p/UK (London, Portsmouth)&lt;/string&gt;
-  &lt;string&gt;ams-e/Netherlands (Amsterdam)&lt;/string&gt;
-  &lt;string&gt;hkg-e/Asia (Hong Kong)&lt;/string&gt;
-  &lt;string&gt;syd-v/Australia (Sydney)&lt;/string&gt;
-  &lt;string&gt;sjc-c/USA (California, San Jose)&lt;/string&gt;
-  &lt;string&gt;lax-p/USA (California, Los Angeles)&lt;/string&gt;
-  &lt;string&gt;sat-p/USA (Texas, San Antonio)&lt;/string&gt;
-  &lt;string&gt;tor-p/Canada (Toronto)&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="Buttons" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;AmazonCloudParameters/255,22/189,70/Amazon EC2/Transfer your server to Amazon Elastic Compute Cloud/Icons\\Amazon.ico/32,32/true&lt;/string&gt;
-  &lt;string&gt;EHCloudParameters/255,174/189,70/ElasticHosts/Transfer your server to ElasticHosts/Icons\\Elastic.ico/32,32/true&lt;/string&gt;
-  &lt;string&gt;AzureCloudParameters/255,98/189,70/WindowsAzure/Transfer your server to WindowsAzure/Icons\\Azure.ico/32,32/true&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="TotalSizeGap" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
@@ -516,17 +478,6 @@ These settings could be reused afterwards to resume your upload or deploy severa
       <Value Profile="(Default)">Need help? 
 Click here to read manual entry on this step.</Value>
     </Setting>
-    <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;m1.small/M1 Small&lt;/string&gt;
-  &lt;string&gt;m1.medium/M1 Medium&lt;/string&gt;
-  &lt;string&gt;m1.large/M1 Large&lt;/string&gt;
-  &lt;string&gt;m1.xlarge/M1 Extra Large&lt;/string&gt;
-  &lt;string&gt;m3.2xlarge/M3 Double Extra Large&lt;/string&gt;
-  &lt;string&gt;m3.xlarge/M3 Extra Large&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="S5PathNetworkLoginFailure" Type="System.String" Scope="User">
       <Value Profile="(Default)">Failed to connect to network location. Please, specify another one.</Value>
     </Setting>
@@ -535,17 +486,6 @@ Click here to read manual entry on this step.</Value>
     </Setting>
     <Setting Name="S4EHIDKeyInvalid" Type="System.String" Scope="User">
       <Value Profile="(Default)">EH doesn't recognize entered keys! Check "Keys" section in Security Credentials page of your account.</Value>
-    </Setting>
-    <Setting Name="AzureRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;West US/West US&lt;/string&gt;
-  &lt;string&gt;East US/East US&lt;/string&gt;
-  &lt;string&gt;East Asia/East Asia&lt;/string&gt;
-  &lt;string&gt;Southeast Asia/Southeast Asia&lt;/string&gt;
-  &lt;string&gt;West Europe/West Europe&lt;/string&gt;
-  &lt;string&gt;North Europe/North Europe&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="S4AzureRegionLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Region</Value>
@@ -640,6 +580,73 @@ You couldn’t use virtual hard drives from the storage account in region you sp
       <Value Profile="(Default)">Attention! Proceed only after the certificate is uploaded! 
 
 In newly opened browser window login to Windows Azure, choose Settings. Then choose Management Certificates tab, click upload and select certificate file you created for uploading. </Value>
+    </Setting>
+    <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;us-east-1|US East (Northern Virginia)&lt;/string&gt;
+  &lt;string&gt;us-west-2|US West (Oregon)&lt;/string&gt;
+  &lt;string&gt;us-west-1|US West (Northern California)&lt;/string&gt;
+  &lt;string&gt;eu-west-1|EU (Ireland)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-1|Asia Pacific (Singapore)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-2|Asia Pacific (Sydney)&lt;/string&gt;
+  &lt;string&gt;ap-northeast-1|Asia Pacific (Tokyo)&lt;/string&gt;
+  &lt;string&gt;sa-east-1|South America (Sao Paulo)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Separator" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">|</Value>
+    </Setting>
+    <Setting Name="EHRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;lon-m|UK (London, Maidenhead)&lt;/string&gt;
+  &lt;string&gt;lon-p|UK (London, Portsmouth)&lt;/string&gt;
+  &lt;string&gt;ams-e|Netherlands (Amsterdam)&lt;/string&gt;
+  &lt;string&gt;hkg-e|Asia (Hong Kong)&lt;/string&gt;
+  &lt;string&gt;syd-v|Australia (Sydney)&lt;/string&gt;
+  &lt;string&gt;sjc-c|USA (California, San Jose)&lt;/string&gt;
+  &lt;string&gt;lax-p|USA (California, Los Angeles)&lt;/string&gt;
+  &lt;string&gt;sat-p|USA (Texas, San Antonio)&lt;/string&gt;
+  &lt;string&gt;tor-p|Canada (Toronto)&lt;/string&gt;
+  &lt;string&gt;https://api-east1.openhosting.com|OpenHosting (Miami)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Buttons" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;AmazonCloudParameters|255,22|189,70|Amazon EC2|Transfer your server to Amazon Elastic Compute Cloud|Icons\\Amazon.ico|32,32|true&lt;/string&gt;
+  &lt;string&gt;EHCloudParameters|255,174|189,70|ElasticHosts|Transfer your server to ElasticHosts|Icons\\Elastic.ico|32,32|true&lt;/string&gt;
+  &lt;string&gt;AzureCloudParameters|255,98|189,70|WindowsAzure|Transfer your server to WindowsAzure|Icons\\Azure.ico|32,32|true&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;m1.small|M1 Small&lt;/string&gt;
+  &lt;string&gt;m1.medium|M1 Medium&lt;/string&gt;
+  &lt;string&gt;m1.large|M1 Large&lt;/string&gt;
+  &lt;string&gt;m1.xlarge|M1 Extra Large&lt;/string&gt;
+  &lt;string&gt;m3.2xlarge|M3 Double Extra Large&lt;/string&gt;
+  &lt;string&gt;m3.xlarge|M3 Extra Large&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="AzureRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;West US|West US&lt;/string&gt;
+  &lt;string&gt;East US|East US&lt;/string&gt;
+  &lt;string&gt;East Asia|East Asia&lt;/string&gt;
+  &lt;string&gt;Southeast Asia|Southeast Asia&lt;/string&gt;
+  &lt;string&gt;West Europe|West Europe&lt;/string&gt;
+  &lt;string&gt;North Europe|North Europe&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="S4AmazonVPCLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Specify your VPC subnet:</Value>
+    </Setting>
+    <Setting Name="S4AmazonVPCToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
