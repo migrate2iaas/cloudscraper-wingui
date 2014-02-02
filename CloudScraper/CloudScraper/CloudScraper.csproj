@@ -91,6 +91,12 @@
     <Compile Include="AzureCloudParameters.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Azure\AzureAdvancedSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Azure\AzureAdvancedSettingsPanel.Designer.cs">
+      <DependentUpon>AzureAdvancedSettingsPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="BetterDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,7 @@
     <Compile Include="CloudParametersForm.Designer.cs">
       <DependentUpon>CloudParametersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlDebugPrintoutContainer.cs" />
     <Compile Include="CopyStartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,8 +188,12 @@
     <Compile Include="Amazon\AmazonAdvansedSettingsPanel.Designer.cs">
       <DependentUpon>AmazonAdvansedSettingsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToolTipContainer.cs" />
     <EmbeddedResource Include="Amazon\AmazonAdvansedSettingsPanel.resx">
       <DependentUpon>AmazonAdvansedSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Azure\AzureAdvancedSettingsPanel.resx">
+      <DependentUpon>AzureAdvancedSettingsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BetterDialog.resx">
       <DependentUpon>BetterDialog.cs</DependentUpon>
@@ -338,6 +349,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

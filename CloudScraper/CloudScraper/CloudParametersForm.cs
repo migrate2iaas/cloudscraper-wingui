@@ -27,14 +27,15 @@ namespace CloudScraper
             this.regionList_ = new SortedDictionary<string, string>();
             this.serverTypeList_ = new SortedDictionary<string, string>();
             
-
             InitializeComponent();
+
             // Due to strange design decision to have controls to all clouds in one parent form
             // we just disable all of them so inhretied form could enable them
             foreach (Control item in this.pageAdvanced.Controls)
             {
                 item.Visible = false;
             }
+            helpButton.TabStop = false;
         }
         
         public void SetChooseCloudForm(ChooseCloudForm chooseCloudForm)
