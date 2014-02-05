@@ -78,13 +78,13 @@
       <Value Profile="(Default)">Use advanced settings</Value>
     </Setting>
     <Setting Name="S4AmazonTypeLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your cloud server type:</Value>
+      <Value Profile="(Default)">Cloud server type:</Value>
     </Setting>
     <Setting Name="S4AmazonZoneLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your availability zone:</Value>
+      <Value Profile="(Default)">Availability zone:</Value>
     </Setting>
     <Setting Name="S4AmazonGroupLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your security group:</Value>
+      <Value Profile="(Default)">Security group:</Value>
     </Setting>
     <Setting Name="S4BucketLocated" Type="System.String" Scope="User">
       <Value Profile="(Default)">The bucket you specified is located in another region, please specify another bucket.</Value>
@@ -285,10 +285,10 @@
       <Value Profile="(Default)">Check Access</Value>
     </Setting>
     <Setting Name="S4AmazonBucketLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your S3 bucket:</Value>
+      <Value Profile="(Default)">S3 Bucket:</Value>
     </Setting>
     <Setting Name="S4AmazonFolderKeyLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify folder in S3 bucket:</Value>
+      <Value Profile="(Default)">Folder in S3 Bucket:</Value>
     </Setting>
     <Setting Name="S4TestConnectionHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Cloud Access Checked</Value>
@@ -643,9 +643,15 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="S4AmazonVPCLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your VPC subnet:</Value>
+      <Value Profile="(Default)">VPC subnet:</Value>
     </Setting>
     <Setting Name="S4AmazonVPCToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="S4AzureAffinityText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Affinity Group/Virtual Network</Value>
+    </Setting>
+    <Setting Name="S4AzureAffinityToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

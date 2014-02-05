@@ -31,22 +31,22 @@
             this.components = new System.ComponentModel.Container();
             this.advancedCheckBox = new System.Windows.Forms.CheckBox();
             this.pnlAdvanced = new System.Windows.Forms.Panel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.tableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.groupComboBox = new System.Windows.Forms.ComboBox();
+            this.folderKeyBox = new System.Windows.Forms.TextBox();
+            this.zoneComboBox = new System.Windows.Forms.ComboBox();
             this.folderKeyLabel = new System.Windows.Forms.Label();
             this.bucketLabel = new System.Windows.Forms.Label();
-            this.folderKeyBox = new System.Windows.Forms.TextBox();
-            this.serverTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.vpcComboBox = new System.Windows.Forms.ComboBox();
-            this.groupComboBox = new System.Windows.Forms.ComboBox();
-            this.tagSelectVpc = new System.Windows.Forms.Label();
-            this.groupLabel = new System.Windows.Forms.Label();
-            this.zoneComboBox = new System.Windows.Forms.ComboBox();
-            this.zoneLabel = new System.Windows.Forms.Label();
-            this.bucketTextBox = new System.Windows.Forms.TextBox();
             this.typeLabel = new System.Windows.Forms.Label();
-            this.tableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.zoneLabel = new System.Windows.Forms.Label();
+            this.tagSelectVpc = new System.Windows.Forms.Label();
+            this.bucketTextBox = new System.Windows.Forms.TextBox();
+            this.groupLabel = new System.Windows.Forms.Label();
             this.tableLayoutVpc = new System.Windows.Forms.TableLayoutPanel();
+            this.vpcComboBox = new System.Windows.Forms.ComboBox();
             this.subnetComboBox = new System.Windows.Forms.ComboBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnlAdvanced.SuspendLayout();
             this.tableLayout.SuspendLayout();
             this.tableLayoutVpc.SuspendLayout();
@@ -71,127 +71,6 @@
             this.pnlAdvanced.Name = "pnlAdvanced";
             this.pnlAdvanced.Size = new System.Drawing.Size(528, 179);
             this.pnlAdvanced.TabIndex = 36;
-            // 
-            // folderKeyLabel
-            // 
-            this.folderKeyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.folderKeyLabel.Location = new System.Drawing.Point(3, 29);
-            this.folderKeyLabel.Name = "folderKeyLabel";
-            this.folderKeyLabel.Size = new System.Drawing.Size(162, 29);
-            this.folderKeyLabel.TabIndex = 45;
-            this.folderKeyLabel.Text = "Specify folder (key):";
-            this.folderKeyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // bucketLabel
-            // 
-            this.bucketLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bucketLabel.Location = new System.Drawing.Point(3, 0);
-            this.bucketLabel.Name = "bucketLabel";
-            this.bucketLabel.Size = new System.Drawing.Size(162, 29);
-            this.bucketLabel.TabIndex = 40;
-            this.bucketLabel.Text = "Specify your S3 Bucket:";
-            this.bucketLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // folderKeyBox
-            // 
-            this.folderKeyBox.Location = new System.Drawing.Point(171, 32);
-            this.folderKeyBox.MaxLength = 80;
-            this.folderKeyBox.Name = "folderKeyBox";
-            this.folderKeyBox.Size = new System.Drawing.Size(354, 20);
-            this.folderKeyBox.TabIndex = 35;
-            this.folderKeyBox.TextChanged += new System.EventHandler(this.folderKeyBox_TextChanged);
-            // 
-            // serverTypeComboBox
-            // 
-            this.serverTypeComboBox.FormattingEnabled = true;
-            this.serverTypeComboBox.Location = new System.Drawing.Point(171, 61);
-            this.serverTypeComboBox.Name = "serverTypeComboBox";
-            this.serverTypeComboBox.Size = new System.Drawing.Size(354, 21);
-            this.serverTypeComboBox.TabIndex = 36;
-            this.serverTypeComboBox.TextChanged += new System.EventHandler(this.serverTypeComboBox_TextChanged);
-            // 
-            // vpcComboBox
-            // 
-            this.vpcComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.vpcComboBox.FormattingEnabled = true;
-            this.vpcComboBox.Location = new System.Drawing.Point(3, 3);
-            this.vpcComboBox.Name = "vpcComboBox";
-            this.vpcComboBox.Size = new System.Drawing.Size(174, 21);
-            this.vpcComboBox.TabIndex = 39;
-            this.vpcComboBox.TextChanged += new System.EventHandler(this.vpcComboBox_TextChanged);
-            // 
-            // groupComboBox
-            // 
-            this.groupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.groupComboBox.FormattingEnabled = true;
-            this.groupComboBox.Location = new System.Drawing.Point(171, 119);
-            this.groupComboBox.MaxLength = 10;
-            this.groupComboBox.Name = "groupComboBox";
-            this.groupComboBox.Size = new System.Drawing.Size(354, 21);
-            this.groupComboBox.TabIndex = 38;
-            this.groupComboBox.TextChanged += new System.EventHandler(this.groupComboBox_TextChanged);
-            // 
-            // tagSelectVpc
-            // 
-            this.tagSelectVpc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tagSelectVpc.Location = new System.Drawing.Point(3, 145);
-            this.tagSelectVpc.Name = "tagSelectVpc";
-            this.tagSelectVpc.Size = new System.Drawing.Size(162, 34);
-            this.tagSelectVpc.TabIndex = 44;
-            this.tagSelectVpc.Text = "Specify your VPC subnet:";
-            this.tagSelectVpc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // groupLabel
-            // 
-            this.groupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupLabel.Location = new System.Drawing.Point(3, 116);
-            this.groupLabel.Name = "groupLabel";
-            this.groupLabel.Size = new System.Drawing.Size(162, 29);
-            this.groupLabel.TabIndex = 43;
-            this.groupLabel.Text = "Specify your security group:";
-            this.groupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // zoneComboBox
-            // 
-            this.zoneComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.zoneComboBox.FormattingEnabled = true;
-            this.zoneComboBox.Location = new System.Drawing.Point(171, 90);
-            this.zoneComboBox.MaxLength = 10;
-            this.zoneComboBox.Name = "zoneComboBox";
-            this.zoneComboBox.Size = new System.Drawing.Size(354, 21);
-            this.zoneComboBox.TabIndex = 37;
-            this.zoneComboBox.TextChanged += new System.EventHandler(this.zoneComboBox_TextChanged);
-            // 
-            // zoneLabel
-            // 
-            this.zoneLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.zoneLabel.Location = new System.Drawing.Point(3, 87);
-            this.zoneLabel.Name = "zoneLabel";
-            this.zoneLabel.Size = new System.Drawing.Size(162, 29);
-            this.zoneLabel.TabIndex = 42;
-            this.zoneLabel.Text = "Specify your availability zone:";
-            this.zoneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // bucketTextBox
-            // 
-            this.bucketTextBox.Location = new System.Drawing.Point(171, 3);
-            this.bucketTextBox.MaxLength = 40;
-            this.bucketTextBox.Name = "bucketTextBox";
-            this.bucketTextBox.Size = new System.Drawing.Size(354, 20);
-            this.bucketTextBox.TabIndex = 34;
-            this.bucketTextBox.TextChanged += new System.EventHandler(this.bucketTextBox_TextChanged);
-            this.bucketTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bucketTextBox_KeyPress);
-            this.bucketTextBox.Leave += new System.EventHandler(this.bucketTextBox_Leave);
-            // 
-            // typeLabel
-            // 
-            this.typeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.typeLabel.Location = new System.Drawing.Point(3, 58);
-            this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(162, 29);
-            this.typeLabel.TabIndex = 41;
-            this.typeLabel.Text = "Specify your cloud server type:";
-            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayout
             // 
@@ -223,6 +102,117 @@
             this.tableLayout.Size = new System.Drawing.Size(528, 179);
             this.tableLayout.TabIndex = 0;
             // 
+            // serverTypeComboBox
+            // 
+            this.serverTypeComboBox.FormattingEnabled = true;
+            this.serverTypeComboBox.Location = new System.Drawing.Point(171, 61);
+            this.serverTypeComboBox.Name = "serverTypeComboBox";
+            this.serverTypeComboBox.Size = new System.Drawing.Size(354, 21);
+            this.serverTypeComboBox.TabIndex = 36;
+            this.serverTypeComboBox.TextChanged += new System.EventHandler(this.serverTypeComboBox_TextChanged);
+            // 
+            // groupComboBox
+            // 
+            this.groupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.groupComboBox.FormattingEnabled = true;
+            this.groupComboBox.Location = new System.Drawing.Point(171, 119);
+            this.groupComboBox.MaxLength = 10;
+            this.groupComboBox.Name = "groupComboBox";
+            this.groupComboBox.Size = new System.Drawing.Size(354, 21);
+            this.groupComboBox.TabIndex = 38;
+            this.groupComboBox.TextChanged += new System.EventHandler(this.groupComboBox_TextChanged);
+            // 
+            // folderKeyBox
+            // 
+            this.folderKeyBox.Location = new System.Drawing.Point(171, 32);
+            this.folderKeyBox.MaxLength = 80;
+            this.folderKeyBox.Name = "folderKeyBox";
+            this.folderKeyBox.Size = new System.Drawing.Size(354, 20);
+            this.folderKeyBox.TabIndex = 35;
+            this.folderKeyBox.TextChanged += new System.EventHandler(this.folderKeyBox_TextChanged);
+            // 
+            // zoneComboBox
+            // 
+            this.zoneComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.zoneComboBox.FormattingEnabled = true;
+            this.zoneComboBox.Location = new System.Drawing.Point(171, 90);
+            this.zoneComboBox.MaxLength = 10;
+            this.zoneComboBox.Name = "zoneComboBox";
+            this.zoneComboBox.Size = new System.Drawing.Size(354, 21);
+            this.zoneComboBox.TabIndex = 37;
+            this.zoneComboBox.TextChanged += new System.EventHandler(this.zoneComboBox_TextChanged);
+            // 
+            // folderKeyLabel
+            // 
+            this.folderKeyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.folderKeyLabel.Location = new System.Drawing.Point(3, 29);
+            this.folderKeyLabel.Name = "folderKeyLabel";
+            this.folderKeyLabel.Size = new System.Drawing.Size(162, 29);
+            this.folderKeyLabel.TabIndex = 45;
+            this.folderKeyLabel.Text = "Specify folder (key):";
+            this.folderKeyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // bucketLabel
+            // 
+            this.bucketLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bucketLabel.Location = new System.Drawing.Point(3, 0);
+            this.bucketLabel.Name = "bucketLabel";
+            this.bucketLabel.Size = new System.Drawing.Size(162, 29);
+            this.bucketLabel.TabIndex = 40;
+            this.bucketLabel.Text = "Specify your S3 Bucket:";
+            this.bucketLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.typeLabel.Location = new System.Drawing.Point(3, 58);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(162, 29);
+            this.typeLabel.TabIndex = 41;
+            this.typeLabel.Text = "Specify your cloud server type:";
+            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // zoneLabel
+            // 
+            this.zoneLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zoneLabel.Location = new System.Drawing.Point(3, 87);
+            this.zoneLabel.Name = "zoneLabel";
+            this.zoneLabel.Size = new System.Drawing.Size(162, 29);
+            this.zoneLabel.TabIndex = 42;
+            this.zoneLabel.Text = "Specify your availability zone:";
+            this.zoneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tagSelectVpc
+            // 
+            this.tagSelectVpc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tagSelectVpc.Location = new System.Drawing.Point(3, 145);
+            this.tagSelectVpc.Name = "tagSelectVpc";
+            this.tagSelectVpc.Size = new System.Drawing.Size(162, 34);
+            this.tagSelectVpc.TabIndex = 44;
+            this.tagSelectVpc.Text = "Specify your VPC subnet:";
+            this.tagSelectVpc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // bucketTextBox
+            // 
+            this.bucketTextBox.Location = new System.Drawing.Point(171, 3);
+            this.bucketTextBox.MaxLength = 40;
+            this.bucketTextBox.Name = "bucketTextBox";
+            this.bucketTextBox.Size = new System.Drawing.Size(354, 20);
+            this.bucketTextBox.TabIndex = 34;
+            this.bucketTextBox.TextChanged += new System.EventHandler(this.bucketTextBox_TextChanged);
+            this.bucketTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bucketTextBox_KeyPress);
+            this.bucketTextBox.Leave += new System.EventHandler(this.bucketTextBox_Leave);
+            // 
+            // groupLabel
+            // 
+            this.groupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupLabel.Location = new System.Drawing.Point(3, 116);
+            this.groupLabel.Name = "groupLabel";
+            this.groupLabel.Size = new System.Drawing.Size(162, 29);
+            this.groupLabel.TabIndex = 43;
+            this.groupLabel.Text = "Specify your security group:";
+            this.groupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // tableLayoutVpc
             // 
             this.tableLayoutVpc.ColumnCount = 2;
@@ -239,6 +229,16 @@
             this.tableLayoutVpc.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutVpc.Size = new System.Drawing.Size(360, 34);
             this.tableLayoutVpc.TabIndex = 46;
+            // 
+            // vpcComboBox
+            // 
+            this.vpcComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.vpcComboBox.FormattingEnabled = true;
+            this.vpcComboBox.Location = new System.Drawing.Point(3, 3);
+            this.vpcComboBox.Name = "vpcComboBox";
+            this.vpcComboBox.Size = new System.Drawing.Size(174, 21);
+            this.vpcComboBox.TabIndex = 39;
+            this.vpcComboBox.TextChanged += new System.EventHandler(this.vpcComboBox_TextChanged);
             // 
             // subnetComboBox
             // 

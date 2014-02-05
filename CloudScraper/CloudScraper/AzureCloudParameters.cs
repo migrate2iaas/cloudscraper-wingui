@@ -20,7 +20,6 @@ using NLog;
 using DotNetPerls;
 using CloudScraper.Properties;
 
-
 namespace CloudScraper
 {
     public class AzureCloudParameters : CloudParametersForm
@@ -33,14 +32,13 @@ namespace CloudScraper
         public static string subscriptionId_ = "";
         public static string certificateThumbprint_ = "";
         public static string certificateSelection_ = "";
-        public static string containerName_ = "";
 
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
         delegate void MyDelegate();
-        private string certificatePath;
         private int certificateCount;
         private string certificateStore = "My";
-        private string certificateName;
+
+        private readonly AzureAdvancedSettingsPanel pnlAdvancedSettings_;
         
         public AzureCloudParameters(ChooseCloudForm chooseCloudForm)
         {
@@ -80,38 +78,13 @@ namespace CloudScraper
             this.regionLabel.Text = Settings.Default.S4AzureRegionLabelText;
             this.idLabel.Text = Settings.Default.S4AzureIdLabelText;
             this.keyLabel.Text = Settings.Default.S4AzureKeyLabelText;
-            this.typeLabel.Text = Settings.Default.S4AzureSubscriptionIdText;
-            this.bucketLabel.Text = Settings.Default.S4AzureContainerNameLabelText;
-            this.zoneLabel.Text = Settings.Default.S4AzureCertificateThumbprintText;
+
             this.idTextBox.MaxLength = 24;
             this.keyTextBox.MaxLength = 1024;
 
-            // TODO: recreate: make visible just our own controls
-            //The fastest way to fit the old code
-            foreach (Control item in this.pageAdvanced.Controls)
-            {
-                item.Visible = true;
-            }
-
-            this.typeLabel.Visible = true;
-            this.zoneLabel.Visible = true;
-            this.advancedCheckBox.Visible = true;
-            this.zoneComboBox.Visible = true;
-            this.zoneComboBox.MaxLength = 40;
-
-            this.folderKeyLabel.Visible = false;
-            this.folderKeyBox.Visible = false;
-            this.groupLabel.Visible = false;
-            this.groupComboBox.Visible = false;
-            this.bucketTextBox.Visible = false;
-            this.serverTypeComboBox.Visible = false;
-            
-            this.drivesDataGridView.Visible = false;
-            this.deduplcationCheckBox.Visible = false;
-            this.drivesListLabel.Visible = false;
-            this.selectAllCheckBox.Visible = false;
-            this.compressionUpDown.Visible = false;
-            this.ehCompressionLabel.Visible = false;
+            // Create advanced settings panel.
+            pnlAdvancedSettings_ = new AzureAdvancedSettingsPanel(region_);
+            SetAdvancedPanel(pnlAdvancedSettings_);
 
             this.SetChooseCloudForm(chooseCloudForm);
         }
@@ -131,8 +104,6 @@ namespace CloudScraper
                         this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AzureApiKeyToolTip);
                     if ((sender as TextBox) == idTextBox)
                         this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AzureUserUIDToolTip);
-                    if ((sender as TextBox) == azureSubscriptionId)
-                        this.toolTip.SetToolTip((sender as TextBox), Settings.Default.S4AzureSubscriptionIdToolTip);
                 }
                 else
                 {
@@ -146,14 +117,6 @@ namespace CloudScraper
                 {
                     this.toolTip.SetToolTip((sender as ComboBox), Settings.Default.S4AzureRegionToolTip);
                 }
-                else if ((sender as ComboBox) == azureContainerComboBox)
-                {
-                    this.toolTip.SetToolTip((sender as ComboBox), Settings.Default.S4AzureContainerToolTip);
-                }
-                else if ((sender as ComboBox) == zoneComboBox)
-                {
-                    this.toolTip.SetToolTip((sender as ComboBox), Settings.Default.S4AzureThumbprintToolTip);
-                }
                 else
                 {
                     if ((sender as ComboBox).Text == "")
@@ -165,12 +128,6 @@ namespace CloudScraper
                         this.toolTip.SetToolTip((sender as ComboBox), "");
                     }
                 }
-            }
-
-            if (sender is Button)
-            {
-                if ((sender as Button) == azureCreateNewCertificateButton)
-                    this.toolTip.SetToolTip((sender as Button), Settings.Default.S4AzureCreateThumbprintButtonToolTip);
             }
         }
 
@@ -311,20 +268,20 @@ namespace CloudScraper
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
             saveFileDialog.DefaultExt = "." + "cer";
-            this.certificatePath = "";
-            this.certificateName = "";
+            string certificatePath = string.Empty;
+            string certificateName = string.Empty;
 
             DialogResult result = saveFileDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                this.certificatePath = saveFileDialog.FileName;
+                certificatePath = saveFileDialog.FileName;
             }
             else if (result == DialogResult.Cancel)
             {
                 return;
             }
 
-            this.certificateName = this.certificatePath.Substring(saveFileDialog.FileName.LastIndexOf('\\') + 1);
+            certificateName = certificatePath.Substring(saveFileDialog.FileName.LastIndexOf('\\') + 1);
 
             // NOTE: we should alter the argeuments of makecert to create cert in the local machine location in order to run from service context
             // or impersonate alternatively the service process when accessing certs
@@ -333,7 +290,7 @@ namespace CloudScraper
             Process process = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
             info.FileName = "makecert.exe";
-            info.Arguments = "-sky exchange -r -n \"CN=" + this.certificateName + "\" -pe -a sha1 -len 2048 -ss " + this.certificateStore + " \"" + certificatePath + "\"";
+            info.Arguments = "-sky exchange -r -n \"CN=" + certificateName + "\" -pe -a sha1 -len 2048 -ss " + this.certificateStore + " \"" + certificatePath + "\"";
             info.UseShellExecute = true;
             info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
             info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
@@ -382,7 +339,6 @@ namespace CloudScraper
                     Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                 }
-                
                 
                 int indexOfthumbprint = 0;
                 if (fcollection.Count > 0)
@@ -735,11 +691,6 @@ namespace CloudScraper
             }
         }
 
-        protected override void AzureContainerChanged(object sender, EventArgs e)
-        {
-            containerName_ = this.azureContainerComboBox.Text;
-        }
-
         protected override void OnLeaveEnter(object sender, EventArgs e)
         {
             if (logger_.IsDebugEnabled)
@@ -748,10 +699,6 @@ namespace CloudScraper
                 {
                     if ((sender as ComboBox) == regionComboBox)
                         logger_.Debug("Region select: " + (sender as ComboBox).Text);
-                    if ((sender as ComboBox) == azureContainerComboBox)
-                        logger_.Debug("Container select: " + (sender as ComboBox).Text);
-                    if ((sender as ComboBox) == zoneComboBox)
-                        logger_.Debug("Thumbprint enter: " + (sender as ComboBox).Text);
                 }
                 if (sender is TextBox)
                 {
@@ -759,15 +706,11 @@ namespace CloudScraper
                     //    logger_.Debug("Key enter: " + (sender as TextBox).Text);
                     if ((sender as TextBox) == idTextBox)
                         logger_.Debug("Id enter: " + (sender as TextBox).Text);
-                    if ((sender as TextBox) == azureSubscriptionId)
-                        logger_.Debug("SubscriptionID enter: " + (sender as TextBox).Text);
                 }
                 if (sender is CheckBox)
                 {
                     if ((sender as CheckBox) == advancedCheckBox)
                         logger_.Debug("Advanced checked to: " + (sender as CheckBox).Checked.ToString());
-                    if ((sender as CheckBox) == azureDeployVirtualMachineCheckBox)
-                        logger_.Debug("Deploy virtual machine checked to: " + (sender as CheckBox).Checked.ToString());
                 }
             }
         }
