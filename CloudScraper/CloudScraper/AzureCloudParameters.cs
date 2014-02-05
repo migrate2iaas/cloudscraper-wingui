@@ -20,6 +20,8 @@ using NLog;
 using DotNetPerls;
 using CloudScraper.Properties;
 
+using CloudScraper.Azure;
+
 namespace CloudScraper
 {
     public class AzureCloudParameters : CloudParametersForm
@@ -31,12 +33,10 @@ namespace CloudScraper
         public static bool advanced_ = false;
         public static string subscriptionId_ = "";
         public static string certificateThumbprint_ = "";
+        public static string containerName_ = string.Empty;
         public static string certificateSelection_ = "";
 
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
-        delegate void MyDelegate();
-        private int certificateCount;
-        private string certificateStore = "My";
 
         private readonly AzureAdvancedSettingsPanel pnlAdvancedSettings_;
         
@@ -152,42 +152,11 @@ namespace CloudScraper
             base.BackButtonClick(sender, e);
         }
 
-        // checks if certificate installed. Also sets auxillary certificate fields
-        private bool CheckCertificateInstalled()
-        {
-            // Try to open the store.
-            CertificatePath certificatepath = null;
-            try
-            {
-                certificatepath = GetCertificate(certificateThumbprint_, this.certificateStore);
-            }
-            catch (Exception)
-            {
-                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateStoreError, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                return false;
-            }
-
-            // Check to see if our certificate was added to the collection. If no, throw an error, if yes, create a certificate using it.
-            if (certificatepath == null)
-            {
-                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateThumbprintError, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                return false;
-            }
-
-            certificateSelection_ = certificatepath.GetSelectionString();
-            
-            return true;
-        }
-        
         protected override void NextButtonClick(object sender, EventArgs e)
         {
             if (advanced_)
             {
-                if (!this.CheckCertificateInstalled())
+                if (!CertificateUtils.CheckCertificateInstalled(certificateThumbprint_, ref certificateSelection_))
                     return;
             }
             
@@ -214,176 +183,6 @@ namespace CloudScraper
             //Help button url.
             System.Diagnostics.Process.Start(Settings.Default.S4AzureLink);
         }
-
-        protected override void AdvancedChecked(object sender, EventArgs e)
-        {
-            //Swithching advanced/simple mode.
-            if ((sender as CheckBox).Checked)
-            {
-                advanced_ = true;
-                this.bucketLabel.Enabled = true;
-                this.azureContainerComboBox.Enabled = true;
-                this.azureDeployVirtualMachineCheckBox.Enabled = true;
-                this.CheckEnter();
-            }
-            else
-            {
-                advanced_ = false;
-                this.bucketLabel.Enabled = false;
-                this.azureContainerComboBox.Enabled = false;
-                this.azureDeployVirtualMachineCheckBox.Enabled = false;
-                this.azureDeployVirtualMachineCheckBox.Checked = false;
-                this.CheckEnter();
-            }
-        }
-
-        protected override void AzureDeployVirtualMachineChecked(object sender, EventArgs e)
-        {
-            //Switching deploy mode.
-            if ((sender as CheckBox).Checked)
-            {
-                this.typeLabel.Enabled = true;
-                this.azureSubscriptionId.Enabled = true;
-                this.zoneLabel.Enabled = true;
-                this.zoneComboBox.Enabled = true;
-                this.azureCreateNewCertificateButton.Enabled = true;
-                this.CheckEnter();
-            }
-            else
-            {
-                this.typeLabel.Enabled = false;
-                this.azureSubscriptionId.Enabled = false;
-                this.zoneLabel.Enabled = false;
-                this.zoneComboBox.Enabled = false;
-                this.azureCreateNewCertificateButton.Enabled = false;
-                this.CheckEnter();
-            }
-        }
-
-        protected override void AzureCreateNewCertificateButtonClick(object sender, EventArgs e)
-        {
-            if (logger_.IsDebugEnabled)
-                logger_.Debug("Create Certificate button click.");
-
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
-            saveFileDialog.DefaultExt = "." + "cer";
-            string certificatePath = string.Empty;
-            string certificateName = string.Empty;
-
-            DialogResult result = saveFileDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                certificatePath = saveFileDialog.FileName;
-            }
-            else if (result == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            certificateName = certificatePath.Substring(saveFileDialog.FileName.LastIndexOf('\\') + 1);
-
-            // NOTE: we should alter the argeuments of makecert to create cert in the local machine location in order to run from service context
-            // or impersonate alternatively the service process when accessing certs
-
-            //Creating certificate process.
-            Process process = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "makecert.exe";
-            info.Arguments = "-sky exchange -r -n \"CN=" + certificateName + "\" -pe -a sha1 -len 2048 -ss " + this.certificateStore + " \"" + certificatePath + "\"";
-            info.UseShellExecute = true;
-            info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
-            info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
-            process.StartInfo = info;
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.Exited += new EventHandler(this.ProcessExited);
-            process.EnableRaisingEvents = true;
-            
-            //Count certificates.
-            // note: predefined, could be changed
-            X509Store store = new X509Store(this.certificateStore, StoreLocation.CurrentUser);
-            store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-            X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
-            X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
-            certificateCount = fcollection.Count;
-            store.Close();
-            
-            if (!process.Start())
-            {
-                DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-            }
-        }
-
-        private void ProcessExited(object sender, EventArgs e)
-        {
-            //Verify that new certificate has created.
-            try
-            {
-                X509Store store = new X509Store(this.certificateStore, StoreLocation.CurrentUser);
-                store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-                X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
-                X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
-                //X509Certificate2Collection pcollection = fcollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=" + certificatePath, false);
-                
-                if (fcollection.Count > certificateCount)
-                {
-                    DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-                }
-                else
-                {
-                    DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                }
-                
-                int indexOfthumbprint = 0;
-                if (fcollection.Count > 0)
-                {
-                    foreach (X509Certificate certificate in fcollection)
-                    {
-                        if (fcollection[fcollection.IndexOf(certificate)].NotBefore >
-                            fcollection[indexOfthumbprint].NotBefore)
-                        {
-                            indexOfthumbprint = fcollection.IndexOf(certificate);
-                        }
-                    }
-                }
-
-                this.BeginInvoke(new MyDelegate(() =>
-                {
-                    zoneComboBox.Text = fcollection[indexOfthumbprint].Thumbprint;
-                }));
-
-                store.Close();
-            }
-            catch (CryptographicException ex)
-            {
-                if (logger_.IsErrorEnabled)
-                    logger_.Error(ex);
-            }
-
-            //Open browser with Windows Azure, for user to upload created certificate.
-            Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
-
-            System.Windows.Forms.MessageBox.Show(this , Settings.Default.S4AzureCertificateUploadWait, Settings.Default.S4AzureCertificateHeader, MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-        }
-
-        protected override void AzureSubscriptionIdTextChanged(object sender, EventArgs e)
-        {
-            subscriptionId_ = (sender as TextBox).Text;
-            this.CheckEnter();
-        }
-
-        protected override void ZoneComboBoxTextChanged(object sender, EventArgs e)
-        {
-            certificateThumbprint_ = (sender as ComboBox).Text;
-            this.CheckEnter();
-        }
-
 
         private bool CheckStorageAccount()
         {
@@ -512,7 +311,7 @@ namespace CloudScraper
             string subscriptionId = subscriptionId_;
             string thumbprint = certificateThumbprint_;
 
-            X509Certificate2 certificate = GetCertificate(thumbprint, this.certificateStore).certificate;
+            X509Certificate2 certificate = CertificateUtils.GetCertificate(thumbprint, CertificateUtils.CertificateStore).certificate;
 
             if (certificate == null)
             {
@@ -616,57 +415,6 @@ namespace CloudScraper
             this.Cursor = Cursors.Arrow;
         }
 
-        // helper struct to contain both store and cert
-        public class CertificatePath
-        {
-            public X509Certificate2 certificate;
-            public X509Store store;
-
-            public CertificatePath(X509Certificate2 cert , X509Store stre )
-            {
-                certificate = cert;
-                store = stre;
-            }
-
-            // gets selection string compatible with IWinHttpRequest::SetClientCertificate 
-            public string GetSelectionString()
-            {
-                string result = "";
-                if (store.Location == StoreLocation.CurrentUser)
-                    result += "CURRENT_USER";
-                if (store.Location == StoreLocation.LocalMachine)
-                    result += "LOCAL_MACHINE";
-                result += "\\" + store.Name + "\\" + certificate.GetNameInfo(X509NameType.SimpleName , false);
-                return result;
-            }
-        };
-
-        public static CertificatePath GetCertificate(string thumbprint, string certstore = "My")
-        {
-            List<StoreLocation> locations = new List<StoreLocation> { StoreLocation.CurrentUser, StoreLocation.LocalMachine };
-
-            foreach (var location in locations)
-            {
-                X509Store store = new X509Store(certstore, location);
-                try
-                {
-                    store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-                    X509Certificate2Collection certificates = store.Certificates.Find(
-                      X509FindType.FindByThumbprint, thumbprint, false);
-                    if (certificates.Count == 1)
-                    {
-                       CertificatePath path = new CertificatePath(certificates[0], store);
-                       return path;
-                    }
-                }
-                finally
-                {
-                    store.Close();
-                }
-            }
-            return null;
-        }
-       
         //Check enter in Form for activate Next button.
         private void CheckEnter()
         {

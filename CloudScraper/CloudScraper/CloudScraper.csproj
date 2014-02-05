@@ -97,6 +97,8 @@
     <Compile Include="Azure\AzureAdvancedSettingsPanel.Designer.cs">
       <DependentUpon>AzureAdvancedSettingsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Azure\CertificateUtils.cs" />
+    <Compile Include="Azure\MakeCertLauncher.cs" />
     <Compile Include="BetterDialog.cs">
       <SubType>Form</SubType>
     </Compile>
