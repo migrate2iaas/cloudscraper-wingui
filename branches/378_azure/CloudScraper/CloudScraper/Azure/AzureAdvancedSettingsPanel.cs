@@ -13,11 +13,11 @@ using DotNetPerls;
 using CloudScraper.Properties;
 using NLog;
 
-namespace CloudScraper
+namespace CloudScraper.Azure
 {
     public partial class AzureAdvancedSettingsPanel : UserControl
     {
-        #region Data members
+         #region Data members
 
         private static Logger logger_ = LogManager.GetLogger("AzureAdvancedParametersPanel");
         
@@ -143,111 +143,20 @@ namespace CloudScraper
         
         private void btnCreateCertificate_Click(object sender, EventArgs e)
         {
-            if (logger_.IsDebugEnabled)
-                logger_.Debug("Create Certificate button click.");
+            MakeCertLauncher launcher = new MakeCertLauncher(logger_, delegate(string thumbprint)
+                {
+                    this.BeginInvoke(new Action(() => { textThumbprint.Text = thumbprint; }));
+                    // Open browser with Windows Azure, for user to upload created certificate.
+                    Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
+                    System.Windows.Forms.MessageBox.Show(this, Settings.Default.S4AzureCertificateUploadWait, Settings.Default.S4AzureCertificateHeader, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                });
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
-            saveFileDialog.DefaultExt = "." + "cer";
-            string certificatePath = string.Empty;
-            string certificateName = string.Empty;
-
-            DialogResult result = saveFileDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                certificatePath = saveFileDialog.FileName;
-            }
-            else if (result == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            certificateName = certificatePath.Substring(saveFileDialog.FileName.LastIndexOf('\\') + 1);
-
-            // NOTE: we should alter the argeuments of makecert to create cert in the local machine location in order to run from service context
-            // or impersonate alternatively the service process when accessing certs
-
-            //Creating certificate process.
-            Process process = new Process();
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "makecert.exe";
-            info.Arguments = "-sky exchange -r -n \"CN=" + certificateName + "\" -pe -a sha1 -len 2048 -ss " + this.certificateStore + " \"" + certificatePath + "\"";
-            info.UseShellExecute = true;
-            info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
-            info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
-            process.StartInfo = info;
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.Exited += new EventHandler(this.ProcessExited);
-            process.EnableRaisingEvents = true;
-
-            //Count certificates.
-            // note: predefined, could be changed
-            X509Store store = new X509Store(this.certificateStore, StoreLocation.CurrentUser);
-            store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-            X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
-            X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
-            certificateCount = fcollection.Count;
-            store.Close();
-
-            if (!process.Start())
+            if (!launcher.Start())
             {
                 DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
                     Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);            
             }
-        }
-
-        private void ProcessExited(object sender, EventArgs e)
-        {
-            //Verify that new certificate has created.
-            try
-            {
-                X509Store store = new X509Store(this.certificateStore, StoreLocation.CurrentUser);
-                store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-                X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
-                X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
-                //X509Certificate2Collection pcollection = fcollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=" + certificatePath, false);
-
-                if (fcollection.Count > certificateCount)
-                {
-                    DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-                }
-                else
-                {
-                    DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                }
-
-
-                int indexOfthumbprint = 0;
-                if (fcollection.Count > 0)
-                {
-                    foreach (X509Certificate certificate in fcollection)
-                    {
-                        if (fcollection[fcollection.IndexOf(certificate)].NotBefore >
-                            fcollection[indexOfthumbprint].NotBefore)
-                        {
-                            indexOfthumbprint = fcollection.IndexOf(certificate);
-                        }
-                    }
-                }
-
-                this.BeginInvoke(new Delegate(delegate { zoneComboBox.Text = fcollection[indexOfthumbprint].Thumbprint; }));
-                store.Close();
-            }
-            catch (CryptographicException ex)
-            {
-                if (logger_.IsErrorEnabled)
-                    logger_.Error(ex);
-            }
-
-            //Open browser with Windows Azure, for user to upload created certificate.
-            Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");
-
-            System.Windows.Forms.MessageBox.Show(this, Settings.Default.S4AzureCertificateUploadWait, Settings.Default.S4AzureCertificateHeader, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         #endregion Event handlers
