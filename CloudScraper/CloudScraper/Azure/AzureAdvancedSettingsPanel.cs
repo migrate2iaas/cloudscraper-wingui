@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Data;
-using System.Text;
-using System.Windows.Forms;
+using System.Net;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
 
 using DotNetPerls;
 using CloudScraper.Properties;
@@ -45,10 +47,10 @@ namespace CloudScraper.Azure
             InitializeComponent();
 
             // Tags text:
-            comboContainer.Text = Settings.Default.S4AzureContainerNameLabelText;
-            textSubscriptionId.Text = Settings.Default.S4AzureSubscriptionIdText;
-            textThumbprint.Text = Settings.Default.S4AzureCertificateThumbprintText;
-            comboAffinity.Text = Settings.Default.S4AzureAffinityText;
+            tagContainer.Text = Settings.Default.S4AzureContainerNameLabelText;
+            tagID.Text = Settings.Default.S4AzureSubscriptionIdText;
+            tagThumbprint.Text = Settings.Default.S4AzureCertificateThumbprintText;
+            tagAffinityGroup.Text = Settings.Default.S4AzureAffinityText;
 
             // Tool tip text:
             toolTipContainer_ = new ToolTipContainer(toolTip);
@@ -70,7 +72,113 @@ namespace CloudScraper.Azure
 
         #endregion Constructors
 
+        #region Public methods
+
+        public string GetLocationOfStroageAccount(string accountName)
+        {
+            return MyGetLocationOfStroageAccount(accountName);
+        }
+
+        public void OnCertificateChecked()
+        {
+            //1. Load affinity groups.
+            List<AffinityGroup> groups = MyRequestAffinityGroups();
+            MyClearAffinity();
+            
+            comboAffinity.TextChanged -= comboAffinity_TextChanged;
+            comboAffinity.DropDownStyle = ComboBoxStyle.DropDown;
+            foreach (AffinityGroup group in groups)
+            {
+                comboAffinity.Items.Add(group.Name);
+            }
+            comboAffinity.TextChanged += comboAffinity_TextChanged;
+        }
+
+        #endregion Public methods
+
         #region Private methods
+
+        private List<AffinityGroup> MyRequestAffinityGroups()
+        {
+            string subscriptionId = id_;
+            string thumbprint = thumbprint_;
+
+            X509Certificate2 certificate = CertificateUtils.GetCertificate(thumbprint, CertificateUtils.CertificateStore).certificate;
+            if (certificate == null)
+            {
+                throw new AzureCertificateException("Failed to obtain certificate.");
+            }
+
+            string uriFormat = "https://management.core.windows.net/{0}/affinitygroups";
+            Uri uri = new Uri(String.Format(uriFormat, subscriptionId));
+
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
+            request.Method = "GET";
+            request.Headers.Add("x-ms-version", "2011-10-01");
+            request.ClientCertificates.Add(certificate);
+            request.ContentType = "application/xml";
+
+            string location = string.Empty;
+            // Send Http request and get response
+
+            List<AffinityGroup> groups = new List<AffinityGroup>();
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(response.GetResponseStream());
+                    foreach (XmlNode node in doc.DocumentElement)
+                    {
+                        string name = node["Name"].InnerText;
+                        groups.Add(new AffinityGroup(name));
+                    }
+                }
+            }
+            return groups;
+        }
+
+        private string MyGetLocationOfStroageAccount(string accountName)
+        {
+            string subscriptionId = id_;
+            string thumbprint = thumbprint_;
+
+            X509Certificate2 certificate = CertificateUtils.GetCertificate(thumbprint, CertificateUtils.CertificateStore).certificate;
+
+            if (certificate == null)
+            {
+                throw new AzureCertificateException("Failed to obtain certificate.");
+            }
+
+            string uriFormat = "https://management.core.windows.net/{0}/services/storageservices/{1}";
+            Uri uri = new Uri(String.Format(uriFormat, subscriptionId, accountName));
+
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
+            request.Method = "GET";
+            request.Headers.Add("x-ms-version", "2011-10-01");
+            request.ClientCertificates.Add(certificate);
+            request.ContentType = "application/xml";
+
+            string location = string.Empty;
+            // Send Http request and get response
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.Name == "Location")
+                            {
+                                location = reader.ReadElementString("Location");
+                            }
+                        }
+                    }
+                }
+            }
+            return location;
+        }
 
         private void MyClearSubscriptionId()
         {
@@ -145,6 +253,20 @@ namespace CloudScraper.Azure
         {
             MakeCertLauncher launcher = new MakeCertLauncher(logger_, delegate(string thumbprint)
                 {
+                    if (!string.IsNullOrEmpty(thumbprint))
+                    {
+                        DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
+                        Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                    }
+                    else
+                    {
+                        DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
+                        Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                        return;
+                    }                    
+                    
                     this.BeginInvoke(new Action(() => { textThumbprint.Text = thumbprint; }));
                     // Open browser with Windows Azure, for user to upload created certificate.
                     Process.Start("https://manage.windowsazure.com/#Workspaces/AdminTasks/ListManagementCertificates");

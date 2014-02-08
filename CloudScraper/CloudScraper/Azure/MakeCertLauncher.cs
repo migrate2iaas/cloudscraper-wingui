@@ -85,17 +85,8 @@ namespace CloudScraper.Azure
                 X509Certificate2Collection fcollection = collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
                 //X509Certificate2Collection pcollection = fcollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=" + certificatePath, false);
 
-                if (fcollection.Count > certificateCount_)
+                if (fcollection.Count <= certificateCount_)
                 {
-                    DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateCreateSuccess, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-                }
-                else
-                {
-                    DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4AzureCertificateHeader,
-                    Settings.Default.S4AzureCertificateCreateError, "", "OK", "OK",
-                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                     return;
                 }
 
@@ -134,6 +125,7 @@ namespace CloudScraper.Azure
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Certificate File (*.cer)|*.cer";
             saveFileDialog.DefaultExt = "." + "cer";
+            saveFileDialog.RestoreDirectory = true;
 
             DialogResult result = saveFileDialog.ShowDialog();
             return (result == DialogResult.OK) ? saveFileDialog.FileName : null;
@@ -154,11 +146,11 @@ namespace CloudScraper.Azure
             //Creating certificate process.
             Process process = new Process();
             ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = "makecert.exe";
+            info.FileName = @"makecert.exe";
             info.Arguments = "-sky exchange -r -n \"CN=" + name + "\" -pe -a sha1 -len 2048 -ss " + CertificateUtils.CertificateStore + " \"" + path + "\"";
             info.UseShellExecute = true;
             info.UserName = System.Diagnostics.Process.GetCurrentProcess().StartInfo.UserName;
-            info.Password = System.Diagnostics.Process.GetCurrentProcess().StartInfo.Password;
+            info.Password = System.Diagnostics.Process.GetCurrentProcess ().StartInfo.Password;
             process.StartInfo = info;
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             process.Exited += new EventHandler(this.ProcessExited);
