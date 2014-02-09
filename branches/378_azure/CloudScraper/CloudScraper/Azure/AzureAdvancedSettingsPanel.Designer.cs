@@ -71,8 +71,8 @@
             // 
             // chkDeployVm
             // 
-            this.chkDeployVm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkDeployVm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.chkDeployVm.AutoSize = true;
             this.chkDeployVm.Location = new System.Drawing.Point(32, 31);
             this.chkDeployVm.Name = "chkDeployVm";
@@ -166,8 +166,8 @@
             // 
             // btnCreateCertificate
             // 
-            this.btnCreateCertificate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCreateCertificate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCreateCertificate.Location = new System.Drawing.Point(173, 65);
             this.btnCreateCertificate.Name = "btnCreateCertificate";
             this.btnCreateCertificate.Size = new System.Drawing.Size(209, 25);
@@ -206,6 +206,13 @@
             this.textThumbprint.Size = new System.Drawing.Size(358, 20);
             this.textThumbprint.TabIndex = 3;
             this.textThumbprint.TextChanged += new System.EventHandler(this.textThumbprint_TextChanged);
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutomaticDelay = 1500;
+            this.toolTip.AutoPopDelay = 15000;
+            this.toolTip.InitialDelay = 1500;
+            this.toolTip.ReshowDelay = 600;
             // 
             // AzureAdvancedSettingsPanel
             // 

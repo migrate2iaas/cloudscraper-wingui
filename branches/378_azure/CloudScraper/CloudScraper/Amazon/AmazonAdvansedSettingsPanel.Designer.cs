@@ -251,6 +251,13 @@
             this.subnetComboBox.TabIndex = 40;
             this.subnetComboBox.TextChanged += new System.EventHandler(this.subnetComboBox_TextChanged);
             // 
+            // toolTip
+            // 
+            this.toolTip.AutomaticDelay = 1500;
+            this.toolTip.AutoPopDelay = 15000;
+            this.toolTip.InitialDelay = 1500;
+            this.toolTip.ReshowDelay = 600;
+            // 
             // AmazonAdvansedSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

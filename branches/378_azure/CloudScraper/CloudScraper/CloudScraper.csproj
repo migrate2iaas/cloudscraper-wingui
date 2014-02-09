@@ -91,16 +91,19 @@
     <Compile Include="AzureCloudParameters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Azure\AffinityGroup.cs" />
+    <Compile Include="Azure\AffinityGroupInfo.cs" />
     <Compile Include="Azure\AzureAdvancedSettingsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Azure\AzureAdvancedSettingsPanel.Designer.cs">
       <DependentUpon>AzureAdvancedSettingsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Azure\AzureHttpRequest.cs" />
+    <Compile Include="Azure\AzureParams.cs" />
     <Compile Include="Azure\Exceptions.cs" />
     <Compile Include="Azure\CertificateUtils.cs" />
     <Compile Include="Azure\MakeCertLauncher.cs" />
+    <Compile Include="Azure\VirtualNetworksInfo.cs" />
     <Compile Include="BetterDialog.cs">
       <SubType>Form</SubType>
     </Compile>

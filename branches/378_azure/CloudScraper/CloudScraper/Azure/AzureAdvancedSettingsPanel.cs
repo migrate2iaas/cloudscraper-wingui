@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Data;
+using System.IO;
 using System.Net;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -82,12 +83,12 @@ namespace CloudScraper.Azure
         public void OnCertificateChecked()
         {
             //1. Load affinity groups.
-            List<AffinityGroup> groups = MyRequestAffinityGroups();
+            List<AffinityGroupInfo> groups = MyRequestAffinityGroups();
             MyClearAffinity();
             
             comboAffinity.TextChanged -= comboAffinity_TextChanged;
             comboAffinity.DropDownStyle = ComboBoxStyle.DropDown;
-            foreach (AffinityGroup group in groups)
+            foreach (AffinityGroupInfo group in groups)
             {
                 comboAffinity.Items.Add(group.Name);
             }
@@ -98,31 +99,12 @@ namespace CloudScraper.Azure
 
         #region Private methods
 
-        private List<AffinityGroup> MyRequestAffinityGroups()
+        private List<AffinityGroupInfo> MyRequestAffinityGroups()
         {
-            string subscriptionId = id_;
-            string thumbprint = thumbprint_;
+            string uri = String.Format("https://management.core.windows.net/{0}/affinitygroups", id_);
 
-            X509Certificate2 certificate = CertificateUtils.GetCertificate(thumbprint, CertificateUtils.CertificateStore).certificate;
-            if (certificate == null)
-            {
-                throw new AzureCertificateException("Failed to obtain certificate.");
-            }
-
-            string uriFormat = "https://management.core.windows.net/{0}/affinitygroups";
-            Uri uri = new Uri(String.Format(uriFormat, subscriptionId));
-
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
-            request.Method = "GET";
-            request.Headers.Add("x-ms-version", "2011-10-01");
-            request.ClientCertificates.Add(certificate);
-            request.ContentType = "application/xml";
-
-            string location = string.Empty;
-            // Send Http request and get response
-
-            List<AffinityGroup> groups = new List<AffinityGroup>();
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            List<AffinityGroupInfo> groups = new List<AffinityGroupInfo>();
+            using (HttpWebResponse response = AzureHttpRequest.DoRequest("2011-10-01", thumbprint_, uri))
             {
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -131,11 +113,33 @@ namespace CloudScraper.Azure
                     foreach (XmlNode node in doc.DocumentElement)
                     {
                         string name = node["Name"].InnerText;
-                        groups.Add(new AffinityGroup(name));
+                        groups.Add(new AffinityGroupInfo(name));
                     }
                 }
             }
             return groups;
+        }
+
+        private List<VirtualNetworksInfo> MyRequestVirtualNetworks()
+        {
+            string uri = String.Format("https://management.core.windows.net/{0}/services/networking/virtualnetwork", id_);
+
+            List<VirtualNetworksInfo> networks = new List<VirtualNetworksInfo>();
+            using (HttpWebResponse response = AzureHttpRequest.DoRequest("2012-03-01", thumbprint_, uri))
+            {
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(response.GetResponseStream());
+                    foreach (XmlNode node in doc.DocumentElement)
+                    {
+                        string name = node["Name"].InnerText;
+                        networks.Add(new VirtualNetworksInfo(name));
+                    }
+                }
+            }
+
+            return networks;
         }
 
         private string MyGetLocationOfStroageAccount(string accountName)
