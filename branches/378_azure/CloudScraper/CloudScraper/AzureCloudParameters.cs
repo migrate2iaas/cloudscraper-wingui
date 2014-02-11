@@ -30,11 +30,12 @@ namespace CloudScraper
         public static string primaryAccessKey_ = "";
         public static string region_;
         public static bool isAzure_ = false;
-        public static bool advanced_ = false;
         public static string subscriptionId_ = "";
         public static string certificateThumbprint_ = "";
         public static string containerName_ = string.Empty;
         public static string certificateSelection_ = "";
+
+        public static AzureParams params_ = null;
 
         private static Logger logger_ = LogManager.GetLogger("AzureCloudParametersForm");
 
@@ -92,6 +93,10 @@ namespace CloudScraper
         protected override void RegionListBoxChanged(object sender, EventArgs e)
         {
             region_ = this.regionList_[(string)(sender as ComboBox).SelectedItem];
+            if (null != pnlAdvancedSettings_)
+            {
+                pnlAdvancedSettings_.SetRegion(region_);
+            }
         }
         
         protected override void TextBoxMouseEnter(object sender, EventArgs e)
@@ -154,12 +159,12 @@ namespace CloudScraper
 
         protected override void NextButtonClick(object sender, EventArgs e)
         {
-            if (advanced_)
+            params_ = pnlAdvancedSettings_.CreateAzureParams(storageAccount_, primaryAccessKey_);
+            if (null == params_)
             {
-                if (!CertificateUtils.CheckCertificateInstalled(certificateThumbprint_, ref certificateSelection_))
-                    return;
+                return;
             }
-            
+
             isAzure_ = true;
             this.Hide();
 
@@ -186,117 +191,45 @@ namespace CloudScraper
 
         private bool CheckStorageAccount()
         {
+            Cursor cursor = Cursor;
+            
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Start check storage account.");
-            
-            string AccountName = storageAccount_;
-            string AccountSharedKey = primaryAccessKey_;
-            string MessageSignature = "";
-
-            // Set request URI
-            Uri requesturi = new Uri("https://" + storageAccount_ + ".blob.core.windows.net/?comp=list");
-
-            // Create HttpWebRequest object
-            HttpWebRequest Request = (HttpWebRequest)HttpWebRequest.Create(requesturi.AbsoluteUri);
-            Request.Method = "GET";
-            Request.ContentLength = 0;
-            // Add HTTP headers
-            Request.Headers.Add("x-ms-date", DateTime.UtcNow.ToString("R"));
-            Request.Headers.Add("x-ms-version", "2009-09-19");
-
-            // Create Signature
-            // Verb
-            MessageSignature += "GET\n";
-            // Content-Encoding
-            MessageSignature += "\n";
-            // Content-Language
-            MessageSignature += "\n";
-            // Content-Length
-            MessageSignature += "\n";
-            // Content-MD5
-            MessageSignature += "\n";
-            // Content-Type
-            MessageSignature += "\n";
-            // Date
-            MessageSignature += "\n";
-            // If-Modified-Since
-            MessageSignature += "\n";
-            // If-Match
-            MessageSignature += "\n";
-            // If-None-Match 
-            MessageSignature += "\n";
-            // If-Unmodified-Since
-            MessageSignature += "\n";
-            // Range
-            MessageSignature += "\n";
-            // CanonicalizedHeaders
-            MessageSignature += GetCanonicalizedHeaders(Request);
-            // CanonicalizedResource
-            MessageSignature += GetCanonicalizedResourceVersion2(requesturi, AccountName);
-            // Use HMAC-SHA256 to sign the signature
-            byte[] SignatureBytes = System.Text.Encoding.UTF8.GetBytes(MessageSignature);
-            if (AccountSharedKey.Length == 88)
-            {
-                System.Security.Cryptography.HMACSHA256 SHA256 = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String(AccountSharedKey));
-                // Create Authorization HTTP header value
-                String AuthorizationHeader = "SharedKey " + AccountName + ":" + Convert.ToBase64String(SHA256.ComputeHash(SignatureBytes));
-                // Add Authorization HTTP header
-                Request.Headers.Add("Authorization", AuthorizationHeader);
-            }
 
             try
             {
-                //Send Http request and get response.
-                using (HttpWebResponse response = (HttpWebResponse)Request.GetResponse())
+                if (pnlAdvancedSettings_.LoadStorages(storageAccount_, primaryAccessKey_))
                 {
-                    if (response.StatusCode == HttpStatusCode.OK)
+                    if (pnlAdvancedSettings_.IsDeployWmChecked())
                     {
-                        //If success.
-                        if (advanced_ && this.azureDeployVirtualMachineCheckBox.Checked)
-                        {
-                            DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                                Settings.Default.S4AzureTestConnectionTextAdvancedMode, "", "OK", "OK",
-                                System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-                        }
-                        else
-                        {
-                            DialogResult reslt = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                                Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
-                                System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
-                        }
-
-                        this.azureContainerComboBox.Items.Clear();
-
-                        //Read container names from response.  
-                        using (XmlTextReader reader = new XmlTextReader(response.GetResponseStream()))
-                        {
-                            while (reader.Read())
-                            {
-                                if (reader.Name == "Name")
-                                {
-                                    this.azureContainerComboBox.Items.Add(reader.ReadElementString("Name"));
-                                }
-                            }
-                        }
-
-                        return true;
+                        BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            Settings.Default.S4AzureTestConnectionTextAdvancedMode, "", "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
                     }
-
-                    return false;
+                    else
+                    {
+                        BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            Settings.Default.S4AzureTestConnectionText, "", "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
+                    }
+                    return true;
                 }
+                return false;
             }
             catch (WebException ex)
             {
                 //Show dialog  when auth failed.
-                DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     ex.Status + "\n" +
                     Settings.Default.S4AzureIDKeyInvalid, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
 
-                this.testButton.Enabled = true;
-                this.Cursor = Cursors.Arrow;
-
                 return false;
+            }
+            finally
+            {
+                testButton.Enabled = true;
+                Cursor = cursor;
             }
         }
 
@@ -325,15 +258,24 @@ namespace CloudScraper
                         System.Drawing.Image.FromFile("Icons\\InfoDialog.png"), false);
                 }
             }
-            catch (AzureCertificateException)
+            catch (InconsistentAzueDataException ex)
             {
+                logger_.LogException(LogLevel.Error, "Check storage account region failed.", ex);
+                BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4AzureRegionCheckFailed, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);                
+            }
+            catch (AzureCertificateException ex)
+            {
+                logger_.LogException(LogLevel.Error, "Check storage account region failed.", ex);
                 BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     Settings.Default.S4AzureCertificateInvalid, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
             }
-            catch (WebException)
+            catch (WebException ex)
             {
-                //Show dialog  when auth failed.
+                //Show dialog when auth failed.
+                logger_.LogException(LogLevel.Error, "Check storage account region failed.", ex);
                 BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     Settings.Default.S4AzureCertificateInvalid, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
@@ -350,35 +292,49 @@ namespace CloudScraper
         {
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Start Test Connection procedure.");
-            
-            this.testButton.Enabled = false;
-            this.Cursor = Cursors.WaitCursor;
 
-            ////If there are no keys entered.
-            //if (storageAccount_ == "" || primaryAccessKey_ == "")
-            //{
-            //    DialogResult result = BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-            //        Settings.Default.S4AzureEnterID, "", "OK", "OK",
-            //        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+            Cursor cursor = Cursor;
+            testButton.Enabled = false;
+            Cursor = Cursors.WaitCursor;
 
-            //    this.testButton.Enabled = true;
-            //    this.Cursor = Cursors.Arrow;
-            //    return;
-            //}
 
-            //if (!this.CheckStorageAccount())
-            //    return;
+            try
+            {
+                //If there are no keys entered.
+                if (string.IsNullOrEmpty(storageAccount_) || string.IsNullOrEmpty(primaryAccessKey_))
+                {
+                    BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                        Settings.Default.S4AzureEnterID, "", "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                    return;
+                }
 
-            //if (advanced_ && this.azureDeployVirtualMachineCheckBox.Checked)
-            //{
-            //    if (!this.CheckStroageAccountInRegion())
-            //        return;
-            //}
+                if (!this.CheckStorageAccount())
+                    return;
 
-            pnlAdvancedSettings_.OnCertificateChecked();
+                if (pnlAdvancedSettings_.IsDeployWmChecked())
+                {
+                    this.CheckStroageAccountInRegion();
+                }
 
-            this.testButton.Enabled = true;
-            this.Cursor = Cursors.Arrow;
+                pnlAdvancedSettings_.OnCertificateChecked();
+            }
+            catch (WebException ex)
+            {
+                logger_.LogException(LogLevel.Error, "Failed to connect to azure server.", ex);
+                BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4AzureCertificateWebException, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+            }
+            catch (Exception ex)
+            {
+                logger_.LogException(LogLevel.Error, "Failed to obtain user data.", ex);
+            }
+            finally
+            {
+                testButton.Enabled = true;
+                Cursor = cursor;
+            }
         }
 
         //Check enter in Form for activate Next button.
@@ -437,115 +393,5 @@ namespace CloudScraper
             isAzure_ = false;
             base.CloudParametersLoad(sender, e);
         }
-
-        #region Helper method/class
-
-        static ArrayList GetHeaderValues(NameValueCollection headers, string headerName)
-        {
-            ArrayList list = new ArrayList();
-            string[] values = headers.GetValues(headerName);
-            if (values != null)
-            {
-                foreach (string str in values)
-                {
-                    list.Add(str.TrimStart(new char[0]));
-                }
-            }
-            return list;
-        }
-
-        static string GetCanonicalizedHeaders(HttpWebRequest request)
-        {
-            ArrayList list = new ArrayList();
-            StringBuilder sb = new StringBuilder();
-            foreach (string str in request.Headers.Keys)
-            {
-                if (str.ToLowerInvariant().StartsWith("x-ms-", StringComparison.Ordinal))
-                {
-                    list.Add(str.ToLowerInvariant());
-                }
-            }
-            list.Sort();
-            foreach (string str2 in list)
-            {
-                StringBuilder builder = new StringBuilder(str2);
-                string str3 = ":";
-                foreach (string str4 in GetHeaderValues(request.Headers, str2))
-                {
-                    string str5 = str4.Replace("\r\n", string.Empty);
-                    builder.Append(str3);
-                    builder.Append(str5);
-                    str3 = ",";
-                }
-                sb.Append(builder.ToString());
-                sb.Append("\n");
-            }
-            return sb.ToString();
-        }
-
-        static string GetCanonicalizedResourceVersion2(Uri address, string accountName)
-        {
-            StringBuilder builder = new StringBuilder("/");
-            builder.Append(accountName);
-            builder.Append(address.AbsolutePath);
-            CanonicalizedString str = new CanonicalizedString(builder.ToString());
-            NameValueCollection values = HttpUtility.ParseQueryString(address.Query);
-            NameValueCollection values2 = new NameValueCollection();
-            foreach (string str2 in values.Keys)
-            {
-                ArrayList list = new ArrayList(values.GetValues(str2));
-                list.Sort();
-                StringBuilder builder2 = new StringBuilder();
-                foreach (object obj2 in list)
-                {
-                    if (builder2.Length > 0)
-                    {
-                        builder2.Append(",");
-                    }
-                    builder2.Append(obj2.ToString());
-                }
-                values2.Add((str2 == null) ? str2 : str2.ToLowerInvariant(), builder2.ToString());
-            }
-            ArrayList list2 = new ArrayList(values2.AllKeys);
-            list2.Sort();
-            foreach (string str3 in list2)
-            {
-                StringBuilder builder3 = new StringBuilder(string.Empty);
-                builder3.Append(str3);
-                builder3.Append(":");
-                builder3.Append(values2[str3]);
-                str.AppendCanonicalizedElement(builder3.ToString());
-            }
-            return str.Value;
-        }
-
-        internal class CanonicalizedString
-        {
-            // Fields
-            private StringBuilder canonicalizedString = new StringBuilder();
-
-            // Methods
-            internal CanonicalizedString(string initialElement)
-            {
-                this.canonicalizedString.Append(initialElement);
-            }
-
-            internal void AppendCanonicalizedElement(string element)
-            {
-                this.canonicalizedString.Append("\n");
-                this.canonicalizedString.Append(element);
-            }
-
-            // Properties
-            internal string Value
-            {
-                get
-                {
-                    return this.canonicalizedString.ToString();
-                }
-            }
-        }
-
-        #endregion
     }
 }

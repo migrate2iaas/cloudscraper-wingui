@@ -10,4 +10,12 @@ namespace CloudScraper.Azure
         {
         }
     }
+
+    internal class InconsistentAzueDataException : ApplicationException
+    {
+        public InconsistentAzueDataException(string msg)
+            : base(msg)
+        {
+        }
+    }
 }

@@ -67,7 +67,6 @@ namespace CloudScraper
             this.regionLabel.Text = Settings.Default.S4AmazonRegionLabelText;
             this.idLabel.Text = Settings.Default.S4awsIdLabelText;
             this.keyLabel.Text = Settings.Default.S4awsKeyLabelText;
-            this.advancedCheckBox.Text = Settings.Default.S4AmazonAdvancedCheckBoxText;
             this.bucketLabel.Text = Settings.Default.S4AmazonBucketLabelText;
             this.folderKeyLabel.Text = Settings.Default.S4AmazonFolderKeyLabelText;
             this.typeLabel.Text = Settings.Default.S4AmazonTypeLabelText;
