@@ -50,7 +50,7 @@ namespace CloudScraper
 
         #region Data members
 
-        private static Logger logger_ = LogManager.GetLogger("AmazonCloudParametersForm");
+        private static Logger logger_ = LogManager.GetLogger("AmazonAdvancedParametersPanel");
 
         private readonly SortedDictionary<string, string> serverTypeList_;
         
@@ -146,11 +146,11 @@ namespace CloudScraper
             bool subnetOk = 0 == subnetComboBox.Items.Count || !string.IsNullOrEmpty(subnetId_);
             bool zoneOk = 0 == zoneComboBox.Items.Count || !string.IsNullOrEmpty(zone_);
 
+            // we do not need to check folder parameter here.
             // TODO: do we need to check serverType_ here as well?
             return !advancedCheckBox.Checked ||
                 (advancedCheckBox.Checked && 
                 !string.IsNullOrEmpty(s3Bucket_) &&
-                !string.IsNullOrEmpty(folderKey_) &&
                 zoneOk &&
                 subnetOk &&
                 groupOk);
@@ -158,7 +158,7 @@ namespace CloudScraper
 
         public void VerifyBucket()
         {
-            //Check bucket name is correct.
+            //Check if bucket name is correct.
             //See http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html 
             if (!string.IsNullOrEmpty(s3Bucket_))
             {
@@ -309,7 +309,11 @@ namespace CloudScraper
                         subnetsOfVpc.Add(subnet.SubnetId);
                     }
                 }
-                
+
+                vpcIdToSubnetsMap_.Add("None", new List<string>());
+                vpcTitleToVpcIdMap_.Add("None", "None");
+                vpcComboBox.Items.Add("None");
+
                 foreach (Vpc vpc in vpcResponse.DescribeVpcsResult.Vpc)
                 {
                     string vpcTitle = vpc.VpcId;

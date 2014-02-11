@@ -325,7 +325,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Specify your cloud server type:")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cloud server type:")]
         public string S4AmazonTypeLabelText {
             get {
                 return ((string)(this["S4AmazonTypeLabelText"]));
@@ -337,7 +337,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Specify your availability zone:")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Availability zone:")]
         public string S4AmazonZoneLabelText {
             get {
                 return ((string)(this["S4AmazonZoneLabelText"]));
@@ -349,7 +349,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Specify your security group:")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Security group:")]
         public string S4AmazonGroupLabelText {
             get {
                 return ((string)(this["S4AmazonGroupLabelText"]));
@@ -1156,7 +1156,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Specify your S3 bucket:")]
+        [global::System.Configuration.DefaultSettingValueAttribute("S3 Bucket:")]
         public string S4AmazonBucketLabelText {
             get {
                 return ((string)(this["S4AmazonBucketLabelText"]));
@@ -1168,7 +1168,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Specify folder in S3 bucket:")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Folder in S3 Bucket:")]
         public string S4AmazonFolderKeyLabelText {
             get {
                 return ((string)(this["S4AmazonFolderKeyLabelText"]));
@@ -2090,7 +2090,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure Region ToolTip")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select your region.")]
         public string S4AzureRegionToolTip {
             get {
                 return ((string)(this["S4AzureRegionToolTip"]));
@@ -2102,7 +2102,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure Container ToolTip")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select a container (optional).")]
         public string S4AzureContainerToolTip {
             get {
                 return ((string)(this["S4AzureContainerToolTip"]));
@@ -2114,7 +2114,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure SubscriptionID ToolTip")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Your azure subscription ID.")]
         public string S4AzureSubscriptionIdToolTip {
             get {
                 return ((string)(this["S4AzureSubscriptionIdToolTip"]));
@@ -2126,7 +2126,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure Thumbprint ToolTip")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Your azure certificate thumbprint.")]
         public string S4AzureThumbprintToolTip {
             get {
                 return ((string)(this["S4AzureThumbprintToolTip"]));
@@ -2138,7 +2138,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure Create thumbprint button ToolTip")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Create and upload certificate to Windows Azure server.")]
         public string S4AzureCreateThumbprintButtonToolTip {
             get {
                 return ((string)(this["S4AzureCreateThumbprintButtonToolTip"]));
@@ -2150,7 +2150,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure  link")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.windowsazure.com/en-us/support/options/")]
         public string S4AzureLink {
             get {
                 return ((string)(this["S4AzureLink"]));
@@ -2341,7 +2341,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Specify your VPC subnet:")]
+        [global::System.Configuration.DefaultSettingValueAttribute("VPC subnet:")]
         public string S4AmazonVPCLabelText {
             get {
                 return ((string)(this["S4AmazonVPCLabelText"]));
@@ -2353,13 +2353,97 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select a VPC.")]
         public string S4AmazonVPCToolTip {
             get {
                 return ((string)(this["S4AmazonVPCToolTip"]));
             }
             set {
                 this["S4AmazonVPCToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Affinity Group/Virtual Network:")]
+        public string S4AzureAffinityText {
+            get {
+                return ((string)(this["S4AzureAffinityText"]));
+            }
+            set {
+                this["S4AzureAffinityText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select an affinity group or a virtual network.")]
+        public string S4AzureAffinityToolTip {
+            get {
+                return ((string)(this["S4AzureAffinityToolTip"]));
+            }
+            set {
+                this["S4AzureAffinityToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Subnets:")]
+        public string S4AzureSubnetsText {
+            get {
+                return ((string)(this["S4AzureSubnetsText"]));
+            }
+            set {
+                this["S4AzureSubnetsText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select a subnet inside the virtual network.")]
+        public string S4AzureSubnetsToolTip {
+            get {
+                return ((string)(this["S4AzureSubnetsToolTip"]));
+            }
+            set {
+                this["S4AzureSubnetsToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Failed to connect toWindowsAzure server.")]
+        public string S4AzureCertificateWebException {
+            get {
+                return ((string)(this["S4AzureCertificateWebException"]));
+            }
+            set {
+                this["S4AzureCertificateWebException"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Failed to retrieve region information.")]
+        public string S4AzureRegionCheckFailed {
+            get {
+                return ((string)(this["S4AzureRegionCheckFailed"]));
+            }
+            set {
+                this["S4AzureRegionCheckFailed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Deploy a virtual machine.")]
+        public string S4AzureDeployWmToolTip {
+            get {
+                return ((string)(this["S4AzureDeployWmToolTip"]));
+            }
+            set {
+                this["S4AzureDeployWmToolTip"] = value;
             }
         }
     }
