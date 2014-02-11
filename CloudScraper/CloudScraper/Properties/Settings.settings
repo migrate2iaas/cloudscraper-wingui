@@ -547,22 +547,22 @@ You couldn’t use virtual hard drives from the storage account in region you sp
       <Value Profile="(Default)">Certificate Id error.</Value>
     </Setting>
     <Setting Name="S4AzureRegionToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure Region ToolTip</Value>
+      <Value Profile="(Default)">Select your region.</Value>
     </Setting>
     <Setting Name="S4AzureContainerToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure Container ToolTip</Value>
+      <Value Profile="(Default)">Select a container (optional).</Value>
     </Setting>
     <Setting Name="S4AzureSubscriptionIdToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure SubscriptionID ToolTip</Value>
+      <Value Profile="(Default)">Your azure subscription ID.</Value>
     </Setting>
     <Setting Name="S4AzureThumbprintToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure Thumbprint ToolTip</Value>
+      <Value Profile="(Default)">Your azure certificate thumbprint.</Value>
     </Setting>
     <Setting Name="S4AzureCreateThumbprintButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure Create thumbprint button ToolTip</Value>
+      <Value Profile="(Default)">Create and upload certificate to Windows Azure server.</Value>
     </Setting>
     <Setting Name="S4AzureLink" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure  link</Value>
+      <Value Profile="(Default)">http://www.windowsazure.com/en-us/support/options/</Value>
     </Setting>
     <Setting Name="S4AzureTestConnectionTextAdvancedMode" Type="System.String" Scope="User">
       <Value Profile="(Default)">Azure login success. Starting test your subscription id and certificate...</Value>
@@ -646,13 +646,28 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
       <Value Profile="(Default)">VPC subnet:</Value>
     </Setting>
     <Setting Name="S4AmazonVPCToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Select a VPC.</Value>
     </Setting>
     <Setting Name="S4AzureAffinityText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Affinity Group/Virtual Network</Value>
+      <Value Profile="(Default)">Affinity Group/Virtual Network:</Value>
     </Setting>
     <Setting Name="S4AzureAffinityToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Select an affinity group or a virtual network.</Value>
+    </Setting>
+    <Setting Name="S4AzureSubnetsText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Subnets:</Value>
+    </Setting>
+    <Setting Name="S4AzureSubnetsToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Select a subnet inside the virtual network.</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateWebException" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Failed to connect toWindowsAzure server.</Value>
+    </Setting>
+    <Setting Name="S4AzureRegionCheckFailed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Failed to retrieve region information.</Value>
+    </Setting>
+    <Setting Name="S4AzureDeployWmToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Deploy a virtual machine.</Value>
     </Setting>
   </Settings>
 </SettingsFile>

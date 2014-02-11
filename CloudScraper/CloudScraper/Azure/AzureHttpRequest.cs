@@ -11,6 +11,12 @@ namespace CloudScraper.Azure
     {
         public static HttpWebResponse DoRequest(string headerVersion, string thumbprint, string uriString)
         {
+            CertificateUtils.CertificatePath path = CertificateUtils.GetCertificate(thumbprint, CertificateUtils.CertificateStore);
+            if (null == path)
+            {
+                throw new AzureCertificateException("Failed to obtain certificate.");
+            }
+
             X509Certificate2 certificate = CertificateUtils.GetCertificate(thumbprint, CertificateUtils.CertificateStore).certificate;
             if (certificate == null)
             {
