@@ -78,13 +78,13 @@
       <Value Profile="(Default)">Use advanced settings</Value>
     </Setting>
     <Setting Name="S4AmazonTypeLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your cloud server type:</Value>
+      <Value Profile="(Default)">Cloud server type:</Value>
     </Setting>
     <Setting Name="S4AmazonZoneLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your availability zone:</Value>
+      <Value Profile="(Default)">Availability zone:</Value>
     </Setting>
     <Setting Name="S4AmazonGroupLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your security group:</Value>
+      <Value Profile="(Default)">Security group:</Value>
     </Setting>
     <Setting Name="S4BucketLocated" Type="System.String" Scope="User">
       <Value Profile="(Default)">The bucket you specified is located in another region, please specify another bucket.</Value>
@@ -285,10 +285,10 @@
       <Value Profile="(Default)">Check Access</Value>
     </Setting>
     <Setting Name="S4AmazonBucketLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your S3 bucket:</Value>
+      <Value Profile="(Default)">S3 Bucket:</Value>
     </Setting>
     <Setting Name="S4AmazonFolderKeyLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify folder in S3 bucket:</Value>
+      <Value Profile="(Default)">Folder in S3 Bucket:</Value>
     </Setting>
     <Setting Name="S4TestConnectionHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Cloud Access Checked</Value>
@@ -547,22 +547,22 @@ You couldn’t use virtual hard drives from the storage account in region you sp
       <Value Profile="(Default)">Certificate Id error.</Value>
     </Setting>
     <Setting Name="S4AzureRegionToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure Region ToolTip</Value>
+      <Value Profile="(Default)">Select your region.</Value>
     </Setting>
     <Setting Name="S4AzureContainerToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure Container ToolTip</Value>
+      <Value Profile="(Default)">Select a container (optional).</Value>
     </Setting>
     <Setting Name="S4AzureSubscriptionIdToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure SubscriptionID ToolTip</Value>
+      <Value Profile="(Default)">Your azure subscription ID.</Value>
     </Setting>
     <Setting Name="S4AzureThumbprintToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure Thumbprint ToolTip</Value>
+      <Value Profile="(Default)">Your azure certificate thumbprint.</Value>
     </Setting>
     <Setting Name="S4AzureCreateThumbprintButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure Create thumbprint button ToolTip</Value>
+      <Value Profile="(Default)">Create and upload certificate to Windows Azure server.</Value>
     </Setting>
     <Setting Name="S4AzureLink" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure  link</Value>
+      <Value Profile="(Default)">http://www.windowsazure.com/en-us/support/options/</Value>
     </Setting>
     <Setting Name="S4AzureTestConnectionTextAdvancedMode" Type="System.String" Scope="User">
       <Value Profile="(Default)">Azure login success. Starting test your subscription id and certificate...</Value>
@@ -643,10 +643,31 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="S4AmazonVPCLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Specify your VPC subnet:</Value>
+      <Value Profile="(Default)">VPC subnet:</Value>
     </Setting>
     <Setting Name="S4AmazonVPCToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Select a VPC.</Value>
+    </Setting>
+    <Setting Name="S4AzureAffinityText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Affinity Group/Virtual Network:</Value>
+    </Setting>
+    <Setting Name="S4AzureAffinityToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Select an affinity group or a virtual network.</Value>
+    </Setting>
+    <Setting Name="S4AzureSubnetsText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Subnets:</Value>
+    </Setting>
+    <Setting Name="S4AzureSubnetsToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Select a subnet inside the virtual network.</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateWebException" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Failed to connect toWindowsAzure server.</Value>
+    </Setting>
+    <Setting Name="S4AzureRegionCheckFailed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Failed to retrieve region information.</Value>
+    </Setting>
+    <Setting Name="S4AzureDeployWmToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Deploy a virtual machine.</Value>
     </Setting>
   </Settings>
 </SettingsFile>

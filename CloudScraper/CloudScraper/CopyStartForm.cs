@@ -233,19 +233,9 @@ namespace CloudScraper
                     else
                         stream.WriteLine("image-placement = local");
                 }
-                else if (this.isAzure)
+                else if (this.isAzure && null != AzureCloudParameters.params_)
                 {
-                    stream.WriteLine("[Azure]");
-                    stream.WriteLine("region = " + AzureCloudParameters.region_);
-                    stream.WriteLine("storage-account = " + AzureCloudParameters.storageAccount_);
-                    if (AzureCloudParameters.certificateThumbprint_ != "")
-                        stream.WriteLine("certificate-thumbprint = " + AzureCloudParameters.certificateThumbprint_);
-                    if (AzureCloudParameters.certificateSelection_ != "")
-                        stream.WriteLine("certificate-selection = " + AzureCloudParameters.certificateSelection_);
-                    if (AzureCloudParameters.subscriptionId_ != "")
-                        stream.WriteLine("subscription-id = " + AzureCloudParameters.subscriptionId_);
-                    if (AzureCloudParameters.containerName_ != "")
-                        stream.WriteLine("container-name = " + AzureCloudParameters.containerName_);
+                    AzureCloudParameters.params_.WriteToIni(stream);
                     stream.WriteLine("[Image]");
                     stream.WriteLine("image-dir = " + ImagesPathForm.imagesPath_);
                     stream.WriteLine("source-arch = x86_64");
