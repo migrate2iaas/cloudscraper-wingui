@@ -53,7 +53,8 @@
             // comboContainer
             // 
             this.comboContainer.FormattingEnabled = true;
-            this.comboContainer.Location = new System.Drawing.Point(171, 3);
+            this.comboContainer.Location = new System.Drawing.Point(171, 5);
+            this.comboContainer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.comboContainer.MaxDropDownItems = 5;
             this.comboContainer.Name = "comboContainer";
             this.comboContainer.Size = new System.Drawing.Size(354, 21);
@@ -149,7 +150,8 @@
             // comboAffinity
             // 
             this.comboAffinity.FormattingEnabled = true;
-            this.comboAffinity.Location = new System.Drawing.Point(171, 93);
+            this.comboAffinity.Location = new System.Drawing.Point(171, 95);
+            this.comboAffinity.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.comboAffinity.MaxLength = 10;
             this.comboAffinity.Name = "comboAffinity";
             this.comboAffinity.Size = new System.Drawing.Size(354, 21);
@@ -191,7 +193,8 @@
             // textSubscriptionId
             // 
             this.textSubscriptionId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textSubscriptionId.Location = new System.Drawing.Point(171, 3);
+            this.textSubscriptionId.Location = new System.Drawing.Point(171, 5);
+            this.textSubscriptionId.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.textSubscriptionId.Name = "textSubscriptionId";
             this.textSubscriptionId.Size = new System.Drawing.Size(354, 20);
             this.textSubscriptionId.TabIndex = 2;
@@ -200,7 +203,8 @@
             // textThumbprint
             // 
             this.textThumbprint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textThumbprint.Location = new System.Drawing.Point(171, 33);
+            this.textThumbprint.Location = new System.Drawing.Point(171, 35);
+            this.textThumbprint.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.textThumbprint.MaxLength = 40;
             this.textThumbprint.Name = "textThumbprint";
             this.textThumbprint.Size = new System.Drawing.Size(354, 20);
@@ -220,7 +224,8 @@
             // comboSubnets
             // 
             this.comboSubnets.FormattingEnabled = true;
-            this.comboSubnets.Location = new System.Drawing.Point(171, 123);
+            this.comboSubnets.Location = new System.Drawing.Point(171, 125);
+            this.comboSubnets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.comboSubnets.Name = "comboSubnets";
             this.comboSubnets.Size = new System.Drawing.Size(354, 21);
             this.comboSubnets.TabIndex = 6;

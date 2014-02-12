@@ -104,8 +104,11 @@
             // 
             // serverTypeComboBox
             // 
+            this.serverTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.serverTypeComboBox.FormattingEnabled = true;
-            this.serverTypeComboBox.Location = new System.Drawing.Point(171, 61);
+            this.serverTypeComboBox.Location = new System.Drawing.Point(171, 63);
+            this.serverTypeComboBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.serverTypeComboBox.Name = "serverTypeComboBox";
             this.serverTypeComboBox.Size = new System.Drawing.Size(354, 21);
             this.serverTypeComboBox.TabIndex = 36;
@@ -113,9 +116,12 @@
             // 
             // groupComboBox
             // 
+            this.groupComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.groupComboBox.FormattingEnabled = true;
-            this.groupComboBox.Location = new System.Drawing.Point(171, 119);
+            this.groupComboBox.Location = new System.Drawing.Point(171, 121);
+            this.groupComboBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.groupComboBox.MaxLength = 10;
             this.groupComboBox.Name = "groupComboBox";
             this.groupComboBox.Size = new System.Drawing.Size(354, 21);
@@ -124,7 +130,10 @@
             // 
             // folderKeyBox
             // 
-            this.folderKeyBox.Location = new System.Drawing.Point(171, 32);
+            this.folderKeyBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.folderKeyBox.Location = new System.Drawing.Point(171, 34);
+            this.folderKeyBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.folderKeyBox.MaxLength = 80;
             this.folderKeyBox.Name = "folderKeyBox";
             this.folderKeyBox.Size = new System.Drawing.Size(354, 20);
@@ -133,9 +142,12 @@
             // 
             // zoneComboBox
             // 
+            this.zoneComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.zoneComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.zoneComboBox.FormattingEnabled = true;
-            this.zoneComboBox.Location = new System.Drawing.Point(171, 90);
+            this.zoneComboBox.Location = new System.Drawing.Point(171, 92);
+            this.zoneComboBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.zoneComboBox.MaxLength = 10;
             this.zoneComboBox.Name = "zoneComboBox";
             this.zoneComboBox.Size = new System.Drawing.Size(354, 21);
@@ -194,7 +206,10 @@
             // 
             // bucketTextBox
             // 
-            this.bucketTextBox.Location = new System.Drawing.Point(171, 3);
+            this.bucketTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.bucketTextBox.Location = new System.Drawing.Point(171, 5);
+            this.bucketTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.bucketTextBox.MaxLength = 40;
             this.bucketTextBox.Name = "bucketTextBox";
             this.bucketTextBox.Size = new System.Drawing.Size(354, 20);
@@ -232,9 +247,11 @@
             // 
             // vpcComboBox
             // 
-            this.vpcComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.vpcComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.vpcComboBox.FormattingEnabled = true;
-            this.vpcComboBox.Location = new System.Drawing.Point(3, 3);
+            this.vpcComboBox.Location = new System.Drawing.Point(3, 6);
+            this.vpcComboBox.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.vpcComboBox.Name = "vpcComboBox";
             this.vpcComboBox.Size = new System.Drawing.Size(174, 21);
             this.vpcComboBox.TabIndex = 39;
@@ -242,10 +259,10 @@
             // 
             // subnetComboBox
             // 
-            this.subnetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.subnetComboBox.Enabled = false;
             this.subnetComboBox.FormattingEnabled = true;
-            this.subnetComboBox.Location = new System.Drawing.Point(183, 3);
+            this.subnetComboBox.Location = new System.Drawing.Point(183, 6);
+            this.subnetComboBox.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.subnetComboBox.Name = "subnetComboBox";
             this.subnetComboBox.Size = new System.Drawing.Size(174, 21);
             this.subnetComboBox.TabIndex = 40;
