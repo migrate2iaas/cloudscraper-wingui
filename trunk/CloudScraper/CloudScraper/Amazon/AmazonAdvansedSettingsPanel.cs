@@ -48,6 +48,12 @@ namespace CloudScraper
 
         #endregion Exceptions
 
+        #region Constants
+
+        private const string EmptySelection = "None";
+
+        #endregion Constants
+
         #region Data members
 
         private static Logger logger_ = LogManager.GetLogger("AmazonAdvancedParametersPanel");
@@ -130,7 +136,6 @@ namespace CloudScraper
             MyClearGroups();
             MyClearS3Bucket();
             MyClearVpc();
-            MyClearSubnet();
 
             MyVerifyContent();
         }
@@ -282,7 +287,6 @@ namespace CloudScraper
             DescribeSubnetsResponse subnetResponse = client.DescribeSubnets(new DescribeSubnetsRequest());
 
             MyClearVpc();
-            MyClearSubnet();
             
             if (null != vpcResponse && null != vpcResponse.DescribeVpcsResult &&
                 null != vpcResponse.DescribeVpcsResult.Vpc && 0 != vpcResponse.DescribeVpcsResult.Vpc.Count &&
@@ -292,15 +296,12 @@ namespace CloudScraper
                 vpcComboBox.TextChanged -= vpcComboBox_TextChanged;
                 subnetComboBox.TextChanged -= subnetComboBox_TextChanged;
 
-                vpcIdToSubnetsMap_.Clear();
-                vpcTitleToVpcIdMap_.Clear();
-
                 foreach (Subnet subnet in subnetResponse.DescribeSubnetsResult.Subnet)
                 {
                     List<string> subnetsOfVpc = null;
                     if (!vpcIdToSubnetsMap_.TryGetValue(subnet.VpcId, out subnetsOfVpc))
                     {
-                        subnetsOfVpc = new List<string>();
+                        subnetsOfVpc = new List<string>(new string[] { EmptySelection });
                         vpcIdToSubnetsMap_.Add(subnet.VpcId, subnetsOfVpc);
                         vpcTitleToVpcIdMap_.Add(subnet.VpcId, subnet.VpcId);
                     }
@@ -309,10 +310,6 @@ namespace CloudScraper
                         subnetsOfVpc.Add(subnet.SubnetId);
                     }
                 }
-
-                vpcIdToSubnetsMap_.Add("None", new List<string>());
-                vpcTitleToVpcIdMap_.Add("None", "None");
-                vpcComboBox.Items.Add("None");
 
                 foreach (Vpc vpc in vpcResponse.DescribeVpcsResult.Vpc)
                 {
@@ -389,7 +386,7 @@ namespace CloudScraper
             zoneComboBox.TextChanged -= zoneComboBox_TextChanged;
             zoneComboBox.Items.Clear();
             zoneComboBox.Text = string.Empty;
-            zoneComboBox.DropDownStyle = ComboBoxStyle.Simple;
+            zoneComboBox.DropDownStyle = ComboBoxStyle.DropDown;
             zone_ = string.Empty;
             zoneComboBox.TextChanged += zoneComboBox_TextChanged;
         }
@@ -399,7 +396,7 @@ namespace CloudScraper
             groupComboBox.TextChanged -= groupComboBox_TextChanged;
             groupComboBox.Items.Clear();
             groupComboBox.Text = string.Empty;
-            groupComboBox.DropDownStyle = ComboBoxStyle.Simple;
+            groupComboBox.DropDownStyle = ComboBoxStyle.DropDown;
             group_ = string.Empty;
             groupComboBox.TextChanged += groupComboBox_TextChanged;
         }
@@ -417,8 +414,20 @@ namespace CloudScraper
         {
             vpcComboBox.TextChanged -= vpcComboBox_TextChanged;
             vpcComboBox.Items.Clear();
-            vpcComboBox.Text = string.Empty;
-            vpcComboBox.DropDownStyle = ComboBoxStyle.Simple;
+
+            vpcIdToSubnetsMap_.Clear();
+            vpcTitleToVpcIdMap_.Clear();
+
+            vpcIdToSubnetsMap_.Add(EmptySelection, new List<string>(new string[] {EmptySelection}));
+            vpcTitleToVpcIdMap_.Add(EmptySelection, EmptySelection);
+            
+            // Add a single "none" entry to the drop-down list
+            vpcComboBox.Items.Add(EmptySelection);
+            vpcComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            vpcComboBox.SelectedIndex = 0;
+
+            MySyncVpcWithSubnetsComboBox();
+
             vpcComboBox.TextChanged += vpcComboBox_TextChanged;
         }
 
@@ -427,7 +436,7 @@ namespace CloudScraper
             subnetComboBox.TextChanged -= subnetComboBox_TextChanged;
             subnetComboBox.Items.Clear();
             subnetComboBox.Text = string.Empty;
-            subnetComboBox.DropDownStyle = ComboBoxStyle.Simple;
+            subnetComboBox.DropDownStyle = ComboBoxStyle.DropDown;
             subnetId_ = string.Empty;
             subnetComboBox.TextChanged += subnetComboBox_TextChanged;
         }
@@ -602,7 +611,7 @@ namespace CloudScraper
 
         private void subnetComboBox_TextChanged(object sender, EventArgs e)
         {
-            subnetId_ = subnetComboBox.Text;
+            subnetId_ = EmptySelection == subnetComboBox.Text ? string.Empty : subnetComboBox.Text;
             MyVerifyContent();
         }
 
