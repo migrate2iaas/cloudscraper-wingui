@@ -148,7 +148,7 @@ namespace CloudScraper
         public bool IsContentValid()
         {
             bool groupOk = 0 == groupComboBox.Items.Count || !string.IsNullOrEmpty(group_);
-            bool subnetOk = 0 == subnetComboBox.Items.Count || !string.IsNullOrEmpty(subnetId_);
+            bool subnetOk = 0 == subnetComboBox.Items.Count || !string.IsNullOrEmpty(subnetId_) || (0 != subnetComboBox.Items.Count && EmptySelection == subnetComboBox.SelectedItem as string);
             bool zoneOk = 0 == zoneComboBox.Items.Count || !string.IsNullOrEmpty(zone_);
 
             // we do not need to check folder parameter here.
@@ -469,7 +469,8 @@ namespace CloudScraper
                     subnetComboBox.DropDownStyle = ComboBoxStyle.DropDown;
                     subnetComboBox.SelectedIndex = 0;
                     subnetComboBox.SelectedItem = subnetComboBox.Items[0];
-                    subnetId_ = subnetComboBox.Items[0] as string;
+                    string subnetStr = (subnetComboBox.Items[0] as string) ?? string.Empty;
+                    subnetId_ = EmptySelection == subnetStr ? string.Empty : subnetStr;
                 }
             }
             MyVerifyContent();
