@@ -1,4 +1,4 @@
-﻿namespace CloudScraper.Azure
+﻿namespace CloudScraper
 {
     partial class AzureAdvancedSettingsPanel
     {
@@ -11,7 +11,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        protected void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
@@ -246,6 +246,11 @@
             this.Controls.Add(this.layoutTableTop);
             this.Name = "AzureAdvancedSettingsPanel";
             this.Size = new System.Drawing.Size(528, 210);
+            this.layoutTableTop.ResumeLayout(false);
+            this.layoutTableTop.PerformLayout();
+            this.pnlVirtualMachineSettingsHolder.ResumeLayout(false);
+            this.layoutTableBottom.ResumeLayout(false);
+            this.layoutTableBottom.PerformLayout();
             this.layoutTableTop.ResumeLayout(false);
             this.layoutTableTop.PerformLayout();
             this.pnlVirtualMachineSettingsHolder.ResumeLayout(false);
