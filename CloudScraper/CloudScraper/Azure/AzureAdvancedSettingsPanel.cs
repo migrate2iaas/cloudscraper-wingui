@@ -52,8 +52,9 @@ namespace CloudScraper.Azure
             VirtualNetwork
         }
 
-        private readonly Dictionary<string, List<string>> namesToSubnets_ = new Dictionary<string,List<string>>();
+        private readonly Dictionary<string, List<string>> tagsToSubnets_ = new Dictionary<string,List<string>>();
         private readonly Dictionary<string, EnumVnType> namesToVnType_ = new Dictionary<string, EnumVnType>();
+        private readonly Dictionary<string, string> tagsToNames_ = new Dictionary<string, string>();
 
         #endregion Data members
 
@@ -189,8 +190,9 @@ namespace CloudScraper.Azure
             List<AffinityGroupInfo> groups = MyRequestAffinityGroups();
             MyClearAffinity();
             MyClearSubnets();
-            namesToSubnets_.Clear();
+            tagsToSubnets_.Clear();
             namesToVnType_.Clear();
+            tagsToNames_.Clear();
 
             comboAffinity.TextChanged -= comboAffinity_TextChanged;
             comboAffinity.DropDownStyle = ComboBoxStyle.DropDown;
@@ -198,13 +200,16 @@ namespace CloudScraper.Azure
             comboAffinity.Items.Add(EmptySelection);
             List<string> empty = new List<string>();
             empty.Add(EmptySelection);
-            namesToSubnets_.Add(EmptySelection, empty);
+            tagsToNames_.Add(EmptySelection, EmptySelection);
+            tagsToSubnets_.Add(EmptySelection, empty);
             namesToVnType_.Add(EmptySelection, EnumVnType.None);
 
             foreach (AffinityGroupInfo group in groups)
             {
-                comboAffinity.Items.Add(group.Name);
-                namesToSubnets_.Add(group.Name, empty);
+                string tag = string.Format("{0} (affinity group)", group.Name);
+                comboAffinity.Items.Add(tag);
+                tagsToNames_.Add(tag, group.Name);
+                tagsToSubnets_.Add(tag, empty);
                 namesToVnType_.Add(group.Name, EnumVnType.AffinityGroup);
             }
             
@@ -212,19 +217,44 @@ namespace CloudScraper.Azure
             List<VirtualNetworksInfo> networks = MyRequestVirtualNetworks();
             foreach (VirtualNetworksInfo network in networks)
             {
-                comboAffinity.Items.Add(network.Name);
+                string tag = string.Format("{0} (virtual network)", network.Name);
+                tagsToNames_.Add(tag, network.Name);
+                comboAffinity.Items.Add(tag);
                 List<string> subnets = new List<string>();
                 subnets.Add(EmptySelection);
                 foreach(VirtualNetworksInfo subnet in network.Subnets)
                 {
                     subnets.Add(subnet.Name);
                 }
-                namesToSubnets_.Add(network.Name, subnets);
+                tagsToSubnets_.Add(tag, subnets);
                 namesToVnType_.Add(network.Name, EnumVnType.VirtualNetwork);
             }
 
             comboAffinity.SelectedIndex = 0;
             comboAffinity.TextChanged += comboAffinity_TextChanged;
+        }
+
+        public string CheckCredentials()
+        {
+            // Do the client-side check.
+            // Subscription ID should be GUID
+            // Thumbprint should have exactly 40 symbols
+            
+            try
+            {
+                Guid guid = new Guid(id_);
+            }
+            catch (FormatException)
+            {
+                return Settings.Default.S4AzureSubscriptionIDError;
+            }            
+
+            if (null == thumbprint_ || 40 != thumbprint_.Length)
+            {
+                return Settings.Default.S4AzureThumbprintIllFormed;
+            }
+
+            return null;
         }
 
         public bool LoadStorages(string storageAcc, string primaryKey)
@@ -500,12 +530,19 @@ namespace CloudScraper.Azure
 
         private void comboAffinity_TextChanged(object sender, EventArgs e)
         {
-            affinity_ = (EmptySelection == comboAffinity.Text) ? string.Empty : comboAffinity.Text;
+            affinity_ = string.Empty;
+            if (EmptySelection != comboAffinity.Text)
+            {
+                if (!tagsToNames_.TryGetValue(comboAffinity.Text, out affinity_))
+                {
+                    affinity_ = string.Empty;
+                }
+            }
             MyClearSubnets();
 
             comboSubnets.TextChanged -= comboSubnets_TextChanged;
             List<string> subnets = null;
-            if (namesToSubnets_.TryGetValue(comboAffinity.Text, out subnets) && null != subnets && 0 != subnets.Count)
+            if (tagsToSubnets_.TryGetValue(comboAffinity.Text, out subnets) && null != subnets && 0 != subnets.Count)
             {
                 comboSubnets.DropDownStyle = ComboBoxStyle.DropDown;
                 foreach (string subnet in subnets)

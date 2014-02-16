@@ -297,7 +297,6 @@ namespace CloudScraper
             testButton.Enabled = false;
             Cursor = Cursors.WaitCursor;
 
-
             try
             {
                 //If there are no keys entered.
@@ -307,6 +306,16 @@ namespace CloudScraper
                         Settings.Default.S4AzureEnterID, "", "OK", "OK",
                         System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                     return;
+                }
+
+                string error = pnlAdvancedSettings_.CheckCredentials();
+                if (!string.IsNullOrEmpty(error))
+                {
+                    BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                        error, "", "OK", "OK",
+                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                    
+                    return;                    
                 }
 
                 if (!this.CheckStorageAccount())
