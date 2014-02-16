@@ -207,6 +207,7 @@ namespace CloudScraper
 
         protected void SetAdvancedPanel(UserControl panel)
         {
+            placeholderForAdvanced.Visible = true;
             // TODO: check if there is no controls on the placeholder once we move all controls to the dedicated classes
             // by now check if there is no such panel on the placeholder and hide other controls.
             if (!placeholderForAdvanced.Controls.Contains(panel))
@@ -234,6 +235,15 @@ namespace CloudScraper
             {
                 ctrl.Visible = true;
             }
+        }
+
+        protected void HideAdvancedPanelControls()
+        {
+            foreach (Control ctrl in placeholderForAdvanced.Controls)
+            {
+                ctrl.Visible = false;
+            }
+            placeholderForAdvanced.Visible = true;
         }
 
         #endregion Protected methods
