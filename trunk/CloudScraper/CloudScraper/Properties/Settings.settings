@@ -669,5 +669,11 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
     <Setting Name="S4AzureDeployWmToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Deploy a virtual machine.</Value>
     </Setting>
+    <Setting Name="S4AzureSubscriptionIDError" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Please, check the subscription ID.</Value>
+    </Setting>
+    <Setting Name="S4AzureThumbprintIllFormed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Thumbprint sould contain exactly 40 symbols.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

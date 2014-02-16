@@ -1,4 +1,4 @@
-﻿namespace CloudScraper
+﻿namespace CloudScraper.Azure
 {
     partial class AzureAdvancedSettingsPanel
     {
