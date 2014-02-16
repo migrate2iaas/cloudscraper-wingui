@@ -752,6 +752,9 @@ namespace CloudScraper
                 this.Cursor = Cursors.Arrow;
                 MessageBox.Show(e.ToString(),   
                     Settings.Default.MailSendFailedHeader,    MessageBoxButtons.OK);  
+	MessageBox.Show(Settings.Default.MailSendFailedMessage,   
+                    Settings.Default.MailSendFailedHeader,    MessageBoxButtons.OK);  
+
             }
         }
 

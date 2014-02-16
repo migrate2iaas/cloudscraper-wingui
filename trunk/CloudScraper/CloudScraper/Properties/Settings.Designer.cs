@@ -964,18 +964,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Request Send Failed")]
-        public string MailSendFailedHeader {
-            get {
-                return ((string)(this["MailSendFailedHeader"]));
-            }
-            set {
-                this["MailSendFailedHeader"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Send Request")]
         public string MailSendHeader {
             get {
@@ -1313,19 +1301,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Makes an attempt to access your cloud account.\r\nTests your both cloud credentials" +
-            ", internet connection. \r\nChecks for available advanced options.")]
-        public string S4TestButtonToolTip {
-            get {
-                return ((string)(this["S4TestButtonToolTip"]));
-            }
-            set {
-                this["S4TestButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Enter your Amazon Access Key ID. \r\nIt could be found on Security Credentials page" +
             " of your AWS account.")]
         public string S4AmazonAccessIDToolTip {
@@ -1441,18 +1416,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S5WarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Path is not correct!")]
-        public string S5PathIncorrectWarningMessage {
-            get {
-                return ((string)(this["S5PathIncorrectWarningMessage"]));
-            }
-            set {
-                this["S5PathIncorrectWarningMessage"] = value;
             }
         }
         
@@ -1905,30 +1868,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure Key ToolTip")]
-        public string S4AzureApiKeyToolTip {
-            get {
-                return ((string)(this["S4AzureApiKeyToolTip"]));
-            }
-            set {
-                this["S4AzureApiKeyToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure User ID ToolTip")]
-        public string S4AzureUserUIDToolTip {
-            get {
-                return ((string)(this["S4AzureUserUIDToolTip"]));
-            }
-            set {
-                this["S4AzureUserUIDToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Please, enter your WindowsAzure API credentials: Storage Account Name and Primary" +
             " Access Key.")]
         public string S4AzureEnterID {
@@ -2114,30 +2053,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Your azure subscription ID.")]
-        public string S4AzureSubscriptionIdToolTip {
-            get {
-                return ((string)(this["S4AzureSubscriptionIdToolTip"]));
-            }
-            set {
-                this["S4AzureSubscriptionIdToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Your azure certificate thumbprint.")]
-        public string S4AzureThumbprintToolTip {
-            get {
-                return ((string)(this["S4AzureThumbprintToolTip"]));
-            }
-            set {
-                this["S4AzureThumbprintToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Create and upload certificate to Windows Azure server.")]
         public string S4AzureCreateThumbprintButtonToolTip {
             get {
@@ -2145,42 +2060,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4AzureCreateThumbprintButtonToolTip"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.windowsazure.com/en-us/support/options/")]
-        public string S4AzureLink {
-            get {
-                return ((string)(this["S4AzureLink"]));
-            }
-            set {
-                this["S4AzureLink"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure login success. Starting test your subscription id and certificate...")]
-        public string S4AzureTestConnectionTextAdvancedMode {
-            get {
-                return ((string)(this["S4AzureTestConnectionTextAdvancedMode"]));
-            }
-            set {
-                this["S4AzureTestConnectionTextAdvancedMode"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Test Azure subscription id and certificate done. ")]
-        public string S4AzureRegionValid {
-            get {
-                return ((string)(this["S4AzureRegionValid"]));
-            }
-            set {
-                this["S4AzureRegionValid"] = value;
             }
         }
         
@@ -2286,23 +2165,6 @@ namespace CloudScraper.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>AmazonCloudParameters|255,22|189,70|Amazon EC2|Transfer your server to Amazon Elastic Compute Cloud|Icons\\Amazon.ico|32,32|true</string>
-  <string>EHCloudParameters|255,174|189,70|ElasticHosts|Transfer your server to ElasticHosts|Icons\\Elastic.ico|32,32|true</string>
-  <string>AzureCloudParameters|255,98|189,70|WindowsAzure|Transfer your server to WindowsAzure|Icons\\Azure.ico|32,32|true</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Buttons {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Buttons"]));
-            }
-            set {
-                this["Buttons"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>m1.small|M1 Small</string>
   <string>m1.medium|M1 Medium</string>
   <string>m1.large|M1 Large</string>
@@ -2348,18 +2210,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4AmazonVPCLabelText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select a VPC.")]
-        public string S4AmazonVPCToolTip {
-            get {
-                return ((string)(this["S4AmazonVPCToolTip"]));
-            }
-            set {
-                this["S4AmazonVPCToolTip"] = value;
             }
         }
         
@@ -2413,18 +2263,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Failed to connect toWindowsAzure server.")]
-        public string S4AzureCertificateWebException {
-            get {
-                return ((string)(this["S4AzureCertificateWebException"]));
-            }
-            set {
-                this["S4AzureCertificateWebException"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Failed to retrieve region information.")]
         public string S4AzureRegionCheckFailed {
             get {
@@ -2432,18 +2270,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4AzureRegionCheckFailed"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Deploy a virtual machine.")]
-        public string S4AzureDeployWmToolTip {
-            get {
-                return ((string)(this["S4AzureDeployWmToolTip"]));
-            }
-            set {
-                this["S4AzureDeployWmToolTip"] = value;
             }
         }
         
@@ -2468,6 +2294,196 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4AzureThumbprintIllFormed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(" Performs test login to the cloud.  \r\nQueries advanced options.")]
+        public string S4TestButtonToolTip {
+            get {
+                return ((string)(this["S4TestButtonToolTip"]));
+            }
+            set {
+                this["S4TestButtonToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Path is incorrect!")]
+        public string S5PathIncorrectWarningMessage {
+            get {
+                return ((string)(this["S5PathIncorrectWarningMessage"]));
+            }
+            set {
+                this["S5PathIncorrectWarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.migrate2iaas.com/node/10692")]
+        public string S4AzureLink {
+            get {
+                return ((string)(this["S4AzureLink"]));
+            }
+            set {
+                this["S4AzureLink"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>AmazonCloudParameters|150,52|130,158|Amazon EC2|Transfer your server to Amazon Elastic Compute Cloud|Icons\\AWS3.png|128,128|true</string>
+  <string>EHCloudParameters|290,52|130,158|ElasticHosts|Transfer your server to ElasticHosts|Icons\\ehbutton_lightblue.png|128,128|true</string>
+  <string>AzureCloudParameters|430,52|130,158|Windows Azure|Transfer your server to Windows Azure|Icons\\azure.png|128,128|true</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection Buttons {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Buttons"]));
+            }
+            set {
+                this["Buttons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select your Virtual Private Cloud; or None if you\'d like to migrate to EC2 Classi" +
+            "c.")]
+        public string S4AmazonVPCToolTip {
+            get {
+                return ((string)(this["S4AmazonVPCToolTip"]));
+            }
+            set {
+                this["S4AmazonVPCToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Failed to connect to Windows Azure server.")]
+        public string S4AzureCertificateWebException {
+            get {
+                return ((string)(this["S4AzureCertificateWebException"]));
+            }
+            set {
+                this["S4AzureCertificateWebException"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select this to create a VM from the uploaded VHD.")]
+        public string S4AzureDeployWmToolTip {
+            get {
+                return ((string)(this["S4AzureDeployWmToolTip"]));
+            }
+            set {
+                this["S4AzureDeployWmToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your Windows Azure storage account primary access key.")]
+        public string S4AzureApiKeyToolTip {
+            get {
+                return ((string)(this["S4AzureApiKeyToolTip"]));
+            }
+            set {
+                this["S4AzureApiKeyToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enter your Windows Azure storage account. Your server image will be uploaded ther" +
+            "e.")]
+        public string S4AzureUserUIDToolTip {
+            get {
+                return ((string)(this["S4AzureUserUIDToolTip"]));
+            }
+            set {
+                this["S4AzureUserUIDToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Your Azure subscription ID, navigate to Azure Portal > Settings > Subscriptions t" +
+            "o get its id")]
+        public string S4AzureSubscriptionIdToolTip {
+            get {
+                return ((string)(this["S4AzureSubscriptionIdToolTip"]));
+            }
+            set {
+                this["S4AzureSubscriptionIdToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Your Azure management certificate thumbprint, navigate to Azure Portal > Settings" +
+            " > Management Certificates to get it. \r\nNote the certificate should be installed" +
+            " on the machine. Consult manual for more info")]
+        public string S4AzureThumbprintToolTip {
+            get {
+                return ((string)(this["S4AzureThumbprintToolTip"]));
+            }
+            set {
+                this["S4AzureThumbprintToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure login success. Start validating your subscription id and certificate...")]
+        public string S4AzureTestConnectionTextAdvancedMode {
+            get {
+                return ((string)(this["S4AzureTestConnectionTextAdvancedMode"]));
+            }
+            set {
+                this["S4AzureTestConnectionTextAdvancedMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure subscription id and certificate are valid.")]
+        public string S4AzureRegionValid {
+            get {
+                return ((string)(this["S4AzureRegionValid"]));
+            }
+            set {
+                this["S4AzureRegionValid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Send Request")]
+        public string MailSendFailedMessage {
+            get {
+                return ((string)(this["MailSendFailedMessage"]));
+            }
+            set {
+                this["MailSendFailedMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Failed to send request")]
+        public string MailSendFailedHeader {
+            get {
+                return ((string)(this["MailSendFailedHeader"]));
+            }
+            set {
+                this["MailSendFailedHeader"] = value;
             }
         }
     }
