@@ -325,11 +325,6 @@ No intermidiate images will be created.</Value>
     <Setting Name="S4NextButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Proceed to the next step.</Value>
     </Setting>
-    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Makes an attempt to access your cloud account.
-Tests your both cloud credentials, internet connection. 
-Checks for available advanced options.</Value>
-    </Setting>
     <Setting Name="S4AmazonAccessIDToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enter your Amazon Access Key ID. 
 It could be found on Security Credentials page of your AWS account.</Value>
@@ -372,9 +367,6 @@ You are free to delete them after transfer completes.</Value>
       <Value Profile="(Default)">Folder is not empty.
  It's recommended to use empty folders to store images.
 Do you wish to proceed anyway?</Value>
-    </Setting>
-    <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Path is not correct!</Value>
     </Setting>
     <Setting Name="S5NextButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Proceed to the next step.</Value>
@@ -561,9 +553,6 @@ You couldn’t use virtual hard drives from the storage account in region you sp
     <Setting Name="S4AzureCreateThumbprintButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Create and upload certificate to Windows Azure server.</Value>
     </Setting>
-    <Setting Name="S4AzureLink" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.windowsazure.com/en-us/support/options/</Value>
-    </Setting>
     <Setting Name="S4AzureTestConnectionTextAdvancedMode" Type="System.String" Scope="User">
       <Value Profile="(Default)">Azure login success. Starting test your subscription id and certificate...</Value>
     </Setting>
@@ -612,14 +601,6 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
   &lt;string&gt;https://api-east1.openhosting.com|OpenHosting (Miami)&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="Buttons" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;AmazonCloudParameters|255,22|189,70|Amazon EC2|Transfer your server to Amazon Elastic Compute Cloud|Icons\\Amazon.ico|32,32|true&lt;/string&gt;
-  &lt;string&gt;EHCloudParameters|255,174|189,70|ElasticHosts|Transfer your server to ElasticHosts|Icons\\Elastic.ico|32,32|true&lt;/string&gt;
-  &lt;string&gt;AzureCloudParameters|255,98|189,70|WindowsAzure|Transfer your server to WindowsAzure|Icons\\Azure.ico|32,32|true&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -645,9 +626,6 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
     <Setting Name="S4AmazonVPCLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">VPC subnet:</Value>
     </Setting>
-    <Setting Name="S4AmazonVPCToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Select a VPC.</Value>
-    </Setting>
     <Setting Name="S4AzureAffinityText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Affinity Group/Virtual Network:</Value>
     </Setting>
@@ -660,20 +638,41 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
     <Setting Name="S4AzureSubnetsToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Select a subnet inside the virtual network.</Value>
     </Setting>
-    <Setting Name="S4AzureCertificateWebException" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Failed to connect toWindowsAzure server.</Value>
-    </Setting>
     <Setting Name="S4AzureRegionCheckFailed" Type="System.String" Scope="User">
       <Value Profile="(Default)">Failed to retrieve region information.</Value>
-    </Setting>
-    <Setting Name="S4AzureDeployWmToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Deploy a virtual machine.</Value>
     </Setting>
     <Setting Name="S4AzureSubscriptionIDError" Type="System.String" Scope="User">
       <Value Profile="(Default)">Please, check the subscription ID.</Value>
     </Setting>
     <Setting Name="S4AzureThumbprintIllFormed" Type="System.String" Scope="User">
       <Value Profile="(Default)">Thumbprint sould contain exactly 40 symbols.</Value>
+    </Setting>
+    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)"> Performs test login to the cloud.  
+Queries advanced options.</Value>
+    </Setting>
+    <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Path is incorrect!</Value>
+    </Setting>
+    <Setting Name="S4AzureLink" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.migrate2iaas.com/node/10692</Value>
+    </Setting>
+    <Setting Name="Buttons" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;AmazonCloudParameters|150,52|130,158|Amazon EC2|Transfer your server to Amazon Elastic Compute Cloud|Icons\\AWS3.png|128,128|true&lt;/string&gt;
+  &lt;string&gt;EHCloudParameters|290,52|130,158|ElasticHosts|Transfer your server to ElasticHosts|Icons\\ehbutton_lightblue.png|128,128|true&lt;/string&gt;
+  &lt;string&gt;AzureCloudParameters|430,52|130,158|Windows Azure|Transfer your server to Windows Azure|Icons\\azure.png|128,128|true&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="S4AmazonVPCToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Select your Virtual Private Cloud; or None if you'd like to migrate to EC2 Classic.</Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateWebException" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Failed to connect to Windows Azure server.</Value>
+    </Setting>
+    <Setting Name="S4AzureDeployWmToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Select this to create a VM from the uploaded VHD.</Value>
     </Setting>
   </Settings>
 </SettingsFile>
