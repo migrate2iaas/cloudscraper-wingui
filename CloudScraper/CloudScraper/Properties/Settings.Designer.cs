@@ -2446,5 +2446,29 @@ namespace CloudScraper.Properties {
                 this["S4AzureDeployWmToolTip"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Please, check the subscription ID.")]
+        public string S4AzureSubscriptionIDError {
+            get {
+                return ((string)(this["S4AzureSubscriptionIDError"]));
+            }
+            set {
+                this["S4AzureSubscriptionIDError"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Thumbprint sould contain exactly 40 symbols.")]
+        public string S4AzureThumbprintIllFormed {
+            get {
+                return ((string)(this["S4AzureThumbprintIllFormed"]));
+            }
+            set {
+                this["S4AzureThumbprintIllFormed"] = value;
+            }
+        }
     }
 }
