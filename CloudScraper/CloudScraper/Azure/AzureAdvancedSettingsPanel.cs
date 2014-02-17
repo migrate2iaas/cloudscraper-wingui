@@ -42,7 +42,7 @@ namespace CloudScraper.Azure
         private string container_ = string.Empty; // comboContainer.Text
         private string id_ = string.Empty; // textSubscriptionId.Text
         private string thumbprint_ = string.Empty; // textThumbprint.Text
-        private string affinity_ = string.Empty; // comboAffinity.Text
+        private string affinityTag_ = string.Empty; // comboAffinity.Text
         private string subnets_ = string.Empty; // comboSubnets.Text
 
         private enum EnumVnType
@@ -53,7 +53,7 @@ namespace CloudScraper.Azure
         }
 
         private readonly Dictionary<string, List<string>> tagsToSubnets_ = new Dictionary<string,List<string>>();
-        private readonly Dictionary<string, EnumVnType> namesToVnType_ = new Dictionary<string, EnumVnType>();
+        private readonly Dictionary<string, EnumVnType> tagsToVnType_ = new Dictionary<string, EnumVnType>();
         private readonly Dictionary<string, string> tagsToNames_ = new Dictionary<string, string>();
 
         #endregion Data members
@@ -120,19 +120,21 @@ namespace CloudScraper.Azure
                 string affinity = string.Empty;
                 string virtualNetwork = string.Empty;
                 string subnet = string.Empty;
-                if (!string.IsNullOrEmpty(affinity_) && EmptySelection != affinity_)
+                if (!string.IsNullOrEmpty(affinityTag_) && EmptySelection != affinityTag_)
                 {
-                    namesToVnType_.TryGetValue(affinity_, out type);
+                    // getting original name and type for this tag
+                    string affinity_name = tagsToNames_[affinityTag_];
+                    tagsToVnType_.TryGetValue(affinityTag_, out type);
                     switch (type)
                     {
                         case EnumVnType.AffinityGroup:
                             {
-                                affinity = affinity_;
+                                affinity = affinity_name;
                                 break;
                             }
                         case EnumVnType.VirtualNetwork:
                             {
-                                virtualNetwork = affinity_;
+                                virtualNetwork = affinity_name;
                                 if (!string.IsNullOrEmpty(subnets_) && EmptySelection != subnets_)
                                 {
                                     subnet = subnets_;
@@ -191,7 +193,7 @@ namespace CloudScraper.Azure
             MyClearAffinity();
             MyClearSubnets();
             tagsToSubnets_.Clear();
-            namesToVnType_.Clear();
+            tagsToVnType_.Clear();
             tagsToNames_.Clear();
 
             comboAffinity.TextChanged -= comboAffinity_TextChanged;
@@ -202,7 +204,7 @@ namespace CloudScraper.Azure
             empty.Add(EmptySelection);
             tagsToNames_.Add(EmptySelection, EmptySelection);
             tagsToSubnets_.Add(EmptySelection, empty);
-            namesToVnType_.Add(EmptySelection, EnumVnType.None);
+            tagsToVnType_.Add(EmptySelection, EnumVnType.None);
 
             foreach (AffinityGroupInfo group in groups)
             {
@@ -210,7 +212,7 @@ namespace CloudScraper.Azure
                 comboAffinity.Items.Add(tag);
                 tagsToNames_.Add(tag, group.Name);
                 tagsToSubnets_.Add(tag, empty);
-                namesToVnType_.Add(group.Name, EnumVnType.AffinityGroup);
+                tagsToVnType_.Add(tag, EnumVnType.AffinityGroup);
             }
             
             //2. Load virtual networks.
@@ -227,7 +229,7 @@ namespace CloudScraper.Azure
                     subnets.Add(subnet.Name);
                 }
                 tagsToSubnets_.Add(tag, subnets);
-                namesToVnType_.Add(network.Name, EnumVnType.VirtualNetwork);
+                tagsToVnType_.Add(tag, EnumVnType.VirtualNetwork);
             }
 
             comboAffinity.SelectedIndex = 0;
@@ -489,7 +491,7 @@ namespace CloudScraper.Azure
         private void MyClearAffinity()
         {
             MyClearComboBox(comboAffinity, comboAffinity_TextChanged);
-            affinity_ = string.Empty;
+            affinityTag_ = string.Empty;
         }
 
         private void MyClearSubnets()
@@ -530,13 +532,10 @@ namespace CloudScraper.Azure
 
         private void comboAffinity_TextChanged(object sender, EventArgs e)
         {
-            affinity_ = string.Empty;
+            affinityTag_ = string.Empty;
             if (EmptySelection != comboAffinity.Text)
             {
-                if (!tagsToNames_.TryGetValue(comboAffinity.Text, out affinity_))
-                {
-                    affinity_ = string.Empty;
-                }
+                affinityTag_ = comboAffinity.Text;
             }
             MyClearSubnets();
 
