@@ -666,17 +666,17 @@ Queries advanced options.</Value>
       <Value Profile="(Default)">Your Azure management certificate thumbprint, navigate to Azure Portal &gt; Settings &gt; Management Certificates to get it. 
 Note the certificate should be installed on the machine. Consult manual for more info</Value>
     </Setting>
-    <Setting Name="S4AzureTestConnectionTextAdvancedMode" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure login success. Start validating your subscription id and certificate...</Value>
-    </Setting>
-    <Setting Name="S4AzureRegionValid" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azure subscription id and certificate are valid.</Value>
-    </Setting>
-    <Setting Name="MailSendFailedMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Send Request</Value>
-    </Setting>
     <Setting Name="MailSendFailedHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Failed to send request</Value>
+    </Setting>
+    <Setting Name="S4AzureTestConnectionTextAdvancedMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure login success. Start validating your subscription ID and certificate...</Value>
+    </Setting>
+    <Setting Name="S4AzureRegionValid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azure subscription ID and certificate are valid.</Value>
+    </Setting>
+    <Setting Name="MailSendFailedMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Please proceed to Support section of www.migrate2iaas.com to file a support ticket manually</Value>
     </Setting>
   </Settings>
 </SettingsFile>

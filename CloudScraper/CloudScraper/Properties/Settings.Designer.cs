@@ -2441,7 +2441,19 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure login success. Start validating your subscription id and certificate...")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Failed to send request")]
+        public string MailSendFailedHeader {
+            get {
+                return ((string)(this["MailSendFailedHeader"]));
+            }
+            set {
+                this["MailSendFailedHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure login success. Start validating your subscription ID and certificate...")]
         public string S4AzureTestConnectionTextAdvancedMode {
             get {
                 return ((string)(this["S4AzureTestConnectionTextAdvancedMode"]));
@@ -2453,7 +2465,7 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azure subscription id and certificate are valid.")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azure subscription ID and certificate are valid.")]
         public string S4AzureRegionValid {
             get {
                 return ((string)(this["S4AzureRegionValid"]));
@@ -2465,25 +2477,14 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Send Request")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Please proceed to Support section of www.migrate2iaas.com to file a support ticke" +
+            "t manually")]
         public string MailSendFailedMessage {
             get {
                 return ((string)(this["MailSendFailedMessage"]));
             }
             set {
                 this["MailSendFailedMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Failed to send request")]
-        public string MailSendFailedHeader {
-            get {
-                return ((string)(this["MailSendFailedHeader"]));
-            }
-            set {
-                this["MailSendFailedHeader"] = value;
             }
         }
     }
