@@ -307,7 +307,7 @@ namespace CloudScraper
                         System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                     return;
                 }
-                if (this.azureDeployVirtualMachineCheckBox.CheckState == CheckState.Checked)
+                if (pnlAdvancedSettings_.IsDeployWmChecked())
                 {
                     string error = pnlAdvancedSettings_.CheckAdvancedCredentials();
                     if (!string.IsNullOrEmpty(error))
