@@ -236,7 +236,7 @@ namespace CloudScraper.Azure
             comboAffinity.TextChanged += comboAffinity_TextChanged;
         }
 
-        public string CheckCredentials()
+        public string CheckAdvancedCredentials()
         {
             // Do the client-side check.
             // Subscription ID should be GUID

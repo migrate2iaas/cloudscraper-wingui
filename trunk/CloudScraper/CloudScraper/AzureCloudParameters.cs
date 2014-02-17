@@ -307,15 +307,17 @@ namespace CloudScraper
                         System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                     return;
                 }
-
-                string error = pnlAdvancedSettings_.CheckCredentials();
-                if (!string.IsNullOrEmpty(error))
+                if (this.azureDeployVirtualMachineCheckBox.CheckState == CheckState.Checked)
                 {
-                    BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
-                        error, "", "OK", "OK",
-                        System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+                    string error = pnlAdvancedSettings_.CheckAdvancedCredentials();
+                    if (!string.IsNullOrEmpty(error))
+                    {
+                        BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                            error, "", "OK", "OK",
+                            System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
                     
-                    return;                    
+                        return;                    
+                    }
                 }
 
                 if (!this.CheckStorageAccount())
