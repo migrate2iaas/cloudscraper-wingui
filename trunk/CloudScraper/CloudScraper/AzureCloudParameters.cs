@@ -315,8 +315,8 @@ namespace CloudScraper
                         BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                             error, "", "OK", "OK",
                             System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
-                    
-                        return;                    
+
+                        return;
                     }
                 }
 
@@ -335,6 +335,13 @@ namespace CloudScraper
                 logger_.LogException(LogLevel.Error, "Failed to connect to azure server.", ex);
                 BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
                     Settings.Default.S4AzureCertificateWebException, "", "OK", "OK",
+                    System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
+            }
+            catch (AzureCertificateException ex)
+            {
+                logger_.LogException(LogLevel.Error, "Failed to connect to azure server.", ex);
+                BetterDialog.ShowDialog(Settings.Default.S4TestConnectionHeader,
+                    Settings.Default.S4AzureCertificateNotFound, "", "OK", "OK",
                     System.Drawing.Image.FromFile("Icons\\ErrorDialog.png"), false);
             }
             catch (Exception ex)

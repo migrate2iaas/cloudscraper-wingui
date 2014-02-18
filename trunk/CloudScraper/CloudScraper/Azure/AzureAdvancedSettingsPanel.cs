@@ -424,8 +424,13 @@ namespace CloudScraper.Azure
             string subscriptionId = id_;
             string thumbprint = thumbprint_;
 
-            X509Certificate2 certificate = CertificateUtils.GetCertificate(thumbprint, CertificateUtils.CertificateStore).certificate;
+            var certPath = CertificateUtils.GetCertificate(thumbprint, CertificateUtils.CertificateStore);
+            if (null == certPath)
+            {
+                throw new AzureCertificateException("Certificate not found on the local computer");
+            }
 
+            X509Certificate2 certificate = certPath.certificate;
             if (certificate == null)
             {
                 throw new AzureCertificateException("Failed to obtain certificate.");
