@@ -343,15 +343,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.rc" />
-    <Content Include="Icons\AWS3.png" />
-    <Content Include="Icons\azure.png" />
-    <Content Include="Icons\Cloud1.ico" />
-    <Content Include="Icons\Cloud2.ico" />
-    <Content Include="Icons\CloudInstall.ico" />
-    <Content Include="Icons\CloudInstall1.ico" />
-    <Content Include="Icons\CloudInstall2.ico" />
-    <Content Include="Icons\ehbutton_lightblue.png" />
-    <None Include="Icons\ajax-loader20s.gif" />
+    <Content Include="Icons\AWS3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\azure.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Cloud1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Cloud2.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\CloudInstall.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\CloudInstall1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\CloudInstall2.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\ehbutton_lightblue.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Icons\ajax-loader20s.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\ajax-loader%281%29.gif" />
     <EmbeddedResource Include="Icons\ErrorDialog.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
