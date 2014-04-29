@@ -44,7 +44,25 @@ namespace CloudScraper
             if (userName_ != "" && email_ != "" && email_.Contains("@"))
             {
                 this.Close();
-                this.copyStartForm_.SendMail(userName_, email_, comments_);
+                //this.copyStartForm_.SendMail(userName_, email_, comments_);
+                try
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    this.copyStartForm_.SendAssemblaTicket(userName_, email_, comments_);
+                    this.Cursor = Cursors.Arrow;
+                    MessageBox.Show(Settings.Default.MailSendMessage,
+                       Settings.Default.MailSendHeader, MessageBoxButtons.OK); 
+                }
+                catch (Exception ex)
+                {
+                    this.Cursor = Cursors.Arrow;
+                    MessageBox.Show(ex.ToString(),
+                        Settings.Default.MailSendFailedHeader, MessageBoxButtons.OK);
+                    MessageBox.Show(Settings.Default.MailSendFailedMessage,
+                                    Settings.Default.MailSendFailedHeader, MessageBoxButtons.OK);
+
+                }
+
             }
         }
 
