@@ -10,6 +10,7 @@ using System.IO;
 using System.Threading;
 using System.Web;
 using System.Collections;
+using AssemblaAPI;
 
 using System.Net;
 using System.Net.Mail;
@@ -618,11 +619,134 @@ namespace CloudScraper
             }
         }
 
+        // gather logs and return a path to the newly created zip file
+        private string GenerateLogsZip()
+        {
+            string file = Application.StartupPath + "\\" + Properties.Settings.Default.TextFile;
+            FastZip fz = new FastZip();
+
+            if (Directory.Exists(Application.StartupPath + "\\ToZip"))
+                Directory.Delete(Application.StartupPath + "\\ToZip", true);
+            //Create folder for zip archive.
+            Directory.CreateDirectory(Application.StartupPath + "\\ToZip");
+            //Add report file.
+            File.Copy(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile,
+               Application.StartupPath + "\\ToZip\\" + Properties.Settings.Default.TextFile);
+
+            //Add atachment files from configs.
+            foreach (string fileToAttach in Settings.Default.FilesToAttach)
+            {
+                string fileToAttachTmp = fileToAttach;
+                //For system environment.
+                IDictionary dictionary = Environment.GetEnvironmentVariables();
+                foreach (DictionaryEntry de in dictionary)
+                {
+                    string entry = "%" + de.Key.ToString() + "%";
+                    if (fileToAttachTmp.ToLower().Contains(entry.ToLower()))
+                    {
+                        int index = fileToAttachTmp.ToLower().IndexOf(entry.ToLower());
+                        fileToAttachTmp = fileToAttachTmp.Remove(index, entry.Length).Insert(index, de.Value.ToString());
+                        break;
+                    }
+                }
+
+                //For absolute path.
+                if (File.Exists(fileToAttachTmp))
+                {
+                    string fileName = Path.GetFileName(fileToAttachTmp);
+                    File.Copy(fileToAttachTmp, Application.StartupPath + "\\ToZip\\" + fileName);
+                    continue;
+                }
+
+                //For relative path.
+                if (File.Exists(Application.StartupPath + "\\" + fileToAttachTmp))
+                {
+                    string fileName = Path.GetFileName(Application.StartupPath + "\\" + fileToAttachTmp);
+                    File.Copy(Application.StartupPath + "\\" + fileToAttachTmp, Application.StartupPath + "\\ToZip\\" + fileName);
+                    continue;
+                }
+
+                //if (fileToAttach == "logs\\gui.log")
+                //{
+                //    string fileName = Path.GetFileName(Application.StartupPath + 
+                //        "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
+                //    if (File.Exists(Application.StartupPath +
+                //        "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt"))
+                //    {
+                //        File.Copy(Application.StartupPath +
+                //            "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt", Application.StartupPath + "\\ToZip\\" + fileName);
+                //    }
+                //    continue;
+                //}
+            }
+
+
+            if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
+                File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
+
+            fz.CreateZip(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile,
+                Application.StartupPath + "\\ToZip", true, null);
+
+
+            //delete archive
+            Directory.Delete(Application.StartupPath + "\\ToZip", true);
+
+            return Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile;
+        }
+
+        // send a ticket via assembla API
+        public void SendAssemblaTicket(string userName, string email, string comments)
+        {
+            // keys for support user. change to any other ones in case keys are compromised
+            string Key = "61468a3d89f06ca1d740";
+            string Secret = "9a968afd2af6bfb238ece4731255c746816ac2f9";
+		    string space = "cloudscraper";
+            IAssemblaWrapper wrapper = new AssemblaWrapper();
+            //string userNameToCheck = "CloudscraperSupport";
+            // 1: Log in:
+            wrapper.LoginWithKeyAndSecret(Key, Secret);
+            Console.WriteLine(((AssemblaWrapper)(wrapper)).UserString.ToLower());
+
+            string message = "";
+            foreach (MessageInfo info in messages_)
+            {
+                if (info.Type == 2)
+                {
+                    message += info.Message + "\n";
+                }
+            }
+            message += "\n------------------- User comments:\n";
+            message += comments;
+
+            // 2: Post a ticket with Summary, Description, Permisson, Followers and Tags:
+            string ticketId = wrapper.PostTicket(
+                space,
+                "Support ticket submitted by " + userName,
+                message,
+                PermissionType.Public,
+                new[] { email },
+                new[] { "auto", "support" });
+
+            // 3: Add attachement(s):
+
+            // a) You can use any stream do define the attachement content:
+            var stream = new FileStream(this.GenerateLogsZip(), FileMode.Open);
+            wrapper.AddAttachement(space, ticketId, "logs.zip", stream);
+
+            if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
+                File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
+
+            string disclaimer = Properties.Settings.Default.SupportDisclaimer;
+            wrapper.AddComment(space, ticketId, disclaimer);
+
+        }
+
+        // send a ticket via e-mail
         public void SendMail(string userName, string email, string comments)
         {
             try
             {
-                this.Cursor = Cursors.WaitCursor;
+                
 
                 SmtpClient Smtp = new SmtpClient(Properties.Settings.Default.SMTPServer, 25);
                 Smtp.Credentials = new NetworkCredential(Properties.Settings.Default.SMTPLogin,
@@ -653,82 +777,15 @@ namespace CloudScraper
 
                 Message.Body += "\n\n Reply-to: " + email;
 
-                string file = Application.StartupPath + "\\" + Properties.Settings.Default.TextFile;
-                FastZip fz = new FastZip();
+                string zipfile = GenerateLogsZip();
 
-                if (Directory.Exists(Application.StartupPath + "\\ToZip"))
-                    Directory.Delete(Application.StartupPath + "\\ToZip", true);
-                //Create folder for zip archive.
-                Directory.CreateDirectory(Application.StartupPath + "\\ToZip");
-                //Add report file.
-                File.Copy(Application.StartupPath + "\\" + Properties.Settings.Default.TextFile, 
-                   Application.StartupPath + "\\ToZip\\" + Properties.Settings.Default.TextFile);
-
-                //Add atachment files from configs.
-                foreach (string fileToAttach in Settings.Default.FilesToAttach)
-                {
-                    string fileToAttachTmp = fileToAttach;
-                    //For system environment.
-                    IDictionary dictionary = Environment.GetEnvironmentVariables();
-                    foreach (DictionaryEntry de in dictionary)
-                    {
-                        string entry = "%" + de.Key.ToString() + "%";
-                        if (fileToAttachTmp.ToLower().Contains(entry.ToLower()))
-                        {
-                            int index = fileToAttachTmp.ToLower().IndexOf(entry.ToLower());
-                            fileToAttachTmp = fileToAttachTmp.Remove(index, entry.Length).Insert(index, de.Value.ToString());
-                            break;
-                        }
-                    }
-                    
-                    //For absolute path.
-                    if (File.Exists(fileToAttachTmp))
-                    {
-                        string fileName = Path.GetFileName(fileToAttachTmp);
-                        File.Copy(fileToAttachTmp, Application.StartupPath + "\\ToZip\\" + fileName);
-                        continue;
-                    }
-                    
-                    //For relative path.
-                    if (File.Exists(Application.StartupPath + "\\" + fileToAttachTmp))
-                    {
-                        string fileName = Path.GetFileName(Application.StartupPath + "\\" + fileToAttachTmp);
-                        File.Copy(Application.StartupPath + "\\" + fileToAttachTmp, Application.StartupPath + "\\ToZip\\" + fileName);
-                        continue;
-                    }
-
-                    //if (fileToAttach == "logs\\gui.log")
-                    //{
-                    //    string fileName = Path.GetFileName(Application.StartupPath + 
-                    //        "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
-                    //    if (File.Exists(Application.StartupPath +
-                    //        "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt"))
-                    //    {
-                    //        File.Copy(Application.StartupPath +
-                    //            "\\logs\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt", Application.StartupPath + "\\ToZip\\" + fileName);
-                    //    }
-                    //    continue;
-                    //}
-                }
-
-
-                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
-                    File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
-
-                fz.CreateZip(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile, 
-                    Application.StartupPath + "\\ToZip", true, null);
-
-
-                //delete archive
-                Directory.Delete(Application.StartupPath + "\\ToZip", true);
-
-                this.attach = new Attachment(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile, 
+                this.attach = new Attachment(zipfile, 
                     MediaTypeNames.Application.Octet);
 
                 ContentDisposition disposition = attach.ContentDisposition;
-                disposition.CreationDate = System.IO.File.GetCreationTime(file);
-                disposition.ModificationDate = System.IO.File.GetLastWriteTime(file);
-                disposition.ReadDate = System.IO.File.GetLastAccessTime(file);
+                disposition.CreationDate = System.IO.File.GetCreationTime(zipfile);
+                disposition.ModificationDate = System.IO.File.GetLastWriteTime(zipfile);
+                disposition.ReadDate = System.IO.File.GetLastAccessTime(zipfile);
 
                 Message.Attachments.Add(attach);
                 Smtp.Send(Message);
@@ -738,9 +795,7 @@ namespace CloudScraper
                if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
                     File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
 
-               this.Cursor = Cursors.Arrow;
-               MessageBox.Show(Settings.Default.MailSendMessage,
-                   Settings.Default.MailSendHeader, MessageBoxButtons.OK); 
+               
             }
             catch(Exception e)
             {

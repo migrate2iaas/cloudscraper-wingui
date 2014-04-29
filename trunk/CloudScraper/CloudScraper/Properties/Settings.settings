@@ -681,5 +681,8 @@ Note the certificate should be installed on the machine. Consult manual for more
     <Setting Name="S4AzureCertificateNotFound" Type="System.String" Scope="User">
       <Value Profile="(Default)">Failed to load the certificate, make sure the credentials are correct.</Value>
     </Setting>
+    <Setting Name="SupportDisclaimer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Thanks for submitting the issue. You'll be contacted by Cloudscraper support in two business days.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
