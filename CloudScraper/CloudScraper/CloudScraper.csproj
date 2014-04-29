@@ -381,7 +381,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\assembla_api_c_sharp_2_0\trunk\AssemblaAPI.csproj">
+      <Project>{7EECCA6C-C315-47AF-BD41-DB6E5516D20C}</Project>
+      <Name>AssemblaAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
