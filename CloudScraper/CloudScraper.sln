@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudScraper", "CloudScraper\CloudScraper.csproj", "{4F7E37CE-631E-418A-948D-E922B641DFDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblaAPI", "..\..\assembla_api_c_sharp_2_0\trunk\AssemblaAPI.csproj", "{7EECCA6C-C315-47AF-BD41-DB6E5516D20C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblaAPI", "..\..\..\assembla_api_c_sharp_2_0\trunk\AssemblaAPI.csproj", "{7EECCA6C-C315-47AF-BD41-DB6E5516D20C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
