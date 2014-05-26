@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F7E37CE-631E-418A-948D-E922B641DFDF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudScraper</RootNamespace>
+    <AssemblyName>CloudScraper</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <Win32Resource>app.RES</Win32Resource>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK">
+      <HintPath>.\AWSSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>.\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AmazonCloudParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Amazon\AmazonParams.cs" />
+    <Compile Include="AzureCloudParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Azure\AffinityGroupInfo.cs" />
+    <Compile Include="Azure\AzureAdvancedSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Azure\AzureAdvancedSettingsPanel.Designer.cs">
+      <DependentUpon>AzureAdvancedSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Azure\AzureHttpRequest.cs" />
+    <Compile Include="Azure\AzureParams.cs" />
+    <Compile Include="Azure\Exceptions.cs" />
+    <Compile Include="Azure\CertificateUtils.cs" />
+    <Compile Include="Azure\MakeCertLauncher.cs" />
+    <Compile Include="Azure\VirtualNetworksInfo.cs" />
+    <Compile Include="BetterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BetterDialog.designer.cs">
+      <DependentUpon>BetterDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseCloudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseCloudForm.Designer.cs">
+      <DependentUpon>ChooseCloudForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseDisksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseDisksForm.Designer.cs">
+      <DependentUpon>ChooseDisksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloudParametersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloudParametersForm.Designer.cs">
+      <DependentUpon>CloudParametersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDebugPrintoutContainer.cs" />
+    <Compile Include="CopyStartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CopyStartForm.Designer.cs">
+      <DependentUpon>CopyStartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EHCloudParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullOutputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullOutputForm.Designer.cs">
+      <DependentUpon>FullOutputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GhostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GhostForm.Designer.cs">
+      <DependentUpon>GhostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagesPathForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImagesPathForm.Designer.cs">
+      <DependentUpon>ImagesPathForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailForm.Designer.cs">
+      <DependentUpon>MailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewResumeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewResumeForm.Designer.cs">
+      <DependentUpon>NewResumeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloudScraper.cs" />
+    <Compile Include="OSInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResumeTransferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResumeTransferForm.Designer.cs">
+      <DependentUpon>ResumeTransferForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveTransferTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveTransferTaskForm.Designer.cs">
+      <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Amazon\AmazonAdvansedSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Amazon\AmazonAdvansedSettingsPanel.Designer.cs">
+      <DependentUpon>AmazonAdvansedSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolTipContainer.cs" />
+    <EmbeddedResource Include="Amazon\AmazonAdvansedSettingsPanel.resx">
+      <DependentUpon>AmazonAdvansedSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Azure\AzureAdvancedSettingsPanel.resx">
+      <DependentUpon>AzureAdvancedSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BetterDialog.resx">
+      <DependentUpon>BetterDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseCloudForm.resx">
+      <DependentUpon>ChooseCloudForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseDisksForm.resx">
+      <DependentUpon>ChooseDisksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloudParametersForm.resx">
+      <DependentUpon>CloudParametersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CopyStartForm.resx">
+      <DependentUpon>CopyStartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullOutputForm.resx">
+      <DependentUpon>FullOutputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GhostForm.resx">
+      <DependentUpon>GhostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagesPathForm.resx">
+      <DependentUpon>ImagesPathForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailForm.resx">
+      <DependentUpon>MailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewResumeForm.resx">
+      <DependentUpon>NewResumeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumeTransferForm.resx">
+      <DependentUpon>ResumeTransferForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveTransferTaskForm.resx">
+      <DependentUpon>SaveTransferTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Cloudscraper.exe.manifest">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="logs\migrate.log">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Cloud.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\WindowsDrive.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\HD-Drive.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\Resume.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\StartNew.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Elastic.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\Azure.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\Amazon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\Error.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\Warning.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\accept.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Hourglass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Help.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\logo4a.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.rc" />
+    <Content Include="Icons\AWS3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\azure.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Cloud1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Cloud2.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\CloudInstall.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\CloudInstall1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\CloudInstall2.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\ehbutton_lightblue.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Icons\ajax-loader20s.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\ajax-loader%281%29.gif" />
+    <EmbeddedResource Include="Icons\ErrorDialog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\InfoDialog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\WarningDialog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\assembla_api_c_sharp_2_0\trunk\AssemblaAPI.csproj">
+      <Project>{7EECCA6C-C315-47AF-BD41-DB6E5516D20C}</Project>
+      <Name>AssemblaAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
