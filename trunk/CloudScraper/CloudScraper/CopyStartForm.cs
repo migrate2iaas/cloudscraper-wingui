@@ -697,6 +697,9 @@ namespace CloudScraper
         // send a ticket via assembla API
         public void SendAssemblaTicket(string userName, string email, string comments)
         {
+            // a small hack to make assembla trustworthy
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
             // keys for support user. change to any other ones in case keys are compromised
             string Key = "61468a3d89f06ca1d740";
             string Secret = "9a968afd2af6bfb238ece4731255c746816ac2f9";
