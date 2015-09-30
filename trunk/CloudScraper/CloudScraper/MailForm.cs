@@ -78,7 +78,10 @@ namespace CloudScraper
 
         private void MailForm_Load(object sender, EventArgs e)
         {
-
+            userNameLabel.BackColor = Color.Transparent;
+            emailLabel.BackColor = Color.Transparent;
+            commentsLabel.BackColor = Color.Transparent;
+            label1.BackColor = Color.Transparent;
         }
 
         private void label1_Click(object sender, EventArgs e)

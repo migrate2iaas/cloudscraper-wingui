@@ -110,6 +110,12 @@
     <Compile Include="BetterDialog.designer.cs">
       <DependentUpon>BetterDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckAgreement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckAgreement.Designer.cs">
+      <DependentUpon>CheckAgreement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChooseCloudForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     <EmbeddedResource Include="BetterDialog.resx">
       <DependentUpon>BetterDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckAgreement.resx">
+      <DependentUpon>CheckAgreement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChooseCloudForm.resx">
       <DependentUpon>ChooseCloudForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,7 +294,7 @@
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -295,7 +304,7 @@
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
       <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
+      <ProductName>Установщик Windows 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
@@ -367,6 +376,8 @@
     <Content Include="Icons\ehbutton_lightblue.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\weather.ico" />
+    <None Include="Resources\icon-ka.bmp" />
     <None Include="Icons\ajax-loader20s.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

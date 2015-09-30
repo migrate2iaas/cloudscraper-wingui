@@ -81,22 +81,28 @@
             // 
             // okButton
             // 
+            this.okButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.okButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("okButton.BackgroundImage")));
+            this.okButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.okButton.Location = new System.Drawing.Point(258, 262);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 4;
             this.okButton.Text = "Ok";
-            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.UseVisualStyleBackColor = false;
             this.okButton.Click += new System.EventHandler(this.OkButtonClick);
             // 
             // cancelButton
             // 
+            this.cancelButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cancelButton.BackgroundImage")));
+            this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cancelButton.Location = new System.Drawing.Point(12, 262);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
             // 
             // commentsTextBox
@@ -134,6 +140,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(345, 297);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.commentsLabel);

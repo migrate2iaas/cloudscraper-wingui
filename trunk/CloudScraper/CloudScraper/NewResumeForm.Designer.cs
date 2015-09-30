@@ -32,50 +32,67 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewResumeForm));
             this.startNewButton = new System.Windows.Forms.Button();
             this.resumeButton = new System.Windows.Forms.Button();
-            this.logoPicture = new System.Windows.Forms.PictureBox();
-            this.helpButton = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).BeginInit();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startNewButton
             // 
+            this.startNewButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.startNewButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("startNewButton.BackgroundImage")));
+            this.startNewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.startNewButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.startNewButton.Location = new System.Drawing.Point(267, 75);
+            this.startNewButton.Location = new System.Drawing.Point(196, 50);
             this.startNewButton.Name = "startNewButton";
             this.startNewButton.Size = new System.Drawing.Size(160, 54);
             this.startNewButton.TabIndex = 0;
             this.startNewButton.Tag = "";
             this.startNewButton.Text = "Start New Transfer...";
             this.startNewButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.startNewButton.UseVisualStyleBackColor = true;
+            this.startNewButton.UseVisualStyleBackColor = false;
             this.startNewButton.Click += new System.EventHandler(this.StartNewButtonClick);
             // 
             // resumeButton
             // 
+            this.resumeButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.resumeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("resumeButton.BackgroundImage")));
+            this.resumeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.resumeButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.resumeButton.Location = new System.Drawing.Point(267, 141);
+            this.resumeButton.Location = new System.Drawing.Point(196, 123);
             this.resumeButton.Name = "resumeButton";
             this.resumeButton.Size = new System.Drawing.Size(160, 54);
             this.resumeButton.TabIndex = 1;
             this.resumeButton.Tag = "";
             this.resumeButton.Text = "Resume Existing Transfer...";
             this.resumeButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.resumeButton.UseVisualStyleBackColor = true;
+            this.resumeButton.UseVisualStyleBackColor = false;
             this.resumeButton.Click += new System.EventHandler(this.ResumeButtonClick);
             // 
-            // logoPicture
+            // openFileDialog1
             // 
-            this.logoPicture.ErrorImage = null;
-            this.logoPicture.Location = new System.Drawing.Point(-2, 1);
-            this.logoPicture.Name = "logoPicture";
-            this.logoPicture.Size = new System.Drawing.Size(137, 299);
-            this.logoPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logoPicture.TabIndex = 17;
-            this.logoPicture.TabStop = false;
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(196, 195);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 54);
+            this.button1.TabIndex = 19;
+            this.button1.Tag = "";
+            this.button1.Text = "Add License";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // helpButton
             // 
+            this.helpButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.helpButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.helpButton.FlatAppearance.BorderSize = 0;
             this.helpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -94,21 +111,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(567, 298);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.helpButton);
-            this.Controls.Add(this.logoPicture);
             this.Controls.Add(this.resumeButton);
             this.Controls.Add(this.startNewButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "NewResumeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cloudscraper Server Copy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.NewResumeFormLoad);
-            ((System.ComponentModel.ISupportInitialize)(this.logoPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -117,9 +133,10 @@
 
         private System.Windows.Forms.Button startNewButton;
         private System.Windows.Forms.Button resumeButton;
-        private System.Windows.Forms.PictureBox logoPicture;
-        private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button helpButton;
     }
 }
 

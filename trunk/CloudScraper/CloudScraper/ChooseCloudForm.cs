@@ -130,12 +130,19 @@ namespace CloudScraper
 
         private void ChooseCloudLoad(object sender, EventArgs e)
         {
+            logoPicture.BackColor = Color.Transparent;
+
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Form loaded.");
             
             //For show  window in same position as prev.
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseDiskForm_.Location;
+        }
+
+        private void logoPicture_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

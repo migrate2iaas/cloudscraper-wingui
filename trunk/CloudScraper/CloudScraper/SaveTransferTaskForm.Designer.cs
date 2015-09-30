@@ -52,32 +52,41 @@
             // 
             // browseButton
             // 
+            this.browseButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.browseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("browseButton.BackgroundImage")));
+            this.browseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.browseButton.Location = new System.Drawing.Point(481, 123);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 1;
             this.browseButton.Text = "Browse...";
-            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.UseVisualStyleBackColor = false;
             this.browseButton.Click += new System.EventHandler(this.saveTransferTask_Click);
             // 
             // nextButton
             // 
+            this.nextButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nextButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nextButton.BackgroundImage")));
+            this.nextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.nextButton.Location = new System.Drawing.Point(480, 263);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 2;
             this.nextButton.Text = "Next >>";
-            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.UseVisualStyleBackColor = false;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
             // backButton
             // 
+            this.backButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.backButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backButton.BackgroundImage")));
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.backButton.Location = new System.Drawing.Point(370, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 3;
             this.backButton.Text = "<< Back";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // mainLabel
@@ -119,6 +128,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.logoPicture);
             this.Controls.Add(this.helpButton);
