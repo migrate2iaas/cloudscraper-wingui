@@ -818,6 +818,8 @@ namespace CloudScraper
 
         private void CopyStartFormLoad(object sender, EventArgs e)
         {
+            inProgressPictureBox.BackColor = Color.Transparent;
+
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Form load.");
             

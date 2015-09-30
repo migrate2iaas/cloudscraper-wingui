@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImagesPathForm));
+            this.totalSpaceLabel = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.browseButton = new System.Windows.Forms.Button();
             this.browseTextBox = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.freeSpaceLabel = new System.Windows.Forms.Label();
             this.freeSpace = new System.Windows.Forms.Label();
-            this.totalSpaceLabel = new System.Windows.Forms.Label();
             this.totalSpace = new System.Windows.Forms.Label();
             this.mainLabel = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
@@ -49,14 +49,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorPicture)).BeginInit();
             this.SuspendLayout();
             // 
+            // totalSpaceLabel
+            // 
+            this.totalSpaceLabel.AutoSize = true;
+            this.totalSpaceLabel.Location = new System.Drawing.Point(169, 209);
+            this.totalSpaceLabel.Name = "totalSpaceLabel";
+            this.totalSpaceLabel.Size = new System.Drawing.Size(114, 13);
+            this.totalSpaceLabel.TabIndex = 6;
+            this.totalSpaceLabel.Text = "Total Space Required:";
+            this.totalSpaceLabel.Click += new System.EventHandler(this.totalSpaceLabel_Click);
+            // 
             // browseButton
             // 
+            this.browseButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.browseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("browseButton.BackgroundImage")));
+            this.browseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.browseButton.Location = new System.Drawing.Point(481, 122);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 0;
             this.browseButton.Text = "Browse...";
-            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.UseVisualStyleBackColor = false;
             this.browseButton.Click += new System.EventHandler(this.BrowseButtonClick);
             // 
             // browseTextBox
@@ -69,22 +82,28 @@
             // 
             // backButton
             // 
+            this.backButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.backButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backButton.BackgroundImage")));
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.backButton.Location = new System.Drawing.Point(371, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 2;
             this.backButton.Text = "<< Back";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // nextButton
             // 
+            this.nextButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nextButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nextButton.BackgroundImage")));
+            this.nextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.nextButton.Location = new System.Drawing.Point(480, 263);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 3;
             this.nextButton.Text = "Next >>";
-            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.UseVisualStyleBackColor = false;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
             // freeSpaceLabel
@@ -105,15 +124,6 @@
             this.freeSpace.TabIndex = 5;
             this.freeSpace.Text = "0GB";
             // 
-            // totalSpaceLabel
-            // 
-            this.totalSpaceLabel.AutoSize = true;
-            this.totalSpaceLabel.Location = new System.Drawing.Point(169, 209);
-            this.totalSpaceLabel.Name = "totalSpaceLabel";
-            this.totalSpaceLabel.Size = new System.Drawing.Size(114, 13);
-            this.totalSpaceLabel.TabIndex = 6;
-            this.totalSpaceLabel.Text = "Total Space Required:";
-            // 
             // totalSpace
             // 
             this.totalSpace.AutoSize = true;
@@ -131,6 +141,7 @@
             this.mainLabel.TabIndex = 8;
             this.mainLabel.Text = "Please choose folder where to store your server disk images:";
             this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mainLabel.Click += new System.EventHandler(this.mainLabel_Click);
             // 
             // helpButton
             // 
@@ -150,6 +161,8 @@
             // 
             // logoPicture
             // 
+            this.logoPicture.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.logoPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logoPicture.ErrorImage = null;
             this.logoPicture.Location = new System.Drawing.Point(-3, 1);
             this.logoPicture.Name = "logoPicture";
@@ -157,6 +170,7 @@
             this.logoPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoPicture.TabIndex = 16;
             this.logoPicture.TabStop = false;
+            this.logoPicture.Click += new System.EventHandler(this.logoPicture_Click);
             // 
             // errorPicture
             // 
@@ -169,6 +183,7 @@
             this.errorPicture.TabIndex = 17;
             this.errorPicture.TabStop = false;
             this.errorPicture.Visible = false;
+            this.errorPicture.Click += new System.EventHandler(this.errorPicture_Click);
             // 
             // errorLabel
             // 
@@ -180,11 +195,14 @@
             this.errorLabel.TabIndex = 18;
             this.errorLabel.Text = "Not enough space!";
             this.errorLabel.Visible = false;
+            this.errorLabel.Click += new System.EventHandler(this.errorLabel_Click);
             // 
             // ImagesPathForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.errorPicture);
@@ -224,7 +242,6 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Label freeSpaceLabel;
         private System.Windows.Forms.Label freeSpace;
-        private System.Windows.Forms.Label totalSpaceLabel;
         private System.Windows.Forms.Label totalSpace;
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button helpButton;
@@ -232,5 +249,6 @@
         private System.Windows.Forms.PictureBox errorPicture;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Label totalSpaceLabel;
     }
 }

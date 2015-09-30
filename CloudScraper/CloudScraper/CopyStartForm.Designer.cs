@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CopyStartForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.startButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.messageGridView = new System.Windows.Forms.DataGridView();
@@ -46,22 +46,28 @@
             // 
             // startButton
             // 
+            this.startButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.startButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("startButton.BackgroundImage")));
+            this.startButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.startButton.Location = new System.Drawing.Point(480, 263);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(75, 23);
             this.startButton.TabIndex = 0;
             this.startButton.Text = "Start";
-            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.StartButtonClick);
             // 
             // backButton
             // 
+            this.backButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.backButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backButton.BackgroundImage")));
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.backButton.Location = new System.Drawing.Point(12, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
             this.backButton.Text = "<< Back";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // messageGridView
@@ -107,17 +113,21 @@
             // 
             // fullOutputButton
             // 
+            this.fullOutputButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.fullOutputButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fullOutputButton.BackgroundImage")));
+            this.fullOutputButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.fullOutputButton.Location = new System.Drawing.Point(293, 263);
             this.fullOutputButton.Name = "fullOutputButton";
             this.fullOutputButton.Size = new System.Drawing.Size(102, 23);
             this.fullOutputButton.TabIndex = 5;
             this.fullOutputButton.Text = "Show full output";
-            this.fullOutputButton.UseVisualStyleBackColor = true;
+            this.fullOutputButton.UseVisualStyleBackColor = false;
             this.fullOutputButton.Visible = false;
             this.fullOutputButton.Click += new System.EventHandler(this.FullOutputButtonClick);
             // 
             // helpButton
             // 
+            this.helpButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.helpButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.helpButton.FlatAppearance.BorderSize = 0;
             this.helpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -134,12 +144,15 @@
             // 
             // mailButton
             // 
+            this.mailButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.mailButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mailButton.BackgroundImage")));
+            this.mailButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mailButton.Location = new System.Drawing.Point(160, 263);
             this.mailButton.Name = "mailButton";
             this.mailButton.Size = new System.Drawing.Size(127, 23);
             this.mailButton.TabIndex = 21;
             this.mailButton.Text = "Send Report to Support";
-            this.mailButton.UseVisualStyleBackColor = true;
+            this.mailButton.UseVisualStyleBackColor = false;
             this.mailButton.Visible = false;
             this.mailButton.Click += new System.EventHandler(this.MailButtonClick);
             // 
@@ -158,6 +171,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.inProgressPictureBox);
             this.Controls.Add(this.mailButton);

@@ -40,6 +40,7 @@
             this.regionComboBox = new System.Windows.Forms.ComboBox();
             this.regionLabel = new System.Windows.Forms.Label();
             this.pageAdvanced = new System.Windows.Forms.TabPage();
+            this.placeholderForAdvanced = new System.Windows.Forms.Panel();
             this.compressionUpDown = new System.Windows.Forms.NumericUpDown();
             this.ehCompressionLabel = new System.Windows.Forms.Label();
             this.azureCreateNewCertificateButton = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
-            this.placeholderForAdvanced = new System.Windows.Forms.Panel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabPanel.SuspendLayout();
             this.pageBasic.SuspendLayout();
@@ -76,12 +76,15 @@
             // 
             // backButton
             // 
+            this.backButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.backButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backButton.BackgroundImage")));
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.backButton.Location = new System.Drawing.Point(13, 263);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 0;
             this.backButton.Text = "<< Back";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // tabPanel
@@ -173,13 +176,21 @@
             this.regionLabel.TabIndex = 2;
             this.regionLabel.Text = "Region Label:";
             this.regionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            this.regionLabel.Click += new System.EventHandler(this.regionLabel_Click);
+            // 
+            // pageAdvanced
+            // 
+            this.pageAdvanced.Controls.Add(this.placeholderForAdvanced);
+            this.pageAdvanced.Location = new System.Drawing.Point(4, 22);
+            this.pageAdvanced.Name = "pageAdvanced";
+            this.pageAdvanced.Padding = new System.Windows.Forms.Padding(3);
+            this.pageAdvanced.Size = new System.Drawing.Size(534, 216);
+            this.pageAdvanced.TabIndex = 1;
+            this.pageAdvanced.Text = "Advanced";
+            this.pageAdvanced.UseVisualStyleBackColor = true;
+            // 
             // placeholderForAdvanced
-            //
-            this.placeholderForAdvanced.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.placeholderForAdvanced.Location = new System.Drawing.Point(0, 0);
-            this.placeholderForAdvanced.Name = "placeholderForAdvanced";
-            this.placeholderForAdvanced.Size = new System.Drawing.Size(534, 216);
+            // 
             this.placeholderForAdvanced.Controls.Add(this.compressionUpDown);
             this.placeholderForAdvanced.Controls.Add(this.ehCompressionLabel);
             this.placeholderForAdvanced.Controls.Add(this.azureCreateNewCertificateButton);
@@ -201,17 +212,11 @@
             this.placeholderForAdvanced.Controls.Add(this.groupComboBox);
             this.placeholderForAdvanced.Controls.Add(this.serverTypeComboBox);
             this.placeholderForAdvanced.Controls.Add(this.drivesDataGridView);
-            // 
-            // pageAdvanced
-            // 
-            this.pageAdvanced.Controls.Add(this.placeholderForAdvanced);
-            this.pageAdvanced.Location = new System.Drawing.Point(4, 22);
-            this.pageAdvanced.Name = "pageAdvanced";
-            this.pageAdvanced.Padding = new System.Windows.Forms.Padding(3);
-            this.pageAdvanced.Size = new System.Drawing.Size(534, 216);
-            this.pageAdvanced.TabIndex = 1;
-            this.pageAdvanced.Text = "Advanced";
-            this.pageAdvanced.UseVisualStyleBackColor = true;
+            this.placeholderForAdvanced.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.placeholderForAdvanced.Location = new System.Drawing.Point(3, 3);
+            this.placeholderForAdvanced.Name = "placeholderForAdvanced";
+            this.placeholderForAdvanced.Size = new System.Drawing.Size(528, 210);
+            this.placeholderForAdvanced.TabIndex = 0;
             // 
             // compressionUpDown
             // 
@@ -471,7 +476,7 @@
             this.drivesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.drivesDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.drivesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.drivesDataGridView.Location = new System.Drawing.Point(3, 109);
+            this.drivesDataGridView.Location = new System.Drawing.Point(0, 106);
             this.drivesDataGridView.MultiSelect = false;
             this.drivesDataGridView.Name = "drivesDataGridView";
             this.drivesDataGridView.RowHeadersVisible = false;
@@ -482,12 +487,15 @@
             // 
             // nextButton
             // 
+            this.nextButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nextButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nextButton.BackgroundImage")));
+            this.nextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.nextButton.Location = new System.Drawing.Point(476, 263);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 10;
             this.nextButton.Text = "Next >>";
-            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.UseVisualStyleBackColor = false;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
             // helpButton
@@ -508,12 +516,15 @@
             // 
             // testButton
             // 
+            this.testButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.testButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testButton.BackgroundImage")));
+            this.testButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.testButton.Location = new System.Drawing.Point(359, 263);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(95, 23);
             this.testButton.TabIndex = 12;
             this.testButton.Text = "Test Connection";
-            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.UseVisualStyleBackColor = false;
             this.testButton.Click += new System.EventHandler(this.TestButtonClick);
             // 
             // toolTip
@@ -527,6 +538,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.testButton);
             this.Controls.Add(this.helpButton);
@@ -546,7 +559,8 @@
             this.pageBasic.ResumeLayout(false);
             this.pageBasic.PerformLayout();
             this.pageAdvanced.ResumeLayout(false);
-            this.pageAdvanced.PerformLayout();
+            this.placeholderForAdvanced.ResumeLayout(false);
+            this.placeholderForAdvanced.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.compressionUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drivesDataGridView)).EndInit();
             this.ResumeLayout(false);

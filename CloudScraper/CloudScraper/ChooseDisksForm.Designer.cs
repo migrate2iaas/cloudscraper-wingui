@@ -42,23 +42,29 @@
             // 
             // nextButton
             // 
+            this.nextButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nextButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nextButton.BackgroundImage")));
+            this.nextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.nextButton.Enabled = false;
             this.nextButton.Location = new System.Drawing.Point(480, 262);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
             this.nextButton.TabIndex = 0;
             this.nextButton.Text = "Next >>";
-            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.UseVisualStyleBackColor = false;
             this.nextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
             // backButton
             // 
+            this.backButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.backButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backButton.BackgroundImage")));
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.backButton.Location = new System.Drawing.Point(386, 262);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 1;
             this.backButton.Text = "<< Back";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.BackButtonClick);
             // 
             // labelTotalSpace
@@ -69,6 +75,7 @@
             this.labelTotalSpace.Size = new System.Drawing.Size(114, 13);
             this.labelTotalSpace.TabIndex = 3;
             this.labelTotalSpace.Text = "Total Space Required:";
+            this.labelTotalSpace.Click += new System.EventHandler(this.labelTotalSpace_Click_1);
             // 
             // totalSpaceLabel
             // 
@@ -120,6 +127,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(567, 298);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.dataGridView);

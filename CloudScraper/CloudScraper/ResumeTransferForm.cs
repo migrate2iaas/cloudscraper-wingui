@@ -238,6 +238,13 @@ namespace CloudScraper
 
         private void ResumeTransferLoad(object sender, EventArgs e)
         {
+            logoPicture.BackColor = Color.Transparent;
+            awsIdLabel.BackColor = Color.Transparent;
+            mainLabel.BackColor = Color.Transparent;
+            resumeUploadCheckBox.BackColor = Color.Transparent;
+            redeployUploadCheckBox.BackColor = Color.Transparent;
+            helpButton.BackColor = Color.Transparent;
+            
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Form load.");
 

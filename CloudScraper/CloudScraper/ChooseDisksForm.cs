@@ -63,6 +63,10 @@ namespace CloudScraper
 
         private void ChooseDisksLoad(object sender, EventArgs e)
         {
+            labelTotalSpace.BackColor = Color.Transparent;
+            totalSpaceLabel.BackColor = Color.Transparent;
+            helpButton.BackColor = Color.Transparent;
+
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Form loaded.");
             
@@ -248,6 +252,16 @@ namespace CloudScraper
             view.Columns["TotalSpace"].DisplayIndex = 3;
             view.Columns["UsedSpace"].DisplayIndex = 4;
             view.Columns["FreeSpace"].DisplayIndex = 5;
+        }
+
+        private void labelTotalSpace_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTotalSpace_Click_1(object sender, EventArgs e)
+        {
+
         }
 
 

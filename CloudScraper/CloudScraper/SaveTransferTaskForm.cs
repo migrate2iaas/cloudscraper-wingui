@@ -200,6 +200,10 @@ namespace CloudScraper
 
         private void SaveTransferTaskLoad(object sender, EventArgs e)
         {
+            mainLabel.BackColor = Color.Transparent;
+            logoPicture.BackColor = Color.Transparent;
+            helpButton.BackColor = Color.Transparent;
+            
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Form loaded.");
             

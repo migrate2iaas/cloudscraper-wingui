@@ -182,5 +182,13 @@ namespace DotNetPerls
             this.buttonRight.Text = rightButton;
             pictureBox1.Image = iconSet;
         }
+
+        private void BetterDialog_Load(object sender, System.EventArgs e)
+        {
+            label1.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
+            tableLayoutPanel1.BackColor = Color.Transparent;
+            tableLayoutPanel2.BackColor = Color.Transparent;
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BetterDialog));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,24 +85,30 @@
             // buttonRight
             // 
             this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRight.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRight.BackgroundImage")));
+            this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonRight.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonRight.Location = new System.Drawing.Point(257, 90);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(75, 23);
             this.buttonRight.TabIndex = 1;
             this.buttonRight.Text = "Right";
-            this.buttonRight.UseVisualStyleBackColor = true;
+            this.buttonRight.UseVisualStyleBackColor = false;
             // 
             // buttonLeft
             // 
             this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLeft.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonLeft.BackgroundImage")));
+            this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonLeft.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonLeft.Location = new System.Drawing.Point(176, 90);
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(75, 23);
             this.buttonLeft.TabIndex = 0;
             this.buttonLeft.Text = "Left";
-            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel2
             // 
@@ -135,6 +142,8 @@
             // 
             this.AcceptButton = this.buttonLeft;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.buttonRight;
             this.ClientSize = new System.Drawing.Size(344, 125);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -151,6 +160,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Special Dialog";
+            this.Load += new System.EventHandler(this.BetterDialog_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

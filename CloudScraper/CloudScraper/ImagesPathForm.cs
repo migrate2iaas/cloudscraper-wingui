@@ -280,6 +280,16 @@ namespace CloudScraper
 
         private void ImagesPathFormLoad(object sender, EventArgs e)
         {
+            logoPicture.BackColor = Color.Transparent;
+            helpButton.BackColor = Color.Transparent;
+            mainLabel.BackColor = Color.Transparent;
+            totalSpaceLabel.BackColor = Color.Transparent;
+            totalSpace.BackColor = Color.Transparent;
+            freeSpaceLabel.BackColor = Color.Transparent;
+            freeSpace.BackColor = Color.Transparent;
+            errorLabel.BackColor = Color.Transparent;
+            errorPicture.BackColor = Color.Transparent;
+
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Form loaded.");
             
@@ -374,6 +384,31 @@ namespace CloudScraper
                 this.errorLabel.Visible = true;
                 this.errorPicture.Visible = true;
             }
+        }
+
+        private void mainLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalSpaceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void errorLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logoPicture_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void errorPicture_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
