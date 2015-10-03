@@ -32,7 +32,7 @@ namespace CloudScraper
             this.helpButton.Image = new Bitmap(Image.FromFile("Icons\\Help.png"), new Size(16, 16));
             this.toolTip.SetToolTip(this.helpButton, Settings.Default.HelpButtonToolTip);
             // Кнопка лицензии
-            this.button1.Image = new Bitmap(Image.FromFile("Icons\\Elastic.ico"), new Size(32, 32));
+            this.AddLicenseButton.Image = new Bitmap(Image.FromFile("Icons\\Elastic.ico"), new Size(32, 32));
             //this.button1.Text = Settings.Default.S1StartNewButtonText;
             //this.toolTip.SetToolTip(this.button1, Settings.Default.S1button1ToolTip);
             //this.LicenseButton.Text = Settings.Default.S1AddLicenseText;
@@ -43,6 +43,18 @@ namespace CloudScraper
         int validityOfLcns = 0;
         private void StartNewButtonClick(object sender, EventArgs e)
         {
+            if (validityOfLcns == 0)
+            {
+                string mesg1 = "License period expired";
+                MessageBox.Show(mesg1);
+            }
+
+            if (validityOfLcns == 2)
+            {
+                string mesg2 = "No license found";
+                MessageBox.Show(mesg2);
+            }
+
             if (logger_.IsDebugEnabled)
                     logger_.Debug("New scenario select.");
 
@@ -145,17 +157,7 @@ namespace CloudScraper
                 validityOfLcns = 2;
             }
 
-            if (validityOfLcns == 0)
-            {
-                string mesg1 = "License period expired";
-                MessageBox.Show(mesg1);
-            }
-
-            if (validityOfLcns == 2)
-            {
-                string mesg2 = "No license found";
-                MessageBox.Show(mesg2);
-            }
+            
             
 
         }
@@ -171,7 +173,7 @@ namespace CloudScraper
         string line;
         string openedFile;
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void AddLicenseButton_Click_1(object sender, EventArgs e)
         {
 
             Stream myStream = null;

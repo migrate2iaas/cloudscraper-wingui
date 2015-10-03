@@ -2527,13 +2527,38 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("No license found")]
         public string mesg2 {
             get {
                 return ((string)(this["mesg2"]));
             }
             set {
                 this["mesg2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Your license is valid until\r\nAre you sure that you would like to overwrite this f" +
+            "ile?\r\n")]
+        public string prom {
+            get {
+                return ((string)(this["prom"]));
+            }
+            set {
+                this["prom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("AddLicenseButton")]
+        public string AddLicenseButton {
+            get {
+                return ((string)(this["AddLicenseButton"]));
+            }
+            set {
+                this["AddLicenseButton"] = value;
             }
         }
     }

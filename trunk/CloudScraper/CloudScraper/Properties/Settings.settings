@@ -684,5 +684,19 @@ Note the certificate should be installed on the machine. Consult manual for more
     <Setting Name="SupportDisclaimer" Type="System.String" Scope="User">
       <Value Profile="(Default)">Thanks for submitting the issue. You'll be contacted by Cloudscraper support in two business days.</Value>
     </Setting>
+    <Setting Name="mesg1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">License period expired</Value>
+    </Setting>
+    <Setting Name="mesg2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No license found</Value>
+    </Setting>
+    <Setting Name="prom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Your license is valid until
+Are you sure that you would like to overwrite this file?
+</Value>
+    </Setting>
+    <Setting Name="AddLicenseButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AddLicenseButton</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

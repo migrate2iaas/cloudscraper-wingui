@@ -143,6 +143,7 @@ namespace CloudScraper
         protected virtual void CloudParametersLoad(object sender, EventArgs e)
         {
             helpButton.BackColor = Color.Transparent;
+            //pageBasic.BackColor = Color.Transparent;
             
             this.StartPosition = FormStartPosition.Manual;
             this.Location = this.chooseCloudForm_.Location;
@@ -251,6 +252,11 @@ namespace CloudScraper
         #endregion Protected methods
 
         private void regionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void keyLabel_Click(object sender, EventArgs e)
         {
 
         }

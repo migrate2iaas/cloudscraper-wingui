@@ -34,7 +34,7 @@
             this.resumeButton = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddLicenseButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -74,21 +74,21 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
+            // AddLicenseButton
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(196, 195);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 54);
-            this.button1.TabIndex = 19;
-            this.button1.Tag = "";
-            this.button1.Text = "Add License";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.AddLicenseButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AddLicenseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddLicenseButton.BackgroundImage")));
+            this.AddLicenseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AddLicenseButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AddLicenseButton.Location = new System.Drawing.Point(196, 195);
+            this.AddLicenseButton.Name = "AddLicenseButton";
+            this.AddLicenseButton.Size = new System.Drawing.Size(160, 54);
+            this.AddLicenseButton.TabIndex = 19;
+            this.AddLicenseButton.Tag = "";
+            this.AddLicenseButton.Text = "Add License";
+            this.AddLicenseButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AddLicenseButton.UseVisualStyleBackColor = false;
+            this.AddLicenseButton.Click += new System.EventHandler(this.AddLicenseButton_Click_1);
             // 
             // helpButton
             // 
@@ -114,7 +114,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(567, 298);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddLicenseButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.resumeButton);
             this.Controls.Add(this.startNewButton);
@@ -135,7 +135,7 @@
         private System.Windows.Forms.Button resumeButton;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddLicenseButton;
         private System.Windows.Forms.Button helpButton;
     }
 }
