@@ -100,6 +100,7 @@
             // 
             // pageBasic
             // 
+            this.pageBasic.BackColor = System.Drawing.Color.White;
             this.pageBasic.Controls.Add(this.keyTextBox);
             this.pageBasic.Controls.Add(this.idTextBox);
             this.pageBasic.Controls.Add(this.keyLabel);
@@ -112,7 +113,6 @@
             this.pageBasic.Size = new System.Drawing.Size(534, 216);
             this.pageBasic.TabIndex = 0;
             this.pageBasic.Text = "Basic";
-            this.pageBasic.UseVisualStyleBackColor = true;
             // 
             // keyTextBox
             // 
@@ -146,6 +146,7 @@
             this.keyLabel.TabIndex = 6;
             this.keyLabel.Text = "Key Label:";
             this.keyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.keyLabel.Click += new System.EventHandler(this.keyLabel_Click);
             // 
             // idLabel
             // 
@@ -191,6 +192,7 @@
             // 
             // placeholderForAdvanced
             // 
+            this.placeholderForAdvanced.BackColor = System.Drawing.Color.White;
             this.placeholderForAdvanced.Controls.Add(this.compressionUpDown);
             this.placeholderForAdvanced.Controls.Add(this.ehCompressionLabel);
             this.placeholderForAdvanced.Controls.Add(this.azureCreateNewCertificateButton);
