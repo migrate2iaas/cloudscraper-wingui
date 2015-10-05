@@ -46,13 +46,13 @@ namespace CloudScraper
             if (validityOfLcns == 0)
             {
                 string mesg1 = "License period expired";
-                MessageBox.Show(mesg1);
+                MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (validityOfLcns == 2)
             {
                 string mesg2 = "No license found";
-                MessageBox.Show(mesg2);
+                MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (logger_.IsDebugEnabled)
@@ -72,18 +72,29 @@ namespace CloudScraper
 
         private void ResumeButtonClick(object sender, EventArgs e)
         {
-            
-                if (logger_.IsDebugEnabled)
-                    logger_.Debug("Resume scenario select.");
+            if (validityOfLcns == 0)
+            {
+                string mesg1 = "License period expired";
+                MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-                this.Hide();
+            if (validityOfLcns == 2)
+            {
+                string mesg2 = "No license found";
+                MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                
+            if (logger_.IsDebugEnabled)
+                logger_.Debug("Resume scenario select.");
 
-                if (this.resumeTransferForm_ == null)
-                {
-                    this.resumeTransferForm_ = new ResumeTransferForm(this);
-                }
+            this.Hide();
 
-                resumeTransferForm_.ShowDialog();
+            if (this.resumeTransferForm_ == null)
+            {
+                this.resumeTransferForm_ = new ResumeTransferForm(this);
+            }
+
+            resumeTransferForm_.ShowDialog();
             
         }
 
