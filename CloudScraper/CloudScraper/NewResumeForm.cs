@@ -39,17 +39,17 @@ namespace CloudScraper
             //this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
-
-        int validityOfLcns = 0;
+        enum state {expired = 0, exist = 1, notFound};
+        state validityOfLcns = 0;
         private void StartNewButtonClick(object sender, EventArgs e)
         {
-            if (validityOfLcns == 0)
+            if ((int)validityOfLcns == 0)
             {
                 string mesg1 = "License period expired";
                 MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (validityOfLcns == 2)
+            if ((int)validityOfLcns == 2)
             {
                 string mesg2 = "No license found";
                 MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -72,13 +72,13 @@ namespace CloudScraper
 
         private void ResumeButtonClick(object sender, EventArgs e)
         {
-            if (validityOfLcns == 0)
+            if ((int)validityOfLcns == 0)
             {
                 string mesg1 = "License period expired";
                 MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (validityOfLcns == 2)
+            if ((int)validityOfLcns == 2)
             {
                 string mesg2 = "No license found";
                 MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -145,18 +145,18 @@ namespace CloudScraper
                 {
                     if (Convert.ToInt32(MyDateTime.Year) > Convert.ToInt32(DayNow.Year))
                     {
-                        validityOfLcns = 1;
+                        validityOfLcns = (state)1;
                     }
 
                     if (Convert.ToInt32(MyDateTime.Month) - Convert.ToInt32(DayNow.Month) >= 0)
                     {
                         if (Convert.ToInt32(MyDateTime.Month) > Convert.ToInt32(DayNow.Month))
                         {
-                            validityOfLcns = 1;
+                            validityOfLcns = (state)1;
                         }
                         if (Convert.ToInt32(MyDateTime.Day) - Convert.ToInt32(DayNow.Day) >= 0)
                         {
-                            validityOfLcns = 1;
+                            validityOfLcns = (state)1;
                         }
                     }
                 }
@@ -165,7 +165,7 @@ namespace CloudScraper
             }
             else
             {
-                validityOfLcns = 2;
+                validityOfLcns = (state)2;
             }
 
             
