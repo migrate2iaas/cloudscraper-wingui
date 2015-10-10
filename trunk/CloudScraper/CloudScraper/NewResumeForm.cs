@@ -43,15 +43,15 @@ namespace CloudScraper
         state validityOfLcns = 0;
         private void StartNewButtonClick(object sender, EventArgs e)
         {
-            if ((int)validityOfLcns == 0)
+            if (validityOfLcns == state.expired)
             {
-                string mesg1 = "License period expired";
+                string mesg1 = Settings.Default.mesg1;
                 MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if ((int)validityOfLcns == 2)
+            if (validityOfLcns == state.notFound)
             {
-                string mesg2 = "No license found";
+                string mesg2 = Settings.Default.mesg2;
                 MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -72,15 +72,15 @@ namespace CloudScraper
 
         private void ResumeButtonClick(object sender, EventArgs e)
         {
-            if ((int)validityOfLcns == 0)
+            if (validityOfLcns == state.expired)
             {
-                string mesg1 = "License period expired";
+                string mesg1 = Settings.Default.mesg1;
                 MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if ((int)validityOfLcns == 2)
+            if (validityOfLcns == state.notFound)
             {
-                string mesg2 = "No license found";
+                string mesg2 = Settings.Default.mesg2;
                 MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
                 
@@ -145,18 +145,18 @@ namespace CloudScraper
                 {
                     if (Convert.ToInt32(MyDateTime.Year) > Convert.ToInt32(DayNow.Year))
                     {
-                        validityOfLcns = (state)1;
+                        validityOfLcns = state.exist;
                     }
 
                     if (Convert.ToInt32(MyDateTime.Month) - Convert.ToInt32(DayNow.Month) >= 0)
                     {
                         if (Convert.ToInt32(MyDateTime.Month) > Convert.ToInt32(DayNow.Month))
                         {
-                            validityOfLcns = (state)1;
+                            validityOfLcns = state.exist;
                         }
                         if (Convert.ToInt32(MyDateTime.Day) - Convert.ToInt32(DayNow.Day) >= 0)
                         {
-                            validityOfLcns = (state)1;
+                            validityOfLcns = state.exist;
                         }
                     }
                 }
@@ -165,7 +165,7 @@ namespace CloudScraper
             }
             else
             {
-                validityOfLcns = (state)2;
+                validityOfLcns = state.notFound;
             }
 
             
@@ -241,7 +241,7 @@ namespace CloudScraper
                                 frm.Show();
                                  */
 
-                                string prom = "Your license is valid until " + Data + "\n Are you sure that you would like to overwrite this file?";
+                                string prom = Settings.Default.prom1 + Data + '\n' + Settings.Default.prom2;
                                 string message = prom;
                                 const string caption = "Form Closing";
                                 var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
