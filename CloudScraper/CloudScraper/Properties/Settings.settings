@@ -690,13 +690,14 @@ Note the certificate should be installed on the machine. Consult manual for more
     <Setting Name="mesg2" Type="System.String" Scope="User">
       <Value Profile="(Default)">No license found</Value>
     </Setting>
-    <Setting Name="prom" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Your license is valid until
-Are you sure that you would like to overwrite this file?
-</Value>
+    <Setting Name="prom1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Your license is valid until </Value>
     </Setting>
     <Setting Name="AddLicenseButton" Type="System.String" Scope="User">
       <Value Profile="(Default)">AddLicenseButton</Value>
+    </Setting>
+    <Setting Name="prom2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Are you sure that you would like to overwrite this file?</Value>
     </Setting>
   </Settings>
 </SettingsFile>

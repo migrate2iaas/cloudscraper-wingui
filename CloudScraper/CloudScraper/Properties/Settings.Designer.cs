@@ -2539,14 +2539,13 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Your license is valid until\r\nAre you sure that you would like to overwrite this f" +
-            "ile?\r\n")]
-        public string prom {
+        [global::System.Configuration.DefaultSettingValueAttribute("Your license is valid until ")]
+        public string prom1 {
             get {
-                return ((string)(this["prom"]));
+                return ((string)(this["prom1"]));
             }
             set {
-                this["prom"] = value;
+                this["prom1"] = value;
             }
         }
         
@@ -2559,6 +2558,18 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["AddLicenseButton"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Are you sure that you would like to overwrite this file?")]
+        public string prom2 {
+            get {
+                return ((string)(this["prom2"]));
+            }
+            set {
+                this["prom2"] = value;
             }
         }
     }
