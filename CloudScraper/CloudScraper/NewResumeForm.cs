@@ -45,13 +45,13 @@ namespace CloudScraper
         {
             if (validityOfLcns == state.expired)
             {
-                string mesg1 = Settings.Default.mesg1;
+                string mesg1 = Settings.Default.LicenseExpiredMsg;
                 MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (validityOfLcns == state.notFound)
             {
-                string mesg2 = Settings.Default.mesg2;
+                string mesg2 = Settings.Default.LicenseNotFoundMsg;
                 MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -74,13 +74,13 @@ namespace CloudScraper
         {
             if (validityOfLcns == state.expired)
             {
-                string mesg1 = Settings.Default.mesg1;
+                string mesg1 = Settings.Default.LicenseExpiredMsg;
                 MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (validityOfLcns == state.notFound)
             {
-                string mesg2 = Settings.Default.mesg2;
+                string mesg2 = Settings.Default.LicenseNotFoundMsg;
                 MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
                 
@@ -241,7 +241,7 @@ namespace CloudScraper
                                 frm.Show();
                                  */
 
-                                string prom = Settings.Default.prom1 + Data + '\n' + Settings.Default.prom2;
+                                string prom = Settings.Default.LicrnseValid1 + Data + '\n' + Settings.Default.LicrnseValid2;
                                 string message = prom;
                                 const string caption = "Form Closing";
                                 var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
