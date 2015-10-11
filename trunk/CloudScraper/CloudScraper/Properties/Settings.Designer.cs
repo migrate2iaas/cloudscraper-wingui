@@ -2516,36 +2516,36 @@ namespace CloudScraper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("License period expired")]
-        public string mesg1 {
+        public string LicenseExpiredMsg {
             get {
-                return ((string)(this["mesg1"]));
+                return ((string)(this["LicenseExpiredMsg"]));
             }
             set {
-                this["mesg1"] = value;
+                this["LicenseExpiredMsg"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("No license found")]
-        public string mesg2 {
+        public string LicenseNotFoundMsg {
             get {
-                return ((string)(this["mesg2"]));
+                return ((string)(this["LicenseNotFoundMsg"]));
             }
             set {
-                this["mesg2"] = value;
+                this["LicenseNotFoundMsg"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Your license is valid until ")]
-        public string prom1 {
+        public string LicrnseValid1 {
             get {
-                return ((string)(this["prom1"]));
+                return ((string)(this["LicrnseValid1"]));
             }
             set {
-                this["prom1"] = value;
+                this["LicrnseValid1"] = value;
             }
         }
         
@@ -2564,12 +2564,12 @@ namespace CloudScraper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Are you sure that you would like to overwrite this file?")]
-        public string prom2 {
+        public string LicrnseValid2 {
             get {
-                return ((string)(this["prom2"]));
+                return ((string)(this["LicrnseValid2"]));
             }
             set {
-                this["prom2"] = value;
+                this["LicrnseValid2"] = value;
             }
         }
     }
