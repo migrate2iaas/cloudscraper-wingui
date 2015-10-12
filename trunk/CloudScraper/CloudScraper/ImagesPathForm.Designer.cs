@@ -52,9 +52,10 @@
             // totalSpaceLabel
             // 
             this.totalSpaceLabel.AutoSize = true;
+            this.totalSpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalSpaceLabel.Location = new System.Drawing.Point(169, 209);
             this.totalSpaceLabel.Name = "totalSpaceLabel";
-            this.totalSpaceLabel.Size = new System.Drawing.Size(114, 13);
+            this.totalSpaceLabel.Size = new System.Drawing.Size(135, 13);
             this.totalSpaceLabel.TabIndex = 6;
             this.totalSpaceLabel.Text = "Total Space Required:";
             this.totalSpaceLabel.Click += new System.EventHandler(this.totalSpaceLabel_Click);
@@ -109,38 +110,42 @@
             // freeSpaceLabel
             // 
             this.freeSpaceLabel.AutoSize = true;
+            this.freeSpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.freeSpaceLabel.Location = new System.Drawing.Point(169, 233);
             this.freeSpaceLabel.Name = "freeSpaceLabel";
-            this.freeSpaceLabel.Size = new System.Drawing.Size(65, 13);
+            this.freeSpaceLabel.Size = new System.Drawing.Size(76, 13);
             this.freeSpaceLabel.TabIndex = 4;
             this.freeSpaceLabel.Text = "Free Space:";
             // 
             // freeSpace
             // 
             this.freeSpace.AutoSize = true;
-            this.freeSpace.Location = new System.Drawing.Point(231, 233);
+            this.freeSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.freeSpace.Location = new System.Drawing.Point(255, 233);
             this.freeSpace.Name = "freeSpace";
-            this.freeSpace.Size = new System.Drawing.Size(28, 13);
+            this.freeSpace.Size = new System.Drawing.Size(31, 13);
             this.freeSpace.TabIndex = 5;
             this.freeSpace.Text = "0GB";
             // 
             // totalSpace
             // 
             this.totalSpace.AutoSize = true;
-            this.totalSpace.Location = new System.Drawing.Point(280, 209);
+            this.totalSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalSpace.Location = new System.Drawing.Point(303, 209);
             this.totalSpace.Name = "totalSpace";
-            this.totalSpace.Size = new System.Drawing.Size(28, 13);
+            this.totalSpace.Size = new System.Drawing.Size(31, 13);
             this.totalSpace.TabIndex = 7;
             this.totalSpace.Text = "0GB";
             // 
             // mainLabel
             // 
+            this.mainLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainLabel.Location = new System.Drawing.Point(140, 9);
             this.mainLabel.Name = "mainLabel";
             this.mainLabel.Size = new System.Drawing.Size(415, 110);
             this.mainLabel.TabIndex = 8;
             this.mainLabel.Text = "Please choose folder where to store your server disk images:";
-            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mainLabel.Click += new System.EventHandler(this.mainLabel_Click);
             // 
             // helpButton

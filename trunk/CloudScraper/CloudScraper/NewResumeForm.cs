@@ -40,19 +40,19 @@ namespace CloudScraper
         }
 
         enum state {expired = 0, exist = 1, notFound};
-        state validityOfLcns = 0;
+        state validityOfLcns = state.expired;
         private void StartNewButtonClick(object sender, EventArgs e)
         {
             if (validityOfLcns == state.expired)
             {
                 string mesg1 = Settings.Default.LicenseExpiredMsg;
-                MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             if (validityOfLcns == state.notFound)
             {
                 string mesg2 = Settings.Default.LicenseNotFoundMsg;
-                MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             if (logger_.IsDebugEnabled)
@@ -75,13 +75,13 @@ namespace CloudScraper
             if (validityOfLcns == state.expired)
             {
                 string mesg1 = Settings.Default.LicenseExpiredMsg;
-                MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             if (validityOfLcns == state.notFound)
             {
                 string mesg2 = Settings.Default.LicenseNotFoundMsg;
-                MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
                 
             if (logger_.IsDebugEnabled)
