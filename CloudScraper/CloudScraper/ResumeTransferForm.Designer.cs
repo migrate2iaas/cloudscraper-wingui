@@ -62,9 +62,10 @@
             // resumeUploadCheckBox
             // 
             this.resumeUploadCheckBox.AutoSize = true;
+            this.resumeUploadCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resumeUploadCheckBox.Location = new System.Drawing.Point(139, 154);
             this.resumeUploadCheckBox.Name = "resumeUploadCheckBox";
-            this.resumeUploadCheckBox.Size = new System.Drawing.Size(294, 17);
+            this.resumeUploadCheckBox.Size = new System.Drawing.Size(349, 17);
             this.resumeUploadCheckBox.TabIndex = 1;
             this.resumeUploadCheckBox.Text = "Resume Upload (check if your images is already created)";
             this.resumeUploadCheckBox.UseVisualStyleBackColor = true;
@@ -73,9 +74,10 @@
             // redeployUploadCheckBox
             // 
             this.redeployUploadCheckBox.AutoSize = true;
+            this.redeployUploadCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.redeployUploadCheckBox.Location = new System.Drawing.Point(139, 177);
             this.redeployUploadCheckBox.Name = "redeployUploadCheckBox";
-            this.redeployUploadCheckBox.Size = new System.Drawing.Size(413, 17);
+            this.redeployUploadCheckBox.Size = new System.Drawing.Size(491, 17);
             this.redeployUploadCheckBox.TabIndex = 2;
             this.redeployUploadCheckBox.Text = "Redeploy Uploaded Image (creates cloud server from the image already uploaded)";
             this.redeployUploadCheckBox.UseVisualStyleBackColor = true;
@@ -118,12 +120,14 @@
             // 
             // mainLabel
             // 
+            this.mainLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainLabel.Location = new System.Drawing.Point(139, 9);
             this.mainLabel.Name = "mainLabel";
             this.mainLabel.Size = new System.Drawing.Size(420, 88);
             this.mainLabel.TabIndex = 6;
             this.mainLabel.Text = "Load your previously saved transfer task";
-            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mainLabel.Click += new System.EventHandler(this.mainLabel_Click);
             // 
             // helpButton
             // 
@@ -163,7 +167,8 @@
             // 
             // awsIdLabel
             // 
-            this.awsIdLabel.Location = new System.Drawing.Point(139, 198);
+            this.awsIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.awsIdLabel.Location = new System.Drawing.Point(121, 198);
             this.awsIdLabel.Name = "awsIdLabel";
             this.awsIdLabel.Size = new System.Drawing.Size(94, 49);
             this.awsIdLabel.TabIndex = 20;

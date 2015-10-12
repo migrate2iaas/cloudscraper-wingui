@@ -23,6 +23,7 @@ namespace CloudScraper
             this.chooseDiskForm_ = chooseDiskForm;
 
             InitializeComponent();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseCloudForm));
 
             //Initialize basic UI strings from settings file. 
             this.amazonButton.Image = new Bitmap(Image.FromFile("Icons\\Amazon.ico"), new Size(32, 32));
@@ -61,6 +62,11 @@ namespace CloudScraper
 
                 //Make button and place into the Form.
                 Button button = new Button();
+
+                button.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+                button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backButton.BackgroundImage")));
+                button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
                 button.Name = buttonName;
                 button.Size =  new Size(Convert.ToInt32(size.Split(new char[] { ',' }, 2)[0]), 
                     Convert.ToInt32(size.Split(new char[] { ',' }, 2)[1]));

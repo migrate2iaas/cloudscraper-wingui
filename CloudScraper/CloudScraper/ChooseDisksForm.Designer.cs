@@ -70,9 +70,11 @@
             // labelTotalSpace
             // 
             this.labelTotalSpace.AutoSize = true;
+            this.labelTotalSpace.BackColor = System.Drawing.SystemColors.Window;
+            this.labelTotalSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalSpace.Location = new System.Drawing.Point(12, 267);
             this.labelTotalSpace.Name = "labelTotalSpace";
-            this.labelTotalSpace.Size = new System.Drawing.Size(114, 13);
+            this.labelTotalSpace.Size = new System.Drawing.Size(135, 13);
             this.labelTotalSpace.TabIndex = 3;
             this.labelTotalSpace.Text = "Total Space Required:";
             this.labelTotalSpace.Click += new System.EventHandler(this.labelTotalSpace_Click_1);
@@ -80,9 +82,11 @@
             // totalSpaceLabel
             // 
             this.totalSpaceLabel.AutoSize = true;
-            this.totalSpaceLabel.Location = new System.Drawing.Point(121, 267);
+            this.totalSpaceLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.totalSpaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalSpaceLabel.Location = new System.Drawing.Point(153, 267);
             this.totalSpaceLabel.Name = "totalSpaceLabel";
-            this.totalSpaceLabel.Size = new System.Drawing.Size(28, 13);
+            this.totalSpaceLabel.Size = new System.Drawing.Size(31, 13);
             this.totalSpaceLabel.TabIndex = 4;
             this.totalSpaceLabel.Text = "0GB";
             // 

@@ -92,6 +92,7 @@
             this.tabPanel.Controls.Add(this.pageBasic);
             this.tabPanel.Controls.Add(this.pageAdvanced);
             this.tabPanel.Location = new System.Drawing.Point(13, 12);
+            this.tabPanel.Multiline = true;
             this.tabPanel.Name = "tabPanel";
             this.tabPanel.SelectedIndex = 0;
             this.tabPanel.Size = new System.Drawing.Size(542, 242);
@@ -572,7 +573,6 @@
         #endregion
 
         private System.Windows.Forms.Panel placeholderForAdvanced;
-        private System.Windows.Forms.TabControl tabPanel;
         private System.Windows.Forms.TabPage pageBasic;
         protected System.Windows.Forms.TabPage pageAdvanced;
         protected System.Windows.Forms.Label regionLabel;
@@ -607,5 +607,6 @@
         protected System.Windows.Forms.Button azureCreateNewCertificateButton;
         protected System.Windows.Forms.Label ehCompressionLabel;
         protected System.Windows.Forms.NumericUpDown compressionUpDown;
+        private System.Windows.Forms.TabControl tabPanel;
     }
 }
