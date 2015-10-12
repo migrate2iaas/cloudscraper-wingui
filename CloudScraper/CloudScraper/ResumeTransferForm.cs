@@ -28,9 +28,6 @@ namespace CloudScraper
 
         public ResumeTransferForm(NewResumeForm newResumeForm)
         {
-            // set the default font
-            this.Font = (Font)System.ComponentModel.TypeDescriptor.GetConverter(typeof(Font)).ConvertFromInvariantString(Settings.Default.DefaultLabelFont);
-
             this.newResumeForm_ = newResumeForm;
 
             InitializeComponent();
