@@ -354,12 +354,6 @@ Press 'Check Access' button to download security group list.</Value>
     <Setting Name="S5Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Specify Location to Store Images...</Value>
     </Setting>
-    <Setting Name="S5MainLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Please choose folder where to store your disk images.
-
-There should be enough free space to store them.
-You are free to delete them after transfer completes.</Value>
-    </Setting>
     <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">Folder is not empty.
  It's recommended to use empty folders to store images.
@@ -380,12 +374,6 @@ Do you want to rewrite it?</Value>
     </Setting>
     <Setting Name="S6PathIncorrectWarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">File name is not correct</Value>
-    </Setting>
-    <Setting Name="S6MainLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Save your transfer configuration settings. 
-
-These settings could be reused afterwards to resume your upload or deploy several cloud server instances based on the same image.
-	</Value>
     </Setting>
     <Setting Name="S6NextButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Proceed to the next step.</Value>
@@ -565,21 +553,6 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
     <Setting Name="Separator" Type="System.Char" Scope="User">
       <Value Profile="(Default)">|</Value>
     </Setting>
-    <Setting Name="EHRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;lon-m|UK (London, Maidenhead)&lt;/string&gt;
-  &lt;string&gt;lon-p|UK (London, Portsmouth)&lt;/string&gt;
-  &lt;string&gt;ams-e|Netherlands (Amsterdam)&lt;/string&gt;
-  &lt;string&gt;hkg-e|Asia (Hong Kong)&lt;/string&gt;
-  &lt;string&gt;syd-v|Australia (Sydney)&lt;/string&gt;
-  &lt;string&gt;sjc-c|USA (California, San Jose)&lt;/string&gt;
-  &lt;string&gt;lax-p|USA (California, Los Angeles)&lt;/string&gt;
-  &lt;string&gt;sat-p|USA (Texas, San Antonio)&lt;/string&gt;
-  &lt;string&gt;tor-p|Canada (Toronto)&lt;/string&gt;
-  &lt;string&gt;https://api-east1.openhosting.com|OpenHosting (Miami)&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -684,20 +657,63 @@ Note the certificate should be installed on the machine. Consult manual for more
     <Setting Name="SupportDisclaimer" Type="System.String" Scope="User">
       <Value Profile="(Default)">Thanks for submitting the issue. You'll be contacted by Cloudscraper support in two business days.</Value>
     </Setting>
-    <Setting Name="LicenseExpiredMsg" Type="System.String" Scope="User">
-      <Value Profile="(Default)">License period expired</Value>
-    </Setting>
-    <Setting Name="LicenseNotFoundMsg" Type="System.String" Scope="User">
-      <Value Profile="(Default)">No license found</Value>
-    </Setting>
-    <Setting Name="LicrnseValid1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Your license is valid until </Value>
-    </Setting>
     <Setting Name="AddLicenseButton" Type="System.String" Scope="User">
       <Value Profile="(Default)">AddLicenseButton</Value>
     </Setting>
+    <Setting Name="EHRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;lon-m|UK (London, Maidenhead)&lt;/string&gt;
+  &lt;string&gt;lon-p|UK (London, Portsmouth)&lt;/string&gt;
+  &lt;string&gt;ams-e|Netherlands (Amsterdam)&lt;/string&gt;
+  &lt;string&gt;hkg-e|Asia (Hong Kong)&lt;/string&gt;
+  &lt;string&gt;syd-v|Australia (Sydney)&lt;/string&gt;
+  &lt;string&gt;sjc-c|USA (California, San Jose)&lt;/string&gt;
+  &lt;string&gt;lax-p|USA (California, Los Angeles)&lt;/string&gt;
+  &lt;string&gt;dal-a|USA (Texas, Dallas)&lt;/string&gt;
+  &lt;string&gt;mmi-a|USA (Miami)&lt;/string&gt;
+  &lt;string&gt;tor-p|Canada (Toronto)&lt;/string&gt;
+  &lt;string&gt;https://api-east1.openhosting.com|OpenHosting (Miami)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="DefaultLabelFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="S5MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Your data will be saved into intermediate disk image files.
+
+Please choose folder where to store your disk images.
+
+There should be enough free space to store them.
+
+You are free to delete them when transfer completes.</Value>
+    </Setting>
+    <Setting Name="S6MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Save your configuration settings into a file. 
+
+Use the file to resume your upload or deploy several cloud server instances based on the same uploaded image.
+	</Value>
+    </Setting>
+    <Setting Name="LicenseExpiredMsg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">License key period expired. Please contact sales@migrate2iaas.com to renew the license key.</Value>
+    </Setting>
+    <Setting Name="LicrnseValid1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Your license file is valid until </Value>
+    </Setting>
     <Setting Name="LicrnseValid2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Are you sure that you would like to overwrite this file?</Value>
+      <Value Profile="(Default)">Are you sure you want to overwrite the license file?</Value>
+    </Setting>
+    <Setting Name="LicenseNotFoundMsg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No license key file found.
+
+The software will work in demo mode. 
+
+Maximum data to be uploaded is limited to 30 GB.
+
+Please browse to www.migrate2iaas.com to obtain a license.</Value>
+    </Setting>
+    <Setting Name="LicenseInstalledMsg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">License has been installed. Please restart the application.</Value>
     </Setting>
   </Settings>
 </SettingsFile>
