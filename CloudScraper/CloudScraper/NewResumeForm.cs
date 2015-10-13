@@ -197,7 +197,7 @@ namespace CloudScraper
             
             string licenseFile = Directory.GetCurrentDirectory() + "\\lcns.msg";
             //MessageBox.Show(licenseFile);
-            bool resultOfAsk = false;
+            bool copyApproved = false;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -250,15 +250,13 @@ namespace CloudScraper
                                 if (result == DialogResult.Yes)
                                 {
                                     //System.IO.File.Copy(openedFile, licenseFile, true);
-                                    resultOfAsk = true;
+                                    copyApproved = true;
                                 }
                                 file1.Close();
                             }
                             else
                             {
-                                // просто копирование файла в новую папку
-                                //MessageBox.Show("Файла лицензии нет");
-                                System.IO.File.Copy(openedFile, licenseFile, true);
+                                copyApproved = true;
                             }
                             
                         }
@@ -271,10 +269,11 @@ namespace CloudScraper
 
 
             }
-            
-            if (resultOfAsk)
+
+            if (copyApproved)
             {
                 System.IO.File.Copy(openedFile, licenseFile, true);
+                MessageBox.Show(Settings.Default.LicenseInstalledMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
            
