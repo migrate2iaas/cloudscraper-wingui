@@ -715,5 +715,8 @@ Please browse to www.migrate2iaas.com to obtain a license.</Value>
     <Setting Name="LicenseInstalledMsg" Type="System.String" Scope="User">
       <Value Profile="(Default)">License has been installed. Please restart the application.</Value>
     </Setting>
+    <Setting Name="LicenseWrongFormatMsg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Wrong or outdated license format</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
