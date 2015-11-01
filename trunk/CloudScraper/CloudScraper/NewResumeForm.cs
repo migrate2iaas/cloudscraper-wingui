@@ -39,9 +39,64 @@ namespace CloudScraper
             //this.logoPicture.Image = new Bitmap(Image.FromFile("Icons\\logo4a.png"));
         }
 
-        enum state {expired = 0, exist = 1, notFound};
-        state validityOfLcns = state.expired;
-        private void StartNewButtonClick(object sender, EventArgs e)
+        public enum state { expired = 0, exist = 1, notFound, wrongFormat };
+        public state validityOfLcns = state.expired;
+
+        private state CheckLcns()
+        {
+            string path1 = Environment.CurrentDirectory + "/lcns.msg";
+            DateTime DayNow = DateTime.Now;
+            //MessageBox.Show("Today is "+ DayNow.Date);
+            if (File.Exists(path1))
+            {
+                int counter = 0;
+                System.IO.StreamReader file = new System.IO.StreamReader(path1);
+                while ((line = file.ReadLine()) != null)
+                {
+                    counter++;
+                    if (counter == 2)
+                        break;
+                }
+                DateTime MyDateTime;
+                if (DateTime.TryParse(line, out MyDateTime))
+                {
+                    MyDateTime = DateTime.Parse(line);
+                    //MessageBox.Show("Today is " + DayNow.Date + "  License File " + Convert.ToString(MyDateTime.Date));
+                    if (Convert.ToInt32(MyDateTime.Year) - Convert.ToInt32(DayNow.Year) >= 0)
+                    {
+                        if (Convert.ToInt32(MyDateTime.Year) > Convert.ToInt32(DayNow.Year))
+                        {
+                            validityOfLcns = state.exist;
+                        }
+
+                        if (Convert.ToInt32(MyDateTime.Month) - Convert.ToInt32(DayNow.Month) >= 0)
+                        {
+                            if (Convert.ToInt32(MyDateTime.Month) > Convert.ToInt32(DayNow.Month))
+                            {
+                                validityOfLcns = state.exist;
+                            }
+                            if (Convert.ToInt32(MyDateTime.Day) - Convert.ToInt32(DayNow.Day) >= 0)
+                            {
+                                validityOfLcns = state.exist;
+                            }
+                        }
+                    }
+                    file.Close();
+                } else {
+                    validityOfLcns = state.wrongFormat;
+                }
+
+                // Проверка действительности лицензии работает верно
+            }
+            else
+            {
+                validityOfLcns = state.notFound;
+            }
+
+            return validityOfLcns;
+        }
+
+        private void ShowLcnsMsg()
         {
             if (validityOfLcns == state.expired)
             {
@@ -54,6 +109,15 @@ namespace CloudScraper
                 string mesg2 = Settings.Default.LicenseNotFoundMsg;
                 MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            if (validityOfLcns == state.wrongFormat)
+            {
+                string mesg3 = Settings.Default.LicenseWrongFormatMsg;
+            }
+        }
+
+        private void StartNewButtonClick(object sender, EventArgs e)
+        {
+            ShowLcnsMsg();
 
             if (logger_.IsDebugEnabled)
                     logger_.Debug("New scenario select.");
@@ -72,17 +136,7 @@ namespace CloudScraper
 
         private void ResumeButtonClick(object sender, EventArgs e)
         {
-            if (validityOfLcns == state.expired)
-            {
-                string mesg1 = Settings.Default.LicenseExpiredMsg;
-                MessageBox.Show(mesg1, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            if (validityOfLcns == state.notFound)
-            {
-                string mesg2 = Settings.Default.LicenseNotFoundMsg;
-                MessageBox.Show(mesg2, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            ShowLcnsMsg();
                 
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Resume scenario select.");
@@ -124,53 +178,10 @@ namespace CloudScraper
 
             helpButton.BackColor = Color.Transparent;
 
-            string path1 = Environment.CurrentDirectory + "/lcns.msg";
             if (logger_.IsDebugEnabled)
                 logger_.Debug("Form load.");
-            DateTime DayNow = DateTime.Now;
-            //MessageBox.Show("Today is "+ DayNow.Date);
-            if (File.Exists(path1))
-            {
-                int counter = 0;
-                System.IO.StreamReader file = new System.IO.StreamReader(path1);
-                while ((line = file.ReadLine()) != null)
-                {
-                    counter++;
-                    if (counter == 2)
-                        break;
-                }
-                DateTime MyDateTime = DateTime.Parse(line);
-                //MessageBox.Show("Today is " + DayNow.Date + "  License File " + Convert.ToString(MyDateTime.Date));
-                if (Convert.ToInt32(MyDateTime.Year) - Convert.ToInt32(DayNow.Year) >= 0)
-                {
-                    if (Convert.ToInt32(MyDateTime.Year) > Convert.ToInt32(DayNow.Year))
-                    {
-                        validityOfLcns = state.exist;
-                    }
 
-                    if (Convert.ToInt32(MyDateTime.Month) - Convert.ToInt32(DayNow.Month) >= 0)
-                    {
-                        if (Convert.ToInt32(MyDateTime.Month) > Convert.ToInt32(DayNow.Month))
-                        {
-                            validityOfLcns = state.exist;
-                        }
-                        if (Convert.ToInt32(MyDateTime.Day) - Convert.ToInt32(DayNow.Day) >= 0)
-                        {
-                            validityOfLcns = state.exist;
-                        }
-                    }
-                }
-                file.Close();
-                // Проверка действительности лицензии работает верно
-            }
-            else
-            {
-                validityOfLcns = state.notFound;
-            }
-
-            
-            
-
+            validityOfLcns = CheckLcns();
         }
 
 
@@ -183,6 +194,7 @@ namespace CloudScraper
         public static bool agree = false;
         string line;
         string openedFile;
+        string justName;
 
         private void AddLicenseButton_Click_1(object sender, EventArgs e)
         {
@@ -209,12 +221,11 @@ namespace CloudScraper
                         {
                             // Insert code to read the stream here.
                             openedFile = openFileDialog1.FileName;
+                            justName = openFileDialog1.SafeFileName;
                             //MessageBox.Show(openedFile);
-
                             //Получили имя файла, пишем условия копирования
                             // Запомним  копирование System.IO.File.Copy(openedFile, licenseFile, true);
 
-                             
                             // проверка даты и времени
                             if (File.Exists(licenseFile))
                             {
@@ -258,13 +269,18 @@ namespace CloudScraper
                             {
                                 copyApproved = true;
                             }
+                            if (justName != "lcns.msg")
+                            {
+                                validityOfLcns = state.wrongFormat;
+
+                            }
                             
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                    MessageBox.Show(Settings.Default.LicenseWrongFormatMsg);
                 }
 
 
@@ -275,8 +291,9 @@ namespace CloudScraper
                 System.IO.File.Copy(openedFile, licenseFile, true);
                 MessageBox.Show(Settings.Default.LicenseInstalledMsg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
-           
+
+            validityOfLcns = CheckLcns();
+            ShowLcnsMsg();
         }
 
         private void logoPicture_Click(object sender, EventArgs e)
