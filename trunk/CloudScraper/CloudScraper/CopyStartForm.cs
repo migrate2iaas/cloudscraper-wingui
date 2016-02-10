@@ -329,7 +329,7 @@ namespace CloudScraper
                 + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.3.1\\App");
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Migrate\\Migrate");
 
-            if (!File.Exists("..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe") ||
+            if (!File.Exists("..\\..\\3rdparty\\Python_2.7.10\\python.exe") ||
                 (!File.Exists("migrate.py") && !File.Exists("migrate.pyc")))
             {
                 //There are no python.exe
@@ -340,7 +340,7 @@ namespace CloudScraper
                 return;
             }
 
-            info.FileName = "..\\..\\3rdparty\\Portable_Python_2.7.3.1\\App\\python.exe";
+            info.FileName = "..\\..\\3rdparty\\Python_2.7.10\\python.exe";
 
             if (File.Exists("migrate.py"))
             {
