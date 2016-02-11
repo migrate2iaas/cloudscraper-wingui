@@ -244,6 +244,10 @@ namespace CloudScraper
                     stream.WriteLine("image-chunck = 4194304");
                     stream.WriteLine("image-placement = local");
                 }
+                // include DR to perform resume uploads by default
+                stream.WriteLine("[DR]");
+                stream.WriteLine("increment_depth = 1");
+                stream.WriteLine("manifest_path = " + Directory.GetCurrentDirectory()+"\\backup-manifest");
 
                 stream.WriteLine("[Volumes]");
                 string letters = null;
