@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using CloudScraper.Properties;
-using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.EC2;

@@ -1,0 +1,818 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AWSSDK.AWSMarketplaceMetering</name>
+    </assembly>
+    <members>
+        <member name="T:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig">
+            <summary>
+            Configuration for accessing Amazon AWSMarketplaceMetering service
+            </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig.RegionEndpointServiceName">
+            <summary>
+            The constant used to lookup in the region hash the endpoint.
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig.ServiceVersion">
+            <summary>
+            Gets the ServiceVersion property.
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig.UserAgent">
+            <summary>
+            Gets the value of UserAgent property.
+            </summary>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringException">
+            <summary>
+             Common exception for the AWSMarketplaceMetering service.
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringException.#ctor(System.String)">
+            <summary>
+            Construct instance of AmazonAWSMarketplaceMeteringException
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of AmazonAWSMarketplaceMeteringException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of AmazonAWSMarketplaceMeteringException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AmazonAWSMarketplaceMeteringException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AmazonAWSMarketplaceMeteringException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringRequest">
+            <summary>
+            Base class for AWSMarketplaceMetering operation requests.
+            </summary>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.DuplicateRequestException">
+            <summary>
+             AWSMarketplaceMetering exception
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.DuplicateRequestException.#ctor(System.String)">
+            <summary>
+            Constructs a new DuplicateRequestException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.DuplicateRequestException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of DuplicateRequestException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.DuplicateRequestException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of DuplicateRequestException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.DuplicateRequestException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of DuplicateRequestException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.DuplicateRequestException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of DuplicateRequestException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.InternalServiceErrorException">
+            <summary>
+             AWSMarketplaceMetering exception
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InternalServiceErrorException.#ctor(System.String)">
+            <summary>
+            Constructs a new InternalServiceErrorException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InternalServiceErrorException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InternalServiceErrorException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InternalServiceErrorException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InternalServiceErrorException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InternalServiceErrorException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InternalServiceErrorException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InternalServiceErrorException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InternalServiceErrorException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.InvalidEndpointRegionException">
+            <summary>
+             AWSMarketplaceMetering exception
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidEndpointRegionException.#ctor(System.String)">
+            <summary>
+            Constructs a new InvalidEndpointRegionException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidEndpointRegionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InvalidEndpointRegionException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidEndpointRegionException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InvalidEndpointRegionException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidEndpointRegionException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidEndpointRegionException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidEndpointRegionException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidEndpointRegionException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.InvalidProductCodeException">
+            <summary>
+             AWSMarketplaceMetering exception
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidProductCodeException.#ctor(System.String)">
+            <summary>
+            Constructs a new InvalidProductCodeException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidProductCodeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InvalidProductCodeException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidProductCodeException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InvalidProductCodeException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidProductCodeException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidProductCodeException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidProductCodeException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidProductCodeException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.InvalidUsageDimensionException">
+            <summary>
+             AWSMarketplaceMetering exception
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidUsageDimensionException.#ctor(System.String)">
+            <summary>
+            Constructs a new InvalidUsageDimensionException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidUsageDimensionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InvalidUsageDimensionException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidUsageDimensionException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InvalidUsageDimensionException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidUsageDimensionException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidUsageDimensionException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.InvalidUsageDimensionException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidUsageDimensionException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest">
+            <summary>
+            Container for the parameters to the MeterUsage operation.
+            API to emit metering records. For identical requests, the API is idempotent. It simply
+            returns the metering record ID.
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest.DryRun">
+            <summary>
+            Gets and sets the property DryRun. 
+            <para>
+            Checks whether you have the permissions required for the action, but does not make
+            the request. If you have the permissions, the request returns DryRunOperation; otherwise,
+            it returns UnauthorizedException. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest.ProductCode">
+            <summary>
+            Gets and sets the property ProductCode. 
+            <para>
+            Product code is used to uniquely identify a product in AWS Marketplace. The product
+            code should be the same as the one used during the publishing of a new product.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest.Timestamp">
+            <summary>
+            Gets and sets the property Timestamp. 
+            <para>
+            Timestamp of the hour, recorded in UTC. The seconds and milliseconds portions of the
+            timestamp will be ignored. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest.UsageDimension">
+            <summary>
+            Gets and sets the property UsageDimension. 
+            <para>
+            It will be one of the 'fcp dimension name' provided during the publishing of the product.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest.UsageQuantity">
+            <summary>
+            Gets and sets the property UsageQuantity. 
+            <para>
+            Consumption value for the hour.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse">
+            <summary>
+            This is the response object from the MeterUsage operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse.MeteringRecordId">
+            <summary>
+            Gets and sets the property MeteringRecordId.
+            </summary>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.ThrottlingException">
+            <summary>
+             AWSMarketplaceMetering exception
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.ThrottlingException.#ctor(System.String)">
+            <summary>
+            Constructs a new ThrottlingException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.ThrottlingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of ThrottlingException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.ThrottlingException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of ThrottlingException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.ThrottlingException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ThrottlingException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.ThrottlingException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ThrottlingException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.TimestampOutOfBoundsException">
+            <summary>
+             AWSMarketplaceMetering exception
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.TimestampOutOfBoundsException.#ctor(System.String)">
+            <summary>
+            Constructs a new TimestampOutOfBoundsException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.TimestampOutOfBoundsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of TimestampOutOfBoundsException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.TimestampOutOfBoundsException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of TimestampOutOfBoundsException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.TimestampOutOfBoundsException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of TimestampOutOfBoundsException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.TimestampOutOfBoundsException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of TimestampOutOfBoundsException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.Internal.MarshallTransformations.MeterUsageRequestMarshaller">
+            <summary>
+            MeterUsage Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.Internal.MarshallTransformations.MeterUsageRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.Internal.MarshallTransformations.MeterUsageRequestMarshaller.Marshall(Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.Model.Internal.MarshallTransformations.MeterUsageResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for MeterUsage operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.Internal.MarshallTransformations.MeterUsageResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.Model.Internal.MarshallTransformations.MeterUsageResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.AWSMarketplaceMetering.Model.Internal.MarshallTransformations.MeterUsageResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient">
+             <summary>
+             Implementation for accessing AWSMarketplaceMetering
+            
+             AWS Marketplace Metering Service 
+             <para>
+             This reference provides descriptions of the low-level AWS Marketplace Metering Service
+             API. 
+             </para>
+              
+             <para>
+             AWS Marketplace sellers can use this API to submit usage data for custom usage dimensions.
+             </para>
+              
+             <para>
+             <b>Submitting Metering Records</b>
+             </para>
+              <ul> <li> 
+             <para>
+             <i>MeterUsage</i>- Submits the metering record for a Marketplace product.
+             </para>
+              </li> </ul>
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor">
+             <summary>
+             Constructs AmazonAWSMarketplaceMeteringClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(Amazon.RegionEndpoint)">
+             <summary>
+             Constructs AmazonAWSMarketplaceMeteringClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+             <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig)">
+             <summary>
+             Constructs AmazonAWSMarketplaceMeteringClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+             <param name="config">The AmazonAWSMarketplaceMeteringClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(Amazon.Runtime.AWSCredentials)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Credentials
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(Amazon.Runtime.AWSCredentials,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Credentials
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(Amazon.Runtime.AWSCredentials,Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Credentials and an
+            AmazonAWSMarketplaceMeteringClient Configuration object.
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+            <param name="clientConfig">The AmazonAWSMarketplaceMeteringClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(System.String,System.String)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(System.String,System.String,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(System.String,System.String,Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Access Key ID, AWS Secret Key and an
+            AmazonAWSMarketplaceMeteringClient Configuration object. 
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="clientConfig">The AmazonAWSMarketplaceMeteringClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(System.String,System.String,System.String,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.#ctor(System.String,System.String,System.String,Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringConfig)">
+            <summary>
+            Constructs AmazonAWSMarketplaceMeteringClient with AWS Access Key ID, AWS Secret Key and an
+            AmazonAWSMarketplaceMeteringClient Configuration object. 
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+            <param name="clientConfig">The AmazonAWSMarketplaceMeteringClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.CreateSigner">
+            <summary>
+            Creates the signer for the service.
+            </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the service client.
+            </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.MeterUsage(Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest)">
+            <summary>
+            API to emit metering records. For identical requests, the API is idempotent. It simply
+            returns the metering record ID.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the MeterUsage service method.</param>
+            
+            <returns>The response from the MeterUsage service method, as returned by AWSMarketplaceMetering.</returns>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.DuplicateRequestException">
+            A metering record has already been emitted by the same EC2 instance for the given
+            {usageDimension, timestamp} with a different usageQuantity.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.InternalServiceErrorException">
+            An internal error has occurred. Retry your request. If the problem persists, post
+            a message with details on the AWS forums.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.InvalidEndpointRegionException">
+            The endpoint being called is in a region different from your EC2 instance. The region
+            of the Metering service endpoint and the region of the EC2 instance must match.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.InvalidProductCodeException">
+            The product code passed does not match the product code used for publishing the product.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.InvalidUsageDimensionException">
+            The usage dimension does not match one of the UsageDimensions associated with products.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.ThrottlingException">
+            The calls to the MeterUsage API are throttled.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.TimestampOutOfBoundsException">
+            The timestamp value passed in the meterUsage() is out of allowed range.
+            </exception>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.BeginMeterUsage(Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the MeterUsage operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the MeterUsage operation on AmazonAWSMarketplaceMeteringClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndMeterUsage
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.AmazonAWSMarketplaceMeteringClient.EndMeterUsage(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  MeterUsage operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginMeterUsage.</param>
+            
+            <returns>Returns a  MeterUsageResult from AWSMarketplaceMetering.</returns>
+        </member>
+        <member name="T:Amazon.AWSMarketplaceMetering.IAmazonAWSMarketplaceMetering">
+             <summary>
+             Interface for accessing AWSMarketplaceMetering
+            
+             AWS Marketplace Metering Service 
+             <para>
+             This reference provides descriptions of the low-level AWS Marketplace Metering Service
+             API. 
+             </para>
+              
+             <para>
+             AWS Marketplace sellers can use this API to submit usage data for custom usage dimensions.
+             </para>
+              
+             <para>
+             <b>Submitting Metering Records</b>
+             </para>
+              <ul> <li> 
+             <para>
+             <i>MeterUsage</i>- Submits the metering record for a Marketplace product.
+             </para>
+              </li> </ul>
+             </summary>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.IAmazonAWSMarketplaceMetering.MeterUsage(Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest)">
+            <summary>
+            API to emit metering records. For identical requests, the API is idempotent. It simply
+            returns the metering record ID.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the MeterUsage service method.</param>
+            
+            <returns>The response from the MeterUsage service method, as returned by AWSMarketplaceMetering.</returns>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.DuplicateRequestException">
+            A metering record has already been emitted by the same EC2 instance for the given
+            {usageDimension, timestamp} with a different usageQuantity.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.InternalServiceErrorException">
+            An internal error has occurred. Retry your request. If the problem persists, post
+            a message with details on the AWS forums.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.InvalidEndpointRegionException">
+            The endpoint being called is in a region different from your EC2 instance. The region
+            of the Metering service endpoint and the region of the EC2 instance must match.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.InvalidProductCodeException">
+            The product code passed does not match the product code used for publishing the product.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.InvalidUsageDimensionException">
+            The usage dimension does not match one of the UsageDimensions associated with products.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.ThrottlingException">
+            The calls to the MeterUsage API are throttled.
+            </exception>
+            <exception cref="T:Amazon.AWSMarketplaceMetering.Model.TimestampOutOfBoundsException">
+            The timestamp value passed in the meterUsage() is out of allowed range.
+            </exception>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.IAmazonAWSMarketplaceMetering.BeginMeterUsage(Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the MeterUsage operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the MeterUsage operation on AmazonAWSMarketplaceMeteringClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndMeterUsage
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.AWSMarketplaceMetering.IAmazonAWSMarketplaceMetering.EndMeterUsage(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  MeterUsage operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginMeterUsage.</param>
+            
+            <returns>Returns a  MeterUsageResult from AWSMarketplaceMetering.</returns>
+        </member>
+    </members>
+</doc>

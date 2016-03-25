@@ -299,10 +299,6 @@
     <Setting Name="S4NoBucketExists" Type="System.String" Scope="User">
       <Value Profile="(Default)">The bucket name is valid and free to use.</Value>
     </Setting>
-    <Setting Name="S4EnterAWS" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Please, enter your AWS credentials: 
-Access ID and Secret Access Key.</Value>
-    </Setting>
     <Setting Name="S4TestConnectionText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Amazon AWS login succeeded.</Value>
     </Setting>
@@ -312,52 +308,14 @@ Access ID and Secret Access Key.</Value>
     <Setting Name="S4EnterUUID" Type="System.String" Scope="User">
       <Value Profile="(Default)">Please, enter your ElasticHosts API credentials: UUID and API Key.</Value>
     </Setting>
-    <Setting Name="S4ehDirectUploadCheckBoxText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Direct upload. 
-No intermidiate images will be created.</Value>
-    </Setting>
     <Setting Name="S4BackButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Return to the previous window.</Value>
     </Setting>
     <Setting Name="S4NextButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Proceed to the next step.</Value>
     </Setting>
-    <Setting Name="S4AmazonAccessIDToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter your Amazon Access Key ID. 
-It could be found on Security Credentials page of your AWS account.</Value>
-    </Setting>
-    <Setting Name="S4AmazonAccessKeyToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter your Amazon Access Secret Key. 
-It could be found on Security Credentials page of your AWS account.</Value>
-    </Setting>
-    <Setting Name="S4AmazonAvailabilityZoneToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Choose Availability Zone where your cloud server is to run.
-Availiability Zone is subsection of EC2 datacenter. 
-Press 'Check Access' button to download availability zone list.</Value>
-    </Setting>
-    <Setting Name="S4AmazonS3BucketToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Enter S3 bucket name to upload your server image to.
-See manual for more info on S3 buckets.
-Press 'Check Access' button in order to test if bucket is available.
-</Value>
-    </Setting>
-    <Setting Name="S4AmazonFolderToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Provide a folder in your S3 bucket, 
-e.g. upload2013-06-02, to identify your uploaded image.</Value>
-    </Setting>
-    <Setting Name="S4AmazonSecurityGroupToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Security group defines firewall settings for your instance.
-Attention! It couldn't be changed so choose wisely. 
-See manual and AWS documentation for more info on security groups.
-Press 'Check Access' button to download security group list.</Value>
-    </Setting>
     <Setting Name="S5Header" Type="System.String" Scope="User">
       <Value Profile="(Default)">Specify Location to Store Images...</Value>
-    </Setting>
-    <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Folder is not empty.
- It's recommended to use empty folders to store images.
-Do you wish to proceed anyway?</Value>
     </Setting>
     <Setting Name="S5NextButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Proceed to the next step.</Value>
@@ -367,10 +325,6 @@ Do you wish to proceed anyway?</Value>
     </Setting>
     <Setting Name="S5BrowseButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Browse your computer and network shares.</Value>
-    </Setting>
-    <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Transfer configuration file with this name already exists.
-Do you want to rewrite it?</Value>
     </Setting>
     <Setting Name="S6PathIncorrectWarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">File name is not correct</Value>
@@ -451,10 +405,6 @@ Do you want to rewrite it?</Value>
   &lt;string&gt;logs\migrate.log&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Need help? 
-Click here to read manual entry on this step.</Value>
-    </Setting>
     <Setting Name="S5PathNetworkLoginFailure" Type="System.String" Scope="User">
       <Value Profile="(Default)">Failed to connect to network location. Please, specify another one.</Value>
     </Setting>
@@ -503,16 +453,8 @@ Click here to read manual entry on this step.</Value>
     <Setting Name="S4AzureCertificateThumbprintError" Type="System.String" Scope="User">
       <Value Profile="(Default)">Certificate with the same thumprint was no found.</Value>
     </Setting>
-    <Setting Name="S4AzureCertificateCreateSuccess" Type="System.String" Scope="User">
-      <Value Profile="(Default)">You’ll be redirected to Windows Azure certificate management site.
-Login and upload your newly created certificate (.cer) file.</Value>
-    </Setting>
     <Setting Name="S4AzureCertificateCreateError" Type="System.String" Scope="User">
       <Value Profile="(Default)">Error with makecert.exe</Value>
-    </Setting>
-    <Setting Name="S4AzureRegionInvalid" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Storage account you specified belongs to another location. 
-You couldn’t use virtual hard drives from the storage account in region you specified.</Value>
     </Setting>
     <Setting Name="S4AzureCertificateInvalid" Type="System.String" Scope="User">
       <Value Profile="(Default)">Certificate Id error.</Value>
@@ -532,48 +474,8 @@ You couldn’t use virtual hard drives from the storage account in region you sp
     <Setting Name="S4EHCompressionUpDownToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Greater compression level means more compact intermediate image but would require more CPU resources while making the image.</Value>
     </Setting>
-    <Setting Name="S4AzureCertificateUploadWait" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Attention! Proceed only after the certificate is uploaded! 
-
-In newly opened browser window login to Windows Azure, choose Settings. Then choose Management Certificates tab, click upload and select certificate file you created for uploading. </Value>
-    </Setting>
-    <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;us-east-1|US East (Northern Virginia)&lt;/string&gt;
-  &lt;string&gt;us-west-2|US West (Oregon)&lt;/string&gt;
-  &lt;string&gt;us-west-1|US West (Northern California)&lt;/string&gt;
-  &lt;string&gt;eu-west-1|EU (Ireland)&lt;/string&gt;
-  &lt;string&gt;ap-southeast-1|Asia Pacific (Singapore)&lt;/string&gt;
-  &lt;string&gt;ap-southeast-2|Asia Pacific (Sydney)&lt;/string&gt;
-  &lt;string&gt;ap-northeast-1|Asia Pacific (Tokyo)&lt;/string&gt;
-  &lt;string&gt;sa-east-1|South America (Sao Paulo)&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="Separator" Type="System.Char" Scope="User">
       <Value Profile="(Default)">|</Value>
-    </Setting>
-    <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;m1.small|M1 Small&lt;/string&gt;
-  &lt;string&gt;m1.medium|M1 Medium&lt;/string&gt;
-  &lt;string&gt;m1.large|M1 Large&lt;/string&gt;
-  &lt;string&gt;m1.xlarge|M1 Extra Large&lt;/string&gt;
-  &lt;string&gt;m3.2xlarge|M3 Double Extra Large&lt;/string&gt;
-  &lt;string&gt;m3.xlarge|M3 Extra Large&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="AzureRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;West US|West US&lt;/string&gt;
-  &lt;string&gt;East US|East US&lt;/string&gt;
-  &lt;string&gt;East Asia|East Asia&lt;/string&gt;
-  &lt;string&gt;Southeast Asia|Southeast Asia&lt;/string&gt;
-  &lt;string&gt;West Europe|West Europe&lt;/string&gt;
-  &lt;string&gt;North Europe|North Europe&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="S4AmazonVPCLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">VPC subnet:</Value>
@@ -598,10 +500,6 @@ In newly opened browser window login to Windows Azure, choose Settings. Then cho
     </Setting>
     <Setting Name="S4AzureThumbprintIllFormed" Type="System.String" Scope="User">
       <Value Profile="(Default)">Thumbprint sould contain exactly 40 symbols.</Value>
-    </Setting>
-    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)"> Performs test login to the cloud.  
-Queries advanced options.</Value>
     </Setting>
     <Setting Name="S5PathIncorrectWarningMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">Path is incorrect!</Value>
@@ -634,10 +532,6 @@ Queries advanced options.</Value>
     </Setting>
     <Setting Name="S4AzureSubscriptionIdToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">Your Azure subscription ID, navigate to Azure Portal &gt; Settings &gt; Subscriptions to get its id</Value>
-    </Setting>
-    <Setting Name="S4AzureThumbprintToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Your Azure management certificate thumbprint, navigate to Azure Portal &gt; Settings &gt; Management Certificates to get it. 
-Note the certificate should be installed on the machine. Consult manual for more info</Value>
     </Setting>
     <Setting Name="MailSendFailedHeader" Type="System.String" Scope="User">
       <Value Profile="(Default)">Failed to send request</Value>
@@ -679,21 +573,6 @@ Note the certificate should be installed on the machine. Consult manual for more
     <Setting Name="DefaultLabelFont" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="S5MainLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Your data will be saved into intermediate disk image files.
-
-Please choose folder where to store your disk images.
-
-There should be enough free space to store them.
-
-You are free to delete them when transfer completes.</Value>
-    </Setting>
-    <Setting Name="S6MainLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Save your configuration settings into a file. 
-
-Use the file to resume your upload or deploy several cloud server instances based on the same uploaded image.
-	</Value>
-    </Setting>
     <Setting Name="LicenseExpiredMsg" Type="System.String" Scope="User">
       <Value Profile="(Default)">License key period expired. Please contact sales@migrate2iaas.com to renew the license key.</Value>
     </Setting>
@@ -703,20 +582,180 @@ Use the file to resume your upload or deploy several cloud server instances base
     <Setting Name="LicrnseValid2" Type="System.String" Scope="User">
       <Value Profile="(Default)">Are you sure you want to overwrite the license file?</Value>
     </Setting>
-    <Setting Name="LicenseNotFoundMsg" Type="System.String" Scope="User">
-      <Value Profile="(Default)">No license key file found.
-
-The software will work in demo mode. 
-
-Maximum data to be uploaded is limited to 30 GB.
-
-Please browse to www.migrate2iaas.com to obtain a license.</Value>
-    </Setting>
     <Setting Name="LicenseInstalledMsg" Type="System.String" Scope="User">
       <Value Profile="(Default)">License has been installed. Please restart the application.</Value>
     </Setting>
     <Setting Name="LicenseWrongFormatMsg" Type="System.String" Scope="User">
       <Value Profile="(Default)">Wrong or outdated license format</Value>
+    </Setting>
+    <Setting Name="S4EnterAWS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Please, enter your AWS credentials:
+          Access ID and Secret Access Key.
+        </Value>
+    </Setting>
+    <Setting Name="S4ehDirectUploadCheckBoxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Direct upload.
+          No intermidiate images will be created.
+        </Value>
+    </Setting>
+    <Setting Name="S4AmazonAccessIDToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Enter your Amazon Access Key ID.
+          It could be found on Security Credentials page of your AWS account.
+        </Value>
+    </Setting>
+    <Setting Name="S4AmazonAccessKeyToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Enter your Amazon Access Secret Key.
+          It could be found on Security Credentials page of your AWS account.
+        </Value>
+    </Setting>
+    <Setting Name="S4AmazonAvailabilityZoneToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Choose Availability Zone where your cloud server is to run.
+          Availiability Zone is subsection of EC2 datacenter.
+          Press 'Check Access' button to download availability zone list.
+        </Value>
+    </Setting>
+    <Setting Name="S4AmazonS3BucketToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Enter S3 bucket name to upload your server image to.
+          See manual for more info on S3 buckets.
+          Press 'Check Access' button in order to test if bucket is available.
+        </Value>
+    </Setting>
+    <Setting Name="S4AmazonFolderToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Provide a folder in your S3 bucket,
+          e.g. upload2013-06-02, to identify your uploaded image.
+        </Value>
+    </Setting>
+    <Setting Name="S4AmazonSecurityGroupToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Security group defines firewall settings for your instance.
+          Attention! It couldn't be changed so choose wisely.
+          See manual and AWS documentation for more info on security groups.
+          Press 'Check Access' button to download security group list.
+        </Value>
+    </Setting>
+    <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Folder is not empty.
+          It's recommended to use empty folders to store images.
+          Do you wish to proceed anyway?
+        </Value>
+    </Setting>
+    <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Transfer configuration file with this name already exists.
+          Do you want to rewrite it?
+        </Value>
+    </Setting>
+    <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Need help?
+          Click here to read manual entry on this step.
+        </Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateCreateSuccess" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          You’ll be redirected to Windows Azure certificate management site.
+          Login and upload your newly created certificate (.cer) file.
+        </Value>
+    </Setting>
+    <Setting Name="S4AzureRegionInvalid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Storage account you specified belongs to another location.
+          You couldn’t use virtual hard drives from the storage account in region you specified.
+        </Value>
+    </Setting>
+    <Setting Name="S4AzureCertificateUploadWait" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Attention! Proceed only after the certificate is uploaded!
+
+          In newly opened browser window login to Windows Azure, choose Settings. Then choose Management Certificates tab, click upload and select certificate file you created for uploading.
+        </Value>
+    </Setting>
+    <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;us-east-1|US East (Northern Virginia)&lt;/string&gt;
+  &lt;string&gt;us-west-2|US West (Oregon)&lt;/string&gt;
+  &lt;string&gt;us-west-1|US West (Northern California)&lt;/string&gt;
+  &lt;string&gt;eu-west-1|EU (Ireland)&lt;/string&gt;
+  &lt;string&gt;eu-central-1|EU (Frankfurt)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-1|Asia Pacific (Singapore)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-2|Asia Pacific (Sydney)&lt;/string&gt;
+  &lt;string&gt;ap-northeast-1|Asia Pacific (Tokyo)&lt;/string&gt;
+  &lt;string&gt;sa-east-1|South America (Sao Paulo)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ServerTypes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+            &lt;string&gt;m1.small|M1 Small&lt;/string&gt;
+            &lt;string&gt;m1.medium|M1 Medium&lt;/string&gt;
+            &lt;string&gt;m1.large|M1 Large&lt;/string&gt;
+            &lt;string&gt;m1.xlarge|M1 Extra Large&lt;/string&gt;
+            &lt;string&gt;m3.2xlarge|M3 Double Extra Large&lt;/string&gt;
+            &lt;string&gt;m3.xlarge|M3 Extra Large&lt;/string&gt;
+          &lt;/ArrayOfString&gt;
+        </Value>
+    </Setting>
+    <Setting Name="AzureRegions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+            &lt;string&gt;West US|West US&lt;/string&gt;
+            &lt;string&gt;East US|East US&lt;/string&gt;
+            &lt;string&gt;East Asia|East Asia&lt;/string&gt;
+            &lt;string&gt;Southeast Asia|Southeast Asia&lt;/string&gt;
+            &lt;string&gt;West Europe|West Europe&lt;/string&gt;
+            &lt;string&gt;North Europe|North Europe&lt;/string&gt;
+          &lt;/ArrayOfString&gt;
+        </Value>
+    </Setting>
+    <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Performs test login to the cloud.
+          Queries advanced options.
+        </Value>
+    </Setting>
+    <Setting Name="S4AzureThumbprintToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Your Azure management certificate thumbprint, navigate to Azure Portal &gt; Settings &gt; Management Certificates to get it.
+          Note the certificate should be installed on the machine. Consult manual for more info
+        </Value>
+    </Setting>
+    <Setting Name="S5MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Your data will be saved into intermediate disk image files.
+
+          Please choose folder where to store your disk images.
+
+          There should be enough free space to store them.
+
+          You are free to delete them when transfer completes.
+        </Value>
+    </Setting>
+    <Setting Name="S6MainLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          Save your configuration settings into a file.
+
+          Use the file to resume your upload or deploy several cloud server instances based on the same uploaded image.
+        </Value>
+    </Setting>
+    <Setting Name="LicenseNotFoundMsg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+          No license key file found.
+
+          The software will work in demo mode.
+
+          Maximum data to be uploaded is limited to 30 GB.
+
+          Please browse to www.migrate2iaas.com to obtain a license.
+        </Value>
     </Setting>
   </Settings>
 </SettingsFile>

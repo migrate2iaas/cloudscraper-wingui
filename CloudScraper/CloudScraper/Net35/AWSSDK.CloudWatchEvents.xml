@@ -1,0 +1,3196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AWSSDK.CloudWatchEvents</name>
+    </assembly>
+    <members>
+        <member name="T:Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig">
+            <summary>
+            Configuration for accessing Amazon CloudWatchEvents service
+            </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig.RegionEndpointServiceName">
+            <summary>
+            The constant used to lookup in the region hash the endpoint.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig.ServiceVersion">
+            <summary>
+            Gets the ServiceVersion property.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig.UserAgent">
+            <summary>
+            Gets the value of UserAgent property.
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.AmazonCloudWatchEventsException">
+            <summary>
+             Common exception for the CloudWatchEvents service.
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsException.#ctor(System.String)">
+            <summary>
+            Construct instance of AmazonCloudWatchEventsException
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of AmazonCloudWatchEventsException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of AmazonCloudWatchEventsException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AmazonCloudWatchEventsException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AmazonCloudWatchEventsException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.RuleState">
+            <summary>
+            Constants used for properties of type RuleState.
+            </summary>
+        </member>
+        <member name="F:Amazon.CloudWatchEvents.RuleState.DISABLED">
+            <summary>
+            Constant DISABLED for RuleState
+            </summary>
+        </member>
+        <member name="F:Amazon.CloudWatchEvents.RuleState.ENABLED">
+            <summary>
+            Constant ENABLED for RuleState
+            </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.RuleState.#ctor(System.String)">
+            <summary>
+            This constant constructor does not need to be called if the constant
+            you are attempting to use is already defined as a static instance of 
+            this class.
+            This constructor should be used to construct constants that are not
+            defined as statics, for instance if attempting to use a feature that is
+            newer than the current version of the SDK.
+            </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.RuleState.FindValue(System.String)">
+            <summary>
+            Finds the constant for the unique value.
+            </summary>
+            <param name="value">The unique value for the constant</param>
+            <returns>The constant for the unique value</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.RuleState.op_Implicit(System.String)~Amazon.CloudWatchEvents.RuleState">
+            <summary>
+            Utility method to convert strings to the constant class.
+            </summary>
+            <param name="value">The string value to convert to the constant class.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.AmazonCloudWatchEventsRequest">
+            <summary>
+            Base class for CloudWatchEvents operation requests.
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            <summary>
+             CloudWatchEvents exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ConcurrentModificationException.#ctor(System.String)">
+            <summary>
+            Constructs a new ConcurrentModificationException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ConcurrentModificationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of ConcurrentModificationException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ConcurrentModificationException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of ConcurrentModificationException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ConcurrentModificationException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ConcurrentModificationException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ConcurrentModificationException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ConcurrentModificationException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.DeleteRuleRequest">
+            <summary>
+            Container for the parameters to the DeleteRule operation.
+            Deletes a rule. You must remove all targets from a rule using <a>RemoveTargets</a>
+            before you can delete the rule.
+            
+             
+            <para>
+             <b>Note:</b> When you delete a rule, incoming events might still continue to match
+            to the deleted rule. Please allow a short period of time for changes to take effect.
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DeleteRuleRequest.Name">
+            <summary>
+            Gets and sets the property Name. 
+            <para>
+            The name of the rule to be deleted.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.DeleteRuleResponse">
+            <summary>
+            This is the response object from the DeleteRule operation.
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.DescribeRuleRequest">
+            <summary>
+            Container for the parameters to the DescribeRule operation.
+            Describes the details of the specified rule.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DescribeRuleRequest.Name">
+            <summary>
+            Gets and sets the property Name. 
+            <para>
+            The name of the rule you want to describe details for.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.DescribeRuleResponse">
+            <summary>
+            The result of the <a>DescribeRule</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DescribeRuleResponse.Arn">
+            <summary>
+            Gets and sets the property Arn. 
+            <para>
+            The Amazon Resource Name (ARN) associated with the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DescribeRuleResponse.Description">
+            <summary>
+            Gets and sets the property Description. 
+            <para>
+            The rule's description.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DescribeRuleResponse.EventPattern">
+            <summary>
+            Gets and sets the property EventPattern. 
+            <para>
+            The event pattern.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DescribeRuleResponse.Name">
+            <summary>
+            Gets and sets the property Name. 
+            <para>
+            The rule's name.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DescribeRuleResponse.RoleArn">
+            <summary>
+            Gets and sets the property RoleArn. 
+            <para>
+            The Amazon Resource Name (ARN) of the IAM role associated with the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DescribeRuleResponse.ScheduleExpression">
+            <summary>
+            Gets and sets the property ScheduleExpression. 
+            <para>
+            The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DescribeRuleResponse.State">
+            <summary>
+            Gets and sets the property State. 
+            <para>
+            Specifies whether the rule is enabled or disabled.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.DisableRuleRequest">
+            <summary>
+            Container for the parameters to the DisableRule operation.
+            Disables a rule. A disabled rule won't match any events, and won't self-trigger if
+            it has a schedule expression.
+            
+             
+            <para>
+             <b>Note:</b> When you disable a rule, incoming events might still continue to match
+            to the disabled rule. Please allow a short period of time for changes to take effect.
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.DisableRuleRequest.Name">
+            <summary>
+            Gets and sets the property Name. 
+            <para>
+            The name of the rule you want to disable.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.DisableRuleResponse">
+            <summary>
+            This is the response object from the DisableRule operation.
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.EnableRuleRequest">
+            <summary>
+            Container for the parameters to the EnableRule operation.
+            Enables a rule. If the rule does not exist, the operation fails.
+            
+             
+            <para>
+             <b>Note:</b> When you enable a rule, incoming events might not immediately start
+            matching to a newly enabled rule. Please allow a short period of time for changes
+            to take effect. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.EnableRuleRequest.Name">
+            <summary>
+            Gets and sets the property Name. 
+            <para>
+            The name of the rule that you want to enable.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.EnableRuleResponse">
+            <summary>
+            This is the response object from the EnableRule operation.
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.InternalException">
+            <summary>
+             CloudWatchEvents exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InternalException.#ctor(System.String)">
+            <summary>
+            Constructs a new InternalException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InternalException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InternalException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InternalException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InternalException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InternalException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InternalException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InternalException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InternalException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.InvalidEventPatternException">
+            <summary>
+             CloudWatchEvents exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InvalidEventPatternException.#ctor(System.String)">
+            <summary>
+            Constructs a new InvalidEventPatternException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InvalidEventPatternException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InvalidEventPatternException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InvalidEventPatternException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InvalidEventPatternException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InvalidEventPatternException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidEventPatternException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.InvalidEventPatternException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidEventPatternException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.LimitExceededException">
+            <summary>
+             CloudWatchEvents exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.LimitExceededException.#ctor(System.String)">
+            <summary>
+            Constructs a new LimitExceededException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.LimitExceededException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of LimitExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.LimitExceededException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of LimitExceededException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.LimitExceededException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of LimitExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.LimitExceededException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of LimitExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest">
+            <summary>
+            Container for the parameters to the ListRuleNamesByTarget operation.
+            Lists the names of the rules that the given target is put to. You can see which of
+            the rules in Amazon CloudWatch Events can invoke a specific target in your account.
+            If you have more rules in your account than the given limit, the results will be paginated.
+            In that case, use the next token returned in the response and repeat ListRulesByTarget
+            until the NextToken in the response is returned as null.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest.Limit">
+            <summary>
+            Gets and sets the property Limit. 
+            <para>
+            The maximum number of results to return.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest.NextToken">
+            <summary>
+            Gets and sets the property NextToken. 
+            <para>
+            The token returned by a previous call to indicate that there is more data available.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest.TargetArn">
+            <summary>
+            Gets and sets the property TargetArn. 
+            <para>
+            The Amazon Resource Name (ARN) of the target resource that you want to list the rules
+            for.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetResponse">
+            <summary>
+            The result of the <a>ListRuleNamesByTarget</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetResponse.NextToken">
+            <summary>
+            Gets and sets the property NextToken. 
+            <para>
+            Indicates that there are additional results to retrieve.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetResponse.RuleNames">
+            <summary>
+            Gets and sets the property RuleNames. 
+            <para>
+            List of rules names that can invoke the given target.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.ListRulesRequest">
+            <summary>
+            Container for the parameters to the ListRules operation.
+            Lists the Amazon CloudWatch Events rules in your account. You can either list all
+            the rules or you can provide a prefix to match to the rule names. If you have more
+            rules in your account than the given limit, the results will be paginated. In that
+            case, use the next token returned in the response and repeat ListRules until the NextToken
+            in the response is returned as null.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRulesRequest.Limit">
+            <summary>
+            Gets and sets the property Limit. 
+            <para>
+            The maximum number of results to return.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRulesRequest.NamePrefix">
+            <summary>
+            Gets and sets the property NamePrefix. 
+            <para>
+            The prefix matching the rule name.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRulesRequest.NextToken">
+            <summary>
+            Gets and sets the property NextToken. 
+            <para>
+            The token returned by a previous call to indicate that there is more data available.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.ListRulesResponse">
+            <summary>
+            The result of the <a>ListRules</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRulesResponse.NextToken">
+            <summary>
+            Gets and sets the property NextToken. 
+            <para>
+            Indicates that there are additional results to retrieve.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListRulesResponse.Rules">
+            <summary>
+            Gets and sets the property Rules. 
+            <para>
+            List of rules matching the specified criteria.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest">
+            <summary>
+            Container for the parameters to the ListTargetsByRule operation.
+            Lists of targets assigned to the rule.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest.Limit">
+            <summary>
+            Gets and sets the property Limit. 
+            <para>
+            The maximum number of results to return.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest.NextToken">
+            <summary>
+            Gets and sets the property NextToken. 
+            <para>
+            The token returned by a previous call to indicate that there is more data available.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest.Rule">
+            <summary>
+            Gets and sets the property Rule. 
+            <para>
+            The name of the rule whose targets you want to list.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.ListTargetsByRuleResponse">
+            <summary>
+            The result of the <a>ListTargetsByRule</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListTargetsByRuleResponse.NextToken">
+            <summary>
+            Gets and sets the property NextToken. 
+            <para>
+            Indicates that there are additional results to retrieve.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.ListTargetsByRuleResponse.Targets">
+            <summary>
+            Gets and sets the property Targets. 
+            <para>
+            Lists the targets assigned to the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutEventsRequest">
+            <summary>
+            Container for the parameters to the PutEvents operation.
+            Sends custom events to Amazon CloudWatch Events so that they can be matched to rules.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsRequest.Entries">
+            <summary>
+            Gets and sets the property Entries. 
+            <para>
+            The entry that defines an event in your system. You can specify several parameters
+            for the entry such as the source and type of the event, resources associated with
+            the event, and so on.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutEventsRequestEntry">
+            <summary>
+            Contains information about the event to be used in PutEvents.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsRequestEntry.Detail">
+            <summary>
+            Gets and sets the property Detail. 
+            <para>
+            In the JSON sense, an object containing fields, which may also contain nested sub-objects.
+            No constraints are imposed on its contents.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsRequestEntry.DetailType">
+            <summary>
+            Gets and sets the property DetailType. 
+            <para>
+            Free-form string used to decide what fields to expect in the event detail.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsRequestEntry.Resources">
+            <summary>
+            Gets and sets the property Resources. 
+            <para>
+            AWS resources, identified by Amazon Resource Name (ARN), which the event primarily
+            concerns. Any number, including zero, may be present.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsRequestEntry.Source">
+            <summary>
+            Gets and sets the property Source. 
+            <para>
+            The source of the event.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsRequestEntry.Time">
+            <summary>
+            Gets and sets the property Time. 
+            <para>
+            Timestamp of event, per <a href="https://www.rfc-editor.org/rfc/rfc3339.txt">RFC3339</a>.
+            If no timestamp is provided, the timestamp of the <a>PutEvents</a> call will be used.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutEventsResponse">
+            <summary>
+            The result of the <a>PutEvents</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsResponse.Entries">
+            <summary>
+            Gets and sets the property Entries. 
+            <para>
+            A list of successfully and unsuccessfully ingested events results. If the ingestion
+            was successful, the entry will have the event ID in it. If not, then the ErrorCode
+            and ErrorMessage can be used to identify the problem with the entry.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsResponse.FailedEntryCount">
+            <summary>
+            Gets and sets the property FailedEntryCount. 
+            <para>
+            The number of failed entries.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutEventsResultEntry">
+            <summary>
+            A PutEventsResult contains a list of PutEventsResultEntry.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsResultEntry.ErrorCode">
+            <summary>
+            Gets and sets the property ErrorCode. 
+            <para>
+            The error code representing why the event submission failed on this entry.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsResultEntry.ErrorMessage">
+            <summary>
+            Gets and sets the property ErrorMessage. 
+            <para>
+            The error message explaining why the event submission failed on this entry.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutEventsResultEntry.EventId">
+            <summary>
+            Gets and sets the property EventId. 
+            <para>
+            The ID of the event submitted to Amazon CloudWatch Events.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutRuleRequest">
+            <summary>
+            Container for the parameters to the PutRule operation.
+            Creates or updates a rule. Rules are enabled by default, or based on value of the
+            State parameter. You can disable a rule using <a>DisableRule</a>.
+            
+             
+            <para>
+             <b>Note:</b> When you create or update a rule, incoming events might not immediately
+            start matching to new or updated rules. Please allow a short period of time for changes
+            to take effect.
+            </para>
+             
+            <para>
+            A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns
+            are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger
+            based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression,
+            in which case the rule will trigger on matching events as well as on a schedule.
+            </para>
+             
+            <para>
+             <b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
+            Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
+            rules. Be sure to use the correct ARN characters when creating event patterns so that
+            they match the ARN syntax in the event you want to match. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutRuleRequest.Description">
+            <summary>
+            Gets and sets the property Description. 
+            <para>
+            A description of the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutRuleRequest.EventPattern">
+            <summary>
+            Gets and sets the property EventPattern. 
+            <para>
+            The event pattern.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutRuleRequest.Name">
+            <summary>
+            Gets and sets the property Name. 
+            <para>
+            The name of the rule that you are creating or updating.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutRuleRequest.RoleArn">
+            <summary>
+            Gets and sets the property RoleArn. 
+            <para>
+            The Amazon Resource Name (ARN) of the IAM role associated with the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutRuleRequest.ScheduleExpression">
+            <summary>
+            Gets and sets the property ScheduleExpression. 
+            <para>
+            The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutRuleRequest.State">
+            <summary>
+            Gets and sets the property State. 
+            <para>
+            Indicates whether the rule is enabled or disabled.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutRuleResponse">
+            <summary>
+            The result of the <a>PutRule</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutRuleResponse.RuleArn">
+            <summary>
+            Gets and sets the property RuleArn. 
+            <para>
+            The Amazon Resource Name (ARN) that identifies the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutTargetsRequest">
+            <summary>
+            Container for the parameters to the PutTargets operation.
+            Adds target(s) to a rule. Targets are the resources that can be invoked when a rule
+            is triggered. For example, AWS Lambda functions, Amazon Kinesis streams, and built-in
+            targets. Updates the target(s) if they are already associated with the role. In other
+            words, if there is already a target with the given target ID, then the target associated
+            with that ID is updated.
+            
+             
+            <para>
+            In order to be able to make API calls against the resources you own, Amazon CloudWatch
+            Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources,
+            CloudWatch Events relies on resource-based policies. For Amazon Kinesis streams, CloudWatch
+            Events relies on IAM roles. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/EventsTargetPermissions.html">Permissions
+            for Sending Events to Targets</a> in the <b><i>Amazon CloudWatch Developer Guide</i></b>.
+            </para>
+             
+            <para>
+            <b>Input</b> and <b>InputPath</b> are mutually-exclusive and optional parameters of
+            a target. When a rule is triggered due to a matched event, if for a target:
+            </para>
+             <ul> <li>Neither <b>Input</b> nor <b>InputPath</b> is specified, then the entire
+            event is passed to the target in JSON form.</li> <li> <b>InputPath</b> is specified
+            in the form of JSONPath (e.g. <b>$.detail</b>), then only the part of the event specified
+            in the path is passed to the target (e.g. only the detail part of the event is passed).
+            </li> <li> <b>Input</b> is specified in the form of a valid JSON, then the matched
+            event is overridden with this constant.</li> </ul> 
+            <para>
+             <b>Note:</b> When you add targets to a rule, when the associated rule triggers, new
+            or updated targets might not be immediately invoked. Please allow a short period of
+            time for changes to take effect. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutTargetsRequest.Rule">
+            <summary>
+            Gets and sets the property Rule. 
+            <para>
+            The name of the rule you want to add targets to.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutTargetsRequest.Targets">
+            <summary>
+            Gets and sets the property Targets. 
+            <para>
+            List of targets you want to update or add to the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutTargetsResponse">
+            <summary>
+            The result of the <a>PutTargets</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutTargetsResponse.FailedEntries">
+            <summary>
+            Gets and sets the property FailedEntries. 
+            <para>
+            An array of failed target entries.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.PutTargetsResultEntry">
+            <summary>
+            A PutTargetsResult contains a list of PutTargetsResultEntry.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutTargetsResultEntry.ErrorCode">
+            <summary>
+            Gets and sets the property ErrorCode. 
+            <para>
+            The error code representing why the target submission failed on this entry.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutTargetsResultEntry.ErrorMessage">
+            <summary>
+            Gets and sets the property ErrorMessage. 
+            <para>
+            The error message explaining why the target submission failed on this entry.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.PutTargetsResultEntry.TargetId">
+            <summary>
+            Gets and sets the property TargetId. 
+            <para>
+            The ID of the target submitted to Amazon CloudWatch Events.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.RemoveTargetsRequest">
+            <summary>
+            Container for the parameters to the RemoveTargets operation.
+            Removes target(s) from a rule so that when the rule is triggered, those targets will
+            no longer be invoked.
+            
+             
+            <para>
+             <b>Note:</b> When you remove a target, when the associated rule triggers, removed
+            targets might still continue to be invoked. Please allow a short period of time for
+            changes to take effect. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.RemoveTargetsRequest.Ids">
+            <summary>
+            Gets and sets the property Ids. 
+            <para>
+            The list of target IDs to remove from the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.RemoveTargetsRequest.Rule">
+            <summary>
+            Gets and sets the property Rule. 
+            <para>
+            The name of the rule you want to remove targets from.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.RemoveTargetsResponse">
+            <summary>
+            The result of the <a>RemoveTargets</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.RemoveTargetsResponse.FailedEntries">
+            <summary>
+            Gets and sets the property FailedEntries. 
+            <para>
+            An array of failed target entries.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.RemoveTargetsResultEntry">
+            <summary>
+            The ID of the target requested to be removed from the rule by Amazon CloudWatch Events.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.RemoveTargetsResultEntry.ErrorCode">
+            <summary>
+            Gets and sets the property ErrorCode. 
+            <para>
+            The error code representing why the target removal failed on this entry.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.RemoveTargetsResultEntry.ErrorMessage">
+            <summary>
+            Gets and sets the property ErrorMessage. 
+            <para>
+            The error message explaining why the target removal failed on this entry.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.RemoveTargetsResultEntry.TargetId">
+            <summary>
+            Gets and sets the property TargetId. 
+            <para>
+            The ID of the target requested to be removed by Amazon CloudWatch Events.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            <summary>
+             CloudWatchEvents exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ResourceNotFoundException.#ctor(System.String)">
+            <summary>
+            Constructs a new ResourceNotFoundException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ResourceNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of ResourceNotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ResourceNotFoundException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of ResourceNotFoundException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ResourceNotFoundException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ResourceNotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.ResourceNotFoundException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ResourceNotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Rule">
+            <summary>
+            Contains information about a rule in Amazon CloudWatch Events. A ListRulesResult contains
+            a list of Rules.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Rule.Arn">
+            <summary>
+            Gets and sets the property Arn. 
+            <para>
+            The Amazon Resource Name (ARN) of the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Rule.Description">
+            <summary>
+            Gets and sets the property Description. 
+            <para>
+            The description of the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Rule.EventPattern">
+            <summary>
+            Gets and sets the property EventPattern. 
+            <para>
+            The event pattern of the rule.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Rule.Name">
+            <summary>
+            Gets and sets the property Name. 
+            <para>
+            The rule's name.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Rule.RoleArn">
+            <summary>
+            Gets and sets the property RoleArn. 
+            <para>
+            The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Rule.ScheduleExpression">
+            <summary>
+            Gets and sets the property ScheduleExpression. 
+            <para>
+            The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Rule.State">
+            <summary>
+            Gets and sets the property State. 
+            <para>
+            The rule's state.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Target">
+            <summary>
+            Targets are the resources that can be invoked when a rule is triggered. For example,
+            AWS Lambda functions, Amazon Kinesis streams, and built-in targets.
+            
+             
+            <para>
+            <b>Input</b> and <b>InputPath</b> are mutually-exclusive and optional parameters of
+            a target. When a rule is triggered due to a matched event, if for a target:
+            </para>
+             <ul> <li>Neither <b>Input</b> nor <b>InputPath</b> is specified, then the entire
+            event is passed to the target in JSON form.</li> <li> <b>InputPath</b> is specified
+            in the form of JSONPath (e.g. <b>$.detail</b>), then only the part of the event specified
+            in the path is passed to the target (e.g. only the detail part of the event is passed).
+            </li> <li> <b>Input</b> is specified in the form of a valid JSON, then the matched
+            event is overridden with this constant.</li> </ul>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Target.Arn">
+            <summary>
+            Gets and sets the property Arn. 
+            <para>
+            The Amazon Resource Name (ARN) associated of the target.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Target.Id">
+            <summary>
+            Gets and sets the property Id. 
+            <para>
+            The unique target assignment ID.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Target.Input">
+            <summary>
+            Gets and sets the property Input. 
+            <para>
+            Valid JSON text passed to the target. For more information about JSON text, see <a
+            href="http://www.rfc-editor.org/rfc/rfc7159.txt">The JavaScript Object Notation (JSON)
+            Data Interchange Format</a>.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Target.InputPath">
+            <summary>
+            Gets and sets the property InputPath. 
+            <para>
+            The value of the JSONPath that is used for extracting part of the matched event when
+            passing it to the target. For more information about JSON paths, see <a href="http://goessner.net/articles/JsonPath/">JSONPath</a>.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.TestEventPatternRequest">
+            <summary>
+            Container for the parameters to the TestEventPattern operation.
+            Tests whether an event pattern matches the provided event.
+            
+             
+            <para>
+             <b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
+            Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
+            rules. Be sure to use the correct ARN characters when creating event patterns so that
+            they match the ARN syntax in the event you want to match. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.TestEventPatternRequest.Event">
+            <summary>
+            Gets and sets the property Event. 
+            <para>
+            The event in the JSON format to test against the event pattern.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.TestEventPatternRequest.EventPattern">
+            <summary>
+            Gets and sets the property EventPattern. 
+            <para>
+            The event pattern you want to test.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.TestEventPatternResponse">
+            <summary>
+            The result of the <a>TestEventPattern</a> operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.TestEventPatternResponse.Result">
+            <summary>
+            Gets and sets the property Result. 
+            <para>
+            Indicates whether the event matches the event pattern.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DeleteRuleRequestMarshaller">
+            <summary>
+            DeleteRule Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DeleteRuleRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DeleteRuleRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.DeleteRuleRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DeleteRuleResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for DeleteRule operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DeleteRuleResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DeleteRuleResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DeleteRuleResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DescribeRuleRequestMarshaller">
+            <summary>
+            DescribeRule Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DescribeRuleRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DescribeRuleRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.DescribeRuleRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DescribeRuleResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for DescribeRule operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DescribeRuleResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DescribeRuleResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DescribeRuleResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DisableRuleRequestMarshaller">
+            <summary>
+            DisableRule Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DisableRuleRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DisableRuleRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.DisableRuleRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DisableRuleResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for DisableRule operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DisableRuleResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DisableRuleResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.DisableRuleResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.EnableRuleRequestMarshaller">
+            <summary>
+            EnableRule Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.EnableRuleRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.EnableRuleRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.EnableRuleRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.EnableRuleResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for EnableRule operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.EnableRuleResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.EnableRuleResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.EnableRuleResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRuleNamesByTargetRequestMarshaller">
+            <summary>
+            ListRuleNamesByTarget Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRuleNamesByTargetRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRuleNamesByTargetRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRuleNamesByTargetResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for ListRuleNamesByTarget operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRuleNamesByTargetResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRuleNamesByTargetResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRuleNamesByTargetResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRulesRequestMarshaller">
+            <summary>
+            ListRules Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRulesRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRulesRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.ListRulesRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRulesResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for ListRules operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRulesResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRulesResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListRulesResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListTargetsByRuleRequestMarshaller">
+            <summary>
+            ListTargetsByRule Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListTargetsByRuleRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListTargetsByRuleRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListTargetsByRuleResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for ListTargetsByRule operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListTargetsByRuleResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListTargetsByRuleResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.ListTargetsByRuleResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsRequestEntryMarshaller">
+            <summary>
+            PutEventsRequestEntry Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsRequestEntryMarshaller.Marshall(Amazon.CloudWatchEvents.Model.PutEventsRequestEntry,Amazon.Runtime.Internal.Transform.JsonMarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="requestObject"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsRequestEntryMarshaller.Instance">
+            <summary>
+            Singleton Marshaller.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsRequestMarshaller">
+            <summary>
+            PutEvents Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.PutEventsRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for PutEvents operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsResultEntryUnmarshaller">
+            <summary>
+            Response Unmarshaller for PutEventsResultEntry Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsResultEntryUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#CloudWatchEvents#Model#PutEventsResultEntry,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsResultEntryUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutEventsResultEntryUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutRuleRequestMarshaller">
+            <summary>
+            PutRule Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutRuleRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutRuleRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.PutRuleRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutRuleResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for PutRule operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutRuleResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutRuleResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutRuleResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsRequestMarshaller">
+            <summary>
+            PutTargets Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.PutTargetsRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for PutTargets operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsResultEntryUnmarshaller">
+            <summary>
+            Response Unmarshaller for PutTargetsResultEntry Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsResultEntryUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#CloudWatchEvents#Model#PutTargetsResultEntry,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsResultEntryUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.PutTargetsResultEntryUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsRequestMarshaller">
+            <summary>
+            RemoveTargets Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.RemoveTargetsRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for RemoveTargets operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsResultEntryUnmarshaller">
+            <summary>
+            Response Unmarshaller for RemoveTargetsResultEntry Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsResultEntryUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#CloudWatchEvents#Model#RemoveTargetsResultEntry,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsResultEntryUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RemoveTargetsResultEntryUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RuleUnmarshaller">
+            <summary>
+            Response Unmarshaller for Rule Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RuleUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#CloudWatchEvents#Model#Rule,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RuleUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.RuleUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TargetMarshaller">
+            <summary>
+            Target Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TargetMarshaller.Marshall(Amazon.CloudWatchEvents.Model.Target,Amazon.Runtime.Internal.Transform.JsonMarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="requestObject"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TargetMarshaller.Instance">
+            <summary>
+            Singleton Marshaller.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TargetUnmarshaller">
+            <summary>
+            Response Unmarshaller for Target Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TargetUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#CloudWatchEvents#Model#Target,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TargetUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TargetUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TestEventPatternRequestMarshaller">
+            <summary>
+            TestEventPattern Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TestEventPatternRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TestEventPatternRequestMarshaller.Marshall(Amazon.CloudWatchEvents.Model.TestEventPatternRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TestEventPatternResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for TestEventPattern operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TestEventPatternResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TestEventPatternResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations.TestEventPatternResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient">
+             <summary>
+             Implementation for accessing CloudWatchEvents
+            
+             Amazon CloudWatch Events helps you to respond to state changes in your AWS resources.
+             When your resources change state they automatically send events into an event stream.
+             You can create rules that match selected events in the stream and route them to targets
+             to take action. You can also use rules to take action on a pre-determined schedule.
+             For example, you can configure rules to: 
+             
+              <ul> <li>Automatically invoke an AWS Lambda function to update DNS entries when an
+             event notifies you that Amazon EC2 instance enters the running state.</li> <li>Direct
+             specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis
+             of potential security or availability risks.</li> <li>Periodically invoke a built-in
+             target to create a snapshot of an Amazon EBS volume.</li> </ul> 
+             <para>
+              For more information about Amazon CloudWatch Events features, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide">Amazon
+             CloudWatch Developer Guide</a>. 
+             </para>
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor">
+             <summary>
+             Constructs AmazonCloudWatchEventsClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(Amazon.RegionEndpoint)">
+             <summary>
+             Constructs AmazonCloudWatchEventsClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+             <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig)">
+             <summary>
+             Constructs AmazonCloudWatchEventsClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+             <param name="config">The AmazonCloudWatchEventsClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(Amazon.Runtime.AWSCredentials)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Credentials
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(Amazon.Runtime.AWSCredentials,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Credentials
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(Amazon.Runtime.AWSCredentials,Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Credentials and an
+            AmazonCloudWatchEventsClient Configuration object.
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+            <param name="clientConfig">The AmazonCloudWatchEventsClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(System.String,System.String)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(System.String,System.String,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(System.String,System.String,Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Access Key ID, AWS Secret Key and an
+            AmazonCloudWatchEventsClient Configuration object. 
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="clientConfig">The AmazonCloudWatchEventsClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(System.String,System.String,System.String,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.#ctor(System.String,System.String,System.String,Amazon.CloudWatchEvents.AmazonCloudWatchEventsConfig)">
+            <summary>
+            Constructs AmazonCloudWatchEventsClient with AWS Access Key ID, AWS Secret Key and an
+            AmazonCloudWatchEventsClient Configuration object. 
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+            <param name="clientConfig">The AmazonCloudWatchEventsClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.CreateSigner">
+            <summary>
+            Creates the signer for the service.
+            </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the service client.
+            </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.DeleteRule(Amazon.CloudWatchEvents.Model.DeleteRuleRequest)">
+            <summary>
+            Deletes a rule. You must remove all targets from a rule using <a>RemoveTargets</a>
+            before you can delete the rule.
+            
+             
+            <para>
+             <b>Note:</b> When you delete a rule, incoming events might still continue to match
+            to the deleted rule. Please allow a short period of time for changes to take effect.
+            
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DeleteRule service method.</param>
+            
+            <returns>The response from the DeleteRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginDeleteRule(Amazon.CloudWatchEvents.Model.DeleteRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DeleteRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DeleteRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndDeleteRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DeleteRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteRule.</param>
+            
+            <returns>Returns a  DeleteRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.DescribeRule(Amazon.CloudWatchEvents.Model.DescribeRuleRequest)">
+            <summary>
+            Describes the details of the specified rule.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DescribeRule service method.</param>
+            
+            <returns>The response from the DescribeRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginDescribeRule(Amazon.CloudWatchEvents.Model.DescribeRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DescribeRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DescribeRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndDescribeRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DescribeRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeRule.</param>
+            
+            <returns>Returns a  DescribeRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.DisableRule(Amazon.CloudWatchEvents.Model.DisableRuleRequest)">
+            <summary>
+            Disables a rule. A disabled rule won't match any events, and won't self-trigger if
+            it has a schedule expression.
+            
+             
+            <para>
+             <b>Note:</b> When you disable a rule, incoming events might still continue to match
+            to the disabled rule. Please allow a short period of time for changes to take effect.
+            
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DisableRule service method.</param>
+            
+            <returns>The response from the DisableRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginDisableRule(Amazon.CloudWatchEvents.Model.DisableRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DisableRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DisableRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisableRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndDisableRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DisableRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDisableRule.</param>
+            
+            <returns>Returns a  DisableRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EnableRule(Amazon.CloudWatchEvents.Model.EnableRuleRequest)">
+            <summary>
+            Enables a rule. If the rule does not exist, the operation fails.
+            
+             
+            <para>
+             <b>Note:</b> When you enable a rule, incoming events might not immediately start
+            matching to a newly enabled rule. Please allow a short period of time for changes
+            to take effect. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the EnableRule service method.</param>
+            
+            <returns>The response from the EnableRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginEnableRule(Amazon.CloudWatchEvents.Model.EnableRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the EnableRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the EnableRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndEnableRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndEnableRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  EnableRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginEnableRule.</param>
+            
+            <returns>Returns a  EnableRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.ListRuleNamesByTarget(Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest)">
+            <summary>
+            Lists the names of the rules that the given target is put to. You can see which of
+            the rules in Amazon CloudWatch Events can invoke a specific target in your account.
+            If you have more rules in your account than the given limit, the results will be paginated.
+            In that case, use the next token returned in the response and repeat ListRulesByTarget
+            until the NextToken in the response is returned as null.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListRuleNamesByTarget service method.</param>
+            
+            <returns>The response from the ListRuleNamesByTarget service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginListRuleNamesByTarget(Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ListRuleNamesByTarget operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ListRuleNamesByTarget operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListRuleNamesByTarget
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndListRuleNamesByTarget(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ListRuleNamesByTarget operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginListRuleNamesByTarget.</param>
+            
+            <returns>Returns a  ListRuleNamesByTargetResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.ListRules">
+            <summary>
+            Lists the Amazon CloudWatch Events rules in your account. You can either list all
+            the rules or you can provide a prefix to match to the rule names. If you have more
+            rules in your account than the given limit, the results will be paginated. In that
+            case, use the next token returned in the response and repeat ListRules until the NextToken
+            in the response is returned as null.
+            </summary>
+            
+            <returns>The response from the ListRules service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.ListRules(Amazon.CloudWatchEvents.Model.ListRulesRequest)">
+            <summary>
+            Lists the Amazon CloudWatch Events rules in your account. You can either list all
+            the rules or you can provide a prefix to match to the rule names. If you have more
+            rules in your account than the given limit, the results will be paginated. In that
+            case, use the next token returned in the response and repeat ListRules until the NextToken
+            in the response is returned as null.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListRules service method.</param>
+            
+            <returns>The response from the ListRules service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginListRules(Amazon.CloudWatchEvents.Model.ListRulesRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ListRules operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ListRules operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListRules
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndListRules(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ListRules operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginListRules.</param>
+            
+            <returns>Returns a  ListRulesResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.ListTargetsByRule(Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest)">
+            <summary>
+            Lists of targets assigned to the rule.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListTargetsByRule service method.</param>
+            
+            <returns>The response from the ListTargetsByRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginListTargetsByRule(Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ListTargetsByRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ListTargetsByRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListTargetsByRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndListTargetsByRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ListTargetsByRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginListTargetsByRule.</param>
+            
+            <returns>Returns a  ListTargetsByRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.PutEvents(Amazon.CloudWatchEvents.Model.PutEventsRequest)">
+            <summary>
+            Sends custom events to Amazon CloudWatch Events so that they can be matched to rules.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the PutEvents service method.</param>
+            
+            <returns>The response from the PutEvents service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginPutEvents(Amazon.CloudWatchEvents.Model.PutEventsRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the PutEvents operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the PutEvents operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutEvents
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndPutEvents(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  PutEvents operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginPutEvents.</param>
+            
+            <returns>Returns a  PutEventsResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.PutRule(Amazon.CloudWatchEvents.Model.PutRuleRequest)">
+            <summary>
+            Creates or updates a rule. Rules are enabled by default, or based on value of the
+            State parameter. You can disable a rule using <a>DisableRule</a>.
+            
+             
+            <para>
+             <b>Note:</b> When you create or update a rule, incoming events might not immediately
+            start matching to new or updated rules. Please allow a short period of time for changes
+            to take effect.
+            </para>
+             
+            <para>
+            A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns
+            are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger
+            based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression,
+            in which case the rule will trigger on matching events as well as on a schedule.
+            </para>
+             
+            <para>
+             <b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
+            Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
+            rules. Be sure to use the correct ARN characters when creating event patterns so that
+            they match the ARN syntax in the event you want to match. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the PutRule service method.</param>
+            
+            <returns>The response from the PutRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InvalidEventPatternException">
+            The event pattern is invalid.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.LimitExceededException">
+            This exception occurs if you try to create more rules or add more targets to a rule
+            than allowed by default.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginPutRule(Amazon.CloudWatchEvents.Model.PutRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the PutRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the PutRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndPutRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  PutRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginPutRule.</param>
+            
+            <returns>Returns a  PutRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.PutTargets(Amazon.CloudWatchEvents.Model.PutTargetsRequest)">
+            <summary>
+            Adds target(s) to a rule. Targets are the resources that can be invoked when a rule
+            is triggered. For example, AWS Lambda functions, Amazon Kinesis streams, and built-in
+            targets. Updates the target(s) if they are already associated with the role. In other
+            words, if there is already a target with the given target ID, then the target associated
+            with that ID is updated.
+            
+             
+            <para>
+            In order to be able to make API calls against the resources you own, Amazon CloudWatch
+            Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources,
+            CloudWatch Events relies on resource-based policies. For Amazon Kinesis streams, CloudWatch
+            Events relies on IAM roles. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/EventsTargetPermissions.html">Permissions
+            for Sending Events to Targets</a> in the <b><i>Amazon CloudWatch Developer Guide</i></b>.
+            </para>
+             
+            <para>
+            <b>Input</b> and <b>InputPath</b> are mutually-exclusive and optional parameters of
+            a target. When a rule is triggered due to a matched event, if for a target:
+            </para>
+             <ul> <li>Neither <b>Input</b> nor <b>InputPath</b> is specified, then the entire
+            event is passed to the target in JSON form.</li> <li> <b>InputPath</b> is specified
+            in the form of JSONPath (e.g. <b>$.detail</b>), then only the part of the event specified
+            in the path is passed to the target (e.g. only the detail part of the event is passed).
+            </li> <li> <b>Input</b> is specified in the form of a valid JSON, then the matched
+            event is overridden with this constant.</li> </ul> 
+            <para>
+             <b>Note:</b> When you add targets to a rule, when the associated rule triggers, new
+            or updated targets might not be immediately invoked. Please allow a short period of
+            time for changes to take effect. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the PutTargets service method.</param>
+            
+            <returns>The response from the PutTargets service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.LimitExceededException">
+            This exception occurs if you try to create more rules or add more targets to a rule
+            than allowed by default.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginPutTargets(Amazon.CloudWatchEvents.Model.PutTargetsRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the PutTargets operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the PutTargets operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutTargets
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndPutTargets(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  PutTargets operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginPutTargets.</param>
+            
+            <returns>Returns a  PutTargetsResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.RemoveTargets(Amazon.CloudWatchEvents.Model.RemoveTargetsRequest)">
+            <summary>
+            Removes target(s) from a rule so that when the rule is triggered, those targets will
+            no longer be invoked.
+            
+             
+            <para>
+             <b>Note:</b> When you remove a target, when the associated rule triggers, removed
+            targets might still continue to be invoked. Please allow a short period of time for
+            changes to take effect. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the RemoveTargets service method.</param>
+            
+            <returns>The response from the RemoveTargets service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginRemoveTargets(Amazon.CloudWatchEvents.Model.RemoveTargetsRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the RemoveTargets operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the RemoveTargets operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRemoveTargets
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndRemoveTargets(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  RemoveTargets operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginRemoveTargets.</param>
+            
+            <returns>Returns a  RemoveTargetsResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.TestEventPattern(Amazon.CloudWatchEvents.Model.TestEventPatternRequest)">
+            <summary>
+            Tests whether an event pattern matches the provided event.
+            
+             
+            <para>
+             <b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
+            Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
+            rules. Be sure to use the correct ARN characters when creating event patterns so that
+            they match the ARN syntax in the event you want to match. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the TestEventPattern service method.</param>
+            
+            <returns>The response from the TestEventPattern service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InvalidEventPatternException">
+            The event pattern is invalid.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.BeginTestEventPattern(Amazon.CloudWatchEvents.Model.TestEventPatternRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the TestEventPattern operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the TestEventPattern operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndTestEventPattern
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.AmazonCloudWatchEventsClient.EndTestEventPattern(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  TestEventPattern operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginTestEventPattern.</param>
+            
+            <returns>Returns a  TestEventPatternResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="T:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents">
+             <summary>
+             Interface for accessing CloudWatchEvents
+            
+             Amazon CloudWatch Events helps you to respond to state changes in your AWS resources.
+             When your resources change state they automatically send events into an event stream.
+             You can create rules that match selected events in the stream and route them to targets
+             to take action. You can also use rules to take action on a pre-determined schedule.
+             For example, you can configure rules to: 
+             
+              <ul> <li>Automatically invoke an AWS Lambda function to update DNS entries when an
+             event notifies you that Amazon EC2 instance enters the running state.</li> <li>Direct
+             specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis
+             of potential security or availability risks.</li> <li>Periodically invoke a built-in
+             target to create a snapshot of an Amazon EBS volume.</li> </ul> 
+             <para>
+              For more information about Amazon CloudWatch Events features, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide">Amazon
+             CloudWatch Developer Guide</a>. 
+             </para>
+             </summary>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.DeleteRule(Amazon.CloudWatchEvents.Model.DeleteRuleRequest)">
+            <summary>
+            Deletes a rule. You must remove all targets from a rule using <a>RemoveTargets</a>
+            before you can delete the rule.
+            
+             
+            <para>
+             <b>Note:</b> When you delete a rule, incoming events might still continue to match
+            to the deleted rule. Please allow a short period of time for changes to take effect.
+            
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DeleteRule service method.</param>
+            
+            <returns>The response from the DeleteRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginDeleteRule(Amazon.CloudWatchEvents.Model.DeleteRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DeleteRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DeleteRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndDeleteRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DeleteRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteRule.</param>
+            
+            <returns>Returns a  DeleteRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.DescribeRule(Amazon.CloudWatchEvents.Model.DescribeRuleRequest)">
+            <summary>
+            Describes the details of the specified rule.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DescribeRule service method.</param>
+            
+            <returns>The response from the DescribeRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginDescribeRule(Amazon.CloudWatchEvents.Model.DescribeRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DescribeRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DescribeRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndDescribeRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DescribeRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeRule.</param>
+            
+            <returns>Returns a  DescribeRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.DisableRule(Amazon.CloudWatchEvents.Model.DisableRuleRequest)">
+            <summary>
+            Disables a rule. A disabled rule won't match any events, and won't self-trigger if
+            it has a schedule expression.
+            
+             
+            <para>
+             <b>Note:</b> When you disable a rule, incoming events might still continue to match
+            to the disabled rule. Please allow a short period of time for changes to take effect.
+            
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DisableRule service method.</param>
+            
+            <returns>The response from the DisableRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginDisableRule(Amazon.CloudWatchEvents.Model.DisableRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DisableRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DisableRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisableRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndDisableRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DisableRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDisableRule.</param>
+            
+            <returns>Returns a  DisableRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EnableRule(Amazon.CloudWatchEvents.Model.EnableRuleRequest)">
+            <summary>
+            Enables a rule. If the rule does not exist, the operation fails.
+            
+             
+            <para>
+             <b>Note:</b> When you enable a rule, incoming events might not immediately start
+            matching to a newly enabled rule. Please allow a short period of time for changes
+            to take effect. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the EnableRule service method.</param>
+            
+            <returns>The response from the EnableRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginEnableRule(Amazon.CloudWatchEvents.Model.EnableRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the EnableRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the EnableRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndEnableRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndEnableRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  EnableRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginEnableRule.</param>
+            
+            <returns>Returns a  EnableRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.ListRuleNamesByTarget(Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest)">
+            <summary>
+            Lists the names of the rules that the given target is put to. You can see which of
+            the rules in Amazon CloudWatch Events can invoke a specific target in your account.
+            If you have more rules in your account than the given limit, the results will be paginated.
+            In that case, use the next token returned in the response and repeat ListRulesByTarget
+            until the NextToken in the response is returned as null.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListRuleNamesByTarget service method.</param>
+            
+            <returns>The response from the ListRuleNamesByTarget service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginListRuleNamesByTarget(Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ListRuleNamesByTarget operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ListRuleNamesByTarget operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListRuleNamesByTarget
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndListRuleNamesByTarget(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ListRuleNamesByTarget operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginListRuleNamesByTarget.</param>
+            
+            <returns>Returns a  ListRuleNamesByTargetResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.ListRules">
+            <summary>
+            Lists the Amazon CloudWatch Events rules in your account. You can either list all
+            the rules or you can provide a prefix to match to the rule names. If you have more
+            rules in your account than the given limit, the results will be paginated. In that
+            case, use the next token returned in the response and repeat ListRules until the NextToken
+            in the response is returned as null.
+            </summary>
+            
+            <returns>The response from the ListRules service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.ListRules(Amazon.CloudWatchEvents.Model.ListRulesRequest)">
+            <summary>
+            Lists the Amazon CloudWatch Events rules in your account. You can either list all
+            the rules or you can provide a prefix to match to the rule names. If you have more
+            rules in your account than the given limit, the results will be paginated. In that
+            case, use the next token returned in the response and repeat ListRules until the NextToken
+            in the response is returned as null.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListRules service method.</param>
+            
+            <returns>The response from the ListRules service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginListRules(Amazon.CloudWatchEvents.Model.ListRulesRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ListRules operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ListRules operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListRules
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndListRules(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ListRules operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginListRules.</param>
+            
+            <returns>Returns a  ListRulesResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.ListTargetsByRule(Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest)">
+            <summary>
+            Lists of targets assigned to the rule.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListTargetsByRule service method.</param>
+            
+            <returns>The response from the ListTargetsByRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginListTargetsByRule(Amazon.CloudWatchEvents.Model.ListTargetsByRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ListTargetsByRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ListTargetsByRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListTargetsByRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndListTargetsByRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ListTargetsByRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginListTargetsByRule.</param>
+            
+            <returns>Returns a  ListTargetsByRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.PutEvents(Amazon.CloudWatchEvents.Model.PutEventsRequest)">
+            <summary>
+            Sends custom events to Amazon CloudWatch Events so that they can be matched to rules.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the PutEvents service method.</param>
+            
+            <returns>The response from the PutEvents service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginPutEvents(Amazon.CloudWatchEvents.Model.PutEventsRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the PutEvents operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the PutEvents operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutEvents
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndPutEvents(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  PutEvents operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginPutEvents.</param>
+            
+            <returns>Returns a  PutEventsResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.PutRule(Amazon.CloudWatchEvents.Model.PutRuleRequest)">
+            <summary>
+            Creates or updates a rule. Rules are enabled by default, or based on value of the
+            State parameter. You can disable a rule using <a>DisableRule</a>.
+            
+             
+            <para>
+             <b>Note:</b> When you create or update a rule, incoming events might not immediately
+            start matching to new or updated rules. Please allow a short period of time for changes
+            to take effect.
+            </para>
+             
+            <para>
+            A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns
+            are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger
+            based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression,
+            in which case the rule will trigger on matching events as well as on a schedule.
+            </para>
+             
+            <para>
+             <b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
+            Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
+            rules. Be sure to use the correct ARN characters when creating event patterns so that
+            they match the ARN syntax in the event you want to match. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the PutRule service method.</param>
+            
+            <returns>The response from the PutRule service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InvalidEventPatternException">
+            The event pattern is invalid.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.LimitExceededException">
+            This exception occurs if you try to create more rules or add more targets to a rule
+            than allowed by default.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginPutRule(Amazon.CloudWatchEvents.Model.PutRuleRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the PutRule operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the PutRule operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutRule
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndPutRule(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  PutRule operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginPutRule.</param>
+            
+            <returns>Returns a  PutRuleResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.PutTargets(Amazon.CloudWatchEvents.Model.PutTargetsRequest)">
+            <summary>
+            Adds target(s) to a rule. Targets are the resources that can be invoked when a rule
+            is triggered. For example, AWS Lambda functions, Amazon Kinesis streams, and built-in
+            targets. Updates the target(s) if they are already associated with the role. In other
+            words, if there is already a target with the given target ID, then the target associated
+            with that ID is updated.
+            
+             
+            <para>
+            In order to be able to make API calls against the resources you own, Amazon CloudWatch
+            Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources,
+            CloudWatch Events relies on resource-based policies. For Amazon Kinesis streams, CloudWatch
+            Events relies on IAM roles. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/EventsTargetPermissions.html">Permissions
+            for Sending Events to Targets</a> in the <b><i>Amazon CloudWatch Developer Guide</i></b>.
+            </para>
+             
+            <para>
+            <b>Input</b> and <b>InputPath</b> are mutually-exclusive and optional parameters of
+            a target. When a rule is triggered due to a matched event, if for a target:
+            </para>
+             <ul> <li>Neither <b>Input</b> nor <b>InputPath</b> is specified, then the entire
+            event is passed to the target in JSON form.</li> <li> <b>InputPath</b> is specified
+            in the form of JSONPath (e.g. <b>$.detail</b>), then only the part of the event specified
+            in the path is passed to the target (e.g. only the detail part of the event is passed).
+            </li> <li> <b>Input</b> is specified in the form of a valid JSON, then the matched
+            event is overridden with this constant.</li> </ul> 
+            <para>
+             <b>Note:</b> When you add targets to a rule, when the associated rule triggers, new
+            or updated targets might not be immediately invoked. Please allow a short period of
+            time for changes to take effect. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the PutTargets service method.</param>
+            
+            <returns>The response from the PutTargets service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.LimitExceededException">
+            This exception occurs if you try to create more rules or add more targets to a rule
+            than allowed by default.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginPutTargets(Amazon.CloudWatchEvents.Model.PutTargetsRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the PutTargets operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the PutTargets operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutTargets
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndPutTargets(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  PutTargets operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginPutTargets.</param>
+            
+            <returns>Returns a  PutTargetsResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.RemoveTargets(Amazon.CloudWatchEvents.Model.RemoveTargetsRequest)">
+            <summary>
+            Removes target(s) from a rule so that when the rule is triggered, those targets will
+            no longer be invoked.
+            
+             
+            <para>
+             <b>Note:</b> When you remove a target, when the associated rule triggers, removed
+            targets might still continue to be invoked. Please allow a short period of time for
+            changes to take effect. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the RemoveTargets service method.</param>
+            
+            <returns>The response from the RemoveTargets service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ConcurrentModificationException">
+            This exception occurs if there is concurrent modification on rule or target.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.ResourceNotFoundException">
+            The rule does not exist.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginRemoveTargets(Amazon.CloudWatchEvents.Model.RemoveTargetsRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the RemoveTargets operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the RemoveTargets operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRemoveTargets
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndRemoveTargets(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  RemoveTargets operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginRemoveTargets.</param>
+            
+            <returns>Returns a  RemoveTargetsResult from CloudWatchEvents.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.TestEventPattern(Amazon.CloudWatchEvents.Model.TestEventPatternRequest)">
+            <summary>
+            Tests whether an event pattern matches the provided event.
+            
+             
+            <para>
+             <b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
+            Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
+            rules. Be sure to use the correct ARN characters when creating event patterns so that
+            they match the ARN syntax in the event you want to match. 
+            </para>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the TestEventPattern service method.</param>
+            
+            <returns>The response from the TestEventPattern service method, as returned by CloudWatchEvents.</returns>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InternalException">
+            This exception occurs due to unexpected causes.
+            </exception>
+            <exception cref="T:Amazon.CloudWatchEvents.Model.InvalidEventPatternException">
+            The event pattern is invalid.
+            </exception>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.BeginTestEventPattern(Amazon.CloudWatchEvents.Model.TestEventPatternRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the TestEventPattern operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the TestEventPattern operation on AmazonCloudWatchEventsClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndTestEventPattern
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CloudWatchEvents.IAmazonCloudWatchEvents.EndTestEventPattern(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  TestEventPattern operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginTestEventPattern.</param>
+            
+            <returns>Returns a  TestEventPatternResult from CloudWatchEvents.</returns>
+        </member>
+    </members>
+</doc>
