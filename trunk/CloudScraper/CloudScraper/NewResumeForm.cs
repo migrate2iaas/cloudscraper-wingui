@@ -20,6 +20,10 @@ namespace CloudScraper
         
         public NewResumeForm()
         {
+            // set dll firectory
+            var dllDirectory = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\Net35";
+            Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH") + ";" + dllDirectory);
+
             InitializeComponent();
             
             this.startNewButton.Image = new Bitmap(Image.FromFile("Icons\\StartNew.ico"), new Size(32, 32));
