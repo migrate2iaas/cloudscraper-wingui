@@ -207,7 +207,7 @@ namespace CloudScraper
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "license files (*.msg)|*.msg";
+            openFileDialog1.Filter = "license files (*.msg,*.cs-license)|*.msg;*.cs-license";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
             
