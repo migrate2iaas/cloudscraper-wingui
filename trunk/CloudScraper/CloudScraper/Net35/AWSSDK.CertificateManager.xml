@@ -1,0 +1,2527 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AWSSDK.CertificateManager</name>
+    </assembly>
+    <members>
+        <member name="T:Amazon.CertificateManager.AmazonCertificateManagerConfig">
+            <summary>
+            Configuration for accessing Amazon CertificateManager service
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerConfig.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.AmazonCertificateManagerConfig.RegionEndpointServiceName">
+            <summary>
+            The constant used to lookup in the region hash the endpoint.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.AmazonCertificateManagerConfig.ServiceVersion">
+            <summary>
+            Gets the ServiceVersion property.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.AmazonCertificateManagerConfig.UserAgent">
+            <summary>
+            Gets the value of UserAgent property.
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.AmazonCertificateManagerException">
+            <summary>
+             Common exception for the CertificateManager service.
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerException.#ctor(System.String)">
+            <summary>
+            Construct instance of AmazonCertificateManagerException
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of AmazonCertificateManagerException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of AmazonCertificateManagerException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AmazonCertificateManagerException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AmazonCertificateManagerException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CertificateManager.CertificateStatus">
+            <summary>
+            Constants used for properties of type CertificateStatus.
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.CertificateStatus.EXPIRED">
+            <summary>
+            Constant EXPIRED for CertificateStatus
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.CertificateStatus.FAILED">
+            <summary>
+            Constant FAILED for CertificateStatus
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.CertificateStatus.INACTIVE">
+            <summary>
+            Constant INACTIVE for CertificateStatus
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.CertificateStatus.ISSUED">
+            <summary>
+            Constant ISSUED for CertificateStatus
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.CertificateStatus.PENDING_VALIDATION">
+            <summary>
+            Constant PENDING_VALIDATION for CertificateStatus
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.CertificateStatus.REVOKED">
+            <summary>
+            Constant REVOKED for CertificateStatus
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.CertificateStatus.VALIDATION_TIMED_OUT">
+            <summary>
+            Constant VALIDATION_TIMED_OUT for CertificateStatus
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.CertificateStatus.#ctor(System.String)">
+            <summary>
+            This constant constructor does not need to be called if the constant
+            you are attempting to use is already defined as a static instance of 
+            this class.
+            This constructor should be used to construct constants that are not
+            defined as statics, for instance if attempting to use a feature that is
+            newer than the current version of the SDK.
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.CertificateStatus.FindValue(System.String)">
+            <summary>
+            Finds the constant for the unique value.
+            </summary>
+            <param name="value">The unique value for the constant</param>
+            <returns>The constant for the unique value</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.CertificateStatus.op_Implicit(System.String)~Amazon.CertificateManager.CertificateStatus">
+            <summary>
+            Utility method to convert strings to the constant class.
+            </summary>
+            <param name="value">The string value to convert to the constant class.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.KeyAlgorithm">
+            <summary>
+            Constants used for properties of type KeyAlgorithm.
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.KeyAlgorithm.EC_prime256v1">
+            <summary>
+            Constant EC_prime256v1 for KeyAlgorithm
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.KeyAlgorithm.RSA_2048">
+            <summary>
+            Constant RSA_2048 for KeyAlgorithm
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.KeyAlgorithm.#ctor(System.String)">
+            <summary>
+            This constant constructor does not need to be called if the constant
+            you are attempting to use is already defined as a static instance of 
+            this class.
+            This constructor should be used to construct constants that are not
+            defined as statics, for instance if attempting to use a feature that is
+            newer than the current version of the SDK.
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.KeyAlgorithm.FindValue(System.String)">
+            <summary>
+            Finds the constant for the unique value.
+            </summary>
+            <param name="value">The unique value for the constant</param>
+            <returns>The constant for the unique value</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.KeyAlgorithm.op_Implicit(System.String)~Amazon.CertificateManager.KeyAlgorithm">
+            <summary>
+            Utility method to convert strings to the constant class.
+            </summary>
+            <param name="value">The string value to convert to the constant class.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.RevocationReason">
+            <summary>
+            Constants used for properties of type RevocationReason.
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.A_A_COMPROMISE">
+            <summary>
+            Constant A_A_COMPROMISE for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.AFFILIATION_CHANGED">
+            <summary>
+            Constant AFFILIATION_CHANGED for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.CA_COMPROMISE">
+            <summary>
+            Constant CA_COMPROMISE for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.CERTIFICATE_HOLD">
+            <summary>
+            Constant CERTIFICATE_HOLD for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.CESSATION_OF_OPERATION">
+            <summary>
+            Constant CESSATION_OF_OPERATION for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.KEY_COMPROMISE">
+            <summary>
+            Constant KEY_COMPROMISE for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.PRIVILEGE_WITHDRAWN">
+            <summary>
+            Constant PRIVILEGE_WITHDRAWN for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.REMOVE_FROM_CRL">
+            <summary>
+            Constant REMOVE_FROM_CRL for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.SUPERCEDED">
+            <summary>
+            Constant SUPERCEDED for RevocationReason
+            </summary>
+        </member>
+        <member name="F:Amazon.CertificateManager.RevocationReason.UNSPECIFIED">
+            <summary>
+            Constant UNSPECIFIED for RevocationReason
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.RevocationReason.#ctor(System.String)">
+            <summary>
+            This constant constructor does not need to be called if the constant
+            you are attempting to use is already defined as a static instance of 
+            this class.
+            This constructor should be used to construct constants that are not
+            defined as statics, for instance if attempting to use a feature that is
+            newer than the current version of the SDK.
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.RevocationReason.FindValue(System.String)">
+            <summary>
+            Finds the constant for the unique value.
+            </summary>
+            <param name="value">The unique value for the constant</param>
+            <returns>The constant for the unique value</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.RevocationReason.op_Implicit(System.String)~Amazon.CertificateManager.RevocationReason">
+            <summary>
+            Utility method to convert strings to the constant class.
+            </summary>
+            <param name="value">The string value to convert to the constant class.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.AmazonCertificateManagerRequest">
+            <summary>
+            Base class for CertificateManager operation requests.
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.CertificateDetail">
+            <summary>
+            This structure is returned in the response object of the <a>DescribeCertificate</a>
+            action.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.CertificateArn">
+            <summary>
+            Gets and sets the property CertificateArn. 
+            <para>
+             Amazon Resource Name (ARN) of the certificate. This is of the form: 
+            </para>
+             
+            <para>
+             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+            
+            </para>
+             
+            <para>
+             For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+            Resource Names (ARNs) and AWS Service Namespaces</a>. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.CreatedAt">
+            <summary>
+            Gets and sets the property CreatedAt. 
+            <para>
+             Time at which the certificate was requested. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.DomainName">
+            <summary>
+            Gets and sets the property DomainName. 
+            <para>
+             Fully qualified domain name (FQDN), such as www.example.com or example.com, for the
+            certificate. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.DomainValidationOptions">
+            <summary>
+            Gets and sets the property DomainValidationOptions. 
+            <para>
+             References a <a>DomainValidation</a> structure that contains the domain name in the
+            certificate and the email address that can be used for validation. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.InUseBy">
+            <summary>
+            Gets and sets the property InUseBy. 
+            <para>
+             List that identifies ARNs that are using the certificate. A single ACM Certificate
+            can be used by multiple AWS resources. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.IssuedAt">
+            <summary>
+            Gets and sets the property IssuedAt. 
+            <para>
+             Time at which the certificate was issued. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.Issuer">
+            <summary>
+            Gets and sets the property Issuer. 
+            <para>
+             The X.500 distinguished name of the CA that issued and signed the certificate. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.KeyAlgorithm">
+            <summary>
+            Gets and sets the property KeyAlgorithm. 
+            <para>
+             Asymmetric algorithm used to generate the public and private key pair. Currently
+            the only supported value is <code>RSA_2048</code>. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.NotAfter">
+            <summary>
+            Gets and sets the property NotAfter. 
+            <para>
+             Time after which the certificate is not valid. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.NotBefore">
+            <summary>
+            Gets and sets the property NotBefore. 
+            <para>
+             Time before which the certificate is not valid. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.RevocationReason">
+            <summary>
+            Gets and sets the property RevocationReason. 
+            <para>
+             A <code>RevocationReason</code> enumeration value that indicates why the certificate
+            was revoked. This value exists only if the certificate has been revoked. This can
+            be one of the following vales: <ul> <li>UNSPECIFIED</li> <li>KEY_COMPROMISE</li> <li>CA_COMPROMISE</li>
+            <li>AFFILIATION_CHANGED</li> <li>SUPERCEDED</li> <li>CESSATION_OF_OPERATION</li> <li>CERTIFICATE_HOLD</li>
+            <li>REMOVE_FROM_CRL</li> <li>PRIVILEGE_WITHDRAWN</li> <li>A_A_COMPROMISE</li> </ul>
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.RevokedAt">
+            <summary>
+            Gets and sets the property RevokedAt. 
+            <para>
+             The time, if any, at which the certificate was revoked. This value exists only if
+            the certificate has been revoked. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.Serial">
+            <summary>
+            Gets and sets the property Serial. 
+            <para>
+             String that contains the serial number of the certificate. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.SignatureAlgorithm">
+            <summary>
+            Gets and sets the property SignatureAlgorithm. 
+            <para>
+             Algorithm used to generate a signature. Currently the only supported value is <code>SHA256WITHRSA</code>.
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.Status">
+            <summary>
+            Gets and sets the property Status. 
+            <para>
+             A <code>CertificateStatus</code> enumeration value that can contain one of the following:
+            <ul> <li>PENDING_VALIDATION</li> <li>ISSUED</li> <li>INACTIVE</li> <li>EXPIRED</li>
+            <li>REVOKED</li> <li>FAILED</li> <li>VALIDATION_TIMED_OUT</li> </ul> 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.Subject">
+            <summary>
+            Gets and sets the property Subject. 
+            <para>
+             The X.500 distinguished name of the entity associated with the public key contained
+            in the certificate. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateDetail.SubjectAlternativeNames">
+            <summary>
+            Gets and sets the property SubjectAlternativeNames. 
+            <para>
+             One or more domain names (subject alternative names) included in the certificate
+            request. After the certificate is issued, this list includes the domain names bound
+            to the public key contained in the certificate. The subject alternative names include
+            the canonical domain name (CN) of the certificate and additional domain names that
+            can be used to connect to the website. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.CertificateSummary">
+            <summary>
+            This structure is returned in the response object of <a>ListCertificates</a> action.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateSummary.CertificateArn">
+            <summary>
+            Gets and sets the property CertificateArn. 
+            <para>
+             Amazon Resource Name (ARN) of the certificate. This is of the form: 
+            </para>
+             
+            <para>
+             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+            
+            </para>
+             
+            <para>
+             For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+            Resource Names (ARNs) and AWS Service Namespaces</a>. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.CertificateSummary.DomainName">
+            <summary>
+            Gets and sets the property DomainName. 
+            <para>
+             Fully qualified domain name (FQDN), such as www.example.com or example.com, for the
+            certificate. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.DeleteCertificateRequest">
+            <summary>
+            Container for the parameters to the DeleteCertificate operation.
+            Deletes an ACM Certificate and its associated private key. If this action succeeds,
+            the certificate no longer appears in the list of ACM Certificates that can be displayed
+            by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a>
+            action. The certificate will not be available for use by other AWS services.
+            
+             <note>You cannot delete an ACM Certificate that is being used by another AWS service.
+            To delete a certificate that is in use, the certificate association must first be
+            removed. </note>
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.DeleteCertificateRequest.#ctor">
+            <summary>
+            Empty constructor used to set  properties independently even when a simple constructor is available
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.DeleteCertificateRequest.#ctor(System.String)">
+            <summary>
+            Instantiates DeleteCertificateRequest with the parameterized properties
+            </summary>
+            <param name="certificateArn"> String that contains the ARN of the ACM Certificate to be deleted. This must be of the form:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.DeleteCertificateRequest.CertificateArn">
+            <summary>
+            Gets and sets the property CertificateArn. 
+            <para>
+             String that contains the ARN of the ACM Certificate to be deleted. This must be of
+            the form: 
+            </para>
+             
+            <para>
+             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+            
+            </para>
+             
+            <para>
+             For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+            Resource Names (ARNs) and AWS Service Namespaces</a>. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.DeleteCertificateResponse">
+            <summary>
+            This is the response object from the DeleteCertificate operation.
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.DescribeCertificateRequest">
+            <summary>
+            Container for the parameters to the DescribeCertificate operation.
+            Returns a list of the fields contained in the specified ACM Certificate. For example,
+            this action returns the certificate status, a flag that indicates whether the certificate
+            is associated with any other AWS service, and the date at which the certificate request
+            was created. The ACM Certificate is specified on input by its Amazon Resource Name
+            (ARN).
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.DescribeCertificateRequest.#ctor">
+            <summary>
+            Empty constructor used to set  properties independently even when a simple constructor is available
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.DescribeCertificateRequest.#ctor(System.String)">
+            <summary>
+            Instantiates DescribeCertificateRequest with the parameterized properties
+            </summary>
+            <param name="certificateArn"> String that contains an ACM Certificate ARN. The ARN must be of the form:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.DescribeCertificateRequest.CertificateArn">
+            <summary>
+            Gets and sets the property CertificateArn. 
+            <para>
+             String that contains an ACM Certificate ARN. The ARN must be of the form: 
+            </para>
+             
+            <para>
+             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+            
+            </para>
+             
+            <para>
+             For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+            Resource Names (ARNs) and AWS Service Namespaces</a>. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.DescribeCertificateResponse">
+            <summary>
+            This is the response object from the DescribeCertificate operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.DescribeCertificateResponse.Certificate">
+            <summary>
+            Gets and sets the property Certificate. 
+            <para>
+            Contains a <a>CertificateDetail</a> structure that lists the fields of an ACM Certificate.
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.DomainValidation">
+            <summary>
+            Structure that contains the domain name, the base validation domain to which validation
+            email is sent, and the email addresses used to validate the domain identity.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.DomainValidation.DomainName">
+            <summary>
+            Gets and sets the property DomainName. 
+            <para>
+             Fully Qualified Domain Name (FQDN) of the form <code>www.example.com or </code><code>example.com</code>
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.DomainValidation.ValidationDomain">
+            <summary>
+            Gets and sets the property ValidationDomain. 
+            <para>
+             The base validation domain that acts as the suffix of the email addresses that are
+            used to send the emails. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.DomainValidation.ValidationEmails">
+            <summary>
+            Gets and sets the property ValidationEmails. 
+            <para>
+             A list of contact address for the domain registrant. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.DomainValidationOption">
+            <summary>
+            This structure is used in the request object of the <a>RequestCertificate</a> action.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.DomainValidationOption.DomainName">
+            <summary>
+            Gets and sets the property DomainName. 
+            <para>
+             Fully Qualified Domain Name (FQDN) of the certificate being requested. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.DomainValidationOption.ValidationDomain">
+            <summary>
+            Gets and sets the property ValidationDomain. 
+            <para>
+             The domain to which validation email is sent. This is the base validation domain
+            that will act as the suffix of the email addresses. This must be the same as the <code>DomainName</code>
+            value or a superdomain of the <code>DomainName</code> value. For example, if you requested
+            a certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b>
+            of <code>subdomain.example.com</code>, ACM sends email to the domain registrant, technical
+            contact, and administrative contact in WHOIS for the base domain and the and the following
+            five addresses: <ul> <li>admin@subdomain.example.com</li> <li>administrator@subdomain.example.com</li>
+            <li>hostmaster@subdomain.example.com</li> <li>postmaster@subdomain.example.com</li>
+            <li>webmaster@subdomain.example.com</li> </ul> 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.GetCertificateRequest">
+            <summary>
+            Container for the parameters to the GetCertificate operation.
+            Retrieves an ACM Certificate and certificate chain for the certificate specified
+            by an ARN. The chain is an ordered list of certificates that contains the root certificate,
+            intermediate certificates of subordinate CAs, and the ACM Certificate. The certificate
+            and certificate chain are base64 encoded. If you want to decode the certificate chain
+            to see the individual certificate fields, you can use OpenSSL. 
+            
+             <note> Currently, ACM Certificates can be used only with Elastic Load Balancing and
+            Amazon CloudFront. </note>
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.GetCertificateRequest.#ctor">
+            <summary>
+            Empty constructor used to set  properties independently even when a simple constructor is available
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.GetCertificateRequest.#ctor(System.String)">
+            <summary>
+            Instantiates GetCertificateRequest with the parameterized properties
+            </summary>
+            <param name="certificateArn"> String that contains a certificate ARN in the following format:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.GetCertificateRequest.CertificateArn">
+            <summary>
+            Gets and sets the property CertificateArn. 
+            <para>
+             String that contains a certificate ARN in the following format: 
+            </para>
+             
+            <para>
+             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+            
+            </para>
+             
+            <para>
+             For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+            Resource Names (ARNs) and AWS Service Namespaces</a>. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.GetCertificateResponse">
+            <summary>
+            This is the response object from the GetCertificate operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.GetCertificateResponse.Certificate">
+            <summary>
+            Gets and sets the property Certificate. 
+            <para>
+             String that contains the ACM Certificate represented by the ARN specified at input.
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.GetCertificateResponse.CertificateChain">
+            <summary>
+            Gets and sets the property CertificateChain. 
+            <para>
+             The certificate chain that contains the root certificate issued by the certificate
+            authority (CA). 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.InvalidArnException">
+            <summary>
+             CertificateManager exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidArnException.#ctor(System.String)">
+            <summary>
+            Constructs a new InvalidArnException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidArnException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InvalidArnException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidArnException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InvalidArnException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidArnException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidArnException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidArnException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidArnException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException">
+            <summary>
+             CertificateManager exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException.#ctor(System.String)">
+            <summary>
+            Constructs a new InvalidDomainValidationOptionsException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InvalidDomainValidationOptionsException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InvalidDomainValidationOptionsException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidDomainValidationOptionsException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidDomainValidationOptionsException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.InvalidStateException">
+            <summary>
+             CertificateManager exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidStateException.#ctor(System.String)">
+            <summary>
+            Constructs a new InvalidStateException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidStateException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InvalidStateException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidStateException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InvalidStateException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidStateException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidStateException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.InvalidStateException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InvalidStateException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.LimitExceededException">
+            <summary>
+             CertificateManager exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.LimitExceededException.#ctor(System.String)">
+            <summary>
+            Constructs a new LimitExceededException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.LimitExceededException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of LimitExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.LimitExceededException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of LimitExceededException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.LimitExceededException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of LimitExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.LimitExceededException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of LimitExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.ListCertificatesRequest">
+            <summary>
+            Container for the parameters to the ListCertificates operation.
+            Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN, owned
+            by the calling account. You can filter the list based on the <code>CertificateStatuses</code>
+            parameter, and you can display up to <code>MaxItems</code> certificates at one time.
+            If you have more than <code>MaxItems</code> certificates, use the <code>NextToken</code>
+            marker from the response object in your next call to the <code>ListCertificates</code>
+            action to retrieve the next set of certificate ARNs.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.ListCertificatesRequest.CertificateStatuses">
+            <summary>
+            Gets and sets the property CertificateStatuses. 
+            <para>
+             Identifies the statuses of the ACM Certificates for which you want to retrieve the
+            ARNs. This can be one or more of the following values: <ul> <li><code>PENDING_VALIDATION</code></li>
+            <li><code>ISSUED</code></li> <li><code>INACTIVE</code></li> <li><code>EXPIRED</code></li>
+            <li><code>VALIDATION_TIMED_OUT</code></li> <li><code>REVOKED</code></li> <li><code>FAILED</code></li>
+            </ul> 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.ListCertificatesRequest.MaxItems">
+            <summary>
+            Gets and sets the property MaxItems. 
+            <para>
+             Specify this parameter when paginating results to indicate the maximum number of
+            ACM Certificates that you want to display for each response. If there are additional
+            certificates beyond the maximum you specify, use the <code>NextToken</code> value
+            in your next call to the <code>ListCertificates</code> action. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.ListCertificatesRequest.NextToken">
+            <summary>
+            Gets and sets the property NextToken. 
+            <para>
+             String that contains an opaque marker of the next ACM Certificate ARN to be displayed.
+            Use this parameter when paginating results, and only in a subsequent request after
+            you've received a response where the results have been truncated. Set it to an empty
+            string the first time you call this action, and set it to the value of the <code>NextToken</code>
+            element you receive in the response object for subsequent calls. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.ListCertificatesResponse">
+            <summary>
+            This is the response object from the ListCertificates operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.ListCertificatesResponse.CertificateSummaryList">
+            <summary>
+            Gets and sets the property CertificateSummaryList. 
+            <para>
+             A list of the certificate ARNs. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.ListCertificatesResponse.NextToken">
+            <summary>
+            Gets and sets the property NextToken. 
+            <para>
+             If the list has been truncated, this value is present and should be used for the
+            <code>NextToken</code> input parameter on your next call to <code>ListCertificates</code>.
+            
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.RequestCertificateRequest">
+            <summary>
+            Container for the parameters to the RequestCertificate operation.
+            Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+            you must specify the fully qualified domain name (FQDN) for your site. You can also
+            specify additional FQDNs if users can reach your site by using other names. For each
+            domain name you specify, email is sent to the domain owner to request approval to
+            issue the certificate. After receiving approval from the domain owner, the ACM Certificate
+            is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">
+            AWS Certificate Manager User Guide </a>.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.RequestCertificateRequest.DomainName">
+            <summary>
+            Gets and sets the property DomainName. 
+            <para>
+             Fully qualified domain name (FQDN), such as www.example.com, of the site you want
+            to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate
+            that protects several sites in the same domain. For example, *.example.com protects
+            www.example.com, site.example.com, and images.example.com. 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.RequestCertificateRequest.DomainValidationOptions">
+            <summary>
+            Gets and sets the property DomainValidationOptions. 
+            <para>
+             The base validation domain that will act as the suffix of the email addresses that
+            are used to send the emails. This must be the same as the <code>Domain</code> value
+            or a superdomain of the <code>Domain</code> value. For example, if you requested a
+            certificate for <code>test.example.com</code> and specify <b>DomainValidationOptions</b>
+            of <code>example.com</code>, ACM sends email to the domain registrant, technical contact,
+            and administrative contact in WHOIS and the following five addresses: <ul> <li>admin@example.com</li>
+            <li>administrator@example.com</li> <li>hostmaster@example.com</li> <li>postmaster@example.com</li>
+            <li>webmaster@example.com</li> </ul> 
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.RequestCertificateRequest.IdempotencyToken">
+            <summary>
+            Gets and sets the property IdempotencyToken. 
+            <para>
+             Customer chosen string that can be used to distinguish between calls to <code>RequestCertificate</code>.
+            Idempotency tokens time out after one hour. Therefore, if you call <code>RequestCertificate</code>
+            multiple times with the same idempotency token within one hour, ACM recognizes that
+            you are requesting only one certificate and will issue only one. If you change the
+            idempotency token for each call, ACM recognizes that you are requesting multiple certificates.
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.RequestCertificateRequest.SubjectAlternativeNames">
+            <summary>
+            Gets and sets the property SubjectAlternativeNames. 
+            <para>
+             Additional FQDNs to be included in the Subject Alternative Name extension of the
+            ACM Certificate. For example, add the name www.example.net to a certificate for which
+            the <code>DomainName</code> field is www.example.com if users can reach your site
+            by using either name. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.RequestCertificateResponse">
+            <summary>
+            This is the response object from the RequestCertificate operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.RequestCertificateResponse.CertificateArn">
+            <summary>
+            Gets and sets the property CertificateArn. 
+            <para>
+             String that contains the ARN of the issued certificate. This must be of the form:
+            
+            </para>
+             
+            <para>
+             <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+            
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.RequestInProgressException">
+            <summary>
+             CertificateManager exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.RequestInProgressException.#ctor(System.String)">
+            <summary>
+            Constructs a new RequestInProgressException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.RequestInProgressException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of RequestInProgressException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.RequestInProgressException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of RequestInProgressException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.RequestInProgressException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of RequestInProgressException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.RequestInProgressException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of RequestInProgressException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.ResendValidationEmailRequest">
+            <summary>
+            Container for the parameters to the ResendValidationEmail operation.
+            Resends the email that requests domain ownership validation. The domain owner or
+            an authorized representative must approve the ACM Certificate before it can be issued.
+            The certificate can be approved by clicking a link in the mail to navigate to the
+            Amazon certificate approval website and then clicking <b>I Approve</b>. However, the
+            validation email can be blocked by spam filters. Therefore, if you do not receive
+            the original mail, you can request that the mail be resent within 72 hours of requesting
+            the ACM Certificate. If more than 72 hours have elapsed since your original request
+            or since your last attempt to resend validation mail, you must request a new certificate.
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.ResendValidationEmailRequest.CertificateArn">
+            <summary>
+            Gets and sets the property CertificateArn. 
+            <para>
+             String that contains the ARN of the requested certificate. The certificate ARN is
+            generated and returned by <a>RequestCertificate</a> as soon as the request is made.
+            By default, using this parameter causes email to be sent to all top-level domains
+            you specified in the certificate request. 
+            </para>
+             
+            <para>
+             The ARN must be of the form: 
+            </para>
+             
+            <para>
+             <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.ResendValidationEmailRequest.Domain">
+            <summary>
+            Gets and sets the property Domain. 
+            <para>
+             The Fully Qualified Domain Name (FQDN) of the certificate that needs to be validated.
+            
+            </para>
+            </summary>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.ResendValidationEmailRequest.ValidationDomain">
+            <summary>
+            Gets and sets the property ValidationDomain. 
+            <para>
+             The base validation domain that will act as the suffix of the email addresses that
+            are used to send the emails. This must be the same as the <code>Domain</code> value
+            or a superdomain of the <code>Domain</code> value. For example, if you requested a
+            certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b>
+            of <code>subdomain.example.com</code>, ACM sends email to the domain registrant, technical
+            contact, and administrative contact in WHOIS and the following five addresses: <ul>
+            <li>admin@subdomain.example.com</li> <li>administrator@subdomain.example.com</li>
+            <li>hostmaster@subdomain.example.com</li> <li>postmaster@subdomain.example.com</li>
+            <li>webmaster@subdomain.example.com</li> </ul> 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.ResendValidationEmailResponse">
+            <summary>
+            This is the response object from the ResendValidationEmail operation.
+            </summary>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.ResourceInUseException">
+            <summary>
+             CertificateManager exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceInUseException.#ctor(System.String)">
+            <summary>
+            Constructs a new ResourceInUseException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceInUseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of ResourceInUseException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceInUseException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of ResourceInUseException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceInUseException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ResourceInUseException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceInUseException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ResourceInUseException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            <summary>
+             CertificateManager exception
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceNotFoundException.#ctor(System.String)">
+            <summary>
+            Constructs a new ResourceNotFoundException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of ResourceNotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceNotFoundException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of ResourceNotFoundException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceNotFoundException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ResourceNotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.ResourceNotFoundException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ResourceNotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.CertificateDetailUnmarshaller">
+            <summary>
+            Response Unmarshaller for CertificateDetail Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.CertificateDetailUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#CertificateManager#Model#CertificateDetail,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.CertificateDetailUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.CertificateDetailUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.CertificateSummaryUnmarshaller">
+            <summary>
+            Response Unmarshaller for CertificateSummary Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.CertificateSummaryUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#CertificateManager#Model#CertificateSummary,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.CertificateSummaryUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.CertificateSummaryUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DeleteCertificateRequestMarshaller">
+            <summary>
+            DeleteCertificate Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DeleteCertificateRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DeleteCertificateRequestMarshaller.Marshall(Amazon.CertificateManager.Model.DeleteCertificateRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DeleteCertificateResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for DeleteCertificate operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DeleteCertificateResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DeleteCertificateResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DeleteCertificateResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DescribeCertificateRequestMarshaller">
+            <summary>
+            DescribeCertificate Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DescribeCertificateRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DescribeCertificateRequestMarshaller.Marshall(Amazon.CertificateManager.Model.DescribeCertificateRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DescribeCertificateResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for DescribeCertificate operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DescribeCertificateResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DescribeCertificateResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DescribeCertificateResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DomainValidationOptionMarshaller">
+            <summary>
+            DomainValidationOption Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DomainValidationOptionMarshaller.Marshall(Amazon.CertificateManager.Model.DomainValidationOption,Amazon.Runtime.Internal.Transform.JsonMarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="requestObject"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DomainValidationOptionMarshaller.Instance">
+            <summary>
+            Singleton Marshaller.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DomainValidationUnmarshaller">
+            <summary>
+            Response Unmarshaller for DomainValidation Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DomainValidationUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#CertificateManager#Model#DomainValidation,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DomainValidationUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.DomainValidationUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.GetCertificateRequestMarshaller">
+            <summary>
+            GetCertificate Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.GetCertificateRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.GetCertificateRequestMarshaller.Marshall(Amazon.CertificateManager.Model.GetCertificateRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.GetCertificateResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for GetCertificate operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.GetCertificateResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.GetCertificateResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.GetCertificateResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ListCertificatesRequestMarshaller">
+            <summary>
+            ListCertificates Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ListCertificatesRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ListCertificatesRequestMarshaller.Marshall(Amazon.CertificateManager.Model.ListCertificatesRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ListCertificatesResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for ListCertificates operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ListCertificatesResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ListCertificatesResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ListCertificatesResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.RequestCertificateRequestMarshaller">
+            <summary>
+            RequestCertificate Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.RequestCertificateRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.RequestCertificateRequestMarshaller.Marshall(Amazon.CertificateManager.Model.RequestCertificateRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.RequestCertificateResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for RequestCertificate operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.RequestCertificateResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.RequestCertificateResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.RequestCertificateResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ResendValidationEmailRequestMarshaller">
+            <summary>
+            ResendValidationEmail Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ResendValidationEmailRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ResendValidationEmailRequestMarshaller.Marshall(Amazon.CertificateManager.Model.ResendValidationEmailRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ResendValidationEmailResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for ResendValidationEmail operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ResendValidationEmailResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ResendValidationEmailResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.CertificateManager.Model.Internal.MarshallTransformations.ResendValidationEmailResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.CertificateManager.AmazonCertificateManagerClient">
+             <summary>
+             Implementation for accessing CertificateManager
+            
+             AWS Certificate Manager 
+             <para>
+             Welcome to the AWS Certificate Manager (ACM) Command Reference. This guide provides
+             descriptions, syntax, and usage examples for each ACM command. You can use AWS Certificate
+             Manager to request ACM Certificates for your AWS-based websites and applications.
+             For general information about using ACM and for more information about using the console,
+             see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS
+             Certificate Manager User Guide</a>. For more information about using the ACM API,
+             see the <a href="http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html">
+             AWS Certificate Manager API Reference</a>. 
+             </para>
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor">
+             <summary>
+             Constructs AmazonCertificateManagerClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(Amazon.RegionEndpoint)">
+             <summary>
+             Constructs AmazonCertificateManagerClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+             <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(Amazon.CertificateManager.AmazonCertificateManagerConfig)">
+             <summary>
+             Constructs AmazonCertificateManagerClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+             <param name="config">The AmazonCertificateManagerClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(Amazon.Runtime.AWSCredentials)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Credentials
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(Amazon.Runtime.AWSCredentials,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Credentials
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(Amazon.Runtime.AWSCredentials,Amazon.CertificateManager.AmazonCertificateManagerConfig)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Credentials and an
+            AmazonCertificateManagerClient Configuration object.
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+            <param name="clientConfig">The AmazonCertificateManagerClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(System.String,System.String)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(System.String,System.String,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(System.String,System.String,Amazon.CertificateManager.AmazonCertificateManagerConfig)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Access Key ID, AWS Secret Key and an
+            AmazonCertificateManagerClient Configuration object. 
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="clientConfig">The AmazonCertificateManagerClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(System.String,System.String,System.String,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.#ctor(System.String,System.String,System.String,Amazon.CertificateManager.AmazonCertificateManagerConfig)">
+            <summary>
+            Constructs AmazonCertificateManagerClient with AWS Access Key ID, AWS Secret Key and an
+            AmazonCertificateManagerClient Configuration object. 
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+            <param name="clientConfig">The AmazonCertificateManagerClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.CreateSigner">
+            <summary>
+            Creates the signer for the service.
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the service client.
+            </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.DeleteCertificate(System.String)">
+            <summary>
+            Deletes an ACM Certificate and its associated private key. If this action succeeds,
+            the certificate no longer appears in the list of ACM Certificates that can be displayed
+            by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a>
+            action. The certificate will not be available for use by other AWS services.
+            
+             <note>You cannot delete an ACM Certificate that is being used by another AWS service.
+            To delete a certificate that is in use, the certificate association must first be
+            removed. </note>
+            </summary>
+            <param name="certificateArn"> String that contains the ARN of the ACM Certificate to be deleted. This must be of the form:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+            
+            <returns>The response from the DeleteCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceInUseException">
+            The certificate is in use by another AWS service in the caller's account. Remove
+            the association and try again.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.DeleteCertificate(Amazon.CertificateManager.Model.DeleteCertificateRequest)">
+            <summary>
+            Deletes an ACM Certificate and its associated private key. If this action succeeds,
+            the certificate no longer appears in the list of ACM Certificates that can be displayed
+            by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a>
+            action. The certificate will not be available for use by other AWS services.
+            
+             <note>You cannot delete an ACM Certificate that is being used by another AWS service.
+            To delete a certificate that is in use, the certificate association must first be
+            removed. </note>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DeleteCertificate service method.</param>
+            
+            <returns>The response from the DeleteCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceInUseException">
+            The certificate is in use by another AWS service in the caller's account. Remove
+            the association and try again.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.BeginDeleteCertificate(Amazon.CertificateManager.Model.DeleteCertificateRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DeleteCertificate operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DeleteCertificate operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteCertificate
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.EndDeleteCertificate(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DeleteCertificate operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteCertificate.</param>
+            
+            <returns>Returns a  DeleteCertificateResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.DescribeCertificate(System.String)">
+            <summary>
+            Returns a list of the fields contained in the specified ACM Certificate. For example,
+            this action returns the certificate status, a flag that indicates whether the certificate
+            is associated with any other AWS service, and the date at which the certificate request
+            was created. The ACM Certificate is specified on input by its Amazon Resource Name
+            (ARN).
+            </summary>
+            <param name="certificateArn"> String that contains an ACM Certificate ARN. The ARN must be of the form:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+            
+            <returns>The response from the DescribeCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.DescribeCertificate(Amazon.CertificateManager.Model.DescribeCertificateRequest)">
+            <summary>
+            Returns a list of the fields contained in the specified ACM Certificate. For example,
+            this action returns the certificate status, a flag that indicates whether the certificate
+            is associated with any other AWS service, and the date at which the certificate request
+            was created. The ACM Certificate is specified on input by its Amazon Resource Name
+            (ARN).
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DescribeCertificate service method.</param>
+            
+            <returns>The response from the DescribeCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.BeginDescribeCertificate(Amazon.CertificateManager.Model.DescribeCertificateRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DescribeCertificate operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DescribeCertificate operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeCertificate
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.EndDescribeCertificate(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DescribeCertificate operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeCertificate.</param>
+            
+            <returns>Returns a  DescribeCertificateResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.GetCertificate(System.String)">
+            <summary>
+            Retrieves an ACM Certificate and certificate chain for the certificate specified
+            by an ARN. The chain is an ordered list of certificates that contains the root certificate,
+            intermediate certificates of subordinate CAs, and the ACM Certificate. The certificate
+            and certificate chain are base64 encoded. If you want to decode the certificate chain
+            to see the individual certificate fields, you can use OpenSSL. 
+            
+             <note> Currently, ACM Certificates can be used only with Elastic Load Balancing and
+            Amazon CloudFront. </note>
+            </summary>
+            <param name="certificateArn"> String that contains a certificate ARN in the following format:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+            
+            <returns>The response from the GetCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.RequestInProgressException">
+            The certificate request is in process and the certificate in your account has not
+            yet been issued.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.GetCertificate(Amazon.CertificateManager.Model.GetCertificateRequest)">
+            <summary>
+            Retrieves an ACM Certificate and certificate chain for the certificate specified
+            by an ARN. The chain is an ordered list of certificates that contains the root certificate,
+            intermediate certificates of subordinate CAs, and the ACM Certificate. The certificate
+            and certificate chain are base64 encoded. If you want to decode the certificate chain
+            to see the individual certificate fields, you can use OpenSSL. 
+            
+             <note> Currently, ACM Certificates can be used only with Elastic Load Balancing and
+            Amazon CloudFront. </note>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the GetCertificate service method.</param>
+            
+            <returns>The response from the GetCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.RequestInProgressException">
+            The certificate request is in process and the certificate in your account has not
+            yet been issued.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.BeginGetCertificate(Amazon.CertificateManager.Model.GetCertificateRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the GetCertificate operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the GetCertificate operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetCertificate
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.EndGetCertificate(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  GetCertificate operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginGetCertificate.</param>
+            
+            <returns>Returns a  GetCertificateResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.ListCertificates">
+            <summary>
+            Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN, owned
+            by the calling account. You can filter the list based on the <code>CertificateStatuses</code>
+            parameter, and you can display up to <code>MaxItems</code> certificates at one time.
+            If you have more than <code>MaxItems</code> certificates, use the <code>NextToken</code>
+            marker from the response object in your next call to the <code>ListCertificates</code>
+            action to retrieve the next set of certificate ARNs.
+            </summary>
+            
+            <returns>The response from the ListCertificates service method, as returned by CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.ListCertificates(Amazon.CertificateManager.Model.ListCertificatesRequest)">
+            <summary>
+            Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN, owned
+            by the calling account. You can filter the list based on the <code>CertificateStatuses</code>
+            parameter, and you can display up to <code>MaxItems</code> certificates at one time.
+            If you have more than <code>MaxItems</code> certificates, use the <code>NextToken</code>
+            marker from the response object in your next call to the <code>ListCertificates</code>
+            action to retrieve the next set of certificate ARNs.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListCertificates service method.</param>
+            
+            <returns>The response from the ListCertificates service method, as returned by CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.BeginListCertificates(Amazon.CertificateManager.Model.ListCertificatesRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ListCertificates operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ListCertificates operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListCertificates
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.EndListCertificates(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ListCertificates operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginListCertificates.</param>
+            
+            <returns>Returns a  ListCertificatesResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.RequestCertificate(System.String)">
+            <summary>
+            Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+            you must specify the fully qualified domain name (FQDN) for your site. You can also
+            specify additional FQDNs if users can reach your site by using other names. For each
+            domain name you specify, email is sent to the domain owner to request approval to
+            issue the certificate. After receiving approval from the domain owner, the ACM Certificate
+            is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">
+            AWS Certificate Manager User Guide </a>.
+            </summary>
+            <param name="domainName"> Fully qualified domain name (FQDN), such as www.example.com, of the site you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com. </param>
+            
+            <returns>The response from the RequestCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException">
+            One or more values in the <a>DomainValidationOption</a> structure is incorrect.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.LimitExceededException">
+            An ACM limit has been exceeded. For example, you may have input more domains than
+            are allowed or you've requested too many certificates for your account. See the exception
+            message returned by ACM to determine which limit you have violated. For more information
+            about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
+            topic.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.RequestCertificate(Amazon.CertificateManager.Model.RequestCertificateRequest)">
+            <summary>
+            Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+            you must specify the fully qualified domain name (FQDN) for your site. You can also
+            specify additional FQDNs if users can reach your site by using other names. For each
+            domain name you specify, email is sent to the domain owner to request approval to
+            issue the certificate. After receiving approval from the domain owner, the ACM Certificate
+            is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">
+            AWS Certificate Manager User Guide </a>.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the RequestCertificate service method.</param>
+            
+            <returns>The response from the RequestCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException">
+            One or more values in the <a>DomainValidationOption</a> structure is incorrect.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.LimitExceededException">
+            An ACM limit has been exceeded. For example, you may have input more domains than
+            are allowed or you've requested too many certificates for your account. See the exception
+            message returned by ACM to determine which limit you have violated. For more information
+            about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
+            topic.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.BeginRequestCertificate(Amazon.CertificateManager.Model.RequestCertificateRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the RequestCertificate operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the RequestCertificate operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRequestCertificate
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.EndRequestCertificate(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  RequestCertificate operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginRequestCertificate.</param>
+            
+            <returns>Returns a  RequestCertificateResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.ResendValidationEmail(Amazon.CertificateManager.Model.ResendValidationEmailRequest)">
+            <summary>
+            Resends the email that requests domain ownership validation. The domain owner or
+            an authorized representative must approve the ACM Certificate before it can be issued.
+            The certificate can be approved by clicking a link in the mail to navigate to the
+            Amazon certificate approval website and then clicking <b>I Approve</b>. However, the
+            validation email can be blocked by spam filters. Therefore, if you do not receive
+            the original mail, you can request that the mail be resent within 72 hours of requesting
+            the ACM Certificate. If more than 72 hours have elapsed since your original request
+            or since your last attempt to resend validation mail, you must request a new certificate.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ResendValidationEmail service method.</param>
+            
+            <returns>The response from the ResendValidationEmail service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException">
+            One or more values in the <a>DomainValidationOption</a> structure is incorrect.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidStateException">
+            Processing has reached an invalid state. For example, this exception can occur if
+            the specified domain is not using email validation, or the current certificate status
+            does not permit the requested operation. See the exception message returned by ACM
+            to determine which state is not valid.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.BeginResendValidationEmail(Amazon.CertificateManager.Model.ResendValidationEmailRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ResendValidationEmail operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ResendValidationEmail operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResendValidationEmail
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.AmazonCertificateManagerClient.EndResendValidationEmail(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ResendValidationEmail operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginResendValidationEmail.</param>
+            
+            <returns>Returns a  ResendValidationEmailResult from CertificateManager.</returns>
+        </member>
+        <member name="T:Amazon.CertificateManager.IAmazonCertificateManager">
+             <summary>
+             Interface for accessing CertificateManager
+            
+             AWS Certificate Manager 
+             <para>
+             Welcome to the AWS Certificate Manager (ACM) Command Reference. This guide provides
+             descriptions, syntax, and usage examples for each ACM command. You can use AWS Certificate
+             Manager to request ACM Certificates for your AWS-based websites and applications.
+             For general information about using ACM and for more information about using the console,
+             see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS
+             Certificate Manager User Guide</a>. For more information about using the ACM API,
+             see the <a href="http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html">
+             AWS Certificate Manager API Reference</a>. 
+             </para>
+             </summary>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.DeleteCertificate(System.String)">
+            <summary>
+            Deletes an ACM Certificate and its associated private key. If this action succeeds,
+            the certificate no longer appears in the list of ACM Certificates that can be displayed
+            by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a>
+            action. The certificate will not be available for use by other AWS services.
+            
+             <note>You cannot delete an ACM Certificate that is being used by another AWS service.
+            To delete a certificate that is in use, the certificate association must first be
+            removed. </note>
+            </summary>
+            <param name="certificateArn"> String that contains the ARN of the ACM Certificate to be deleted. This must be of the form:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+            
+            <returns>The response from the DeleteCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceInUseException">
+            The certificate is in use by another AWS service in the caller's account. Remove
+            the association and try again.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.DeleteCertificate(Amazon.CertificateManager.Model.DeleteCertificateRequest)">
+            <summary>
+            Deletes an ACM Certificate and its associated private key. If this action succeeds,
+            the certificate no longer appears in the list of ACM Certificates that can be displayed
+            by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a>
+            action. The certificate will not be available for use by other AWS services.
+            
+             <note>You cannot delete an ACM Certificate that is being used by another AWS service.
+            To delete a certificate that is in use, the certificate association must first be
+            removed. </note>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DeleteCertificate service method.</param>
+            
+            <returns>The response from the DeleteCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceInUseException">
+            The certificate is in use by another AWS service in the caller's account. Remove
+            the association and try again.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.BeginDeleteCertificate(Amazon.CertificateManager.Model.DeleteCertificateRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DeleteCertificate operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DeleteCertificate operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteCertificate
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.EndDeleteCertificate(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DeleteCertificate operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteCertificate.</param>
+            
+            <returns>Returns a  DeleteCertificateResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.DescribeCertificate(System.String)">
+            <summary>
+            Returns a list of the fields contained in the specified ACM Certificate. For example,
+            this action returns the certificate status, a flag that indicates whether the certificate
+            is associated with any other AWS service, and the date at which the certificate request
+            was created. The ACM Certificate is specified on input by its Amazon Resource Name
+            (ARN).
+            </summary>
+            <param name="certificateArn"> String that contains an ACM Certificate ARN. The ARN must be of the form:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+            
+            <returns>The response from the DescribeCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.DescribeCertificate(Amazon.CertificateManager.Model.DescribeCertificateRequest)">
+            <summary>
+            Returns a list of the fields contained in the specified ACM Certificate. For example,
+            this action returns the certificate status, a flag that indicates whether the certificate
+            is associated with any other AWS service, and the date at which the certificate request
+            was created. The ACM Certificate is specified on input by its Amazon Resource Name
+            (ARN).
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DescribeCertificate service method.</param>
+            
+            <returns>The response from the DescribeCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.BeginDescribeCertificate(Amazon.CertificateManager.Model.DescribeCertificateRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the DescribeCertificate operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the DescribeCertificate operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeCertificate
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.EndDescribeCertificate(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  DescribeCertificate operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeCertificate.</param>
+            
+            <returns>Returns a  DescribeCertificateResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.GetCertificate(System.String)">
+            <summary>
+            Retrieves an ACM Certificate and certificate chain for the certificate specified
+            by an ARN. The chain is an ordered list of certificates that contains the root certificate,
+            intermediate certificates of subordinate CAs, and the ACM Certificate. The certificate
+            and certificate chain are base64 encoded. If you want to decode the certificate chain
+            to see the individual certificate fields, you can use OpenSSL. 
+            
+             <note> Currently, ACM Certificates can be used only with Elastic Load Balancing and
+            Amazon CloudFront. </note>
+            </summary>
+            <param name="certificateArn"> String that contains a certificate ARN in the following format:   <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>   For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </param>
+            
+            <returns>The response from the GetCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.RequestInProgressException">
+            The certificate request is in process and the certificate in your account has not
+            yet been issued.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.GetCertificate(Amazon.CertificateManager.Model.GetCertificateRequest)">
+            <summary>
+            Retrieves an ACM Certificate and certificate chain for the certificate specified
+            by an ARN. The chain is an ordered list of certificates that contains the root certificate,
+            intermediate certificates of subordinate CAs, and the ACM Certificate. The certificate
+            and certificate chain are base64 encoded. If you want to decode the certificate chain
+            to see the individual certificate fields, you can use OpenSSL. 
+            
+             <note> Currently, ACM Certificates can be used only with Elastic Load Balancing and
+            Amazon CloudFront. </note>
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the GetCertificate service method.</param>
+            
+            <returns>The response from the GetCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.RequestInProgressException">
+            The certificate request is in process and the certificate in your account has not
+            yet been issued.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.BeginGetCertificate(Amazon.CertificateManager.Model.GetCertificateRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the GetCertificate operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the GetCertificate operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetCertificate
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.EndGetCertificate(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  GetCertificate operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginGetCertificate.</param>
+            
+            <returns>Returns a  GetCertificateResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.ListCertificates">
+            <summary>
+            Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN, owned
+            by the calling account. You can filter the list based on the <code>CertificateStatuses</code>
+            parameter, and you can display up to <code>MaxItems</code> certificates at one time.
+            If you have more than <code>MaxItems</code> certificates, use the <code>NextToken</code>
+            marker from the response object in your next call to the <code>ListCertificates</code>
+            action to retrieve the next set of certificate ARNs.
+            </summary>
+            
+            <returns>The response from the ListCertificates service method, as returned by CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.ListCertificates(Amazon.CertificateManager.Model.ListCertificatesRequest)">
+            <summary>
+            Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN, owned
+            by the calling account. You can filter the list based on the <code>CertificateStatuses</code>
+            parameter, and you can display up to <code>MaxItems</code> certificates at one time.
+            If you have more than <code>MaxItems</code> certificates, use the <code>NextToken</code>
+            marker from the response object in your next call to the <code>ListCertificates</code>
+            action to retrieve the next set of certificate ARNs.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListCertificates service method.</param>
+            
+            <returns>The response from the ListCertificates service method, as returned by CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.BeginListCertificates(Amazon.CertificateManager.Model.ListCertificatesRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ListCertificates operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ListCertificates operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListCertificates
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.EndListCertificates(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ListCertificates operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginListCertificates.</param>
+            
+            <returns>Returns a  ListCertificatesResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.RequestCertificate(System.String)">
+            <summary>
+            Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+            you must specify the fully qualified domain name (FQDN) for your site. You can also
+            specify additional FQDNs if users can reach your site by using other names. For each
+            domain name you specify, email is sent to the domain owner to request approval to
+            issue the certificate. After receiving approval from the domain owner, the ACM Certificate
+            is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">
+            AWS Certificate Manager User Guide </a>.
+            </summary>
+            <param name="domainName"> Fully qualified domain name (FQDN), such as www.example.com, of the site you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com. </param>
+            
+            <returns>The response from the RequestCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException">
+            One or more values in the <a>DomainValidationOption</a> structure is incorrect.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.LimitExceededException">
+            An ACM limit has been exceeded. For example, you may have input more domains than
+            are allowed or you've requested too many certificates for your account. See the exception
+            message returned by ACM to determine which limit you have violated. For more information
+            about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
+            topic.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.RequestCertificate(Amazon.CertificateManager.Model.RequestCertificateRequest)">
+            <summary>
+            Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+            you must specify the fully qualified domain name (FQDN) for your site. You can also
+            specify additional FQDNs if users can reach your site by using other names. For each
+            domain name you specify, email is sent to the domain owner to request approval to
+            issue the certificate. After receiving approval from the domain owner, the ACM Certificate
+            is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">
+            AWS Certificate Manager User Guide </a>.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the RequestCertificate service method.</param>
+            
+            <returns>The response from the RequestCertificate service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException">
+            One or more values in the <a>DomainValidationOption</a> structure is incorrect.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.LimitExceededException">
+            An ACM limit has been exceeded. For example, you may have input more domains than
+            are allowed or you've requested too many certificates for your account. See the exception
+            message returned by ACM to determine which limit you have violated. For more information
+            about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
+            topic.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.BeginRequestCertificate(Amazon.CertificateManager.Model.RequestCertificateRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the RequestCertificate operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the RequestCertificate operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRequestCertificate
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.EndRequestCertificate(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  RequestCertificate operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginRequestCertificate.</param>
+            
+            <returns>Returns a  RequestCertificateResult from CertificateManager.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.ResendValidationEmail(Amazon.CertificateManager.Model.ResendValidationEmailRequest)">
+            <summary>
+            Resends the email that requests domain ownership validation. The domain owner or
+            an authorized representative must approve the ACM Certificate before it can be issued.
+            The certificate can be approved by clicking a link in the mail to navigate to the
+            Amazon certificate approval website and then clicking <b>I Approve</b>. However, the
+            validation email can be blocked by spam filters. Therefore, if you do not receive
+            the original mail, you can request that the mail be resent within 72 hours of requesting
+            the ACM Certificate. If more than 72 hours have elapsed since your original request
+            or since your last attempt to resend validation mail, you must request a new certificate.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ResendValidationEmail service method.</param>
+            
+            <returns>The response from the ResendValidationEmail service method, as returned by CertificateManager.</returns>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidArnException">
+            The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidDomainValidationOptionsException">
+            One or more values in the <a>DomainValidationOption</a> structure is incorrect.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.InvalidStateException">
+            Processing has reached an invalid state. For example, this exception can occur if
+            the specified domain is not using email validation, or the current certificate status
+            does not permit the requested operation. See the exception message returned by ACM
+            to determine which state is not valid.
+            </exception>
+            <exception cref="T:Amazon.CertificateManager.Model.ResourceNotFoundException">
+            The specified certificate cannot be found in the caller's account, or the caller's
+            account cannot be found.
+            </exception>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.BeginResendValidationEmail(Amazon.CertificateManager.Model.ResendValidationEmailRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            Initiates the asynchronous execution of the ResendValidationEmail operation.
+            </summary>
+            
+            <param name="request">Container for the necessary parameters to execute the ResendValidationEmail operation on AmazonCertificateManagerClient.</param>
+            <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+            <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+                     procedure using the AsyncState property.</param>
+            
+            <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResendValidationEmail
+                    operation.</returns>
+        </member>
+        <member name="M:Amazon.CertificateManager.IAmazonCertificateManager.EndResendValidationEmail(System.IAsyncResult)">
+            <summary>
+            Finishes the asynchronous execution of the  ResendValidationEmail operation.
+            </summary>
+            
+            <param name="asyncResult">The IAsyncResult returned by the call to BeginResendValidationEmail.</param>
+            
+            <returns>Returns a  ResendValidationEmailResult from CertificateManager.</returns>
+        </member>
+    </members>
+</doc>

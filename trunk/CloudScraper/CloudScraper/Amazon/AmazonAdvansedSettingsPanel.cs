@@ -228,22 +228,20 @@ namespace CloudScraper
                 return;
             }
 
-            AmazonEC2Config config = new AmazonEC2Config();
-            config.ServiceURL = "https://ec2." + region_ + ".amazonaws.com";
-
-            AmazonEC2 client = new AmazonEC2Client(id, key, config);
+            Amazon.RegionEndpoint region = Amazon.RegionEndpoint.GetBySystemName(region_);
+            AmazonEC2Client client = new AmazonEC2Client(id, key, region);
             DescribeRegionsResponse regionResponse = client.DescribeRegions(new DescribeRegionsRequest());
 
             // Get zones.
             DescribeAvailabilityZonesResponse availabilityZonesResponse = client.DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
             MyClearZones();
-            if (null != availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone &&
-                0 != availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone.Count)
+            if (null != availabilityZonesResponse.AvailabilityZones &&
+                0 != availabilityZonesResponse.AvailabilityZones.Count)
             {
                 zoneComboBox.TextChanged -= zoneComboBox_TextChanged;
-                foreach (AvailabilityZone zone in availabilityZonesResponse.DescribeAvailabilityZonesResult.AvailabilityZone)
+                foreach (AvailabilityZone zone in availabilityZonesResponse.AvailabilityZones)
                 {
-                    if (zone.ZoneState == "available")
+                    if (zone.State == AvailabilityZoneState.Available)
                     {
                         zoneComboBox.Items.Add(zone.ZoneName);
                     }
@@ -263,11 +261,11 @@ namespace CloudScraper
             DescribeSecurityGroupsResponse securityGroupResponse =
                 client.DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
             MyClearGroups();
-            if (null != securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup &&
-                0 != securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup.Count)
+            if (null != securityGroupResponse.SecurityGroups &&
+                0 != securityGroupResponse.SecurityGroups.Count)
             {
                 groupComboBox.TextChanged -= groupComboBox_TextChanged;
-                foreach (SecurityGroup group in securityGroupResponse.DescribeSecurityGroupsResult.SecurityGroup)
+                foreach (SecurityGroup group in securityGroupResponse.SecurityGroups)
                 {
                     groupComboBox.Items.Add(group.GroupName);
                 }
@@ -288,15 +286,14 @@ namespace CloudScraper
 
             MyClearVpc();
             
-            if (null != vpcResponse && null != vpcResponse.DescribeVpcsResult &&
-                null != vpcResponse.DescribeVpcsResult.Vpc && 0 != vpcResponse.DescribeVpcsResult.Vpc.Count &&
-                null != subnetResponse && null != subnetResponse.DescribeSubnetsResult &&
-                null != subnetResponse.DescribeSubnetsResult.Subnet)
+            if (null != vpcResponse && null != vpcResponse.Vpcs 
+                && 0 != vpcResponse.Vpcs.Count &&
+                null != subnetResponse )
             {
                 vpcComboBox.TextChanged -= vpcComboBox_TextChanged;
                 subnetComboBox.TextChanged -= subnetComboBox_TextChanged;
 
-                foreach (Subnet subnet in subnetResponse.DescribeSubnetsResult.Subnet)
+                foreach (Subnet subnet in subnetResponse.Subnets)
                 {
                     List<string> subnetsOfVpc = null;
                     if (!vpcIdToSubnetsMap_.TryGetValue(subnet.VpcId, out subnetsOfVpc))
@@ -311,12 +308,12 @@ namespace CloudScraper
                     }
                 }
 
-                foreach (Vpc vpc in vpcResponse.DescribeVpcsResult.Vpc)
+                foreach (Vpc vpc in vpcResponse.Vpcs)
                 {
                     string vpcTitle = vpc.VpcId;
-                    if (null != vpc.Tag && 0 != vpc.Tag.Count)
+                    if (null != vpc.Tags && 0 != vpc.Tags.Count)
                     {
-                        Tag tag = vpc.Tag.Find(delegate(Tag findMe)
+                        Amazon.EC2.Model.Tag tag = vpc.Tags.Find(delegate(Amazon.EC2.Model.Tag findMe)
                         {
                             return findMe.Key == "Name";
                         });
@@ -359,7 +356,7 @@ namespace CloudScraper
             }
 
             // works only in advanced mode
-            AmazonS3 s3Client = Amazon.AWSClientFactory.CreateAmazonS3Client(id, key);
+            AmazonS3Client s3Client = new AmazonS3Client(id, key);
             if (!string.IsNullOrEmpty(s3Bucket_))
             {
                 GetBucketLocationRequest req = new GetBucketLocationRequest();
