@@ -354,9 +354,9 @@ namespace CloudScraper
             {
                 return;
             }
-
+            Amazon.RegionEndpoint region = Amazon.RegionEndpoint.GetBySystemName(region_);
             // works only in advanced mode
-            AmazonS3Client s3Client = new AmazonS3Client(id, key);
+            AmazonS3Client s3Client = new AmazonS3Client(id, key, region);
             if (!string.IsNullOrEmpty(s3Bucket_))
             {
                 GetBucketLocationRequest req = new GetBucketLocationRequest();
