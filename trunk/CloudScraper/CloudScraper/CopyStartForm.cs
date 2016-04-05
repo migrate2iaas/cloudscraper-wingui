@@ -330,7 +330,7 @@ namespace CloudScraper
             //If we start throwgh .cmd file.
             //info.FileName = "migrate.cmd";
             Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH")
-                + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.3.1\\App");
+                + ";" + Directory.GetCurrentDirectory() + "\\3rdparty\\Portable_Python_2.7.10");
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Migrate\\Migrate");
 
             if (!File.Exists("..\\..\\3rdparty\\Python_2.7.10\\python.exe") ||
