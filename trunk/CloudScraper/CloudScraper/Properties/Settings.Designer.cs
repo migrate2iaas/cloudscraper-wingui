@@ -2411,32 +2411,6 @@ namespace CloudScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n          Folder is not empty.\r\n          It\'s recommended to use empty folders" +
-            " to store images.\r\n          Do you wish to proceed anyway?\r\n        ")]
-        public string S5WarningMessage {
-            get {
-                return ((string)(this["S5WarningMessage"]));
-            }
-            set {
-                this["S5WarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n          Transfer configuration file with this name already exists.\r\n         " +
-            " Do you want to rewrite it?\r\n        ")]
-        public string S6WarningMessage {
-            get {
-                return ((string)(this["S6WarningMessage"]));
-            }
-            set {
-                this["S6WarningMessage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("\r\n          Need help?\r\n          Click here to read manual entry on this step.\r\n" +
             "        ")]
         public string HelpButtonToolTip {
@@ -2488,73 +2462,6 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["S4AzureCertificateUploadWait"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>us-east-1|US East (Northern Virginia)</string>
-  <string>us-west-2|US West (Oregon)</string>
-  <string>us-west-1|US West (Northern California)</string>
-  <string>eu-west-1|EU (Ireland)</string>
-  <string>eu-central-1|EU (Frankfurt)</string>
-  <string>ap-southeast-1|Asia Pacific (Singapore)</string>
-  <string>ap-southeast-2|Asia Pacific (Sydney)</string>
-  <string>ap-northeast-1|Asia Pacific (Tokyo)</string>
-  <string>sa-east-1|South America (Sao Paulo)</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Regions {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Regions"]));
-            }
-            set {
-                this["Regions"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"
-          <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-            <string>m1.small|M1 Small</string>
-            <string>m1.medium|M1 Medium</string>
-            <string>m1.large|M1 Large</string>
-            <string>m1.xlarge|M1 Extra Large</string>
-            <string>m3.2xlarge|M3 Double Extra Large</string>
-            <string>m3.xlarge|M3 Extra Large</string>
-          </ArrayOfString>
-        ")]
-        public global::System.Collections.Specialized.StringCollection ServerTypes
-        {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["ServerTypes"]));
-            }
-            set {
-                this["ServerTypes"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"
-          <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-            <string>West US|West US</string>
-            <string>East US|East US</string>
-            <string>East Asia|East Asia</string>
-            <string>Southeast Asia|Southeast Asia</string>
-            <string>West Europe|West Europe</string>
-            <string>North Europe|North Europe</string>
-          </ArrayOfString>
-        ")]
-        public global::System.Collections.Specialized.StringCollection AzureRegions
-        {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["AzureRegions"]));
-            }
-            set {
-                this["AzureRegions"] = value;
             }
         }
         
@@ -2630,6 +2537,150 @@ namespace CloudScraper.Properties {
             }
             set {
                 this["LicenseNotFoundMsg"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\nFolder is not empty.\r\nIt\'s recommended to use empty folders to store images.\r\nD" +
+            "o you wish to proceed anyway?\r\n        ")]
+        public string S5WarningMessage {
+            get {
+                return ((string)(this["S5WarningMessage"]));
+            }
+            set {
+                this["S5WarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\nTransfer configuration file with this name already exists.\r\nDo you want to rewr" +
+            "ite it?\r\n        ")]
+        public string S6WarningMessage {
+            get {
+                return ((string)(this["S6WarningMessage"]));
+            }
+            set {
+                this["S6WarningMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>us-east-1|US East (Northern Virginia)</string>
+  <string>us-east-2|US East (Ohio)</string>
+  <string>us-west-2|US West (Oregon)</string>
+  <string>us-west-1|US West (Northern California)</string>
+  <string>eu-west-1|EU (Ireland)</string>
+  <string>eu-central-1|EU (Frankfurt)</string>
+  <string>ap-southeast-1|Asia Pacific (Singapore)</string>
+  <string>ap-southeast-2|Asia Pacific (Sydney)</string>
+  <string>ap-northeast-1|Asia Pacific (Tokyo)</string>
+  <string>sa-east-1|South America (Sao Paulo)</string>
+  <string>ap-south-1|Asia Pacific (Mumbai)</string>
+  <string>ap-northeast-2|Asia Pacific (Seoul)</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection Regions {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Regions"]));
+            }
+            set {
+                this["Regions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
+            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
+            "tring>m3.medium|m3.medium</string>\r\n  <string>m3.large|m3.large</string>\r\n  <str" +
+            "ing>m3.xlarge|m3.xlarge</string>\r\n  <string>m3.2xlarge|m3.2xlarge</string>\r\n  <s" +
+            "tring>t2.large|t2.large</string>\r\n  <string>m1.small|m1.small</string>\r\n  <strin" +
+            "g>m1.medium|m1.medium</string>\r\n  <string>m1.large|m1.large</string>\r\n  <string>" +
+            "m1.xlarge|m1.xlarge</string>\r\n  <string>m4.large|m4.large</string>\r\n  <string>m4" +
+            ".xlarge|m4.xlarge</string>\r\n  <string>m4.2xlarge|m4.2xlarge</string>\r\n  <string>" +
+            "m4.4xlarge|m4.4xlarge</string>\r\n  <string>m4.10xlarge|m4.10xlarge</string>\r\n  <s" +
+            "tring>m4.16xlarge|m4.16xlarge</string>\r\n  <string>m2.xlarge|m2.xlarge</string>\r\n" +
+            "  <string>m2.2xlarge|m2.2xlarge</string>\r\n  <string>m2.4xlarge|m2.4xlarge</strin" +
+            "g>\r\n  <string>cr1.8xlarge|cr1.8xlarge</string>\r\n  <string>r3.large|r3.large</str" +
+            "ing>\r\n  <string>r3.xlarge|r3.xlarge</string>\r\n  <string>r3.2xlarge|r3.2xlarge</s" +
+            "tring>\r\n  <string>r3.4xlarge|r3.4xlarge</string>\r\n  <string>r3.8xlarge|r3.8xlarg" +
+            "e</string>\r\n  <string>x1.16xlarge|x1.16xlarge</string>\r\n  <string>x1.32xlarge|x1" +
+            ".32xlarge</string>\r\n  <string>i2.xlarge|i2.xlarge</string>\r\n  <string>i2.2xlarge" +
+            "|i2.2xlarge</string>\r\n  <string>i2.4xlarge|i2.4xlarge</string>\r\n  <string>i2.8xl" +
+            "arge|i2.8xlarge</string>\r\n  <string>hi1.4xlarge|hi1.4xlarge</string>\r\n  <string>" +
+            "hs1.8xlarge|hs1.8xlarge</string>\r\n  <string>c1.medium|c1.medium</string>\r\n  <str" +
+            "ing>c1.xlarge|c1.xlarge</string>\r\n  <string>c3.large|c3.large</string>\r\n  <strin" +
+            "g>c3.xlarge|c3.xlarge</string>\r\n  <string>c3.2xlarge|c3.2xlarge</string>\r\n  <str" +
+            "ing>c3.4xlarge|c3.4xlarge</string>\r\n  <string>c3.8xlarge|c3.8xlarge</string>\r\n  " +
+            "<string>c4.large|c4.large</string>\r\n  <string>c4.xlarge|c4.xlarge</string>\r\n  <s" +
+            "tring>c4.2xlarge|c4.2xlarge</string>\r\n  <string>c4.4xlarge|c4.4xlarge</string>\r\n" +
+            "  <string>c4.8xlarge|c4.8xlarge</string>\r\n  <string>cc1.4xlarge|cc1.4xlarge</str" +
+            "ing>\r\n  <string>cc2.8xlarge|cc2.8xlarge</string>\r\n  <string>g2.2xlarge|g2.2xlarg" +
+            "e</string>\r\n  <string>g2.8xlarge|g2.8xlarge</string>\r\n  <string>cg1.4xlarge|cg1." +
+            "4xlarge</string>\r\n  <string>p2.xlarge|p2.xlarge</string>\r\n  <string>p2.8xlarge|p" +
+            "2.8xlarge</string>\r\n  <string>p2.16xlarge|p2.16xlarge</string>\r\n  <string>d2.xla" +
+            "rge|d2.xlarge</string>\r\n  <string>d2.2xlarge|d2.2xlarge</string>\r\n  <string>d2.4" +
+            "xlarge|d2.4xlarge</string>\r\n  <string>d2.8xlarge|d2.8xlarge</string>\r\n</ArrayOfS" +
+            "tring>")]
+        public global::System.Collections.Specialized.StringCollection ServerTypes {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ServerTypes"]));
+            }
+            set {
+                this["ServerTypes"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>West US|West US (California)</string>
+  <string>East US|East US (Virginia)</string>
+  <string>East Asia|East Asia (Hong Kong)</string>
+  <string>Southeast Asia|Southeast Asia</string>
+  <string>West Europe|West Europe (Netherlands)</string>
+  <string>North Europe|North Europe (Ireland)</string>
+  <string>Central US|Central US (Iowa)</string>
+  <string>East US 2|East US 2 (Virginia)</string>
+  <string>North Central US|North Central US (Illinois)</string>
+  <string>South Central US|South Central US (Texas)</string>
+  <string>Southeast Asia|Southeast Asia (Singapore)</string>
+  <string>Japan East|Japan East (Tokyo, Saitama)</string>
+  <string>Japan West|Japan West (Osaka)</string>
+  <string>Brazil South|Brazil South (Sao Paulo State)</string>
+  <string>Australia East|Australia East (New South Wales)</string>
+  <string>Australia Southeast|Australia Southeast (Victoria)</string>
+  <string>Central India|Central India (Pune)</string>
+  <string>South India|South India (Chennai)</string>
+  <string>West India|West India (Mumbai)</string>
+  <string>China East|China East (Shanghai)</string>
+  <string>China North|China North (Beijing)</string>
+  <string>Canada Central|Canada Central (Toronto)</string>
+  <string>Canada East|Canada East (Quebec City)</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection AzureRegions {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["AzureRegions"]));
+            }
+            set {
+                this["AzureRegions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("m3.medium")]
+        public string AmazonDefaultInstanceType {
+            get {
+                return ((string)(this["AmazonDefaultInstanceType"]));
+            }
+            set {
+                this["AmazonDefaultInstanceType"] = value;
             }
         }
     }

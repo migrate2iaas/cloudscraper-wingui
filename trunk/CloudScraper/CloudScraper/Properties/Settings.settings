@@ -640,19 +640,6 @@
           Press 'Check Access' button to download security group list.
         </Value>
     </Setting>
-    <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">
-          Folder is not empty.
-          It's recommended to use empty folders to store images.
-          Do you wish to proceed anyway?
-        </Value>
-    </Setting>
-    <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">
-          Transfer configuration file with this name already exists.
-          Do you want to rewrite it?
-        </Value>
-    </Setting>
     <Setting Name="HelpButtonToolTip" Type="System.String" Scope="User">
       <Value Profile="(Default)">
           Need help?
@@ -676,44 +663,6 @@
           Attention! Proceed only after the certificate is uploaded!
 
           In newly opened browser window login to Windows Azure, choose Settings. Then choose Management Certificates tab, click upload and select certificate file you created for uploading.
-        </Value>
-    </Setting>
-    <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;us-east-1|US East (Northern Virginia)&lt;/string&gt;
-  &lt;string&gt;us-west-2|US West (Oregon)&lt;/string&gt;
-  &lt;string&gt;us-west-1|US West (Northern California)&lt;/string&gt;
-  &lt;string&gt;eu-west-1|EU (Ireland)&lt;/string&gt;
-  &lt;string&gt;eu-central-1|EU (Frankfurt)&lt;/string&gt;
-  &lt;string&gt;ap-southeast-1|Asia Pacific (Singapore)&lt;/string&gt;
-  &lt;string&gt;ap-southeast-2|Asia Pacific (Sydney)&lt;/string&gt;
-  &lt;string&gt;ap-northeast-1|Asia Pacific (Tokyo)&lt;/string&gt;
-  &lt;string&gt;sa-east-1|South America (Sao Paulo)&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="ServerTypes" Type="System.String" Scope="User">
-      <Value Profile="(Default)">
-          &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-            &lt;string&gt;m1.small|M1 Small&lt;/string&gt;
-            &lt;string&gt;m1.medium|M1 Medium&lt;/string&gt;
-            &lt;string&gt;m1.large|M1 Large&lt;/string&gt;
-            &lt;string&gt;m1.xlarge|M1 Extra Large&lt;/string&gt;
-            &lt;string&gt;m3.2xlarge|M3 Double Extra Large&lt;/string&gt;
-            &lt;string&gt;m3.xlarge|M3 Extra Large&lt;/string&gt;
-          &lt;/ArrayOfString&gt;
-        </Value>
-    </Setting>
-    <Setting Name="AzureRegions" Type="System.String" Scope="User">
-      <Value Profile="(Default)">
-          &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-            &lt;string&gt;West US|West US&lt;/string&gt;
-            &lt;string&gt;East US|East US&lt;/string&gt;
-            &lt;string&gt;East Asia|East Asia&lt;/string&gt;
-            &lt;string&gt;Southeast Asia|Southeast Asia&lt;/string&gt;
-            &lt;string&gt;West Europe|West Europe&lt;/string&gt;
-            &lt;string&gt;North Europe|North Europe&lt;/string&gt;
-          &lt;/ArrayOfString&gt;
         </Value>
     </Setting>
     <Setting Name="S4TestButtonToolTip" Type="System.String" Scope="User">
@@ -756,6 +705,128 @@
 
           Please browse to www.migrate2iaas.com to obtain a license.
         </Value>
+    </Setting>
+    <Setting Name="S5WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+Folder is not empty.
+It's recommended to use empty folders to store images.
+Do you wish to proceed anyway?
+        </Value>
+    </Setting>
+    <Setting Name="S6WarningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+Transfer configuration file with this name already exists.
+Do you want to rewrite it?
+        </Value>
+    </Setting>
+    <Setting Name="Regions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;us-east-1|US East (Northern Virginia)&lt;/string&gt;
+  &lt;string&gt;us-east-2|US East (Ohio)&lt;/string&gt;
+  &lt;string&gt;us-west-2|US West (Oregon)&lt;/string&gt;
+  &lt;string&gt;us-west-1|US West (Northern California)&lt;/string&gt;
+  &lt;string&gt;eu-west-1|EU (Ireland)&lt;/string&gt;
+  &lt;string&gt;eu-central-1|EU (Frankfurt)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-1|Asia Pacific (Singapore)&lt;/string&gt;
+  &lt;string&gt;ap-southeast-2|Asia Pacific (Sydney)&lt;/string&gt;
+  &lt;string&gt;ap-northeast-1|Asia Pacific (Tokyo)&lt;/string&gt;
+  &lt;string&gt;sa-east-1|South America (Sao Paulo)&lt;/string&gt;
+  &lt;string&gt;ap-south-1|Asia Pacific (Mumbai)&lt;/string&gt;
+  &lt;string&gt;ap-northeast-2|Asia Pacific (Seoul)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ServerTypes" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;m3.medium|m3.medium&lt;/string&gt;
+  &lt;string&gt;m3.large|m3.large&lt;/string&gt;
+  &lt;string&gt;m3.xlarge|m3.xlarge&lt;/string&gt;
+  &lt;string&gt;m3.2xlarge|m3.2xlarge&lt;/string&gt;
+  &lt;string&gt;t2.large|t2.large&lt;/string&gt;
+  &lt;string&gt;m1.small|m1.small&lt;/string&gt;
+  &lt;string&gt;m1.medium|m1.medium&lt;/string&gt;
+  &lt;string&gt;m1.large|m1.large&lt;/string&gt;
+  &lt;string&gt;m1.xlarge|m1.xlarge&lt;/string&gt;
+  &lt;string&gt;m4.large|m4.large&lt;/string&gt;
+  &lt;string&gt;m4.xlarge|m4.xlarge&lt;/string&gt;
+  &lt;string&gt;m4.2xlarge|m4.2xlarge&lt;/string&gt;
+  &lt;string&gt;m4.4xlarge|m4.4xlarge&lt;/string&gt;
+  &lt;string&gt;m4.10xlarge|m4.10xlarge&lt;/string&gt;
+  &lt;string&gt;m4.16xlarge|m4.16xlarge&lt;/string&gt;
+  &lt;string&gt;m2.xlarge|m2.xlarge&lt;/string&gt;
+  &lt;string&gt;m2.2xlarge|m2.2xlarge&lt;/string&gt;
+  &lt;string&gt;m2.4xlarge|m2.4xlarge&lt;/string&gt;
+  &lt;string&gt;cr1.8xlarge|cr1.8xlarge&lt;/string&gt;
+  &lt;string&gt;r3.large|r3.large&lt;/string&gt;
+  &lt;string&gt;r3.xlarge|r3.xlarge&lt;/string&gt;
+  &lt;string&gt;r3.2xlarge|r3.2xlarge&lt;/string&gt;
+  &lt;string&gt;r3.4xlarge|r3.4xlarge&lt;/string&gt;
+  &lt;string&gt;r3.8xlarge|r3.8xlarge&lt;/string&gt;
+  &lt;string&gt;x1.16xlarge|x1.16xlarge&lt;/string&gt;
+  &lt;string&gt;x1.32xlarge|x1.32xlarge&lt;/string&gt;
+  &lt;string&gt;i2.xlarge|i2.xlarge&lt;/string&gt;
+  &lt;string&gt;i2.2xlarge|i2.2xlarge&lt;/string&gt;
+  &lt;string&gt;i2.4xlarge|i2.4xlarge&lt;/string&gt;
+  &lt;string&gt;i2.8xlarge|i2.8xlarge&lt;/string&gt;
+  &lt;string&gt;hi1.4xlarge|hi1.4xlarge&lt;/string&gt;
+  &lt;string&gt;hs1.8xlarge|hs1.8xlarge&lt;/string&gt;
+  &lt;string&gt;c1.medium|c1.medium&lt;/string&gt;
+  &lt;string&gt;c1.xlarge|c1.xlarge&lt;/string&gt;
+  &lt;string&gt;c3.large|c3.large&lt;/string&gt;
+  &lt;string&gt;c3.xlarge|c3.xlarge&lt;/string&gt;
+  &lt;string&gt;c3.2xlarge|c3.2xlarge&lt;/string&gt;
+  &lt;string&gt;c3.4xlarge|c3.4xlarge&lt;/string&gt;
+  &lt;string&gt;c3.8xlarge|c3.8xlarge&lt;/string&gt;
+  &lt;string&gt;c4.large|c4.large&lt;/string&gt;
+  &lt;string&gt;c4.xlarge|c4.xlarge&lt;/string&gt;
+  &lt;string&gt;c4.2xlarge|c4.2xlarge&lt;/string&gt;
+  &lt;string&gt;c4.4xlarge|c4.4xlarge&lt;/string&gt;
+  &lt;string&gt;c4.8xlarge|c4.8xlarge&lt;/string&gt;
+  &lt;string&gt;cc1.4xlarge|cc1.4xlarge&lt;/string&gt;
+  &lt;string&gt;cc2.8xlarge|cc2.8xlarge&lt;/string&gt;
+  &lt;string&gt;g2.2xlarge|g2.2xlarge&lt;/string&gt;
+  &lt;string&gt;g2.8xlarge|g2.8xlarge&lt;/string&gt;
+  &lt;string&gt;cg1.4xlarge|cg1.4xlarge&lt;/string&gt;
+  &lt;string&gt;p2.xlarge|p2.xlarge&lt;/string&gt;
+  &lt;string&gt;p2.8xlarge|p2.8xlarge&lt;/string&gt;
+  &lt;string&gt;p2.16xlarge|p2.16xlarge&lt;/string&gt;
+  &lt;string&gt;d2.xlarge|d2.xlarge&lt;/string&gt;
+  &lt;string&gt;d2.2xlarge|d2.2xlarge&lt;/string&gt;
+  &lt;string&gt;d2.4xlarge|d2.4xlarge&lt;/string&gt;
+  &lt;string&gt;d2.8xlarge|d2.8xlarge&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="AzureRegions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;West US|West US (California)&lt;/string&gt;
+  &lt;string&gt;East US|East US (Virginia)&lt;/string&gt;
+  &lt;string&gt;East Asia|East Asia (Hong Kong)&lt;/string&gt;
+  &lt;string&gt;Southeast Asia|Southeast Asia&lt;/string&gt;
+  &lt;string&gt;West Europe|West Europe (Netherlands)&lt;/string&gt;
+  &lt;string&gt;North Europe|North Europe (Ireland)&lt;/string&gt;
+  &lt;string&gt;Central US|Central US (Iowa)&lt;/string&gt;
+  &lt;string&gt;East US 2|East US 2 (Virginia)&lt;/string&gt;
+  &lt;string&gt;North Central US|North Central US (Illinois)&lt;/string&gt;
+  &lt;string&gt;South Central US|South Central US (Texas)&lt;/string&gt;
+  &lt;string&gt;Southeast Asia|Southeast Asia (Singapore)&lt;/string&gt;
+  &lt;string&gt;Japan East|Japan East (Tokyo, Saitama)&lt;/string&gt;
+  &lt;string&gt;Japan West|Japan West (Osaka)&lt;/string&gt;
+  &lt;string&gt;Brazil South|Brazil South (Sao Paulo State)&lt;/string&gt;
+  &lt;string&gt;Australia East|Australia East (New South Wales)&lt;/string&gt;
+  &lt;string&gt;Australia Southeast|Australia Southeast (Victoria)&lt;/string&gt;
+  &lt;string&gt;Central India|Central India (Pune)&lt;/string&gt;
+  &lt;string&gt;South India|South India (Chennai)&lt;/string&gt;
+  &lt;string&gt;West India|West India (Mumbai)&lt;/string&gt;
+  &lt;string&gt;China East|China East (Shanghai)&lt;/string&gt;
+  &lt;string&gt;China North|China North (Beijing)&lt;/string&gt;
+  &lt;string&gt;Canada Central|Canada Central (Toronto)&lt;/string&gt;
+  &lt;string&gt;Canada East|Canada East (Quebec City)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="AmazonDefaultInstanceType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">m3.medium</Value>
     </Setting>
   </Settings>
 </SettingsFile>
