@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CloudScraper.Properties;
 
 namespace CloudScraper
 {
@@ -55,6 +56,10 @@ namespace CloudScraper
             if (!string.IsNullOrEmpty(serverType_))
             {
                 stream.WriteLine("instance-type = " + serverType_);
+            }
+            else if (!string.IsNullOrEmpty(Settings.Default.AmazonDefaultInstanceType))
+            {
+                stream.WriteLine("instance-type = " + Settings.Default.AmazonDefaultInstanceType);
             }
             
             stream.WriteLine("target-arch = x86_64");
