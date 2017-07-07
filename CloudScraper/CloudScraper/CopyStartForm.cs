@@ -12,6 +12,7 @@ using System.Web;
 using System.Collections;
 using AssemblaAPI;
 
+using System.Collections.Specialized;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
@@ -698,6 +699,108 @@ namespace CloudScraper
             return Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile;
         }
 
+        private static WebResponse sendMultipartHttpRequest(string url, string authInfo, NameValueCollection values, NameValueCollection files = null)
+        {
+            string boundary = "----------------------------" + DateTime.Now.Ticks.ToString("x");
+            // The first boundary
+            byte[] boundaryBytes = System.Text.Encoding.UTF8.GetBytes("\r\n--" + boundary + "\r\n");
+            // The last boundary
+            byte[] trailer = System.Text.Encoding.UTF8.GetBytes("\r\n--" + boundary + "--\r\n");
+            // The first time it itereates, we need to make sure it doesn't put too many new paragraphs down or it completely messes up poor webbrick
+            byte[] boundaryBytesF = System.Text.Encoding.ASCII.GetBytes("--" + boundary + "\r\n");
+
+            // Create the request and set parameters
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.KeepAlive = false;
+            request.Accept = "*/*";
+            request.Headers["Authorization"] = "Basic " + authInfo;
+            request.ContentType = "multipart/form-data; boundary=" + boundary;
+
+            // Get request stream
+            Stream requestStream = request.GetRequestStream();
+
+            foreach (string key in values.Keys)
+            {
+                // Write item to stream
+                byte[] formItemBytes = System.Text.Encoding.UTF8.GetBytes(string.Format("Content-Disposition: form-data; name=\"{0}\";\r\n\r\n{1}", key, values[key]));
+                requestStream.Write(boundaryBytes, 0, boundaryBytes.Length);
+                requestStream.Write(formItemBytes, 0, formItemBytes.Length);
+            }
+
+            if (files != null)
+            {
+                foreach (string key in files.Keys)
+                {
+                    if (File.Exists(files[key]))
+                    {
+                        int bytesRead = 0;
+                        byte[] buffer = new byte[2048];
+                        byte[] formItemBytes = System.Text.Encoding.UTF8.GetBytes(string.Format("Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: application/octet-stream\r\n\r\n", key, files[key]));
+                        requestStream.Write(boundaryBytes, 0, boundaryBytes.Length);
+                        requestStream.Write(formItemBytes, 0, formItemBytes.Length);
+
+                        using (FileStream fileStream = new FileStream(files[key], FileMode.Open, FileAccess.Read))
+                        {
+                            while ((bytesRead = fileStream.Read(buffer, 0, buffer.Length)) != 0)
+                            {
+                                // Write file content to stream, byte by byte
+                                requestStream.Write(buffer, 0, bytesRead);
+                            }
+
+                            fileStream.Close();
+                        }
+                    }
+                }
+            }
+
+            // Write trailer and close stream
+            requestStream.Write(trailer, 0, trailer.Length);
+            requestStream.Close();
+
+            return request.GetResponse();
+        }
+
+        // send a ticket via assembla API
+        public void SendFreshdeskTicket(string userName, string email, string comments)
+        {
+            string fdDomain = "migrate2iaas"; // your freshdesk domain
+            string apiKey = "0VyZehHMRCiDDU3S3jwd";
+            string apiPath = "/helpdesk/tickets.json"; // API path
+            string subject = "Support request submitted by " + userName;
+            
+            string message = "";
+            foreach (MessageInfo info in messages_)
+            {
+                if (info.Type == 2)
+                {
+                    message += info.Message + "\n";
+                }
+            }
+            message += "\n-- User comments:\n";
+
+            message += comments;
+            //string json = "{\"status\": 2, \"priority\": 1, \"email\":\"" + email + "\",\"subject\":\"" + subject + "\",\"description\":\"" + message + "\"}";
+
+            // Title, description and email:
+            NameValueCollection values = new NameValueCollection();
+            values.Add("helpdesk_ticket[email]", email);
+            values.Add("helpdesk_ticket[subject]", subject);
+            values.Add("helpdesk_ticket[description]", message);
+            values.Add("helpdesk_ticket[name]", userName);
+
+            // Attachments:
+            NameValueCollection files = new NameValueCollection();
+            
+            string authInfo = apiKey + ":X"; // It could be your username:password also.
+            authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
+            string zipfile = GenerateLogsZip();
+            files.Add("helpdesk_ticket[attachments][][resource]" , zipfile);
+            
+            WebResponse response = sendMultipartHttpRequest("http://" + fdDomain + ".freshdesk.com" + apiPath  /*"http://scooterlabs.com/echo"*/ , authInfo, values, files);
+
+        }
+
         // send a ticket via assembla API
         public void SendAssemblaTicket(string userName, string email, string comments)
         {
@@ -751,73 +854,45 @@ namespace CloudScraper
         // send a ticket via e-mail
         public void SendMail(string userName, string email, string comments)
         {
-            try
+            SmtpClient Smtp = new SmtpClient(Properties.Settings.Default.SMTPServer, 25);
+            Smtp.Credentials = new NetworkCredential(Properties.Settings.Default.SMTPLogin,
+                Properties.Settings.Default.SMTPPassword);
+            //Smtp.EnableSsl = false;
+
+            MailMessage Message = new MailMessage();
+            Message.From = new MailAddress(Properties.Settings.Default.SMTPLogin);
+            Message.ReplyTo = new MailAddress(email);
+            Message.To.Add(new MailAddress(Properties.Settings.Default.SupportEmail));
+            Message.Subject = "Automatic failure report by " + userName;
+            Message.Body = "Description:" + "\n";
+            foreach (MessageInfo info in messages_)
             {
-                
-
-                SmtpClient Smtp = new SmtpClient(Properties.Settings.Default.SMTPServer, 25);
-                Smtp.Credentials = new NetworkCredential(Properties.Settings.Default.SMTPLogin,
-                    Properties.Settings.Default.SMTPPassword);
-                //Smtp.EnableSsl = false;
-
-                MailMessage Message = new MailMessage();
-                Message.From = new MailAddress(Properties.Settings.Default.SMTPLogin);
-                Message.ReplyTo = new MailAddress(email);
-                Message.To.Add(new MailAddress(Properties.Settings.Default.SupportEmail));
-                Message.Subject = "Support ticket: failure reported by " + userName;
-                Message.Body = "Milestone: Release 0.1" + "\n" +
-                               "Component: migrate.py" + "\n" +
-                               "Priority: 3" + "\n" +
-                               "Permission_type: 2" + "\n" +
-                               "Permission-type: 2" + "\n" +
-                               "Followers: " + email + "\n" +
-                               "Description:" + "\n";
-                foreach (MessageInfo info in messages_)
+                if (info.Type == 2)
                 {
-                    if (info.Type == 2)
-                    {
-                        Message.Body += info.Message + "\n";
-                    }
+                    Message.Body += info.Message + "\n";
                 }
-                Message.Body += "\n------------------- User comments:\n";
-                Message.Body += comments;
+            }
+            Message.Body += "\n------------------- User comments:\n";
+            Message.Body += comments;
 
-                Message.Body += "\n\n Reply-to: " + email;
+            string zipfile = GenerateLogsZip();
 
-                string zipfile = GenerateLogsZip();
+            this.attach = new Attachment(zipfile, 
+                MediaTypeNames.Application.Octet);
 
-                this.attach = new Attachment(zipfile, 
-                    MediaTypeNames.Application.Octet);
+            ContentDisposition disposition = attach.ContentDisposition;
+            disposition.CreationDate = System.IO.File.GetCreationTime(zipfile);
+            disposition.ModificationDate = System.IO.File.GetLastWriteTime(zipfile);
+            disposition.ReadDate = System.IO.File.GetLastAccessTime(zipfile);
 
-                ContentDisposition disposition = attach.ContentDisposition;
-                disposition.CreationDate = System.IO.File.GetCreationTime(zipfile);
-                disposition.ModificationDate = System.IO.File.GetLastWriteTime(zipfile);
-                disposition.ReadDate = System.IO.File.GetLastAccessTime(zipfile);
+            Message.Attachments.Add(attach);
+            Smtp.Send(Message);
 
-                Message.Attachments.Add(attach);
-                Smtp.Send(Message);
-
-               this.attach.Dispose();
+            this.attach.Dispose();
  
-               if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
-                    File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
-
-               
-            }
-            catch(Exception e)
-            {
-                //Logs error.
-                if (logger_.IsErrorEnabled)
-                    logger_.Error(e.Message);
-
-                this.attach.Dispose();
-                this.Cursor = Cursors.Arrow;
-                MessageBox.Show(e.ToString(),   
-                    Settings.Default.MailSendFailedHeader,    MessageBoxButtons.OK);  
-	MessageBox.Show(Settings.Default.MailSendFailedMessage,   
-                    Settings.Default.MailSendFailedHeader,    MessageBoxButtons.OK);  
-
-            }
+            if (File.Exists(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile))
+                File.Delete(Application.StartupPath + "\\" + Properties.Settings.Default.ZipFile);
+          
         }
 
         private void CopyStartFormLoad(object sender, EventArgs e)
