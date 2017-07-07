@@ -6,7 +6,7 @@
       <Value Profile="(Default)">http://ya.ru</Value>
     </Setting>
     <Setting Name="SupportEmail" Type="System.String" Scope="User">
-      <Value Profile="(Default)">cloudscraper@support.assembla.com</Value>
+      <Value Profile="(Default)">support@migrate2iaas.freshdesk.com</Value>
     </Setting>
     <Setting Name="S1Link" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.migrate2iaas.com/node/151</Value>
