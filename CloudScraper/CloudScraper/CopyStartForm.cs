@@ -767,7 +767,7 @@ namespace CloudScraper
             string fdDomain = "migrate2iaas"; // your freshdesk domain
             string apiKey = "0VyZehHMRCiDDU3S3jwd";
             string apiPath = "/helpdesk/tickets.json"; // API path
-            string subject = "Support request submitted by " + userName;
+            string subject = "[WinApp] Support Request by " + userName;
             
             string message = "";
             foreach (MessageInfo info in messages_)
